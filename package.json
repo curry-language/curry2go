@@ -1,0 +1,18 @@
+{
+  "name": "curry2go",
+  "version": "1.0.0",
+  "author": "Jonas Boehm",
+  "synopsis": "A compiler and run-time system to compile and run Curry programs as Go programs",
+  "category": [ "Programming" ],
+  "license": "BSD-3-Clause",
+  "licenseFile": "LICENSE",
+  "dependencies": {
+    "icurry"   : "=3.0.1",
+    "flatcurry": ">=2.0.0, <3.0.0",
+    "currypath": ">=0.0.1"
+  },
+  "executable": {
+    "name": "curry2go",
+    "main": "Curry2Go.Main"
+  }
+}
