@@ -19,6 +19,13 @@ case "$1" in
         ;;
 esac
 
+#delete old files to ensure new compilation
+if [ -d ".gocurry" ]
+  then
+    rm -r .gocurry
+fi
+exit
+
 #run all benchmarks in the directory
 for file in *
 do
@@ -28,7 +35,7 @@ do
         file=${file%".curry"}
 
         echo Running benchmark: $file        
-        result=$(curry2go -t -r $strat $file | tail -1)
+        result=$(curry2go --time=10 -r $strat $file | tail -1)
         echo $result
     fi 
 done
