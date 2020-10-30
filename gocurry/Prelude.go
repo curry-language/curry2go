@@ -6680,9 +6680,9 @@ func Prelude__defHashEqEqHashPrelude_Eq( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_notCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_SlashEqCreate( new( Node ), x1 ), x2 ), x3 ) )
     return
 }
@@ -6692,9 +6692,9 @@ func Prelude__defHashSlashEqHashPrelude_Eq( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_notCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x2 ), x3 ) )
     return
 }
@@ -6709,8 +6709,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_eqCharCreate( root, x1, x2 )
     return
 }
@@ -6731,8 +6731,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_eqIntCreate( root, x1, x2 )
     return
 }
@@ -6753,8 +6753,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_eqFloatCreate( root, x1, x2 )
     return
 }
@@ -6768,7 +6768,7 @@ func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Float( task *Task )(  ){
 func Prelude__instHashPrelude_EqHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashSlashEqHashPrelude_EqHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -6778,9 +6778,9 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -6791,8 +6791,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb( task *Task )(  ){
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x2.GetChild( 0 )
-            x7 = x2.GetChild( 1 )
+            x6 = x2.Children[ 0 ]
+            x7 = x2.Children[ 1 ]
             Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1Create( root, x3, x6, x1, x7 )
             return
     }
@@ -6805,9 +6805,9 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1( task *Task )(  ){
     var x1 *Node
     var x7 *Node
     x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x7 = root.GetChild( 3 )
+    x6 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x7 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -6818,8 +6818,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1( task *Task )(  ){
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x3.GetChild( 0 )
-            x9 = x3.GetChild( 1 )
+            x8 = x3.Children[ 0 ]
+            x9 = x3.Children[ 1 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x6 ), x8 ), Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( new( Node ), x1, x7, x9 ) )
             return
     }
@@ -6845,7 +6845,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0( task *Task )(  ){
 func Prelude__implHashSlashEqHashPrelude_EqHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -6861,7 +6861,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -6896,8 +6896,8 @@ func Prelude__instHashPrelude_EqHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -6908,10 +6908,10 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -6919,8 +6919,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0Create( root, x4, x1, x5, x2, x6 )
             return
     }
@@ -6934,10 +6934,10 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0( task *Task )(  ){
     var x2 *Node
     var x6 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x6 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x6 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -6945,8 +6945,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0( task *Task )(  ){
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x4.GetChild( 0 )
-            x8 = x4.GetChild( 1 )
+            x7 = x4.Children[ 0 ]
+            x8 = x4.Children[ 1 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x5 ), x7 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x6 ), x8 ) )
             return
     }
@@ -6956,8 +6956,8 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -6967,9 +6967,9 @@ func Prelude__instHashPrelude_EqHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -6981,11 +6981,11 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -6994,9 +6994,9 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb( task *Task )(  ){
             var x6 *Node
             var x7 *Node
             var x8 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
-            x8 = x4.GetChild( 2 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
+            x8 = x4.Children[ 2 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0Create( root, x5, x1, x6, x2, x7, x3, x8 )
             return
     }
@@ -7012,12 +7012,12 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0( task *Task )( 
     var x3 *Node
     var x8 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x6 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x8 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x6 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x8 = root.Children[ 6 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7026,9 +7026,9 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0( task *Task )( 
             var x9 *Node
             var x10 *Node
             var x11 *Node
-            x9 = x5.GetChild( 0 )
-            x10 = x5.GetChild( 1 )
-            x11 = x5.GetChild( 2 )
+            x9 = x5.Children[ 0 ]
+            x10 = x5.Children[ 1 ]
+            x11 = x5.Children[ 2 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x6 ), x9 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x7 ), x10 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x3 ), x8 ), x11 ) ) )
             return
     }
@@ -7039,9 +7039,9 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -7052,10 +7052,10 @@ func Prelude__instHashPrelude_EqHashLbCommaCommaCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -7068,12 +7068,12 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb( task *Task )(  
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7083,10 +7083,10 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb( task *Task )(  
             var x8 *Node
             var x9 *Node
             var x10 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
-            x9 = x5.GetChild( 2 )
-            x10 = x5.GetChild( 3 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
+            x9 = x5.Children[ 2 ]
+            x10 = x5.Children[ 3 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0Create( root, x6, x1, x7, x2, x8, x3, x9, x4, x10 )
             return
     }
@@ -7104,14 +7104,14 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0( task *Tas
     var x4 *Node
     var x10 *Node
     x6 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x7 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x8 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x10 = root.GetChild( 8 )
+    x1 = root.Children[ 1 ]
+    x7 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x8 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x10 = root.Children[ 8 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7121,10 +7121,10 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0( task *Tas
             var x12 *Node
             var x13 *Node
             var x14 *Node
-            x11 = x6.GetChild( 0 )
-            x12 = x6.GetChild( 1 )
-            x13 = x6.GetChild( 2 )
-            x14 = x6.GetChild( 3 )
+            x11 = x6.Children[ 0 ]
+            x12 = x6.Children[ 1 ]
+            x13 = x6.Children[ 2 ]
+            x14 = x6.Children[ 3 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x7 ), x11 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x8 ), x12 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x3 ), x9 ), x13 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x4 ), x10 ), x14 ) ) ) )
             return
     }
@@ -7136,10 +7136,10 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRb( task *Task )
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -7151,11 +7151,11 @@ func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRb( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -7169,13 +7169,13 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb( task *Task
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7186,11 +7186,11 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb( task *Task
             var x10 *Node
             var x11 *Node
             var x12 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
-            x10 = x6.GetChild( 2 )
-            x11 = x6.GetChild( 3 )
-            x12 = x6.GetChild( 4 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
+            x10 = x6.Children[ 2 ]
+            x11 = x6.Children[ 3 ]
+            x12 = x6.Children[ 4 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0Create( root, x7, x1, x8, x2, x9, x3, x10, x4, x11, x5, x12 )
             return
     }
@@ -7210,16 +7210,16 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0( task
     var x5 *Node
     var x12 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x9 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x10 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x11 = root.GetChild( 8 )
-    x5 = root.GetChild( 9 )
-    x12 = root.GetChild( 10 )
+    x1 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x9 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x10 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x11 = root.Children[ 8 ]
+    x5 = root.Children[ 9 ]
+    x12 = root.Children[ 10 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, Prelude_LbCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7230,11 +7230,11 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0( task
             var x15 *Node
             var x16 *Node
             var x17 *Node
-            x13 = x7.GetChild( 0 )
-            x14 = x7.GetChild( 1 )
-            x15 = x7.GetChild( 2 )
-            x16 = x7.GetChild( 3 )
-            x17 = x7.GetChild( 4 )
+            x13 = x7.Children[ 0 ]
+            x14 = x7.Children[ 1 ]
+            x15 = x7.Children[ 2 ]
+            x16 = x7.Children[ 3 ]
+            x17 = x7.Children[ 4 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x8 ), x13 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x9 ), x14 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x3 ), x10 ), x15 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x4 ), x11 ), x16 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x5 ), x12 ), x17 ) ) ) ) )
             return
     }
@@ -7247,11 +7247,11 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRb( task *T
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -7264,12 +7264,12 @@ func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb( task *Task )(
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6 ) )
     return
 }
@@ -7284,14 +7284,14 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb( task 
     var x6 *Node
     var x7 *Node
     var x8 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
     x7 = root.GetChild( 6 )
-    x8 = root.GetChild( 7 )
+    x8 = root.Children[ 7 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, Prelude_LbCommaCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7303,12 +7303,12 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb( task 
             var x12 *Node
             var x13 *Node
             var x14 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
-            x11 = x7.GetChild( 2 )
-            x12 = x7.GetChild( 3 )
-            x13 = x7.GetChild( 4 )
-            x14 = x7.GetChild( 5 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
+            x11 = x7.Children[ 2 ]
+            x12 = x7.Children[ 3 ]
+            x13 = x7.Children[ 4 ]
+            x14 = x7.Children[ 5 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0Create( root, x8, x1, x9, x2, x10, x3, x11, x4, x12, x5, x13, x6, x14 )
             return
     }
@@ -7330,18 +7330,18 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0(
     var x6 *Node
     var x14 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x9 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x10 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x11 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x12 = root.GetChild( 8 )
-    x5 = root.GetChild( 9 )
-    x13 = root.GetChild( 10 )
-    x6 = root.GetChild( 11 )
-    x14 = root.GetChild( 12 )
+    x1 = root.Children[ 1 ]
+    x9 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x10 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x11 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x12 = root.Children[ 8 ]
+    x5 = root.Children[ 9 ]
+    x13 = root.Children[ 10 ]
+    x6 = root.Children[ 11 ]
+    x14 = root.Children[ 12 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, Prelude_LbCommaCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7353,12 +7353,12 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0(
             var x18 *Node
             var x19 *Node
             var x20 *Node
-            x15 = x8.GetChild( 0 )
-            x16 = x8.GetChild( 1 )
-            x17 = x8.GetChild( 2 )
-            x18 = x8.GetChild( 3 )
-            x19 = x8.GetChild( 4 )
-            x20 = x8.GetChild( 5 )
+            x15 = x8.Children[ 0 ]
+            x16 = x8.Children[ 1 ]
+            x17 = x8.Children[ 2 ]
+            x18 = x8.Children[ 3 ]
+            x19 = x8.Children[ 4 ]
+            x20 = x8.Children[ 5 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x9 ), x15 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x10 ), x16 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x3 ), x11 ), x17 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x4 ), x12 ), x18 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x5 ), x13 ), x19 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x6 ), x14 ), x20 ) ) ) ) ) )
             return
     }
@@ -7372,12 +7372,12 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb( ta
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6 ) )
     return
 }
@@ -7391,13 +7391,13 @@ func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb( task *Ta
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
+    x7 = root.Children[ 6 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6, x7 ), Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6, x7 ) )
     return
 }
@@ -7413,15 +7413,15 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb( 
     var x7 *Node
     var x8 *Node
     var x9 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
+    x7 = root.Children[ 6 ]
     x8 = root.GetChild( 7 )
-    x9 = root.GetChild( 8 )
+    x9 = root.Children[ 8 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, Prelude_LbCommaCommaCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7434,13 +7434,13 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb( 
             var x14 *Node
             var x15 *Node
             var x16 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
-            x12 = x8.GetChild( 2 )
-            x13 = x8.GetChild( 3 )
-            x14 = x8.GetChild( 4 )
-            x15 = x8.GetChild( 5 )
-            x16 = x8.GetChild( 6 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
+            x12 = x8.Children[ 2 ]
+            x13 = x8.Children[ 3 ]
+            x14 = x8.Children[ 4 ]
+            x15 = x8.Children[ 5 ]
+            x16 = x8.Children[ 6 ]
             Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0Create( root, x9, x1, x10, x2, x11, x3, x12, x4, x13, x5, x14, x6, x15, x7, x16 )
             return
     }
@@ -7464,20 +7464,20 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_C
     var x7 *Node
     var x16 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x10 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x11 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x12 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x13 = root.GetChild( 8 )
-    x5 = root.GetChild( 9 )
-    x14 = root.GetChild( 10 )
-    x6 = root.GetChild( 11 )
-    x15 = root.GetChild( 12 )
-    x7 = root.GetChild( 13 )
-    x16 = root.GetChild( 14 )
+    x1 = root.Children[ 1 ]
+    x10 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x11 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x12 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x13 = root.Children[ 8 ]
+    x5 = root.Children[ 9 ]
+    x14 = root.Children[ 10 ]
+    x6 = root.Children[ 11 ]
+    x15 = root.Children[ 12 ]
+    x7 = root.Children[ 13 ]
+    x16 = root.Children[ 14 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, Prelude_LbCommaCommaCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -7490,13 +7490,13 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_C
             var x21 *Node
             var x22 *Node
             var x23 *Node
-            x17 = x9.GetChild( 0 )
-            x18 = x9.GetChild( 1 )
-            x19 = x9.GetChild( 2 )
-            x20 = x9.GetChild( 3 )
-            x21 = x9.GetChild( 4 )
-            x22 = x9.GetChild( 5 )
-            x23 = x9.GetChild( 6 )
+            x17 = x9.Children[ 0 ]
+            x18 = x9.Children[ 1 ]
+            x19 = x9.Children[ 2 ]
+            x20 = x9.Children[ 3 ]
+            x21 = x9.Children[ 4 ]
+            x22 = x9.Children[ 5 ]
+            x23 = x9.Children[ 6 ]
             Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x10 ), x17 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x11 ), x18 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x3 ), x12 ), x19 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x4 ), x13 ), x20 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x5 ), x14 ), x21 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x6 ), x15 ), x22 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x7 ), x16 ), x23 ) ) ) ) ) ) )
             return
     }
@@ -7511,13 +7511,13 @@ func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaR
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
+    x7 = root.Children[ 6 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5, x6, x7 ) )
     return
 }
@@ -7527,9 +7527,9 @@ func Prelude__defHashcompareHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0Create( root, x1, x2, x3, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x2 ), x3 ) )
     return
 }
@@ -7540,9 +7540,9 @@ func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -7596,9 +7596,9 @@ func Prelude__defHashLtEqHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_StrtStrtCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_OrderingCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_compareCreate( new( Node ), x1 ), x2 ), x3 ), Prelude_EQCreate( new( Node ) ) ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_OrderingCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_compareCreate( new( Node ), x1 ), x2 ), x3 ), Prelude_LTCreate( new( Node ) ) ) )
     return
 }
@@ -7608,9 +7608,9 @@ func Prelude__defHashGtEqHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x3 ), x2 )
     return
 }
@@ -7620,9 +7620,9 @@ func Prelude__defHashLtHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x2 ), x3 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_SlashEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x2 ), x3 ) )
     return
 }
@@ -7632,9 +7632,9 @@ func Prelude__defHashGtHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_notCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x2 ), x3 ) )
     return
 }
@@ -7644,9 +7644,9 @@ func Prelude__defHashminHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0Create( root, x3, x2, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x2 ), x3 ) )
     return
 }
@@ -7656,8 +7656,8 @@ func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     var x2 *Node
     var x4 *Node
-    x3 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x4 = root.GetChild( 2 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -7676,7 +7676,7 @@ func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
     var x4 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.GetChild( 1 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -7696,9 +7696,9 @@ func Prelude__defHashmaxHashPrelude_Ord( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0Create( root, x3, x2, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_GtEqCreate( new( Node ), x1 ), x2 ), x3 ) )
     return
 }
@@ -7708,8 +7708,8 @@ func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     var x2 *Node
     var x4 *Node
-    x3 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x4 = root.GetChild( 2 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -7728,7 +7728,7 @@ func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
     var x4 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.GetChild( 1 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -7759,8 +7759,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_ltEqCharCreate( root, x1, x2 )
     return
 }
@@ -7811,8 +7811,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_ltEqIntCreate( root, x1, x2 )
     return
 }
@@ -7863,8 +7863,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_ltEqFloatCreate( root, x1, x2 )
     return
 }
@@ -7902,7 +7902,7 @@ func Prelude__implHashmaxHashPrelude_OrdHashPrelude_Float( task *Task )(  ){
 func Prelude__instHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashLSbRSbCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), Prelude__implHashcompareHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashLtEqHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashGtEqHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashLtHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashGtHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashminHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashmaxHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -7910,7 +7910,7 @@ func Prelude__instHashPrelude_OrdHashLSbRSb( task *Task )(  ){
 func Prelude__implHashcompareHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -7920,9 +7920,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -7933,8 +7933,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb( task *Task )(  ){
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x2.GetChild( 0 )
-            x7 = x2.GetChild( 1 )
+            x6 = x2.Children[ 0 ]
+            x7 = x2.Children[ 1 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1Create( root, x3, x6, x1, x7 )
             return
     }
@@ -7947,9 +7947,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1( task *Task )(  ){
     var x1 *Node
     var x7 *Node
     x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x7 = root.GetChild( 3 )
+    x6 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x7 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -7960,8 +7960,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1( task *Task )(  ){
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x3.GetChild( 0 )
-            x9 = x3.GetChild( 1 )
+            x8 = x3.Children[ 0 ]
+            x9 = x3.Children[ 1 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2Create( root, x6, x8, x1, x7, x9, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x6 ), x8 ) )
             return
     }
@@ -7975,11 +7975,11 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2( task *Task )( 
     var x7 *Node
     var x9 *Node
     var x10 *Node
-    x6 = root.GetChild( 0 )
-    x8 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x7 = root.GetChild( 3 )
-    x9 = root.GetChild( 4 )
+    x6 = root.Children[ 0 ]
+    x8 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x7 = root.Children[ 3 ]
+    x9 = root.Children[ 4 ]
     x10 = root.GetChild( 5 )
     switch x10.GetConstructor(  ){
         case -1:
@@ -8000,9 +8000,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3( task *Task )( 
     var x6 *Node
     var x8 *Node
     var x9 *Node
-    x1 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
     x9 = root.GetChild( 3 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -8037,7 +8037,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0( task *Task )(  ){
 func Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -8045,7 +8045,7 @@ func Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb( task *Task )(  ){
 func Prelude__implHashLtHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -8053,7 +8053,7 @@ func Prelude__implHashLtHashPrelude_OrdHashLSbRSb( task *Task )(  ){
 func Prelude__implHashGtHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -8061,7 +8061,7 @@ func Prelude__implHashGtHashPrelude_OrdHashLSbRSb( task *Task )(  ){
 func Prelude__implHashminHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -8069,7 +8069,7 @@ func Prelude__implHashminHashPrelude_OrdHashLSbRSb( task *Task )(  ){
 func Prelude__implHashmaxHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -8091,7 +8091,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -8150,8 +8150,8 @@ func Prelude__instHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashLbCommaRbCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), Prelude__implHashcompareHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashLtHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashGtHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashminHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashmaxHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8160,8 +8160,8 @@ func Prelude__implHashcompareHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8172,10 +8172,10 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8183,8 +8183,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0Create( root, x4, x1, x5, x2, x6 )
             return
     }
@@ -8198,10 +8198,10 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0( task *Task )(  ){
     var x2 *Node
     var x6 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x6 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x6 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8209,8 +8209,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0( task *Task )(  ){
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x4.GetChild( 0 )
-            x8 = x4.GetChild( 1 )
+            x7 = x4.Children[ 0 ]
+            x8 = x4.Children[ 1 ]
             Prelude_StrtStrtCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x1 ), x5 ), x7 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x5 ), x7 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x2 ), x6 ), x8 ) ) )
             return
     }
@@ -8220,8 +8220,8 @@ func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8230,8 +8230,8 @@ func Prelude__implHashLtHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8240,8 +8240,8 @@ func Prelude__implHashGtHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8250,8 +8250,8 @@ func Prelude__implHashminHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8260,8 +8260,8 @@ func Prelude__implHashmaxHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8271,9 +8271,9 @@ func Prelude__instHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaRbCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ) ), Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8283,9 +8283,9 @@ func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  )
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8297,11 +8297,11 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8310,9 +8310,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
             var x6 *Node
             var x7 *Node
             var x8 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
-            x8 = x4.GetChild( 2 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
+            x8 = x4.Children[ 2 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0Create( root, x5, x1, x6, x2, x7, x3, x8 )
             return
     }
@@ -8328,12 +8328,12 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0( task *Task )(
     var x3 *Node
     var x8 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x6 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x8 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x6 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x8 = root.Children[ 6 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8342,9 +8342,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0( task *Task )(
             var x9 *Node
             var x10 *Node
             var x11 *Node
-            x9 = x5.GetChild( 0 )
-            x10 = x5.GetChild( 1 )
-            x11 = x5.GetChild( 2 )
+            x9 = x5.Children[ 0 ]
+            x10 = x5.Children[ 1 ]
+            x11 = x5.Children[ 2 ]
             Prelude_StrtStrtCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x1 ), x6 ), x9 ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x6 ), x9 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x2 ), x7 ), x10 ) ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x6 ), x9 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x7 ), x10 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x3 ), x8 ), x11 ) ) ) ) )
             return
     }
@@ -8355,9 +8355,9 @@ func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8367,9 +8367,9 @@ func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8379,9 +8379,9 @@ func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8391,9 +8391,9 @@ func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8403,9 +8403,9 @@ func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8416,10 +8416,10 @@ func Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaRbCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x4 ) ), Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8430,10 +8430,10 @@ func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task 
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8446,12 +8446,12 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )( 
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8461,10 +8461,10 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )( 
             var x8 *Node
             var x9 *Node
             var x10 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
-            x9 = x5.GetChild( 2 )
-            x10 = x5.GetChild( 3 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
+            x9 = x5.Children[ 2 ]
+            x10 = x5.Children[ 3 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0Create( root, x6, x1, x7, x2, x8, x3, x9, x4, x10 )
             return
     }
@@ -8482,14 +8482,14 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0( task *Ta
     var x4 *Node
     var x10 *Node
     x6 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x7 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x8 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x10 = root.GetChild( 8 )
+    x1 = root.Children[ 1 ]
+    x7 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x8 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x10 = root.Children[ 8 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8499,10 +8499,10 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0( task *Ta
             var x12 *Node
             var x13 *Node
             var x14 *Node
-            x11 = x6.GetChild( 0 )
-            x12 = x6.GetChild( 1 )
-            x13 = x6.GetChild( 2 )
-            x14 = x6.GetChild( 3 )
+            x11 = x6.Children[ 0 ]
+            x12 = x6.Children[ 1 ]
+            x13 = x6.Children[ 2 ]
+            x14 = x6.Children[ 3 ]
             Prelude_StrtStrtCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x1 ), x7 ), x11 ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x7 ), x11 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x2 ), x8 ), x12 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x7 ), x11 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x8 ), x12 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x3 ), x9 ), x13 ) ) ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x7 ), x11 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x8 ), x12 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ) ), x9 ), x13 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x4 ), x10 ), x14 ) ) ) ) ) ) )
             return
     }
@@ -8514,10 +8514,10 @@ func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )( 
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8528,10 +8528,10 @@ func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )(  )
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8542,10 +8542,10 @@ func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )(  )
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8556,10 +8556,10 @@ func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )(  
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8570,10 +8570,10 @@ func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )(  
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8585,11 +8585,11 @@ func Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x4 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x5 ) ), Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8601,11 +8601,11 @@ func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8619,13 +8619,13 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Tas
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8636,11 +8636,11 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Tas
             var x10 *Node
             var x11 *Node
             var x12 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
-            x10 = x6.GetChild( 2 )
-            x11 = x6.GetChild( 3 )
-            x12 = x6.GetChild( 4 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
+            x10 = x6.Children[ 2 ]
+            x11 = x6.Children[ 3 ]
+            x12 = x6.Children[ 4 ]
             Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0Create( root, x7, x1, x8, x2, x9, x3, x10, x4, x11, x5, x12 )
             return
     }
@@ -8660,16 +8660,16 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0( tas
     var x5 *Node
     var x12 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x9 = root.GetChild( 4 )
-    x3 = root.GetChild( 5 )
-    x10 = root.GetChild( 6 )
-    x4 = root.GetChild( 7 )
-    x11 = root.GetChild( 8 )
-    x5 = root.GetChild( 9 )
-    x12 = root.GetChild( 10 )
+    x1 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x9 = root.Children[ 4 ]
+    x3 = root.Children[ 5 ]
+    x10 = root.Children[ 6 ]
+    x4 = root.Children[ 7 ]
+    x11 = root.Children[ 8 ]
+    x5 = root.Children[ 9 ]
+    x12 = root.Children[ 10 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, Prelude_LbCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8680,11 +8680,11 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0( tas
             var x15 *Node
             var x16 *Node
             var x17 *Node
-            x13 = x7.GetChild( 0 )
-            x14 = x7.GetChild( 1 )
-            x15 = x7.GetChild( 2 )
-            x16 = x7.GetChild( 3 )
-            x17 = x7.GetChild( 4 )
+            x13 = x7.Children[ 0 ]
+            x14 = x7.Children[ 1 ]
+            x15 = x7.Children[ 2 ]
+            x16 = x7.Children[ 3 ]
+            x17 = x7.Children[ 4 ]
             Prelude_StrtStrtCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x1 ), x8 ), x13 ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x8 ), x13 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x2 ), x9 ), x14 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x8 ), x13 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x9 ), x14 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x3 ), x10 ), x15 ) ) ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x8 ), x13 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x9 ), x14 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ) ), x10 ), x15 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), x4 ), x11 ), x16 ) ) ) ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), x8 ), x13 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), x9 ), x14 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x3 ) ), x10 ), x15 ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x4 ) ), x11 ), x16 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x5 ), x12 ), x17 ) ) ) ) ) ) ) ) )
             return
     }
@@ -8697,11 +8697,11 @@ func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Tas
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8713,11 +8713,11 @@ func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Task 
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8729,11 +8729,11 @@ func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Task 
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8745,11 +8745,11 @@ func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Task
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8761,11 +8761,11 @@ func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Task
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -8774,8 +8774,8 @@ func Prelude__defHashshowHashPrelude_Show( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x1 ), x2 ), Prelude_LSbRSbCreate( new( Node ) ) )
     return
 }
@@ -8785,9 +8785,9 @@ func Prelude__defHashshowsPrecHashPrelude_Show( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_showCreate( new( Node ), x1 ), x3 ), x4 )
     return
 }
@@ -8797,9 +8797,9 @@ func Prelude__defHashshowListHashPrelude_Show( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_showListSQuoteCreate( root, Prelude_showsCreate( new( Node ), x1 ), x2, x3 )
     return
 }
@@ -8840,8 +8840,8 @@ func Prelude__instHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashshowListHashPrelude_ShowHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8850,8 +8850,8 @@ func Prelude__implHashshowHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8861,8 +8861,8 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -8871,8 +8871,8 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x4.GetChild( 0 )
-            x6 = x4.GetChild( 1 )
+            x5 = x4.Children[ 0 ]
+            x6 = x4.Children[ 1 ]
             Prelude_showTupleCreate( root, Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x1 ), x5 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x2 ), x6 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) )
             return
     }
@@ -8882,8 +8882,8 @@ func Prelude__implHashshowListHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -8893,9 +8893,9 @@ func Prelude__instHashPrelude_ShowHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8905,9 +8905,9 @@ func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8918,9 +8918,9 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb( task *Task )(
     var x2 *Node
     var x3 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x5 = root.GetChild( 4 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -8930,9 +8930,9 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb( task *Task )(
             var x6 *Node
             var x7 *Node
             var x8 *Node
-            x6 = x5.GetChild( 0 )
-            x7 = x5.GetChild( 1 )
-            x8 = x5.GetChild( 2 )
+            x6 = x5.Children[ 0 ]
+            x7 = x5.Children[ 1 ]
+            x8 = x5.Children[ 2 ]
             Prelude_showTupleCreate( root, Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x1 ), x6 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x2 ), x7 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x3 ), x8 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) )
             return
     }
@@ -8943,9 +8943,9 @@ func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRb( task *Task )( 
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -8956,10 +8956,10 @@ func Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8970,10 +8970,10 @@ func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRb( task *Task )(
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -8985,10 +8985,10 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb( task *Ta
     var x3 *Node
     var x4 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x6 = root.GetChild( 5 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -8999,10 +8999,10 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb( task *Ta
             var x8 *Node
             var x9 *Node
             var x10 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
-            x9 = x6.GetChild( 2 )
-            x10 = x6.GetChild( 3 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
+            x9 = x6.Children[ 2 ]
+            x10 = x6.Children[ 3 ]
             Prelude_showTupleCreate( root, Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x1 ), x7 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x2 ), x8 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x3 ), x9 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x4 ), x10 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) )
             return
     }
@@ -9014,10 +9014,10 @@ func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRb( task *Tas
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -9029,11 +9029,11 @@ func Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRb( task *Task )(  )
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -9045,11 +9045,11 @@ func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRb( task *Ta
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -9062,11 +9062,11 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb( tas
     var x4 *Node
     var x5 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x7 = root.GetChild( 6 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -9078,11 +9078,11 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb( tas
             var x10 *Node
             var x11 *Node
             var x12 *Node
-            x8 = x7.GetChild( 0 )
-            x9 = x7.GetChild( 1 )
-            x10 = x7.GetChild( 2 )
-            x11 = x7.GetChild( 3 )
-            x12 = x7.GetChild( 4 )
+            x8 = x7.Children[ 0 ]
+            x9 = x7.Children[ 1 ]
+            x10 = x7.Children[ 2 ]
+            x11 = x7.Children[ 3 ]
+            x12 = x7.Children[ 4 ]
             Prelude_showTupleCreate( root, Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x1 ), x8 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x2 ), x9 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x3 ), x10 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x4 ), x11 ), Prelude_ColCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsCreate( new( Node ), x5 ), x12 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) )
             return
     }
@@ -9095,11 +9095,11 @@ func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb( task
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -9107,7 +9107,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb( task
 func Prelude__instHashPrelude_ShowHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashshowListHashPrelude_ShowHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -9115,7 +9115,7 @@ func Prelude__instHashPrelude_ShowHashLSbRSb( task *Task )(  ){
 func Prelude__implHashshowHashPrelude_ShowHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -9123,7 +9123,7 @@ func Prelude__implHashshowHashPrelude_ShowHashLSbRSb( task *Task )(  ){
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_showListCreate( root, x1 )
     return
 }
@@ -9131,7 +9131,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb( task *Task )(  ){
 func Prelude__implHashshowListHashPrelude_ShowHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -9151,7 +9151,7 @@ func Prelude__implHashshowHashPrelude_ShowHashPrelude_Char( task *Task )(  ){
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     Prelude_showStringCreate( root, Prelude_show_Create( new( Node ), x2 ) )
     return
 }
@@ -9159,7 +9159,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char( task *Task )(  
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0Create( root, x1, Prelude_nullCreate( new( Node ), x1 ) )
     return
 }
@@ -9168,7 +9168,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0( tas
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -9187,7 +9187,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1( tas
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -9259,7 +9259,7 @@ func Prelude__defHashreadsPrecHashPrelude_Read( task *Task )(  ){
 func Prelude__defHashreadListHashPrelude_Read( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_readListDefaultCreate( root, x1 )
     return
 }
@@ -9279,7 +9279,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb( task *Task )(  ){
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -9289,7 +9289,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9297,8 +9297,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -9310,8 +9310,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9322,8 +9322,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -9335,9 +9335,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     var x9 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x9 = root.GetChild( 3 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -9358,8 +9358,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9378,7 +9378,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9386,8 +9386,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -9399,8 +9399,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9411,8 +9411,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -9424,9 +9424,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     var x9 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x9 = root.GetChild( 3 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -9447,8 +9447,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9483,7 +9483,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int( task *Task )(  )
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_lexDigitsCreate( new( Node ) ), x1 ) )
     return
 }
@@ -9493,7 +9493,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9501,8 +9501,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17Create( new( Node ), x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_readNatLiteralCreate( new( Node ), x3 ) ), x2 )
             return
     }
@@ -9513,9 +9513,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9523,8 +9523,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0Create( root, x5, x4, x1, x3 )
             return
     }
@@ -9537,9 +9537,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9574,7 +9574,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float( task *Task )( 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_allCreate( new( Node ), Prelude_isDigitCreate( new( Node ) ) ), x1 ) )
     return
 }
@@ -9583,7 +9583,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_C
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -9603,7 +9603,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9611,8 +9611,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_i2fCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -9621,7 +9621,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -9631,7 +9631,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9639,8 +9639,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0Create( new( Node ), x4, x3, Prelude_notCreate( new( Node ), Prelude_nullCreate( new( Node ), x3 ) ) ), x2 )
             return
     }
@@ -9651,8 +9651,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9672,8 +9672,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9693,9 +9693,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9703,8 +9703,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0Create( root, x5, x4, x1, x3 )
             return
     }
@@ -9717,9 +9717,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9754,7 +9754,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char( task *Task )(  
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -9764,7 +9764,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9772,8 +9772,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0Create( new( Node ), x4, x3, Prelude_notCreate( new( Node ), Prelude_nullCreate( new( Node ), x3 ) ) ), x2 )
             return
     }
@@ -9784,8 +9784,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9805,8 +9805,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9826,9 +9826,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9836,8 +9836,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0Create( root, x5, x4, x1, x3 )
             return
     }
@@ -9850,9 +9850,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9869,7 +9869,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41Create( new( Node ) ) ), x1 ), Prelude_applyCreate( new( Node ), Prelude_readListDefaultCreate( new( Node ), Prelude__instHashPrelude_ReadHashPrelude_CharCreate( new( Node ) ) ), x1 ) )
     return
 }
@@ -9877,7 +9877,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char( task *Task )(  )
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -9887,7 +9887,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9895,8 +9895,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0Create( new( Node ), x4, x3, Prelude_notCreate( new( Node ), Prelude_nullCreate( new( Node ), x3 ) ) ), x2 )
             return
     }
@@ -9907,8 +9907,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9928,8 +9928,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x4 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -9949,9 +9949,9 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9959,8 +9959,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0Create( root, x5, x4, x1, x3 )
             return
     }
@@ -9973,9 +9973,9 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -9992,7 +9992,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
 func Prelude__instHashPrelude_ReadHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSbCreate( new( Node ), x1 ), Prelude__implHashreadListHashPrelude_ReadHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -10000,7 +10000,7 @@ func Prelude__instHashPrelude_ReadHashLSbRSb( task *Task )(  ){
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_readListCreate( root, x1 )
     return
 }
@@ -10008,7 +10008,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb( task *Task )(  ){
 func Prelude__implHashreadListHashPrelude_ReadHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashLSbRSbCreate( new( Node ), x1 ) )
     return
 }
@@ -10017,8 +10017,8 @@ func Prelude__instHashPrelude_ReadHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashreadListHashPrelude_ReadHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -10027,8 +10027,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50Create( new( Node ), x2, x1 ) )
     return
 }
@@ -10038,9 +10038,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50( task
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53Create( new( Node ), x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x3 ) )
     return
 }
@@ -10051,10 +10051,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10062,8 +10062,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0Create( root, x5, x1, x2, x6, x4 )
             return
     }
@@ -10077,10 +10077,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10091,8 +10091,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1Create( root, x8, x1, x2, x6, x4, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -10106,11 +10106,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x8 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     x11 = root.GetChild( 5 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -10133,10 +10133,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10155,9 +10155,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10165,8 +10165,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61Create( new( Node ), x4, x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x5 ) ), x3 )
             return
     }
@@ -10178,10 +10178,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10189,8 +10189,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0Create( root, x5, x1, x2, x6, x4 )
             return
     }
@@ -10204,10 +10204,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10218,8 +10218,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1Create( root, x8, x1, x2, x6, x4, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -10233,11 +10233,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x8 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     x11 = root.GetChild( 5 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -10260,10 +10260,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10282,9 +10282,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10292,8 +10292,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69Create( new( Node ), x4, x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x5 ) ), x3 )
             return
     }
@@ -10305,10 +10305,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10316,8 +10316,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0Create( root, x5, x2, x1, x6, x4 )
             return
     }
@@ -10331,10 +10331,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x5 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x2 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10345,8 +10345,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1Create( root, x8, x2, x1, x6, x4, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -10360,11 +10360,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x8 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     x11 = root.GetChild( 5 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -10387,10 +10387,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x6 *Node
     var x4 *Node
     x8 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x2 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10408,8 +10408,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -10419,9 +10419,9 @@ func Prelude__instHashPrelude_ReadHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -10431,9 +10431,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb( task *Task )(
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71Create( new( Node ), x3, x2, x1 ) )
     return
 }
@@ -10444,10 +10444,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71(
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74Create( new( Node ), x1, x2, x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x4 ) )
     return
 }
@@ -10459,11 +10459,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10471,8 +10471,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0Create( root, x6, x1, x2, x3, x7, x5 )
             return
     }
@@ -10487,11 +10487,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x6 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10502,8 +10502,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1Create( root, x9, x1, x2, x3, x7, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -10518,12 +10518,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     var x12 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     x12 = root.GetChild( 6 )
     switch x12.GetConstructor(  ){
         case -1:
@@ -10547,11 +10547,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10571,10 +10571,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10582,8 +10582,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82Create( new( Node ), x5, x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x6 ) ), x4 )
             return
     }
@@ -10596,11 +10596,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10608,8 +10608,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0Create( root, x6, x1, x2, x3, x7, x5 )
             return
     }
@@ -10624,11 +10624,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x6 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10639,8 +10639,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1Create( root, x9, x1, x2, x3, x7, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -10655,12 +10655,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     var x12 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     x12 = root.GetChild( 6 )
     switch x12.GetConstructor(  ){
         case -1:
@@ -10684,11 +10684,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10708,10 +10708,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10719,8 +10719,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90Create( new( Node ), x5, x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x6 ) ), x4 )
             return
     }
@@ -10733,11 +10733,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10745,8 +10745,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0Create( root, x6, x1, x2, x3, x7, x5 )
             return
     }
@@ -10761,11 +10761,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x6 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10776,8 +10776,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1Create( root, x9, x1, x2, x3, x7, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -10792,12 +10792,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     var x12 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     x12 = root.GetChild( 6 )
     switch x12.GetConstructor(  ){
         case -1:
@@ -10821,11 +10821,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10845,10 +10845,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10856,8 +10856,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98Create( new( Node ), x5, x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x6 ) ), x4 )
             return
     }
@@ -10870,11 +10870,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -10882,8 +10882,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0Create( root, x6, x3, x2, x1, x7, x5 )
             return
     }
@@ -10898,11 +10898,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x6 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x3 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10913,8 +10913,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1Create( root, x9, x3, x2, x1, x7, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -10929,12 +10929,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     var x12 *Node
-    x9 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x9 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     x12 = root.GetChild( 6 )
     switch x12.GetConstructor(  ){
         case -1:
@@ -10958,11 +10958,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x7 *Node
     var x5 *Node
     x9 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
+    x3 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -10981,9 +10981,9 @@ func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRb( task *Task )( 
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -10994,10 +10994,10 @@ func Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -11008,10 +11008,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb( task *Ta
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100Create( new( Node ), x4, x3, x2, x1 ) )
     return
 }
@@ -11023,11 +11023,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103Create( new( Node ), x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x5 ) )
     return
 }
@@ -11040,12 +11040,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11053,8 +11053,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0Create( root, x7, x1, x2, x3, x4, x8, x6 )
             return
     }
@@ -11070,12 +11070,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11086,8 +11086,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1Create( root, x10, x1, x2, x3, x4, x8, x6, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -11103,13 +11103,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     var x13 *Node
-    x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x10 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     x13 = root.GetChild( 7 )
     switch x13.GetConstructor(  ){
         case -1:
@@ -11134,12 +11134,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11160,11 +11160,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11172,8 +11172,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111Create( new( Node ), x6, x1, x2, x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x7 ) ), x5 )
             return
     }
@@ -11187,12 +11187,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11200,8 +11200,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0Create( root, x7, x1, x2, x3, x4, x8, x6 )
             return
     }
@@ -11217,12 +11217,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11233,8 +11233,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1Create( root, x10, x1, x2, x3, x4, x8, x6, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -11250,13 +11250,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     var x13 *Node
-    x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x10 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     x13 = root.GetChild( 7 )
     switch x13.GetConstructor(  ){
         case -1:
@@ -11281,12 +11281,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11307,11 +11307,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11319,8 +11319,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119Create( new( Node ), x6, x1, x2, x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x7 ) ), x5 )
             return
     }
@@ -11334,12 +11334,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11347,8 +11347,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0Create( root, x7, x1, x2, x3, x4, x8, x6 )
             return
     }
@@ -11364,12 +11364,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11380,8 +11380,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1Create( root, x10, x1, x2, x3, x4, x8, x6, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -11397,13 +11397,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     var x13 *Node
-    x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x10 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     x13 = root.GetChild( 7 )
     switch x13.GetConstructor(  ){
         case -1:
@@ -11428,12 +11428,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11454,11 +11454,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11466,8 +11466,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127Create( new( Node ), x6, x1, x2, x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x7 ) ), x5 )
             return
     }
@@ -11481,12 +11481,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11494,8 +11494,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0Create( root, x7, x1, x2, x3, x4, x8, x6 )
             return
     }
@@ -11511,12 +11511,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11527,8 +11527,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1Create( root, x10, x1, x2, x3, x4, x8, x6, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -11544,13 +11544,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     var x13 *Node
-    x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x10 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     x13 = root.GetChild( 7 )
     switch x13.GetConstructor(  ){
         case -1:
@@ -11575,12 +11575,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x10 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11601,11 +11601,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11613,8 +11613,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135Create( new( Node ), x6, x1, x2, x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x7 ) ), x5 )
             return
     }
@@ -11628,12 +11628,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11641,8 +11641,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0Create( root, x7, x4, x3, x2, x1, x8, x6 )
             return
     }
@@ -11658,12 +11658,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x7 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x1 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x4 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x1 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11674,8 +11674,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x7.GetChild( 0 )
-            x10 = x7.GetChild( 1 )
+            x9 = x7.Children[ 0 ]
+            x10 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1Create( root, x10, x4, x3, x2, x1, x8, x6, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -11691,13 +11691,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     var x13 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x1 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x1 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     x13 = root.GetChild( 7 )
     switch x13.GetConstructor(  ){
         case -1:
@@ -11722,12 +11722,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x8 *Node
     var x6 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x2 = root.GetChild( 3 )
-    x1 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
-    x6 = root.GetChild( 6 )
+    x4 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x2 = root.Children[ 3 ]
+    x1 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
+    x6 = root.Children[ 6 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11747,10 +11747,10 @@ func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRb( task *Tas
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -11762,11 +11762,11 @@ func Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRb( task *Task )(  )
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -11778,11 +11778,11 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb( tas
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137Create( new( Node ), x5, x4, x3, x2, x1 ) )
     return
 }
@@ -11795,12 +11795,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
+    x6 = root.Children[ 5 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140Create( new( Node ), x1, x2, x3, x4, x5 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x6 ) )
     return
 }
@@ -11814,13 +11814,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11828,8 +11828,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0Create( root, x8, x1, x2, x3, x4, x5, x9, x7 )
             return
     }
@@ -11846,13 +11846,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11863,8 +11863,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1Create( root, x11, x1, x2, x3, x4, x5, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -11881,14 +11881,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -11914,13 +11914,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -11942,12 +11942,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11955,8 +11955,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148Create( new( Node ), x7, x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x8 ) ), x6 )
             return
     }
@@ -11971,13 +11971,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -11985,8 +11985,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0Create( root, x8, x1, x2, x3, x4, x5, x9, x7 )
             return
     }
@@ -12003,13 +12003,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12020,8 +12020,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1Create( root, x11, x1, x2, x3, x4, x5, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -12038,14 +12038,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -12071,13 +12071,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12099,12 +12099,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12112,8 +12112,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156Create( new( Node ), x7, x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x8 ) ), x6 )
             return
     }
@@ -12128,13 +12128,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12142,8 +12142,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0Create( root, x8, x1, x2, x3, x4, x5, x9, x7 )
             return
     }
@@ -12160,13 +12160,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12177,8 +12177,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1Create( root, x11, x1, x2, x3, x4, x5, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -12195,14 +12195,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -12228,13 +12228,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12256,12 +12256,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12269,8 +12269,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164Create( new( Node ), x7, x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x8 ) ), x6 )
             return
     }
@@ -12285,13 +12285,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12299,8 +12299,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0Create( root, x8, x1, x2, x3, x4, x5, x9, x7 )
             return
     }
@@ -12317,13 +12317,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12334,8 +12334,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1Create( root, x11, x1, x2, x3, x4, x5, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -12352,14 +12352,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -12385,13 +12385,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12413,12 +12413,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12426,8 +12426,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172Create( new( Node ), x7, x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x8 ) ), x6 )
             return
     }
@@ -12442,13 +12442,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12456,8 +12456,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0Create( root, x8, x1, x2, x3, x4, x5, x9, x7 )
             return
     }
@@ -12474,13 +12474,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12491,8 +12491,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1Create( root, x11, x1, x2, x3, x4, x5, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -12509,14 +12509,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -12542,13 +12542,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
-    x5 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
+    x5 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12570,12 +12570,12 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12583,8 +12583,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180Create( new( Node ), x7, x1, x2, x3, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x8 ) ), x6 )
             return
     }
@@ -12599,13 +12599,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -12613,8 +12613,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 0:
             var x8 *Node
             var x9 *Node
-            x8 = x6.GetChild( 0 )
-            x9 = x6.GetChild( 1 )
+            x8 = x6.Children[ 0 ]
+            x9 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0Create( root, x8, x5, x4, x3, x2, x1, x9, x7 )
             return
     }
@@ -12631,13 +12631,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x8 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x2 = root.GetChild( 4 )
-    x1 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x5 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x2 = root.Children[ 4 ]
+    x1 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12648,8 +12648,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x8.GetChild( 0 )
-            x11 = x8.GetChild( 1 )
+            x10 = x8.Children[ 0 ]
+            x11 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1Create( root, x11, x5, x4, x3, x2, x1, x9, x7, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -12666,14 +12666,14 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     var x14 *Node
-    x11 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x2 = root.GetChild( 4 )
-    x1 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x11 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x2 = root.Children[ 4 ]
+    x1 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     x14 = root.GetChild( 8 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -12699,13 +12699,13 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x9 *Node
     var x7 *Node
     x11 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
-    x2 = root.GetChild( 4 )
-    x1 = root.GetChild( 5 )
-    x9 = root.GetChild( 6 )
-    x7 = root.GetChild( 7 )
+    x5 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
+    x2 = root.Children[ 4 ]
+    x1 = root.Children[ 5 ]
+    x9 = root.Children[ 6 ]
+    x7 = root.Children[ 7 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -12726,11 +12726,11 @@ func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb( task
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -12766,7 +12766,7 @@ func Prelude__defHashmaxBoundHashPrelude_Bounded( task *Task )(  ){
 func Prelude__defHashsuccHashPrelude_Enum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude__Create( new( Node ), Prelude_flipCreate( new( Node ), Prelude__implHashAddHashPrelude_NumHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 1 ) ), Prelude_fromEnumCreate( new( Node ), x1 ) ) )
     return
 }
@@ -12774,7 +12774,7 @@ func Prelude__defHashsuccHashPrelude_Enum( task *Task )(  ){
 func Prelude__defHashpredHashPrelude_Enum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude__Create( new( Node ), Prelude__defHashpredHashPrelude_Enum__Hashlambda182Create( new( Node ) ), Prelude_fromEnumCreate( new( Node ), x1 ) ) )
     return
 }
@@ -12782,7 +12782,7 @@ func Prelude__defHashpredHashPrelude_Enum( task *Task )(  ){
 func Prelude__defHashpredHashPrelude_Enum__Hashlambda182( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( root, x1, IntLitCreate( new( Node ), 1 ) )
     return
 }
@@ -12803,8 +12803,8 @@ func Prelude__defHashenumFromHashPrelude_Enum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_mapCreate( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude__implHashenumFromHashPrelude_EnumHashPrelude_IntCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x2 ) ) )
     return
 }
@@ -12814,9 +12814,9 @@ func Prelude__defHashenumFromThenHashPrelude_Enum( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_mapCreate( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_IntCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x2 ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x3 ) ) )
     return
 }
@@ -12826,9 +12826,9 @@ func Prelude__defHashenumFromToHashPrelude_Enum( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_mapCreate( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_IntCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x2 ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x3 ) ) )
     return
 }
@@ -12839,10 +12839,10 @@ func Prelude__defHashenumFromThenToHashPrelude_Enum( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_mapCreate( root, Prelude_toEnumCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_IntCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x2 ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x3 ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x1 ), x4 ) ) )
     return
 }
@@ -12902,7 +12902,7 @@ func Prelude__implHashpredHashPrelude_EnumHashLbRb( task *Task )(  ){
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0Create( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -12974,7 +12974,7 @@ func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13013,7 +13013,7 @@ func Prelude__implHashenumFromToHashPrelude_EnumHashLbRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13044,8 +13044,8 @@ func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13061,7 +13061,7 @@ func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0( task *Task )
     var x2 *Node
     var x3 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -13172,7 +13172,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0Create( root, x1, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -13181,7 +13181,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0( task 
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -13275,8 +13275,8 @@ func Prelude__instHashPrelude_BoundedHashLbCommaRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashBoundedCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRbCreate( new( Node ), x1, x2 ), Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRbCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -13286,8 +13286,8 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb( task *Task )(  )
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -13304,8 +13304,8 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb( task *Task )(  )
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -13322,9 +13322,9 @@ func Prelude__instHashPrelude_BoundedHashLbCommaCommaRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude__DictHashBoundedCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ), Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRbCreate( new( Node ), x1, x2, x3 ) )
     return
 }
@@ -13335,9 +13335,9 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb( task *Task 
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -13355,9 +13355,9 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb( task *Task 
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -13375,10 +13375,10 @@ func Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude__DictHashBoundedCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ), Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4 ) )
     return
 }
@@ -13390,10 +13390,10 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb( task *
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -13412,10 +13412,10 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb( task *
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -13434,11 +13434,11 @@ func Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRb( task *Task )(
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     Prelude__DictHashBoundedCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ), Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRbCreate( new( Node ), x1, x2, x3, x4, x5 ) )
     return
 }
@@ -13451,11 +13451,11 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb( t
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -13475,11 +13475,11 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb( t
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
-    x5 = root.GetChild( 4 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
+    x5 = root.Children[ 4 ]
     x6 = root.GetChild( 5 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -13574,7 +13574,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering( task *Task )(  )
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0Create( root, x1, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -13583,7 +13583,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0( t
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -13602,7 +13602,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1( t
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -13738,7 +13738,7 @@ func Prelude__instHashPrelude_EnumHashPrelude_Char( task *Task )(  ){
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), Prelude_ordCreate( new( Node ), x1 ) ), Prelude_uppermostCharacterCreate( new( Node ) ) ) )
     return
 }
@@ -13747,7 +13747,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -13782,7 +13782,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1( task *T
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), Prelude_ordCreate( new( Node ), x1 ) ), IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -13791,7 +13791,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -13868,7 +13868,7 @@ func Prelude__instHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashAddHashPrelude_NumHashPrelude_IntCreate( root, x1, IntLitCreate( new( Node ), 1 ) )
     return
 }
@@ -13876,7 +13876,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( root, x1, IntLitCreate( new( Node ), 1 ) )
     return
 }
@@ -13884,7 +13884,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -13892,7 +13892,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -13932,9 +13932,9 @@ func Prelude__defHashSubHashPrelude_Num( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_AddCreate( new( Node ), x1 ), x2 ), Prelude_applyCreate( new( Node ), Prelude_negateCreate( new( Node ), x1 ), x3 ) )
     return
 }
@@ -13949,8 +13949,8 @@ func Prelude__defHashnegateHashPrelude_Num( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_SubCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_fromIntCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 0 ) ) ), x2 )
     return
 }
@@ -13983,8 +13983,8 @@ func Prelude__implHashAddHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddDolCreate( root, x1, x2 )
     return
 }
@@ -13993,8 +13993,8 @@ func Prelude__implHashSubHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_SubDolCreate( root, x1, x2 )
     return
 }
@@ -14003,8 +14003,8 @@ func Prelude__implHashMulHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_MulDolCreate( root, x1, x2 )
     return
 }
@@ -14012,7 +14012,7 @@ func Prelude__implHashMulHashPrelude_NumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashnegateHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( root, IntLitCreate( new( Node ), 0 ), x1 )
     return
 }
@@ -14020,7 +14020,7 @@ func Prelude__implHashnegateHashPrelude_NumHashPrelude_Int( task *Task )(  ){
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x1 ), IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -14029,7 +14029,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0( task *Task
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14048,7 +14048,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1( task *Task
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14066,7 +14066,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1( task *Task
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x1 ), IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -14075,7 +14075,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0( task *T
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14127,7 +14127,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2( task *T
 func Prelude__implHashfromIntHashPrelude_NumHashPrelude_Int( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -14142,8 +14142,8 @@ func Prelude__implHashAddHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_Add_Create( root, x1, x2 )
     return
 }
@@ -14152,8 +14152,8 @@ func Prelude__implHashSubHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_Sub_Create( root, x1, x2 )
     return
 }
@@ -14162,8 +14162,8 @@ func Prelude__implHashMulHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_Mul_Create( root, x1, x2 )
     return
 }
@@ -14171,7 +14171,7 @@ func Prelude__implHashMulHashPrelude_NumHashPrelude_Float( task *Task )(  ){
 func Prelude__implHashnegateHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_negateFloatCreate( root, x1 )
     return
 }
@@ -14179,7 +14179,7 @@ func Prelude__implHashnegateHashPrelude_NumHashPrelude_Float( task *Task )(  ){
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_FloatCreate( new( Node ) ), x1 ), FloatLitCreate( new( Node ), 0.0 ) ) )
     return
 }
@@ -14188,7 +14188,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0( task *Ta
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14207,7 +14207,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1( task *Ta
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14225,7 +14225,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1( task *Ta
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtHashPrelude_OrdHashPrelude_FloatCreate( new( Node ) ), x1 ), FloatLitCreate( new( Node ), 0.0 ) ) )
     return
 }
@@ -14234,7 +14234,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0( task 
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -14286,7 +14286,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2( task 
 func Prelude__implHashfromIntHashPrelude_NumHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_i2fCreate( root, x1 )
     return
 }
@@ -14296,9 +14296,9 @@ func Prelude__defHashSlashHashPrelude_Fractional( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_MulCreate( new( Node ), Prelude__superHashPrelude_FractionalHashPrelude_NumCreate( new( Node ), x1 ) ), x2 ), Prelude_applyCreate( new( Node ), Prelude_recipCreate( new( Node ), x1 ), x3 ) )
     return
 }
@@ -14307,8 +14307,8 @@ func Prelude__defHashrecipHashPrelude_Fractional( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_SlashCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_fromIntCreate( new( Node ), Prelude__superHashPrelude_FractionalHashPrelude_NumCreate( new( Node ), x1 ) ), IntLitCreate( new( Node ), 1 ) ) ), x2 )
     return
 }
@@ -14329,8 +14329,8 @@ func Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float( task *Task )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_Slash_Create( root, x1, x2 )
     return
 }
@@ -14338,7 +14338,7 @@ func Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float( task *Task )
 func Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashSlashHashPrelude_FractionalHashPrelude_FloatCreate( root, FloatLitCreate( new( Node ), 1.0 ), x1 )
     return
 }
@@ -14346,7 +14346,7 @@ func Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float( task *Task )
 func Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_Float( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -14357,9 +14357,9 @@ func Prelude__defHashdivHashPrelude_Integral( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_divModCreate( new( Node ), x1 ), x2 ), x3 )
     Prelude__defHashdivHashPrelude_Integral__HashselFP2HashqCreate( root, x4 )
     return
@@ -14375,7 +14375,7 @@ func Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -14387,9 +14387,9 @@ func Prelude__defHashmodHashPrelude_Integral( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_divModCreate( new( Node ), x1 ), x2 ), x3 )
     Prelude__defHashmodHashPrelude_Integral__HashselFP4HashrCreate( root, x4 )
     return
@@ -14405,7 +14405,7 @@ func Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -14417,9 +14417,9 @@ func Prelude__defHashquotHashPrelude_Integral( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_quotRemCreate( new( Node ), x1 ), x2 ), x3 )
     Prelude__defHashquotHashPrelude_Integral__HashselFP6HashqCreate( root, x4 )
     return
@@ -14435,7 +14435,7 @@ func Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq( task *Task )(  )
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -14447,9 +14447,9 @@ func Prelude__defHashremHashPrelude_Integral( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_quotRemCreate( new( Node ), x1 ), x2 ), x3 )
     Prelude__defHashremHashPrelude_Integral__HashselFP8HashrCreate( root, x4 )
     return
@@ -14465,7 +14465,7 @@ func Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -14529,8 +14529,8 @@ func Prelude__implHashdivModHashPrelude_IntegralHashPrelude_Int( task *Task )(  
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_LbCommaRbCreate( root, Prelude_div_Create( new( Node ), x1, x2 ), Prelude_mod_Create( new( Node ), x1, x2 ) )
     return
 }
@@ -14539,8 +14539,8 @@ func Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_Int( task *Task )( 
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_LbCommaRbCreate( root, Prelude_quot_Create( new( Node ), x1, x2 ), Prelude_rem_Create( new( Node ), x1, x2 ) )
     return
 }
@@ -14574,9 +14574,9 @@ func Prelude__defHashGtGtHashPrelude_Monad( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x2 ), Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183Create( new( Node ), x3 ) )
     return
 }
@@ -14584,7 +14584,7 @@ func Prelude__defHashGtGtHashPrelude_Monad( task *Task )(  ){
 func Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -14598,7 +14598,7 @@ func Prelude__defHashreturnHashPrelude_Monad( task *Task )(  ){
 func Prelude__defHashfailHashPrelude_Monad( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     Prelude_errorCreate( root, x2 )
     return
 }
@@ -14613,8 +14613,8 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_GtGtEqDolCreate( root, x1, x2 )
     return
 }
@@ -14623,8 +14623,8 @@ func Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_GtGtDolCreate( root, x1, x2 )
     return
 }
@@ -14632,7 +14632,7 @@ func Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO( task *Task )(  ){
 func Prelude__implHashreturnHashPrelude_MonadHashPrelude_IO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_returnIOCreate( root, x1 )
     return
 }
@@ -14654,7 +14654,7 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe( task *Task )(  )
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -14664,7 +14664,7 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe( task *Task )(  )
             return
         case 1:
             var x3 *Node
-            x3 = x1.GetChild( 0 )
+            x3 = x1.Children[ 0 ]
             Prelude_applyCreate( root, x2, x3 )
             return
     }
@@ -14698,8 +14698,8 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_concatMapCreate( new( Node ), Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184Create( new( Node ), x2 ) ), x1 )
     return
 }
@@ -14708,8 +14708,8 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184( task *Ta
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_mapCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185Create( new( Node ) ), Prelude_applyCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -14717,7 +14717,7 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184( task *Ta
 func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -14731,7 +14731,7 @@ func Prelude__implHashGtGtHashPrelude_MonadHashLSbRSb( task *Task )(  ){
 func Prelude__implHashreturnHashPrelude_MonadHashLSbRSb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_ColCreate( root, x1, Prelude_LSbRSbCreate( new( Node ) ) )
     return
 }
@@ -14753,7 +14753,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14824,7 +14824,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14946,7 +14946,7 @@ func Prelude__instHashPrelude_ReadHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186Create( new( Node ) ) ), x2 ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191Create( new( Node ) ) ), x2 ) )
     return
 }
@@ -14954,7 +14954,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool( task *Task )(  
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -14964,7 +14964,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -14972,8 +14972,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -14985,8 +14985,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -14997,8 +14997,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 70 ) ) )
             return
     }
@@ -15010,9 +15010,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     var x17 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x17 = root.GetChild( 3 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -15033,8 +15033,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15045,8 +15045,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 97 ) ) )
             return
     }
@@ -15058,9 +15058,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     var x17 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x17 = root.GetChild( 3 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -15081,8 +15081,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15093,8 +15093,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 108 ) ) )
             return
     }
@@ -15106,9 +15106,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     var x17 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x17 = root.GetChild( 3 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -15129,8 +15129,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15141,8 +15141,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 115 ) ) )
             return
     }
@@ -15154,9 +15154,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     var x17 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x17 = root.GetChild( 3 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -15177,8 +15177,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15189,8 +15189,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 101 ) ) )
             return
     }
@@ -15202,9 +15202,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     var x17 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x17 = root.GetChild( 3 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -15225,8 +15225,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15243,7 +15243,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -15253,7 +15253,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -15261,8 +15261,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -15274,8 +15274,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15286,8 +15286,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 84 ) ) )
             return
     }
@@ -15299,9 +15299,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     var x15 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x15 = root.GetChild( 3 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -15322,8 +15322,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15334,8 +15334,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -15347,9 +15347,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     var x15 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x15 = root.GetChild( 3 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -15370,8 +15370,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15382,8 +15382,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 117 ) ) )
             return
     }
@@ -15395,9 +15395,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     var x15 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x15 = root.GetChild( 3 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -15418,8 +15418,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15430,8 +15430,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 101 ) ) )
             return
     }
@@ -15443,9 +15443,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     var x15 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x15 = root.GetChild( 3 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -15466,8 +15466,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15498,7 +15498,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15598,7 +15598,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15752,7 +15752,7 @@ func Prelude__instHashPrelude_ReadHashPrelude_Ordering( task *Task )(  ){
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196Create( new( Node ) ) ), x2 ), Prelude_AddAddCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201Create( new( Node ) ) ), x2 ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206Create( new( Node ) ) ), x2 ) ) )
     return
 }
@@ -15760,7 +15760,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering( task *Task 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -15770,7 +15770,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -15778,8 +15778,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -15791,8 +15791,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15803,8 +15803,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 76 ) ) )
             return
     }
@@ -15816,9 +15816,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -15839,8 +15839,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15851,8 +15851,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 84 ) ) )
             return
     }
@@ -15864,9 +15864,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -15887,8 +15887,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15905,7 +15905,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -15915,7 +15915,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -15923,8 +15923,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -15936,8 +15936,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15948,8 +15948,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 69 ) ) )
             return
     }
@@ -15961,9 +15961,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -15984,8 +15984,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -15996,8 +15996,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 81 ) ) )
             return
     }
@@ -16009,9 +16009,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -16032,8 +16032,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16050,7 +16050,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -16060,7 +16060,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -16068,8 +16068,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -16081,8 +16081,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16093,8 +16093,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 71 ) ) )
             return
     }
@@ -16106,9 +16106,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -16129,8 +16129,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16141,8 +16141,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 84 ) ) )
             return
     }
@@ -16154,9 +16154,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x11 = root.GetChild( 3 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -16177,8 +16177,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16201,7 +16201,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Ordering( task *Task )
 func Prelude__instHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashSlashEqHashPrelude_EqHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16211,9 +16211,9 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16223,7 +16223,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
             return
         case 1:
             var x5 *Node
-            x5 = x2.GetChild( 0 )
+            x5 = x2.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1Create( root, x3, x1, x5 )
             return
     }
@@ -16235,8 +16235,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1( task *Task )(  
     var x1 *Node
     var x5 *Node
     x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16246,7 +16246,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1( task *Task )(  
             return
         case 1:
             var x6 *Node
-            x6 = x3.GetChild( 0 )
+            x6 = x3.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x5 ), x6 )
             return
     }
@@ -16272,7 +16272,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0( task *Task )(  
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16280,7 +16280,7 @@ func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
 func Prelude__instHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashPrelude_MaybeCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ) ), Prelude__implHashcompareHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashLtHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashGtHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashminHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashmaxHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16288,7 +16288,7 @@ func Prelude__instHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16298,9 +16298,9 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16310,7 +16310,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
             return
         case 1:
             var x5 *Node
-            x5 = x2.GetChild( 0 )
+            x5 = x2.Children[ 0 ]
             Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1Create( root, x3, x1, x5 )
             return
     }
@@ -16322,8 +16322,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1( task *Task )( 
     var x1 *Node
     var x5 *Node
     x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16333,7 +16333,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1( task *Task )( 
             return
         case 1:
             var x6 *Node
-            x6 = x3.GetChild( 0 )
+            x6 = x3.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x5 ), x6 )
             return
     }
@@ -16359,7 +16359,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0( task *Task )( 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16367,7 +16367,7 @@ func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16375,7 +16375,7 @@ func Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16383,7 +16383,7 @@ func Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16391,7 +16391,7 @@ func Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16399,7 +16399,7 @@ func Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
 func Prelude__instHashPrelude_ShowHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashshowListHashPrelude_ShowHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16407,7 +16407,7 @@ func Prelude__instHashPrelude_ShowHashPrelude_Maybe( task *Task )(  ){
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16417,8 +16417,8 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe( task *Task )( 
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -16429,7 +16429,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe( task *Task )( 
             return
         case 1:
             var x4 *Node
-            x4 = x3.GetChild( 0 )
+            x4 = x3.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x2 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 74 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 117 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 115 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsPrecCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 11 ) ), x4 ) ) )
             return
     }
@@ -16438,7 +16438,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe( task *Task )( 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16446,7 +16446,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe( task *Task )(  
 func Prelude__instHashPrelude_ReadHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_MaybeCreate( new( Node ), x1 ), Prelude__implHashreadListHashPrelude_ReadHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -16456,9 +16456,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe( task *Task )( 
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211Create( new( Node ) ) ), x3 ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x2 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216Create( new( Node ), x1 ) ), x3 ) )
     return
 }
@@ -16466,7 +16466,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe( task *Task )( 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -16476,7 +16476,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -16484,8 +16484,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -16497,8 +16497,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16509,8 +16509,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 78 ) ) )
             return
     }
@@ -16522,9 +16522,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16545,8 +16545,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16557,8 +16557,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -16570,9 +16570,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16593,8 +16593,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16605,8 +16605,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 116 ) ) )
             return
     }
@@ -16618,9 +16618,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16641,8 +16641,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16653,8 +16653,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 104 ) ) )
             return
     }
@@ -16666,9 +16666,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16689,8 +16689,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16701,8 +16701,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 105 ) ) )
             return
     }
@@ -16714,9 +16714,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16737,8 +16737,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16749,8 +16749,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x15 *Node
             var x16 *Node
-            x15 = x14.GetChild( 0 )
-            x16 = x14.GetChild( 1 )
+            x15 = x14.Children[ 0 ]
+            x16 = x14.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11Create( root, x16, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x15, CharLitCreate( new( Node ), 110 ) ) )
             return
     }
@@ -16762,9 +16762,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x16 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16785,8 +16785,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16797,8 +16797,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
         case 1:
             var x17 *Node
             var x18 *Node
-            x17 = x16.GetChild( 0 )
-            x18 = x16.GetChild( 1 )
+            x17 = x16.Children[ 0 ]
+            x18 = x16.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13Create( root, x18, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x17, CharLitCreate( new( Node ), 103 ) ) )
             return
     }
@@ -16810,9 +16810,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x18 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -16833,8 +16833,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x4 *Node
     var x2 *Node
     x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16852,8 +16852,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216(
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -16863,9 +16863,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -16873,8 +16873,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -16887,9 +16887,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16900,8 +16900,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 74 ) ) )
             return
     }
@@ -16914,10 +16914,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -16939,9 +16939,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -16952,8 +16952,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x7.GetChild( 0 )
-            x9 = x7.GetChild( 1 )
+            x8 = x7.Children[ 0 ]
+            x9 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3Create( root, x9, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 117 ) ) )
             return
     }
@@ -16966,10 +16966,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -16991,9 +16991,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17004,8 +17004,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x9.GetChild( 0 )
-            x11 = x9.GetChild( 1 )
+            x10 = x9.Children[ 0 ]
+            x11 = x9.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5Create( root, x11, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 115 ) ) )
             return
     }
@@ -17018,10 +17018,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17043,9 +17043,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17056,8 +17056,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 1:
             var x12 *Node
             var x13 *Node
-            x12 = x11.GetChild( 0 )
-            x13 = x11.GetChild( 1 )
+            x12 = x11.Children[ 0 ]
+            x13 = x11.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7Create( root, x13, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x12, CharLitCreate( new( Node ), 116 ) ) )
             return
     }
@@ -17070,10 +17070,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x13 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17095,9 +17095,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x5 *Node
     var x3 *Node
     x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17116,7 +17116,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -17124,8 +17124,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_JustCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -17134,7 +17134,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Maybe( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashPrelude_MaybeCreate( new( Node ), x1 ) )
     return
 }
@@ -17143,8 +17143,8 @@ func Prelude__instHashPrelude_EqHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashEqCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashSlashEqHashPrelude_EqHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17155,22 +17155,22 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
             return
         case 0:
             var x5 *Node
-            x5 = x3.GetChild( 0 )
+            x5 = x3.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0Create( root, x4, x1, x5 )
             return
         case 1:
             var x8 *Node
-            x8 = x3.GetChild( 0 )
+            x8 = x3.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1Create( root, x4, x2, x8 )
             return
     }
@@ -17182,8 +17182,8 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1( task *Task )( 
     var x2 *Node
     var x8 *Node
     x4 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
+    x2 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -17193,7 +17193,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1( task *Task )( 
             return
         case 1:
             var x10 *Node
-            x10 = x4.GetChild( 0 )
+            x10 = x4.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x2 ), x8 ), x10 )
             return
     }
@@ -17205,15 +17205,15 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0( task *Task )( 
     var x1 *Node
     var x5 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
             return
         case 0:
             var x6 *Node
-            x6 = x4.GetChild( 0 )
+            x6 = x4.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x5 ), x6 )
             return
         case 1:
@@ -17226,8 +17226,8 @@ func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashSlashEqHashPrelude_EqCreate( root, Prelude__instHashPrelude_EqHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17236,8 +17236,8 @@ func Prelude__instHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashOrdCreate( root, Prelude__instHashPrelude_EqHashPrelude_EitherCreate( new( Node ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x1 ), Prelude__superHashPrelude_OrdHashPrelude_EqCreate( new( Node ), x2 ) ), Prelude__implHashcompareHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashLtHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashGtHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashminHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashmaxHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17246,8 +17246,8 @@ func Prelude__implHashcompareHashPrelude_OrdHashPrelude_Either( task *Task )(  )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashcompareHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17258,22 +17258,22 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
             return
         case 0:
             var x5 *Node
-            x5 = x3.GetChild( 0 )
+            x5 = x3.Children[ 0 ]
             Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0Create( root, x4, x1, x5 )
             return
         case 1:
             var x8 *Node
-            x8 = x3.GetChild( 0 )
+            x8 = x3.Children[ 0 ]
             Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1Create( root, x4, x2, x8 )
             return
     }
@@ -17285,8 +17285,8 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1( task *Task )(
     var x2 *Node
     var x8 *Node
     x4 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
+    x2 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -17296,7 +17296,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1( task *Task )(
             return
         case 1:
             var x10 *Node
-            x10 = x4.GetChild( 0 )
+            x10 = x4.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x2 ), x8 ), x10 )
             return
     }
@@ -17308,15 +17308,15 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0( task *Task )(
     var x1 *Node
     var x5 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
             return
         case 0:
             var x6 *Node
-            x6 = x4.GetChild( 0 )
+            x6 = x4.Children[ 0 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_LtEqCreate( new( Node ), x1 ), x5 ), x6 )
             return
         case 1:
@@ -17329,8 +17329,8 @@ func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashGtEqHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17339,8 +17339,8 @@ func Prelude__implHashLtHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashLtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17349,8 +17349,8 @@ func Prelude__implHashGtHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashGtHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17359,8 +17359,8 @@ func Prelude__implHashminHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashminHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17369,8 +17369,8 @@ func Prelude__implHashmaxHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashmaxHashPrelude_OrdCreate( root, Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17379,8 +17379,8 @@ func Prelude__instHashPrelude_ShowHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashShowCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashshowListHashPrelude_ShowHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17389,8 +17389,8 @@ func Prelude__implHashshowHashPrelude_ShowHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashshowHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17401,9 +17401,9 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either( task *Task )(
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -17411,12 +17411,12 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either( task *Task )(
             return
         case 0:
             var x5 *Node
-            x5 = x4.GetChild( 0 )
+            x5 = x4.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x3 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 76 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 102 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsPrecCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 11 ) ), x5 ) ) )
             return
         case 1:
             var x6 *Node
-            x6 = x4.GetChild( 0 )
+            x6 = x4.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x3 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 82 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 105 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 103 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 104 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_showsPrecCreate( new( Node ), x2 ), IntLitCreate( new( Node ), 11 ) ), x6 ) ) )
             return
     }
@@ -17426,8 +17426,8 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Either( task *Task )( 
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashshowListHashPrelude_ShowCreate( root, Prelude__instHashPrelude_ShowHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17436,8 +17436,8 @@ func Prelude__instHashPrelude_ReadHashPrelude_Either( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__DictHashReadCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_EitherCreate( new( Node ), x1, x2 ), Prelude__implHashreadListHashPrelude_ReadHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -17448,10 +17448,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either( task *Task )(
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x3 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225Create( new( Node ), x1 ) ), x4 ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x3 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234Create( new( Node ), x2 ) ), x4 ) )
     return
 }
@@ -17460,8 +17460,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -17471,9 +17471,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -17481,8 +17481,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -17495,9 +17495,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17508,8 +17508,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 76 ) ) )
             return
     }
@@ -17522,10 +17522,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17547,9 +17547,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17560,8 +17560,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x7.GetChild( 0 )
-            x9 = x7.GetChild( 1 )
+            x8 = x7.Children[ 0 ]
+            x9 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3Create( root, x9, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 101 ) ) )
             return
     }
@@ -17574,10 +17574,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17599,9 +17599,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17612,8 +17612,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x9.GetChild( 0 )
-            x11 = x9.GetChild( 1 )
+            x10 = x9.Children[ 0 ]
+            x11 = x9.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5Create( root, x11, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 102 ) ) )
             return
     }
@@ -17626,10 +17626,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17651,9 +17651,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17664,8 +17664,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 1:
             var x12 *Node
             var x13 *Node
-            x12 = x11.GetChild( 0 )
-            x13 = x11.GetChild( 1 )
+            x12 = x11.Children[ 0 ]
+            x13 = x11.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7Create( root, x13, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x12, CharLitCreate( new( Node ), 116 ) ) )
             return
     }
@@ -17678,10 +17678,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     var x16 *Node
-    x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x13 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x16 = root.GetChild( 4 )
     switch x16.GetConstructor(  ){
         case -1:
@@ -17703,9 +17703,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x5 *Node
     var x3 *Node
     x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17724,7 +17724,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -17732,8 +17732,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_LeftCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -17743,8 +17743,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -17754,9 +17754,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -17764,8 +17764,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -17778,9 +17778,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17791,8 +17791,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 82 ) ) )
             return
     }
@@ -17805,10 +17805,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     var x18 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x18 = root.GetChild( 4 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -17830,9 +17830,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17843,8 +17843,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x7.GetChild( 0 )
-            x9 = x7.GetChild( 1 )
+            x8 = x7.Children[ 0 ]
+            x9 = x7.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3Create( root, x9, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x8, CharLitCreate( new( Node ), 105 ) ) )
             return
     }
@@ -17857,10 +17857,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     var x18 *Node
-    x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x9 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x18 = root.GetChild( 4 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -17882,9 +17882,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x9 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17895,8 +17895,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 1:
             var x10 *Node
             var x11 *Node
-            x10 = x9.GetChild( 0 )
-            x11 = x9.GetChild( 1 )
+            x10 = x9.Children[ 0 ]
+            x11 = x9.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5Create( root, x11, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x10, CharLitCreate( new( Node ), 103 ) ) )
             return
     }
@@ -17909,10 +17909,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     var x18 *Node
-    x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x11 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x18 = root.GetChild( 4 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -17934,9 +17934,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x11 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17947,8 +17947,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 1:
             var x12 *Node
             var x13 *Node
-            x12 = x11.GetChild( 0 )
-            x13 = x11.GetChild( 1 )
+            x12 = x11.Children[ 0 ]
+            x13 = x11.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7Create( root, x13, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x12, CharLitCreate( new( Node ), 104 ) ) )
             return
     }
@@ -17961,10 +17961,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     var x18 *Node
-    x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x13 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x18 = root.GetChild( 4 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -17986,9 +17986,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x13 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -17999,8 +17999,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 1:
             var x14 *Node
             var x15 *Node
-            x14 = x13.GetChild( 0 )
-            x15 = x13.GetChild( 1 )
+            x14 = x13.Children[ 0 ]
+            x15 = x13.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9Create( root, x15, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x14, CharLitCreate( new( Node ), 116 ) ) )
             return
     }
@@ -18013,10 +18013,10 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     var x18 *Node
-    x15 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x15 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x18 = root.GetChild( 4 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -18038,9 +18038,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x5 *Node
     var x3 *Node
     x15 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18059,7 +18059,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -18067,8 +18067,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_RightCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -18078,8 +18078,8 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Either( task *Task )( 
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__defHashreadListHashPrelude_ReadCreate( root, Prelude__instHashPrelude_ReadHashPrelude_EitherCreate( new( Node ), x1, x2 ) )
     return
 }
@@ -18095,29 +18095,29 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 0 )
+            x3 = x1.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0Create( root, x2, x3 )
             return
         case 1:
             var x8 *Node
-            x8 = x1.GetChild( 0 )
+            x8 = x1.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1Create( root, x2, x8 )
             return
         case 2:
             var x13 *Node
-            x13 = x1.GetChild( 0 )
+            x13 = x1.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2Create( root, x2, x13 )
             return
         case 3:
             var x18 *Node
-            x18 = x1.GetChild( 0 )
+            x18 = x1.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3Create( root, x2, x18 )
             return
     }
@@ -18128,7 +18128,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3( task *Task )(
     var x2 *Node
     var x18 *Node
     x2 = root.GetChild( 0 )
-    x18 = root.GetChild( 1 )
+    x18 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
@@ -18144,7 +18144,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3( task *Task )(
             return
         case 3:
             var x22 *Node
-            x22 = x2.GetChild( 0 )
+            x22 = x2.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( root, Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x18, x22 )
             return
     }
@@ -18155,7 +18155,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2( task *Task )(
     var x2 *Node
     var x13 *Node
     x2 = root.GetChild( 0 )
-    x13 = root.GetChild( 1 )
+    x13 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
@@ -18168,7 +18168,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2( task *Task )(
             return
         case 2:
             var x16 *Node
-            x16 = x2.GetChild( 0 )
+            x16 = x2.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( root, Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x13, x16 )
             return
         case 3:
@@ -18182,7 +18182,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1( task *Task )(
     var x2 *Node
     var x8 *Node
     x2 = root.GetChild( 0 )
-    x8 = root.GetChild( 1 )
+    x8 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
@@ -18192,7 +18192,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1( task *Task )(
             return
         case 1:
             var x10 *Node
-            x10 = x2.GetChild( 0 )
+            x10 = x2.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( root, Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x8, x10 )
             return
         case 2:
@@ -18209,14 +18209,14 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0( task *Task )(
     var x2 *Node
     var x3 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
             return
         case 0:
             var x4 *Node
-            x4 = x2.GetChild( 0 )
+            x4 = x2.Children[ 0 ]
             Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( root, Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x3, x4 )
             return
         case 1:
@@ -18253,7 +18253,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError( task *Task )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -18261,22 +18261,22 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError( task *Task )
             return
         case 0:
             var x3 *Node
-            x3 = x2.GetChild( 0 )
+            x3 = x2.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 73 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 79 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 69 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_ShowHashPrelude_CharCreate( new( Node ) ), IntLitCreate( new( Node ), 11 ) ), x3 ) ) )
             return
         case 1:
             var x4 *Node
-            x4 = x2.GetChild( 0 )
+            x4 = x2.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 85 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 115 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 69 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_ShowHashPrelude_CharCreate( new( Node ) ), IntLitCreate( new( Node ), 11 ) ), x4 ) ) )
             return
         case 2:
             var x5 *Node
-            x5 = x2.GetChild( 0 )
+            x5 = x2.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 70 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 97 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 105 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 108 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 69 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_ShowHashPrelude_CharCreate( new( Node ) ), IntLitCreate( new( Node ), 11 ) ), x5 ) ) )
             return
         case 3:
             var x6 *Node
-            x6 = x2.GetChild( 0 )
+            x6 = x2.Children[ 0 ]
             Prelude_showParenCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__Create( new( Node ), Prelude_showStringCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 78 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 110 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 100 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 69 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ) ), Prelude_applyCreate( new( Node ), Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_ShowHashPrelude_CharCreate( new( Node ) ), IntLitCreate( new( Node ), 11 ) ), x6 ) ) )
             return
     }
@@ -18298,8 +18298,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError( task *Task )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243Create( new( Node ) ) ), x2 ), Prelude_AddAddCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252Create( new( Node ) ) ), x2 ), Prelude_AddAddCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261Create( new( Node ) ) ), x2 ), Prelude_applyCreate( new( Node ), Prelude_readParenCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), IntLitCreate( new( Node ), 10 ) ), x1 ), Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270Create( new( Node ) ) ), x2 ) ) ) )
     return
 }
@@ -18307,7 +18307,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError( task *Task )
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -18317,7 +18317,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -18325,8 +18325,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -18338,8 +18338,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18350,8 +18350,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 73 ) ) )
             return
     }
@@ -18363,9 +18363,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18386,8 +18386,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18398,8 +18398,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 79 ) ) )
             return
     }
@@ -18411,9 +18411,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18434,8 +18434,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18446,8 +18446,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 69 ) ) )
             return
     }
@@ -18459,9 +18459,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18482,8 +18482,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18494,8 +18494,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -18507,9 +18507,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18530,8 +18530,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18542,8 +18542,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -18555,9 +18555,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18578,8 +18578,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18590,8 +18590,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x15 *Node
             var x16 *Node
-            x15 = x14.GetChild( 0 )
-            x16 = x14.GetChild( 1 )
+            x15 = x14.Children[ 0 ]
+            x16 = x14.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11Create( root, x16, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x15, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -18603,9 +18603,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x16 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18626,8 +18626,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18638,8 +18638,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 1:
             var x17 *Node
             var x18 *Node
-            x17 = x16.GetChild( 0 )
-            x18 = x16.GetChild( 1 )
+            x17 = x16.Children[ 0 ]
+            x18 = x16.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13Create( root, x18, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x17, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -18651,9 +18651,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     var x21 *Node
-    x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x18 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -18674,8 +18674,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x4 *Node
     var x2 *Node
     x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18694,7 +18694,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -18702,8 +18702,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -18712,7 +18712,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -18722,7 +18722,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -18730,8 +18730,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -18743,8 +18743,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18755,8 +18755,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 85 ) ) )
             return
     }
@@ -18768,9 +18768,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -18791,8 +18791,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18803,8 +18803,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 115 ) ) )
             return
     }
@@ -18816,9 +18816,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -18839,8 +18839,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18851,8 +18851,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 101 ) ) )
             return
     }
@@ -18864,9 +18864,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -18887,8 +18887,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18899,8 +18899,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -18912,9 +18912,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -18935,8 +18935,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18947,8 +18947,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 69 ) ) )
             return
     }
@@ -18960,9 +18960,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -18983,8 +18983,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -18995,8 +18995,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x15 *Node
             var x16 *Node
-            x15 = x14.GetChild( 0 )
-            x16 = x14.GetChild( 1 )
+            x15 = x14.Children[ 0 ]
+            x16 = x14.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11Create( root, x16, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x15, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19008,9 +19008,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x16 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19031,8 +19031,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19043,8 +19043,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x17 *Node
             var x18 *Node
-            x17 = x16.GetChild( 0 )
-            x18 = x16.GetChild( 1 )
+            x17 = x16.Children[ 0 ]
+            x18 = x16.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13Create( root, x18, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x17, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19056,9 +19056,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x18 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19079,8 +19079,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19091,8 +19091,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x19 *Node
             var x20 *Node
-            x19 = x18.GetChild( 0 )
-            x20 = x18.GetChild( 1 )
+            x19 = x18.Children[ 0 ]
+            x20 = x18.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15Create( root, x20, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x19, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -19104,9 +19104,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x20 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19127,8 +19127,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
         case -1:
             RedirectCreate( x20, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19139,8 +19139,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 1:
             var x21 *Node
             var x22 *Node
-            x21 = x20.GetChild( 0 )
-            x22 = x20.GetChild( 1 )
+            x21 = x20.Children[ 0 ]
+            x22 = x20.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17Create( root, x22, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x21, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19152,9 +19152,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x22 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19175,8 +19175,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x4 *Node
     var x2 *Node
     x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
         case -1:
             RedirectCreate( x22, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19195,7 +19195,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -19203,8 +19203,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -19213,7 +19213,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -19223,7 +19223,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -19231,8 +19231,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -19244,8 +19244,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19256,8 +19256,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 70 ) ) )
             return
     }
@@ -19269,9 +19269,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19292,8 +19292,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19304,8 +19304,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 97 ) ) )
             return
     }
@@ -19317,9 +19317,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19340,8 +19340,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19352,8 +19352,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 105 ) ) )
             return
     }
@@ -19365,9 +19365,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19388,8 +19388,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19400,8 +19400,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 108 ) ) )
             return
     }
@@ -19413,9 +19413,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19436,8 +19436,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19448,8 +19448,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 69 ) ) )
             return
     }
@@ -19461,9 +19461,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19484,8 +19484,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19496,8 +19496,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x15 *Node
             var x16 *Node
-            x15 = x14.GetChild( 0 )
-            x16 = x14.GetChild( 1 )
+            x15 = x14.Children[ 0 ]
+            x16 = x14.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11Create( root, x16, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x15, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19509,9 +19509,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x16 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19532,8 +19532,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19544,8 +19544,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x17 *Node
             var x18 *Node
-            x17 = x16.GetChild( 0 )
-            x18 = x16.GetChild( 1 )
+            x17 = x16.Children[ 0 ]
+            x18 = x16.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13Create( root, x18, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x17, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19557,9 +19557,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x18 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19580,8 +19580,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19592,8 +19592,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x19 *Node
             var x20 *Node
-            x19 = x18.GetChild( 0 )
-            x20 = x18.GetChild( 1 )
+            x19 = x18.Children[ 0 ]
+            x20 = x18.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15Create( root, x20, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x19, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -19605,9 +19605,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x20 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19628,8 +19628,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
         case -1:
             RedirectCreate( x20, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19640,8 +19640,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 1:
             var x21 *Node
             var x22 *Node
-            x21 = x20.GetChild( 0 )
-            x22 = x20.GetChild( 1 )
+            x21 = x20.Children[ 0 ]
+            x22 = x20.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17Create( root, x22, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x21, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -19653,9 +19653,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     var x25 *Node
-    x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x22 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x25 = root.GetChild( 3 )
     switch x25.GetConstructor(  ){
         case -1:
@@ -19676,8 +19676,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x4 *Node
     var x2 *Node
     x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
         case -1:
             RedirectCreate( x22, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19696,7 +19696,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -19704,8 +19704,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -19714,7 +19714,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x1 ) )
     return
 }
@@ -19724,7 +19724,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -19732,8 +19732,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -19745,8 +19745,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19757,8 +19757,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 78 ) ) )
             return
     }
@@ -19770,9 +19770,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -19793,8 +19793,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19805,8 +19805,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3Create( root, x8, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -19818,9 +19818,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x8 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -19841,8 +19841,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x8 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19853,8 +19853,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x8.GetChild( 0 )
-            x10 = x8.GetChild( 1 )
+            x9 = x8.Children[ 0 ]
+            x10 = x8.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5Create( root, x10, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x9, CharLitCreate( new( Node ), 110 ) ) )
             return
     }
@@ -19866,9 +19866,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x10 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -19889,8 +19889,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x10 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19901,8 +19901,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x11 *Node
             var x12 *Node
-            x11 = x10.GetChild( 0 )
-            x12 = x10.GetChild( 1 )
+            x11 = x10.Children[ 0 ]
+            x12 = x10.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7Create( root, x12, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x11, CharLitCreate( new( Node ), 100 ) ) )
             return
     }
@@ -19914,9 +19914,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x12 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -19937,8 +19937,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x12 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19949,8 +19949,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x13 *Node
             var x14 *Node
-            x13 = x12.GetChild( 0 )
-            x14 = x12.GetChild( 1 )
+            x13 = x12.Children[ 0 ]
+            x14 = x12.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9Create( root, x14, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x13, CharLitCreate( new( Node ), 101 ) ) )
             return
     }
@@ -19962,9 +19962,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x14 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -19985,8 +19985,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x14 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -19997,8 +19997,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x15 *Node
             var x16 *Node
-            x15 = x14.GetChild( 0 )
-            x16 = x14.GetChild( 1 )
+            x15 = x14.Children[ 0 ]
+            x16 = x14.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11Create( root, x16, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x15, CharLitCreate( new( Node ), 116 ) ) )
             return
     }
@@ -20010,9 +20010,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x16 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20033,8 +20033,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x16 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20045,8 +20045,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x17 *Node
             var x18 *Node
-            x17 = x16.GetChild( 0 )
-            x18 = x16.GetChild( 1 )
+            x17 = x16.Children[ 0 ]
+            x18 = x16.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13Create( root, x18, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x17, CharLitCreate( new( Node ), 69 ) ) )
             return
     }
@@ -20058,9 +20058,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x18 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20081,8 +20081,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x18 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20093,8 +20093,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x19 *Node
             var x20 *Node
-            x19 = x18.GetChild( 0 )
-            x20 = x18.GetChild( 1 )
+            x19 = x18.Children[ 0 ]
+            x20 = x18.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15Create( root, x20, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x19, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -20106,9 +20106,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x20 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20129,8 +20129,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x20 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
         case -1:
             RedirectCreate( x20, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20141,8 +20141,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x21 *Node
             var x22 *Node
-            x21 = x20.GetChild( 0 )
-            x22 = x20.GetChild( 1 )
+            x21 = x20.Children[ 0 ]
+            x22 = x20.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17Create( root, x22, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x21, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -20154,9 +20154,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x22 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20177,8 +20177,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x22 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
         case -1:
             RedirectCreate( x22, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20189,8 +20189,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x23 *Node
             var x24 *Node
-            x23 = x22.GetChild( 0 )
-            x24 = x22.GetChild( 1 )
+            x23 = x22.Children[ 0 ]
+            x24 = x22.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19Create( root, x24, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x23, CharLitCreate( new( Node ), 111 ) ) )
             return
     }
@@ -20202,9 +20202,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x24 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x24 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20225,8 +20225,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x24 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x24.GetConstructor(  ){
         case -1:
             RedirectCreate( x24, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20237,8 +20237,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 1:
             var x25 *Node
             var x26 *Node
-            x25 = x24.GetChild( 0 )
-            x26 = x24.GetChild( 1 )
+            x25 = x24.Children[ 0 ]
+            x26 = x24.Children[ 1 ]
             Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21Create( root, x26, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x25, CharLitCreate( new( Node ), 114 ) ) )
             return
     }
@@ -20250,9 +20250,9 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     var x29 *Node
-    x26 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x26 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x29 = root.GetChild( 3 )
     switch x29.GetConstructor(  ){
         case -1:
@@ -20273,8 +20273,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x4 *Node
     var x2 *Node
     x26 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x26.GetConstructor(  ){
         case -1:
             RedirectCreate( x26, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20293,7 +20293,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -20301,8 +20301,8 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_NondetErrorCreate( new( Node ), x3 ), x4 ), x2 )
             return
     }
@@ -20318,8 +20318,8 @@ func Prelude__( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude____Hashlambda279Create( root, x1, x2 )
     return
 }
@@ -20329,9 +20329,9 @@ func Prelude____Hashlambda279( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, x1, Prelude_applyCreate( new( Node ), x2, x3 ) )
     return
 }
@@ -20339,7 +20339,7 @@ func Prelude____Hashlambda279( task *Task )(  ){
 func Prelude_id( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -20347,7 +20347,7 @@ func Prelude_id( task *Task )(  ){
 func Prelude_const( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -20357,9 +20357,9 @@ func Prelude_curry( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, x1, Prelude_LbCommaRbCreate( new( Node ), x2, x3 ) )
     return
 }
@@ -20368,7 +20368,7 @@ func Prelude_uncurry( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -20377,8 +20377,8 @@ func Prelude_uncurry( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), x1, x3 ), x4 )
             return
     }
@@ -20389,9 +20389,9 @@ func Prelude_flip( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), x1, x3 ), x2 )
     return
 }
@@ -20401,9 +20401,9 @@ func Prelude_until( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_until_COMPLEXCASE0Create( root, x1, x2, x3, Prelude_applyCreate( new( Node ), x1, x3 ) )
     return
 }
@@ -20414,9 +20414,9 @@ func Prelude_until_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -20435,8 +20435,8 @@ func Prelude_seq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolExclCreate( root, Prelude_constCreate( new( Node ), x2 ), x1 )
     return
 }
@@ -20449,7 +20449,7 @@ func Prelude_ensureNotFree( task *Task )(  ){
 func Prelude_ensureSpine( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_ensureSpine_ensureList_20Create( root, Prelude_ensureNotFreeCreate( new( Node ), x1 ) )
     return
 }
@@ -20468,8 +20468,8 @@ func Prelude_ensureSpine_ensureList_20( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_ColCreate( root, x2, Prelude_ensureSpineCreate( new( Node ), x3 ) )
             return
     }
@@ -20479,8 +20479,8 @@ func Prelude_Dol( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, x1, x2 )
     return
 }
@@ -20499,8 +20499,8 @@ func Prelude_DolHash( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolExclCreate( root, x1, Prelude_ensureNotFreeCreate( new( Node ), x2 ) )
     return
 }
@@ -20513,7 +20513,7 @@ func Prelude_DolHashHash( task *Task )(  ){
 func Prelude_error( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_errorCreate( new( Node ) ), x1 )
     return
 }
@@ -20533,7 +20533,7 @@ func Prelude_AndAnd( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20552,7 +20552,7 @@ func Prelude_StrtStrt( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20595,8 +20595,8 @@ func Prelude_if_then_else( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20632,7 +20632,7 @@ func Prelude_AndGt( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20660,8 +20660,8 @@ func Prelude_eqChar( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_eqCharCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20675,8 +20675,8 @@ func Prelude_eqInt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_eqIntCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20690,8 +20690,8 @@ func Prelude_eqFloat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_eqFloatCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20705,8 +20705,8 @@ func Prelude_ltEqChar( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_ltEqCharCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20720,8 +20720,8 @@ func Prelude_ltEqInt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_ltEqIntCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20735,8 +20735,8 @@ func Prelude_ltEqFloat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_ltEqFloatCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -20756,7 +20756,7 @@ func Prelude_fst( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -20772,7 +20772,7 @@ func Prelude_snd( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -20791,7 +20791,7 @@ func Prelude_head( task *Task )(  ){
             return
         case 1:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -20810,7 +20810,7 @@ func Prelude_tail( task *Task )(  ){
             return
         case 1:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -20838,7 +20838,7 @@ func Prelude_AddAdd( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20849,8 +20849,8 @@ func Prelude_AddAdd( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, x3, Prelude_AddAddCreate( new( Node ), x4, x2 ) )
             return
     }
@@ -20859,7 +20859,7 @@ func Prelude_AddAdd( task *Task )(  ){
 func Prelude_length( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_length_len_92Create( root, Prelude__instHashPrelude_NumHashPrelude_IntCreate( new( Node ) ), x1, IntLitCreate( new( Node ), 0 ) )
     return
 }
@@ -20869,9 +20869,9 @@ func Prelude_length_len_92( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20881,7 +20881,7 @@ func Prelude_length_len_92( task *Task )(  ){
             return
         case 1:
             var x5 *Node
-            x5 = x2.GetChild( 1 )
+            x5 = x2.Children[ 1 ]
             Prelude_length_len_92_LET0Create( root, x5, x3, x1 )
             return
     }
@@ -20893,9 +20893,9 @@ func Prelude_length_len_92_LET0( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     var x6 *Node
-    x5 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
+    x5 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
     x6 = Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_AddCreate( new( Node ), x1 ), x3 ), Prelude_applyCreate( new( Node ), Prelude_fromIntCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 1 ) ) )
     Prelude_DolExclExclCreate( root, Prelude_length_len_92Create( new( Node ), x1, x5 ), x6 )
     return
@@ -20906,7 +20906,7 @@ func Prelude_ExclExcl( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20917,8 +20917,8 @@ func Prelude_ExclExcl( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ExclExcl_COMPLEXCASE0Create( root, x4, x2, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IntCreate( new( Node ), x2, IntLitCreate( new( Node ), 0 ) ) )
             return
     }
@@ -20930,9 +20930,9 @@ func Prelude_ExclExcl_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x4 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x5 = root.GetChild( 3 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -20952,8 +20952,8 @@ func Prelude_ExclExcl_COMPLEXCASE1( task *Task )(  ){
     var x4 *Node
     var x2 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -20972,7 +20972,7 @@ func Prelude_map( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -20984,8 +20984,8 @@ func Prelude_map( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_applyCreate( new( Node ), x1, x3 ), Prelude_mapCreate( new( Node ), x1, x4 ) )
             return
     }
@@ -20996,8 +20996,8 @@ func Prelude_foldl( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -21009,8 +21009,8 @@ func Prelude_foldl( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_foldlCreate( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x1, x2 ), x4 ), x5 )
             return
     }
@@ -21020,7 +21020,7 @@ func Prelude_foldl1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21032,8 +21032,8 @@ func Prelude_foldl1( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_foldlCreate( root, x1, x3, x4 )
             return
     }
@@ -21044,8 +21044,8 @@ func Prelude_foldr( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -21057,8 +21057,8 @@ func Prelude_foldr( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), x1, x4 ), Prelude_foldrCreate( new( Node ), x1, x2, x5 ) )
             return
     }
@@ -21068,7 +21068,7 @@ func Prelude_foldr1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21080,8 +21080,8 @@ func Prelude_foldr1( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_foldr1_CASE0Create( root, x3, x1, x4 )
             return
     }
@@ -21092,8 +21092,8 @@ func Prelude_foldr1_CASE0( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     var x4 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
     x4 = root.GetChild( 2 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -21112,7 +21112,7 @@ func Prelude_filter( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21124,8 +21124,8 @@ func Prelude_filter( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_filter_COMPLEXCASE0Create( root, x3, x1, x4, Prelude_applyCreate( new( Node ), x1, x3 ) )
             return
     }
@@ -21137,9 +21137,9 @@ func Prelude_filter_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x5 = root.GetChild( 3 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -21159,7 +21159,7 @@ func Prelude_zip( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21170,8 +21170,8 @@ func Prelude_zip( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_zip_CASE0Create( root, x2, x3, x4 )
             return
     }
@@ -21183,8 +21183,8 @@ func Prelude_zip_CASE0( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21195,8 +21195,8 @@ func Prelude_zip_CASE0( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x2.GetChild( 0 )
-            x6 = x2.GetChild( 1 )
+            x5 = x2.Children[ 0 ]
+            x6 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), x3, x5 ), Prelude_zipCreate( new( Node ), x4, x6 ) )
             return
     }
@@ -21208,8 +21208,8 @@ func Prelude_zip3( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21220,8 +21220,8 @@ func Prelude_zip3( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x1.GetChild( 0 )
-            x5 = x1.GetChild( 1 )
+            x4 = x1.Children[ 0 ]
+            x5 = x1.Children[ 1 ]
             Prelude_zip3_CASE0Create( root, x2, x3, x4, x5 )
             return
     }
@@ -21234,9 +21234,9 @@ func Prelude_zip3_CASE0( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x5 = root.GetChild( 3 )
+    x3 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x5 = root.Children[ 3 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21247,8 +21247,8 @@ func Prelude_zip3_CASE0( task *Task )(  ){
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x2.GetChild( 0 )
-            x7 = x2.GetChild( 1 )
+            x6 = x2.Children[ 0 ]
+            x7 = x2.Children[ 1 ]
             Prelude_zip3_CASE1Create( root, x3, x4, x6, x5, x7 )
             return
     }
@@ -21262,10 +21262,10 @@ func Prelude_zip3_CASE1( task *Task )(  ){
     var x5 *Node
     var x7 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x6 = root.GetChild( 2 )
-    x5 = root.GetChild( 3 )
-    x7 = root.GetChild( 4 )
+    x4 = root.Children[ 1 ]
+    x6 = root.Children[ 2 ]
+    x5 = root.Children[ 3 ]
+    x7 = root.Children[ 4 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21276,8 +21276,8 @@ func Prelude_zip3_CASE1( task *Task )(  ){
         case 1:
             var x8 *Node
             var x9 *Node
-            x8 = x3.GetChild( 0 )
-            x9 = x3.GetChild( 1 )
+            x8 = x3.Children[ 0 ]
+            x9 = x3.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaCommaRbCreate( new( Node ), x4, x6, x8 ), Prelude_zip3Create( new( Node ), x5, x7, x9 ) )
             return
     }
@@ -21288,9 +21288,9 @@ func Prelude_zipWith( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21301,8 +21301,8 @@ func Prelude_zipWith( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_zipWith_CASE0Create( root, x3, x4, x1, x5 )
             return
     }
@@ -21315,9 +21315,9 @@ func Prelude_zipWith_CASE0( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x5 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x5 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21328,8 +21328,8 @@ func Prelude_zipWith_CASE0( task *Task )(  ){
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x3.GetChild( 0 )
-            x7 = x3.GetChild( 1 )
+            x6 = x3.Children[ 0 ]
+            x7 = x3.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x1, x4 ), x6 ), Prelude_zipWithCreate( new( Node ), x1, x5, x7 ) )
             return
     }
@@ -21341,10 +21341,10 @@ func Prelude_zipWith3( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21355,8 +21355,8 @@ func Prelude_zipWith3( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x2.GetChild( 0 )
-            x6 = x2.GetChild( 1 )
+            x5 = x2.Children[ 0 ]
+            x6 = x2.Children[ 1 ]
             Prelude_zipWith3_CASE0Create( root, x3, x4, x5, x1, x6 )
             return
     }
@@ -21370,10 +21370,10 @@ func Prelude_zipWith3_CASE0( task *Task )(  ){
     var x1 *Node
     var x6 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x6 = root.GetChild( 4 )
+    x4 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x6 = root.Children[ 4 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21384,8 +21384,8 @@ func Prelude_zipWith3_CASE0( task *Task )(  ){
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x3.GetChild( 0 )
-            x8 = x3.GetChild( 1 )
+            x7 = x3.Children[ 0 ]
+            x8 = x3.Children[ 1 ]
             Prelude_zipWith3_CASE1Create( root, x4, x5, x7, x1, x6, x8 )
             return
     }
@@ -21400,11 +21400,11 @@ func Prelude_zipWith3_CASE1( task *Task )(  ){
     var x6 *Node
     var x8 *Node
     x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x7 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x6 = root.GetChild( 4 )
-    x8 = root.GetChild( 5 )
+    x5 = root.Children[ 1 ]
+    x7 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x6 = root.Children[ 4 ]
+    x8 = root.Children[ 5 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21415,8 +21415,8 @@ func Prelude_zipWith3_CASE1( task *Task )(  ){
         case 1:
             var x9 *Node
             var x10 *Node
-            x9 = x4.GetChild( 0 )
-            x10 = x4.GetChild( 1 )
+            x9 = x4.Children[ 0 ]
+            x10 = x4.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x1, x5 ), x7 ), x9 ), Prelude_zipWith3Create( new( Node ), x1, x6, x8, x10 ) )
             return
     }
@@ -21436,8 +21436,8 @@ func Prelude_unzip( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_unzip_CASE0Create( root, x2, x3 )
             return
     }
@@ -21448,7 +21448,7 @@ func Prelude_unzip_CASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21456,8 +21456,8 @@ func Prelude_unzip_CASE0( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_unzip_LET1Create( root, x4, x5, x3 )
             return
     }
@@ -21471,9 +21471,9 @@ func Prelude_unzip_LET1( task *Task )(  ){
     var x6 *Node
     var x7 *Node
     var x8 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x6 = Prelude_unzipCreate( new( Node ), x3 )
     x7 = Prelude_unzip__HashselFP10HashxsCreate( new( Node ), x6 )
     x8 = Prelude_unzip__HashselFP11HashysCreate( new( Node ), x6 )
@@ -21491,7 +21491,7 @@ func Prelude_unzip__HashselFP10Hashxs( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -21507,7 +21507,7 @@ func Prelude_unzip__HashselFP11Hashys( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -21527,8 +21527,8 @@ func Prelude_unzip3( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_unzip3_CASE0Create( root, x2, x3 )
             return
     }
@@ -21539,7 +21539,7 @@ func Prelude_unzip3_CASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21548,9 +21548,9 @@ func Prelude_unzip3_CASE0( task *Task )(  ){
             var x4 *Node
             var x5 *Node
             var x6 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
-            x6 = x2.GetChild( 2 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
+            x6 = x2.Children[ 2 ]
             Prelude_unzip3_LET1Create( root, x4, x5, x6, x3 )
             return
     }
@@ -21566,10 +21566,10 @@ func Prelude_unzip3_LET1( task *Task )(  ){
     var x8 *Node
     var x9 *Node
     var x10 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x6 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
+    x6 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x7 = Prelude_unzip3Create( new( Node ), x3 )
     x8 = Prelude_unzip3__HashselFP13HashxsCreate( new( Node ), x7 )
     x9 = Prelude_unzip3__HashselFP14HashysCreate( new( Node ), x7 )
@@ -21588,7 +21588,7 @@ func Prelude_unzip3__HashselFP13Hashxs( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -21604,7 +21604,7 @@ func Prelude_unzip3__HashselFP14Hashys( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -21620,7 +21620,7 @@ func Prelude_unzip3__HashselFP15Hashzs( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -21629,7 +21629,7 @@ func Prelude_unzip3__HashselFP15Hashzs( task *Task )(  ){
 func Prelude_concat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude_AddAddCreate( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), x1 )
     return
 }
@@ -21637,7 +21637,7 @@ func Prelude_concat( task *Task )(  ){
 func Prelude_concatMap( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_concatCreate( new( Node ) ), Prelude_mapCreate( new( Node ), x1 ) )
     return
 }
@@ -21646,8 +21646,8 @@ func Prelude_iterate( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_ColCreate( root, x2, Prelude_iterateCreate( new( Node ), x1, Prelude_applyCreate( new( Node ), x1, x2 ) ) )
     return
 }
@@ -21655,7 +21655,7 @@ func Prelude_iterate( task *Task )(  ){
 func Prelude_repeat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_ColCreate( root, x1, Prelude_repeatCreate( new( Node ), x1 ) )
     return
 }
@@ -21664,8 +21664,8 @@ func Prelude_replicate( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_takeCreate( root, x1, Prelude_repeatCreate( new( Node ), x2 ) )
     return
 }
@@ -21674,8 +21674,8 @@ func Prelude_take( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_take_COMPLEXCASE0Create( root, x1, x2, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -21685,8 +21685,8 @@ func Prelude_take_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -21705,7 +21705,7 @@ func Prelude_take_takep_209( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21717,8 +21717,8 @@ func Prelude_take_takep_209( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_ColCreate( root, x3, Prelude_takeCreate( new( Node ), Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 1 ) ), x4 ) )
             return
     }
@@ -21728,8 +21728,8 @@ func Prelude_drop( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_drop_COMPLEXCASE0Create( root, x1, x2, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -21739,8 +21739,8 @@ func Prelude_drop_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -21760,7 +21760,7 @@ func Prelude_drop_CASE1( task *Task )(  ){
     var x2 *Node
     var x1 *Node
     x2 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x1 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21770,7 +21770,7 @@ func Prelude_drop_CASE1( task *Task )(  ){
             return
         case 1:
             var x4 *Node
-            x4 = x2.GetChild( 1 )
+            x4 = x2.Children[ 1 ]
             Prelude_dropCreate( root, Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 1 ) ), x4 )
             return
     }
@@ -21780,8 +21780,8 @@ func Prelude_splitAt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_splitAt_COMPLEXCASE0Create( root, x1, x2, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -21791,8 +21791,8 @@ func Prelude_splitAt_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -21811,7 +21811,7 @@ func Prelude_splitAt_splitAtp_223( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21823,8 +21823,8 @@ func Prelude_splitAt_splitAtp_223( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_splitAt_splitAtp_223_LET0Create( root, x3, x1, x4 )
             return
     }
@@ -21838,9 +21838,9 @@ func Prelude_splitAt_splitAtp_223_LET0( task *Task )(  ){
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x5 = Prelude_splitAtCreate( new( Node ), Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 1 ) ), x4 )
     x6 = Prelude_splitAt_splitAtp_223__HashselFP17HashysCreate( new( Node ), x5 )
     x7 = Prelude_splitAt_splitAtp_223__HashselFP18HashzsCreate( new( Node ), x5 )
@@ -21858,7 +21858,7 @@ func Prelude_splitAt_splitAtp_223__HashselFP17Hashys( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -21874,7 +21874,7 @@ func Prelude_splitAt_splitAtp_223__HashselFP18Hashzs( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -21884,7 +21884,7 @@ func Prelude_takeWhile( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21896,8 +21896,8 @@ func Prelude_takeWhile( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_takeWhile_COMPLEXCASE0Create( root, x3, x1, x4, Prelude_applyCreate( new( Node ), x1, x3 ) )
             return
     }
@@ -21909,9 +21909,9 @@ func Prelude_takeWhile_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x5 = root.GetChild( 3 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -21930,7 +21930,7 @@ func Prelude_dropWhile( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21942,8 +21942,8 @@ func Prelude_dropWhile( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_dropWhile_COMPLEXCASE0Create( root, x3, x1, x4, Prelude_applyCreate( new( Node ), x1, x3 ) )
             return
     }
@@ -21955,9 +21955,9 @@ func Prelude_dropWhile_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x5 = root.GetChild( 3 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -21976,7 +21976,7 @@ func Prelude_span( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -21988,8 +21988,8 @@ func Prelude_span( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_span_COMPLEXCASE0Create( root, x3, x1, x4, Prelude_applyCreate( new( Node ), x1, x3 ) )
             return
     }
@@ -22001,9 +22001,9 @@ func Prelude_span_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x8 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x8 = root.GetChild( 3 )
     switch x8.GetConstructor(  ){
         case -1:
@@ -22026,9 +22026,9 @@ func Prelude_span_LET2( task *Task )(  ){
     var x5 *Node
     var x6 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
     x5 = Prelude_spanCreate( new( Node ), x1, x4 )
     x6 = Prelude_span__HashselFP20HashysCreate( new( Node ), x5 )
     x7 = Prelude_span__HashselFP21HashzsCreate( new( Node ), x5 )
@@ -22041,8 +22041,8 @@ func Prelude_span_COMPLEXCASE1( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -22067,7 +22067,7 @@ func Prelude_span__HashselFP20Hashys( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -22083,7 +22083,7 @@ func Prelude_span__HashselFP21Hashzs( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -22092,7 +22092,7 @@ func Prelude_span__HashselFP21Hashzs( task *Task )(  ){
 func Prelude_break( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_spanCreate( root, Prelude__Create( new( Node ), Prelude_notCreate( new( Node ) ), x1 ) )
     return
 }
@@ -22111,8 +22111,8 @@ func Prelude_lines( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lines_LET0Create( root, x2, x3 )
             return
     }
@@ -22125,8 +22125,8 @@ func Prelude_lines_LET0( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x2 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x4 = Prelude_lines_splitline_253Create( new( Node ), Prelude_ColCreate( new( Node ), x2, x3 ) )
     x5 = Prelude_lines__HashselFP26HashlCreate( new( Node ), x4 )
     x6 = Prelude_lines__HashselFP27Hashxs_lCreate( new( Node ), x4 )
@@ -22148,8 +22148,8 @@ func Prelude_lines_splitline_253( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lines_splitline_253_COMPLEXCASE0Create( root, x2, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 10 ) ) )
             return
     }
@@ -22160,8 +22160,8 @@ func Prelude_lines_splitline_253_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x7 *Node
-    x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x2 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x7 = root.GetChild( 2 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -22183,8 +22183,8 @@ func Prelude_lines_splitline_253_LET1( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x2 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x4 = Prelude_lines_splitline_253Create( new( Node ), x3 )
     x5 = Prelude_lines_splitline_253__HashselFP23HashdsCreate( new( Node ), x4 )
     x6 = Prelude_lines_splitline_253__HashselFP24HashesCreate( new( Node ), x4 )
@@ -22202,7 +22202,7 @@ func Prelude_lines_splitline_253__HashselFP23Hashds( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -22218,7 +22218,7 @@ func Prelude_lines_splitline_253__HashselFP24Hashes( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -22234,7 +22234,7 @@ func Prelude_lines__HashselFP26Hashl( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -22250,7 +22250,7 @@ func Prelude_lines__HashselFP27Hashxs_l( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -22259,7 +22259,7 @@ func Prelude_lines__HashselFP27Hashxs_l( task *Task )(  ){
 func Prelude_unlines( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_applyCreate( root, Prelude_concatMapCreate( new( Node ), Prelude_flipCreate( new( Node ), Prelude_AddAddCreate( new( Node ) ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 10 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ), x1 )
     return
 }
@@ -22268,7 +22268,7 @@ func Prelude_words( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = Prelude_dropWhileCreate( new( Node ), Prelude_isSpaceCreate( new( Node ) ), x1 )
     Prelude_words_COMPLEXCASE0Create( root, x2, Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x2, Prelude_LSbRSbCreate( new( Node ) ) ) )
     return
@@ -22278,7 +22278,7 @@ func Prelude_words_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
     var x6 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x6 = root.GetChild( 1 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -22299,7 +22299,7 @@ func Prelude_words_LET1( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = Prelude_applyCreate( new( Node ), Prelude_breakCreate( new( Node ), Prelude_isSpaceCreate( new( Node ) ) ), x2 )
     x4 = Prelude_words__HashselFP29HashwCreate( new( Node ), x3 )
     x5 = Prelude_words__HashselFP30Hashs2Create( new( Node ), x3 )
@@ -22317,7 +22317,7 @@ func Prelude_words__HashselFP29Hashw( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -22333,7 +22333,7 @@ func Prelude_words__HashselFP30Hashs2( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -22342,7 +22342,7 @@ func Prelude_words__HashselFP30Hashs2( task *Task )(  ){
 func Prelude_unwords( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_unwords_COMPLEXCASE0Create( root, x1, Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_EqHashLSbRSbCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ) ), x1, Prelude_LSbRSbCreate( new( Node ) ) ) )
     return
 }
@@ -22351,7 +22351,7 @@ func Prelude_unwords_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -22370,8 +22370,8 @@ func Prelude_unwords__Hashlambda282( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, x1, Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), x2 ) )
     return
 }
@@ -22397,7 +22397,7 @@ func Prelude_or( task *Task )(  ){
 func Prelude_any( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_orCreate( new( Node ) ), Prelude_mapCreate( new( Node ), x1 ) )
     return
 }
@@ -22405,7 +22405,7 @@ func Prelude_any( task *Task )(  ){
 func Prelude_all( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_andCreate( new( Node ) ), Prelude_mapCreate( new( Node ), x1 ) )
     return
 }
@@ -22414,8 +22414,8 @@ func Prelude_elem( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_anyCreate( root, Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x2 ) )
     return
 }
@@ -22424,8 +22424,8 @@ func Prelude_notElem( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_allCreate( root, Prelude_applyCreate( new( Node ), Prelude_SlashEqCreate( new( Node ), x1 ), x2 ) )
     return
 }
@@ -22435,8 +22435,8 @@ func Prelude_lookup( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -22448,8 +22448,8 @@ func Prelude_lookup( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_lookup_CASE0Create( root, x4, x1, x2, x5 )
             return
     }
@@ -22462,9 +22462,9 @@ func Prelude_lookup_CASE0( task *Task )(  ){
     var x2 *Node
     var x5 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x5 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x5 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22472,8 +22472,8 @@ func Prelude_lookup_CASE0( task *Task )(  ){
         case 0:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_lookup_COMPLEXCASE1Create( root, x1, x2, x5, x7, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_EqEqCreate( new( Node ), x1 ), x2 ), x6 ) )
             return
     }
@@ -22486,10 +22486,10 @@ func Prelude_lookup_COMPLEXCASE1( task *Task )(  ){
     var x5 *Node
     var x7 *Node
     var x8 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x7 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x7 = root.Children[ 3 ]
     x8 = root.GetChild( 4 )
     switch x8.GetConstructor(  ){
         case -1:
@@ -22510,9 +22510,9 @@ func Prelude_lookup_COMPLEXCASE2( task *Task )(  ){
     var x2 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     x6 = root.GetChild( 3 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -22530,7 +22530,7 @@ func Prelude_lookup_COMPLEXCASE2( task *Task )(  ){
 func Prelude_enumFrom_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_ColCreate( root, x1, Prelude_enumFrom_Create( new( Node ), Prelude__implHashAddHashPrelude_NumHashPrelude_IntCreate( new( Node ), x1, IntLitCreate( new( Node ), 1 ) ) ) )
     return
 }
@@ -22539,8 +22539,8 @@ func Prelude_enumFromThen_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_iterateCreate( root, Prelude__implHashAddHashPrelude_NumHashPrelude_IntCreate( new( Node ), Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( new( Node ), x2, x1 ) ), x1 )
     return
 }
@@ -22549,8 +22549,8 @@ func Prelude_enumFromTo_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_enumFromTo__COMPLEXCASE0Create( root, x1, x2, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x1 ), x2 ) )
     return
 }
@@ -22560,8 +22560,8 @@ func Prelude_enumFromTo__COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -22581,9 +22581,9 @@ func Prelude_enumFromThenTo_( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_takeWhileCreate( root, Prelude_enumFromThenTo__p_299Create( new( Node ), x3, x1, x2 ), Prelude_enumFromThen_Create( new( Node ), x1, x2 ) )
     return
 }
@@ -22594,10 +22594,10 @@ func Prelude_enumFromThenTo__p_299( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_enumFromThenTo__p_299_COMPLEXCASE0Create( root, x4, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x3 ), x2 ) )
     return
 }
@@ -22607,8 +22607,8 @@ func Prelude_enumFromThenTo__p_299_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -22628,8 +22628,8 @@ func Prelude_enumFromThenTo__p_299_COMPLEXCASE1( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -22647,7 +22647,7 @@ func Prelude_enumFromThenTo__p_299_COMPLEXCASE1( task *Task )(  ){
 func Prelude_ord( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashCreate( root, Prelude_prim_ordCreate( new( Node ) ), x1 )
     return
 }
@@ -22660,7 +22660,7 @@ func Prelude_prim_ord( task *Task )(  ){
 func Prelude_chr( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_chr_COMPLEXCASE0Create( root, x1, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x1 ), IntLitCreate( new( Node ), 0 ) ) )
     return
 }
@@ -22669,7 +22669,7 @@ func Prelude_chr_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -22693,8 +22693,8 @@ func Prelude_AddDol( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_plusCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22708,8 +22708,8 @@ func Prelude_SubDol( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_minusCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22723,8 +22723,8 @@ func Prelude_MulDol( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_timesCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22738,8 +22738,8 @@ func Prelude_div_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_divCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22753,8 +22753,8 @@ func Prelude_mod_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_modCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22768,8 +22768,8 @@ func Prelude_divMod_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_LbCommaRbCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashdivHashPrelude_IntegralHashPrelude_IntCreate( new( Node ) ), x1 ), x2 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashmodHashPrelude_IntegralHashPrelude_IntCreate( new( Node ) ), x1 ), x2 ) )
     return
 }
@@ -22778,8 +22778,8 @@ func Prelude_quot_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_quotCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22793,8 +22793,8 @@ func Prelude_rem_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Int_remCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -22808,8 +22808,8 @@ func Prelude_quotRem_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_LbCommaRbCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashquotHashPrelude_IntegralHashPrelude_IntCreate( new( Node ) ), x1 ), x2 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashremHashPrelude_IntegralHashPrelude_IntCreate( new( Node ) ), x1 ), x2 ) )
     return
 }
@@ -22817,7 +22817,7 @@ func Prelude_quotRem_( task *Task )(  ){
 func Prelude_negate_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( root, IntLitCreate( new( Node ), 0 ), x1 )
     return
 }
@@ -22825,7 +22825,7 @@ func Prelude_negate_( task *Task )(  ){
 func Prelude_negateFloat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashCreate( root, Prelude_prim_negateFloatCreate( new( Node ) ), x1 )
     return
 }
@@ -22846,8 +22846,8 @@ func Prelude_maybe( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -22858,7 +22858,7 @@ func Prelude_maybe( task *Task )(  ){
             return
         case 1:
             var x4 *Node
-            x4 = x3.GetChild( 0 )
+            x4 = x3.Children[ 0 ]
             Prelude_applyCreate( root, x2, x4 )
             return
     }
@@ -22869,8 +22869,8 @@ func Prelude_either( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -22878,12 +22878,12 @@ func Prelude_either( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x3.GetChild( 0 )
+            x4 = x3.Children[ 0 ]
             Prelude_applyCreate( root, x1, x4 )
             return
         case 1:
             var x5 *Node
-            x5 = x3.GetChild( 0 )
+            x5 = x3.Children[ 0 ]
             Prelude_applyCreate( root, x2, x5 )
             return
     }
@@ -22903,8 +22903,8 @@ func Prelude_GtGtDol( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_GtGtEqDolCreate( root, x1, Prelude_GtGtDol__Hashlambda283Create( new( Node ), x2 ) )
     return
 }
@@ -22912,7 +22912,7 @@ func Prelude_GtGtDol( task *Task )(  ){
 func Prelude_GtGtDol__Hashlambda283( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -22926,7 +22926,7 @@ func Prelude_done( task *Task )(  ){
 func Prelude_putChar( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashCreate( root, Prelude_prim_putCharCreate( new( Node ) ), x1 )
     return
 }
@@ -22944,7 +22944,7 @@ func Prelude_getChar( task *Task )(  ){
 func Prelude_readFile( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_readFileCreate( new( Node ) ), x1 )
     return
 }
@@ -22963,8 +22963,8 @@ func Prelude_writeFile( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_DolHashHashCreate( new( Node ), Prelude_prim_writeFileCreate( new( Node ) ), x1 ), x2 )
     return
 }
@@ -22978,8 +22978,8 @@ func Prelude_appendFile( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_DolHashHashCreate( new( Node ), Prelude_prim_appendFileCreate( new( Node ) ), x1 ), x2 )
     return
 }
@@ -23003,8 +23003,8 @@ func Prelude_putStr( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_putCharCreate( new( Node ), x2 ), Prelude_putStrCreate( new( Node ), x3 ) )
             return
     }
@@ -23013,7 +23013,7 @@ func Prelude_putStr( task *Task )(  ){
 func Prelude_putStrLn( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_putStrCreate( new( Node ), x1 ), Prelude_putCharCreate( new( Node ), CharLitCreate( new( Node ), 10 ) ) )
     return
 }
@@ -23028,7 +23028,7 @@ func Prelude_getLine__Hashlambda285( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = x1
     Prelude_getLine__Hashlambda285_COMPLEXCASE0Create( root, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 10 ) ) )
     return
@@ -23038,7 +23038,7 @@ func Prelude_getLine__Hashlambda285_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
     var x3 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.GetChild( 1 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -23058,8 +23058,8 @@ func Prelude_getLine__Hashlambda285__Hashlambda288( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = x2
     Prelude__implHashreturnHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_ColCreate( new( Node ), x1, x3 ) )
     return
@@ -23068,7 +23068,7 @@ func Prelude_getLine__Hashlambda285__Hashlambda288( task *Task )(  ){
 func Prelude_userError( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_UserErrorCreate( root, x1 )
     return
 }
@@ -23076,7 +23076,7 @@ func Prelude_userError( task *Task )(  ){
 func Prelude_ioError( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_errorCreate( root, Prelude_showErrorCreate( new( Node ), x1 ) )
     return
 }
@@ -23091,22 +23091,22 @@ func Prelude_showError( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             Prelude_AddAddCreate( root, Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 105 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 47 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 58 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ), x2 )
             return
         case 1:
             var x3 *Node
-            x3 = x1.GetChild( 0 )
+            x3 = x1.Children[ 0 ]
             Prelude_AddAddCreate( root, Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 117 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 115 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 58 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ), x3 )
             return
         case 2:
             var x4 *Node
-            x4 = x1.GetChild( 0 )
+            x4 = x1.Children[ 0 ]
             Prelude_AddAddCreate( root, Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 102 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 97 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 105 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 108 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 58 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ), x4 )
             return
         case 3:
             var x5 *Node
-            x5 = x1.GetChild( 0 )
+            x5 = x1.Children[ 0 ]
             Prelude_AddAddCreate( root, Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 110 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 110 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 100 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 111 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 58 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 32 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ), x5 )
             return
     }
@@ -23120,7 +23120,7 @@ func Prelude_catch( task *Task )(  ){
 func Prelude_show_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_showCreate( new( Node ) ), x1 )
     return
 }
@@ -23134,8 +23134,8 @@ func Prelude_print( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_putStrLnCreate( root, Prelude_applyCreate( new( Node ), Prelude_showCreate( new( Node ), x1 ), x2 ) )
     return
 }
@@ -23171,8 +23171,8 @@ func Prelude_sequenceIO( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IOCreate( root, x2, Prelude_sequenceIO__Hashlambda292Create( new( Node ), x3 ) )
             return
     }
@@ -23183,8 +23183,8 @@ func Prelude_sequenceIO__Hashlambda292( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = x2
     Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_sequenceIOCreate( new( Node ), x1 ), Prelude_sequenceIO__Hashlambda292__Hashlambda294Create( new( Node ), x3 ) )
     return
@@ -23195,8 +23195,8 @@ func Prelude_sequenceIO__Hashlambda292__Hashlambda294( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = x2
     Prelude__implHashreturnHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_ColCreate( new( Node ), x1, x3 ) )
     return
@@ -23211,7 +23211,7 @@ func Prelude_sequenceIO_( task *Task )(  ){
 func Prelude_mapIO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_sequenceIOCreate( new( Node ) ), Prelude_mapCreate( new( Node ), x1 ) )
     return
 }
@@ -23219,7 +23219,7 @@ func Prelude_mapIO( task *Task )(  ){
 func Prelude_mapIO_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_sequenceIO_Create( new( Node ) ), Prelude_mapCreate( new( Node ), x1 ) )
     return
 }
@@ -23229,8 +23229,8 @@ func Prelude_foldIO( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -23242,8 +23242,8 @@ func Prelude_foldIO( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IOCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x1, x2 ), x4 ), Prelude_foldIO__Hashlambda296Create( new( Node ), x5, x1 ) )
             return
     }
@@ -23254,9 +23254,9 @@ func Prelude_foldIO__Hashlambda296( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_foldIOCreate( root, x2, x3, x1 )
     return
 }
@@ -23265,8 +23265,8 @@ func Prelude_liftIO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IOCreate( root, x2, Prelude__Create( new( Node ), Prelude__implHashreturnHashPrelude_MonadHashPrelude_IOCreate( new( Node ) ), x1 ) )
     return
 }
@@ -23275,8 +23275,8 @@ func Prelude_forIO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_mapIOCreate( new( Node ), x2 ), x1 )
     return
 }
@@ -23285,8 +23285,8 @@ func Prelude_forIO_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_applyCreate( root, Prelude_mapIO_Create( new( Node ), x2 ), x1 )
     return
 }
@@ -23296,7 +23296,7 @@ func Prelude_unless( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23315,7 +23315,7 @@ func Prelude_when( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23333,8 +23333,8 @@ func Prelude_Qstn( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     ChoiceCreate( root, x1, x2 )
     return
 }
@@ -23355,7 +23355,7 @@ func Prelude_unknown( task *Task )(  ){
 func Prelude_PEVAL( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -23363,7 +23363,7 @@ func Prelude_PEVAL( task *Task )(  ){
 func Prelude_normalForm( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolExclExclCreate( root, Prelude_idCreate( new( Node ) ), x1 )
     return
 }
@@ -23371,7 +23371,7 @@ func Prelude_normalForm( task *Task )(  ){
 func Prelude_groundNormalForm( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_idCreate( new( Node ) ), x1 )
     return
 }
@@ -23416,9 +23416,9 @@ func Prelude_showListSQuote( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23429,8 +23429,8 @@ func Prelude_showListSQuote( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, CharLitCreate( new( Node ), 91 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x1, x4 ), Prelude_showListSQuote_showl_433Create( new( Node ), x3, x1, x5 ) ) )
             return
     }
@@ -23441,8 +23441,8 @@ func Prelude_showListSQuote_showl_433( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
     switch x3.GetConstructor(  ){
         case -1:
@@ -23454,8 +23454,8 @@ func Prelude_showListSQuote_showl_433( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_ColCreate( root, CharLitCreate( new( Node ), 44 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x2, x4 ), Prelude_showListSQuote_showl_433Create( new( Node ), x1, x2, x5 ) ) )
             return
     }
@@ -23464,7 +23464,7 @@ func Prelude_showListSQuote_showl_433( task *Task )(  ){
 func Prelude_shows( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_applyCreate( root, Prelude_showsPrecCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 0 ) )
     return
 }
@@ -23473,8 +23473,8 @@ func Prelude_showChar( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_ColCreate( root, x1, x2 )
     return
 }
@@ -23483,8 +23483,8 @@ func Prelude_showString( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude_showCharCreate( new( Node ) ), x2, x1 )
     return
 }
@@ -23494,7 +23494,7 @@ func Prelude_showParen( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23514,10 +23514,10 @@ func Prelude_showSigned( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_showSigned_COMPLEXCASE0Create( root, x3, x2, x1, x4, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_LtCreate( new( Node ), Prelude__superHashPrelude_RealHashPrelude_OrdCreate( new( Node ), x1 ) ), x4 ), Prelude_applyCreate( new( Node ), Prelude_fromIntCreate( new( Node ), Prelude__superHashPrelude_RealHashPrelude_NumCreate( new( Node ), x1 ) ), IntLitCreate( new( Node ), 0 ) ) ) )
     return
 }
@@ -23529,10 +23529,10 @@ func Prelude_showSigned_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x3 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = root.GetChild( 4 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -23552,8 +23552,8 @@ func Prelude_showSigned_COMPLEXCASE1( task *Task )(  ){
     var x2 *Node
     var x4 *Node
     var x5 *Node
-    x2 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
+    x2 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -23571,7 +23571,7 @@ func Prelude_showSigned_COMPLEXCASE1( task *Task )(  ){
 func Prelude_showTuple( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude__Create( root, Prelude_showCharCreate( new( Node ), CharLitCreate( new( Node ), 40 ) ), Prelude__Create( new( Node ), Prelude_foldr1Create( new( Node ), Prelude_showTuple__Hashlambda297Create( new( Node ) ), x1 ), Prelude_showCharCreate( new( Node ), CharLitCreate( new( Node ), 41 ) ) ) )
     return
 }
@@ -23580,8 +23580,8 @@ func Prelude_showTuple__Hashlambda297( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__Create( root, x1, Prelude__Create( new( Node ), Prelude_showCharCreate( new( Node ), CharLitCreate( new( Node ), 44 ) ), x2 ) )
     return
 }
@@ -23601,7 +23601,7 @@ func Prelude_appPrec1( task *Task )(  ){
 func Prelude_readListDefault( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude_readListDefault__Hashlambda326Create( new( Node ), x1 ) )
     return
 }
@@ -23610,8 +23610,8 @@ func Prelude_readListDefault_readlSQuote_456( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readlSQuote_456__Hashlambda312Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) ), Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readlSQuote_456__Hashlambda316Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) ) )
     return
 }
@@ -23621,7 +23621,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23629,8 +23629,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -23642,8 +23642,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0( task *Task )(
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23654,8 +23654,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0( task *Task )(
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 93 ) ) )
             return
     }
@@ -23667,9 +23667,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1( task *
     var x4 *Node
     var x2 *Node
     var x9 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x9 = root.GetChild( 3 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -23690,8 +23690,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2( task *Task )(
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23710,9 +23710,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23720,8 +23720,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -23734,9 +23734,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0( task *Task )(
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23747,8 +23747,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0( task *Task )(
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 44 ) ) )
             return
     }
@@ -23761,10 +23761,10 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1( task *
     var x5 *Node
     var x3 *Node
     var x10 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x10 = root.GetChild( 4 )
     switch x10.GetConstructor(  ){
         case -1:
@@ -23786,9 +23786,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2( task *Task )(
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23807,9 +23807,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320( task
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23817,8 +23817,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320( task
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324Create( new( Node ), x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_readListDefault_readlSQuote_456Create( new( Node ), x1, x5 ) ), x3 )
             return
     }
@@ -23829,9 +23829,9 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hash
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23839,8 +23839,8 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hash
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -23850,8 +23850,8 @@ func Prelude_readListDefault_readl_456( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readl_456__Hashlambda300Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) ), Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readl_456__Hashlambda304Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_readsCreate( new( Node ), x1 ), x2 ) ) )
     return
 }
@@ -23861,7 +23861,7 @@ func Prelude_readListDefault_readl_456__Hashlambda300( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23869,8 +23869,8 @@ func Prelude_readListDefault_readl_456__Hashlambda300( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_readListDefault_readl_456__Hashlambda300_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -23882,8 +23882,8 @@ func Prelude_readListDefault_readl_456__Hashlambda300_CASE0( task *Task )(  ){
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23894,8 +23894,8 @@ func Prelude_readListDefault_readl_456__Hashlambda300_CASE0( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1Create( root, x6, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 93 ) ) )
             return
     }
@@ -23907,9 +23907,9 @@ func Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1( task *Task )
     var x4 *Node
     var x2 *Node
     var x9 *Node
-    x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x6 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x9 = root.GetChild( 3 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -23930,8 +23930,8 @@ func Prelude_readListDefault_readl_456__Hashlambda300_CASE2( task *Task )(  ){
     var x4 *Node
     var x2 *Node
     x6 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23950,9 +23950,9 @@ func Prelude_readListDefault_readl_456__Hashlambda304( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23960,8 +23960,8 @@ func Prelude_readListDefault_readl_456__Hashlambda304( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308Create( new( Node ), x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_readListDefault_readlSQuote_456Create( new( Node ), x1, x5 ) ), x3 )
             return
     }
@@ -23972,9 +23972,9 @@ func Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308( task *Task
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -23982,8 +23982,8 @@ func Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308( task *Task
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -23993,8 +23993,8 @@ func Prelude_readListDefault__Hashlambda326( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -24004,9 +24004,9 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24014,8 +24014,8 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -24028,9 +24028,9 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0( task *Task )( 
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24041,8 +24041,8 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0( task *Task )( 
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 91 ) ) )
             return
     }
@@ -24055,10 +24055,10 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1( task *T
     var x5 *Node
     var x3 *Node
     var x10 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x10 = root.GetChild( 4 )
     switch x10.GetConstructor(  ){
         case -1:
@@ -24080,9 +24080,9 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2( task *Task )( 
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24099,7 +24099,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2( task *Task )( 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     RedirectCreate( root, x1 )
     return
 }
@@ -24107,7 +24107,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331( task 
 func Prelude_reads( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_applyCreate( root, Prelude_readsPrecCreate( new( Node ), x1 ), IntLitCreate( new( Node ), 0 ) )
     return
 }
@@ -24117,7 +24117,7 @@ func Prelude_readParen( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24135,8 +24135,8 @@ func Prelude_readParen_optional_474( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_AddAddCreate( root, Prelude_applyCreate( new( Node ), x1, x2 ), Prelude_readParen_mandatory_474Create( new( Node ), x1, x2 ) )
     return
 }
@@ -24145,8 +24145,8 @@ func Prelude_readParen_mandatory_474( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude_readParen_mandatory_474__Hashlambda334Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -24156,9 +24156,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24166,8 +24166,8 @@ func Prelude_readParen_mandatory_474__Hashlambda334( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_readParen_mandatory_474__Hashlambda334_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -24180,9 +24180,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334_CASE0( task *Task )(  ){
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24193,8 +24193,8 @@ func Prelude_readParen_mandatory_474__Hashlambda334_CASE0( task *Task )(  ){
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 40 ) ) )
             return
     }
@@ -24207,10 +24207,10 @@ func Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1( task *Task )( 
     var x5 *Node
     var x3 *Node
     var x10 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x10 = root.GetChild( 4 )
     switch x10.GetConstructor(  ){
         case -1:
@@ -24232,9 +24232,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334_CASE2( task *Task )(  ){
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24253,7 +24253,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338( task *Task )
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24261,8 +24261,8 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338( task *Task )
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342Create( new( Node ), x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x4 ) ), x2 )
             return
     }
@@ -24273,9 +24273,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24283,8 +24283,8 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0Create( root, x4, x1, x5, x3 )
             return
     }
@@ -24297,9 +24297,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x5 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24310,8 +24310,8 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
         case 1:
             var x6 *Node
             var x7 *Node
-            x6 = x4.GetChild( 0 )
-            x7 = x4.GetChild( 1 )
+            x6 = x4.Children[ 0 ]
+            x7 = x4.Children[ 1 ]
             Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1Create( root, x7, x1, x5, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x6, CharLitCreate( new( Node ), 41 ) ) )
             return
     }
@@ -24324,10 +24324,10 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x5 *Node
     var x3 *Node
     var x10 *Node
-    x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x7 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     x10 = root.GetChild( 4 )
     switch x10.GetConstructor(  ){
         case -1:
@@ -24349,9 +24349,9 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x5 *Node
     var x3 *Node
     x7 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24369,8 +24369,8 @@ func Prelude_read( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_read_COMPLEXCASE0Create( root, Prelude_foldrCreate( new( Node ), Prelude_read__Hashlambda346Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_readsCreate( new( Node ), x1 ), x2 ) ) )
     return
 }
@@ -24389,8 +24389,8 @@ func Prelude_read_COMPLEXCASE0( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x7.GetChild( 0 )
-            x4 = x7.GetChild( 1 )
+            x3 = x7.Children[ 0 ]
+            x4 = x7.Children[ 1 ]
             Prelude_read_CASE1Create( root, x4, x3 )
             return
     }
@@ -24401,7 +24401,7 @@ func Prelude_read_CASE1( task *Task )(  ){
     var x4 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24420,7 +24420,7 @@ func Prelude_read__Hashlambda346( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24428,8 +24428,8 @@ func Prelude_read__Hashlambda346( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_read__Hashlambda346__Hashlambda350Create( new( Node ), x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x4 ) ), x2 )
             return
     }
@@ -24440,9 +24440,9 @@ func Prelude_read__Hashlambda346__Hashlambda350( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24450,8 +24450,8 @@ func Prelude_read__Hashlambda346__Hashlambda350( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_read__Hashlambda346__Hashlambda350_CASE0Create( root, x4, x5, x1, x3 )
             return
     }
@@ -24464,9 +24464,9 @@ func Prelude_read__Hashlambda346__Hashlambda350_CASE0( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x5 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24486,8 +24486,8 @@ func Prelude_read__Hashlambda346__Hashlambda350_CASE1( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24505,8 +24505,8 @@ func Prelude_readSigned( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_readParenCreate( root, Prelude_FalseCreate( new( Node ) ), Prelude_readSigned_readSQuote_494Create( new( Node ), x1, x2 ) )
     return
 }
@@ -24515,8 +24515,8 @@ func Prelude_readSigned_readSQuoteSQuote_494( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363Create( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x2 ) )
     return
 }
@@ -24526,9 +24526,9 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24536,8 +24536,8 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367Create( new( Node ), x5 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_applyCreate( new( Node ), x1, x4 ) ), x3 )
             return
     }
@@ -24548,9 +24548,9 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367( task
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24558,8 +24558,8 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367( task
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0Create( root, x5, x4, x1, x3 )
             return
     }
@@ -24572,9 +24572,9 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0
     var x1 *Node
     var x3 *Node
     x5 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x1 = root.GetChild( 2 )
-    x3 = root.GetChild( 3 )
+    x4 = root.Children[ 1 ]
+    x1 = root.Children[ 2 ]
+    x3 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24593,9 +24593,9 @@ func Prelude_readSigned_readSQuote_494( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_AddAddCreate( root, Prelude_readSigned_readSQuoteSQuote_494Create( new( Node ), x2, x3 ), Prelude_foldrCreate( new( Node ), Prelude_readSigned_readSQuote_494__Hashlambda355Create( new( Node ), x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lexCreate( new( Node ), x3 ) ) )
     return
 }
@@ -24606,10 +24606,10 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24617,8 +24617,8 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0Create( root, x5, x1, x2, x6, x4 )
             return
     }
@@ -24632,10 +24632,10 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0( task *Task )(  ){
     var x6 *Node
     var x4 *Node
     x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24646,8 +24646,8 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0( task *Task )(  ){
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x5.GetChild( 0 )
-            x8 = x5.GetChild( 1 )
+            x7 = x5.Children[ 0 ]
+            x8 = x5.Children[ 1 ]
             Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1Create( root, x8, x1, x2, x6, x4, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 45 ) ) )
             return
     }
@@ -24661,11 +24661,11 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1( task *Task )
     var x6 *Node
     var x4 *Node
     var x11 *Node
-    x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x8 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     x11 = root.GetChild( 5 )
     switch x11.GetConstructor(  ){
         case -1:
@@ -24688,10 +24688,10 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2( task *Task )(  ){
     var x6 *Node
     var x4 *Node
     x8 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
-    x4 = root.GetChild( 4 )
+    x1 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
+    x4 = root.Children[ 4 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24710,9 +24710,9 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359( task *Task
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -24720,8 +24720,8 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359( task *Task
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_negateCreate( new( Node ), Prelude__superHashPrelude_RealHashPrelude_NumCreate( new( Node ), x1 ) ), x4 ), x5 ), x3 )
             return
     }
@@ -24730,7 +24730,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359( task *Task
 func Prelude_readNatLiteral( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_readNatLiteralCreate( new( Node ) ), x1 )
     return
 }
@@ -24743,7 +24743,7 @@ func Prelude_prim_readNatLiteral( task *Task )(  ){
 func Prelude_readFloatLiteral( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_readFloatLiteralCreate( new( Node ) ), x1 )
     return
 }
@@ -24756,7 +24756,7 @@ func Prelude_prim_readFloatLiteral( task *Task )(  ){
 func Prelude_readCharLiteral( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_readCharLiteralCreate( new( Node ) ), x1 )
     return
 }
@@ -24769,7 +24769,7 @@ func Prelude_prim_readCharLiteral( task *Task )(  ){
 func Prelude_readStringLiteral( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashHashCreate( root, Prelude_prim_readStringLiteralCreate( new( Node ) ), x1 )
     return
 }
@@ -24793,8 +24793,8 @@ func Prelude_lex( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lex_COMPLEXCASE0Create( root, x1, x3, Prelude_isSpaceCreate( new( Node ), x2 ) )
             return
     }
@@ -24805,8 +24805,8 @@ func Prelude_lex_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24835,8 +24835,8 @@ func Prelude_lex_CASE1( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x1.GetChild( 0 )
-            x5 = x1.GetChild( 1 )
+            x4 = x1.Children[ 0 ]
+            x5 = x1.Children[ 1 ]
             Prelude_lex_COMPLEXCASE2Create( root, x4, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x4, CharLitCreate( new( Node ), 39 ) ) )
             return
     }
@@ -24847,8 +24847,8 @@ func Prelude_lex_COMPLEXCASE2( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24868,8 +24868,8 @@ func Prelude_lex_COMPLEXCASE3( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24889,8 +24889,8 @@ func Prelude_lex_COMPLEXCASE4( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24910,8 +24910,8 @@ func Prelude_lex_COMPLEXCASE5( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24931,8 +24931,8 @@ func Prelude_lex_COMPLEXCASE6( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24952,8 +24952,8 @@ func Prelude_lex_COMPLEXCASE7( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -24988,7 +24988,7 @@ func Prelude_lex_COMPLEXCASE8( task *Task )(  ){
 func Prelude_lex_isSingle_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_applyCreate( root, Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x1 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 44 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 59 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 40 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 41 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 91 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 93 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 123 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 125 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 95 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 96 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) )
     return
 }
@@ -24996,7 +24996,7 @@ func Prelude_lex_isSingle_512( task *Task )(  ){
 func Prelude_lex_isSym_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_applyCreate( root, Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x1 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 33 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 64 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 35 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 36 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 37 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 38 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 8902 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 43 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 46 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 47 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 60 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 61 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 62 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 63 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 92 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 94 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 124 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 58 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 45 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 126 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) )
     return
 }
@@ -25004,7 +25004,7 @@ func Prelude_lex_isSym_512( task *Task )(  ){
 func Prelude_lex_isIdChar_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_isAlphaNumCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x1 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 95 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 39 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) )
     return
 }
@@ -25023,8 +25023,8 @@ func Prelude_lex_lexExp_512( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lex_lexExp_512_COMPLEXCASE0Create( root, x1, x2, x3, Prelude_applyCreate( new( Node ), Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x2 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 101 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 69 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) )
             return
     }
@@ -25036,9 +25036,9 @@ func Prelude_lex_lexExp_512_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -25058,9 +25058,9 @@ func Prelude_lex_lexExp_512__Hashlambda382( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25071,8 +25071,8 @@ func Prelude_lex_lexExp_512__Hashlambda382( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0Create( new( Node ), x4, x1, x5, Prelude_applyCreate( new( Node ), Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x4 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 43 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 45 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ), x3 )
             return
     }
@@ -25084,9 +25084,9 @@ func Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x4 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     x6 = root.GetChild( 3 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25107,10 +25107,10 @@ func Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25118,8 +25118,8 @@ func Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x2, Prelude_ColCreate( new( Node ), x1, x5 ) ), x6 ), x4 )
             return
     }
@@ -25130,9 +25130,9 @@ func Prelude_lex_lexExp_512__Hashlambda390( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25140,8 +25140,8 @@ func Prelude_lex_lexExp_512__Hashlambda390( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25161,8 +25161,8 @@ func Prelude_lex_lexFracExp_512( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lex_lexFracExp_512_COMPLEXCASE0Create( root, x3, x1, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 46 ) ) )
             return
     }
@@ -25173,8 +25173,8 @@ func Prelude_lex_lexFracExp_512_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     var x6 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25194,7 +25194,7 @@ func Prelude_lex_lexFracExp_512_CASE1( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x1 = root.Children[ 1 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25205,8 +25205,8 @@ func Prelude_lex_lexFracExp_512_CASE1( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_lex_lexFracExp_512_COMPLEXCASE2Create( root, x1, x4, x5, Prelude_isDigitCreate( new( Node ), x4 ) )
             return
     }
@@ -25218,9 +25218,9 @@ func Prelude_lex_lexFracExp_512_COMPLEXCASE2( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     x6 = root.GetChild( 3 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25240,7 +25240,7 @@ func Prelude_lex_lexFracExp_512__Hashlambda372( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25248,8 +25248,8 @@ func Prelude_lex_lexFracExp_512__Hashlambda372( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376Create( new( Node ), x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lex_lexExp_512Create( new( Node ), x4 ) ), x2 )
             return
     }
@@ -25260,9 +25260,9 @@ func Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25270,8 +25270,8 @@ func Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 46 ), Prelude_AddAddCreate( new( Node ), x1, x4 ) ), x5 ), x3 )
             return
     }
@@ -25291,8 +25291,8 @@ func Prelude_lex_lexStrItem_512( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lex_lexStrItem_512_COMPLEXCASE0Create( root, x3, x1, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 92 ) ) )
             return
     }
@@ -25303,8 +25303,8 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     var x6 *Node
-    x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25324,7 +25324,7 @@ func Prelude_lex_lexStrItem_512_CASE1( task *Task )(  ){
     var x3 *Node
     var x1 *Node
     x3 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x1 = root.Children[ 1 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25335,8 +25335,8 @@ func Prelude_lex_lexStrItem_512_CASE1( task *Task )(  ){
         case 1:
             var x4 *Node
             var x5 *Node
-            x4 = x3.GetChild( 0 )
-            x5 = x3.GetChild( 1 )
+            x4 = x3.Children[ 0 ]
+            x5 = x3.Children[ 1 ]
             Prelude_lex_lexStrItem_512_COMPLEXCASE2Create( root, x4, x1, x5, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x4, CharLitCreate( new( Node ), 38 ) ) )
             return
     }
@@ -25348,9 +25348,9 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE2( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x5 = root.GetChild( 2 )
+    x4 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x5 = root.Children[ 2 ]
     x6 = root.GetChild( 3 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25370,8 +25370,8 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE3( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
     x6 = root.GetChild( 2 )
     switch x6.GetConstructor(  ){
         case -1:
@@ -25391,7 +25391,7 @@ func Prelude_lex_lexStrItem_512__Hashlambda405( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25402,8 +25402,8 @@ func Prelude_lex_lexStrItem_512__Hashlambda405( task *Task )(  ){
         case 1:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0Create( root, x4, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x3, CharLitCreate( new( Node ), 92 ) ) )
             return
     }
@@ -25414,8 +25414,8 @@ func Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     var x2 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x4 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x5 = root.GetChild( 2 )
     switch x5.GetConstructor(  ){
         case -1:
@@ -25444,8 +25444,8 @@ func Prelude_lex_lexString_512( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lex_lexString_512_COMPLEXCASE0Create( root, x1, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 34 ) ) )
             return
     }
@@ -25456,8 +25456,8 @@ func Prelude_lex_lexString_512_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x4 = root.GetChild( 2 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -25477,7 +25477,7 @@ func Prelude_lex_lexString_512__Hashlambda396( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25485,8 +25485,8 @@ func Prelude_lex_lexString_512__Hashlambda396( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_lex_lexString_512__Hashlambda396__Hashlambda400Create( new( Node ), x3 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lex_lexString_512Create( new( Node ), x4 ) ), x2 )
             return
     }
@@ -25497,9 +25497,9 @@ func Prelude_lex_lexString_512__Hashlambda396__Hashlambda400( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25507,8 +25507,8 @@ func Prelude_lex_lexString_512__Hashlambda396__Hashlambda400( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_AddAddCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25519,7 +25519,7 @@ func Prelude_lex__Hashlambda412( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25527,8 +25527,8 @@ func Prelude_lex__Hashlambda412( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_lex__Hashlambda412_CASE0Create( root, x4, x3, x2 )
             return
     }
@@ -25540,8 +25540,8 @@ func Prelude_lex__Hashlambda412_CASE0( task *Task )(  ){
     var x3 *Node
     var x2 *Node
     x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x3 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25552,8 +25552,8 @@ func Prelude_lex__Hashlambda412_CASE0( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x4.GetChild( 0 )
-            x6 = x4.GetChild( 1 )
+            x5 = x4.Children[ 0 ]
+            x6 = x4.Children[ 1 ]
             Prelude_lex__Hashlambda412_COMPLEXCASE1Create( root, x3, x6, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 39 ) ) )
             return
     }
@@ -25565,9 +25565,9 @@ func Prelude_lex__Hashlambda412_COMPLEXCASE1( task *Task )(  ){
     var x6 *Node
     var x2 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x7 = root.GetChild( 3 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -25587,8 +25587,8 @@ func Prelude_lex__Hashlambda412_COMPLEXCASE2( task *Task )(  ){
     var x3 *Node
     var x6 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
     x7 = root.GetChild( 2 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -25608,7 +25608,7 @@ func Prelude_lex__Hashlambda416( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25616,8 +25616,8 @@ func Prelude_lex__Hashlambda416( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 34 ), x3 ), x4 ), x2 )
             return
     }
@@ -25628,9 +25628,9 @@ func Prelude_lex__Hashlambda420( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25638,8 +25638,8 @@ func Prelude_lex__Hashlambda420( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25650,9 +25650,9 @@ func Prelude_lex__Hashlambda424( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25660,8 +25660,8 @@ func Prelude_lex__Hashlambda424( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25672,9 +25672,9 @@ func Prelude_lex__Hashlambda428( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25682,8 +25682,8 @@ func Prelude_lex__Hashlambda428( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_lex__Hashlambda428__Hashlambda432Create( new( Node ), x1, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lex_lexFracExp_512Create( new( Node ), x5 ) ), x3 )
             return
     }
@@ -25695,10 +25695,10 @@ func Prelude_lex__Hashlambda428__Hashlambda432( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25706,8 +25706,8 @@ func Prelude_lex__Hashlambda428__Hashlambda432( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, Prelude_AddAddCreate( new( Node ), x2, x5 ) ), x6 ), x4 )
             return
     }
@@ -25718,7 +25718,7 @@ func Prelude_lex__Hashlambda436( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25726,8 +25726,8 @@ func Prelude_lex__Hashlambda436( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_lex__Hashlambda436_CASE0Create( root, x4, x3, x2 )
             return
     }
@@ -25739,8 +25739,8 @@ func Prelude_lex__Hashlambda436_CASE0( task *Task )(  ){
     var x3 *Node
     var x2 *Node
     x4 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x3 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25751,8 +25751,8 @@ func Prelude_lex__Hashlambda436_CASE0( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x4.GetChild( 0 )
-            x6 = x4.GetChild( 1 )
+            x5 = x4.Children[ 0 ]
+            x6 = x4.Children[ 1 ]
             Prelude_lex__Hashlambda436_COMPLEXCASE1Create( root, x3, x6, x2, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 39 ) ) )
             return
     }
@@ -25764,9 +25764,9 @@ func Prelude_lex__Hashlambda436_COMPLEXCASE1( task *Task )(  ){
     var x6 *Node
     var x2 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x3 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     x7 = root.GetChild( 3 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -25786,8 +25786,8 @@ func Prelude_lex__Hashlambda436_COMPLEXCASE2( task *Task )(  ){
     var x3 *Node
     var x6 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
+    x3 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
     x7 = root.GetChild( 2 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -25807,7 +25807,7 @@ func Prelude_lex__Hashlambda440( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25815,8 +25815,8 @@ func Prelude_lex__Hashlambda440( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 34 ), x3 ), x4 ), x2 )
             return
     }
@@ -25827,9 +25827,9 @@ func Prelude_lex__Hashlambda444( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25837,8 +25837,8 @@ func Prelude_lex__Hashlambda444( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25849,9 +25849,9 @@ func Prelude_lex__Hashlambda448( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25859,8 +25859,8 @@ func Prelude_lex__Hashlambda448( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, x4 ), x5 ), x3 )
             return
     }
@@ -25871,9 +25871,9 @@ func Prelude_lex__Hashlambda452( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25881,8 +25881,8 @@ func Prelude_lex__Hashlambda452( task *Task )(  ){
         case 0:
             var x4 *Node
             var x5 *Node
-            x4 = x2.GetChild( 0 )
-            x5 = x2.GetChild( 1 )
+            x4 = x2.Children[ 0 ]
+            x5 = x2.Children[ 1 ]
             Prelude_AddAddCreate( root, Prelude_foldrCreate( new( Node ), Prelude_lex__Hashlambda452__Hashlambda456Create( new( Node ), x1, x4 ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_lex_lexFracExp_512Create( new( Node ), x5 ) ), x3 )
             return
     }
@@ -25894,10 +25894,10 @@ func Prelude_lex__Hashlambda452__Hashlambda456( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25905,8 +25905,8 @@ func Prelude_lex__Hashlambda452__Hashlambda456( task *Task )(  ){
         case 0:
             var x5 *Node
             var x6 *Node
-            x5 = x3.GetChild( 0 )
-            x6 = x3.GetChild( 1 )
+            x5 = x3.Children[ 0 ]
+            x6 = x3.Children[ 1 ]
             Prelude_ColCreate( root, Prelude_LbCommaRbCreate( new( Node ), Prelude_ColCreate( new( Node ), x1, Prelude_AddAddCreate( new( Node ), x2, x5 ) ), x6 ), x4 )
             return
     }
@@ -25926,8 +25926,8 @@ func Prelude_lexLitChar( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lexLitChar_COMPLEXCASE0Create( root, x2, x3, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x2, CharLitCreate( new( Node ), 92 ) ) )
             return
     }
@@ -25938,8 +25938,8 @@ func Prelude_lexLitChar_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x2 = root.GetChild( 0 )
-    x3 = root.GetChild( 1 )
+    x2 = root.Children[ 0 ]
+    x3 = root.Children[ 1 ]
     x4 = root.GetChild( 2 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -25957,7 +25957,7 @@ func Prelude_lexLitChar_COMPLEXCASE0( task *Task )(  ){
 func Prelude_lexLitChar_isCharName_574( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_isUpperCreate( new( Node ), x1 ), Prelude_isDigitCreate( new( Node ), x1 ) )
     return
 }
@@ -25966,7 +25966,7 @@ func Prelude_lexLitChar_prefix_574( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
     switch x2.GetConstructor(  ){
         case -1:
@@ -25975,8 +25975,8 @@ func Prelude_lexLitChar_prefix_574( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x2.GetChild( 0 )
-            x4 = x2.GetChild( 1 )
+            x3 = x2.Children[ 0 ]
+            x4 = x2.Children[ 1 ]
             Prelude_LbCommaRbCreate( root, Prelude_ColCreate( new( Node ), x1, x3 ), x4 )
             return
     }
@@ -25996,8 +25996,8 @@ func Prelude_lexLitChar_lexEsc_574( task *Task )(  ){
         case 1:
             var x2 *Node
             var x3 *Node
-            x2 = x1.GetChild( 0 )
-            x3 = x1.GetChild( 1 )
+            x2 = x1.Children[ 0 ]
+            x3 = x1.Children[ 1 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0Create( root, x1, x2, x3, Prelude_applyCreate( new( Node ), Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_CharCreate( new( Node ) ), x2 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 97 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 98 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 102 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 110 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 114 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 116 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 118 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 92 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 34 ), Prelude_ColCreate( new( Node ), CharLitCreate( new( Node ), 39 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) )
             return
     }
@@ -26009,9 +26009,9 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x21 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x21 = root.GetChild( 3 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26030,7 +26030,7 @@ func Prelude_lexLitChar_lexEsc_574_LET1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x4 = x1
     Prelude_lexLitChar_lexEsc_574_CASE2Create( root, x4, x1 )
     return
@@ -26041,7 +26041,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE2( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     x4 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
+    x1 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26052,8 +26052,8 @@ func Prelude_lexLitChar_lexEsc_574_CASE2( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x4.GetChild( 0 )
-            x6 = x4.GetChild( 1 )
+            x5 = x4.Children[ 0 ]
+            x6 = x4.Children[ 1 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3Create( root, x6, x5, x4, x1, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x5, CharLitCreate( new( Node ), 94 ) ) )
             return
     }
@@ -26066,10 +26066,10 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     var x21 *Node
-    x6 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
+    x6 = root.Children[ 0 ]
+    x5 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
     x21 = root.GetChild( 4 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26091,9 +26091,9 @@ func Prelude_lexLitChar_lexEsc_574_CASE11( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     x6 = root.GetChild( 0 )
-    x5 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
+    x5 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26104,8 +26104,8 @@ func Prelude_lexLitChar_lexEsc_574_CASE11( task *Task )(  ){
         case 1:
             var x7 *Node
             var x8 *Node
-            x7 = x6.GetChild( 0 )
-            x8 = x6.GetChild( 1 )
+            x7 = x6.Children[ 0 ]
+            x8 = x6.Children[ 1 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16Create( root, x1, x7, x8, Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x7 ), CharLitCreate( new( Node ), 64 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x7, CharLitCreate( new( Node ), 95 ) ) ) )
             return
     }
@@ -26117,9 +26117,9 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16( task *Task )(  ){
     var x7 *Node
     var x8 *Node
     var x15 *Node
-    x1 = root.GetChild( 0 )
-    x7 = root.GetChild( 1 )
-    x8 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x7 = root.Children[ 1 ]
+    x8 = root.Children[ 2 ]
     x15 = root.GetChild( 3 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -26138,7 +26138,7 @@ func Prelude_lexLitChar_lexEsc_574_LET17( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x9 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x9 = x1
     Prelude_lexLitChar_lexEsc_574_CASE18Create( root, x1, x9 )
     return
@@ -26148,7 +26148,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE18( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x9 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x9 = root.GetChild( 1 )
     switch x9.GetConstructor(  ){
         case -1:
@@ -26159,7 +26159,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE18( task *Task )(  ){
             return
         case 1:
             var x10 *Node
-            x10 = x9.GetChild( 0 )
+            x10 = x9.Children[ 0 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19Create( root, x1, x9, Prelude_isDigitCreate( new( Node ), x10 ) )
             return
     }
@@ -26170,8 +26170,8 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19( task *Task )(  ){
     var x1 *Node
     var x9 *Node
     var x15 *Node
-    x1 = root.GetChild( 0 )
-    x9 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x9 = root.Children[ 1 ]
     x15 = root.GetChild( 2 )
     switch x15.GetConstructor(  ){
         case -1:
@@ -26190,7 +26190,7 @@ func Prelude_lexLitChar_lexEsc_574_LET20( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x12 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x12 = x1
     Prelude_lexLitChar_lexEsc_574_CASE21Create( root, x12 )
     return
@@ -26209,7 +26209,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE21( task *Task )(  ){
             return
         case 1:
             var x13 *Node
-            x13 = x12.GetChild( 0 )
+            x13 = x12.Children[ 0 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22Create( root, x12, Prelude_isUpperCreate( new( Node ), x13 ) )
             return
     }
@@ -26219,7 +26219,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22( task *Task )(  ){
     root := task.GetControl(  )
     var x12 *Node
     var x14 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x14 = root.GetChild( 1 )
     switch x14.GetConstructor(  ){
         case -1:
@@ -26239,8 +26239,8 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x18 *Node
-    x1 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
     x18 = root.GetChild( 2 )
     switch x18.GetConstructor(  ){
         case -1:
@@ -26259,7 +26259,7 @@ func Prelude_lexLitChar_lexEsc_574_LET13( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x15 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x15 = x1
     Prelude_lexLitChar_lexEsc_574_CASE14Create( root, x15 )
     return
@@ -26278,7 +26278,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE14( task *Task )(  ){
             return
         case 1:
             var x16 *Node
-            x16 = x15.GetChild( 0 )
+            x16 = x15.Children[ 0 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15Create( root, x15, Prelude_isUpperCreate( new( Node ), x16 ) )
             return
     }
@@ -26288,7 +26288,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15( task *Task )(  ){
     root := task.GetControl(  )
     var x15 *Node
     var x17 *Node
-    x15 = root.GetChild( 0 )
+    x15 = root.Children[ 0 ]
     x17 = root.GetChild( 1 )
     switch x17.GetConstructor(  ){
         case -1:
@@ -26310,10 +26310,10 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4( task *Task )(  ){
     var x4 *Node
     var x6 *Node
     var x21 *Node
-    x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
+    x5 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
     x21 = root.GetChild( 4 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26335,10 +26335,10 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5( task *Task )(  ){
     var x4 *Node
     var x6 *Node
     var x21 *Node
-    x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
+    x5 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
     x21 = root.GetChild( 4 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26360,10 +26360,10 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6( task *Task )(  ){
     var x4 *Node
     var x6 *Node
     var x21 *Node
-    x5 = root.GetChild( 0 )
-    x1 = root.GetChild( 1 )
-    x4 = root.GetChild( 2 )
-    x6 = root.GetChild( 3 )
+    x5 = root.Children[ 0 ]
+    x1 = root.Children[ 1 ]
+    x4 = root.Children[ 2 ]
+    x6 = root.Children[ 3 ]
     x21 = root.GetChild( 4 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26383,8 +26383,8 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7( task *Task )(  ){
     var x1 *Node
     var x4 *Node
     var x21 *Node
-    x1 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x4 = root.Children[ 1 ]
     x21 = root.GetChild( 2 )
     switch x21.GetConstructor(  ){
         case -1:
@@ -26403,7 +26403,7 @@ func Prelude_lexLitChar_lexEsc_574_LET8( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x18 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x18 = x1
     Prelude_lexLitChar_lexEsc_574_CASE9Create( root, x18 )
     return
@@ -26422,7 +26422,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE9( task *Task )(  ){
             return
         case 1:
             var x19 *Node
-            x19 = x18.GetChild( 0 )
+            x19 = x18.Children[ 0 ]
             Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10Create( root, x18, Prelude_isUpperCreate( new( Node ), x19 ) )
             return
     }
@@ -26432,7 +26432,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10( task *Task )(  ){
     root := task.GetControl(  )
     var x18 *Node
     var x20 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x20 = root.GetChild( 1 )
     switch x20.GetConstructor(  ){
         case -1:
@@ -26457,8 +26457,8 @@ func Prelude_nonNull( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_foldrCreate( root, Prelude_nonNull__Hashlambda477Create( new( Node ) ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), Prelude_spanCreate( new( Node ), x1, x2 ), Prelude_LSbRSbCreate( new( Node ) ) ) )
     return
 }
@@ -26468,7 +26468,7 @@ func Prelude_nonNull__Hashlambda477( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -26476,8 +26476,8 @@ func Prelude_nonNull__Hashlambda477( task *Task )(  ){
         case 0:
             var x3 *Node
             var x4 *Node
-            x3 = x1.GetChild( 0 )
-            x4 = x1.GetChild( 1 )
+            x3 = x1.Children[ 0 ]
+            x4 = x1.Children[ 1 ]
             Prelude_nonNull__Hashlambda477_CASE0Create( root, x3, x4, x2 )
             return
     }
@@ -26489,8 +26489,8 @@ func Prelude_nonNull__Hashlambda477_CASE0( task *Task )(  ){
     var x4 *Node
     var x2 *Node
     x3 = root.GetChild( 0 )
-    x4 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
+    x4 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26507,7 +26507,7 @@ func Prelude_nonNull__Hashlambda477_CASE0( task *Task )(  ){
 func Prelude_isUpper( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 65 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 90 ) ) )
     return
 }
@@ -26515,7 +26515,7 @@ func Prelude_isUpper( task *Task )(  ){
 func Prelude_isLower( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 97 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 122 ) ) )
     return
 }
@@ -26523,7 +26523,7 @@ func Prelude_isLower( task *Task )(  ){
 func Prelude_isAlpha( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_isUpperCreate( new( Node ), x1 ), Prelude_isLowerCreate( new( Node ), x1 ) )
     return
 }
@@ -26531,7 +26531,7 @@ func Prelude_isAlpha( task *Task )(  ){
 func Prelude_isDigit( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 48 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 57 ) ) )
     return
 }
@@ -26539,7 +26539,7 @@ func Prelude_isDigit( task *Task )(  ){
 func Prelude_isAlphaNum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_isAlphaCreate( new( Node ), x1 ), Prelude_isDigitCreate( new( Node ), x1 ) )
     return
 }
@@ -26547,7 +26547,7 @@ func Prelude_isAlphaNum( task *Task )(  ){
 func Prelude_isBinDigit( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 48 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 49 ) ) )
     return
 }
@@ -26555,7 +26555,7 @@ func Prelude_isBinDigit( task *Task )(  ){
 func Prelude_isOctDigit( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_AndAndCreate( root, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 48 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 55 ) ) )
     return
 }
@@ -26563,7 +26563,7 @@ func Prelude_isOctDigit( task *Task )(  ){
 func Prelude_isHexDigit( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude_isDigitCreate( new( Node ), x1 ), Prelude_StrtStrtCreate( new( Node ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 65 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 70 ) ) ), Prelude_AndAndCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ) ), x1 ), CharLitCreate( new( Node ), 97 ) ), Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 102 ) ) ) ) )
     return
 }
@@ -26571,7 +26571,7 @@ func Prelude_isHexDigit( task *Task )(  ){
 func Prelude_isSpace( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_StrtStrtCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 32 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 9 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 10 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 13 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 12 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 11 ) ), Prelude_StrtStrtCreate( new( Node ), Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( new( Node ), x1, CharLitCreate( new( Node ), 160 ) ), Prelude_applyCreate( new( Node ), Prelude_elemCreate( new( Node ), Prelude__instHashPrelude_EqHashPrelude_IntCreate( new( Node ) ), Prelude_ordCreate( new( Node ), x1 ) ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 5760 ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 6158 ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 8192 ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 8239 ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 8287 ), Prelude_ColCreate( new( Node ), IntLitCreate( new( Node ), 12288 ), Prelude_LSbRSbCreate( new( Node ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) )
     return
 }
@@ -26587,9 +26587,9 @@ func Prelude_boundedEnumFrom( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_mapCreate( root, Prelude_toEnumCreate( new( Node ), x2 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_IntCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x2 ), x3 ) ), Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x2 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude_asTypeOfCreate( new( Node ) ), Prelude_applyCreate( new( Node ), Prelude_maxBoundCreate( new( Node ), x1 ), Prelude_LbRbCreate( new( Node ) ) ) ), x3 ) ) ) )
     return
 }
@@ -26602,10 +26602,10 @@ func Prelude_boundedEnumFromThen( task *Task )(  ){
     var x4 *Node
     var x5 *Node
     var x6 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x2 ), x3 )
     x6 = Prelude_applyCreate( new( Node ), Prelude_fromEnumCreate( new( Node ), x2 ), x4 )
     Prelude_boundedEnumFromThen_COMPLEXCASE0Create( root, x5, x6, x2, x1, x3, Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), Prelude__implHashGtEqHashPrelude_OrdHashPrelude_IntCreate( new( Node ) ), x6 ), x5 ) )
@@ -26620,11 +26620,11 @@ func Prelude_boundedEnumFromThen_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     var x7 *Node
-    x5 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x3 = root.GetChild( 4 )
+    x5 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x3 = root.Children[ 4 ]
     x7 = root.GetChild( 5 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -26647,11 +26647,11 @@ func Prelude_boundedEnumFromThen_COMPLEXCASE1( task *Task )(  ){
     var x1 *Node
     var x3 *Node
     var x7 *Node
-    x5 = root.GetChild( 0 )
-    x6 = root.GetChild( 1 )
-    x2 = root.GetChild( 2 )
-    x1 = root.GetChild( 3 )
-    x3 = root.GetChild( 4 )
+    x5 = root.Children[ 0 ]
+    x6 = root.Children[ 1 ]
+    x2 = root.Children[ 2 ]
+    x1 = root.Children[ 3 ]
+    x3 = root.Children[ 4 ]
     x7 = root.GetChild( 5 )
     switch x7.GetConstructor(  ){
         case -1:
@@ -26676,8 +26676,8 @@ func Prelude_Add_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Float_plusCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -26691,8 +26691,8 @@ func Prelude_Sub_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Float_minusCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -26706,8 +26706,8 @@ func Prelude_Mul_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Float_timesCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -26721,8 +26721,8 @@ func Prelude_Slash_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude_DolHashCreate( root, Prelude_DolHashCreate( new( Node ), Prelude_prim_Float_divCreate( new( Node ) ), x2 ), x1 )
     return
 }
@@ -26735,7 +26735,7 @@ func Prelude_prim_Float_div( task *Task )(  ){
 func Prelude_i2f( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_DolHashCreate( root, Prelude_prim_i2fCreate( new( Node ) ), x1 )
     return
 }
@@ -26748,7 +26748,7 @@ func Prelude_prim_i2f( task *Task )(  ){
 func Prelude_sequence( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude_sequence__Hashlambda479Create( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_returnCreate( new( Node ), x1 ), Prelude_LSbRSbCreate( new( Node ) ) ) )
     return
 }
@@ -26758,9 +26758,9 @@ func Prelude_sequence__Hashlambda479( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x2 ), Prelude_sequence__Hashlambda479__Hashlambda480Create( new( Node ), x1, x3 ) )
     return
 }
@@ -26770,9 +26770,9 @@ func Prelude_sequence__Hashlambda479__Hashlambda480( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x2 ), Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481Create( new( Node ), x3, x1 ) )
     return
 }
@@ -26782,9 +26782,9 @@ func Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481( task *Task )
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_returnCreate( new( Node ), x2 ), Prelude_ColCreate( new( Node ), x1, x3 ) )
     return
 }
@@ -26792,7 +26792,7 @@ func Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481( task *Task )
 func Prelude_sequence_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     Prelude_foldrCreate( root, Prelude_GtGtCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_returnCreate( new( Node ), x1 ), Prelude_LbRbCreate( new( Node ) ) ) )
     return
 }
@@ -26801,8 +26801,8 @@ func Prelude_mapM( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__Create( root, Prelude_sequenceCreate( new( Node ), x1 ), Prelude_mapCreate( new( Node ), x2 ) )
     return
 }
@@ -26811,8 +26811,8 @@ func Prelude_mapM_( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
     Prelude__Create( root, Prelude_sequence_Create( new( Node ), x1 ), Prelude_mapCreate( new( Node ), x2 ) )
     return
 }
@@ -26823,9 +26823,9 @@ func Prelude_foldM( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     x4 = root.GetChild( 3 )
     switch x4.GetConstructor(  ){
         case -1:
@@ -26837,8 +26837,8 @@ func Prelude_foldM( task *Task )(  ){
         case 1:
             var x5 *Node
             var x6 *Node
-            x5 = x4.GetChild( 0 )
-            x6 = x4.GetChild( 1 )
+            x5 = x4.Children[ 0 ]
+            x6 = x4.Children[ 1 ]
             Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x2, x3 ), x5 ) ), Prelude_foldM__Hashlambda482Create( new( Node ), x6, x1, x2 ) )
             return
     }
@@ -26850,10 +26850,10 @@ func Prelude_foldM__Hashlambda482( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_foldMCreate( root, x2, x3, x4, x1 )
     return
 }
@@ -26863,9 +26863,9 @@ func Prelude_liftM( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x3 ), Prelude__Create( new( Node ), Prelude_returnCreate( new( Node ), x1 ), x2 ) )
     return
 }
@@ -26876,10 +26876,10 @@ func Prelude_liftM2( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x3 ), Prelude_liftM2__Hashlambda485Create( new( Node ), x1, x4, x2 ) )
     return
 }
@@ -26891,10 +26891,10 @@ func Prelude_liftM2__Hashlambda485( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = x4
     Prelude_applyCreate( root, Prelude_applyCreate( new( Node ), Prelude_GtGtEqCreate( new( Node ), x1 ), x2 ), Prelude_liftM2__Hashlambda485__Hashlambda487Create( new( Node ), x5, x1, x3 ) )
     return
@@ -26907,10 +26907,10 @@ func Prelude_liftM2__Hashlambda485__Hashlambda487( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
-    x4 = root.GetChild( 3 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
+    x4 = root.Children[ 3 ]
     x5 = x4
     Prelude_applyCreate( root, Prelude_returnCreate( new( Node ), x2 ), Prelude_applyCreate( new( Node ), Prelude_applyCreate( new( Node ), x3, x1 ), x5 ) )
     return
@@ -26921,9 +26921,9 @@ func Prelude_forM( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_mapMCreate( new( Node ), x1, x3 ), x2 )
     return
 }
@@ -26933,9 +26933,9 @@ func Prelude_forM_( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
-    x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x1 = root.Children[ 0 ]
+    x2 = root.Children[ 1 ]
+    x3 = root.Children[ 2 ]
     Prelude_applyCreate( root, Prelude_mapM_Create( new( Node ), x1, x3 ), x2 )
     return
 }
@@ -26945,9 +26945,9 @@ func Prelude_unlessM( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26966,9 +26966,9 @@ func Prelude_whenM( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.GetChild( 1 )
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26992,7 +26992,7 @@ func Prelude_EqEq( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27008,7 +27008,7 @@ func Prelude_SlashEq( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27024,7 +27024,7 @@ func Prelude__superHashPrelude_OrdHashPrelude_Eq( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27040,7 +27040,7 @@ func Prelude_compare( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27056,7 +27056,7 @@ func Prelude_LtEq( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27072,7 +27072,7 @@ func Prelude_GtEq( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }
@@ -27088,7 +27088,7 @@ func Prelude_Lt( task *Task )(  ){
             return
         case 0:
             var x6 *Node
-            x6 = x1.GetChild( 4 )
+            x6 = x1.Children[ 4 ]
             RedirectCreate( root, x6 )
             return
     }
@@ -27104,7 +27104,7 @@ func Prelude_Gt( task *Task )(  ){
             return
         case 0:
             var x7 *Node
-            x7 = x1.GetChild( 5 )
+            x7 = x1.Children[ 5 ]
             RedirectCreate( root, x7 )
             return
     }
@@ -27120,7 +27120,7 @@ func Prelude_min( task *Task )(  ){
             return
         case 0:
             var x8 *Node
-            x8 = x1.GetChild( 6 )
+            x8 = x1.Children[ 6 ]
             RedirectCreate( root, x8 )
             return
     }
@@ -27136,7 +27136,7 @@ func Prelude_max( task *Task )(  ){
             return
         case 0:
             var x9 *Node
-            x9 = x1.GetChild( 7 )
+            x9 = x1.Children[ 7 ]
             RedirectCreate( root, x9 )
             return
     }
@@ -27152,7 +27152,7 @@ func Prelude_show( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27168,7 +27168,7 @@ func Prelude_showsPrec( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27184,7 +27184,7 @@ func Prelude_showList( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27200,7 +27200,7 @@ func Prelude_readsPrec( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27216,7 +27216,7 @@ func Prelude_readList( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27232,7 +27232,7 @@ func Prelude_minBound( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27248,7 +27248,7 @@ func Prelude_maxBound( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27264,7 +27264,7 @@ func Prelude_succ( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27280,7 +27280,7 @@ func Prelude_pred( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27296,7 +27296,7 @@ func Prelude_toEnum( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27312,7 +27312,7 @@ func Prelude_fromEnum( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }
@@ -27328,7 +27328,7 @@ func Prelude_enumFrom( task *Task )(  ){
             return
         case 0:
             var x6 *Node
-            x6 = x1.GetChild( 4 )
+            x6 = x1.Children[ 4 ]
             RedirectCreate( root, x6 )
             return
     }
@@ -27344,7 +27344,7 @@ func Prelude_enumFromThen( task *Task )(  ){
             return
         case 0:
             var x7 *Node
-            x7 = x1.GetChild( 5 )
+            x7 = x1.Children[ 5 ]
             RedirectCreate( root, x7 )
             return
     }
@@ -27360,7 +27360,7 @@ func Prelude_enumFromTo( task *Task )(  ){
             return
         case 0:
             var x8 *Node
-            x8 = x1.GetChild( 6 )
+            x8 = x1.Children[ 6 ]
             RedirectCreate( root, x8 )
             return
     }
@@ -27376,7 +27376,7 @@ func Prelude_enumFromThenTo( task *Task )(  ){
             return
         case 0:
             var x9 *Node
-            x9 = x1.GetChild( 7 )
+            x9 = x1.Children[ 7 ]
             RedirectCreate( root, x9 )
             return
     }
@@ -27392,7 +27392,7 @@ func Prelude_Add( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27408,7 +27408,7 @@ func Prelude_Sub( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27424,7 +27424,7 @@ func Prelude_Mul( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27440,7 +27440,7 @@ func Prelude_negate( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }
@@ -27456,7 +27456,7 @@ func Prelude_abs( task *Task )(  ){
             return
         case 0:
             var x6 *Node
-            x6 = x1.GetChild( 4 )
+            x6 = x1.Children[ 4 ]
             RedirectCreate( root, x6 )
             return
     }
@@ -27472,7 +27472,7 @@ func Prelude_signum( task *Task )(  ){
             return
         case 0:
             var x7 *Node
-            x7 = x1.GetChild( 5 )
+            x7 = x1.Children[ 5 ]
             RedirectCreate( root, x7 )
             return
     }
@@ -27488,7 +27488,7 @@ func Prelude_fromInt( task *Task )(  ){
             return
         case 0:
             var x8 *Node
-            x8 = x1.GetChild( 6 )
+            x8 = x1.Children[ 6 ]
             RedirectCreate( root, x8 )
             return
     }
@@ -27504,7 +27504,7 @@ func Prelude__superHashPrelude_FractionalHashPrelude_Num( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27520,7 +27520,7 @@ func Prelude_Slash( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27536,7 +27536,7 @@ func Prelude_recip( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27552,7 +27552,7 @@ func Prelude_fromFloat( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }
@@ -27568,7 +27568,7 @@ func Prelude__superHashPrelude_RealHashPrelude_Num( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27584,7 +27584,7 @@ func Prelude__superHashPrelude_RealHashPrelude_Ord( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27600,7 +27600,7 @@ func Prelude__superHashPrelude_IntegralHashPrelude_Real( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27616,7 +27616,7 @@ func Prelude_div( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27632,7 +27632,7 @@ func Prelude_mod( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27648,7 +27648,7 @@ func Prelude_quot( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }
@@ -27664,7 +27664,7 @@ func Prelude_rem( task *Task )(  ){
             return
         case 0:
             var x6 *Node
-            x6 = x1.GetChild( 4 )
+            x6 = x1.Children[ 4 ]
             RedirectCreate( root, x6 )
             return
     }
@@ -27680,7 +27680,7 @@ func Prelude_divMod( task *Task )(  ){
             return
         case 0:
             var x7 *Node
-            x7 = x1.GetChild( 5 )
+            x7 = x1.Children[ 5 ]
             RedirectCreate( root, x7 )
             return
     }
@@ -27696,7 +27696,7 @@ func Prelude_quotRem( task *Task )(  ){
             return
         case 0:
             var x8 *Node
-            x8 = x1.GetChild( 6 )
+            x8 = x1.Children[ 6 ]
             RedirectCreate( root, x8 )
             return
     }
@@ -27712,7 +27712,7 @@ func Prelude_fmap( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27728,7 +27728,7 @@ func Prelude_GtGtEq( task *Task )(  ){
             return
         case 0:
             var x2 *Node
-            x2 = x1.GetChild( 0 )
+            x2 = x1.Children[ 0 ]
             RedirectCreate( root, x2 )
             return
     }
@@ -27744,7 +27744,7 @@ func Prelude_GtGt( task *Task )(  ){
             return
         case 0:
             var x3 *Node
-            x3 = x1.GetChild( 1 )
+            x3 = x1.Children[ 1 ]
             RedirectCreate( root, x3 )
             return
     }
@@ -27760,7 +27760,7 @@ func Prelude_return( task *Task )(  ){
             return
         case 0:
             var x4 *Node
-            x4 = x1.GetChild( 2 )
+            x4 = x1.Children[ 2 ]
             RedirectCreate( root, x4 )
             return
     }
@@ -27776,7 +27776,7 @@ func Prelude_fail( task *Task )(  ){
             return
         case 0:
             var x5 *Node
-            x5 = x1.GetChild( 3 )
+            x5 = x1.Children[ 3 ]
             RedirectCreate( root, x5 )
             return
     }

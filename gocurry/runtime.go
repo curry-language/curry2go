@@ -26,7 +26,7 @@ const(
 
 // Struct representing a graphnode
 type Node struct{
-    children []*Node 
+    Children []*Node 
     node_type NodeType
     int_literal int
     float_literal float64
@@ -160,11 +160,11 @@ func evalStep(task *Task){
             // test if choice id in fingerprint
             if(ok){
                 // select the branch
-                task.control = task.control.children[branch]
+                task.control = task.control.Children[branch]
             }else{   
                 // create new task
                 var new_task Task
-                new_task.control = task.control.children[1]
+                new_task.control = task.control.Children[1]
                 new_task.fingerprint = make(map[int]int)
                 for k,v := range task.fingerprint {
                     new_task.fingerprint[k] = v
@@ -175,7 +175,7 @@ func evalStep(task *Task){
                 new_task.fingerprint[task.control.choice_id] = 1
 
                 // set control in the old task to the first child
-                task.control = task.control.children[0]
+                task.control = task.control.Children[0]
 
                 // append new task to queue
                 queue <- new_task
@@ -204,8 +204,8 @@ func evalStep(task *Task){
         }
     case REDIRECT:
         // change control to child
-        task.control = task.control.children[0]
         control_lock.Unlock()
+        task.control = task.control.Children[0]
     case CONSTRUCTOR:
         // unlock control node
         control_lock.Unlock()
@@ -223,15 +223,15 @@ func evalStep(task *Task){
             task.notHnf = false
         }
 
-        // test if children need to be evaluated
-        for i := range task.control.children{
+        // test if Children need to be evaluated
+        for i := range task.control.Children{
             // get child
             child := task.control.GetChild(i)
 
             // set control to child if necessary
             if(!child.IsNF() && !child.IsPartial()){
                 task.stack = append(task.stack, task.control)
-                task.control = task.control.children[i]
+                task.control = task.control.Children[i]
                 return
             }
         }
@@ -332,7 +332,6 @@ func dfs(){
 
     // loop until done
     for{
-        // TODO delete
         //printResult(cur_task.control)
         //fmt.Println("\n")
 
@@ -492,7 +491,7 @@ func pullTab(choice_node, root *Node){
     new_children[1] = LockedCopyNode(root)
 
     // replace references to choice_node
-    for i := range root.children{
+    for i := range root.Children{
         if(root.GetChild(i) == choice_node){
             new_children[0].SetChild(i, choice_node.GetChild(0))
             new_children[1].SetChild(i, choice_node.GetChild(1))
@@ -502,7 +501,7 @@ func pullTab(choice_node, root *Node){
     // set root to a choice node
     root.node_type = CHOICE
     root.choice_id = choice_node.choice_id
-    root.children = new_children
+    root.Children = new_children
 }
 
 // Creates a copy of a node.
@@ -523,7 +522,7 @@ func CopyNode(node *Node, args ...*Node) *Node{
 }
 
 // Creates a copy of a node.
-// Adds args to the children of the node.
+// Adds args to the Children of the node.
 // Choice nodes will get a new choice-id.
 // Returns a pointer to the copy.
 func LockedCopyNode(node *Node, args ...*Node) *Node{
@@ -534,8 +533,8 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     // copy contents
     new_node.node_type = node.node_type
 
-    new_node.children = make([]*Node, len(node.children))
-    copy(new_node.children, node.children)
+    new_node.Children = make([]*Node, len(node.Children))
+    copy(new_node.Children, node.Children)
 
     new_node.int_literal = node.int_literal
     new_node.float_literal = node.float_literal
@@ -556,7 +555,7 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     }
 
     // append args to children
-    new_node.children = append(new_node.children, args...)
+    new_node.Children = append(new_node.Children, args...)
 
     // return new node
     return new_node

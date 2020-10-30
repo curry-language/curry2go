@@ -10,15 +10,15 @@ import "regexp"
 // num_args is the number of arguments the constructor expects.
 // constructor is the number given to the constructor by icurry.
 // name is the constructor name as a string for printing.
-// Every pointer in args is added to the constructor children.
+// Every pointer in args is added to the constructor Children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, num_args int, name string, args ...*Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.constructor = constructor
     root.name = name
     root.number_args = num_args
     root.evaluated = false
-    root.children = append(root.children, args...)
+    root.Children = append(root.Children, args...)
     root.node_type = CONSTRUCTOR
     return root
 }
@@ -28,17 +28,17 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
 // name is the function name as a string for printing.
 // number_args are the total number of arguments the function expects.
 // demanded_args is a list of integers representing the position of arguments which have to be evaluated.
-// Every pointer in args is added to the function children.
+// Every pointer in args is added to the function Children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args []int, args ...*Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.demanded_args = root.demanded_args[:0]
     root.function = function
     root.number_args = number_args
     root.name = name
     root.evaluated = false
     root.demanded_args = append(root.demanded_args, demanded_args...)
-    root.children = append(root.children, args...)
+    root.Children = append(root.Children, args...)
     root.node_type = FCALL
     return root
 }
@@ -46,9 +46,9 @@ func FuncCreate(root *Node, function func(*Task), name string, number_args int, 
 // Sets root to a redirection node, pointing to x1.
 // Returns a pointer to the updated root.
 func RedirectCreate(root, x1 *Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.evaluated = false
-    root.children = append(root.children, x1)
+    root.Children = append(root.Children, x1)
     root.node_type = REDIRECT
     return root
 }
@@ -56,10 +56,10 @@ func RedirectCreate(root, x1 *Node)(*Node){
 // Sets root to a choice node with x1 and x2 as possible choices.
 // Returns a pointer to the updated root.
 func ChoiceCreate(root, x1, x2 *Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.choice_id = NextChoiceId()
     root.evaluated = false
-    root.children = append(root.children, x1, x2)
+    root.Children = append(root.Children, x1, x2)
     root.node_type = CHOICE
     return root
 }
@@ -67,7 +67,7 @@ func ChoiceCreate(root, x1, x2 *Node)(*Node){
 // Sets root to an exempt node.
 // Returns a pointer to the updated root.
 func ExemptCreate(root *Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.node_type = EXEMPT
     root.evaluated = false
     return root
@@ -76,7 +76,7 @@ func ExemptCreate(root *Node)(*Node){
 // Sets root to an integer literal node with value value.
 // Returns a pointer to the updated root.
 func IntLitCreate(root *Node, value int)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.node_type = INT_LITERAL
     root.int_literal = value
     root.evaluated = true
@@ -86,7 +86,7 @@ func IntLitCreate(root *Node, value int)(*Node){
 // Sets root to an float literal node with value value.
 // Returns a pointer to the updated root.
 func FloatLitCreate(root *Node, value float64)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.node_type = FLOAT_LITERAL
     root.float_literal = value
     root.evaluated = true
@@ -96,7 +96,7 @@ func FloatLitCreate(root *Node, value float64)(*Node){
 // Sets root to an char literal node with value value.
 // Returns a pointer to the updated root.
 func CharLitCreate(root *Node, value rune)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.node_type = CHAR_LITERAL
     root.char_literal = value
     root.evaluated = true
@@ -106,7 +106,7 @@ func CharLitCreate(root *Node, value rune)(*Node){
 // Sets root to a node representing a free variable.
 // Returns a pointer to the updated root.
 func FreeCreate(root *Node)(*Node){
-    root.children = root.children[:0]
+    root.Children = root.Children[:0]
     root.node_type = CONSTRUCTOR
     root.constructor = -1
     return root
@@ -191,17 +191,17 @@ func ReadString(root *Node)(result string){
 // Methods on nodes //
 
 func (node *Node) GetNumChildren() int{
-    return len(node.children)
+    return len(node.Children)
 }
 
 func (node *Node) GetChild(index int) *Node{
 
     // eliminate redirection nodes
     for{
-        lock := &node.children[index].lock
+        lock := &node.Children[index].lock
 	    lock.Lock()
-        if(node.children[index].IsRedirect()){
-            node.children[index] = node.children[index].children[0]
+        if(node.Children[index].IsRedirect()){
+            node.Children[index] = node.Children[index].Children[0]
             lock.Unlock()
         } else{
             lock.Unlock()
@@ -210,12 +210,28 @@ func (node *Node) GetChild(index int) *Node{
     }
 
     // return child
-    return node.children[index]
+    return node.Children[index]
 }
 
 func (node *Node) SetChild(index int, child *Node){
-    node.children[index] = child
-}    
+    node.Children[index] = child
+}
+
+func (node *Node) EliminateRedirect() *Node{
+    // eliminate redirection nodes
+    for{
+        lock := &node.lock
+	    lock.Lock()
+        if(node.IsRedirect()){
+            node = node.Children[0]
+            lock.Unlock()
+        } else{
+            lock.Unlock()
+            break
+        }
+    }
+    return node
+}
 
 func (node *Node) GetType() NodeType{
     return node.node_type
@@ -292,7 +308,7 @@ func (node *Node) IsRedirect() bool{
 func (node *Node) IsPartial() bool{
     node.lock.Lock()
     if(node.node_type == FCALL || node.node_type == CONSTRUCTOR){
-        result := len(node.children) < node.number_args
+        result := len(node.Children) < node.number_args
         node.lock.Unlock()
         return result
     }
@@ -302,7 +318,7 @@ func (node *Node) IsPartial() bool{
 
 func (node *Node) LockedIsPartial() bool{
     if(node.node_type == FCALL || node.node_type == CONSTRUCTOR){
-        return len(node.children) < node.number_args
+        return len(node.Children) < node.number_args
     }
     return false
 }
@@ -348,7 +364,7 @@ func (task *Task) ToNF(node *Node){
 
 // Do not share a child of the control node.
 func (task *Task) NoShare(index int){
-    task.control.children[index] = CopyNode(task.control.children[index])
+    task.control.Children[index] = CopyNode(task.control.Children[index])
 }
 
 // Benchmark //
@@ -415,7 +431,7 @@ func printResult(node *Node) {
             printNode(node)
         } else{
             // print empty tupel
-            if(len(node.children) == 0){
+            if(len(node.Children) == 0){
                 fmt.Printf("()")
                 return
             }
@@ -425,17 +441,17 @@ func printResult(node *Node) {
         printNode(node)
     }
 
-    // end if node does not have children
-    if(len(node.children) == 0){
+    // end if node does not have Children
+    if(len(node.Children) == 0){
         return
     }
 
-    // print all children
+    // print all Children
     fmt.Printf("(")
-    printResult(node.children[0])
-    for i := 1; i < len(node.children); i++ {
+    printResult(node.Children[0])
+    for i := 1; i < len(node.Children); i++ {
         fmt.Printf(", ")
-        printResult(node.children[i])
+        printResult(node.Children[i])
     }
     fmt.Printf(")")
 }

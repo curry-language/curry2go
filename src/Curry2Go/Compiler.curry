@@ -224,7 +224,15 @@ ifuncbody2Go opts (IFuncBody block) = GoShortVarDecl ["root"]
 --- @param iblock - IBlock to convert
 iblock2Go :: CGOptions -> IBlock -> [GoStat]
 iblock2Go opts (IBlock decls assigns stat) = map ivardecl2Go decls
-  ++ map (iassign2Go opts) assigns ++ istatement2Go opts stat
+  ++ map (iassign2Go opts (findContent stat)) assigns
+  ++ istatement2Go opts stat
+
+--- Returns the variable used in a case statement or -1.
+findContent :: IStatement -> Int
+findContent IExempt           = -1
+findContent (IReturn _)       = -1
+findContent (ICaseCons i _)   = i
+findContent (ICaseLit i _)    = i
 
 --- Creates a Go statement for an IVarDecl.
 ivardecl2Go :: IVarDecl -> GoStat
@@ -235,12 +243,18 @@ ivardecl2Go (IFreeDecl i) = GoShortVarDecl
 
 --- Creates a Go statement for an IAssign.
 --- @param opts    - compiler options
+--- @param content - variable that is used in a switch later
 --- @param iassign - IAssign to convert
-iassign2Go :: CGOptions -> IAssign -> GoStat
-iassign2Go opts (IVarAssign i expr)    = GoAssign
+iassign2Go :: CGOptions -> Int -> IAssign -> GoStat
+iassign2Go opts v (IVarAssign i expr) | v == i     = case expr of
+  (IVarAccess n ns) -> GoAssign
+    [var i] "=" [recursiveChildAccess n (reverse ns)]
+  _                 -> GoAssign
+    [var i] "=" [iexpr2Go opts newNode expr]
+iassign2Go opts v (IVarAssign i expr) | otherwise  = GoAssign
   [var i] "=" [iexpr2Go opts newNode expr]
-iassign2Go opts (INodeAssign i ls expr) = GoExprStat 
-  (GoCall (GoSelector (recursiveChildAccess i (tail revLs)) "SetChild")
+iassign2Go opts _ (INodeAssign i ls expr)          = GoExprStat 
+  (GoCall (GoSelector (childAccess i (tail revLs)) "SetChild")
   [GoIntLit (head revLs),iexpr2Go opts newNode expr])
  where
   revLs = reverse ls
@@ -256,9 +270,9 @@ istatement2Go opts (IReturn expr)      = case expr of
   (GoOpName (runtime ++ ".RedirectCreate")) [root, var i]), GoReturn []]
  IVarAccess i xs -> [GoExprStat (GoCall
   (GoOpName (runtime ++ ".RedirectCreate"))
-  [root, recursiveChildAccess i (reverse xs)]), GoReturn []]
+  [root, childAccess i (reverse xs)]), GoReturn []]
  _               -> [GoExprStat (iexpr2Go opts root expr), GoReturn []]
-istatement2Go opts (ICaseCons i cases) = [GoExprSwitch 
+istatement2Go opts (ICaseCons i cases) = [GoExprSwitch
   (GoCall (GoSelector (var i) "GetConstructor") [])
   ((GoExprBranch [GoIntLit (-1)] 
   [GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
@@ -321,7 +335,7 @@ iLitBranch2Go opts (ILitBranch (IFloat f) block) = GoExprBranch
 iexpr2Go :: CGOptions -> GoExpr -> IExpr -> GoExpr
 iexpr2Go opts expr x = case x of
   (IVar i)               -> var i
-  (IVarAccess i xs)      -> recursiveChildAccess i (reverse xs)
+  (IVarAccess i xs)      -> childAccess i (reverse xs)
   (ILit lit)             -> ilit2Go opts expr lit
   (IFCall name fargs)    -> createCall name fargs
   (ICCall name fargs)    -> createCall name fargs
@@ -333,14 +347,14 @@ iexpr2Go opts expr x = case x of
     , iexpr2Go opts newNode expr2]
  where
   createCall name fargs  = GoCall
-    (GoOpName (iqname2Go opts name ++ "Create")) 
+    (GoOpName (iqname2Go opts name ++ "Create"))
     (expr :(map (iexpr2Go opts newNode) fargs))
 
 --- Creates a Go expression from an ILiteral.
 --- @param expr  - Go operand to use as root for runtime function calls
 --- @param iliteral - literal to convert
 ilit2Go :: CGOptions -> GoExpr -> ILiteral -> GoExpr
-ilit2Go _ expr (IInt i)   = GoCall 
+ilit2Go _ expr (IInt i)   = GoCall
   (GoOpName (runtime ++ ".IntLitCreate")) [expr, GoIntLit i]
 ilit2Go _ expr (IChar c)  = GoCall
   (GoOpName (runtime ++ ".CharLitCreate")) [expr, GoIntLit (ord c)]
@@ -400,12 +414,24 @@ replaceInvalidChars (x : xs)
 
 --- Creates a chain of child accesses.
 --- Chain is in reverse order of the list.
+--- The final access is done without dereferencing.
+--- @param i    - root variable of access chain
+--- @param l    - list of children to be accessed
+childAccess :: Int -> [Int] -> GoExpr
+childAccess i []           = var i
+childAccess i [x]          = GoIndex
+  (GoSelector (var i) "Children") (GoIntLit x)
+childAccess i (x:xs@(_:_)) = GoIndex
+  (GoSelector (recursiveChildAccess i xs) "Children") (GoIntLit x)
+
+--- Creates a chain of child accesses.
+--- Chain is in reverse order of the list.
 --- @param i    - root variable of access chain
 --- @param l    - list of children to be accessed
 recursiveChildAccess :: Int -> [Int] -> GoExpr
 recursiveChildAccess i []     = var i
-recursiveChildAccess i (x:xs) = GoCall (GoSelector
-  (recursiveChildAccess  i xs) "GetChild") [GoIntLit x]
+recursiveChildAccess i (y:ys) = GoCall (GoSelector
+  (recursiveChildAccess i ys) "GetChild") [GoIntLit y]
 
 --- Removes dots from a String.
 removeDots :: String -> String
