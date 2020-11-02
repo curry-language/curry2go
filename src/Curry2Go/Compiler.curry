@@ -246,13 +246,11 @@ ivardecl2Go (IFreeDecl i) = GoShortVarDecl
 --- @param content - variable that is used in a switch later
 --- @param iassign - IAssign to convert
 iassign2Go :: CGOptions -> Int -> IAssign -> GoStat
-iassign2Go opts v (IVarAssign i expr) | v == i     = case expr of
-  (IVarAccess n ns) -> GoAssign
-    [var i] "=" [recursiveChildAccess n (reverse ns)]
-  _                 -> GoAssign
-    [var i] "=" [iexpr2Go opts newNode expr]
-iassign2Go opts v (IVarAssign i expr) | otherwise  = GoAssign
-  [var i] "=" [iexpr2Go opts newNode expr]
+iassign2Go opts v (IVarAssign i expr)
+  | v == i     = GoAssign [var i] "=" $ case expr of
+                   IVarAccess n ns -> [recursiveChildAccess n (reverse ns)]
+                   _               -> [iexpr2Go opts newNode expr]
+  | otherwise  = GoAssign [var i] "=" [iexpr2Go opts newNode expr]
 iassign2Go opts _ (INodeAssign i ls expr)          = GoExprStat 
   (GoCall (GoSelector (childAccess i (tail revLs)) "SetChild")
   [GoIntLit (head revLs),iexpr2Go opts newNode expr])
