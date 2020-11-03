@@ -224,15 +224,8 @@ ifuncbody2Go opts (IFuncBody block) = GoShortVarDecl ["root"]
 --- @param iblock - IBlock to convert
 iblock2Go :: CGOptions -> IBlock -> [GoStat]
 iblock2Go opts (IBlock decls assigns stat) = map ivardecl2Go decls
-  ++ map (iassign2Go opts (findContent stat)) assigns
+  ++ map (iassign2Go opts) assigns
   ++ istatement2Go opts stat
-
---- Returns the variable used in a case statement or -1.
-findContent :: IStatement -> Int
-findContent IExempt           = -1
-findContent (IReturn _)       = -1
-findContent (ICaseCons i _)   = i
-findContent (ICaseLit i _)    = i
 
 --- Creates a Go statement for an IVarDecl.
 ivardecl2Go :: IVarDecl -> GoStat
@@ -243,15 +236,11 @@ ivardecl2Go (IFreeDecl i) = GoShortVarDecl
 
 --- Creates a Go statement for an IAssign.
 --- @param opts    - compiler options
---- @param content - variable that is used in a switch later
 --- @param iassign - IAssign to convert
-iassign2Go :: CGOptions -> Int -> IAssign -> GoStat
-iassign2Go opts v (IVarAssign i expr)
-  | v == i     = GoAssign [var i] "=" $ case expr of
-                   IVarAccess n ns -> [recursiveChildAccess n (reverse ns)]
-                   _               -> [iexpr2Go opts newNode expr]
-  | otherwise  = GoAssign [var i] "=" [iexpr2Go opts newNode expr]
-iassign2Go opts _ (INodeAssign i ls expr)          = GoExprStat 
+iassign2Go :: CGOptions -> IAssign -> GoStat
+iassign2Go opts (IVarAssign i expr)     = GoAssign
+  [var i] "=" [iexpr2Go opts newNode expr]
+iassign2Go opts (INodeAssign i ls expr) = GoExprStat 
   (GoCall (GoSelector (childAccess i (tail revLs)) "SetChild")
   [GoIntLit (head revLs),iexpr2Go opts newNode expr])
  where
