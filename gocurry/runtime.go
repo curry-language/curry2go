@@ -28,14 +28,11 @@ const(
 type Node struct{
     Children []*Node 
     node_type NodeType
-    int_literal int
+    int_value int          // int_literal, constructor, demanded_arg, int_value
     float_literal float64
     char_literal rune
-    constructor int
     function func(*Task)
-    demanded_args int
     number_args int
-    choice_id int
     name string
     evaluated bool
     lock sync.Mutex
@@ -115,10 +112,10 @@ func evalStep(task *Task){
         }
 
         // test if an argument is demanded
-        if (task.control.demanded_args >= 0){
+        if (task.control.int_value >= 0){
 
             // get demanded child
-	        child := task.control.GetChild(task.control.demanded_args)
+	        child := task.control.GetChild(task.control.int_value)
             
             // if the child needs to be evaluated, put it in control
             if (!child.IsHNF()){
@@ -154,7 +151,7 @@ func evalStep(task *Task){
         if (len(task.stack) == 0){
 
             // get fingerprint information
-            branch, ok := task.fingerprint[task.control.choice_id]
+            branch, ok := task.fingerprint[task.control.int_value]
 
             // test if choice id in fingerprint
             if(ok){
@@ -170,8 +167,8 @@ func evalStep(task *Task){
                 }
 
                 // set fingerprints
-                task.fingerprint[task.control.choice_id] = 0
-                new_task.fingerprint[task.control.choice_id] = 1
+                task.fingerprint[task.control.int_value] = 0
+                new_task.fingerprint[task.control.int_value] = 1
 
                 // set control in the old task to the first child
                 task.control = task.control.Children[0]
@@ -499,7 +496,7 @@ func pullTab(choice_node, root *Node){
 
     // set root to a choice node
     root.node_type = CHOICE
-    root.choice_id = choice_node.choice_id
+    root.int_value = choice_node.int_value
     root.Children = new_children
 }
 
@@ -535,20 +532,18 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     new_node.Children = make([]*Node, len(node.Children))
     copy(new_node.Children, node.Children)
 
-    new_node.int_literal = node.int_literal
+    new_node.int_value = node.int_value
     new_node.float_literal = node.float_literal
     new_node.char_literal = node.char_literal
     new_node.function = node.function
-    new_node.demanded_args = node.demanded_args
 
     new_node.number_args = node.number_args
-    new_node.constructor = node.constructor
     new_node.name = node.name
     new_node.evaluated = node.evaluated
 
     // create new choice-identifier for choice nodes
     if(node.node_type == CHOICE){
-        new_node.choice_id = NextChoiceId()
+        new_node.int_value = NextChoiceId()
     }
 
     // append args to children

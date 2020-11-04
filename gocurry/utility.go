@@ -14,7 +14,7 @@ import "regexp"
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, num_args int, name string, args ...*Node)(*Node){
     root.Children = root.Children[:0]
-    root.constructor = constructor
+    root.int_value = constructor
     root.name = name
     root.number_args = num_args
     root.evaluated = false
@@ -36,7 +36,7 @@ func FuncCreate(root *Node, function func(*Task), name string, number_args int, 
     root.number_args = number_args
     root.name = name
     root.evaluated = false
-    root.demanded_args = demanded_args
+    root.int_value = demanded_args
     root.Children = append(root.Children, args...)
     root.node_type = FCALL
     return root
@@ -56,7 +56,7 @@ func RedirectCreate(root, x1 *Node)(*Node){
 // Returns a pointer to the updated root.
 func ChoiceCreate(root, x1, x2 *Node)(*Node){
     root.Children = root.Children[:0]
-    root.choice_id = NextChoiceId()
+    root.int_value = NextChoiceId()
     root.evaluated = false
     root.Children = append(root.Children, x1, x2)
     root.node_type = CHOICE
@@ -77,7 +77,7 @@ func ExemptCreate(root *Node)(*Node){
 func IntLitCreate(root *Node, value int)(*Node){
     root.Children = root.Children[:0]
     root.node_type = INT_LITERAL
-    root.int_literal = value
+    root.int_value = value
     root.evaluated = true
     return root
 }
@@ -107,7 +107,7 @@ func CharLitCreate(root *Node, value rune)(*Node){
 func FreeCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
     root.node_type = CONSTRUCTOR
-    root.constructor = -1
+    root.int_value = -1
     return root
 }
 
@@ -237,7 +237,7 @@ func (node *Node) GetType() NodeType{
 }
 
 func (node *Node) GetInt() int{
-    return node.int_literal
+    return node.int_value
 }
 
 func (node *Node) GetFloat() float64{
@@ -249,7 +249,7 @@ func (node *Node) GetChar() rune{
 }
 
 func (node *Node) GetConstructor() int{
-    return node.constructor
+    return node.int_value
 }
 
 func (node *Node) GetFunction() func(*Task){
@@ -257,7 +257,7 @@ func (node *Node) GetFunction() func(*Task){
 }
 
 func (node *Node) GetDemandedArgs() int{
-    return node.demanded_args
+    return node.int_value
 }
 
 func (node *Node) GetNumArgs() int{
@@ -265,7 +265,7 @@ func (node *Node) GetNumArgs() int{
 }
 
 func (node *Node) GetChoiceId() int{
-    return node.choice_id
+    return node.int_value
 }
 
 func (node *Node) GetName() string{
@@ -477,7 +477,7 @@ func printList(node *Node){
 // Prints a textual representation of a node.
 func printNode(node *Node) {
     if(node.node_type == INT_LITERAL){
-        fmt.Printf("%d", node.int_literal)
+        fmt.Printf("%d", node.int_value)
     } else if(node.node_type == FLOAT_LITERAL){
         fmt.Printf("%f", node.float_literal)
     } else if(node.node_type == CHAR_LITERAL){
