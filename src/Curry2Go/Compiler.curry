@@ -196,9 +196,13 @@ ifunc2GoCreate opts (IFunction name n _ args _) = GoTopLevelFuncDecl
   [GoExprStat (GoCall (GoOpName (runtime ++ ".FuncCreate"))
     [GoOpName "root", GoOpName (iqname2Go opts name)
     , GoStringLit (iqname2Go opts name), GoIntLit n
-    , GoCompositeLit "[]int" (map (\x -> GoIntLit x) args)
+    , demandedArg
     , GoVariadic (GoOpName "args")])
   , GoReturn [root]])
+ where
+  demandedArg = case args of
+    []    -> GoIntLit (-1)
+    (x:_) -> GoIntLit x
 
 --- Creates a Go top-level function declaration for an IFunction.
 --- @param opts  - compiler options

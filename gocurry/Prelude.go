@@ -211,6467 +211,6467 @@ func Prelude__DictHashShowCreate( root *Node, args ...*Node )( *Node ){
 }
 
 func Prelude__defHashEqEqHashPrelude_EqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashEqEqHashPrelude_Eq, "Prelude__defHashEqEqHashPrelude_Eq", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashEqEqHashPrelude_Eq, "Prelude__defHashEqEqHashPrelude_Eq", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashSlashEqHashPrelude_EqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashSlashEqHashPrelude_Eq, "Prelude__defHashSlashEqHashPrelude_Eq", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashSlashEqHashPrelude_Eq, "Prelude__defHashSlashEqHashPrelude_Eq", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Char, "Prelude__instHashPrelude_EqHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Char, "Prelude__instHashPrelude_EqHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Char, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Char", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Char, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Char", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Char, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Char, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Int, "Prelude__instHashPrelude_EqHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Int, "Prelude__instHashPrelude_EqHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Int, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Int, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Int, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Int, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Float, "Prelude__instHashPrelude_EqHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Float, "Prelude__instHashPrelude_EqHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Float, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Float, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Float, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Float, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLSbRSb, "Prelude__instHashPrelude_EqHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLSbRSb, "Prelude__instHashPrelude_EqHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLSbRSb, "Prelude__implHashSlashEqHashPrelude_EqHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLSbRSb, "Prelude__implHashSlashEqHashPrelude_EqHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbRb, "Prelude__instHashPrelude_EqHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbRb, "Prelude__instHashPrelude_EqHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbRb, "Prelude__implHashEqEqHashPrelude_EqHashLbRb", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbRb, "Prelude__implHashEqEqHashPrelude_EqHashLbRb", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaRb, "Prelude__instHashPrelude_EqHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaRb, "Prelude__instHashPrelude_EqHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0", 9, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0", 9, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0", 11, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0", 11, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 6, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 6, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 8, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 8, 6, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0", 13, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0", 13, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 6, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb", 6, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 7, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__instHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 7, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 9, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 9, 7, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0", 15, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_CASE0", 15, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 7, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb, "Prelude__implHashSlashEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb", 7, -1, args... )
     return( root )
 }
 
 func Prelude__defHashcompareHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord, "Prelude__defHashcompareHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord, "Prelude__defHashcompareHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2, "Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashLtEqHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashLtEqHashPrelude_Ord, "Prelude__defHashLtEqHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashLtEqHashPrelude_Ord, "Prelude__defHashLtEqHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashGtEqHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashGtEqHashPrelude_Ord, "Prelude__defHashGtEqHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashGtEqHashPrelude_Ord, "Prelude__defHashGtEqHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashLtHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashLtHashPrelude_Ord, "Prelude__defHashLtHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashLtHashPrelude_Ord, "Prelude__defHashLtHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashGtHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashGtHashPrelude_Ord, "Prelude__defHashGtHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashGtHashPrelude_Ord, "Prelude__defHashGtHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashminHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashminHashPrelude_Ord, "Prelude__defHashminHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashminHashPrelude_Ord, "Prelude__defHashminHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__defHashmaxHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord, "Prelude__defHashmaxHashPrelude_Ord", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord, "Prelude__defHashmaxHashPrelude_Ord", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0, "Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1, "Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Char, "Prelude__instHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Char, "Prelude__instHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Char, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Char, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Char, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Char", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Char, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Char", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Char, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Char, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Char, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Char, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Char, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Char, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Char, "Prelude__implHashminHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Char, "Prelude__implHashminHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Char, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Char, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Int, "Prelude__instHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Int, "Prelude__instHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Int, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Int, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Int, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Int, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Int, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Int, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Int, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Int, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Int, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Int, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Int, "Prelude__implHashminHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Int, "Prelude__implHashminHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Int, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Int, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Float, "Prelude__instHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Float, "Prelude__instHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Float, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Float, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Float, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Float, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Float, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Float, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Float, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Float, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Float, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Float, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Float, "Prelude__implHashminHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Float, "Prelude__implHashminHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Float, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Float, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLSbRSb, "Prelude__instHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLSbRSb, "Prelude__instHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLSbRSb, "Prelude__implHashcompareHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLSbRSb, "Prelude__implHashcompareHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb, "Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb, "Prelude__implHashGtEqHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLSbRSb, "Prelude__implHashLtHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLSbRSb, "Prelude__implHashLtHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLSbRSb, "Prelude__implHashGtHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLSbRSb, "Prelude__implHashGtHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLSbRSb, "Prelude__implHashminHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLSbRSb, "Prelude__implHashminHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLSbRSb, "Prelude__implHashmaxHashPrelude_OrdHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLSbRSb, "Prelude__implHashmaxHashPrelude_OrdHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbRb, "Prelude__instHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbRb, "Prelude__instHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbRb, "Prelude__implHashcompareHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbRb, "Prelude__implHashcompareHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbRb", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbRb", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbRb, "Prelude__implHashLtHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbRb, "Prelude__implHashLtHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbRb, "Prelude__implHashGtHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbRb, "Prelude__implHashGtHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbRb, "Prelude__implHashminHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbRb, "Prelude__implHashminHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbRb, "Prelude__implHashmaxHashPrelude_OrdHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbRb, "Prelude__implHashmaxHashPrelude_OrdHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0", 9, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0", 9, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashcompareHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0", 11, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0", 11, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashGtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashLtHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashGtHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashminHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRb, "Prelude__implHashmaxHashPrelude_OrdHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__defHashshowHashPrelude_ShowCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashshowHashPrelude_Show, "Prelude__defHashshowHashPrelude_Show", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashshowHashPrelude_Show, "Prelude__defHashshowHashPrelude_Show", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashshowsPrecHashPrelude_ShowCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashshowsPrecHashPrelude_Show, "Prelude__defHashshowsPrecHashPrelude_Show", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashshowsPrecHashPrelude_Show, "Prelude__defHashshowsPrecHashPrelude_Show", 4, -1, args... )
     return( root )
 }
 
 func Prelude__defHashshowListHashPrelude_ShowCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashshowListHashPrelude_Show, "Prelude__defHashshowListHashPrelude_Show", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashshowListHashPrelude_Show, "Prelude__defHashshowListHashPrelude_Show", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbRb, "Prelude__instHashPrelude_ShowHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbRb, "Prelude__instHashPrelude_ShowHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbRb, "Prelude__implHashshowHashPrelude_ShowHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbRb, "Prelude__implHashshowHashPrelude_ShowHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbRb", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbRb", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbRb, "Prelude__implHashshowListHashPrelude_ShowHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbRb, "Prelude__implHashshowListHashPrelude_ShowHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 7, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 7, 6, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb, "Prelude__implHashshowListHashPrelude_ShowHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashLSbRSb, "Prelude__instHashPrelude_ShowHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashLSbRSb, "Prelude__instHashPrelude_ShowHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowHashPrelude_ShowHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowHashPrelude_ShowHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowsPrecHashPrelude_ShowHashLSbRSb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowListHashPrelude_ShowHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashLSbRSb, "Prelude__implHashshowListHashPrelude_ShowHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Char, "Prelude__instHashPrelude_ShowHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Char, "Prelude__instHashPrelude_ShowHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Char", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Int, "Prelude__instHashPrelude_ShowHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Int, "Prelude__instHashPrelude_ShowHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Int, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Float, "Prelude__instHashPrelude_ShowHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Float, "Prelude__instHashPrelude_ShowHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Float, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__defHashreadsPrecHashPrelude_ReadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashreadsPrecHashPrelude_Read, "Prelude__defHashreadsPrecHashPrelude_Read", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashreadsPrecHashPrelude_Read, "Prelude__defHashreadsPrecHashPrelude_Read", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashreadListHashPrelude_ReadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashreadListHashPrelude_Read, "Prelude__defHashreadListHashPrelude_Read", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashreadListHashPrelude_Read, "Prelude__defHashreadListHashPrelude_Read", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbRb, "Prelude__instHashPrelude_ReadHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbRb, "Prelude__instHashPrelude_ReadHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda4__Hashlambda8_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbRb, "Prelude__implHashreadListHashPrelude_ReadHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbRb, "Prelude__implHashreadListHashPrelude_ReadHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Int, "Prelude__instHashPrelude_ReadHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Int, "Prelude__instHashPrelude_ReadHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Hashlambda13__Hashlambda17_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Int, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Int, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Float, "Prelude__instHashPrelude_ReadHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Float, "Prelude__instHashPrelude_ReadHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__Hashlambda21Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__Hashlambda21, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__Hashlambda21", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__Hashlambda21, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__Hashlambda21", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__Hashlambda26__Hashlambda30_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Float, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Float, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Char, "Prelude__instHashPrelude_ReadHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Char, "Prelude__instHashPrelude_ReadHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__Hashlambda35__Hashlambda39_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE1, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE1, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Hashlambda44__Hashlambda48_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLSbRSb, "Prelude__instHashPrelude_ReadHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLSbRSb, "Prelude__instHashPrelude_ReadHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLSbRSb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLSbRSb, "Prelude__implHashreadListHashPrelude_ReadHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLSbRSb, "Prelude__implHashreadListHashPrelude_ReadHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_COMPLEXCASE1", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE2", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53_CASE2", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_COMPLEXCASE1", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE2", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61_CASE2", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_COMPLEXCASE1", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE2", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hashlambda53__Hashlambda57__Hashlambda61__Hashlambda65__Hashlambda69_CASE2", 5, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE0", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1", 7, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_COMPLEXCASE1", 7, 6, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE2", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74_CASE2", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE0", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1", 7, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_COMPLEXCASE1", 7, 6, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE2", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82_CASE2", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE0", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1", 7, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_COMPLEXCASE1", 7, 6, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE2", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90_CASE2", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE0", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1", 7, []int{ 6 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_COMPLEXCASE1", 7, 6, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE2", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71__Hashlambda74__Hashlambda78__Hashlambda82__Hashlambda86__Hashlambda90__Hashlambda94__Hashlambda98_CASE2", 6, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1", 8, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_COMPLEXCASE1", 8, 7, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE2", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103_CASE2", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1", 8, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_COMPLEXCASE1", 8, 7, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE2", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111_CASE2", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1", 8, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_COMPLEXCASE1", 8, 7, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE2", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119_CASE2", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1", 8, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_COMPLEXCASE1", 8, 7, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE2", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127_CASE2", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131", 5, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131", 5, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE0", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1", 8, []int{ 7 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_COMPLEXCASE1", 8, 7, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE2", 7, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlambda100__Hashlambda103__Hashlambda107__Hashlambda111__Hashlambda115__Hashlambda119__Hashlambda123__Hashlambda127__Hashlambda131__Hashlambda135_CASE2", 7, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 6, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 6, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137", 6, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137", 6, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176", 6, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176", 6, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180", 7, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180", 7, 5, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE0", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1", 9, []int{ 8 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_COMPLEXCASE1", 9, 8, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE2", 8, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Hashlambda137__Hashlambda140__Hashlambda144__Hashlambda148__Hashlambda152__Hashlambda156__Hashlambda160__Hashlambda164__Hashlambda168__Hashlambda172__Hashlambda176__Hashlambda180_CASE2", 8, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb, "Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__defHashminBoundHashPrelude_BoundedCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashminBoundHashPrelude_Bounded, "Prelude__defHashminBoundHashPrelude_Bounded", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__defHashminBoundHashPrelude_Bounded, "Prelude__defHashminBoundHashPrelude_Bounded", 2, 1, args... )
     return( root )
 }
 
 func Prelude__defHashmaxBoundHashPrelude_BoundedCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmaxBoundHashPrelude_Bounded, "Prelude__defHashmaxBoundHashPrelude_Bounded", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__defHashmaxBoundHashPrelude_Bounded, "Prelude__defHashmaxBoundHashPrelude_Bounded", 2, 1, args... )
     return( root )
 }
 
 func Prelude__defHashsuccHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashsuccHashPrelude_Enum, "Prelude__defHashsuccHashPrelude_Enum", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashsuccHashPrelude_Enum, "Prelude__defHashsuccHashPrelude_Enum", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashpredHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashpredHashPrelude_Enum, "Prelude__defHashpredHashPrelude_Enum", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashpredHashPrelude_Enum, "Prelude__defHashpredHashPrelude_Enum", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashpredHashPrelude_Enum__Hashlambda182Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashpredHashPrelude_Enum__Hashlambda182, "Prelude__defHashpredHashPrelude_Enum__Hashlambda182", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashpredHashPrelude_Enum__Hashlambda182, "Prelude__defHashpredHashPrelude_Enum__Hashlambda182", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashtoEnumHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashtoEnumHashPrelude_Enum, "Prelude__defHashtoEnumHashPrelude_Enum", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashtoEnumHashPrelude_Enum, "Prelude__defHashtoEnumHashPrelude_Enum", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashfromEnumHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashfromEnumHashPrelude_Enum, "Prelude__defHashfromEnumHashPrelude_Enum", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashfromEnumHashPrelude_Enum, "Prelude__defHashfromEnumHashPrelude_Enum", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashenumFromHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashenumFromHashPrelude_Enum, "Prelude__defHashenumFromHashPrelude_Enum", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashenumFromHashPrelude_Enum, "Prelude__defHashenumFromHashPrelude_Enum", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashenumFromThenHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashenumFromThenHashPrelude_Enum, "Prelude__defHashenumFromThenHashPrelude_Enum", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashenumFromThenHashPrelude_Enum, "Prelude__defHashenumFromThenHashPrelude_Enum", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashenumFromToHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashenumFromToHashPrelude_Enum, "Prelude__defHashenumFromToHashPrelude_Enum", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashenumFromToHashPrelude_Enum, "Prelude__defHashenumFromToHashPrelude_Enum", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashenumFromThenToHashPrelude_EnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashenumFromThenToHashPrelude_Enum, "Prelude__defHashenumFromThenToHashPrelude_Enum", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashenumFromThenToHashPrelude_Enum, "Prelude__defHashenumFromThenToHashPrelude_Enum", 4, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbRb, "Prelude__instHashPrelude_BoundedHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbRb, "Prelude__instHashPrelude_BoundedHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbRb", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbRb", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRb", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRb", 1, 0, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EnumHashLbRb, "Prelude__instHashPrelude_EnumHashLbRb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EnumHashLbRb, "Prelude__instHashPrelude_EnumHashLbRb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashLbRb, "Prelude__implHashsuccHashPrelude_EnumHashLbRb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashLbRb, "Prelude__implHashsuccHashPrelude_EnumHashLbRb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashLbRb, "Prelude__implHashpredHashPrelude_EnumHashLbRb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashLbRb, "Prelude__implHashpredHashPrelude_EnumHashLbRb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashfromEnumHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashLbRb, "Prelude__implHashfromEnumHashPrelude_EnumHashLbRb", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashLbRb, "Prelude__implHashfromEnumHashPrelude_EnumHashLbRb", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromHashPrelude_EnumHashLbRb", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromHashPrelude_EnumHashLbRb", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_LET1, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_LET1", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_LET1, "Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_LET1", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromToHashPrelude_EnumHashLbRb", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromToHashPrelude_EnumHashLbRb", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_LET2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_LET2, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_LET2", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_LET2, "Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_LET2", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Bool, "Prelude__instHashPrelude_BoundedHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Bool, "Prelude__instHashPrelude_BoundedHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Bool, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Bool", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Bool, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Bool", 1, 0, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Bool, "Prelude__instHashPrelude_EnumHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Bool, "Prelude__instHashPrelude_EnumHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Bool", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Bool", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Bool, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaRb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaRb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb", 3, 2, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaRb", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaRb", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb", 4, 3, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRb", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaRb", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb", 5, 4, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 5, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__instHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 5, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 6, 5, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb, "Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb", 6, 5, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Ordering, "Prelude__instHashPrelude_BoundedHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Ordering, "Prelude__instHashPrelude_BoundedHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Ordering, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Ordering", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Ordering, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Ordering", 1, 0, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Ordering, "Prelude__instHashPrelude_EnumHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Ordering, "Prelude__instHashPrelude_EnumHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Ordering", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Ordering", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Ordering, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_BoundedHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Char, "Prelude__instHashPrelude_BoundedHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_BoundedHashPrelude_Char, "Prelude__instHashPrelude_BoundedHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char, "Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Char, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Char", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Char, "Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Char", 1, 0, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Char, "Prelude__instHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Char, "Prelude__instHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Char, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Char, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Char, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Char, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_CharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Char", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Char, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Char", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Int, "Prelude__instHashPrelude_EnumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EnumHashPrelude_Int, "Prelude__instHashPrelude_EnumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int, "Prelude__implHashsuccHashPrelude_EnumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Int, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashpredHashPrelude_EnumHashPrelude_Int, "Prelude__implHashpredHashPrelude_EnumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int, "Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Int, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Int, "Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromHashPrelude_EnumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromThenHashPrelude_EnumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromToHashPrelude_EnumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Int, "Prelude__implHashenumFromThenToHashPrelude_EnumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__defHashAddHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashAddHashPrelude_Num, "Prelude__defHashAddHashPrelude_Num", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashAddHashPrelude_Num, "Prelude__defHashAddHashPrelude_Num", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashSubHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashSubHashPrelude_Num, "Prelude__defHashSubHashPrelude_Num", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashSubHashPrelude_Num, "Prelude__defHashSubHashPrelude_Num", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashMulHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashMulHashPrelude_Num, "Prelude__defHashMulHashPrelude_Num", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashMulHashPrelude_Num, "Prelude__defHashMulHashPrelude_Num", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashnegateHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashnegateHashPrelude_Num, "Prelude__defHashnegateHashPrelude_Num", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashnegateHashPrelude_Num, "Prelude__defHashnegateHashPrelude_Num", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashabsHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashabsHashPrelude_Num, "Prelude__defHashabsHashPrelude_Num", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashabsHashPrelude_Num, "Prelude__defHashabsHashPrelude_Num", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashsignumHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashsignumHashPrelude_Num, "Prelude__defHashsignumHashPrelude_Num", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashsignumHashPrelude_Num, "Prelude__defHashsignumHashPrelude_Num", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashfromIntHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashfromIntHashPrelude_Num, "Prelude__defHashfromIntHashPrelude_Num", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashfromIntHashPrelude_Num, "Prelude__defHashfromIntHashPrelude_Num", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_NumHashPrelude_Int, "Prelude__instHashPrelude_NumHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_NumHashPrelude_Int, "Prelude__instHashPrelude_NumHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashAddHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashAddHashPrelude_NumHashPrelude_Int, "Prelude__implHashAddHashPrelude_NumHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashAddHashPrelude_NumHashPrelude_Int, "Prelude__implHashAddHashPrelude_NumHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSubHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSubHashPrelude_NumHashPrelude_Int, "Prelude__implHashSubHashPrelude_NumHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSubHashPrelude_NumHashPrelude_Int, "Prelude__implHashSubHashPrelude_NumHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashMulHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashMulHashPrelude_NumHashPrelude_Int, "Prelude__implHashMulHashPrelude_NumHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashMulHashPrelude_NumHashPrelude_Int, "Prelude__implHashMulHashPrelude_NumHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashnegateHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashnegateHashPrelude_NumHashPrelude_Int, "Prelude__implHashnegateHashPrelude_NumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashnegateHashPrelude_NumHashPrelude_Int, "Prelude__implHashnegateHashPrelude_NumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1, "Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashfromIntHashPrelude_NumHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromIntHashPrelude_NumHashPrelude_Int, "Prelude__implHashfromIntHashPrelude_NumHashPrelude_Int", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfromIntHashPrelude_NumHashPrelude_Int, "Prelude__implHashfromIntHashPrelude_NumHashPrelude_Int", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_NumHashPrelude_Float, "Prelude__instHashPrelude_NumHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_NumHashPrelude_Float, "Prelude__instHashPrelude_NumHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashAddHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashAddHashPrelude_NumHashPrelude_Float, "Prelude__implHashAddHashPrelude_NumHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashAddHashPrelude_NumHashPrelude_Float, "Prelude__implHashAddHashPrelude_NumHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSubHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSubHashPrelude_NumHashPrelude_Float, "Prelude__implHashSubHashPrelude_NumHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSubHashPrelude_NumHashPrelude_Float, "Prelude__implHashSubHashPrelude_NumHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashMulHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashMulHashPrelude_NumHashPrelude_Float, "Prelude__implHashMulHashPrelude_NumHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashMulHashPrelude_NumHashPrelude_Float, "Prelude__implHashMulHashPrelude_NumHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashnegateHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashnegateHashPrelude_NumHashPrelude_Float, "Prelude__implHashnegateHashPrelude_NumHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashnegateHashPrelude_NumHashPrelude_Float, "Prelude__implHashnegateHashPrelude_NumHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1, "Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2, "Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashfromIntHashPrelude_NumHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromIntHashPrelude_NumHashPrelude_Float, "Prelude__implHashfromIntHashPrelude_NumHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfromIntHashPrelude_NumHashPrelude_Float, "Prelude__implHashfromIntHashPrelude_NumHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashSlashHashPrelude_FractionalCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashSlashHashPrelude_Fractional, "Prelude__defHashSlashHashPrelude_Fractional", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashSlashHashPrelude_Fractional, "Prelude__defHashSlashHashPrelude_Fractional", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashrecipHashPrelude_FractionalCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashrecipHashPrelude_Fractional, "Prelude__defHashrecipHashPrelude_Fractional", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashrecipHashPrelude_Fractional, "Prelude__defHashrecipHashPrelude_Fractional", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashfromFloatHashPrelude_FractionalCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashfromFloatHashPrelude_Fractional, "Prelude__defHashfromFloatHashPrelude_Fractional", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashfromFloatHashPrelude_Fractional, "Prelude__defHashfromFloatHashPrelude_Fractional", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_FractionalHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_FractionalHashPrelude_Float, "Prelude__instHashPrelude_FractionalHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_FractionalHashPrelude_Float, "Prelude__instHashPrelude_FractionalHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashSlashHashPrelude_FractionalHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashSlashHashPrelude_FractionalHashPrelude_Float", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashrecipHashPrelude_FractionalHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashrecipHashPrelude_FractionalHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_Float", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_Float, "Prelude__implHashfromFloatHashPrelude_FractionalHashPrelude_Float", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashdivHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashdivHashPrelude_Integral, "Prelude__defHashdivHashPrelude_Integral", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashdivHashPrelude_Integral, "Prelude__defHashdivHashPrelude_Integral", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashdivHashPrelude_Integral__HashselFP2HashqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq, "Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq, "Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashmodHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmodHashPrelude_Integral, "Prelude__defHashmodHashPrelude_Integral", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashmodHashPrelude_Integral, "Prelude__defHashmodHashPrelude_Integral", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashmodHashPrelude_Integral__HashselFP4HashrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr, "Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr, "Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashquotHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashquotHashPrelude_Integral, "Prelude__defHashquotHashPrelude_Integral", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashquotHashPrelude_Integral, "Prelude__defHashquotHashPrelude_Integral", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashquotHashPrelude_Integral__HashselFP6HashqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq, "Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq, "Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashremHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashremHashPrelude_Integral, "Prelude__defHashremHashPrelude_Integral", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashremHashPrelude_Integral, "Prelude__defHashremHashPrelude_Integral", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashremHashPrelude_Integral__HashselFP8HashrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr, "Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr, "Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr", 1, 0, args... )
     return( root )
 }
 
 func Prelude__defHashdivModHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashdivModHashPrelude_Integral, "Prelude__defHashdivModHashPrelude_Integral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashdivModHashPrelude_Integral, "Prelude__defHashdivModHashPrelude_Integral", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashquotRemHashPrelude_IntegralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashquotRemHashPrelude_Integral, "Prelude__defHashquotRemHashPrelude_Integral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashquotRemHashPrelude_Integral, "Prelude__defHashquotRemHashPrelude_Integral", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_RealHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_RealHashPrelude_Int, "Prelude__instHashPrelude_RealHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_RealHashPrelude_Int, "Prelude__instHashPrelude_RealHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_RealHashPrelude_FloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_RealHashPrelude_Float, "Prelude__instHashPrelude_RealHashPrelude_Float", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_RealHashPrelude_Float, "Prelude__instHashPrelude_RealHashPrelude_Float", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_IntegralHashPrelude_Int, "Prelude__instHashPrelude_IntegralHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_IntegralHashPrelude_Int, "Prelude__instHashPrelude_IntegralHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashdivHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashdivHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashdivHashPrelude_IntegralHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashdivHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashdivHashPrelude_IntegralHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmodHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmodHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashmodHashPrelude_IntegralHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmodHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashmodHashPrelude_IntegralHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashquotHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashquotHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashquotHashPrelude_IntegralHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashquotHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashquotHashPrelude_IntegralHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashremHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashremHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashremHashPrelude_IntegralHashPrelude_Int", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashremHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashremHashPrelude_IntegralHashPrelude_Int", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashdivModHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashdivModHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashdivModHashPrelude_IntegralHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashdivModHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashdivModHashPrelude_IntegralHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_IntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_Int", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_Int, "Prelude__implHashquotRemHashPrelude_IntegralHashPrelude_Int", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashfmapHashPrelude_FunctorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashfmapHashPrelude_Functor, "Prelude__defHashfmapHashPrelude_Functor", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashfmapHashPrelude_Functor, "Prelude__defHashfmapHashPrelude_Functor", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_FunctorHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_FunctorHashLSbRSb, "Prelude__instHashPrelude_FunctorHashLSbRSb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_FunctorHashLSbRSb, "Prelude__instHashPrelude_FunctorHashLSbRSb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfmapHashPrelude_FunctorHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfmapHashPrelude_FunctorHashLSbRSb, "Prelude__implHashfmapHashPrelude_FunctorHashLSbRSb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfmapHashPrelude_FunctorHashLSbRSb, "Prelude__implHashfmapHashPrelude_FunctorHashLSbRSb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__defHashGtGtEqHashPrelude_MonadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashGtGtEqHashPrelude_Monad, "Prelude__defHashGtGtEqHashPrelude_Monad", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashGtGtEqHashPrelude_Monad, "Prelude__defHashGtGtEqHashPrelude_Monad", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashGtGtHashPrelude_MonadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashGtGtHashPrelude_Monad, "Prelude__defHashGtGtHashPrelude_Monad", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashGtGtHashPrelude_Monad, "Prelude__defHashGtGtHashPrelude_Monad", 3, -1, args... )
     return( root )
 }
 
 func Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183, "Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183, "Prelude__defHashGtGtHashPrelude_Monad__Hashlambda183", 2, -1, args... )
     return( root )
 }
 
 func Prelude__defHashreturnHashPrelude_MonadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashreturnHashPrelude_Monad, "Prelude__defHashreturnHashPrelude_Monad", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashreturnHashPrelude_Monad, "Prelude__defHashreturnHashPrelude_Monad", 1, -1, args... )
     return( root )
 }
 
 func Prelude__defHashfailHashPrelude_MonadCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__defHashfailHashPrelude_Monad, "Prelude__defHashfailHashPrelude_Monad", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__defHashfailHashPrelude_Monad, "Prelude__defHashfailHashPrelude_Monad", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_MonadHashPrelude_IOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_MonadHashPrelude_IO, "Prelude__instHashPrelude_MonadHashPrelude_IO", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_MonadHashPrelude_IO, "Prelude__instHashPrelude_MonadHashPrelude_IO", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IO, "Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IO", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IO, "Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_IO", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO, "Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO, "Prelude__implHashGtGtHashPrelude_MonadHashPrelude_IO", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreturnHashPrelude_MonadHashPrelude_IOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashPrelude_IO, "Prelude__implHashreturnHashPrelude_MonadHashPrelude_IO", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashPrelude_IO, "Prelude__implHashreturnHashPrelude_MonadHashPrelude_IO", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfailHashPrelude_MonadHashPrelude_IOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashPrelude_IO, "Prelude__implHashfailHashPrelude_MonadHashPrelude_IO", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashPrelude_IO, "Prelude__implHashfailHashPrelude_MonadHashPrelude_IO", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_MonadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_MonadHashPrelude_Maybe, "Prelude__instHashPrelude_MonadHashPrelude_Maybe", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_MonadHashPrelude_Maybe, "Prelude__instHashPrelude_MonadHashPrelude_Maybe", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtHashPrelude_MonadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashGtGtHashPrelude_MonadHashPrelude_Maybe", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashGtGtHashPrelude_MonadHashPrelude_Maybe", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreturnHashPrelude_MonadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashreturnHashPrelude_MonadHashPrelude_Maybe", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashreturnHashPrelude_MonadHashPrelude_Maybe", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfailHashPrelude_MonadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashfailHashPrelude_MonadHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashPrelude_Maybe, "Prelude__implHashfailHashPrelude_MonadHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_MonadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_MonadHashLSbRSb, "Prelude__instHashPrelude_MonadHashLSbRSb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_MonadHashLSbRSb, "Prelude__instHashPrelude_MonadHashLSbRSb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185, "Prelude__implHashGtGtEqHashPrelude_MonadHashLSbRSb__Hashlambda184__Hashlambda185", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtGtHashPrelude_MonadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashLSbRSb, "Prelude__implHashGtGtHashPrelude_MonadHashLSbRSb", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtGtHashPrelude_MonadHashLSbRSb, "Prelude__implHashGtGtHashPrelude_MonadHashLSbRSb", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreturnHashPrelude_MonadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashLSbRSb, "Prelude__implHashreturnHashPrelude_MonadHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreturnHashPrelude_MonadHashLSbRSb, "Prelude__implHashreturnHashPrelude_MonadHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashfailHashPrelude_MonadHashLSbRSbCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashLSbRSb, "Prelude__implHashfailHashPrelude_MonadHashLSbRSb", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashfailHashPrelude_MonadHashLSbRSb, "Prelude__implHashfailHashPrelude_MonadHashLSbRSb", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Bool, "Prelude__instHashPrelude_EqHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Bool, "Prelude__instHashPrelude_EqHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Bool, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Bool, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Bool, "Prelude__instHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Bool, "Prelude__instHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashminHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashminHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Bool, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Bool, "Prelude__instHashPrelude_ShowHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Bool, "Prelude__instHashPrelude_ShowHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Bool", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Bool", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Bool, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Bool, "Prelude__instHashPrelude_ReadHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Bool, "Prelude__instHashPrelude_ReadHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__Hashlambda189_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__Hashlambda194_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_BoolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Bool, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Bool", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Bool, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Bool", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Ordering, "Prelude__instHashPrelude_EqHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Ordering, "Prelude__instHashPrelude_EqHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Ordering, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Ordering, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Ordering, "Prelude__instHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Ordering, "Prelude__instHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashminHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashminHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Ordering, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Ordering, "Prelude__instHashPrelude_ShowHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Ordering, "Prelude__instHashPrelude_ShowHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Ordering", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Ordering", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Ordering, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Ordering, "Prelude__instHashPrelude_ReadHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Ordering, "Prelude__instHashPrelude_ReadHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda196__Hashlambda199_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda201__Hashlambda204_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda206__Hashlambda209_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_OrderingCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Ordering, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Ordering", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Ordering, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Ordering", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Maybe, "Prelude__instHashPrelude_EqHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Maybe, "Prelude__instHashPrelude_EqHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Maybe, "Prelude__instHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Maybe, "Prelude__instHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashminHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Maybe, "Prelude__instHashPrelude_ShowHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Maybe, "Prelude__instHashPrelude_ShowHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe", 3, 2, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Maybe, "Prelude__instHashPrelude_ReadHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Maybe, "Prelude__instHashPrelude_ReadHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe", 3, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe", 3, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE11", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE12", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE12", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_COMPLEXCASE13", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE14", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211__Hashlambda214_CASE14", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE3", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE4", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE4", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE5", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE6", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE6", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_COMPLEXCASE7", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE8", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219_CASE8", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219__Hashlambda223Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219__Hashlambda223, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219__Hashlambda223", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219__Hashlambda223, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216__Hashlambda219__Hashlambda223", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_MaybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Maybe, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Maybe", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Maybe, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Maybe", 1, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Either, "Prelude__instHashPrelude_EqHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_Either, "Prelude__instHashPrelude_EqHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Either, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Either, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Either, "Prelude__instHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_OrdHashPrelude_Either, "Prelude__instHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashcompareHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Either, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashcompareHashPrelude_OrdHashPrelude_Either, "Prelude__implHashcompareHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either", 4, 2, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0, "Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashGtEqHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Either, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Either, "Prelude__implHashGtEqHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashLtHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Either, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashLtHashPrelude_OrdHashPrelude_Either, "Prelude__implHashLtHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashGtHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Either, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashGtHashPrelude_OrdHashPrelude_Either, "Prelude__implHashGtHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashminHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Either, "Prelude__implHashminHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashminHashPrelude_OrdHashPrelude_Either, "Prelude__implHashminHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashmaxHashPrelude_OrdHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Either, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashmaxHashPrelude_OrdHashPrelude_Either, "Prelude__implHashmaxHashPrelude_OrdHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Either, "Prelude__instHashPrelude_ShowHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_Either, "Prelude__instHashPrelude_ShowHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowHashPrelude_ShowHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_Either, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Either, "Prelude__instHashPrelude_ReadHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_Either, "Prelude__instHashPrelude_ReadHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either", 4, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either", 4, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE3", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE4", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE4", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE5", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE6", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE6", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_COMPLEXCASE7", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE8", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228_CASE8", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228__Hashlambda232Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228__Hashlambda232, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228__Hashlambda232", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228__Hashlambda232, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225__Hashlambda228__Hashlambda232", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237", 3, 1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE3", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE4", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE4", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE5", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE6", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE6", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE7", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE8", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE8", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_COMPLEXCASE9", 5, 4, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE10", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237_CASE10", 4, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237__Hashlambda241Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237__Hashlambda241, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237__Hashlambda241", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237__Hashlambda241, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234__Hashlambda237__Hashlambda241", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_EitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Either, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Either", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_Either, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_Either", 2, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_EqHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_IOError, "Prelude__instHashPrelude_EqHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_EqHashPrelude_IOError, "Prelude__instHashPrelude_EqHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0, "Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IOError, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IOError, "Prelude__implHashSlashEqHashPrelude_EqHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ShowHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_IOError, "Prelude__instHashPrelude_ShowHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ShowHashPrelude_IOError, "Prelude__instHashPrelude_ShowHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowHashPrelude_ShowHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowHashPrelude_ShowHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowHashPrelude_ShowHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError", 2, 1, args... )
     return( root )
 }
 
 func Prelude__implHashshowListHashPrelude_ShowHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashshowListHashPrelude_ShowHashPrelude_IOError, "Prelude__implHashshowListHashPrelude_ShowHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__instHashPrelude_ReadHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_IOError, "Prelude__instHashPrelude_ReadHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__instHashPrelude_ReadHashPrelude_IOError, "Prelude__instHashPrelude_ReadHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError", 2, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE11", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE12", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE12", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_COMPLEXCASE13", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE14", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246_CASE14", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246__Hashlambda250Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246__Hashlambda250, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246__Hashlambda250", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246__Hashlambda250, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda243__Hashlambda246__Hashlambda250", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE11", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE12", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE12", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE13", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE14", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE14", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE15", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE16Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE16", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE16", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_COMPLEXCASE17", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE18Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE18", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255_CASE18", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255__Hashlambda259Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255__Hashlambda259, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255__Hashlambda259", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255__Hashlambda259, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda252__Hashlambda255__Hashlambda259", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE11", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE12", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE12", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE13", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE14", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE14", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE15", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE16Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE16", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE16", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_COMPLEXCASE17", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE18Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE18", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264_CASE18", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264__Hashlambda268Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264__Hashlambda268, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264__Hashlambda268", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264__Hashlambda268, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda261__Hashlambda264__Hashlambda268", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270", 1, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270", 1, -1, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE2, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE3", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE4", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE4, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE4", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE5", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE6", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE6, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE6", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE7", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE8", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE8, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE8", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE9", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE10", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE10, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE10", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE11", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE12", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE12, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE12", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE13", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE14", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE14, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE14", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE15", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE16Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE16", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE16, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE16", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE17", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE18Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE18", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE18, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE18", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE19", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE20Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE20, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE20", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE20, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE20", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_COMPLEXCASE21", 4, 3, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE22Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE22, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE22", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE22, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273_CASE22", 3, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273__Hashlambda277Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273__Hashlambda277, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273__Hashlambda277", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273__Hashlambda277, "Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda270__Hashlambda273__Hashlambda277", 2, 0, args... )
     return( root )
 }
 
 func Prelude__implHashreadListHashPrelude_ReadHashPrelude_IOErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_IOError, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_IOError", 0, []int{  }, args... )
+    FuncCreate( root, Prelude__implHashreadListHashPrelude_ReadHashPrelude_IOError, "Prelude__implHashreadListHashPrelude_ReadHashPrelude_IOError", 0, -1, args... )
     return( root )
 }
 
 func Prelude__Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__, "Prelude__", 2, []int{  }, args... )
+    FuncCreate( root, Prelude__, "Prelude__", 2, -1, args... )
     return( root )
 }
 
 func Prelude____Hashlambda279Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude____Hashlambda279, "Prelude____Hashlambda279", 3, []int{  }, args... )
+    FuncCreate( root, Prelude____Hashlambda279, "Prelude____Hashlambda279", 3, -1, args... )
     return( root )
 }
 
 func Prelude_idCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_id, "Prelude_id", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_id, "Prelude_id", 1, -1, args... )
     return( root )
 }
 
 func Prelude_constCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_const, "Prelude_const", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_const, "Prelude_const", 2, -1, args... )
     return( root )
 }
 
 func Prelude_curryCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_curry, "Prelude_curry", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_curry, "Prelude_curry", 3, -1, args... )
     return( root )
 }
 
 func Prelude_uncurryCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_uncurry, "Prelude_uncurry", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_uncurry, "Prelude_uncurry", 2, 1, args... )
     return( root )
 }
 
 func Prelude_flipCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_flip, "Prelude_flip", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_flip, "Prelude_flip", 3, -1, args... )
     return( root )
 }
 
 func Prelude_untilCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_until, "Prelude_until", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_until, "Prelude_until", 3, -1, args... )
     return( root )
 }
 
 func Prelude_until_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_until_COMPLEXCASE0, "Prelude_until_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_until_COMPLEXCASE0, "Prelude_until_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_seqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_seq, "Prelude_seq", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_seq, "Prelude_seq", 2, -1, args... )
     return( root )
 }
 
 func Prelude_ensureNotFreeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ensureNotFree, "Prelude_ensureNotFree", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_ensureNotFree, "Prelude_ensureNotFree", 1, -1, args... )
     return( root )
 }
 
 func Prelude_ensureSpineCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ensureSpine, "Prelude_ensureSpine", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_ensureSpine, "Prelude_ensureSpine", 1, -1, args... )
     return( root )
 }
 
 func Prelude_ensureSpine_ensureList_20Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ensureSpine_ensureList_20, "Prelude_ensureSpine_ensureList_20", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_ensureSpine_ensureList_20, "Prelude_ensureSpine_ensureList_20", 1, 0, args... )
     return( root )
 }
 
 func Prelude_DolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Dol, "Prelude_Dol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Dol, "Prelude_Dol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_DolExclCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_DolExcl, "Prelude_DolExcl", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_DolExcl, "Prelude_DolExcl", 2, -1, args... )
     return( root )
 }
 
 func Prelude_DolExclExclCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_DolExclExcl, "Prelude_DolExclExcl", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_DolExclExcl, "Prelude_DolExclExcl", 2, -1, args... )
     return( root )
 }
 
 func Prelude_DolHashCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_DolHash, "Prelude_DolHash", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_DolHash, "Prelude_DolHash", 2, -1, args... )
     return( root )
 }
 
 func Prelude_DolHashHashCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_DolHashHash, "Prelude_DolHashHash", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_DolHashHash, "Prelude_DolHashHash", 2, -1, args... )
     return( root )
 }
 
 func Prelude_errorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_error, "Prelude_error", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_error, "Prelude_error", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_errorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_error, "Prelude_prim_error", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_error, "Prelude_prim_error", 1, -1, args... )
     return( root )
 }
 
 func Prelude_failedCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_failed, "Prelude_failed", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_failed, "Prelude_failed", 0, -1, args... )
     return( root )
 }
 
 func Prelude_AndAndCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_AndAnd, "Prelude_AndAnd", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_AndAnd, "Prelude_AndAnd", 2, 0, args... )
     return( root )
 }
 
 func Prelude_StrtStrtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_StrtStrt, "Prelude_StrtStrt", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_StrtStrt, "Prelude_StrtStrt", 2, 0, args... )
     return( root )
 }
 
 func Prelude_notCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_not, "Prelude_not", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_not, "Prelude_not", 1, 0, args... )
     return( root )
 }
 
 func Prelude_otherwiseCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_otherwise, "Prelude_otherwise", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_otherwise, "Prelude_otherwise", 0, -1, args... )
     return( root )
 }
 
 func Prelude_if_then_elseCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_if_then_else, "Prelude_if_then_else", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_if_then_else, "Prelude_if_then_else", 3, 0, args... )
     return( root )
 }
 
 func Prelude_solveCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_solve, "Prelude_solve", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_solve, "Prelude_solve", 1, 0, args... )
     return( root )
 }
 
 func Prelude_AndGtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_AndGt, "Prelude_AndGt", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_AndGt, "Prelude_AndGt", 2, 0, args... )
     return( root )
 }
 
 func Prelude_EqColEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_EqColEq, "Prelude_EqColEq", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_EqColEq, "Prelude_EqColEq", 2, -1, args... )
     return( root )
 }
 
 func Prelude_AndCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_And, "Prelude_And", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_And, "Prelude_And", 2, -1, args... )
     return( root )
 }
 
 func Prelude_eqCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_eqChar, "Prelude_eqChar", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_eqChar, "Prelude_eqChar", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_eqCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_eqChar, "Prelude_prim_eqChar", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_eqChar, "Prelude_prim_eqChar", 2, -1, args... )
     return( root )
 }
 
 func Prelude_eqIntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_eqInt, "Prelude_eqInt", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_eqInt, "Prelude_eqInt", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_eqIntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_eqInt, "Prelude_prim_eqInt", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_eqInt, "Prelude_prim_eqInt", 2, -1, args... )
     return( root )
 }
 
 func Prelude_eqFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_eqFloat, "Prelude_eqFloat", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_eqFloat, "Prelude_eqFloat", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_eqFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_eqFloat, "Prelude_prim_eqFloat", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_eqFloat, "Prelude_prim_eqFloat", 2, -1, args... )
     return( root )
 }
 
 func Prelude_ltEqCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ltEqChar, "Prelude_ltEqChar", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_ltEqChar, "Prelude_ltEqChar", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_ltEqCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_ltEqChar, "Prelude_prim_ltEqChar", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_ltEqChar, "Prelude_prim_ltEqChar", 2, -1, args... )
     return( root )
 }
 
 func Prelude_ltEqIntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ltEqInt, "Prelude_ltEqInt", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_ltEqInt, "Prelude_ltEqInt", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_ltEqIntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_ltEqInt, "Prelude_prim_ltEqInt", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_ltEqInt, "Prelude_prim_ltEqInt", 2, -1, args... )
     return( root )
 }
 
 func Prelude_ltEqFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ltEqFloat, "Prelude_ltEqFloat", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_ltEqFloat, "Prelude_ltEqFloat", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_ltEqFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_ltEqFloat, "Prelude_prim_ltEqFloat", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_ltEqFloat, "Prelude_prim_ltEqFloat", 2, -1, args... )
     return( root )
 }
 
 func Prelude_fstCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fst, "Prelude_fst", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fst, "Prelude_fst", 1, 0, args... )
     return( root )
 }
 
 func Prelude_sndCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_snd, "Prelude_snd", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_snd, "Prelude_snd", 1, 0, args... )
     return( root )
 }
 
 func Prelude_headCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_head, "Prelude_head", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_head, "Prelude_head", 1, 0, args... )
     return( root )
 }
 
 func Prelude_tailCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_tail, "Prelude_tail", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_tail, "Prelude_tail", 1, 0, args... )
     return( root )
 }
 
 func Prelude_nullCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_null, "Prelude_null", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_null, "Prelude_null", 1, 0, args... )
     return( root )
 }
 
 func Prelude_AddAddCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_AddAdd, "Prelude_AddAdd", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_AddAdd, "Prelude_AddAdd", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lengthCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_length, "Prelude_length", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_length, "Prelude_length", 1, -1, args... )
     return( root )
 }
 
 func Prelude_length_len_92Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_length_len_92, "Prelude_length_len_92", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_length_len_92, "Prelude_length_len_92", 3, 1, args... )
     return( root )
 }
 
 func Prelude_length_len_92_LET0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_length_len_92_LET0, "Prelude_length_len_92_LET0", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_length_len_92_LET0, "Prelude_length_len_92_LET0", 3, -1, args... )
     return( root )
 }
 
 func Prelude_ExclExclCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ExclExcl, "Prelude_ExclExcl", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_ExclExcl, "Prelude_ExclExcl", 2, 0, args... )
     return( root )
 }
 
 func Prelude_ExclExcl_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ExclExcl_COMPLEXCASE0, "Prelude_ExclExcl_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_ExclExcl_COMPLEXCASE0, "Prelude_ExclExcl_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_ExclExcl_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ExclExcl_COMPLEXCASE1, "Prelude_ExclExcl_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_ExclExcl_COMPLEXCASE1, "Prelude_ExclExcl_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude_mapCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_map, "Prelude_map", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_map, "Prelude_map", 2, 1, args... )
     return( root )
 }
 
 func Prelude_foldlCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldl, "Prelude_foldl", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_foldl, "Prelude_foldl", 3, 2, args... )
     return( root )
 }
 
 func Prelude_foldl1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldl1, "Prelude_foldl1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_foldl1, "Prelude_foldl1", 2, 1, args... )
     return( root )
 }
 
 func Prelude_foldrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldr, "Prelude_foldr", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_foldr, "Prelude_foldr", 3, 2, args... )
     return( root )
 }
 
 func Prelude_foldr1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldr1, "Prelude_foldr1", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_foldr1, "Prelude_foldr1", 2, 1, args... )
     return( root )
 }
 
 func Prelude_foldr1_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldr1_CASE0, "Prelude_foldr1_CASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_foldr1_CASE0, "Prelude_foldr1_CASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_filterCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_filter, "Prelude_filter", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_filter, "Prelude_filter", 2, 1, args... )
     return( root )
 }
 
 func Prelude_filter_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_filter_COMPLEXCASE0, "Prelude_filter_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_filter_COMPLEXCASE0, "Prelude_filter_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_zipCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zip, "Prelude_zip", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zip, "Prelude_zip", 2, 0, args... )
     return( root )
 }
 
 func Prelude_zip_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zip_CASE0, "Prelude_zip_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zip_CASE0, "Prelude_zip_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_zip3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zip3, "Prelude_zip3", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zip3, "Prelude_zip3", 3, 0, args... )
     return( root )
 }
 
 func Prelude_zip3_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zip3_CASE0, "Prelude_zip3_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zip3_CASE0, "Prelude_zip3_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_zip3_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zip3_CASE1, "Prelude_zip3_CASE1", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zip3_CASE1, "Prelude_zip3_CASE1", 5, 0, args... )
     return( root )
 }
 
 func Prelude_zipWithCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zipWith, "Prelude_zipWith", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_zipWith, "Prelude_zipWith", 3, 1, args... )
     return( root )
 }
 
 func Prelude_zipWith_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zipWith_CASE0, "Prelude_zipWith_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zipWith_CASE0, "Prelude_zipWith_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_zipWith3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zipWith3, "Prelude_zipWith3", 4, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_zipWith3, "Prelude_zipWith3", 4, 1, args... )
     return( root )
 }
 
 func Prelude_zipWith3_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zipWith3_CASE0, "Prelude_zipWith3_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zipWith3_CASE0, "Prelude_zipWith3_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude_zipWith3_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_zipWith3_CASE1, "Prelude_zipWith3_CASE1", 6, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_zipWith3_CASE1, "Prelude_zipWith3_CASE1", 6, 0, args... )
     return( root )
 }
 
 func Prelude_unzipCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip, "Prelude_unzip", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip, "Prelude_unzip", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip_CASE0, "Prelude_unzip_CASE0", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip_CASE0, "Prelude_unzip_CASE0", 2, 0, args... )
     return( root )
 }
 
 func Prelude_unzip_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip_LET1, "Prelude_unzip_LET1", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_unzip_LET1, "Prelude_unzip_LET1", 3, -1, args... )
     return( root )
 }
 
 func Prelude_unzip__HashselFP10HashxsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip__HashselFP10Hashxs, "Prelude_unzip__HashselFP10Hashxs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip__HashselFP10Hashxs, "Prelude_unzip__HashselFP10Hashxs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip__HashselFP11HashysCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip__HashselFP11Hashys, "Prelude_unzip__HashselFP11Hashys", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip__HashselFP11Hashys, "Prelude_unzip__HashselFP11Hashys", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3, "Prelude_unzip3", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip3, "Prelude_unzip3", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip3_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3_CASE0, "Prelude_unzip3_CASE0", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip3_CASE0, "Prelude_unzip3_CASE0", 2, 0, args... )
     return( root )
 }
 
 func Prelude_unzip3_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3_LET1, "Prelude_unzip3_LET1", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_unzip3_LET1, "Prelude_unzip3_LET1", 4, -1, args... )
     return( root )
 }
 
 func Prelude_unzip3__HashselFP13HashxsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3__HashselFP13Hashxs, "Prelude_unzip3__HashselFP13Hashxs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip3__HashselFP13Hashxs, "Prelude_unzip3__HashselFP13Hashxs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip3__HashselFP14HashysCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3__HashselFP14Hashys, "Prelude_unzip3__HashselFP14Hashys", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip3__HashselFP14Hashys, "Prelude_unzip3__HashselFP14Hashys", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unzip3__HashselFP15HashzsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unzip3__HashselFP15Hashzs, "Prelude_unzip3__HashselFP15Hashzs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unzip3__HashselFP15Hashzs, "Prelude_unzip3__HashselFP15Hashzs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_concatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_concat, "Prelude_concat", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_concat, "Prelude_concat", 1, -1, args... )
     return( root )
 }
 
 func Prelude_concatMapCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_concatMap, "Prelude_concatMap", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_concatMap, "Prelude_concatMap", 1, -1, args... )
     return( root )
 }
 
 func Prelude_iterateCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_iterate, "Prelude_iterate", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_iterate, "Prelude_iterate", 2, -1, args... )
     return( root )
 }
 
 func Prelude_repeatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_repeat, "Prelude_repeat", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_repeat, "Prelude_repeat", 1, -1, args... )
     return( root )
 }
 
 func Prelude_replicateCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_replicate, "Prelude_replicate", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_replicate, "Prelude_replicate", 2, -1, args... )
     return( root )
 }
 
 func Prelude_takeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_take, "Prelude_take", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_take, "Prelude_take", 2, -1, args... )
     return( root )
 }
 
 func Prelude_take_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_take_COMPLEXCASE0, "Prelude_take_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_take_COMPLEXCASE0, "Prelude_take_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_take_takep_209Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_take_takep_209, "Prelude_take_takep_209", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_take_takep_209, "Prelude_take_takep_209", 2, 1, args... )
     return( root )
 }
 
 func Prelude_dropCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_drop, "Prelude_drop", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_drop, "Prelude_drop", 2, -1, args... )
     return( root )
 }
 
 func Prelude_drop_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_drop_COMPLEXCASE0, "Prelude_drop_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_drop_COMPLEXCASE0, "Prelude_drop_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_drop_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_drop_CASE1, "Prelude_drop_CASE1", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_drop_CASE1, "Prelude_drop_CASE1", 2, 0, args... )
     return( root )
 }
 
 func Prelude_splitAtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt, "Prelude_splitAt", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_splitAt, "Prelude_splitAt", 2, -1, args... )
     return( root )
 }
 
 func Prelude_splitAt_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt_COMPLEXCASE0, "Prelude_splitAt_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_splitAt_COMPLEXCASE0, "Prelude_splitAt_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_splitAt_splitAtp_223Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt_splitAtp_223, "Prelude_splitAt_splitAtp_223", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_splitAt_splitAtp_223, "Prelude_splitAt_splitAtp_223", 2, 1, args... )
     return( root )
 }
 
 func Prelude_splitAt_splitAtp_223_LET0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt_splitAtp_223_LET0, "Prelude_splitAt_splitAtp_223_LET0", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_splitAt_splitAtp_223_LET0, "Prelude_splitAt_splitAtp_223_LET0", 3, -1, args... )
     return( root )
 }
 
 func Prelude_splitAt_splitAtp_223__HashselFP17HashysCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt_splitAtp_223__HashselFP17Hashys, "Prelude_splitAt_splitAtp_223__HashselFP17Hashys", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_splitAt_splitAtp_223__HashselFP17Hashys, "Prelude_splitAt_splitAtp_223__HashselFP17Hashys", 1, 0, args... )
     return( root )
 }
 
 func Prelude_splitAt_splitAtp_223__HashselFP18HashzsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_splitAt_splitAtp_223__HashselFP18Hashzs, "Prelude_splitAt_splitAtp_223__HashselFP18Hashzs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_splitAt_splitAtp_223__HashselFP18Hashzs, "Prelude_splitAt_splitAtp_223__HashselFP18Hashzs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_takeWhileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_takeWhile, "Prelude_takeWhile", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_takeWhile, "Prelude_takeWhile", 2, 1, args... )
     return( root )
 }
 
 func Prelude_takeWhile_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_takeWhile_COMPLEXCASE0, "Prelude_takeWhile_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_takeWhile_COMPLEXCASE0, "Prelude_takeWhile_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_dropWhileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_dropWhile, "Prelude_dropWhile", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_dropWhile, "Prelude_dropWhile", 2, 1, args... )
     return( root )
 }
 
 func Prelude_dropWhile_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_dropWhile_COMPLEXCASE0, "Prelude_dropWhile_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_dropWhile_COMPLEXCASE0, "Prelude_dropWhile_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_spanCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span, "Prelude_span", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_span, "Prelude_span", 2, 1, args... )
     return( root )
 }
 
 func Prelude_span_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span_COMPLEXCASE0, "Prelude_span_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_span_COMPLEXCASE0, "Prelude_span_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_span_LET2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span_LET2, "Prelude_span_LET2", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_span_LET2, "Prelude_span_LET2", 3, -1, args... )
     return( root )
 }
 
 func Prelude_span_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span_COMPLEXCASE1, "Prelude_span_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_span_COMPLEXCASE1, "Prelude_span_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude_span__HashselFP20HashysCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span__HashselFP20Hashys, "Prelude_span__HashselFP20Hashys", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_span__HashselFP20Hashys, "Prelude_span__HashselFP20Hashys", 1, 0, args... )
     return( root )
 }
 
 func Prelude_span__HashselFP21HashzsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_span__HashselFP21Hashzs, "Prelude_span__HashselFP21Hashzs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_span__HashselFP21Hashzs, "Prelude_span__HashselFP21Hashzs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_breakCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_break, "Prelude_break", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_break, "Prelude_break", 1, -1, args... )
     return( root )
 }
 
 func Prelude_linesCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines, "Prelude_lines", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines, "Prelude_lines", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lines_LET0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_LET0, "Prelude_lines_LET0", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_lines_LET0, "Prelude_lines_LET0", 2, -1, args... )
     return( root )
 }
 
 func Prelude_lines_splitline_253Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_splitline_253, "Prelude_lines_splitline_253", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines_splitline_253, "Prelude_lines_splitline_253", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lines_splitline_253_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_splitline_253_COMPLEXCASE0, "Prelude_lines_splitline_253_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lines_splitline_253_COMPLEXCASE0, "Prelude_lines_splitline_253_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lines_splitline_253_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_splitline_253_LET1, "Prelude_lines_splitline_253_LET1", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_lines_splitline_253_LET1, "Prelude_lines_splitline_253_LET1", 2, -1, args... )
     return( root )
 }
 
 func Prelude_lines_splitline_253__HashselFP23HashdsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_splitline_253__HashselFP23Hashds, "Prelude_lines_splitline_253__HashselFP23Hashds", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines_splitline_253__HashselFP23Hashds, "Prelude_lines_splitline_253__HashselFP23Hashds", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lines_splitline_253__HashselFP24HashesCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines_splitline_253__HashselFP24Hashes, "Prelude_lines_splitline_253__HashselFP24Hashes", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines_splitline_253__HashselFP24Hashes, "Prelude_lines_splitline_253__HashselFP24Hashes", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lines__HashselFP26HashlCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines__HashselFP26Hashl, "Prelude_lines__HashselFP26Hashl", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines__HashselFP26Hashl, "Prelude_lines__HashselFP26Hashl", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lines__HashselFP27Hashxs_lCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lines__HashselFP27Hashxs_l, "Prelude_lines__HashselFP27Hashxs_l", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lines__HashselFP27Hashxs_l, "Prelude_lines__HashselFP27Hashxs_l", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unlinesCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unlines, "Prelude_unlines", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_unlines, "Prelude_unlines", 1, -1, args... )
     return( root )
 }
 
 func Prelude_wordsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_words, "Prelude_words", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_words, "Prelude_words", 1, -1, args... )
     return( root )
 }
 
 func Prelude_words_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_words_COMPLEXCASE0, "Prelude_words_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_words_COMPLEXCASE0, "Prelude_words_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude_words_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_words_LET1, "Prelude_words_LET1", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_words_LET1, "Prelude_words_LET1", 1, -1, args... )
     return( root )
 }
 
 func Prelude_words__HashselFP29HashwCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_words__HashselFP29Hashw, "Prelude_words__HashselFP29Hashw", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_words__HashselFP29Hashw, "Prelude_words__HashselFP29Hashw", 1, 0, args... )
     return( root )
 }
 
 func Prelude_words__HashselFP30Hashs2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_words__HashselFP30Hashs2, "Prelude_words__HashselFP30Hashs2", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_words__HashselFP30Hashs2, "Prelude_words__HashselFP30Hashs2", 1, 0, args... )
     return( root )
 }
 
 func Prelude_unwordsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unwords, "Prelude_unwords", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_unwords, "Prelude_unwords", 1, -1, args... )
     return( root )
 }
 
 func Prelude_unwords_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unwords_COMPLEXCASE0, "Prelude_unwords_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_unwords_COMPLEXCASE0, "Prelude_unwords_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude_unwords__Hashlambda282Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unwords__Hashlambda282, "Prelude_unwords__Hashlambda282", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_unwords__Hashlambda282, "Prelude_unwords__Hashlambda282", 2, -1, args... )
     return( root )
 }
 
 func Prelude_reverseCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_reverse, "Prelude_reverse", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_reverse, "Prelude_reverse", 0, -1, args... )
     return( root )
 }
 
 func Prelude_andCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_and, "Prelude_and", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_and, "Prelude_and", 0, -1, args... )
     return( root )
 }
 
 func Prelude_orCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_or, "Prelude_or", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_or, "Prelude_or", 0, -1, args... )
     return( root )
 }
 
 func Prelude_anyCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_any, "Prelude_any", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_any, "Prelude_any", 1, -1, args... )
     return( root )
 }
 
 func Prelude_allCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_all, "Prelude_all", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_all, "Prelude_all", 1, -1, args... )
     return( root )
 }
 
 func Prelude_elemCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_elem, "Prelude_elem", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_elem, "Prelude_elem", 2, -1, args... )
     return( root )
 }
 
 func Prelude_notElemCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_notElem, "Prelude_notElem", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_notElem, "Prelude_notElem", 2, -1, args... )
     return( root )
 }
 
 func Prelude_lookupCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lookup, "Prelude_lookup", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lookup, "Prelude_lookup", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lookup_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lookup_CASE0, "Prelude_lookup_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lookup_CASE0, "Prelude_lookup_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_lookup_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lookup_COMPLEXCASE1, "Prelude_lookup_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_lookup_COMPLEXCASE1, "Prelude_lookup_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude_lookup_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lookup_COMPLEXCASE2, "Prelude_lookup_COMPLEXCASE2", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lookup_COMPLEXCASE2, "Prelude_lookup_COMPLEXCASE2", 4, 3, args... )
     return( root )
 }
 
 func Prelude_enumFrom_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFrom_, "Prelude_enumFrom_", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_enumFrom_, "Prelude_enumFrom_", 1, -1, args... )
     return( root )
 }
 
 func Prelude_enumFromThen_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThen_, "Prelude_enumFromThen_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_enumFromThen_, "Prelude_enumFromThen_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_enumFromTo_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromTo_, "Prelude_enumFromTo_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_enumFromTo_, "Prelude_enumFromTo_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_enumFromTo__COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromTo__COMPLEXCASE0, "Prelude_enumFromTo__COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_enumFromTo__COMPLEXCASE0, "Prelude_enumFromTo__COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_enumFromThenTo_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThenTo_, "Prelude_enumFromThenTo_", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_enumFromThenTo_, "Prelude_enumFromThenTo_", 3, -1, args... )
     return( root )
 }
 
 func Prelude_enumFromThenTo__p_299Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThenTo__p_299, "Prelude_enumFromThenTo__p_299", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_enumFromThenTo__p_299, "Prelude_enumFromThenTo__p_299", 4, -1, args... )
     return( root )
 }
 
 func Prelude_enumFromThenTo__p_299_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThenTo__p_299_COMPLEXCASE0, "Prelude_enumFromThenTo__p_299_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_enumFromThenTo__p_299_COMPLEXCASE0, "Prelude_enumFromThenTo__p_299_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_enumFromThenTo__p_299_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThenTo__p_299_COMPLEXCASE1, "Prelude_enumFromThenTo__p_299_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_enumFromThenTo__p_299_COMPLEXCASE1, "Prelude_enumFromThenTo__p_299_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude_ordCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ord, "Prelude_ord", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_ord, "Prelude_ord", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_ordCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_ord, "Prelude_prim_ord", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_ord, "Prelude_prim_ord", 1, -1, args... )
     return( root )
 }
 
 func Prelude_chrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_chr, "Prelude_chr", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_chr, "Prelude_chr", 1, -1, args... )
     return( root )
 }
 
 func Prelude_chr_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_chr_COMPLEXCASE0, "Prelude_chr_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_chr_COMPLEXCASE0, "Prelude_chr_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude_prim_chrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_chr, "Prelude_prim_chr", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_chr, "Prelude_prim_chr", 1, -1, args... )
     return( root )
 }
 
 func Prelude_AddDolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_AddDol, "Prelude_AddDol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_AddDol, "Prelude_AddDol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_plusCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_plus, "Prelude_prim_Int_plus", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_plus, "Prelude_prim_Int_plus", 2, -1, args... )
     return( root )
 }
 
 func Prelude_SubDolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_SubDol, "Prelude_SubDol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_SubDol, "Prelude_SubDol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_minusCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_minus, "Prelude_prim_Int_minus", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_minus, "Prelude_prim_Int_minus", 2, -1, args... )
     return( root )
 }
 
 func Prelude_MulDolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_MulDol, "Prelude_MulDol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_MulDol, "Prelude_MulDol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_timesCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_times, "Prelude_prim_Int_times", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_times, "Prelude_prim_Int_times", 2, -1, args... )
     return( root )
 }
 
 func Prelude_div_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_div_, "Prelude_div_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_div_, "Prelude_div_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_divCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_div, "Prelude_prim_Int_div", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_div, "Prelude_prim_Int_div", 2, -1, args... )
     return( root )
 }
 
 func Prelude_mod_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mod_, "Prelude_mod_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_mod_, "Prelude_mod_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_modCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_mod, "Prelude_prim_Int_mod", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_mod, "Prelude_prim_Int_mod", 2, -1, args... )
     return( root )
 }
 
 func Prelude_divMod_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_divMod_, "Prelude_divMod_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_divMod_, "Prelude_divMod_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_quot_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_quot_, "Prelude_quot_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_quot_, "Prelude_quot_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_quotCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_quot, "Prelude_prim_Int_quot", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_quot, "Prelude_prim_Int_quot", 2, -1, args... )
     return( root )
 }
 
 func Prelude_rem_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_rem_, "Prelude_rem_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_rem_, "Prelude_rem_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Int_remCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Int_rem, "Prelude_prim_Int_rem", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Int_rem, "Prelude_prim_Int_rem", 2, -1, args... )
     return( root )
 }
 
 func Prelude_quotRem_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_quotRem_, "Prelude_quotRem_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_quotRem_, "Prelude_quotRem_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_negate_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_negate_, "Prelude_negate_", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_negate_, "Prelude_negate_", 1, -1, args... )
     return( root )
 }
 
 func Prelude_negateFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_negateFloat, "Prelude_negateFloat", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_negateFloat, "Prelude_negateFloat", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_negateFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_negateFloat, "Prelude_prim_negateFloat", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_negateFloat, "Prelude_prim_negateFloat", 1, -1, args... )
     return( root )
 }
 
 func Prelude_successCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_success, "Prelude_success", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_success, "Prelude_success", 0, -1, args... )
     return( root )
 }
 
 func Prelude_maybeCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_maybe, "Prelude_maybe", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_maybe, "Prelude_maybe", 3, 2, args... )
     return( root )
 }
 
 func Prelude_eitherCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_either, "Prelude_either", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_either, "Prelude_either", 3, 2, args... )
     return( root )
 }
 
 func Prelude_GtGtEqDolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtGtEqDol, "Prelude_GtGtEqDol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_GtGtEqDol, "Prelude_GtGtEqDol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_returnIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_returnIO, "Prelude_returnIO", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_returnIO, "Prelude_returnIO", 1, -1, args... )
     return( root )
 }
 
 func Prelude_GtGtDolCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtGtDol, "Prelude_GtGtDol", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_GtGtDol, "Prelude_GtGtDol", 2, -1, args... )
     return( root )
 }
 
 func Prelude_GtGtDol__Hashlambda283Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtGtDol__Hashlambda283, "Prelude_GtGtDol__Hashlambda283", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_GtGtDol__Hashlambda283, "Prelude_GtGtDol__Hashlambda283", 2, -1, args... )
     return( root )
 }
 
 func Prelude_doneCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_done, "Prelude_done", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_done, "Prelude_done", 0, -1, args... )
     return( root )
 }
 
 func Prelude_putCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_putChar, "Prelude_putChar", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_putChar, "Prelude_putChar", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_putCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_putChar, "Prelude_prim_putChar", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_putChar, "Prelude_prim_putChar", 1, -1, args... )
     return( root )
 }
 
 func Prelude_getCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_getChar, "Prelude_getChar", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_getChar, "Prelude_getChar", 0, -1, args... )
     return( root )
 }
 
 func Prelude_readFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readFile, "Prelude_readFile", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readFile, "Prelude_readFile", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readFile, "Prelude_prim_readFile", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readFile, "Prelude_prim_readFile", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readFileContentsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readFileContents, "Prelude_prim_readFileContents", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readFileContents, "Prelude_prim_readFileContents", 1, -1, args... )
     return( root )
 }
 
 func Prelude_writeFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_writeFile, "Prelude_writeFile", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_writeFile, "Prelude_writeFile", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_writeFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_writeFile, "Prelude_prim_writeFile", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_writeFile, "Prelude_prim_writeFile", 2, -1, args... )
     return( root )
 }
 
 func Prelude_appendFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_appendFile, "Prelude_appendFile", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_appendFile, "Prelude_appendFile", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_appendFileCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_appendFile, "Prelude_prim_appendFile", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_appendFile, "Prelude_prim_appendFile", 2, -1, args... )
     return( root )
 }
 
 func Prelude_putStrCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_putStr, "Prelude_putStr", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_putStr, "Prelude_putStr", 1, 0, args... )
     return( root )
 }
 
 func Prelude_putStrLnCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_putStrLn, "Prelude_putStrLn", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_putStrLn, "Prelude_putStrLn", 1, -1, args... )
     return( root )
 }
 
 func Prelude_getLineCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_getLine, "Prelude_getLine", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_getLine, "Prelude_getLine", 0, -1, args... )
     return( root )
 }
 
 func Prelude_getLine__Hashlambda285Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_getLine__Hashlambda285, "Prelude_getLine__Hashlambda285", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_getLine__Hashlambda285, "Prelude_getLine__Hashlambda285", 1, -1, args... )
     return( root )
 }
 
 func Prelude_getLine__Hashlambda285_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_getLine__Hashlambda285_COMPLEXCASE0, "Prelude_getLine__Hashlambda285_COMPLEXCASE0", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_getLine__Hashlambda285_COMPLEXCASE0, "Prelude_getLine__Hashlambda285_COMPLEXCASE0", 2, 1, args... )
     return( root )
 }
 
 func Prelude_getLine__Hashlambda285__Hashlambda288Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_getLine__Hashlambda285__Hashlambda288, "Prelude_getLine__Hashlambda285__Hashlambda288", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_getLine__Hashlambda285__Hashlambda288, "Prelude_getLine__Hashlambda285__Hashlambda288", 2, -1, args... )
     return( root )
 }
 
 func Prelude_userErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_userError, "Prelude_userError", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_userError, "Prelude_userError", 1, -1, args... )
     return( root )
 }
 
 func Prelude_ioErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ioError, "Prelude_ioError", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_ioError, "Prelude_ioError", 1, -1, args... )
     return( root )
 }
 
 func Prelude_showErrorCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showError, "Prelude_showError", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_showError, "Prelude_showError", 1, 0, args... )
     return( root )
 }
 
 func Prelude_catchCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_catch, "Prelude_catch", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_catch, "Prelude_catch", 2, -1, args... )
     return( root )
 }
 
 func Prelude_show_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_show_, "Prelude_show_", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_show_, "Prelude_show_", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_showCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_show, "Prelude_prim_show", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_show, "Prelude_prim_show", 1, -1, args... )
     return( root )
 }
 
 func Prelude_printCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_print, "Prelude_print", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_print, "Prelude_print", 2, -1, args... )
     return( root )
 }
 
 func Prelude_doSolveCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_doSolve, "Prelude_doSolve", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_doSolve, "Prelude_doSolve", 1, 0, args... )
     return( root )
 }
 
 func Prelude_sequenceIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequenceIO, "Prelude_sequenceIO", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_sequenceIO, "Prelude_sequenceIO", 1, 0, args... )
     return( root )
 }
 
 func Prelude_sequenceIO__Hashlambda292Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequenceIO__Hashlambda292, "Prelude_sequenceIO__Hashlambda292", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_sequenceIO__Hashlambda292, "Prelude_sequenceIO__Hashlambda292", 2, -1, args... )
     return( root )
 }
 
 func Prelude_sequenceIO__Hashlambda292__Hashlambda294Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequenceIO__Hashlambda292__Hashlambda294, "Prelude_sequenceIO__Hashlambda292__Hashlambda294", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_sequenceIO__Hashlambda292__Hashlambda294, "Prelude_sequenceIO__Hashlambda292__Hashlambda294", 2, -1, args... )
     return( root )
 }
 
 func Prelude_sequenceIO_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequenceIO_, "Prelude_sequenceIO_", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_sequenceIO_, "Prelude_sequenceIO_", 0, -1, args... )
     return( root )
 }
 
 func Prelude_mapIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mapIO, "Prelude_mapIO", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_mapIO, "Prelude_mapIO", 1, -1, args... )
     return( root )
 }
 
 func Prelude_mapIO_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mapIO_, "Prelude_mapIO_", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_mapIO_, "Prelude_mapIO_", 1, -1, args... )
     return( root )
 }
 
 func Prelude_foldIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldIO, "Prelude_foldIO", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_foldIO, "Prelude_foldIO", 3, 2, args... )
     return( root )
 }
 
 func Prelude_foldIO__Hashlambda296Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldIO__Hashlambda296, "Prelude_foldIO__Hashlambda296", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_foldIO__Hashlambda296, "Prelude_foldIO__Hashlambda296", 3, -1, args... )
     return( root )
 }
 
 func Prelude_liftIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_liftIO, "Prelude_liftIO", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_liftIO, "Prelude_liftIO", 2, -1, args... )
     return( root )
 }
 
 func Prelude_forIOCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_forIO, "Prelude_forIO", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_forIO, "Prelude_forIO", 2, -1, args... )
     return( root )
 }
 
 func Prelude_forIO_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_forIO_, "Prelude_forIO_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_forIO_, "Prelude_forIO_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_unlessCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unless, "Prelude_unless", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_unless, "Prelude_unless", 2, 0, args... )
     return( root )
 }
 
 func Prelude_whenCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_when, "Prelude_when", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_when, "Prelude_when", 2, 0, args... )
     return( root )
 }
 
 func Prelude_QstnCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Qstn, "Prelude_Qstn", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Qstn, "Prelude_Qstn", 2, -1, args... )
     return( root )
 }
 
 func Prelude_anyOfCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_anyOf, "Prelude_anyOf", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_anyOf, "Prelude_anyOf", 0, -1, args... )
     return( root )
 }
 
 func Prelude_unknownCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unknown, "Prelude_unknown", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_unknown, "Prelude_unknown", 0, -1, args... )
     return( root )
 }
 
 func Prelude_PEVALCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_PEVAL, "Prelude_PEVAL", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_PEVAL, "Prelude_PEVAL", 1, -1, args... )
     return( root )
 }
 
 func Prelude_normalFormCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_normalForm, "Prelude_normalForm", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_normalForm, "Prelude_normalForm", 1, -1, args... )
     return( root )
 }
 
 func Prelude_groundNormalFormCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_groundNormalForm, "Prelude_groundNormalForm", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_groundNormalForm, "Prelude_groundNormalForm", 1, -1, args... )
     return( root )
 }
 
 func Prelude_applyCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_apply, "Prelude_apply", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_apply, "Prelude_apply", 2, -1, args... )
     return( root )
 }
 
 func Prelude_condCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_cond, "Prelude_cond", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_cond, "Prelude_cond", 2, -1, args... )
     return( root )
 }
 
 func Prelude_letrecCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_letrec, "Prelude_letrec", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_letrec, "Prelude_letrec", 2, -1, args... )
     return( root )
 }
 
 func Prelude_EqColLtEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_EqColLtEq, "Prelude_EqColLtEq", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_EqColLtEq, "Prelude_EqColLtEq", 2, -1, args... )
     return( root )
 }
 
 func Prelude_EqColLtLtEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_EqColLtLtEq, "Prelude_EqColLtLtEq", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_EqColLtLtEq, "Prelude_EqColLtLtEq", 2, -1, args... )
     return( root )
 }
 
 func Prelude_ifVarCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_ifVar, "Prelude_ifVar", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_ifVar, "Prelude_ifVar", 3, -1, args... )
     return( root )
 }
 
 func Prelude_failureCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_failure, "Prelude_failure", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_failure, "Prelude_failure", 2, -1, args... )
     return( root )
 }
 
 func Prelude_showListSQuoteCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showListSQuote, "Prelude_showListSQuote", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_showListSQuote, "Prelude_showListSQuote", 3, 1, args... )
     return( root )
 }
 
 func Prelude_showListSQuote_showl_433Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showListSQuote_showl_433, "Prelude_showListSQuote_showl_433", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_showListSQuote_showl_433, "Prelude_showListSQuote_showl_433", 3, 2, args... )
     return( root )
 }
 
 func Prelude_showsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_shows, "Prelude_shows", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_shows, "Prelude_shows", 1, -1, args... )
     return( root )
 }
 
 func Prelude_showCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showChar, "Prelude_showChar", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_showChar, "Prelude_showChar", 2, -1, args... )
     return( root )
 }
 
 func Prelude_showStringCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showString, "Prelude_showString", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_showString, "Prelude_showString", 2, -1, args... )
     return( root )
 }
 
 func Prelude_showParenCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showParen, "Prelude_showParen", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_showParen, "Prelude_showParen", 2, 0, args... )
     return( root )
 }
 
 func Prelude_showSignedCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showSigned, "Prelude_showSigned", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_showSigned, "Prelude_showSigned", 4, -1, args... )
     return( root )
 }
 
 func Prelude_showSigned_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showSigned_COMPLEXCASE0, "Prelude_showSigned_COMPLEXCASE0", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_showSigned_COMPLEXCASE0, "Prelude_showSigned_COMPLEXCASE0", 5, 4, args... )
     return( root )
 }
 
 func Prelude_showSigned_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showSigned_COMPLEXCASE1, "Prelude_showSigned_COMPLEXCASE1", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_showSigned_COMPLEXCASE1, "Prelude_showSigned_COMPLEXCASE1", 3, 2, args... )
     return( root )
 }
 
 func Prelude_showTupleCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showTuple, "Prelude_showTuple", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_showTuple, "Prelude_showTuple", 1, -1, args... )
     return( root )
 }
 
 func Prelude_showTuple__Hashlambda297Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showTuple__Hashlambda297, "Prelude_showTuple__Hashlambda297", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_showTuple__Hashlambda297, "Prelude_showTuple__Hashlambda297", 2, -1, args... )
     return( root )
 }
 
 func Prelude_appPrecCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_appPrec, "Prelude_appPrec", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_appPrec, "Prelude_appPrec", 0, -1, args... )
     return( root )
 }
 
 func Prelude_appPrec1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_appPrec1, "Prelude_appPrec1", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_appPrec1, "Prelude_appPrec1", 0, -1, args... )
     return( root )
 }
 
 func Prelude_readListDefaultCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault, "Prelude_readListDefault", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readListDefault, "Prelude_readListDefault", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456, "Prelude_readListDefault_readlSQuote_456", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456, "Prelude_readListDefault_readlSQuote_456", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda312Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312, "Prelude_readListDefault_readlSQuote_456__Hashlambda312", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312, "Prelude_readListDefault_readlSQuote_456__Hashlambda312", 2, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2, "Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316, "Prelude_readListDefault_readlSQuote_456__Hashlambda316", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316, "Prelude_readListDefault_readlSQuote_456__Hashlambda316", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2, "Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320, "Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320, "Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324, "Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324, "Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hashlambda324", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456, "Prelude_readListDefault_readl_456", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456, "Prelude_readListDefault_readl_456", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda300Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300, "Prelude_readListDefault_readl_456__Hashlambda300", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300, "Prelude_readListDefault_readl_456__Hashlambda300", 2, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda300_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_CASE0, "Prelude_readListDefault_readl_456__Hashlambda300_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_CASE0, "Prelude_readListDefault_readl_456__Hashlambda300_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1, "Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1, "Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda300_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_CASE2, "Prelude_readListDefault_readl_456__Hashlambda300_CASE2", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda300_CASE2, "Prelude_readListDefault_readl_456__Hashlambda300_CASE2", 3, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda304Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda304, "Prelude_readListDefault_readl_456__Hashlambda304", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda304, "Prelude_readListDefault_readl_456__Hashlambda304", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308, "Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308, "Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326, "Prelude_readListDefault__Hashlambda326", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326, "Prelude_readListDefault__Hashlambda326", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329, "Prelude_readListDefault__Hashlambda326__Hashlambda329", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329, "Prelude_readListDefault__Hashlambda326__Hashlambda329", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0, "Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0, "Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1, "Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1, "Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2, "Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2, "Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331, "Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331, "Prelude_readListDefault__Hashlambda326__Hashlambda329__Hashlambda331", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_reads, "Prelude_reads", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_reads, "Prelude_reads", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readParenCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen, "Prelude_readParen", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen, "Prelude_readParen", 2, 0, args... )
     return( root )
 }
 
 func Prelude_readParen_optional_474Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_optional_474, "Prelude_readParen_optional_474", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readParen_optional_474, "Prelude_readParen_optional_474", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474, "Prelude_readParen_mandatory_474", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474, "Prelude_readParen_mandatory_474", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334, "Prelude_readParen_mandatory_474__Hashlambda334", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334, "Prelude_readParen_mandatory_474__Hashlambda334", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_CASE0, "Prelude_readParen_mandatory_474__Hashlambda334_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_CASE0, "Prelude_readParen_mandatory_474__Hashlambda334_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1, "Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1, "Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_CASE2, "Prelude_readParen_mandatory_474__Hashlambda334_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334_CASE2, "Prelude_readParen_mandatory_474__Hashlambda334_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338", 2, 0, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_COMPLEXCASE1", 5, 4, args... )
     return( root )
 }
 
 func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE2, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE2", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE2, "Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda342_CASE2", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read, "Prelude_read", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_read, "Prelude_read", 2, -1, args... )
     return( root )
 }
 
 func Prelude_read_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read_COMPLEXCASE0, "Prelude_read_COMPLEXCASE0", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_read_COMPLEXCASE0, "Prelude_read_COMPLEXCASE0", 1, 0, args... )
     return( root )
 }
 
 func Prelude_read_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read_CASE1, "Prelude_read_CASE1", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_read_CASE1, "Prelude_read_CASE1", 2, 0, args... )
     return( root )
 }
 
 func Prelude_read__Hashlambda346Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read__Hashlambda346, "Prelude_read__Hashlambda346", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_read__Hashlambda346, "Prelude_read__Hashlambda346", 2, 0, args... )
     return( root )
 }
 
 func Prelude_read__Hashlambda346__Hashlambda350Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350, "Prelude_read__Hashlambda346__Hashlambda350", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350, "Prelude_read__Hashlambda346__Hashlambda350", 3, 1, args... )
     return( root )
 }
 
 func Prelude_read__Hashlambda346__Hashlambda350_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350_CASE0, "Prelude_read__Hashlambda346__Hashlambda350_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350_CASE0, "Prelude_read__Hashlambda346__Hashlambda350_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_read__Hashlambda346__Hashlambda350_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350_CASE1, "Prelude_read__Hashlambda346__Hashlambda350_CASE1", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_read__Hashlambda346__Hashlambda350_CASE1, "Prelude_read__Hashlambda346__Hashlambda350_CASE1", 3, 0, args... )
     return( root )
 }
 
 func Prelude_readSignedCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned, "Prelude_readSigned", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readSigned, "Prelude_readSigned", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuoteSQuote_494Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494, "Prelude_readSigned_readSQuoteSQuote_494", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494, "Prelude_readSigned_readSQuoteSQuote_494", 2, -1, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0, "Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0", 4, 0, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494, "Prelude_readSigned_readSQuote_494", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494, "Prelude_readSigned_readSQuote_494", 3, -1, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494__Hashlambda355Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355, "Prelude_readSigned_readSQuote_494__Hashlambda355", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355, "Prelude_readSigned_readSQuote_494__Hashlambda355", 4, 2, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0, "Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0, "Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0", 5, 0, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1, "Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1, "Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1", 6, 5, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2, "Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2", 5, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2, "Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2", 5, 0, args... )
     return( root )
 }
 
 func Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359, "Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359, "Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359", 3, 1, args... )
     return( root )
 }
 
 func Prelude_readNatLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readNatLiteral, "Prelude_readNatLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readNatLiteral, "Prelude_readNatLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readNatLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readNatLiteral, "Prelude_prim_readNatLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readNatLiteral, "Prelude_prim_readNatLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readFloatLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readFloatLiteral, "Prelude_readFloatLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readFloatLiteral, "Prelude_readFloatLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readFloatLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readFloatLiteral, "Prelude_prim_readFloatLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readFloatLiteral, "Prelude_prim_readFloatLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readCharLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readCharLiteral, "Prelude_readCharLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readCharLiteral, "Prelude_readCharLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readCharLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readCharLiteral, "Prelude_prim_readCharLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readCharLiteral, "Prelude_prim_readCharLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_readStringLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readStringLiteral, "Prelude_readStringLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_readStringLiteral, "Prelude_readStringLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_readStringLiteralCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_readStringLiteral, "Prelude_prim_readStringLiteral", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_readStringLiteral, "Prelude_prim_readStringLiteral", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex, "Prelude_lex", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex, "Prelude_lex", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE0, "Prelude_lex_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE0, "Prelude_lex_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_CASE1, "Prelude_lex_CASE1", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_CASE1, "Prelude_lex_CASE1", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE2, "Prelude_lex_COMPLEXCASE2", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE2, "Prelude_lex_COMPLEXCASE2", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE3, "Prelude_lex_COMPLEXCASE3", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE3, "Prelude_lex_COMPLEXCASE3", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE4, "Prelude_lex_COMPLEXCASE4", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE4, "Prelude_lex_COMPLEXCASE4", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE5, "Prelude_lex_COMPLEXCASE5", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE5, "Prelude_lex_COMPLEXCASE5", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE6, "Prelude_lex_COMPLEXCASE6", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE6, "Prelude_lex_COMPLEXCASE6", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE7, "Prelude_lex_COMPLEXCASE7", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE7, "Prelude_lex_COMPLEXCASE7", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_COMPLEXCASE8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_COMPLEXCASE8, "Prelude_lex_COMPLEXCASE8", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_COMPLEXCASE8, "Prelude_lex_COMPLEXCASE8", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_isSingle_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_isSingle_512, "Prelude_lex_isSingle_512", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lex_isSingle_512, "Prelude_lex_isSingle_512", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lex_isSym_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_isSym_512, "Prelude_lex_isSym_512", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lex_isSym_512, "Prelude_lex_isSym_512", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lex_isIdChar_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_isIdChar_512, "Prelude_lex_isIdChar_512", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lex_isIdChar_512, "Prelude_lex_isIdChar_512", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512, "Prelude_lex_lexExp_512", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512, "Prelude_lex_lexExp_512", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512_COMPLEXCASE0, "Prelude_lex_lexExp_512_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512_COMPLEXCASE0, "Prelude_lex_lexExp_512_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512__Hashlambda382Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382, "Prelude_lex_lexExp_512__Hashlambda382", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382, "Prelude_lex_lexExp_512__Hashlambda382", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0, "Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0, "Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386, "Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386, "Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386", 4, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexExp_512__Hashlambda390Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda390, "Prelude_lex_lexExp_512__Hashlambda390", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex_lexExp_512__Hashlambda390, "Prelude_lex_lexExp_512__Hashlambda390", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512, "Prelude_lex_lexFracExp_512", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512, "Prelude_lex_lexFracExp_512", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512_COMPLEXCASE0, "Prelude_lex_lexFracExp_512_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512_COMPLEXCASE0, "Prelude_lex_lexFracExp_512_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512_CASE1, "Prelude_lex_lexFracExp_512_CASE1", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512_CASE1, "Prelude_lex_lexFracExp_512_CASE1", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512_COMPLEXCASE2, "Prelude_lex_lexFracExp_512_COMPLEXCASE2", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512_COMPLEXCASE2, "Prelude_lex_lexFracExp_512_COMPLEXCASE2", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512__Hashlambda372Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512__Hashlambda372, "Prelude_lex_lexFracExp_512__Hashlambda372", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512__Hashlambda372, "Prelude_lex_lexFracExp_512__Hashlambda372", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376, "Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376, "Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512, "Prelude_lex_lexStrItem_512", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512, "Prelude_lex_lexStrItem_512", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE0, "Prelude_lex_lexStrItem_512_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE0, "Prelude_lex_lexStrItem_512_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512_CASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512_CASE1, "Prelude_lex_lexStrItem_512_CASE1", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512_CASE1, "Prelude_lex_lexStrItem_512_CASE1", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE2, "Prelude_lex_lexStrItem_512_COMPLEXCASE2", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE2, "Prelude_lex_lexStrItem_512_COMPLEXCASE2", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE3, "Prelude_lex_lexStrItem_512_COMPLEXCASE3", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512_COMPLEXCASE3, "Prelude_lex_lexStrItem_512_COMPLEXCASE3", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512__Hashlambda405Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512__Hashlambda405, "Prelude_lex_lexStrItem_512__Hashlambda405", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512__Hashlambda405, "Prelude_lex_lexStrItem_512__Hashlambda405", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0, "Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0, "Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexString_512Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexString_512, "Prelude_lex_lexString_512", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexString_512, "Prelude_lex_lexString_512", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexString_512_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexString_512_COMPLEXCASE0, "Prelude_lex_lexString_512_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex_lexString_512_COMPLEXCASE0, "Prelude_lex_lexString_512_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex_lexString_512__Hashlambda396Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexString_512__Hashlambda396, "Prelude_lex_lexString_512__Hashlambda396", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex_lexString_512__Hashlambda396, "Prelude_lex_lexString_512__Hashlambda396", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex_lexString_512__Hashlambda396__Hashlambda400Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex_lexString_512__Hashlambda396__Hashlambda400, "Prelude_lex_lexString_512__Hashlambda396__Hashlambda400", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex_lexString_512__Hashlambda396__Hashlambda400, "Prelude_lex_lexString_512__Hashlambda396__Hashlambda400", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda412Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda412, "Prelude_lex__Hashlambda412", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda412, "Prelude_lex__Hashlambda412", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda412_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda412_CASE0, "Prelude_lex__Hashlambda412_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda412_CASE0, "Prelude_lex__Hashlambda412_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda412_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda412_COMPLEXCASE1, "Prelude_lex__Hashlambda412_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda412_COMPLEXCASE1, "Prelude_lex__Hashlambda412_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda412_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda412_COMPLEXCASE2, "Prelude_lex__Hashlambda412_COMPLEXCASE2", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda412_COMPLEXCASE2, "Prelude_lex__Hashlambda412_COMPLEXCASE2", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda416Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda416, "Prelude_lex__Hashlambda416", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda416, "Prelude_lex__Hashlambda416", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda420Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda420, "Prelude_lex__Hashlambda420", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda420, "Prelude_lex__Hashlambda420", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda424Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda424, "Prelude_lex__Hashlambda424", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda424, "Prelude_lex__Hashlambda424", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda428Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda428, "Prelude_lex__Hashlambda428", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda428, "Prelude_lex__Hashlambda428", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda428__Hashlambda432Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda428__Hashlambda432, "Prelude_lex__Hashlambda428__Hashlambda432", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda428__Hashlambda432, "Prelude_lex__Hashlambda428__Hashlambda432", 4, 2, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda436Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda436, "Prelude_lex__Hashlambda436", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda436, "Prelude_lex__Hashlambda436", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda436_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda436_CASE0, "Prelude_lex__Hashlambda436_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda436_CASE0, "Prelude_lex__Hashlambda436_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda436_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda436_COMPLEXCASE1, "Prelude_lex__Hashlambda436_COMPLEXCASE1", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda436_COMPLEXCASE1, "Prelude_lex__Hashlambda436_COMPLEXCASE1", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda436_COMPLEXCASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda436_COMPLEXCASE2, "Prelude_lex__Hashlambda436_COMPLEXCASE2", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda436_COMPLEXCASE2, "Prelude_lex__Hashlambda436_COMPLEXCASE2", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda440Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda440, "Prelude_lex__Hashlambda440", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda440, "Prelude_lex__Hashlambda440", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda444Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda444, "Prelude_lex__Hashlambda444", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda444, "Prelude_lex__Hashlambda444", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda448Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda448, "Prelude_lex__Hashlambda448", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda448, "Prelude_lex__Hashlambda448", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda452Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda452, "Prelude_lex__Hashlambda452", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda452, "Prelude_lex__Hashlambda452", 3, 1, args... )
     return( root )
 }
 
 func Prelude_lex__Hashlambda452__Hashlambda456Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lex__Hashlambda452__Hashlambda456, "Prelude_lex__Hashlambda452__Hashlambda456", 4, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lex__Hashlambda452__Hashlambda456, "Prelude_lex__Hashlambda452__Hashlambda456", 4, 2, args... )
     return( root )
 }
 
 func Prelude_lexLitCharCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar, "Prelude_lexLitChar", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar, "Prelude_lexLitChar", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_COMPLEXCASE0, "Prelude_lexLitChar_COMPLEXCASE0", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_COMPLEXCASE0, "Prelude_lexLitChar_COMPLEXCASE0", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_isCharName_574Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_isCharName_574, "Prelude_lexLitChar_isCharName_574", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_isCharName_574, "Prelude_lexLitChar_isCharName_574", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_prefix_574Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_prefix_574, "Prelude_lexLitChar_prefix_574", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_prefix_574, "Prelude_lexLitChar_prefix_574", 2, 1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574, "Prelude_lexLitChar_lexEsc_574", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574, "Prelude_lexLitChar_lexEsc_574", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_LET1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET1, "Prelude_lexLitChar_lexEsc_574_LET1", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET1, "Prelude_lexLitChar_lexEsc_574_LET1", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE2, "Prelude_lexLitChar_lexEsc_574_CASE2", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE2, "Prelude_lexLitChar_lexEsc_574_CASE2", 2, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3", 5, 4, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE11Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE11, "Prelude_lexLitChar_lexEsc_574_CASE11", 4, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE11, "Prelude_lexLitChar_lexEsc_574_CASE11", 4, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16", 4, 3, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_LET17Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET17, "Prelude_lexLitChar_lexEsc_574_LET17", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET17, "Prelude_lexLitChar_lexEsc_574_LET17", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE18Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE18, "Prelude_lexLitChar_lexEsc_574_CASE18", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE18, "Prelude_lexLitChar_lexEsc_574_CASE18", 2, 1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_LET20Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET20, "Prelude_lexLitChar_lexEsc_574_LET20", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET20, "Prelude_lexLitChar_lexEsc_574_LET20", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE21Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE21, "Prelude_lexLitChar_lexEsc_574_CASE21", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE21, "Prelude_lexLitChar_lexEsc_574_CASE21", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22", 2, 1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_LET13Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET13, "Prelude_lexLitChar_lexEsc_574_LET13", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET13, "Prelude_lexLitChar_lexEsc_574_LET13", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE14Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE14, "Prelude_lexLitChar_lexEsc_574_CASE14", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE14, "Prelude_lexLitChar_lexEsc_574_CASE14", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15", 2, 1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4", 5, 4, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5", 5, 4, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6", 5, []int{ 4 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6", 5, 4, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7", 3, []int{ 2 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7", 3, 2, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_LET8Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET8, "Prelude_lexLitChar_lexEsc_574_LET8", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_LET8, "Prelude_lexLitChar_lexEsc_574_LET8", 1, -1, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_CASE9Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE9, "Prelude_lexLitChar_lexEsc_574_CASE9", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_CASE9, "Prelude_lexLitChar_lexEsc_574_CASE9", 1, 0, args... )
     return( root )
 }
 
 func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10", 2, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10, "Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10", 2, 1, args... )
     return( root )
 }
 
 func Prelude_lexDigitsCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_lexDigits, "Prelude_lexDigits", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_lexDigits, "Prelude_lexDigits", 0, -1, args... )
     return( root )
 }
 
 func Prelude_nonNullCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_nonNull, "Prelude_nonNull", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_nonNull, "Prelude_nonNull", 2, -1, args... )
     return( root )
 }
 
 func Prelude_nonNull__Hashlambda477Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_nonNull__Hashlambda477, "Prelude_nonNull__Hashlambda477", 2, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_nonNull__Hashlambda477, "Prelude_nonNull__Hashlambda477", 2, 0, args... )
     return( root )
 }
 
 func Prelude_nonNull__Hashlambda477_CASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_nonNull__Hashlambda477_CASE0, "Prelude_nonNull__Hashlambda477_CASE0", 3, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_nonNull__Hashlambda477_CASE0, "Prelude_nonNull__Hashlambda477_CASE0", 3, 0, args... )
     return( root )
 }
 
 func Prelude_isUpperCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isUpper, "Prelude_isUpper", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isUpper, "Prelude_isUpper", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isLowerCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isLower, "Prelude_isLower", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isLower, "Prelude_isLower", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isAlphaCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isAlpha, "Prelude_isAlpha", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isAlpha, "Prelude_isAlpha", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isDigitCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isDigit, "Prelude_isDigit", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isDigit, "Prelude_isDigit", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isAlphaNumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isAlphaNum, "Prelude_isAlphaNum", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isAlphaNum, "Prelude_isAlphaNum", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isBinDigitCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isBinDigit, "Prelude_isBinDigit", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isBinDigit, "Prelude_isBinDigit", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isOctDigitCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isOctDigit, "Prelude_isOctDigit", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isOctDigit, "Prelude_isOctDigit", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isHexDigitCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isHexDigit, "Prelude_isHexDigit", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isHexDigit, "Prelude_isHexDigit", 1, -1, args... )
     return( root )
 }
 
 func Prelude_isSpaceCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_isSpace, "Prelude_isSpace", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_isSpace, "Prelude_isSpace", 1, -1, args... )
     return( root )
 }
 
 func Prelude_uppermostCharacterCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_uppermostCharacter, "Prelude_uppermostCharacter", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_uppermostCharacter, "Prelude_uppermostCharacter", 0, -1, args... )
     return( root )
 }
 
 func Prelude_boundedEnumFromCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_boundedEnumFrom, "Prelude_boundedEnumFrom", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_boundedEnumFrom, "Prelude_boundedEnumFrom", 3, -1, args... )
     return( root )
 }
 
 func Prelude_boundedEnumFromThenCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_boundedEnumFromThen, "Prelude_boundedEnumFromThen", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_boundedEnumFromThen, "Prelude_boundedEnumFromThen", 4, -1, args... )
     return( root )
 }
 
 func Prelude_boundedEnumFromThen_COMPLEXCASE0Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_boundedEnumFromThen_COMPLEXCASE0, "Prelude_boundedEnumFromThen_COMPLEXCASE0", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude_boundedEnumFromThen_COMPLEXCASE0, "Prelude_boundedEnumFromThen_COMPLEXCASE0", 6, 5, args... )
     return( root )
 }
 
 func Prelude_boundedEnumFromThen_COMPLEXCASE1Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_boundedEnumFromThen_COMPLEXCASE1, "Prelude_boundedEnumFromThen_COMPLEXCASE1", 6, []int{ 5 }, args... )
+    FuncCreate( root, Prelude_boundedEnumFromThen_COMPLEXCASE1, "Prelude_boundedEnumFromThen_COMPLEXCASE1", 6, 5, args... )
     return( root )
 }
 
 func Prelude_asTypeOfCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_asTypeOf, "Prelude_asTypeOf", 0, []int{  }, args... )
+    FuncCreate( root, Prelude_asTypeOf, "Prelude_asTypeOf", 0, -1, args... )
     return( root )
 }
 
 func Prelude_Add_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Add_, "Prelude_Add_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Add_, "Prelude_Add_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Float_plusCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Float_plus, "Prelude_prim_Float_plus", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Float_plus, "Prelude_prim_Float_plus", 2, -1, args... )
     return( root )
 }
 
 func Prelude_Sub_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Sub_, "Prelude_Sub_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Sub_, "Prelude_Sub_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Float_minusCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Float_minus, "Prelude_prim_Float_minus", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Float_minus, "Prelude_prim_Float_minus", 2, -1, args... )
     return( root )
 }
 
 func Prelude_Mul_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Mul_, "Prelude_Mul_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Mul_, "Prelude_Mul_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Float_timesCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Float_times, "Prelude_prim_Float_times", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Float_times, "Prelude_prim_Float_times", 2, -1, args... )
     return( root )
 }
 
 func Prelude_Slash_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Slash_, "Prelude_Slash_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_Slash_, "Prelude_Slash_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_prim_Float_divCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_Float_div, "Prelude_prim_Float_div", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_Float_div, "Prelude_prim_Float_div", 2, -1, args... )
     return( root )
 }
 
 func Prelude_i2fCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_i2f, "Prelude_i2f", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_i2f, "Prelude_i2f", 1, -1, args... )
     return( root )
 }
 
 func Prelude_prim_i2fCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_prim_i2f, "Prelude_prim_i2f", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_prim_i2f, "Prelude_prim_i2f", 1, -1, args... )
     return( root )
 }
 
 func Prelude_sequenceCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequence, "Prelude_sequence", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_sequence, "Prelude_sequence", 1, -1, args... )
     return( root )
 }
 
 func Prelude_sequence__Hashlambda479Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequence__Hashlambda479, "Prelude_sequence__Hashlambda479", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_sequence__Hashlambda479, "Prelude_sequence__Hashlambda479", 3, -1, args... )
     return( root )
 }
 
 func Prelude_sequence__Hashlambda479__Hashlambda480Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequence__Hashlambda479__Hashlambda480, "Prelude_sequence__Hashlambda479__Hashlambda480", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_sequence__Hashlambda479__Hashlambda480, "Prelude_sequence__Hashlambda479__Hashlambda480", 3, -1, args... )
     return( root )
 }
 
 func Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481, "Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481, "Prelude_sequence__Hashlambda479__Hashlambda480__Hashlambda481", 3, -1, args... )
     return( root )
 }
 
 func Prelude_sequence_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_sequence_, "Prelude_sequence_", 1, []int{  }, args... )
+    FuncCreate( root, Prelude_sequence_, "Prelude_sequence_", 1, -1, args... )
     return( root )
 }
 
 func Prelude_mapMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mapM, "Prelude_mapM", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_mapM, "Prelude_mapM", 2, -1, args... )
     return( root )
 }
 
 func Prelude_mapM_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mapM_, "Prelude_mapM_", 2, []int{  }, args... )
+    FuncCreate( root, Prelude_mapM_, "Prelude_mapM_", 2, -1, args... )
     return( root )
 }
 
 func Prelude_foldMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldM, "Prelude_foldM", 4, []int{ 3 }, args... )
+    FuncCreate( root, Prelude_foldM, "Prelude_foldM", 4, 3, args... )
     return( root )
 }
 
 func Prelude_foldM__Hashlambda482Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_foldM__Hashlambda482, "Prelude_foldM__Hashlambda482", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_foldM__Hashlambda482, "Prelude_foldM__Hashlambda482", 4, -1, args... )
     return( root )
 }
 
 func Prelude_liftMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_liftM, "Prelude_liftM", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_liftM, "Prelude_liftM", 3, -1, args... )
     return( root )
 }
 
 func Prelude_liftM2Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_liftM2, "Prelude_liftM2", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_liftM2, "Prelude_liftM2", 4, -1, args... )
     return( root )
 }
 
 func Prelude_liftM2__Hashlambda485Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_liftM2__Hashlambda485, "Prelude_liftM2__Hashlambda485", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_liftM2__Hashlambda485, "Prelude_liftM2__Hashlambda485", 4, -1, args... )
     return( root )
 }
 
 func Prelude_liftM2__Hashlambda485__Hashlambda487Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_liftM2__Hashlambda485__Hashlambda487, "Prelude_liftM2__Hashlambda485__Hashlambda487", 4, []int{  }, args... )
+    FuncCreate( root, Prelude_liftM2__Hashlambda485__Hashlambda487, "Prelude_liftM2__Hashlambda485__Hashlambda487", 4, -1, args... )
     return( root )
 }
 
 func Prelude_forMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_forM, "Prelude_forM", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_forM, "Prelude_forM", 3, -1, args... )
     return( root )
 }
 
 func Prelude_forM_Create( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_forM_, "Prelude_forM_", 3, []int{  }, args... )
+    FuncCreate( root, Prelude_forM_, "Prelude_forM_", 3, -1, args... )
     return( root )
 }
 
 func Prelude_unlessMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_unlessM, "Prelude_unlessM", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_unlessM, "Prelude_unlessM", 3, 1, args... )
     return( root )
 }
 
 func Prelude_whenMCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_whenM, "Prelude_whenM", 3, []int{ 1 }, args... )
+    FuncCreate( root, Prelude_whenM, "Prelude_whenM", 3, 1, args... )
     return( root )
 }
 
 func Prelude_EqEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_EqEq, "Prelude_EqEq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_EqEq, "Prelude_EqEq", 1, 0, args... )
     return( root )
 }
 
 func Prelude_SlashEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_SlashEq, "Prelude_SlashEq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_SlashEq, "Prelude_SlashEq", 1, 0, args... )
     return( root )
 }
 
 func Prelude__superHashPrelude_OrdHashPrelude_EqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__superHashPrelude_OrdHashPrelude_Eq, "Prelude__superHashPrelude_OrdHashPrelude_Eq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__superHashPrelude_OrdHashPrelude_Eq, "Prelude__superHashPrelude_OrdHashPrelude_Eq", 1, 0, args... )
     return( root )
 }
 
 func Prelude_compareCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_compare, "Prelude_compare", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_compare, "Prelude_compare", 1, 0, args... )
     return( root )
 }
 
 func Prelude_LtEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_LtEq, "Prelude_LtEq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_LtEq, "Prelude_LtEq", 1, 0, args... )
     return( root )
 }
 
 func Prelude_GtEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtEq, "Prelude_GtEq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_GtEq, "Prelude_GtEq", 1, 0, args... )
     return( root )
 }
 
 func Prelude_LtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Lt, "Prelude_Lt", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Lt, "Prelude_Lt", 1, 0, args... )
     return( root )
 }
 
 func Prelude_GtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Gt, "Prelude_Gt", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Gt, "Prelude_Gt", 1, 0, args... )
     return( root )
 }
 
 func Prelude_minCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_min, "Prelude_min", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_min, "Prelude_min", 1, 0, args... )
     return( root )
 }
 
 func Prelude_maxCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_max, "Prelude_max", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_max, "Prelude_max", 1, 0, args... )
     return( root )
 }
 
 func Prelude_showCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_show, "Prelude_show", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_show, "Prelude_show", 1, 0, args... )
     return( root )
 }
 
 func Prelude_showsPrecCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showsPrec, "Prelude_showsPrec", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_showsPrec, "Prelude_showsPrec", 1, 0, args... )
     return( root )
 }
 
 func Prelude_showListCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_showList, "Prelude_showList", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_showList, "Prelude_showList", 1, 0, args... )
     return( root )
 }
 
 func Prelude_readsPrecCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readsPrec, "Prelude_readsPrec", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readsPrec, "Prelude_readsPrec", 1, 0, args... )
     return( root )
 }
 
 func Prelude_readListCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_readList, "Prelude_readList", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_readList, "Prelude_readList", 1, 0, args... )
     return( root )
 }
 
 func Prelude_minBoundCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_minBound, "Prelude_minBound", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_minBound, "Prelude_minBound", 1, 0, args... )
     return( root )
 }
 
 func Prelude_maxBoundCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_maxBound, "Prelude_maxBound", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_maxBound, "Prelude_maxBound", 1, 0, args... )
     return( root )
 }
 
 func Prelude_succCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_succ, "Prelude_succ", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_succ, "Prelude_succ", 1, 0, args... )
     return( root )
 }
 
 func Prelude_predCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_pred, "Prelude_pred", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_pred, "Prelude_pred", 1, 0, args... )
     return( root )
 }
 
 func Prelude_toEnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_toEnum, "Prelude_toEnum", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_toEnum, "Prelude_toEnum", 1, 0, args... )
     return( root )
 }
 
 func Prelude_fromEnumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fromEnum, "Prelude_fromEnum", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fromEnum, "Prelude_fromEnum", 1, 0, args... )
     return( root )
 }
 
 func Prelude_enumFromCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFrom, "Prelude_enumFrom", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_enumFrom, "Prelude_enumFrom", 1, 0, args... )
     return( root )
 }
 
 func Prelude_enumFromThenCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThen, "Prelude_enumFromThen", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_enumFromThen, "Prelude_enumFromThen", 1, 0, args... )
     return( root )
 }
 
 func Prelude_enumFromToCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromTo, "Prelude_enumFromTo", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_enumFromTo, "Prelude_enumFromTo", 1, 0, args... )
     return( root )
 }
 
 func Prelude_enumFromThenToCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_enumFromThenTo, "Prelude_enumFromThenTo", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_enumFromThenTo, "Prelude_enumFromThenTo", 1, 0, args... )
     return( root )
 }
 
 func Prelude_AddCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Add, "Prelude_Add", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Add, "Prelude_Add", 1, 0, args... )
     return( root )
 }
 
 func Prelude_SubCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Sub, "Prelude_Sub", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Sub, "Prelude_Sub", 1, 0, args... )
     return( root )
 }
 
 func Prelude_MulCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Mul, "Prelude_Mul", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Mul, "Prelude_Mul", 1, 0, args... )
     return( root )
 }
 
 func Prelude_negateCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_negate, "Prelude_negate", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_negate, "Prelude_negate", 1, 0, args... )
     return( root )
 }
 
 func Prelude_absCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_abs, "Prelude_abs", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_abs, "Prelude_abs", 1, 0, args... )
     return( root )
 }
 
 func Prelude_signumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_signum, "Prelude_signum", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_signum, "Prelude_signum", 1, 0, args... )
     return( root )
 }
 
 func Prelude_fromIntCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fromInt, "Prelude_fromInt", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fromInt, "Prelude_fromInt", 1, 0, args... )
     return( root )
 }
 
 func Prelude__superHashPrelude_FractionalHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__superHashPrelude_FractionalHashPrelude_Num, "Prelude__superHashPrelude_FractionalHashPrelude_Num", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__superHashPrelude_FractionalHashPrelude_Num, "Prelude__superHashPrelude_FractionalHashPrelude_Num", 1, 0, args... )
     return( root )
 }
 
 func Prelude_SlashCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_Slash, "Prelude_Slash", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_Slash, "Prelude_Slash", 1, 0, args... )
     return( root )
 }
 
 func Prelude_recipCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_recip, "Prelude_recip", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_recip, "Prelude_recip", 1, 0, args... )
     return( root )
 }
 
 func Prelude_fromFloatCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fromFloat, "Prelude_fromFloat", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fromFloat, "Prelude_fromFloat", 1, 0, args... )
     return( root )
 }
 
 func Prelude__superHashPrelude_RealHashPrelude_NumCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__superHashPrelude_RealHashPrelude_Num, "Prelude__superHashPrelude_RealHashPrelude_Num", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__superHashPrelude_RealHashPrelude_Num, "Prelude__superHashPrelude_RealHashPrelude_Num", 1, 0, args... )
     return( root )
 }
 
 func Prelude__superHashPrelude_RealHashPrelude_OrdCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__superHashPrelude_RealHashPrelude_Ord, "Prelude__superHashPrelude_RealHashPrelude_Ord", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__superHashPrelude_RealHashPrelude_Ord, "Prelude__superHashPrelude_RealHashPrelude_Ord", 1, 0, args... )
     return( root )
 }
 
 func Prelude__superHashPrelude_IntegralHashPrelude_RealCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude__superHashPrelude_IntegralHashPrelude_Real, "Prelude__superHashPrelude_IntegralHashPrelude_Real", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude__superHashPrelude_IntegralHashPrelude_Real, "Prelude__superHashPrelude_IntegralHashPrelude_Real", 1, 0, args... )
     return( root )
 }
 
 func Prelude_divCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_div, "Prelude_div", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_div, "Prelude_div", 1, 0, args... )
     return( root )
 }
 
 func Prelude_modCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_mod, "Prelude_mod", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_mod, "Prelude_mod", 1, 0, args... )
     return( root )
 }
 
 func Prelude_quotCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_quot, "Prelude_quot", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_quot, "Prelude_quot", 1, 0, args... )
     return( root )
 }
 
 func Prelude_remCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_rem, "Prelude_rem", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_rem, "Prelude_rem", 1, 0, args... )
     return( root )
 }
 
 func Prelude_divModCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_divMod, "Prelude_divMod", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_divMod, "Prelude_divMod", 1, 0, args... )
     return( root )
 }
 
 func Prelude_quotRemCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_quotRem, "Prelude_quotRem", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_quotRem, "Prelude_quotRem", 1, 0, args... )
     return( root )
 }
 
 func Prelude_fmapCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fmap, "Prelude_fmap", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fmap, "Prelude_fmap", 1, 0, args... )
     return( root )
 }
 
 func Prelude_GtGtEqCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtGtEq, "Prelude_GtGtEq", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_GtGtEq, "Prelude_GtGtEq", 1, 0, args... )
     return( root )
 }
 
 func Prelude_GtGtCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_GtGt, "Prelude_GtGt", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_GtGt, "Prelude_GtGt", 1, 0, args... )
     return( root )
 }
 
 func Prelude_returnCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_return, "Prelude_return", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_return, "Prelude_return", 1, 0, args... )
     return( root )
 }
 
 func Prelude_failCreate( root *Node, args ...*Node )( *Node ){
-    FuncCreate( root, Prelude_fail, "Prelude_fail", 1, []int{ 0 }, args... )
+    FuncCreate( root, Prelude_fail, "Prelude_fail", 1, 0, args... )
     return( root )
 }
 
@@ -6779,7 +6779,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -6804,7 +6804,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1( task *Task )(  ){
     var x6 *Node
     var x1 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x7 = root.Children[ 3 ]
@@ -6828,7 +6828,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE1( task *Task )(  ){
 func Prelude__implHashEqEqHashPrelude_EqHashLSbRSb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -6860,7 +6860,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -6875,7 +6875,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbRb( task *Task )(  ){
 func Prelude__implHashEqEqHashPrelude_EqHashLbRb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -6910,7 +6910,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -6933,7 +6933,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaRb_CASE0( task *Task )(  ){
     var x5 *Node
     var x2 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -6984,7 +6984,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -7011,7 +7011,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaRb_CASE0( task *Task )( 
     var x7 *Node
     var x3 *Node
     var x8 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x6 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -7072,7 +7072,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb( task *Task )(  
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -7103,7 +7103,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaRb_CASE0( task *Tas
     var x9 *Node
     var x4 *Node
     var x10 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x7 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -7174,7 +7174,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb( task *Task
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -7209,7 +7209,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaRb_CASE0( task
     var x11 *Node
     var x5 *Node
     var x12 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -7290,7 +7290,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb( task 
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     x8 = root.Children[ 7 ]
     switch x7.GetConstructor(  ){
         case -1:
@@ -7329,7 +7329,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaRb_CASE0(
     var x13 *Node
     var x6 *Node
     var x14 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x9 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -7420,7 +7420,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb( 
     x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
-    x8 = root.GetChild( 7 )
+    x8 = root.Children[ 7 ]
     x9 = root.Children[ 8 ]
     switch x8.GetConstructor(  ){
         case -1:
@@ -7463,7 +7463,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashLbCommaCommaCommaCommaCommaCommaRb_C
     var x15 *Node
     var x7 *Node
     var x16 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x10 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -7543,7 +7543,7 @@ func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7560,7 +7560,7 @@ func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
 func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x4 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7577,7 +7577,7 @@ func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
 func Prelude__defHashcompareHashPrelude_Ord_COMPLEXCASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7658,7 +7658,7 @@ func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     x3 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x4 = root.GetChild( 2 )
+    x4 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7677,7 +7677,7 @@ func Prelude__defHashminHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     x3 = root.Children[ 0 ]
-    x4 = root.GetChild( 1 )
+    x4 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7710,7 +7710,7 @@ func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     x3 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x4 = root.GetChild( 2 )
+    x4 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7729,7 +7729,7 @@ func Prelude__defHashmaxHashPrelude_Ord_COMPLEXCASE1( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     x3 = root.Children[ 0 ]
-    x4 = root.GetChild( 1 )
+    x4 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -7921,7 +7921,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -7946,7 +7946,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE1( task *Task )(  ){
     var x6 *Node
     var x1 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x7 = root.Children[ 3 ]
@@ -7980,7 +7980,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE2( task *Task )( 
     x1 = root.Children[ 2 ]
     x7 = root.Children[ 3 ]
     x9 = root.Children[ 4 ]
-    x10 = root.GetChild( 5 )
+    x10 = root.Children[ 5 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -8003,7 +8003,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3( task *Task )( 
     x1 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
-    x9 = root.GetChild( 3 )
+    x9 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -8020,7 +8020,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_COMPLEXCASE3( task *Task )( 
 func Prelude__implHashLtEqHashPrelude_OrdHashLSbRSb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -8090,7 +8090,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -8105,7 +8105,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbRb( task *Task )(  ){
 func Prelude__implHashLtEqHashPrelude_OrdHashLbRb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -8174,7 +8174,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -8197,7 +8197,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaRb_CASE0( task *Task )(  ){
     var x5 *Node
     var x2 *Node
     var x6 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -8300,7 +8300,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -8327,7 +8327,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaRb_CASE0( task *Task )(
     var x7 *Node
     var x3 *Node
     var x8 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x6 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -8450,7 +8450,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb( task *Task )( 
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -8481,7 +8481,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaRb_CASE0( task *Ta
     var x9 *Node
     var x4 *Node
     var x10 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x7 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -8624,7 +8624,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb( task *Tas
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -8659,7 +8659,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashLbCommaCommaCommaCommaRb_CASE0( tas
     var x11 *Node
     var x5 *Node
     var x12 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -8819,7 +8819,7 @@ func Prelude__implHashshowHashPrelude_ShowHashLbRb( task *Task )(  ){
 func Prelude__implHashshowsPrecHashPrelude_ShowHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -8863,7 +8863,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaRb( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8921,7 +8921,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaRb( task *Task )(
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -8989,7 +8989,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaRb( task *Ta
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9067,7 +9067,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashLbCommaCommaCommaCommaRb( tas
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x7 = root.GetChild( 6 )
+    x7 = root.Children[ 6 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, Prelude_LbCommaCommaCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -9169,7 +9169,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE0( tas
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9188,7 +9188,7 @@ func Prelude__implHashshowListHashPrelude_ShowHashPrelude_Char_COMPLEXCASE1( tas
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9288,7 +9288,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9309,7 +9309,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -9338,7 +9338,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x9 = root.GetChild( 3 )
+    x9 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9357,7 +9357,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -9377,7 +9377,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9398,7 +9398,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -9427,7 +9427,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x9 = root.GetChild( 3 )
+    x9 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9446,7 +9446,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbRb__Hashlambda1__Hashlambda
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -9492,7 +9492,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9514,7 +9514,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -9536,7 +9536,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Int__Hashlambda10__Ha
     var x4 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -9584,7 +9584,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897_C
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9602,7 +9602,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float_readFloat_897__
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9630,7 +9630,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9653,7 +9653,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9674,7 +9674,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9694,7 +9694,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -9716,7 +9716,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Float__Hashlambda23__
     var x4 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -9763,7 +9763,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9786,7 +9786,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9807,7 +9807,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9827,7 +9827,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -9849,7 +9849,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Char__Hashlambda32__H
     var x4 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -9886,7 +9886,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -9909,7 +9909,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9930,7 +9930,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x5 *Node
     x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -9950,7 +9950,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -9972,7 +9972,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashPrelude_Char__Hashlambda41__Ha
     var x4 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10053,7 +10053,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10076,7 +10076,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10111,7 +10111,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
     x4 = root.Children[ 4 ]
-    x11 = root.GetChild( 5 )
+    x11 = root.Children[ 5 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10132,7 +10132,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10156,7 +10156,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -10180,7 +10180,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10203,7 +10203,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10238,7 +10238,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
     x4 = root.Children[ 4 ]
-    x11 = root.GetChild( 5 )
+    x11 = root.Children[ 5 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10259,7 +10259,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10283,7 +10283,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -10307,7 +10307,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10330,7 +10330,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x1 *Node
     var x6 *Node
     var x4 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10365,7 +10365,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     x1 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
     x4 = root.Children[ 4 ]
-    x11 = root.GetChild( 5 )
+    x11 = root.Children[ 5 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10386,7 +10386,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaRb__Hashlambda50__Hash
     var x1 *Node
     var x6 *Node
     var x4 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -10462,7 +10462,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -10486,7 +10486,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10524,7 +10524,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x3 = root.Children[ 3 ]
     x7 = root.Children[ 4 ]
     x5 = root.Children[ 5 ]
-    x12 = root.GetChild( 6 )
+    x12 = root.Children[ 6 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10546,7 +10546,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10573,7 +10573,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10599,7 +10599,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -10623,7 +10623,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10661,7 +10661,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x3 = root.Children[ 3 ]
     x7 = root.Children[ 4 ]
     x5 = root.Children[ 5 ]
-    x12 = root.GetChild( 6 )
+    x12 = root.Children[ 6 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10683,7 +10683,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10710,7 +10710,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10736,7 +10736,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -10760,7 +10760,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10798,7 +10798,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x3 = root.Children[ 3 ]
     x7 = root.Children[ 4 ]
     x5 = root.Children[ 5 ]
-    x12 = root.GetChild( 6 )
+    x12 = root.Children[ 6 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10820,7 +10820,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x3 *Node
     var x7 *Node
     var x5 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -10847,7 +10847,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -10873,7 +10873,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -10897,7 +10897,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x1 *Node
     var x7 *Node
     var x5 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
@@ -10935,7 +10935,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     x1 = root.Children[ 3 ]
     x7 = root.Children[ 4 ]
     x5 = root.Children[ 5 ]
-    x12 = root.GetChild( 6 )
+    x12 = root.Children[ 6 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -10957,7 +10957,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaRb__Hashlambda71_
     var x1 *Node
     var x7 *Node
     var x5 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
@@ -11044,7 +11044,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11069,7 +11069,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11110,7 +11110,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x4 = root.Children[ 4 ]
     x8 = root.Children[ 5 ]
     x6 = root.Children[ 6 ]
-    x13 = root.GetChild( 7 )
+    x13 = root.Children[ 7 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11133,7 +11133,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11163,7 +11163,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -11191,7 +11191,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11216,7 +11216,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11257,7 +11257,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x4 = root.Children[ 4 ]
     x8 = root.Children[ 5 ]
     x6 = root.Children[ 6 ]
-    x13 = root.GetChild( 7 )
+    x13 = root.Children[ 7 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11280,7 +11280,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11310,7 +11310,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -11338,7 +11338,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11363,7 +11363,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11404,7 +11404,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x4 = root.Children[ 4 ]
     x8 = root.Children[ 5 ]
     x6 = root.Children[ 6 ]
-    x13 = root.GetChild( 7 )
+    x13 = root.Children[ 7 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11427,7 +11427,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11457,7 +11457,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -11485,7 +11485,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11510,7 +11510,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11551,7 +11551,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x4 = root.Children[ 4 ]
     x8 = root.Children[ 5 ]
     x6 = root.Children[ 6 ]
-    x13 = root.GetChild( 7 )
+    x13 = root.Children[ 7 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11574,7 +11574,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x4 *Node
     var x8 *Node
     var x6 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11604,7 +11604,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -11632,7 +11632,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11657,7 +11657,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x1 *Node
     var x8 *Node
     var x6 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -11698,7 +11698,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     x1 = root.Children[ 4 ]
     x8 = root.Children[ 5 ]
     x6 = root.Children[ 6 ]
-    x13 = root.GetChild( 7 )
+    x13 = root.Children[ 7 ]
     switch x13.GetConstructor(  ){
         case -1:
             RedirectCreate( x13, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11721,7 +11721,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaRb__Hashlamb
     var x1 *Node
     var x8 *Node
     var x6 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x2 = root.Children[ 3 ]
@@ -11819,7 +11819,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -11845,7 +11845,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11889,7 +11889,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x5 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -11913,7 +11913,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -11946,7 +11946,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -11976,7 +11976,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -12002,7 +12002,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12046,7 +12046,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x5 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12070,7 +12070,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12103,7 +12103,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -12133,7 +12133,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -12159,7 +12159,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12203,7 +12203,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x5 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12227,7 +12227,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12260,7 +12260,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -12290,7 +12290,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -12316,7 +12316,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12360,7 +12360,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x5 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12384,7 +12384,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12417,7 +12417,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -12447,7 +12447,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -12473,7 +12473,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12517,7 +12517,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x5 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12541,7 +12541,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x5 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12574,7 +12574,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     x6 = root.Children[ 5 ]
     switch x5.GetConstructor(  ){
         case -1:
@@ -12604,7 +12604,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     x7 = root.Children[ 6 ]
     switch x6.GetConstructor(  ){
         case -1:
@@ -12630,7 +12630,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x1 *Node
     var x9 *Node
     var x7 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12674,7 +12674,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     x1 = root.Children[ 5 ]
     x9 = root.Children[ 6 ]
     x7 = root.Children[ 7 ]
-    x14 = root.GetChild( 8 )
+    x14 = root.Children[ 8 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12698,7 +12698,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashLbCommaCommaCommaCommaRb__Has
     var x1 *Node
     var x9 *Node
     var x7 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -12738,7 +12738,7 @@ func Prelude__implHashreadListHashPrelude_ReadHashLbCommaCommaCommaCommaRb( task
 func Prelude__defHashminBoundHashPrelude_Bounded( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -12752,7 +12752,7 @@ func Prelude__defHashminBoundHashPrelude_Bounded( task *Task )(  ){
 func Prelude__defHashmaxBoundHashPrelude_Bounded( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -12856,7 +12856,7 @@ func Prelude__instHashPrelude_BoundedHashLbRb( task *Task )(  ){
 func Prelude__implHashminBoundHashPrelude_BoundedHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -12870,7 +12870,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbRb( task *Task )(  ){
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -12910,7 +12910,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb( task *Task )(  ){
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12927,7 +12927,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE0( task *Task )(
 func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -12944,7 +12944,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashLbRb_COMPLEXCASE1( task *Task )(
 func Prelude__implHashfromEnumHashPrelude_EnumHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -12958,7 +12958,7 @@ func Prelude__implHashfromEnumHashPrelude_EnumHashLbRb( task *Task )(  ){
 func Prelude__implHashenumFromHashPrelude_EnumHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -12973,7 +12973,7 @@ func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -12988,7 +12988,7 @@ func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb( task *Task )(  ){
 func Prelude__implHashenumFromThenHashPrelude_EnumHashLbRb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -13012,7 +13012,7 @@ func Prelude__implHashenumFromToHashPrelude_EnumHashLbRb( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -13027,7 +13027,7 @@ func Prelude__implHashenumFromToHashPrelude_EnumHashLbRb( task *Task )(  ){
 func Prelude__implHashenumFromToHashPrelude_EnumHashLbRb_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbRbCreate( new( Node ) ) )
@@ -13043,7 +13043,7 @@ func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
@@ -13060,7 +13060,7 @@ func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0( task *Task )
     root := task.GetControl(  )
     var x2 *Node
     var x3 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -13075,7 +13075,7 @@ func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE0( task *Task )
 func Prelude__implHashenumFromThenToHashPrelude_EnumHashLbRb_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbRbCreate( new( Node ) ) )
@@ -13104,7 +13104,7 @@ func Prelude__instHashPrelude_BoundedHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13118,7 +13118,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Bool( task *Task )(
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13138,7 +13138,7 @@ func Prelude__instHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13155,7 +13155,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13182,7 +13182,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0( task 
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13199,7 +13199,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE0( task 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13216,7 +13216,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE1( task 
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13233,7 +13233,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Bool_COMPLEXCASE2( task 
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13288,7 +13288,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaRb( task *Task )(  )
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbRbCreate( new( Node ) ) )
@@ -13306,7 +13306,7 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaRb( task *Task )(  )
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, Prelude_LbRbCreate( new( Node ) ) )
@@ -13338,7 +13338,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaRb( task *Task 
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbRbCreate( new( Node ) ) )
@@ -13358,7 +13358,7 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaRb( task *Task 
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, Prelude_LbRbCreate( new( Node ) ) )
@@ -13394,7 +13394,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaRb( task *
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbRbCreate( new( Node ) ) )
@@ -13416,7 +13416,7 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaRb( task *
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, Prelude_LbRbCreate( new( Node ) ) )
@@ -13456,7 +13456,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb( t
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbRbCreate( new( Node ) ) )
@@ -13480,7 +13480,7 @@ func Prelude__implHashmaxBoundHashPrelude_BoundedHashLbCommaCommaCommaCommaRb( t
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     x5 = root.Children[ 4 ]
-    x6 = root.GetChild( 5 )
+    x6 = root.Children[ 5 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, Prelude_LbRbCreate( new( Node ) ) )
@@ -13500,7 +13500,7 @@ func Prelude__instHashPrelude_BoundedHashPrelude_Ordering( task *Task )(  ){
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13514,7 +13514,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Ordering( task *Tas
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13534,7 +13534,7 @@ func Prelude__instHashPrelude_EnumHashPrelude_Ordering( task *Task )(  ){
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -13554,7 +13554,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Ordering( task *Task )(  )
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -13584,7 +13584,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE0( t
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13603,7 +13603,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1( t
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13620,7 +13620,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE1( t
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13637,7 +13637,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE2( t
 func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13654,7 +13654,7 @@ func Prelude__implHashtoEnumHashPrelude_EnumHashPrelude_Ordering_COMPLEXCASE3( t
 func Prelude__implHashfromEnumHashPrelude_EnumHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -13704,7 +13704,7 @@ func Prelude__instHashPrelude_BoundedHashPrelude_Char( task *Task )(  ){
 func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13718,7 +13718,7 @@ func Prelude__implHashminBoundHashPrelude_BoundedHashPrelude_Char( task *Task )(
 func Prelude__implHashmaxBoundHashPrelude_BoundedHashPrelude_Char( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbRbCreate( new( Node ) ) )
@@ -13748,7 +13748,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13765,7 +13765,7 @@ func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
 func Prelude__implHashsuccHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13792,7 +13792,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -13809,7 +13809,7 @@ func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE0( task *T
 func Prelude__implHashpredHashPrelude_EnumHashPrelude_Char_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14030,7 +14030,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE0( task *Task
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14049,7 +14049,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Int_COMPLEXCASE1( task *Task
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14076,7 +14076,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0( task *T
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14093,7 +14093,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE0( task *T
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14110,7 +14110,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE1( task *T
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Int_COMPLEXCASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14189,7 +14189,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE0( task *Ta
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14208,7 +14208,7 @@ func Prelude__implHashabsHashPrelude_NumHashPrelude_Float_COMPLEXCASE1( task *Ta
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14235,7 +14235,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0( task 
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14252,7 +14252,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE0( task 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14269,7 +14269,7 @@ func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE1( task 
 func Prelude__implHashsignumHashPrelude_NumHashPrelude_Float_COMPLEXCASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14368,7 +14368,7 @@ func Prelude__defHashdivHashPrelude_Integral( task *Task )(  ){
 func Prelude__defHashdivHashPrelude_Integral__HashselFP2Hashq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -14398,7 +14398,7 @@ func Prelude__defHashmodHashPrelude_Integral( task *Task )(  ){
 func Prelude__defHashmodHashPrelude_Integral__HashselFP4Hashr( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -14428,7 +14428,7 @@ func Prelude__defHashquotHashPrelude_Integral( task *Task )(  ){
 func Prelude__defHashquotHashPrelude_Integral__HashselFP6Hashq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -14458,7 +14458,7 @@ func Prelude__defHashremHashPrelude_Integral( task *Task )(  ){
 func Prelude__defHashremHashPrelude_Integral__HashselFP8Hashr( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -14653,7 +14653,7 @@ func Prelude__implHashGtGtEqHashPrelude_MonadHashPrelude_Maybe( task *Task )(  )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -14752,7 +14752,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -14770,7 +14770,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14787,7 +14787,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE1( task *Task )(  )
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Bool_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14823,7 +14823,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -14841,7 +14841,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14858,7 +14858,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE1( task *Task )(  
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Bool_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14917,7 +14917,7 @@ func Prelude__implHashshowHashPrelude_ShowHashPrelude_Bool( task *Task )(  ){
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Bool( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -14963,7 +14963,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -14984,7 +14984,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -15013,7 +15013,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x17 = root.GetChild( 3 )
+    x17 = root.Children[ 3 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15032,7 +15032,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -15061,7 +15061,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x17 = root.GetChild( 3 )
+    x17 = root.Children[ 3 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15080,7 +15080,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -15109,7 +15109,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x17 = root.GetChild( 3 )
+    x17 = root.Children[ 3 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15128,7 +15128,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -15157,7 +15157,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x17 = root.GetChild( 3 )
+    x17 = root.Children[ 3 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15176,7 +15176,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -15205,7 +15205,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x17 = root.GetChild( 3 )
+    x17 = root.Children[ 3 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15224,7 +15224,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda186__
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -15252,7 +15252,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -15273,7 +15273,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -15302,7 +15302,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x15 = root.GetChild( 3 )
+    x15 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15321,7 +15321,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -15350,7 +15350,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x15 = root.GetChild( 3 )
+    x15 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15369,7 +15369,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -15398,7 +15398,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x15 = root.GetChild( 3 )
+    x15 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15417,7 +15417,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -15446,7 +15446,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x15 = root.GetChild( 3 )
+    x15 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15465,7 +15465,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Bool__Hashlambda191__
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -15497,7 +15497,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -15518,7 +15518,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering( task *Task )(  ){
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15538,7 +15538,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE2( task *Task )
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15558,7 +15558,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE1( task *Task )
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Ordering_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15597,7 +15597,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -15618,7 +15618,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering( task *Task )(  ){
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15638,7 +15638,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE2( task *Task 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15658,7 +15658,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE1( task *Task 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Ordering_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15720,7 +15720,7 @@ func Prelude__implHashshowHashPrelude_ShowHashPrelude_Ordering( task *Task )(  )
 func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Ordering( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LTCreate( new( Node ) ), ChoiceCreate( new( Node ), Prelude_EQCreate( new( Node ) ), Prelude_GTCreate( new( Node ) ) ) ) )
@@ -15769,7 +15769,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -15790,7 +15790,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -15819,7 +15819,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15838,7 +15838,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -15867,7 +15867,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15886,7 +15886,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda1
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -15914,7 +15914,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -15935,7 +15935,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -15964,7 +15964,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -15983,7 +15983,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -16012,7 +16012,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16031,7 +16031,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -16059,7 +16059,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -16080,7 +16080,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -16109,7 +16109,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16128,7 +16128,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -16157,7 +16157,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x11 = root.GetChild( 3 )
+    x11 = root.Children[ 3 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16176,7 +16176,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Ordering__Hashlambda2
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -16212,7 +16212,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -16234,7 +16234,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1( task *Task )(  
     var x3 *Node
     var x1 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -16255,7 +16255,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE1( task *Task )(  
 func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Maybe_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16299,7 +16299,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -16321,7 +16321,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1( task *Task )( 
     var x3 *Node
     var x1 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -16342,7 +16342,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE1( task *Task )( 
 func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Maybe_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16419,7 +16419,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Maybe( task *Task )( 
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -16475,7 +16475,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -16496,7 +16496,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -16525,7 +16525,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16544,7 +16544,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -16573,7 +16573,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16592,7 +16592,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -16621,7 +16621,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16640,7 +16640,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -16669,7 +16669,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16688,7 +16688,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -16717,7 +16717,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16736,7 +16736,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -16765,7 +16765,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16784,7 +16784,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x16 *Node
     var x4 *Node
     var x2 *Node
-    x16 = root.GetChild( 0 )
+    x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
@@ -16813,7 +16813,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16832,7 +16832,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda211_
     var x18 *Node
     var x4 *Node
     var x2 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
@@ -16864,7 +16864,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -16886,7 +16886,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -16918,7 +16918,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16938,7 +16938,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -16970,7 +16970,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -16990,7 +16990,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17022,7 +17022,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17042,7 +17042,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17074,7 +17074,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17094,7 +17094,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x13 = root.GetChild( 0 )
+    x13 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17115,7 +17115,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Maybe__Hashlambda216_
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -17157,7 +17157,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -17181,7 +17181,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE1( task *Task )( 
     var x4 *Node
     var x2 *Node
     var x8 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -17204,7 +17204,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_Either_CASE0( task *Task )( 
     var x4 *Node
     var x1 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -17260,7 +17260,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -17284,7 +17284,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE1( task *Task )(
     var x4 *Node
     var x2 *Node
     var x8 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -17307,7 +17307,7 @@ func Prelude__implHashLtEqHashPrelude_OrdHashPrelude_Either_CASE0( task *Task )(
     var x4 *Node
     var x1 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -17404,7 +17404,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_Either( task *Task )(
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -17472,7 +17472,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -17494,7 +17494,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17526,7 +17526,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17546,7 +17546,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17578,7 +17578,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17598,7 +17598,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17630,7 +17630,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17650,7 +17650,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17682,7 +17682,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x16 = root.GetChild( 4 )
+    x16 = root.Children[ 4 ]
     switch x16.GetConstructor(  ){
         case -1:
             RedirectCreate( x16, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17702,7 +17702,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x13 = root.GetChild( 0 )
+    x13 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17723,7 +17723,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda225
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -17755,7 +17755,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -17777,7 +17777,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17809,7 +17809,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x18 = root.GetChild( 4 )
+    x18 = root.Children[ 4 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17829,7 +17829,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17861,7 +17861,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x18 = root.GetChild( 4 )
+    x18 = root.Children[ 4 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17881,7 +17881,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x9 = root.GetChild( 0 )
+    x9 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17913,7 +17913,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x18 = root.GetChild( 4 )
+    x18 = root.Children[ 4 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17933,7 +17933,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x11 = root.GetChild( 0 )
+    x11 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -17965,7 +17965,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x18 = root.GetChild( 4 )
+    x18 = root.Children[ 4 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -17985,7 +17985,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x13 = root.GetChild( 0 )
+    x13 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -18017,7 +18017,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x18 = root.GetChild( 4 )
+    x18 = root.Children[ 4 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18037,7 +18037,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x15 = root.GetChild( 0 )
+    x15 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -18058,7 +18058,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_Either__Hashlambda234
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -18094,7 +18094,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -18127,7 +18127,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE3( task *Task )(
     root := task.GetControl(  )
     var x2 *Node
     var x18 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x18 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -18154,7 +18154,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE2( task *Task )(
     root := task.GetControl(  )
     var x2 *Node
     var x13 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x13 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -18181,7 +18181,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE1( task *Task )(
     root := task.GetControl(  )
     var x2 *Node
     var x8 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x8 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -18208,7 +18208,7 @@ func Prelude__implHashEqEqHashPrelude_EqHashPrelude_IOError_CASE0( task *Task )(
     root := task.GetControl(  )
     var x2 *Node
     var x3 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -18254,7 +18254,7 @@ func Prelude__implHashshowsPrecHashPrelude_ShowHashPrelude_IOError( task *Task )
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
@@ -18316,7 +18316,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -18337,7 +18337,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -18366,7 +18366,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18385,7 +18385,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -18414,7 +18414,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18433,7 +18433,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -18462,7 +18462,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18481,7 +18481,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -18510,7 +18510,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18529,7 +18529,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -18558,7 +18558,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18577,7 +18577,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -18606,7 +18606,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18625,7 +18625,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x16 *Node
     var x4 *Node
     var x2 *Node
-    x16 = root.GetChild( 0 )
+    x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
@@ -18654,7 +18654,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18673,7 +18673,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     var x18 *Node
     var x4 *Node
     var x2 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
@@ -18693,7 +18693,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda24
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -18721,7 +18721,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -18742,7 +18742,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -18771,7 +18771,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18790,7 +18790,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -18819,7 +18819,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18838,7 +18838,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -18867,7 +18867,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18886,7 +18886,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -18915,7 +18915,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18934,7 +18934,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -18963,7 +18963,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -18982,7 +18982,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -19011,7 +19011,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19030,7 +19030,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x16 *Node
     var x4 *Node
     var x2 *Node
-    x16 = root.GetChild( 0 )
+    x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
@@ -19059,7 +19059,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19078,7 +19078,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x18 *Node
     var x4 *Node
     var x2 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
@@ -19107,7 +19107,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19126,7 +19126,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x20 *Node
     var x4 *Node
     var x2 *Node
-    x20 = root.GetChild( 0 )
+    x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
@@ -19155,7 +19155,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19174,7 +19174,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     var x22 *Node
     var x4 *Node
     var x2 *Node
-    x22 = root.GetChild( 0 )
+    x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
@@ -19194,7 +19194,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda25
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -19222,7 +19222,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -19243,7 +19243,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -19272,7 +19272,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19291,7 +19291,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -19320,7 +19320,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19339,7 +19339,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -19368,7 +19368,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19387,7 +19387,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -19416,7 +19416,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19435,7 +19435,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -19464,7 +19464,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19483,7 +19483,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -19512,7 +19512,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19531,7 +19531,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x16 *Node
     var x4 *Node
     var x2 *Node
-    x16 = root.GetChild( 0 )
+    x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
@@ -19560,7 +19560,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19579,7 +19579,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x18 *Node
     var x4 *Node
     var x2 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
@@ -19608,7 +19608,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19627,7 +19627,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x20 *Node
     var x4 *Node
     var x2 *Node
-    x20 = root.GetChild( 0 )
+    x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
@@ -19656,7 +19656,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x25 = root.GetChild( 3 )
+    x25 = root.Children[ 3 ]
     switch x25.GetConstructor(  ){
         case -1:
             RedirectCreate( x25, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19675,7 +19675,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     var x22 *Node
     var x4 *Node
     var x2 *Node
-    x22 = root.GetChild( 0 )
+    x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
@@ -19695,7 +19695,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda26
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -19723,7 +19723,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -19744,7 +19744,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -19773,7 +19773,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19792,7 +19792,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -19821,7 +19821,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19840,7 +19840,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x8 *Node
     var x4 *Node
     var x2 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x8.GetConstructor(  ){
@@ -19869,7 +19869,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19888,7 +19888,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x10 *Node
     var x4 *Node
     var x2 *Node
-    x10 = root.GetChild( 0 )
+    x10 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x10.GetConstructor(  ){
@@ -19917,7 +19917,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19936,7 +19936,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x12 *Node
     var x4 *Node
     var x2 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x12.GetConstructor(  ){
@@ -19965,7 +19965,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -19984,7 +19984,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x14 *Node
     var x4 *Node
     var x2 *Node
-    x14 = root.GetChild( 0 )
+    x14 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x14.GetConstructor(  ){
@@ -20013,7 +20013,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20032,7 +20032,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x16 *Node
     var x4 *Node
     var x2 *Node
-    x16 = root.GetChild( 0 )
+    x16 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x16.GetConstructor(  ){
@@ -20061,7 +20061,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20080,7 +20080,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x18 *Node
     var x4 *Node
     var x2 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
@@ -20109,7 +20109,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20128,7 +20128,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x20 *Node
     var x4 *Node
     var x2 *Node
-    x20 = root.GetChild( 0 )
+    x20 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x20.GetConstructor(  ){
@@ -20157,7 +20157,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20176,7 +20176,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x22 *Node
     var x4 *Node
     var x2 *Node
-    x22 = root.GetChild( 0 )
+    x22 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x22.GetConstructor(  ){
@@ -20205,7 +20205,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x24 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20224,7 +20224,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x24 *Node
     var x4 *Node
     var x2 *Node
-    x24 = root.GetChild( 0 )
+    x24 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x24.GetConstructor(  ){
@@ -20253,7 +20253,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     x26 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x29 = root.GetChild( 3 )
+    x29 = root.Children[ 3 ]
     switch x29.GetConstructor(  ){
         case -1:
             RedirectCreate( x29, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20272,7 +20272,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     var x26 *Node
     var x4 *Node
     var x2 *Node
-    x26 = root.GetChild( 0 )
+    x26 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x26.GetConstructor(  ){
@@ -20292,7 +20292,7 @@ func Prelude__implHashreadsPrecHashPrelude_ReadHashPrelude_IOError__Hashlambda27
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20369,7 +20369,7 @@ func Prelude_uncurry( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -20417,7 +20417,7 @@ func Prelude_until_COMPLEXCASE0( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20457,7 +20457,7 @@ func Prelude_ensureSpine( task *Task )(  ){
 func Prelude_ensureSpine_ensureList_20( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20532,7 +20532,7 @@ func Prelude_AndAnd( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20551,7 +20551,7 @@ func Prelude_StrtStrt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20569,7 +20569,7 @@ func Prelude_StrtStrt( task *Task )(  ){
 func Prelude_not( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20594,7 +20594,7 @@ func Prelude_if_then_else( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
@@ -20613,7 +20613,7 @@ func Prelude_if_then_else( task *Task )(  ){
 func Prelude_solve( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20631,7 +20631,7 @@ func Prelude_AndGt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20749,7 +20749,7 @@ func Prelude_prim_ltEqFloat( task *Task )(  ){
 func Prelude_fst( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -20765,7 +20765,7 @@ func Prelude_fst( task *Task )(  ){
 func Prelude_snd( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -20781,7 +20781,7 @@ func Prelude_snd( task *Task )(  ){
 func Prelude_head( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20800,7 +20800,7 @@ func Prelude_head( task *Task )(  ){
 func Prelude_tail( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20819,7 +20819,7 @@ func Prelude_tail( task *Task )(  ){
 func Prelude_null( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20837,7 +20837,7 @@ func Prelude_AddAdd( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20870,7 +20870,7 @@ func Prelude_length_len_92( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -20905,7 +20905,7 @@ func Prelude_ExclExcl( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -20933,7 +20933,7 @@ func Prelude_ExclExcl_COMPLEXCASE0( task *Task )(  ){
     x4 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x5 = root.GetChild( 3 )
+    x5 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20954,7 +20954,7 @@ func Prelude_ExclExcl_COMPLEXCASE1( task *Task )(  ){
     var x5 *Node
     x4 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -20973,7 +20973,7 @@ func Prelude_map( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -20998,7 +20998,7 @@ func Prelude_foldl( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21021,7 +21021,7 @@ func Prelude_foldl1( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21046,7 +21046,7 @@ func Prelude_foldr( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21069,7 +21069,7 @@ func Prelude_foldr1( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21094,7 +21094,7 @@ func Prelude_foldr1_CASE0( task *Task )(  ){
     var x4 *Node
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
-    x4 = root.GetChild( 2 )
+    x4 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21113,7 +21113,7 @@ func Prelude_filter( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21140,7 +21140,7 @@ func Prelude_filter_COMPLEXCASE0( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
-    x5 = root.GetChild( 3 )
+    x5 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21158,7 +21158,7 @@ func Prelude_zip( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -21182,7 +21182,7 @@ func Prelude_zip_CASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     var x4 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
@@ -21207,7 +21207,7 @@ func Prelude_zip3( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x3 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x1.GetConstructor(  ){
@@ -21233,7 +21233,7 @@ func Prelude_zip3_CASE0( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x5 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x5 = root.Children[ 3 ]
@@ -21261,7 +21261,7 @@ func Prelude_zip3_CASE1( task *Task )(  ){
     var x6 *Node
     var x5 *Node
     var x7 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x6 = root.Children[ 2 ]
     x5 = root.Children[ 3 ]
@@ -21289,7 +21289,7 @@ func Prelude_zipWith( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -21314,7 +21314,7 @@ func Prelude_zipWith_CASE0( task *Task )(  ){
     var x4 *Node
     var x1 *Node
     var x5 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x5 = root.Children[ 3 ]
@@ -21342,7 +21342,7 @@ func Prelude_zipWith3( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x2.GetConstructor(  ){
@@ -21369,7 +21369,7 @@ func Prelude_zipWith3_CASE0( task *Task )(  ){
     var x5 *Node
     var x1 *Node
     var x6 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
@@ -21399,7 +21399,7 @@ func Prelude_zipWith3_CASE1( task *Task )(  ){
     var x1 *Node
     var x6 *Node
     var x8 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
     x7 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
@@ -21425,7 +21425,7 @@ func Prelude_zipWith3_CASE1( task *Task )(  ){
 func Prelude_unzip( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21447,7 +21447,7 @@ func Prelude_unzip_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
     var x3 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -21484,7 +21484,7 @@ func Prelude_unzip_LET1( task *Task )(  ){
 func Prelude_unzip__HashselFP10Hashxs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21500,7 +21500,7 @@ func Prelude_unzip__HashselFP10Hashxs( task *Task )(  ){
 func Prelude_unzip__HashselFP11Hashys( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21516,7 +21516,7 @@ func Prelude_unzip__HashselFP11Hashys( task *Task )(  ){
 func Prelude_unzip3( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21538,7 +21538,7 @@ func Prelude_unzip3_CASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
     var x3 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -21581,7 +21581,7 @@ func Prelude_unzip3_LET1( task *Task )(  ){
 func Prelude_unzip3__HashselFP13Hashxs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21597,7 +21597,7 @@ func Prelude_unzip3__HashselFP13Hashxs( task *Task )(  ){
 func Prelude_unzip3__HashselFP14Hashys( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21613,7 +21613,7 @@ func Prelude_unzip3__HashselFP14Hashys( task *Task )(  ){
 func Prelude_unzip3__HashselFP15Hashzs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21687,7 +21687,7 @@ func Prelude_take_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21706,7 +21706,7 @@ func Prelude_take_takep_209( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21741,7 +21741,7 @@ func Prelude_drop_COMPLEXCASE0( task *Task )(  ){
     var x5 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21759,7 +21759,7 @@ func Prelude_drop_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x2 *Node
     var x1 *Node
-    x2 = root.GetChild( 0 )
+    x2 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -21793,7 +21793,7 @@ func Prelude_splitAt_COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21812,7 +21812,7 @@ func Prelude_splitAt_splitAtp_223( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21851,7 +21851,7 @@ func Prelude_splitAt_splitAtp_223_LET0( task *Task )(  ){
 func Prelude_splitAt_splitAtp_223__HashselFP17Hashys( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21867,7 +21867,7 @@ func Prelude_splitAt_splitAtp_223__HashselFP17Hashys( task *Task )(  ){
 func Prelude_splitAt_splitAtp_223__HashselFP18Hashzs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -21885,7 +21885,7 @@ func Prelude_takeWhile( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21912,7 +21912,7 @@ func Prelude_takeWhile_COMPLEXCASE0( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
-    x5 = root.GetChild( 3 )
+    x5 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21931,7 +21931,7 @@ func Prelude_dropWhile( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -21958,7 +21958,7 @@ func Prelude_dropWhile_COMPLEXCASE0( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
-    x5 = root.GetChild( 3 )
+    x5 = root.Children[ 3 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -21977,7 +21977,7 @@ func Prelude_span( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -22004,7 +22004,7 @@ func Prelude_span_COMPLEXCASE0( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
-    x8 = root.GetChild( 3 )
+    x8 = root.Children[ 3 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22043,7 +22043,7 @@ func Prelude_span_COMPLEXCASE1( task *Task )(  ){
     var x5 *Node
     x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22060,7 +22060,7 @@ func Prelude_span_COMPLEXCASE1( task *Task )(  ){
 func Prelude_span__HashselFP20Hashys( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22076,7 +22076,7 @@ func Prelude_span__HashselFP20Hashys( task *Task )(  ){
 func Prelude_span__HashselFP21Hashzs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22100,7 +22100,7 @@ func Prelude_break( task *Task )(  ){
 func Prelude_lines( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -22137,7 +22137,7 @@ func Prelude_lines_LET0( task *Task )(  ){
 func Prelude_lines_splitline_253( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -22162,7 +22162,7 @@ func Prelude_lines_splitline_253_COMPLEXCASE0( task *Task )(  ){
     var x7 *Node
     x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x7 = root.GetChild( 2 )
+    x7 = root.Children[ 2 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22195,7 +22195,7 @@ func Prelude_lines_splitline_253_LET1( task *Task )(  ){
 func Prelude_lines_splitline_253__HashselFP23Hashds( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22211,7 +22211,7 @@ func Prelude_lines_splitline_253__HashselFP23Hashds( task *Task )(  ){
 func Prelude_lines_splitline_253__HashselFP24Hashes( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22227,7 +22227,7 @@ func Prelude_lines_splitline_253__HashselFP24Hashes( task *Task )(  ){
 func Prelude_lines__HashselFP26Hashl( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22243,7 +22243,7 @@ func Prelude_lines__HashselFP26Hashl( task *Task )(  ){
 func Prelude_lines__HashselFP27Hashxs_l( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22279,7 +22279,7 @@ func Prelude_words_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x6 *Node
     x2 = root.Children[ 0 ]
-    x6 = root.GetChild( 1 )
+    x6 = root.Children[ 1 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22310,7 +22310,7 @@ func Prelude_words_LET1( task *Task )(  ){
 func Prelude_words__HashselFP29Hashw( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22326,7 +22326,7 @@ func Prelude_words__HashselFP29Hashw( task *Task )(  ){
 func Prelude_words__HashselFP30Hashs2( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -22352,7 +22352,7 @@ func Prelude_unwords_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22437,7 +22437,7 @@ func Prelude_lookup( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -22461,7 +22461,7 @@ func Prelude_lookup_CASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     var x5 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x5 = root.Children[ 3 ]
@@ -22490,7 +22490,7 @@ func Prelude_lookup_COMPLEXCASE1( task *Task )(  ){
     x2 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x7 = root.Children[ 3 ]
-    x8 = root.GetChild( 4 )
+    x8 = root.Children[ 4 ]
     switch x8.GetConstructor(  ){
         case -1:
             RedirectCreate( x8, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22513,7 +22513,7 @@ func Prelude_lookup_COMPLEXCASE2( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
-    x6 = root.GetChild( 3 )
+    x6 = root.Children[ 3 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22562,7 +22562,7 @@ func Prelude_enumFromTo__COMPLEXCASE0( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22609,7 +22609,7 @@ func Prelude_enumFromThenTo__p_299_COMPLEXCASE0( task *Task )(  ){
     var x5 *Node
     x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22630,7 +22630,7 @@ func Prelude_enumFromThenTo__p_299_COMPLEXCASE1( task *Task )(  ){
     var x5 *Node
     x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22670,7 +22670,7 @@ func Prelude_chr_COMPLEXCASE0( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -22848,7 +22848,7 @@ func Prelude_maybe( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_NothingCreate( new( Node ) ), Prelude_JustCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -22871,7 +22871,7 @@ func Prelude_either( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LeftCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_RightCreate( new( Node ), FreeCreate( new( Node ) ) ) ) )
@@ -22992,7 +22992,7 @@ func Prelude_prim_appendFile( task *Task )(  ){
 func Prelude_putStr( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23039,7 +23039,7 @@ func Prelude_getLine__Hashlambda285_COMPLEXCASE0( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x2 = root.Children[ 0 ]
-    x3 = root.GetChild( 1 )
+    x3 = root.Children[ 1 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23084,7 +23084,7 @@ func Prelude_ioError( task *Task )(  ){
 func Prelude_showError( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_IOErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_UserErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), ChoiceCreate( new( Node ), Prelude_FailErrorCreate( new( Node ), FreeCreate( new( Node ) ) ), Prelude_NondetErrorCreate( new( Node ), FreeCreate( new( Node ) ) ) ) ) ) )
@@ -23143,7 +23143,7 @@ func Prelude_print( task *Task )(  ){
 func Prelude_doSolve( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23160,7 +23160,7 @@ func Prelude_doSolve( task *Task )(  ){
 func Prelude_sequenceIO( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23231,7 +23231,7 @@ func Prelude_foldIO( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23295,7 +23295,7 @@ func Prelude_unless( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -23314,7 +23314,7 @@ func Prelude_when( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -23417,7 +23417,7 @@ func Prelude_showListSQuote( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -23443,7 +23443,7 @@ func Prelude_showListSQuote_showl_433( task *Task )(  ){
     var x3 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
         case -1:
             RedirectCreate( x3, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -23493,7 +23493,7 @@ func Prelude_showParen( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -23533,7 +23533,7 @@ func Prelude_showSigned_COMPLEXCASE0( task *Task )(  ){
     x2 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
-    x5 = root.GetChild( 4 )
+    x5 = root.Children[ 4 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23554,7 +23554,7 @@ func Prelude_showSigned_COMPLEXCASE1( task *Task )(  ){
     var x5 *Node
     x2 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23620,7 +23620,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -23641,7 +23641,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE0( task *Task )(
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -23670,7 +23670,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_COMPLEXCASE1( task *
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x9 = root.GetChild( 3 )
+    x9 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23689,7 +23689,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda312_CASE2( task *Task )(
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -23711,7 +23711,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -23733,7 +23733,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE0( task *Task )(
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -23765,7 +23765,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_COMPLEXCASE1( task *
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x10 = root.GetChild( 4 )
+    x10 = root.Children[ 4 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23785,7 +23785,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316_CASE2( task *Task )(
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -23808,7 +23808,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320( task
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -23830,7 +23830,7 @@ func Prelude_readListDefault_readlSQuote_456__Hashlambda316__Hashlambda320__Hash
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -23860,7 +23860,7 @@ func Prelude_readListDefault_readl_456__Hashlambda300( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -23881,7 +23881,7 @@ func Prelude_readListDefault_readl_456__Hashlambda300_CASE0( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -23910,7 +23910,7 @@ func Prelude_readListDefault_readl_456__Hashlambda300_COMPLEXCASE1( task *Task )
     x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x9 = root.GetChild( 3 )
+    x9 = root.Children[ 3 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -23929,7 +23929,7 @@ func Prelude_readListDefault_readl_456__Hashlambda300_CASE2( task *Task )(  ){
     var x6 *Node
     var x4 *Node
     var x2 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
@@ -23951,7 +23951,7 @@ func Prelude_readListDefault_readl_456__Hashlambda304( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -23973,7 +23973,7 @@ func Prelude_readListDefault_readl_456__Hashlambda304__Hashlambda308( task *Task
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24005,7 +24005,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24027,7 +24027,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE0( task *Task )( 
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24059,7 +24059,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_COMPLEXCASE1( task *T
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x10 = root.GetChild( 4 )
+    x10 = root.Children[ 4 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24079,7 +24079,7 @@ func Prelude_readListDefault__Hashlambda326__Hashlambda329_CASE2( task *Task )( 
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24116,7 +24116,7 @@ func Prelude_readParen( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -24157,7 +24157,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24179,7 +24179,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334_CASE0( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24211,7 +24211,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334_COMPLEXCASE1( task *Task )( 
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x10 = root.GetChild( 4 )
+    x10 = root.Children[ 4 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24231,7 +24231,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334_CASE2( task *Task )(  ){
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24252,7 +24252,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338( task *Task )
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -24274,7 +24274,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24296,7 +24296,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24328,7 +24328,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
-    x10 = root.GetChild( 4 )
+    x10 = root.Children[ 4 ]
     switch x10.GetConstructor(  ){
         case -1:
             RedirectCreate( x10, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24348,7 +24348,7 @@ func Prelude_readParen_mandatory_474__Hashlambda334__Hashlambda338__Hashlambda34
     var x1 *Node
     var x5 *Node
     var x3 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24378,7 +24378,7 @@ func Prelude_read( task *Task )(  ){
 func Prelude_read_COMPLEXCASE0( task *Task )(  ){
     root := task.GetControl(  )
     var x7 *Node
-    x7 = root.GetChild( 0 )
+    x7 = root.Children[ 0 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24400,7 +24400,7 @@ func Prelude_read_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x4 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -24419,7 +24419,7 @@ func Prelude_read__Hashlambda346( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -24441,7 +24441,7 @@ func Prelude_read__Hashlambda346__Hashlambda350( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24463,7 +24463,7 @@ func Prelude_read__Hashlambda346__Hashlambda350_CASE0( task *Task )(  ){
     var x5 *Node
     var x1 *Node
     var x3 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24485,7 +24485,7 @@ func Prelude_read__Hashlambda346__Hashlambda350_CASE1( task *Task )(  ){
     var x5 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
@@ -24527,7 +24527,7 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24549,7 +24549,7 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367( task
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24571,7 +24571,7 @@ func Prelude_readSigned_readSQuoteSQuote_494__Hashlambda363__Hashlambda367_CASE0
     var x4 *Node
     var x1 *Node
     var x3 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x1 = root.Children[ 2 ]
     x3 = root.Children[ 3 ]
@@ -24608,7 +24608,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -24631,7 +24631,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE0( task *Task )(  ){
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x5 = root.GetChild( 0 )
+    x5 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -24666,7 +24666,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_COMPLEXCASE1( task *Task )
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
     x4 = root.Children[ 4 ]
-    x11 = root.GetChild( 5 )
+    x11 = root.Children[ 5 ]
     switch x11.GetConstructor(  ){
         case -1:
             RedirectCreate( x11, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24687,7 +24687,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355_CASE2( task *Task )(  ){
     var x2 *Node
     var x6 *Node
     var x4 *Node
-    x8 = root.GetChild( 0 )
+    x8 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
@@ -24711,7 +24711,7 @@ func Prelude_readSigned_readSQuote_494__Hashlambda355__Hashlambda359( task *Task
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -24782,7 +24782,7 @@ func Prelude_prim_readStringLiteral( task *Task )(  ){
 func Prelude_lex( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24807,7 +24807,7 @@ func Prelude_lex_COMPLEXCASE0( task *Task )(  ){
     var x6 *Node
     x1 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24824,7 +24824,7 @@ func Prelude_lex_COMPLEXCASE0( task *Task )(  ){
 func Prelude_lex_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -24849,7 +24849,7 @@ func Prelude_lex_COMPLEXCASE2( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24870,7 +24870,7 @@ func Prelude_lex_COMPLEXCASE3( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24891,7 +24891,7 @@ func Prelude_lex_COMPLEXCASE4( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24912,7 +24912,7 @@ func Prelude_lex_COMPLEXCASE5( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24933,7 +24933,7 @@ func Prelude_lex_COMPLEXCASE6( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24954,7 +24954,7 @@ func Prelude_lex_COMPLEXCASE7( task *Task )(  ){
     var x6 *Node
     x4 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -24971,7 +24971,7 @@ func Prelude_lex_COMPLEXCASE7( task *Task )(  ){
 func Prelude_lex_COMPLEXCASE8( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25012,7 +25012,7 @@ func Prelude_lex_isIdChar_512( task *Task )(  ){
 func Prelude_lex_lexExp_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25039,7 +25039,7 @@ func Prelude_lex_lexExp_512_COMPLEXCASE0( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25059,7 +25059,7 @@ func Prelude_lex_lexExp_512__Hashlambda382( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25087,7 +25087,7 @@ func Prelude_lex_lexExp_512__Hashlambda382_COMPLEXCASE0( task *Task )(  ){
     x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
-    x6 = root.GetChild( 3 )
+    x6 = root.Children[ 3 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25109,7 +25109,7 @@ func Prelude_lex_lexExp_512__Hashlambda382__Hashlambda386( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -25131,7 +25131,7 @@ func Prelude_lex_lexExp_512__Hashlambda390( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25150,7 +25150,7 @@ func Prelude_lex_lexExp_512__Hashlambda390( task *Task )(  ){
 func Prelude_lex_lexFracExp_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25175,7 +25175,7 @@ func Prelude_lex_lexFracExp_512_COMPLEXCASE0( task *Task )(  ){
     var x6 *Node
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25193,7 +25193,7 @@ func Prelude_lex_lexFracExp_512_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
     var x1 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -25221,7 +25221,7 @@ func Prelude_lex_lexFracExp_512_COMPLEXCASE2( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
-    x6 = root.GetChild( 3 )
+    x6 = root.Children[ 3 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25239,7 +25239,7 @@ func Prelude_lex_lexFracExp_512__Hashlambda372( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25261,7 +25261,7 @@ func Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25280,7 +25280,7 @@ func Prelude_lex_lexFracExp_512__Hashlambda372__Hashlambda376( task *Task )(  ){
 func Prelude_lex_lexStrItem_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25305,7 +25305,7 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE0( task *Task )(  ){
     var x6 *Node
     x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25323,7 +25323,7 @@ func Prelude_lex_lexStrItem_512_CASE1( task *Task )(  ){
     root := task.GetControl(  )
     var x3 *Node
     var x1 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -25351,7 +25351,7 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE2( task *Task )(  ){
     x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     x5 = root.Children[ 2 ]
-    x6 = root.GetChild( 3 )
+    x6 = root.Children[ 3 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25372,7 +25372,7 @@ func Prelude_lex_lexStrItem_512_COMPLEXCASE3( task *Task )(  ){
     var x6 *Node
     x1 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
-    x6 = root.GetChild( 2 )
+    x6 = root.Children[ 2 ]
     switch x6.GetConstructor(  ){
         case -1:
             RedirectCreate( x6, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25390,7 +25390,7 @@ func Prelude_lex_lexStrItem_512__Hashlambda405( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25416,7 +25416,7 @@ func Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0( task *Task )(  ){
     var x5 *Node
     x4 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x5 = root.GetChild( 2 )
+    x5 = root.Children[ 2 ]
     switch x5.GetConstructor(  ){
         case -1:
             RedirectCreate( x5, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25433,7 +25433,7 @@ func Prelude_lex_lexStrItem_512__Hashlambda405_COMPLEXCASE0( task *Task )(  ){
 func Prelude_lex_lexString_512( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25458,7 +25458,7 @@ func Prelude_lex_lexString_512_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x4 = root.GetChild( 2 )
+    x4 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25476,7 +25476,7 @@ func Prelude_lex_lexString_512__Hashlambda396( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25498,7 +25498,7 @@ func Prelude_lex_lexString_512__Hashlambda396__Hashlambda400( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25518,7 +25518,7 @@ func Prelude_lex__Hashlambda412( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25539,7 +25539,7 @@ func Prelude_lex__Hashlambda412_CASE0( task *Task )(  ){
     var x4 *Node
     var x3 *Node
     var x2 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -25568,7 +25568,7 @@ func Prelude_lex__Hashlambda412_COMPLEXCASE1( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x7 = root.GetChild( 3 )
+    x7 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25589,7 +25589,7 @@ func Prelude_lex__Hashlambda412_COMPLEXCASE2( task *Task )(  ){
     var x7 *Node
     x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
-    x7 = root.GetChild( 2 )
+    x7 = root.Children[ 2 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25607,7 +25607,7 @@ func Prelude_lex__Hashlambda416( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25629,7 +25629,7 @@ func Prelude_lex__Hashlambda420( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25651,7 +25651,7 @@ func Prelude_lex__Hashlambda424( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25673,7 +25673,7 @@ func Prelude_lex__Hashlambda428( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25697,7 +25697,7 @@ func Prelude_lex__Hashlambda428__Hashlambda432( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -25717,7 +25717,7 @@ func Prelude_lex__Hashlambda436( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25738,7 +25738,7 @@ func Prelude_lex__Hashlambda436_CASE0( task *Task )(  ){
     var x4 *Node
     var x3 *Node
     var x2 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
@@ -25767,7 +25767,7 @@ func Prelude_lex__Hashlambda436_COMPLEXCASE1( task *Task )(  ){
     x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
-    x7 = root.GetChild( 3 )
+    x7 = root.Children[ 3 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25788,7 +25788,7 @@ func Prelude_lex__Hashlambda436_COMPLEXCASE2( task *Task )(  ){
     var x7 *Node
     x3 = root.Children[ 0 ]
     x6 = root.Children[ 1 ]
-    x7 = root.GetChild( 2 )
+    x7 = root.Children[ 2 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25806,7 +25806,7 @@ func Prelude_lex__Hashlambda440( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -25828,7 +25828,7 @@ func Prelude_lex__Hashlambda444( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25850,7 +25850,7 @@ func Prelude_lex__Hashlambda448( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25872,7 +25872,7 @@ func Prelude_lex__Hashlambda452( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -25896,7 +25896,7 @@ func Prelude_lex__Hashlambda452__Hashlambda456( task *Task )(  ){
     var x4 *Node
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
-    x3 = root.GetChild( 2 )
+    x3 = root.Children[ 2 ]
     x4 = root.Children[ 3 ]
     switch x3.GetConstructor(  ){
         case -1:
@@ -25915,7 +25915,7 @@ func Prelude_lex__Hashlambda452__Hashlambda456( task *Task )(  ){
 func Prelude_lexLitChar( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -25940,7 +25940,7 @@ func Prelude_lexLitChar_COMPLEXCASE0( task *Task )(  ){
     var x4 *Node
     x2 = root.Children[ 0 ]
     x3 = root.Children[ 1 ]
-    x4 = root.GetChild( 2 )
+    x4 = root.Children[ 2 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -25967,7 +25967,7 @@ func Prelude_lexLitChar_prefix_574( task *Task )(  ){
     var x1 *Node
     var x2 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     switch x2.GetConstructor(  ){
         case -1:
             RedirectCreate( x2, Prelude_LbCommaRbCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -25985,7 +25985,7 @@ func Prelude_lexLitChar_prefix_574( task *Task )(  ){
 func Prelude_lexLitChar_lexEsc_574( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26012,7 +26012,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE0( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x21 = root.GetChild( 3 )
+    x21 = root.Children[ 3 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26040,7 +26040,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE2( task *Task )(  ){
     root := task.GetControl(  )
     var x4 *Node
     var x1 *Node
-    x4 = root.GetChild( 0 )
+    x4 = root.Children[ 0 ]
     x1 = root.Children[ 1 ]
     switch x4.GetConstructor(  ){
         case -1:
@@ -26070,7 +26070,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE3( task *Task )(  ){
     x5 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
-    x21 = root.GetChild( 4 )
+    x21 = root.Children[ 4 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26090,7 +26090,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE11( task *Task )(  ){
     var x5 *Node
     var x4 *Node
     var x1 *Node
-    x6 = root.GetChild( 0 )
+    x6 = root.Children[ 0 ]
     x5 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
@@ -26120,7 +26120,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE16( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x7 = root.Children[ 1 ]
     x8 = root.Children[ 2 ]
-    x15 = root.GetChild( 3 )
+    x15 = root.Children[ 3 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26149,7 +26149,7 @@ func Prelude_lexLitChar_lexEsc_574_CASE18( task *Task )(  ){
     var x1 *Node
     var x9 *Node
     x1 = root.Children[ 0 ]
-    x9 = root.GetChild( 1 )
+    x9 = root.Children[ 1 ]
     switch x9.GetConstructor(  ){
         case -1:
             RedirectCreate( x9, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26172,7 +26172,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE19( task *Task )(  ){
     var x15 *Node
     x1 = root.Children[ 0 ]
     x9 = root.Children[ 1 ]
-    x15 = root.GetChild( 2 )
+    x15 = root.Children[ 2 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26199,7 +26199,7 @@ func Prelude_lexLitChar_lexEsc_574_LET20( task *Task )(  ){
 func Prelude_lexLitChar_lexEsc_574_CASE21( task *Task )(  ){
     root := task.GetControl(  )
     var x12 *Node
-    x12 = root.GetChild( 0 )
+    x12 = root.Children[ 0 ]
     switch x12.GetConstructor(  ){
         case -1:
             RedirectCreate( x12, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26220,7 +26220,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE22( task *Task )(  ){
     var x12 *Node
     var x14 *Node
     x12 = root.Children[ 0 ]
-    x14 = root.GetChild( 1 )
+    x14 = root.Children[ 1 ]
     switch x14.GetConstructor(  ){
         case -1:
             RedirectCreate( x14, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26241,7 +26241,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE12( task *Task )(  ){
     var x18 *Node
     x1 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
-    x18 = root.GetChild( 2 )
+    x18 = root.Children[ 2 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26268,7 +26268,7 @@ func Prelude_lexLitChar_lexEsc_574_LET13( task *Task )(  ){
 func Prelude_lexLitChar_lexEsc_574_CASE14( task *Task )(  ){
     root := task.GetControl(  )
     var x15 *Node
-    x15 = root.GetChild( 0 )
+    x15 = root.Children[ 0 ]
     switch x15.GetConstructor(  ){
         case -1:
             RedirectCreate( x15, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26289,7 +26289,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE15( task *Task )(  ){
     var x15 *Node
     var x17 *Node
     x15 = root.Children[ 0 ]
-    x17 = root.GetChild( 1 )
+    x17 = root.Children[ 1 ]
     switch x17.GetConstructor(  ){
         case -1:
             RedirectCreate( x17, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26314,7 +26314,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE4( task *Task )(  ){
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
-    x21 = root.GetChild( 4 )
+    x21 = root.Children[ 4 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26339,7 +26339,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE5( task *Task )(  ){
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
-    x21 = root.GetChild( 4 )
+    x21 = root.Children[ 4 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26364,7 +26364,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE6( task *Task )(  ){
     x1 = root.Children[ 1 ]
     x4 = root.Children[ 2 ]
     x6 = root.Children[ 3 ]
-    x21 = root.GetChild( 4 )
+    x21 = root.Children[ 4 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26385,7 +26385,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE7( task *Task )(  ){
     var x21 *Node
     x1 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
-    x21 = root.GetChild( 2 )
+    x21 = root.Children[ 2 ]
     switch x21.GetConstructor(  ){
         case -1:
             RedirectCreate( x21, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26412,7 +26412,7 @@ func Prelude_lexLitChar_lexEsc_574_LET8( task *Task )(  ){
 func Prelude_lexLitChar_lexEsc_574_CASE9( task *Task )(  ){
     root := task.GetControl(  )
     var x18 *Node
-    x18 = root.GetChild( 0 )
+    x18 = root.Children[ 0 ]
     switch x18.GetConstructor(  ){
         case -1:
             RedirectCreate( x18, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26433,7 +26433,7 @@ func Prelude_lexLitChar_lexEsc_574_COMPLEXCASE10( task *Task )(  ){
     var x18 *Node
     var x20 *Node
     x18 = root.Children[ 0 ]
-    x20 = root.GetChild( 1 )
+    x20 = root.Children[ 1 ]
     switch x20.GetConstructor(  ){
         case -1:
             RedirectCreate( x20, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26467,7 +26467,7 @@ func Prelude_nonNull__Hashlambda477( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
     var x2 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     switch x1.GetConstructor(  ){
         case -1:
@@ -26488,7 +26488,7 @@ func Prelude_nonNull__Hashlambda477_CASE0( task *Task )(  ){
     var x3 *Node
     var x4 *Node
     var x2 *Node
-    x3 = root.GetChild( 0 )
+    x3 = root.Children[ 0 ]
     x4 = root.Children[ 1 ]
     x2 = root.Children[ 2 ]
     switch x3.GetConstructor(  ){
@@ -26625,7 +26625,7 @@ func Prelude_boundedEnumFromThen_COMPLEXCASE0( task *Task )(  ){
     x2 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
     x3 = root.Children[ 4 ]
-    x7 = root.GetChild( 5 )
+    x7 = root.Children[ 5 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26652,7 +26652,7 @@ func Prelude_boundedEnumFromThen_COMPLEXCASE1( task *Task )(  ){
     x2 = root.Children[ 2 ]
     x1 = root.Children[ 3 ]
     x3 = root.Children[ 4 ]
-    x7 = root.GetChild( 5 )
+    x7 = root.Children[ 5 ]
     switch x7.GetConstructor(  ){
         case -1:
             RedirectCreate( x7, ChoiceCreate( new( Node ), Prelude_FalseCreate( new( Node ) ), Prelude_TrueCreate( new( Node ) ) ) )
@@ -26826,7 +26826,7 @@ func Prelude_foldM( task *Task )(  ){
     x1 = root.Children[ 0 ]
     x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
-    x4 = root.GetChild( 3 )
+    x4 = root.Children[ 3 ]
     switch x4.GetConstructor(  ){
         case -1:
             RedirectCreate( x4, ChoiceCreate( new( Node ), Prelude_LSbRSbCreate( new( Node ) ), Prelude_ColCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) ) )
@@ -26946,7 +26946,7 @@ func Prelude_unlessM( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -26967,7 +26967,7 @@ func Prelude_whenM( task *Task )(  ){
     var x2 *Node
     var x3 *Node
     x1 = root.Children[ 0 ]
-    x2 = root.GetChild( 1 )
+    x2 = root.Children[ 1 ]
     x3 = root.Children[ 2 ]
     switch x2.GetConstructor(  ){
         case -1:
@@ -26985,7 +26985,7 @@ func Prelude_whenM( task *Task )(  ){
 func Prelude_EqEq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEqCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27001,7 +27001,7 @@ func Prelude_EqEq( task *Task )(  ){
 func Prelude_SlashEq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEqCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27017,7 +27017,7 @@ func Prelude_SlashEq( task *Task )(  ){
 func Prelude__superHashPrelude_OrdHashPrelude_Eq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27033,7 +27033,7 @@ func Prelude__superHashPrelude_OrdHashPrelude_Eq( task *Task )(  ){
 func Prelude_compare( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27049,7 +27049,7 @@ func Prelude_compare( task *Task )(  ){
 func Prelude_LtEq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27065,7 +27065,7 @@ func Prelude_LtEq( task *Task )(  ){
 func Prelude_GtEq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27081,7 +27081,7 @@ func Prelude_GtEq( task *Task )(  ){
 func Prelude_Lt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27097,7 +27097,7 @@ func Prelude_Lt( task *Task )(  ){
 func Prelude_Gt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27113,7 +27113,7 @@ func Prelude_Gt( task *Task )(  ){
 func Prelude_min( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27129,7 +27129,7 @@ func Prelude_min( task *Task )(  ){
 func Prelude_max( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashOrdCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27145,7 +27145,7 @@ func Prelude_max( task *Task )(  ){
 func Prelude_show( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashShowCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27161,7 +27161,7 @@ func Prelude_show( task *Task )(  ){
 func Prelude_showsPrec( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashShowCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27177,7 +27177,7 @@ func Prelude_showsPrec( task *Task )(  ){
 func Prelude_showList( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashShowCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27193,7 +27193,7 @@ func Prelude_showList( task *Task )(  ){
 func Prelude_readsPrec( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashReadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27209,7 +27209,7 @@ func Prelude_readsPrec( task *Task )(  ){
 func Prelude_readList( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashReadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27225,7 +27225,7 @@ func Prelude_readList( task *Task )(  ){
 func Prelude_minBound( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashBoundedCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27241,7 +27241,7 @@ func Prelude_minBound( task *Task )(  ){
 func Prelude_maxBound( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashBoundedCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27257,7 +27257,7 @@ func Prelude_maxBound( task *Task )(  ){
 func Prelude_succ( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27273,7 +27273,7 @@ func Prelude_succ( task *Task )(  ){
 func Prelude_pred( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27289,7 +27289,7 @@ func Prelude_pred( task *Task )(  ){
 func Prelude_toEnum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27305,7 +27305,7 @@ func Prelude_toEnum( task *Task )(  ){
 func Prelude_fromEnum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27321,7 +27321,7 @@ func Prelude_fromEnum( task *Task )(  ){
 func Prelude_enumFrom( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27337,7 +27337,7 @@ func Prelude_enumFrom( task *Task )(  ){
 func Prelude_enumFromThen( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27353,7 +27353,7 @@ func Prelude_enumFromThen( task *Task )(  ){
 func Prelude_enumFromTo( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27369,7 +27369,7 @@ func Prelude_enumFromTo( task *Task )(  ){
 func Prelude_enumFromThenTo( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashEnumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27385,7 +27385,7 @@ func Prelude_enumFromThenTo( task *Task )(  ){
 func Prelude_Add( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27401,7 +27401,7 @@ func Prelude_Add( task *Task )(  ){
 func Prelude_Sub( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27417,7 +27417,7 @@ func Prelude_Sub( task *Task )(  ){
 func Prelude_Mul( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27433,7 +27433,7 @@ func Prelude_Mul( task *Task )(  ){
 func Prelude_negate( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27449,7 +27449,7 @@ func Prelude_negate( task *Task )(  ){
 func Prelude_abs( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27465,7 +27465,7 @@ func Prelude_abs( task *Task )(  ){
 func Prelude_signum( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27481,7 +27481,7 @@ func Prelude_signum( task *Task )(  ){
 func Prelude_fromInt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashNumCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27497,7 +27497,7 @@ func Prelude_fromInt( task *Task )(  ){
 func Prelude__superHashPrelude_FractionalHashPrelude_Num( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashFractionalCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27513,7 +27513,7 @@ func Prelude__superHashPrelude_FractionalHashPrelude_Num( task *Task )(  ){
 func Prelude_Slash( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashFractionalCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27529,7 +27529,7 @@ func Prelude_Slash( task *Task )(  ){
 func Prelude_recip( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashFractionalCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27545,7 +27545,7 @@ func Prelude_recip( task *Task )(  ){
 func Prelude_fromFloat( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashFractionalCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27561,7 +27561,7 @@ func Prelude_fromFloat( task *Task )(  ){
 func Prelude__superHashPrelude_RealHashPrelude_Num( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashRealCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27577,7 +27577,7 @@ func Prelude__superHashPrelude_RealHashPrelude_Num( task *Task )(  ){
 func Prelude__superHashPrelude_RealHashPrelude_Ord( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashRealCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27593,7 +27593,7 @@ func Prelude__superHashPrelude_RealHashPrelude_Ord( task *Task )(  ){
 func Prelude__superHashPrelude_IntegralHashPrelude_Real( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27609,7 +27609,7 @@ func Prelude__superHashPrelude_IntegralHashPrelude_Real( task *Task )(  ){
 func Prelude_div( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27625,7 +27625,7 @@ func Prelude_div( task *Task )(  ){
 func Prelude_mod( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27641,7 +27641,7 @@ func Prelude_mod( task *Task )(  ){
 func Prelude_quot( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27657,7 +27657,7 @@ func Prelude_quot( task *Task )(  ){
 func Prelude_rem( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27673,7 +27673,7 @@ func Prelude_rem( task *Task )(  ){
 func Prelude_divMod( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27689,7 +27689,7 @@ func Prelude_divMod( task *Task )(  ){
 func Prelude_quotRem( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashIntegralCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27705,7 +27705,7 @@ func Prelude_quotRem( task *Task )(  ){
 func Prelude_fmap( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashFunctorCreate( new( Node ), FreeCreate( new( Node ) ) ) )
@@ -27721,7 +27721,7 @@ func Prelude_fmap( task *Task )(  ){
 func Prelude_GtGtEq( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashMonadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27737,7 +27737,7 @@ func Prelude_GtGtEq( task *Task )(  ){
 func Prelude_GtGt( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashMonadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27753,7 +27753,7 @@ func Prelude_GtGt( task *Task )(  ){
 func Prelude_return( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashMonadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )
@@ -27769,7 +27769,7 @@ func Prelude_return( task *Task )(  ){
 func Prelude_fail( task *Task )(  ){
     root := task.GetControl(  )
     var x1 *Node
-    x1 = root.GetChild( 0 )
+    x1 = root.Children[ 0 ]
     switch x1.GetConstructor(  ){
         case -1:
             RedirectCreate( x1, Prelude__DictHashMonadCreate( new( Node ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ), FreeCreate( new( Node ) ) ) )

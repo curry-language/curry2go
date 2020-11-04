@@ -33,7 +33,7 @@ type Node struct{
     char_literal rune
     constructor int
     function func(*Task)
-    demanded_args []int
+    demanded_args int
     number_args int
     choice_id int
     name string
@@ -114,12 +114,11 @@ func evalStep(task *Task){
             return
         }
 
-        // test if any demanded argument needs to be evaluated
-        for i := range task.control.demanded_args {
+        // test if an argument is demanded
+        if (task.control.demanded_args >= 0){
 
             // get demanded child
-            child_id := task.control.demanded_args[i]
-	        child := task.control.GetChild(child_id)
+	        child := task.control.GetChild(task.control.demanded_args)
             
             // if the child needs to be evaluated, put it in control
             if (!child.IsHNF()){
@@ -540,9 +539,7 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     new_node.float_literal = node.float_literal
     new_node.char_literal = node.char_literal
     new_node.function = node.function
-
-    new_node.demanded_args = make([]int, len(node.demanded_args))
-    copy(new_node.demanded_args, node.demanded_args)
+    new_node.demanded_args = node.demanded_args
 
     new_node.number_args = node.number_args
     new_node.constructor = node.constructor

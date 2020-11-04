@@ -27,17 +27,16 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
 // function is the function to be called when the node is evaluated.
 // name is the function name as a string for printing.
 // number_args are the total number of arguments the function expects.
-// demanded_args is a list of integers representing the position of arguments which have to be evaluated.
+// demanded_args is a integers representing the position of an argument which have to be evaluated.
 // Every pointer in args is added to the function Children.
 // Returns a pointer to the updated root.
-func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args []int, args ...*Node)(*Node){
+func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args int, args ...*Node)(*Node){
     root.Children = root.Children[:0]
-    root.demanded_args = root.demanded_args[:0]
     root.function = function
     root.number_args = number_args
     root.name = name
     root.evaluated = false
-    root.demanded_args = append(root.demanded_args, demanded_args...)
+    root.demanded_args = demanded_args
     root.Children = append(root.Children, args...)
     root.node_type = FCALL
     return root
@@ -257,7 +256,7 @@ func (node *Node) GetFunction() func(*Task){
     return node.function
 }
 
-func (node *Node) GetDemandedArgs() []int{
+func (node *Node) GetDemandedArgs() int{
     return node.demanded_args
 }
 
