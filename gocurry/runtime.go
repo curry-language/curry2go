@@ -36,12 +36,15 @@ type Node struct{
     name string
     evaluated bool
     lock sync.Mutex
+    tr map[int]*Node
 }
 
 // Struct representing an icurry task
 type Task struct{
+    id int
     control *Node
     stack []*Node
+    parents []int
     fingerprint map[int]int
     notHnf bool
 }
@@ -53,6 +56,23 @@ var nextId = 0
 func NextChoiceId() int {
     nextId += 1
     return nextId
+}
+
+// Channel saving number of created tasks
+var taskCount chan int
+
+// Returns the current number of created tasks
+func GetTaskCount() int{
+    count := <- taskCount
+    taskCount <- count
+    return count
+}
+
+// Increases the number of created tasks by 2
+func UpTaskCount(){
+    count := <- taskCount
+    count += 2
+    taskCount <- count
 }
 
 // channel to queue tasks
@@ -97,6 +117,23 @@ func evalStep(task *Task){
     // evaluate control node of the task
     switch task.control.node_type{
     case FCALL:
+        
+        // test task result map for already computed results
+        node, ok := task.control.GetTr(task.id, task.parents)
+        
+        if(ok){
+            
+            // go to already computed result
+            task.control = node
+            control_lock.Unlock()
+            return
+        } else{
+            // create task result map for control
+            if(task.control.tr == nil){
+                task.control.tr = make(map[int]*Node)
+            }
+        }
+    
         //test for partial function call
         if(task.control.LockedIsPartial()){
 
@@ -116,6 +153,23 @@ func evalStep(task *Task){
 
             // get demanded child
 	        child := task.control.GetChild(task.control.int_value)
+	        
+	        // check task result map of child
+	        node, ok := child.GetTr(task.id, task.parents)
+	        
+	        if(ok){
+	        
+	            // create copy of control with result in task result map
+	            new_node := LockedCopyNode(task.control)
+	            new_node.Children[task.control.int_value] = node.EliminateRedirect()
+	            
+	            // move to new node
+	            task.control.tr[task.id] = new_node
+	            task.control = new_node
+	            
+	            control_lock.Unlock()
+	            return
+	        }
             
             // if the child needs to be evaluated, put it in control
             if (!child.IsHNF()){
@@ -126,6 +180,13 @@ func evalStep(task *Task){
                 return
             }
         }
+
+        // create copy of control in task result map
+        new_node := LockedCopyNode(task.control)
+        
+        // move to new node
+        task.control.tr[task.id] = new_node
+        task.control = new_node
 
         // call the function
         defer errorHandler(task)
@@ -158,9 +219,16 @@ func evalStep(task *Task){
                 // select the branch
                 task.control = task.control.Children[branch]
             }else{   
+                // get task count
+                count := GetTaskCount()
+            
                 // create new task
                 var new_task Task
+                new_task.id = count + 2
                 new_task.control = task.control.Children[1]
+                new_task.parents = make([]int, len(task.parents))
+                copy(new_task.parents, task.parents)
+                new_task.parents = append(new_task.parents, task.id)
                 new_task.fingerprint = make(map[int]int)
                 for k,v := range task.fingerprint {
                     new_task.fingerprint[k] = v
@@ -171,26 +239,67 @@ func evalStep(task *Task){
                 new_task.fingerprint[task.control.int_value] = 1
 
                 // set control in the old task to the first child
+                task.parents = append(task.parents, task.id)
                 task.control = task.control.Children[0]
+                task.id = count + 1
+                
+                // increase task count
+                UpTaskCount()
 
                 // append new task to queue
                 queue <- new_task
             }
         } else{
             // lock parent
-            lock := &task.stack[len(task.stack) - 1].lock
+            parent := task.stack[len(task.stack) - 1]
+            lock := &parent.lock
             lock.Lock()
 
             // move to parent if pulltabbing-step has already been performed by another task
-            if(task.stack[len(task.stack) - 1].IsChoice()){
-                task.control = task.stack[len(task.stack) - 1]
+            if(parent.IsChoice()){
+                task.control = parent
                 task.stack = task.stack[:len(task.stack) - 1]
+                lock.Unlock()
+                return
+            }
+            
+            // test fingerprint
+            branch, ok := task.fingerprint[task.control.int_value]
+                        
+            // use memoization if possible
+            if(ok && parent.IsFcall()){
+                // create copy of parent
+                new_node := LockedCopyNode(parent)
+                
+                // replace choice with branch
+                if(new_node.IsFcall() && new_node.int_value >= 0){
+                    new_node.Children[new_node.int_value] = task.control.Children[branch]
+                } else{
+                    for i := range(new_node.Children){
+                        node, _ := new_node.GetChild(i).GetTr(task.id, task.parents)
+                        
+                        if(node.EliminateRedirect() == task.control){
+                            new_node.Children[i] = task.control.Children[branch]
+                        }
+                    }
+                }
+                
+                // create task result map for parent
+                if (parent.tr == nil){
+                    parent.tr = make(map[int]*Node)
+                }
+                
+                // update task result map of parent and move to new node
+                parent.tr[task.id] = new_node
+                task.control = new_node
+                task.stack = task.stack[:len(task.stack) - 1]
+                
                 lock.Unlock()
                 return
             }
 
             // perform a pulltabbing-step
-            pullTab(task.control, task.stack[len(task.stack) - 1])
+            pullTab(task.control, task.stack[len(task.stack) - 1], task.id, task.parents)
 
             // move to parent
             task.control = task.stack[len(task.stack) - 1]
@@ -199,9 +308,24 @@ func evalStep(task *Task){
             return
         }
     case REDIRECT:
-        // change control to child
         control_lock.Unlock()
-        task.control = task.control.Children[0]
+
+        // follow redirect
+        node := task.control.EliminateRedirect()
+        
+        // replace redirect in parent
+        if(len(task.stack) > 0){
+            parent := task.stack[len(task.stack) - 1]
+            
+            for i := range parent.Children{
+                if(parent.Children[i] == task.control){
+                    parent.Children[i] = node
+                }
+            }
+        }
+        
+        // move to node
+        task.control = node
     case CONSTRUCTOR:
         // unlock control node
         control_lock.Unlock()
@@ -264,10 +388,14 @@ func evalStep(task *Task){
 // max_tasks is the maximum number of threads that can be used in a concurrent execution.
 func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_results int, max_tasks int){
 
+    // initialize task count
+    taskCount = make(chan int, 1)
+    taskCount <- 0
+
     // create a task for the root node
     var first_task Task
     first_task.control = root
-    first_task.fingerprint = make(map[int]int)
+    first_task.fingerprint = make(map[int]int)    
 
     // write task to the queue
     queue <- first_task
@@ -328,6 +456,8 @@ func dfs(){
 
     // loop until done
     for{
+        //printDebug(cur_task.control, cur_task.id, cur_task.parents)
+        //fmt.Println()
         //printResult(cur_task.control)
         //fmt.Println("\n")
 
@@ -342,7 +472,7 @@ func dfs(){
             // select next task from queue
             select{
             case cur_task = <-queue:
-
+            
             default:
                 // if the queue is empty, end search
                 close(result_chan)
@@ -477,20 +607,29 @@ func fsTaskHandler(max_tasks int){
 // with the corresponding alternative.
 // root is set to a choice with
 // the copies as alternatives.
-func pullTab(choice_node, root *Node){
+func pullTab(choice_node, root *Node, id int, parents []int){
 
     // create a slice for the new children
     new_children := make([]*Node, 2)
+    
+    root, _ = root.GetTr(id, parents)
 
     // create two copies of root
+    
     new_children[0] = LockedCopyNode(root)
     new_children[1] = LockedCopyNode(root)
 
     // replace references to choice_node
-    for i := range root.Children{
-        if(root.GetChild(i) == choice_node){
-            new_children[0].SetChild(i, choice_node.GetChild(0))
-            new_children[1].SetChild(i, choice_node.GetChild(1))
+    if(root.IsFcall() && root.int_value >= 0){
+        new_children[0].SetChild(root.int_value, choice_node.GetChild(0))
+        new_children[1].SetChild(root.int_value, choice_node.GetChild(1))
+    } else{
+        for i := range root.Children{
+            node,_ := root.GetChild(i).GetTr(id, parents)
+            if(node.EliminateRedirect() == choice_node){
+                new_children[0].SetChild(i, choice_node.GetChild(0))
+                new_children[1].SetChild(i, choice_node.GetChild(1))
+            }
         }
     }
 

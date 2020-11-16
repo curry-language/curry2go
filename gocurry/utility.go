@@ -330,6 +330,65 @@ func (node *Node) IsNF() bool{
     return node.evaluated
 }
 
+func (node *Node) GetTr(id int, parents []int) (*Node, bool){
+    // read node from task result map
+    node2, ok := node.tr[id]
+    
+    if(ok){
+        // see if there are further calculated results
+        for{
+            node3, ok2 := node2.EliminateRedirect().tr[id]
+            
+            if(ok2){
+                node2 = node3
+            } else{
+                break
+            }
+        }
+        
+        // see if there are further entries from parents
+        for i := range parents{
+            node3, ok2 := node2.EliminateRedirect().tr[parents[i]]
+            
+            if(ok2){
+                for{
+                    node4, ok3 := node3.EliminateRedirect().tr[parents[i]]
+                    if(ok3){
+                        node3 = node4
+                    } else{
+                        break
+                    }
+                }
+                return node3, true
+            }
+        }
+        
+        return node2, true
+    }
+    
+    // read entries from parents
+    for i := range parents{
+        node2, ok = node.tr[parents[i]]
+        
+        if(ok){
+            for{
+                node3, ok2 := node2.EliminateRedirect().tr[parents[i]]
+                
+                if(ok2){
+                    node2 = node3
+                } else{
+                    break
+                }
+            }
+            
+
+            return node2, true
+        }
+    }
+    
+    return node, false
+}
+
 // Methods on tasks //
 
 
@@ -467,6 +526,12 @@ func printList(node *Node){
     if(node.GetChild(1).GetName() == "[]"){
         return
     }
+    
+    if(node.GetChild(1).GetName() != ":"){
+        fmt.Printf(", ")
+        printResult(node.GetChild(1))
+        return
+    }
 
     // continue with next item
     fmt.Printf(", ")
@@ -495,4 +560,87 @@ func printNode(node *Node) {
     } else {
         fmt.Printf("UnknownNode")
     }
+}
+
+func printDebug(node *Node, id int, parents []int) {
+
+    node, _ = node.GetTr(id, parents)
+    
+    // test if node is a constructor
+    if(node.IsConst()){
+
+        // test if node is a list
+        if(node.GetName() == ":"){
+
+            // test if the list is a string
+            if(node.GetChild(0).IsCharLit()){
+                // print string
+                val := ReadString(node)
+                fmt.Printf("\"%s\"",val)
+                return
+            }
+
+            // print list
+            fmt.Printf("[")
+            printDebugList(node, id, parents)
+            fmt.Printf("]")
+            return
+        }
+
+        // test if node is a tupel
+        isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
+
+        // do not print tupel prefix
+        if(!isTupel){
+            // print node if it is not a tupel
+            printNode(node)
+        } else{
+            // print empty tupel
+            if(len(node.Children) == 0){
+                fmt.Printf("()")
+                return
+            }
+        }
+    }else{
+        // print node
+        printNode(node)
+    }
+
+    // end if node does not have Children
+    if(len(node.Children) == 0){
+        return
+    }
+
+    // print all Children
+    fmt.Printf("(")
+    printDebug(node.Children[0], id, parents)
+    for i := 1; i < len(node.Children); i++ {
+        fmt.Printf(", ")
+        printDebug(node.Children[i], id, parents)
+    }
+    fmt.Printf(")")
+}
+
+// Prints every item of a list
+// separated by commas.
+// node has to be a : constructor.
+func printDebugList(node *Node, id int, parents []int){
+
+    // print the item
+    printDebug(node.GetChild(0), id, parents)
+
+    // end list on [] constructor
+    if(node.GetChild(1).GetName() == "[]"){
+        return
+    }
+    
+    if(node.GetChild(1).GetName() != ":"){
+        fmt.Printf(", ")
+        printDebug(node.GetChild(1), id, parents)
+        return
+    }
+
+    // continue with next item
+    fmt.Printf(", ")
+    printDebugList(node.GetChild(1), id, parents)
 }
