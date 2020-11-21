@@ -37,6 +37,7 @@ type Node struct{
     evaluated bool
     lock sync.Mutex
     tr map[int]*Node
+    ot int
 }
 
 // Struct representing an icurry task
@@ -122,16 +123,48 @@ func evalStep(task *Task){
         node, ok := task.control.GetTr(task.id, task.parents)
         
         if(ok){
+            control_lock.Unlock()
             
+            if(len(task.stack) > 0){
+                parent := task.stack[len(task.stack) - 1]
+            
+                if(node.ot > parent.ot){
+                    new_node := LockedCopyNode(parent)
+                    new_node.ot = node.ot
+                    
+                    if(new_node.IsFcall() && new_node.int_value >= 0){
+                        new_node.Children[new_node.int_value] = node
+                    } else{
+                        for i := range(new_node.Children){
+                            if(new_node.GetChild(i) == task.control){
+                                new_node.Children[i] = node
+                            }
+                        }
+                    }
+                    
+                    // create task result map
+                    if(parent.tr == nil){
+                        parent.tr = make(map[int]*Node)
+                    }
+                    
+                    parent.tr[node.ot] = new_node
+                    task.stack[len(task.stack) - 1] = new_node
+                } else{
+                    if(parent.IsFcall() && parent.int_value >= 0){
+                        parent.Children[parent.int_value] = node
+                    } else{
+                        for i := range(parent.Children){
+                            if(parent.GetChild(i) == task.control){
+                                parent.Children[i] = node
+                            }
+                        }
+                    }
+                }
+            }
+        
             // go to already computed result
             task.control = node
-            control_lock.Unlock()
             return
-        } else{
-            // create task result map for control
-            if(task.control.tr == nil){
-                task.control.tr = make(map[int]*Node)
-            }
         }
     
         //test for partial function call
@@ -153,23 +186,6 @@ func evalStep(task *Task){
 
             // get demanded child
 	        child := task.control.GetChild(task.control.int_value)
-	        
-	        // check task result map of child
-	        node, ok := child.GetTr(task.id, task.parents)
-	        
-	        if(ok){
-	        
-	            // create copy of control with result in task result map
-	            new_node := LockedCopyNode(task.control)
-	            new_node.Children[task.control.int_value] = node.EliminateRedirect()
-	            
-	            // move to new node
-	            task.control.tr[task.id] = new_node
-	            task.control = new_node
-	            
-	            control_lock.Unlock()
-	            return
-	        }
             
             // if the child needs to be evaluated, put it in control
             if (!child.IsHNF()){
@@ -180,13 +196,40 @@ func evalStep(task *Task){
                 return
             }
         }
-
-        // create copy of control in task result map
-        new_node := LockedCopyNode(task.control)
         
-        // move to new node
-        task.control.tr[task.id] = new_node
-        task.control = new_node
+        if(len(task.stack) > 0){
+            parent := task.stack[len(task.stack) - 1]
+            
+            if(task.control.ot > parent.ot){
+                new_node := LockedCopyNode(parent)
+                new_node.ot = task.control.ot
+                new_child := LockedCopyNode(task.control)
+                
+                control_lock.Unlock()
+                
+                if(new_node.IsFcall() && new_node.int_value >= 0){
+                    new_node.Children[new_node.int_value] = new_child
+                } else{
+                    for i := range(new_node.Children){
+                        node, _ := new_node.GetChild(i).GetTr(task.id, task.parents)
+                        
+                        if(node.EliminateRedirect() == task.control){
+                            new_node.Children[i] = new_child
+                        }
+                    }
+                }
+                
+                // create task result map
+                if(parent.tr == nil){
+                    parent.tr = make(map[int]*Node)
+                }
+                
+                parent.tr[new_child.ot] = new_node
+                task.control = new_child
+                task.stack[len(task.stack) - 1] = new_node
+                return
+            }
+        }
 
         // call the function
         defer errorHandler(task)
@@ -200,6 +243,7 @@ func evalStep(task *Task){
 
         // unlock control node
         control_lock.Unlock()
+        return
     case EXEMPT:
         // unlock control node
         control_lock.Unlock()
@@ -267,39 +311,57 @@ func evalStep(task *Task){
             branch, ok := task.fingerprint[task.control.int_value]
                         
             // use memoization if possible
-            if(ok && parent.IsFcall()){
-                // create copy of parent
-                new_node := LockedCopyNode(parent)
+            if(ok){
                 
-                // replace choice with branch
-                if(new_node.IsFcall() && new_node.int_value >= 0){
-                    new_node.Children[new_node.int_value] = task.control.Children[branch]
-                } else{
-                    for i := range(new_node.Children){
-                        node, _ := new_node.GetChild(i).GetTr(task.id, task.parents)
-                        
-                        if(node.EliminateRedirect() == task.control){
-                            new_node.Children[i] = task.control.Children[branch]
+                if(task.id > parent.ot){  
+                    // create copy of parent
+                    new_node := LockedCopyNode(parent)
+                    new_node.ot = task.id
+                    
+                    // replace choice with branch
+                    if(new_node.IsFcall() && new_node.int_value >= 0){
+                        new_node.Children[new_node.int_value] = task.control.GetChild(branch)
+                    } else{
+                        for i := range(new_node.Children){
+                            if(new_node.GetChild(i) == task.control){
+                                new_node.Children[i] = task.control.GetChild(branch)
+                            }
                         }
                     }
+                    
+                    // create task result map for parent
+                    if (parent.tr == nil){
+                        parent.tr = make(map[int]*Node)
+                    }
+                    
+                    // update task result map of parent and move to new node
+                    parent.tr[task.id] = new_node
+                    task.control = new_node
+                    task.stack = task.stack[:len(task.stack) - 1]
+                    
+                    lock.Unlock()
+                    return
+                } else{
+                    // replace choice with branch
+                    if(parent.IsFcall() && parent.int_value >= 0){
+                        parent.Children[parent.int_value] = task.control.GetChild(branch)
+                    } else{
+                        for i := range(parent.Children){
+                            if(parent.GetChild(i) == task.control){
+                                parent.Children[i] = task.control.GetChild(branch)
+                            }
+                        }
+                    }
+                    
+                    task.control = parent
+                    task.stack = task.stack[:len(task.stack) - 1]
+                    lock.Unlock()
+                    return
                 }
-                
-                // create task result map for parent
-                if (parent.tr == nil){
-                    parent.tr = make(map[int]*Node)
-                }
-                
-                // update task result map of parent and move to new node
-                parent.tr[task.id] = new_node
-                task.control = new_node
-                task.stack = task.stack[:len(task.stack) - 1]
-                
-                lock.Unlock()
-                return
             }
 
             // perform a pulltabbing-step
-            pullTab(task.control, task.stack[len(task.stack) - 1], task.id, task.parents)
+            pullTab(task.control, task.stack[len(task.stack) - 1])
 
             // move to parent
             task.control = task.stack[len(task.stack) - 1]
@@ -311,21 +373,7 @@ func evalStep(task *Task){
         control_lock.Unlock()
 
         // follow redirect
-        node := task.control.EliminateRedirect()
-        
-        // replace redirect in parent
-        if(len(task.stack) > 0){
-            parent := task.stack[len(task.stack) - 1]
-            
-            for i := range parent.Children{
-                if(parent.Children[i] == task.control){
-                    parent.Children[i] = node
-                }
-            }
-        }
-        
-        // move to node
-        task.control = node
+        task.control = task.control.Children[0]
     case CONSTRUCTOR:
         // unlock control node
         control_lock.Unlock()
@@ -607,31 +655,35 @@ func fsTaskHandler(max_tasks int){
 // with the corresponding alternative.
 // root is set to a choice with
 // the copies as alternatives.
-func pullTab(choice_node, root *Node, id int, parents []int){
+func pullTab(choice_node, root *Node){
 
     // create a slice for the new children
     new_children := make([]*Node, 2)
-    
-    root, _ = root.GetTr(id, parents)
 
     // create two copies of root
-    
     new_children[0] = LockedCopyNode(root)
     new_children[1] = LockedCopyNode(root)
+    
+    child1 := choice_node.Children[0]
+    child2 := choice_node.Children[1]
 
     // replace references to choice_node
     if(root.IsFcall() && root.int_value >= 0){
-        new_children[0].SetChild(root.int_value, choice_node.GetChild(0))
-        new_children[1].SetChild(root.int_value, choice_node.GetChild(1))
+        new_children[0].SetChild(root.int_value, child1)
+        new_children[1].SetChild(root.int_value, child2)
     } else{
         for i := range root.Children{
-            node,_ := root.GetChild(i).GetTr(id, parents)
-            if(node.EliminateRedirect() == choice_node){
-                new_children[0].SetChild(i, choice_node.GetChild(0))
-                new_children[1].SetChild(i, choice_node.GetChild(1))
+            if(root.GetChild(i) == choice_node){
+                new_children[0].SetChild(i, child1)
+                new_children[1].SetChild(i, child2)
             }
         }
     }
+    
+    // update owner task
+    count := GetTaskCount()
+    new_children[0].ot = count + 1
+    new_children[1].ot = count + 2
 
     // set root to a choice node
     root.node_type = CHOICE
@@ -679,6 +731,7 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     new_node.number_args = node.number_args
     new_node.name = node.name
     new_node.evaluated = node.evaluated
+    new_node.ot = node.ot
 
     // create new choice-identifier for choice nodes
     if(node.node_type == CHOICE){

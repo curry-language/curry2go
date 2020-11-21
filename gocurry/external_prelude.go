@@ -15,13 +15,6 @@ func ExternalPrelude_DolExcl(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(1)
     
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
-    }
-    
     if(!x1.IsHNF()){
         task.ToHNF(x1)
         return
@@ -35,11 +28,9 @@ func ExternalPrelude_DolExclExcl(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(1)
     
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
+    if(!x1.IsNF()){
+        task.ToNF(x1)
+        return
     }
 
     ExternalPrelude_apply(task)
@@ -241,20 +232,6 @@ func ExternalPrelude_GtGtEqDol(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
-    
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
-    }
-    
-    node, ok = x2.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x2 = node
-        x2 = x2.EliminateRedirect()
-    }
 
     if(x1.IsFcall()){
         task.ToHNF(x1)
@@ -267,13 +244,6 @@ func ExternalPrelude_GtGtEqDol(task *Task){
 func ExternalPrelude_returnIO(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
-    
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
-    }
 
     IOCreate(root, x1)
 }
@@ -356,20 +326,6 @@ func ExternalPrelude_catch(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
-    
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
-    }
-    
-    node, ok = x2.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x2 = node
-        x2 = x2.EliminateRedirect()
-    }
 
     if(!x1.IsHNF()){
         task.ToHNF(x1)
@@ -408,28 +364,13 @@ func ExternalPrelude_apply(task *Task){
     // get children
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
-    
-    node, ok := x1.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x1 = node
-        x1 = x1.EliminateRedirect()
-    }
-    
-    node, ok = x2.GetTr(task.id, task.parents)
-    
-    if(ok){
-        x2 = node
-        x2 = x2.EliminateRedirect()
-    }
 
     if(!x1.IsPartial()){
         task.ToHNF(x1)
         return
     }
     
-    node = CopyNode(x1, x2)
-    RedirectCreate(root, node)
+    RedirectCreate(root, CopyNode(x1, x2))
 }
 
 func ExternalPrelude_cond(task *Task){

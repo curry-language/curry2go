@@ -335,53 +335,14 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     node2, ok := node.tr[id]
     
     if(ok){
-        // see if there are further calculated results
-        for{
-            node3, ok2 := node2.EliminateRedirect().tr[id]
-            
-            if(ok2){
-                node2 = node3
-            } else{
-                break
-            }
-        }
-        
-        // see if there are further entries from parents
-        for i := range parents{
-            node3, ok2 := node2.EliminateRedirect().tr[parents[i]]
-            
-            if(ok2){
-                for{
-                    node4, ok3 := node3.EliminateRedirect().tr[parents[i]]
-                    if(ok3){
-                        node3 = node4
-                    } else{
-                        break
-                    }
-                }
-                return node3, true
-            }
-        }
-        
         return node2, true
     }
     
-    // read entries from parents
+    // read entries for parents
     for i := range parents{
         node2, ok = node.tr[parents[i]]
         
         if(ok){
-            for{
-                node3, ok2 := node2.EliminateRedirect().tr[parents[i]]
-                
-                if(ok2){
-                    node2 = node3
-                } else{
-                    break
-                }
-            }
-            
-
             return node2, true
         }
     }
