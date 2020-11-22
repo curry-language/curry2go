@@ -334,7 +334,7 @@ func (node *Node) IsNF() bool{
 // with the key id or any key from parents.
 // If a matching entry is found it and true is returned.
 // Otherwise node and false is returned.
-func (node *Node) GetTr(id int, parents []int) (*Node, bool){
+func (node *Node) GetTr(id int, parents map[int]bool) (*Node, bool){
     // read node from task result map
     node2, ok := node.tr[id]
     
@@ -343,11 +343,11 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     }
     
     // read entries for parents
-    for i := range parents{
-        node2, ok = node.tr[parents[i]]
+    for k,v := range node.tr{
+        _, ok = parents[k]
         
         if(ok){
-            return node2, true
+            return v, true
         }
     }
     
@@ -527,7 +527,7 @@ func printNode(node *Node) {
     }
 }
 
-func printDebug(node *Node, id int, parents []int) {
+func printDebug(node *Node, id int, parents map[int]bool) {
 
     node, _ = node.GetTr(id, parents)
     
@@ -589,7 +589,7 @@ func printDebug(node *Node, id int, parents []int) {
 // Prints every item of a list
 // separated by commas.
 // node has to be a : constructor.
-func printDebugList(node *Node, id int, parents []int){
+func printDebugList(node *Node, id int, parents map[int]bool){
 
     // print the item
     printDebug(node.GetChild(0), id, parents)

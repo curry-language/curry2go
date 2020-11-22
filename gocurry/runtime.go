@@ -45,7 +45,7 @@ type Task struct{
     id int
     control *Node
     stack []*Node
-    parents []int
+    parents map[int]bool
     fingerprint map[int]int
     notHnf bool
 }
@@ -289,9 +289,11 @@ func evalStep(task *Task){
                 var new_task Task
                 new_task.id = count + 2
                 new_task.control = task.control.Children[1]
-                new_task.parents = make([]int, len(task.parents))
-                copy(new_task.parents, task.parents)
-                new_task.parents = append(new_task.parents, task.id)
+                new_task.parents = make(map[int]bool)
+                for k, _ := range task.parents{
+                    new_task.parents[k] = true
+                }
+                new_task.parents[task.id] = true
                 new_task.fingerprint = make(map[int]int)
                 for k,v := range task.fingerprint {
                     new_task.fingerprint[k] = v
@@ -302,7 +304,7 @@ func evalStep(task *Task){
                 new_task.fingerprint[task.control.int_value] = 1
 
                 // set control in the old task to the first child
-                task.parents = append(task.parents, task.id)
+                task.parents[task.id] = true
                 task.control = task.control.Children[0]
                 task.id = count + 1
                 
@@ -463,7 +465,8 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
     // create a task for the root node
     var first_task Task
     first_task.control = root
-    first_task.fingerprint = make(map[int]int)    
+    first_task.parents = make(map[int]bool)
+    first_task.fingerprint = make(map[int]int)  
 
     // write task to the queue
     queue <- first_task
