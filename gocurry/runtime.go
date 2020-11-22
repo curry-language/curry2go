@@ -125,13 +125,19 @@ func evalStep(task *Task){
         if(ok){
             control_lock.Unlock()
             
+            // if a parent exists, update it with the computed result
             if(len(task.stack) > 0){
+                // get and lock parent
                 parent := task.stack[len(task.stack) - 1]
+                parent.lock.Lock()
             
+                // check if update has to be in task result map or can be done in place
                 if(node.ot > parent.ot){
+                    // create copy of parent with new owner task
                     new_node := LockedCopyNode(parent)
                     new_node.ot = node.ot
                     
+                    // update the children to the computed result
                     if(new_node.IsFcall() && new_node.int_value >= 0){
                         new_node.Children[new_node.int_value] = node
                     } else{
@@ -142,14 +148,16 @@ func evalStep(task *Task){
                         }
                     }
                     
-                    // create task result map
+                    // create task result map if necessary
                     if(parent.tr == nil){
                         parent.tr = make(map[int]*Node)
                     }
                     
+                    // replace parent with the copy for this task
                     parent.tr[node.ot] = new_node
                     task.stack[len(task.stack) - 1] = new_node
                 } else{
+                    // update children of parent in place
                     if(parent.IsFcall() && parent.int_value >= 0){
                         parent.Children[parent.int_value] = node
                     } else{
@@ -160,6 +168,9 @@ func evalStep(task *Task){
                         }
                     }
                 }
+                
+                // unlock parent
+                parent.lock.Unlock()
             }
         
             // go to already computed result
@@ -197,16 +208,22 @@ func evalStep(task *Task){
             }
         }
         
+        // check if a parent exists
         if(len(task.stack) > 0){
             parent := task.stack[len(task.stack) - 1]
             
+            // if the control is younger, a result must not be calculated in place
             if(task.control.ot > parent.ot){
+                // change locks to parent
+                control_lock.Unlock()
+                parent.lock.Lock()
+                
+                // create copies
                 new_node := LockedCopyNode(parent)
                 new_node.ot = task.control.ot
                 new_child := LockedCopyNode(task.control)
                 
-                control_lock.Unlock()
-                
+                // update copy of parent
                 if(new_node.IsFcall() && new_node.int_value >= 0){
                     new_node.Children[new_node.int_value] = new_child
                 } else{
@@ -224,9 +241,11 @@ func evalStep(task *Task){
                     parent.tr = make(map[int]*Node)
                 }
                 
+                // move task to the copies
                 parent.tr[new_child.ot] = new_node
                 task.control = new_child
                 task.stack[len(task.stack) - 1] = new_node
+                parent.lock.Unlock()
                 return
             }
         }
@@ -353,6 +372,7 @@ func evalStep(task *Task){
                         }
                     }
                     
+                    // change control to parent
                     task.control = parent
                     task.stack = task.stack[:len(task.stack) - 1]
                     lock.Unlock()

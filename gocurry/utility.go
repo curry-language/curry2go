@@ -330,6 +330,10 @@ func (node *Node) IsNF() bool{
     return node.evaluated
 }
 
+// Searches the task result map of node for entries
+// with the key id or any key from parents.
+// If a matching entry is found it and true is returned.
+// Otherwise node and false is returned.
 func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     // read node from task result map
     node2, ok := node.tr[id]
