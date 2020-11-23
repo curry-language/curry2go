@@ -119,63 +119,66 @@ func evalStep(task *Task){
     switch task.control.node_type{
     case FCALL:
         
-        // test task result map for already computed results
-        node, ok := task.control.GetTr(task.id, task.parents)
-        
-        if(ok){
-            control_lock.Unlock()
+        // check if task result map exists
+        if(task.control.tr != nil){
+            // test task result map for already computed results
+            node, ok := task.control.GetTr(task.id, task.parents)
             
-            // if a parent exists, update it with the computed result
-            if(len(task.stack) > 0){
-                // get and lock parent
-                parent := task.stack[len(task.stack) - 1]
-                parent.lock.Lock()
-            
-                // check if update has to be in task result map or can be done in place
-                if(node.ot > parent.ot){
-                    // create copy of parent with new owner task
-                    new_node := LockedCopyNode(parent)
-                    new_node.ot = node.ot
-                    
-                    // update the children to the computed result
-                    if(new_node.IsFcall() && new_node.int_value >= 0){
-                        new_node.Children[new_node.int_value] = node
-                    } else{
-                        for i := range(new_node.Children){
-                            if(new_node.GetChild(i) == task.control){
-                                new_node.Children[i] = node
-                            }
-                        }
-                    }
-                    
-                    // create task result map if necessary
-                    if(parent.tr == nil){
-                        parent.tr = make(map[int]*Node)
-                    }
-                    
-                    // replace parent with the copy for this task
-                    parent.tr[node.ot] = new_node
-                    task.stack[len(task.stack) - 1] = new_node
-                } else{
-                    // update children of parent in place
-                    if(parent.IsFcall() && parent.int_value >= 0){
-                        parent.Children[parent.int_value] = node
-                    } else{
-                        for i := range(parent.Children){
-                            if(parent.GetChild(i) == task.control){
-                                parent.Children[i] = node
-                            }
-                        }
-                    }
-                }
+            if(ok){
+                control_lock.Unlock()
                 
-                // unlock parent
-                parent.lock.Unlock()
+                // if a parent exists, update it with the computed result
+                if(len(task.stack) > 0){
+                    // get and lock parent
+                    parent := task.stack[len(task.stack) - 1]
+                    parent.lock.Lock()
+                
+                    // check if update has to be in task result map or can be done in place
+                    if(node.ot > parent.ot){
+                        // create copy of parent with new owner task
+                        new_node := LockedCopyNode(parent)
+                        new_node.ot = node.ot
+                        
+                        // update the children to the computed result
+                        if(new_node.IsFcall() && new_node.int_value >= 0){
+                            new_node.Children[new_node.int_value] = node
+                        } else{
+                            for i := range(new_node.Children){
+                                if(new_node.GetChild(i) == task.control){
+                                    new_node.Children[i] = node
+                                }
+                            }
+                        }
+                        
+                        // create task result map if necessary
+                        if(parent.tr == nil){
+                            parent.tr = make(map[int]*Node)
+                        }
+                        
+                        // replace parent with the copy for this task
+                        parent.tr[node.ot] = new_node
+                        task.stack[len(task.stack) - 1] = new_node
+                    } else{
+                        // update children of parent in place
+                        if(parent.IsFcall() && parent.int_value >= 0){
+                            parent.Children[parent.int_value] = node
+                        } else{
+                            for i := range(parent.Children){
+                                if(parent.GetChild(i) == task.control){
+                                    parent.Children[i] = node
+                                }
+                            }
+                        }
+                    }
+                    
+                    // unlock parent
+                    parent.lock.Unlock()
+                }
+            
+                // go to already computed result
+                task.control = node
+                return
             }
-        
-            // go to already computed result
-            task.control = node
-            return
         }
     
         //test for partial function call
@@ -228,9 +231,16 @@ func evalStep(task *Task){
                     new_node.Children[new_node.int_value] = new_child
                 } else{
                     for i := range(new_node.Children){
-                        node, _ := new_node.GetChild(i).GetTr(task.id, task.parents)
+                        child := new_node.GetChild(i)
                         
-                        if(node.EliminateRedirect() == task.control){
+                        // use task result map if possible
+                        if(child.tr != nil){
+                            child,_ = child.GetTr(task.id, task.parents)
+                            child = child.EliminateRedirect()
+                        }
+                        
+                        // replace child
+                        if(child == task.control){
                             new_node.Children[i] = new_child
                         }
                     }
