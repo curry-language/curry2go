@@ -133,7 +133,7 @@ func evalStep(task *Task){
                     parent := task.stack[len(task.stack) - 1]
                     parent.lock.Lock()
                 
-                    // check if update has to be in task result map or can be done in place
+                    // check if update has to be in task result map or in place
                     if(node.ot > parent.ot){
                         // create copy of parent with new owner task
                         new_node := LockedCopyNode(parent)
@@ -155,7 +155,7 @@ func evalStep(task *Task){
                             parent.tr = make(map[int]*Node)
                         }
                         
-                        // replace parent with the copy for this task
+                        // update task result map of parent and stack
                         parent.tr[node.ot] = new_node
                         task.stack[len(task.stack) - 1] = new_node
                     } else{
@@ -181,7 +181,7 @@ func evalStep(task *Task){
             }
         }
     
-        //test for partial function call
+        // test for partial function call
         if(task.control.LockedIsPartial()){
 
             // if the stack is not empty, move to parent
@@ -224,36 +224,15 @@ func evalStep(task *Task){
                 // create copies
                 new_node := LockedCopyNode(parent)
                 new_node.ot = task.control.ot
-                new_child := LockedCopyNode(task.control)
-                
-                // update copy of parent
-                if(new_node.IsFcall() && new_node.int_value >= 0){
-                    new_node.Children[new_node.int_value] = new_child
-                } else{
-                    for i := range(new_node.Children){
-                        child := new_node.GetChild(i)
-                        
-                        // use task result map if possible
-                        if(child.tr != nil){
-                            child,_ = child.GetTr(task.id, task.parents)
-                            child = child.EliminateRedirect()
-                        }
-                        
-                        // replace child
-                        if(child == task.control){
-                            new_node.Children[i] = new_child
-                        }
-                    }
-                }
                 
                 // create task result map
                 if(parent.tr == nil){
                     parent.tr = make(map[int]*Node)
                 }
                 
-                // move task to the copies
-                parent.tr[new_child.ot] = new_node
-                task.control = new_child
+                // move task to copy
+                parent.tr[task.control.ot] = new_node
+                task.control = new_node
                 task.stack[len(task.stack) - 1] = new_node
                 parent.lock.Unlock()
                 return
@@ -295,13 +274,16 @@ func evalStep(task *Task){
                 // get task count
                 count := GetTaskCount()
             
+                // update task
+                task.parents = append(task.parents, task.id)
+                task.id = count + 1
+            
                 // create new task
                 var new_task Task
                 new_task.id = count + 2
                 new_task.control = task.control.Children[1]
                 new_task.parents = make([]int, len(task.parents))
                 copy(new_task.parents, task.parents)
-                new_task.parents = append(new_task.parents, task.id)
                 new_task.fingerprint = make(map[int]int)
                 for k,v := range task.fingerprint {
                     new_task.fingerprint[k] = v
@@ -310,31 +292,21 @@ func evalStep(task *Task){
                 // set fingerprints
                 task.fingerprint[task.control.int_value] = 0
                 new_task.fingerprint[task.control.int_value] = 1
-
-                // set control in the old task to the first child
-                task.parents = append(task.parents, task.id)
-                task.control = task.control.Children[0]
-                task.id = count + 1
                 
                 // increase task count
                 UpTaskCount()
 
                 // append new task to queue
                 queue <- new_task
+                
+                // move to new control
+                task.control = task.control.Children[0]
             }
         } else{
             // lock parent
             parent := task.stack[len(task.stack) - 1]
             lock := &parent.lock
             lock.Lock()
-
-            // move to parent if pulltabbing-step has already been performed by another task
-            if(parent.IsChoice()){
-                task.control = parent
-                task.stack = task.stack[:len(task.stack) - 1]
-                lock.Unlock()
-                return
-            }
             
             // test fingerprint
             branch, ok := task.fingerprint[task.control.int_value]
@@ -349,11 +321,11 @@ func evalStep(task *Task){
                     
                     // replace choice with branch
                     if(new_node.IsFcall() && new_node.int_value >= 0){
-                        new_node.Children[new_node.int_value] = task.control.GetChild(branch)
+                        new_node.Children[new_node.int_value] = task.control.Children[branch]
                     } else{
                         for i := range(new_node.Children){
                             if(new_node.GetChild(i) == task.control){
-                                new_node.Children[i] = task.control.GetChild(branch)
+                                new_node.Children[i] = task.control.Children[branch]
                             }
                         }
                     }
@@ -373,11 +345,11 @@ func evalStep(task *Task){
                 } else{
                     // replace choice with branch
                     if(parent.IsFcall() && parent.int_value >= 0){
-                        parent.Children[parent.int_value] = task.control.GetChild(branch)
+                        parent.Children[parent.int_value] = task.control.Children[branch]
                     } else{
                         for i := range(parent.Children){
                             if(parent.GetChild(i) == task.control){
-                                parent.Children[i] = task.control.GetChild(branch)
+                                parent.Children[i] = task.control.Children[branch]
                             }
                         }
                     }
@@ -388,6 +360,14 @@ func evalStep(task *Task){
                     lock.Unlock()
                     return
                 }
+            }
+            
+            // move to parent if pulltabbing-step has already been performed by another task
+            if(parent.IsChoice()){
+                task.control = parent
+                task.stack = task.stack[:len(task.stack) - 1]
+                lock.Unlock()
+                return
             }
 
             // perform a pulltabbing-step
@@ -403,7 +383,7 @@ func evalStep(task *Task){
         control_lock.Unlock()
 
         // follow redirect
-        task.control = task.control.Children[0]
+        task.control = task.control.EliminateRedirect()
     case CONSTRUCTOR:
         // unlock control node
         control_lock.Unlock()
