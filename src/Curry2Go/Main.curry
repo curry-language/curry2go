@@ -20,7 +20,7 @@ import FlatCurry.Files
 
 --- Gets the path to the source file of a curry module.
 loadCurryPath :: String -> IO String
-loadCurryPath inp = lookupModuleSourceInLoadPath inp >>= (\path -> case path of
+loadCurryPath inp = lookupModuleSourceInLoadPath (stripCurrySuffix inp) >>= (\path -> case path of
                       Nothing          -> error ("Unknown module " ++ inp)
                       Just (dir, file) -> return (combine dir file))
 
@@ -46,7 +46,7 @@ loadCurry inp = do extFilePath <- getExtFilePath
                    flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
  where
   getExtFilePath =
-    loadCurryPath inp
+    loadCurryPath (stripCurrySuffix inp)
     >>= (\path -> return (replaceFileName path 
       ("external_" ++ takeFileName (replaceExtension path "go"))))
   
@@ -81,11 +81,11 @@ main = do
 curry2Go :: String -> CGOptions -> IO()
 curry2Go inp opts = do
   home <- getHomeDirectory
-  createDirectoryIfMissing True 
+  createDirectoryIfMissing True
     (home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++ "include")
   putStrLn "Compiling..."
-  compile (goStruct {compProg = compileIProg2GoString opts}) inp
-  IProg moduleName _ _ funcs <- (icCompile (defaultICOptions {optVerb=0}) inp)
+  compile (goStruct {compProg = compileIProg2GoString opts}) (stripCurrySuffix inp)
+  IProg moduleName _ _ funcs <- (icCompile (defaultICOptions {optVerb=0}) (stripCurrySuffix inp))
   when (genMain opts) (putStrLn "Generating Main"
     >> (writeFile (".gocurry/" ++ removeDots moduleName ++ "Main.go")
       (showGoProg (createMainProg funcs (opts {modName = "main"})))))
