@@ -210,34 +210,6 @@ func evalStep(task *Task){
                 return
             }
         }
-        
-        // check if a parent exists
-        if(len(task.stack) > 0){
-            parent := task.stack[len(task.stack) - 1]
-            
-            // if the control is younger, a result must not be calculated in place
-            if(task.control.ot > parent.ot){
-                // change locks to parent
-                control_lock.Unlock()
-                parent.lock.Lock()
-                
-                // create copies
-                new_node := LockedCopyNode(parent)
-                new_node.ot = task.control.ot
-                
-                // create task result map
-                if(parent.tr == nil){
-                    parent.tr = make(map[int]*Node)
-                }
-                
-                // move task to copy
-                parent.tr[task.control.ot] = new_node
-                task.control = new_node
-                task.stack[len(task.stack) - 1] = new_node
-                parent.lock.Unlock()
-                return
-            }
-        }
 
         // call the function
         defer errorHandler(task)
@@ -580,6 +552,7 @@ func dfs(){
             if(len(cur_task.stack) > 0){
                 cur_task.control = cur_task.stack[len(cur_task.stack) - 1]
                 cur_task.stack = cur_task.stack[: len(cur_task.stack) - 1]
+                continue
             }
         
             // return result if control is evaluated
