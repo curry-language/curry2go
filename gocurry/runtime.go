@@ -400,6 +400,59 @@ func evalStep(task *Task){
             // otherwise, start evaluation to nf
             task.notHnf = false
         }
+        
+        // try reading entry from the task result map
+        if(task.control.tr != nil){
+            
+            node, ok := task.control.GetTr(task.id, task.parents)
+            
+            if(ok){
+                
+                // if a parent exists it has to be updated with the new result
+                if(len(task.stack) > 0){
+                    // get and lock parent
+                    parent := task.stack[len(task.stack) - 1]
+                    parent.lock.Lock()
+                    
+                    // test if parent has to be copied
+                    if(parent.ot < task.control.ot){
+                        // create copy of parent
+                        new_node := LockedCopyNode(parent)
+                        new_node.ot = task.control.ot
+                        
+                        // replace children with new result
+                        for i := range new_node.Children{
+                            if(new_node.GetChild(i) == task.control){
+                                new_node.Children[i] = node
+                            }
+                        }
+                        
+                        // create task result map for parent if necessary
+                        if(parent.tr == nil){
+                            parent.tr = make(map[int]*Node)
+                        }
+                        
+                        // write new node into parent task result map / stack
+                        parent.tr[task.control.ot] = new_node
+                        task.stack[len(task.stack) - 1] = new_node
+                    }else{
+                        // update children of parent in place
+                        for i := range parent.Children{
+                            if(parent.GetChild(i) == task.control){
+                                parent.Children[i] = node
+                            }
+                        }
+                    }
+                    
+                    // unlock parent
+                    parent.lock.Unlock()
+                }
+                
+                // move to entry
+                task.control = node
+                return
+            }
+        }
 
         // test if Children need to be evaluated
         for i := range task.control.Children{
@@ -524,6 +577,11 @@ func dfs(){
 
         // test the task state
         if(cur_task.control.evaluated){
+            if(len(cur_task.stack) > 0){
+                cur_task.control = cur_task.stack[len(cur_task.stack) - 1]
+                cur_task.stack = cur_task.stack[: len(cur_task.stack) - 1]
+            }
+        
             // return result if control is evaluated
             result_chan <- cur_task.control
 
