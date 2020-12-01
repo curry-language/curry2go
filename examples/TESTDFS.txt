@@ -1,0 +1,123 @@
+Running: curry2go -r Colormap
+Compiling...
+Compiled Colormap
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+[Red, Blue, Green, Red]
+[Red, Green, Blue, Red]
+[Blue, Green, Red, Blue]
+[Blue, Red, Green, Blue]
+[Green, Blue, Red, Green]
+[Green, Red, Blue, Green]
+Running: curry2go -r Data
+Compiling...
+Compiled Data
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+Black
+White
+Running: curry2go -r FreeBool
+Compiling...
+Compiled FreeBool
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+False
+False
+Running: curry2go -r Half
+Compiling...
+Compiled Half
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+S(S(O))
+S(S(S(O)))
+Running: curry2go -r InfList
+Compiling...
+Compiled InfList
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+1
+Running: curry2go -r NonDet
+Compiling...
+Compiled NonDet
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+False
+True
+False
+False
+Running: curry2go -r Perm
+Compiling...
+Compiled Perm
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+[1, 2, 3, 4]
+[1, 2, 4, 3]
+[1, 3, 2, 4]
+[1, 3, 4, 2]
+[1, 4, 2, 3]
+[1, 4, 3, 2]
+[2, 1, 3, 4]
+[2, 1, 4, 3]
+[2, 3, 1, 4]
+[2, 3, 4, 1]
+[2, 4, 1, 3]
+[2, 4, 3, 1]
+[3, 1, 2, 4]
+[3, 1, 4, 2]
+[3, 2, 1, 4]
+[3, 2, 4, 1]
+[3, 4, 1, 2]
+[3, 4, 2, 1]
+[4, 1, 2, 3]
+[4, 1, 3, 2]
+[4, 2, 1, 3]
+[4, 2, 3, 1]
+[4, 3, 1, 2]
+[4, 3, 2, 1]
+Running: curry2go -r PermSort
+Compiling...
+Compiled PermSort
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+[O, S(O), S(S(O)), S(S(S(O))), S(S(S(S(O))))]
+Running: curry2go -r Rev
+Compiling...
+Compiled Rev
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+Running: curry2go -r Xor
+Compiling...
+Compiled Xor
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+False
+False
+Running: curry2go -r Zip
+Compiling...
+Compiled Zip
+Generating Main
+Saved to ./.gocurry!
+Building...
+Running...
+[(1, 1), (2, 1), (3, 1)]

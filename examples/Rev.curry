@@ -9,5 +9,4 @@ rev []     = []
 rev (x:xs) = append (rev xs) [x]
 
 main :: [Int]
-main = rev [1,2,3,4]
-
+main = rev [0,1,2,3,4,5,6,7,8,9]
