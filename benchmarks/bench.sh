@@ -4,15 +4,20 @@
 #       strat is the search strategy used when executing a benchmark
 #       and can be one of: dfs, bfs, fs. Default is fs.
 
-strat="--fs"
+# Number of iterations:
+ITER=3
+# Default strategy:
+STRAT="--fs"
+# Output in CSV format?
+CSV=yes
 
 #parse command line arguments
 case "$1" in
-    "dfs") strat=""
+    "dfs") STRAT=""
         ;;
-    "bfs") strat="--bfs"
+    "bfs") STRAT="--bfs"
         ;;
-    "fs") strat="--fs"
+    "fs") STRAT="--fs"
         ;;
     "") ;;
     *) echo "Invalid argument!"; exit;
@@ -23,16 +28,26 @@ esac
 rm -rf .gocurry
 
 #run all benchmarks in the directory
-for file in *
+for FILE in *
 do
     #only compile curry files
-    if [[ $file == *".curry" ]]
+    if [[ $FILE == *".curry" ]]
       then
-        file=${file%".curry"}
+        FILE=${FILE%".curry"}
 
-        echo Running benchmark: $file        
-        result=$(curry2go --time=3 -r $strat $file | tail -1)
-        echo $result
+        if [ $CSV = yes ] ; then
+          echo -n "$FILE,"
+        else
+          echo "Running benchmark: $FILE"
+        fi
+        RESULT=$(curry2go --time=$ITER -r $STRAT $FILE | tail -1)
+        if [ $CSV = yes ] ; then
+          RESULT=${RESULT#Average time: }
+          RESULT=${RESULT%s}
+          echo $RESULT
+        else
+          echo $RESULT
+        fi
     fi 
 done
 

@@ -26,4 +26,4 @@ ndnum n = ndnum (S n) ? n
 
 main = eqNat (ndnum O) nat256
 -- DFS: no result
--- BFS: one result, try: jucs -x --bfs --first NDNums
+-- BFS: one result, try: curry2go -r -i --bfs NDNums
