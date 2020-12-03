@@ -6,15 +6,17 @@ import Go.Types
 import CompilerStructure
 import ICurry.Types
 import ICurry.Compiler
-import System
+import System.Environment
 import System.CurryPath
-import GetOpt
-import Directory
-import Char
-import FilePath
-import List
+import System.Console.GetOpt
+import System.Directory
+import Data.Char
+import System.FilePath
+import System.Process
+import Data.List
 import System.FrontendExec
 import FlatCurry.Files
+import Control.Monad
 
 --- Implementation of CompStruct for the curry2go compiler.
 

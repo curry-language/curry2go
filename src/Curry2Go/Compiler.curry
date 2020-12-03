@@ -5,14 +5,14 @@ import Go.Types
 import CompilerStructure
 import ICurry.Types
 import ICurry.Compiler
-import System
+import System.Environment
 import System.CurryPath
-import GetOpt
-import Directory
-import Char
-import Time
-import FilePath
-import List
+import System.Console.GetOpt
+import System.Directory
+import Data.Char
+import Data.Time
+import System.FilePath
+import Data.List
 
 --- Data types ---
 

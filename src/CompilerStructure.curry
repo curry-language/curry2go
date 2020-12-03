@@ -1,11 +1,11 @@
 module CompilerStructure (CompStruct (..), defaultStruct, getFilePath, getFileDir, compile) where
 
-import Directory
-import Time
+import System.Directory
+import Data.Time
 import ICurry.Types
 import ICurry.Compiler
 import FlatCurry.Files
-import FilePath
+import System.FilePath
 import System.CurryPath
 import System.FrontendExec
 import Global
