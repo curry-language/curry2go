@@ -140,6 +140,9 @@ options =
   , Option "i" ["interactive"]
     (NoArg (\opts -> opts {interact = True}))
     "Interactive result printing"
+  , Option "" ["first"]
+    (NoArg (\opts -> opts {maxResults = 1}))
+    "Stop evaluation after the first result"
   ]
  where
   safeRead result = case result of
