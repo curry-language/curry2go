@@ -304,6 +304,10 @@ func (node *Node) IsRedirect() bool{
     return (node.node_type == REDIRECT)
 }
 
+func (node *Node) IsFree() bool{
+    return (node.node_type == CONSTRUCTOR && node.int_value == -1)
+}
+
 func (node *Node) IsPartial() bool{
     node.lock.Lock()
     if(node.node_type == FCALL || node.node_type == CONSTRUCTOR){
@@ -359,6 +363,12 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
 
 func (task *Task) GetControl() *Node{
     return task.control
+}
+
+func (task *Task) NewNode() *Node{
+    node := new(Node)
+    node.ot = task.id
+    return node
 }
 
 // Forces the evaluation of a node to HNF.

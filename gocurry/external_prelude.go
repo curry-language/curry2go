@@ -56,7 +56,126 @@ func ExternalPrelude_failed(task *Task){
 }
 
 func ExternalPrelude_EqColEq(task *Task){
-    panic("=:= is not yet implemented")
+    root := task.GetControl()
+    x1 := root.GetChild(0)
+    x2 := root.GetChild(1)
+    
+    // evaluate children if necessary
+    if(!x1.IsHNF()){
+        task.ToHNF(x1)
+        return
+    }
+    
+    if(!x2.IsHNF()){
+        task.ToHNF(x2)
+        return
+    }
+    
+    if(x1.IsFree() && x2.IsFree()){
+        // create task result map for x1
+        if(x1.tr == nil){
+            x1.tr = make(map[int]*Node)
+        }
+        
+        // bind x1 to x2
+        x1.tr[task.id] = RedirectCreate(task.NewNode(), x2)
+        
+        // return true
+        Prelude_TrueCreate(root)
+    } else if(x1.IsFree()){
+        
+        // create copy of x2 to bind x1 to
+        new_node := CopyNode(x2)
+        new_node.ot = task.id
+        for i := range new_node.Children{
+            new_node.Children[i] = FreeCreate(task.NewNode())
+        }
+        
+        // create task result map for x1
+        if(x1.tr == nil){
+            x1.tr = make(map[int]*Node)
+        }
+        
+        // bind x1 to copy
+        x1.tr[task.id] = new_node
+        
+        // unify children
+        unifChain(task, root, new_node, x2)      
+    } else if(x2.IsFree()){
+        // create copy of x1 to bind x2 to
+        new_node := CopyNode(x1)
+        new_node.ot = task.id
+        for i := range new_node.Children{
+            new_node.Children[i] = FreeCreate(task.NewNode())
+        }
+        
+        // create task result map for x1
+        if(x2.tr == nil){
+            x2.tr = make(map[int]*Node)
+        }
+        
+        // bind x1 to copy
+        x2.tr[task.id] = new_node
+        
+        // unify children
+        unifChain(task, root, new_node, x1) 
+    } else{
+        if(x1.IsIntLit()){
+            // unify int
+            if(x1.GetInt() == x2.GetInt()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else if(x1.IsCharLit()){
+            // unify char
+            if(x1.GetChar() == x2.GetChar()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else if(x1.IsFloatLit()){
+            // unify float
+            if(x1.GetFloat() == x2.GetFloat()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else{
+            // unify constructor
+            if(x1.GetConstructor() == x2.GetConstructor()){
+                unifChain(task, root, x1, x2)
+            } else{
+                ExemptCreate(root)
+            }
+        }
+    }
+}
+
+// Helper function for unification.
+// Sets root to the unification of
+// the children of x1 and x2.
+func unifChain(task *Task, root, x1, x2 *Node){
+
+    // no children: return true
+    if(len(x1.Children) == 0){
+        Prelude_TrueCreate(root)
+        return
+    }
+    
+    // unify single children
+    if(len(x1.Children) == 1){
+        Prelude_EqColEqCreate(root, x1.GetChild(0), x2.GetChild(0))
+        return
+    }
+
+    // combine unification of children with and
+    node := Prelude_AndCreate(root, Prelude_EqColEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    for i := 1; i < len(x1.Children) - 1; i++{
+        Prelude_AndCreate(node.Children[1], Prelude_EqColEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        node = node.Children[1]                    
+    }
+    Prelude_EqColEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
 }
 
 func ExternalPrelude_And(task *Task){
@@ -64,8 +183,18 @@ func ExternalPrelude_And(task *Task){
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
     
+    if(!x1.IsHNF()){
+        task.ToHNF(x1)
+        return
+    }
+    
     if(x1.GetConstructor() == 0){
         Prelude_FalseCreate(root)      
+        return
+    }
+    
+    if(!x2.IsHNF()){
+        task.ToHNF(x2)
         return
     } 
 
@@ -433,7 +562,7 @@ func ExternalPrelude_letrec(task *Task){
 }
 
 func ExternalPrelude_EqColLtEq(task *Task){
-    panic("=:<= is not yet implemented")
+    panic("=:<= is not yet implemented") 
 }
 
 func ExternalPrelude_EqColLtLtEq(task *Task){
