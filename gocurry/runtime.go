@@ -387,10 +387,10 @@ func evalStep(task *Task){
                     parent.lock.Lock()
                     
                     // test if parent has to be copied
-                    if(parent.ot < task.control.ot){
+                    if(parent.ot < node.ot){
                         // create copy of parent
                         new_node := LockedCopyNode(parent)
-                        new_node.ot = task.control.ot
+                        new_node.ot = node.ot
                         
                         // replace children with new result
                         for i := range new_node.Children{
@@ -405,7 +405,7 @@ func evalStep(task *Task){
                         }
                         
                         // write new node into parent task result map / stack
-                        parent.tr[task.control.ot] = new_node
+                        parent.tr[node.ot] = new_node
                         task.stack[len(task.stack) - 1] = new_node
                     }else{
                         // update children of parent in place
