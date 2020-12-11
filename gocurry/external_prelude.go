@@ -55,7 +55,7 @@ func ExternalPrelude_failed(task *Task){
     ExemptCreate(root)
 }
 
-func ExternalPrelude_EqColEq(task *Task){
+func ExternalPrelude_constrEq(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -165,17 +165,17 @@ func unifChain(task *Task, root, x1, x2 *Node){
     
     // unify single children
     if(len(x1.Children) == 1){
-        Prelude_EqColEqCreate(root, x1.GetChild(0), x2.GetChild(0))
+        Prelude_constrEqCreate(root, x1.GetChild(0), x2.GetChild(0))
         return
     }
 
     // combine unification of children with and
-    node := Prelude_AndCreate(root, Prelude_EqColEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    node := Prelude_AndCreate(root, Prelude_constrEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude_AndCreate(node.Children[1], Prelude_EqColEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        Prelude_AndCreate(node.Children[1], Prelude_constrEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
         node = node.Children[1]                    
     }
-    Prelude_EqColEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+    Prelude_constrEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
 }
 
 func ExternalPrelude_And(task *Task){
@@ -561,13 +561,10 @@ func ExternalPrelude_letrec(task *Task){
 
 }
 
-func ExternalPrelude_EqColLtEq(task *Task){
+func ExternalPrelude_nonstrictEq(task *Task){
     panic("=:<= is not yet implemented") 
 }
 
-func ExternalPrelude_EqColLtLtEq(task *Task){
-    panic("=:<<= is not yet implemented")
-}
 
 func ExternalPrelude_ifVar(task *Task){
 
