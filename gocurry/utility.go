@@ -107,6 +107,7 @@ func CharLitCreate(root *Node, value rune)(*Node){
 func FreeCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
     root.node_type = CONSTRUCTOR
+    root.name = "Free"
     root.int_value = -1
     return root
 }

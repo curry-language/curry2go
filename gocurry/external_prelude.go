@@ -178,6 +178,116 @@ func unifChain(task *Task, root, x1, x2 *Node){
     Prelude_constrEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
 }
 
+func ExternalPrelude_nonstrictEq(task *Task){
+    root := task.GetControl()
+    x1 := root.GetChild(0)
+    
+    // evaluate first child to HNF
+    if(!x1.IsHNF()){
+        task.ToHNF(x1)
+        return
+    }
+    
+    // get second child
+    x2 := root.GetChild(1)
+ 
+    // if x1 is a free variable bind it to the second child
+    if(x1.IsFree()){
+        new_node := RedirectCreate(task.NewNode(), x2)
+        
+        if(x1.tr == nil){
+            x1.tr = make(map[int]*Node)
+        }
+        
+        x1.tr[task.id] = new_node
+        
+        Prelude_TrueCreate(root)
+        return
+    }
+    
+    // evaluate second child
+    if(!x2.IsHNF()){
+        task.ToHNF(x2)
+        return
+    }
+    
+    if(x2.IsFree()){
+        // create copy of x1 to bind x2 to
+        new_node := CopyNode(x1)
+        new_node.ot = task.id
+        for i := range new_node.Children{
+            new_node.Children[i] = FreeCreate(task.NewNode())
+        }
+        
+        // create task result map for x1
+        if(x2.tr == nil){
+            x2.tr = make(map[int]*Node)
+        }
+        
+        // bind x1 to copy
+        x2.tr[task.id] = new_node
+        
+        // unify children
+        nonstrictUnifChain(task, root, new_node, x1)
+    } else{
+        if(x1.IsIntLit()){
+            // unify int
+            if(x1.GetInt() == x2.GetInt()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else if(x1.IsCharLit()){
+            // unify char
+            if(x1.GetChar() == x2.GetChar()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else if(x1.IsFloatLit()){
+            // unify float
+            if(x1.GetFloat() == x2.GetFloat()){
+                Prelude_TrueCreate(root)
+            } else{
+                ExemptCreate(root)
+            }
+        } else{
+            // unify constructor
+            if(x1.GetConstructor() == x2.GetConstructor()){
+                nonstrictUnifChain(task, root, x1, x2)
+            } else{
+                ExemptCreate(root)
+            }
+        }
+    }  
+}
+
+// Helper function for nonstrict unification.
+// Sets root to the nonstrict unification of
+// the children of x1 and x2.
+func nonstrictUnifChain(task *Task, root, x1, x2 *Node){
+
+    // no children: return true
+    if(len(x1.Children) == 0){
+        Prelude_TrueCreate(root)
+        return
+    }
+    
+    // unify single children
+    if(len(x1.Children) == 1){
+        Prelude_nonstrictEqCreate(root, x1.GetChild(0), x2.GetChild(0))
+        return
+    }
+
+    // combine unification of children with and
+    node := Prelude_AndCreate(root, Prelude_nonstrictEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    for i := 1; i < len(x1.Children) - 1; i++{
+        Prelude_AndCreate(node.Children[1], Prelude_nonstrictEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        node = node.Children[1]                    
+    }
+    Prelude_nonstrictEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+}
+
 func ExternalPrelude_And(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
@@ -554,15 +664,24 @@ func ExternalPrelude_apply(task *Task){
 }
 
 func ExternalPrelude_cond(task *Task){
-
+    root := task.GetControl()
+    x1 := root.GetChild(0)
+    
+    if(!x1.IsHNF()){
+        task.ToHNF(x1)
+        return
+    }
+    
+    if(x1.GetConstructor() == 1){
+        x2 := root.GetChild(1)
+        RedirectCreate(root, x2)
+    }else{
+        ExemptCreate(root)
+    }
 }
 
 func ExternalPrelude_letrec(task *Task){
 
-}
-
-func ExternalPrelude_nonstrictEq(task *Task){
-    panic("=:<= is not yet implemented") 
 }
 
 
