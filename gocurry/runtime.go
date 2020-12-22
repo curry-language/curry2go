@@ -34,7 +34,6 @@ type Node struct{
     function func(*Task)
     number_args int
     name string
-    evaluated bool
     lock sync.Mutex
     tr map[int]*Node
     ot int
@@ -47,7 +46,6 @@ type Task struct{
     stack []*Node
     parents []int
     fingerprint map[int]int
-    notHnf bool
 }
 
 // Variable to generate unique ids for choice-nodes
@@ -75,6 +73,9 @@ func UpTaskCount(){
     count += 2
     taskCount <- count
 }
+
+// flag indicating whether or not to use bfs
+var use_bfs = false
 
 // channel to queue tasks
 var queue = make(chan Task, 1000000)
@@ -107,82 +108,115 @@ func errorHandler(task *Task){
     }
 }
 
-// Performs an evaluation step on the root
-// of the task.
-func evalStep(task *Task){
-
-    // lock control node for switch
-    control_lock := &task.control.lock
-    control_lock.Lock()
-
-    // evaluate control node of the task
-    switch task.control.node_type{
-    case FCALL:
-        
-        // check if task result map exists
-        if(task.control.tr != nil){
-            // test task result map for already computed results
-            node, ok := task.control.GetTr(task.id, task.parents)
-            
-            if(ok){
-                control_lock.Unlock()
-                
-                // if a parent exists, update it with the computed result
-                if(len(task.stack) > 0){
-                    // get and lock parent
-                    parent := task.stack[len(task.stack) - 1]
-                    parent.lock.Lock()
-                
-                    // check if update has to be in task result map or in place
-                    if(node.ot > parent.ot){
-                        // create copy of parent with new owner task
-                        new_node := LockedCopyNode(parent)
-                        new_node.ot = node.ot
-                        
-                        // update the children to the computed result
-                        if(new_node.IsFcall() && new_node.int_value >= 0){
-                            new_node.Children[new_node.int_value] = node
-                        } else{
-                            for i := range(new_node.Children){
-                                if(new_node.GetChild(i) == task.control){
-                                    new_node.Children[i] = node
-                                }
-                            }
-                        }
-                        
-                        // create task result map if necessary
-                        if(parent.tr == nil){
-                            parent.tr = make(map[int]*Node)
-                        }
-                        
-                        // update task result map of parent and stack
-                        parent.tr[node.ot] = new_node
-                        task.stack[len(task.stack) - 1] = new_node
-                    } else{
-                        // update children of parent in place
-                        if(parent.IsFcall() && parent.int_value >= 0){
-                            parent.Children[parent.int_value] = node
-                        } else{
-                            for i := range(parent.Children){
-                                if(parent.GetChild(i) == task.control){
-                                    parent.Children[i] = node
-                                }
-                            }
-                        }
-                    }
-                    
-                    // unlock parent
-                    parent.lock.Unlock()
-                }
-            
-                // go to already computed result
-                task.control = node
-                return
-            }
-        }
+func toHnf(task *Task){
     
-        // test for partial function call
-        if(task.control.LockedIsPartial()){
+    defer errorHandler(task)
+    
+    for{
+        // lock control node for switch
+        control_lock := &task.control.lock
+        control_lock.Lock()
+        
+        if(len(task.stack) == 0 && task.control.IsHNF()){
+            control_lock.Unlock()
+            return
+        }
+        
+        switch task.control.node_type {
+        case FCALL:
+            // check if task result map exists
+            if(task.control.tr != nil){
+                // test task result map for already computed results
+                node, ok := task.control.GetTr(task.id, task.parents)
+                
+                if(ok){
+                    control_lock.Unlock()
+                    
+                    // if a parent exists, update it with the computed result
+                    if(len(task.stack) > 0){
+                        // get and lock parent
+                        parent := task.stack[len(task.stack) - 1]
+                        parent.lock.Lock()
+                    
+                        // check if update has to be in task result map or in place
+                        if(node.ot > parent.ot){
+                            // create copy of parent with new owner task
+                            new_node := LockedCopyNode(parent)
+                            new_node.ot = node.ot
+                            
+                            // update the children to the computed result
+                            if(new_node.IsFcall() && new_node.int_value >= 0){
+                                new_node.Children[new_node.int_value] = node
+                            } else{
+                                for i := range(new_node.Children){
+                                    if(new_node.GetChild(i) == task.control){
+                                        new_node.Children[i] = node
+                                    }
+                                }
+                            }
+                            
+                            // create task result map if necessary
+                            if(parent.tr == nil){
+                                parent.tr = make(map[int]*Node)
+                            }
+                            
+                            // update task result map of parent and stack
+                            parent.tr[node.ot] = new_node
+                            task.stack[len(task.stack) - 1] = new_node
+                        } else{
+                            // update children of parent in place
+                            if(parent.IsFcall() && parent.int_value >= 0){
+                                parent.Children[parent.int_value] = node
+                            } else{
+                                for i := range(parent.Children){
+                                    if(parent.GetChild(i) == task.control){
+                                        parent.Children[i] = node
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // unlock parent
+                        parent.lock.Unlock()
+                    }
+                
+                    // go to already computed result
+                    task.control = node
+                    continue
+                }
+            }
+        
+            // test for partial function call
+            if(task.control.LockedIsPartial()){
+
+                // if the stack is not empty, move to parent
+                if(len(task.stack) > 0){
+                    task.control = task.stack[len(task.stack) - 1]
+                    task.stack = task.stack[:len(task.stack) - 1]
+                }
+
+                // unlock control node
+                control_lock.Unlock()
+                continue
+            }
+
+            // test if an argument is demanded
+            if (task.control.int_value >= 0){
+
+                // get demanded child
+	            child := task.control.GetChild(task.control.int_value)
+                
+                // if the child needs to be evaluated, put it in control
+                if (!child.IsHNF()){
+                    task.stack = append(task.stack, task.control)
+                    task.control = child
+                    control_lock.Unlock()
+                    continue
+                }
+            }
+
+            // call the function
+            task.control.function(task)
 
             // if the stack is not empty, move to parent
             if(len(task.stack) > 0){
@@ -192,274 +226,225 @@ func evalStep(task *Task){
 
             // unlock control node
             control_lock.Unlock()
-            return
-        }
-
-        // test if an argument is demanded
-        if (task.control.int_value >= 0){
-
-            // get demanded child
-	        child := task.control.GetChild(task.control.int_value)
+        case CHOICE:
+            // unlock control node
+            control_lock.Unlock()
             
-            // if the child needs to be evaluated, put it in control
-            if (!child.IsHNF()){
-                task.stack = append(task.stack, task.control)
-                task.control = child
-                task.notHnf = true
-                control_lock.Unlock()
-                return
-            }
-        }
+            // test if stack is empty
+            if (len(task.stack) == 0){
 
-        // call the function
-        defer errorHandler(task)
-        task.control.function(task)
+                // get fingerprint information
+                branch, ok := task.fingerprint[task.control.int_value]
 
-        // if the stack is not empty, move to parent
-        if(len(task.stack) > 0){
-            task.control = task.stack[len(task.stack) - 1]
-            task.stack = task.stack[:len(task.stack) - 1]
-        }
+                // test if choice id in fingerprint
+                if(ok){
+                    // select the branch
+                    task.control = task.control.Children[branch]
+                }else{   
+                    // get task count
+                    count := GetTaskCount()
+                
+                    // update task
+                    task.parents = append(task.parents, task.id)
+                    task.id = count + 1
+                
+                    // create new task
+                    var new_task Task
+                    new_task.id = count + 2
+                    new_task.control = task.control.Children[1]
+                    new_task.parents = make([]int, len(task.parents))
+                    copy(new_task.parents, task.parents)
+                    new_task.fingerprint = make(map[int]int)
+                    for k,v := range task.fingerprint {
+                        new_task.fingerprint[k] = v
+                    }
 
-        // unlock control node
-        control_lock.Unlock()
-        return
-    case EXEMPT:
-        // unlock control node
-        control_lock.Unlock()
-        return
-    case CHOICE:
-        // unlock control node
-        control_lock.Unlock()
-        
-        // test if stack is empty
-        if (len(task.stack) == 0){
+                    // set fingerprints
+                    task.fingerprint[task.control.int_value] = 0
+                    new_task.fingerprint[task.control.int_value] = 1
+                    
+                    // increase task count
+                    UpTaskCount()
+                    
+                    // move to new control
+                    task.control = task.control.Children[0]
+                    
+                    if(use_bfs){
+                        queue <- *task
+                        *task = <- queue
+                    }
 
-            // get fingerprint information
-            branch, ok := task.fingerprint[task.control.int_value]
-
-            // test if choice id in fingerprint
-            if(ok){
-                // select the branch
-                task.control = task.control.Children[branch]
-            }else{   
-                // get task count
-                count := GetTaskCount()
-            
-                // update task
-                task.parents = append(task.parents, task.id)
-                task.id = count + 1
-            
-                // create new task
-                var new_task Task
-                new_task.id = count + 2
-                new_task.control = task.control.Children[1]
-                new_task.parents = make([]int, len(task.parents))
-                copy(new_task.parents, task.parents)
-                new_task.fingerprint = make(map[int]int)
-                for k,v := range task.fingerprint {
-                    new_task.fingerprint[k] = v
+                    // append new task to queue
+                    queue <- new_task
                 }
-
-                // set fingerprints
-                task.fingerprint[task.control.int_value] = 0
-                new_task.fingerprint[task.control.int_value] = 1
+            } else{
+                // lock parent
+                parent := task.stack[len(task.stack) - 1]
+                lock := &parent.lock
+                lock.Lock()
                 
-                // increase task count
-                UpTaskCount()
-
-                // append new task to queue
-                queue <- new_task
-                
-                // move to new control
-                task.control = task.control.Children[0]
-            }
-        } else{
-            // lock parent
-            parent := task.stack[len(task.stack) - 1]
-            lock := &parent.lock
-            lock.Lock()
-            
-            // test fingerprint
-            branch, ok := task.fingerprint[task.control.int_value]
+                // test fingerprint
+                branch, ok := task.fingerprint[task.control.int_value]
+                            
+                // use memoization if possible
+                if(ok){
+                    
+                    if(task.id > parent.ot){  
+                        // create copy of parent
+                        new_node := LockedCopyNode(parent)
+                        new_node.ot = task.id
                         
-            // use memoization if possible
-            if(ok){
+                        // replace choice with branch
+                        if(new_node.IsFcall() && new_node.int_value >= 0){
+                            new_node.Children[new_node.int_value] = task.control.Children[branch]
+                        } else{
+                            for i := range(new_node.Children){
+                                if(new_node.GetChild(i) == task.control){
+                                    new_node.Children[i] = task.control.Children[branch]
+                                }
+                            }
+                        }
+                        
+                        // create task result map for parent
+                        if (parent.tr == nil){
+                            parent.tr = make(map[int]*Node)
+                        }
+                        
+                        // update task result map of parent and move to new node
+                        parent.tr[task.id] = new_node
+                        task.control = new_node
+                        task.stack = task.stack[:len(task.stack) - 1]
+                        
+                        lock.Unlock()
+                        continue
+                    } else{
+                        // replace choice with branch
+                        if(parent.IsFcall() && parent.int_value >= 0){
+                            parent.Children[parent.int_value] = task.control.Children[branch]
+                        } else{
+                            for i := range(parent.Children){
+                                if(parent.GetChild(i) == task.control){
+                                    parent.Children[i] = task.control.Children[branch]
+                                }
+                            }
+                        }
+                        
+                        // change control to parent
+                        task.control = parent
+                        task.stack = task.stack[:len(task.stack) - 1]
+                        lock.Unlock()
+                        continue
+                    }
+                }
                 
-                if(task.id > parent.ot){  
-                    // create copy of parent
-                    new_node := LockedCopyNode(parent)
-                    new_node.ot = task.id
-                    
-                    // replace choice with branch
-                    if(new_node.IsFcall() && new_node.int_value >= 0){
-                        new_node.Children[new_node.int_value] = task.control.Children[branch]
-                    } else{
-                        for i := range(new_node.Children){
-                            if(new_node.GetChild(i) == task.control){
-                                new_node.Children[i] = task.control.Children[branch]
-                            }
-                        }
-                    }
-                    
-                    // create task result map for parent
-                    if (parent.tr == nil){
-                        parent.tr = make(map[int]*Node)
-                    }
-                    
-                    // update task result map of parent and move to new node
-                    parent.tr[task.id] = new_node
-                    task.control = new_node
-                    task.stack = task.stack[:len(task.stack) - 1]
-                    
-                    lock.Unlock()
-                    return
-                } else{
-                    // replace choice with branch
-                    if(parent.IsFcall() && parent.int_value >= 0){
-                        parent.Children[parent.int_value] = task.control.Children[branch]
-                    } else{
-                        for i := range(parent.Children){
-                            if(parent.GetChild(i) == task.control){
-                                parent.Children[i] = task.control.Children[branch]
-                            }
-                        }
-                    }
-                    
-                    // change control to parent
+                // move to parent if pulltabbing-step has already been performed by another task
+                if(parent.IsChoice()){
                     task.control = parent
                     task.stack = task.stack[:len(task.stack) - 1]
                     lock.Unlock()
-                    return
+                    continue
                 }
-            }
-            
-            // move to parent if pulltabbing-step has already been performed by another task
-            if(parent.IsChoice()){
-                task.control = parent
-                task.stack = task.stack[:len(task.stack) - 1]
+
+                // perform a pulltabbing-step
+                pullTab(task.control, task.stack[len(task.stack) - 1])
+
+                // move to parent
+                task.PopStack()
                 lock.Unlock()
-                return
             }
-
-            // perform a pulltabbing-step
-            pullTab(task.control, task.stack[len(task.stack) - 1])
-
-            // move to parent
-            task.control = task.stack[len(task.stack) - 1]
-            task.stack = task.stack[:len(task.stack) - 1]
-            lock.Unlock()
+        case EXEMPT:
+            // unlock control node
+            control_lock.Unlock()
+            
             return
-        }
-    case REDIRECT:
-        control_lock.Unlock()
-
-        // follow redirect
-        task.control = task.control.EliminateRedirect()
-    case CONSTRUCTOR:
-        // unlock control node
-        control_lock.Unlock()
-
-        // test if a function was expected
-        if(task.notHnf){
-            // move to parent if possible
-            if(len(task.stack) > 0){
-                task.control = task.stack[len(task.stack) - 1]
-                task.stack = task.stack[:len(task.stack) - 1]
-                return
-            }
+        case REDIRECT:
+            // unlock control node
+            control_lock.Unlock()
             
-            // otherwise, start evaluation to nf
-            task.notHnf = false
-        }
-        
-        // try reading entry from the task result map
-        if(task.control.tr != nil){
+            task.control = task.control.EliminateRedirect()
+        case CONSTRUCTOR, INT_LITERAL, FLOAT_LITERAL, CHAR_LITERAL:
+            // unlock control node
+            control_lock.Unlock()
             
-            node, ok := task.control.GetTr(task.id, task.parents)
-            
-            if(ok){
+            if(task.control.tr != nil){
+                node, ok := task.control.GetTr(task.id, task.parents)
                 
-                // if a parent exists it has to be updated with the new result
-                if(len(task.stack) > 0){
-                    // get and lock parent
+                if(ok){
                     parent := task.stack[len(task.stack) - 1]
                     parent.lock.Lock()
                     
-                    // test if parent has to be copied
                     if(parent.ot < node.ot){
-                        // create copy of parent
                         new_node := LockedCopyNode(parent)
                         new_node.ot = node.ot
                         
-                        // replace children with new result
-                        for i := range new_node.Children{
-                            if(new_node.GetChild(i) == task.control){
-                                new_node.Children[i] = node
-                            }
-                        }
-                        
-                        // create task result map for parent if necessary
                         if(parent.tr == nil){
                             parent.tr = make(map[int]*Node)
                         }
                         
-                        // write new node into parent task result map / stack
+                        for i := range(new_node.Children){
+                            if(new_node.GetChild(i) == task.control){
+                                new_node.Children[i] = node
+                            }
+                        }
                         parent.tr[node.ot] = new_node
                         task.stack[len(task.stack) - 1] = new_node
-                    }else{
-                        // update children of parent in place
-                        for i := range parent.Children{
+                    } else{
+                        for i := range(parent.Children){
                             if(parent.GetChild(i) == task.control){
                                 parent.Children[i] = node
                             }
                         }
                     }
-                    
-                    // unlock parent
                     parent.lock.Unlock()
+                    task.control = node
+                    continue
                 }
-                
-                // move to entry
-                task.control = node
-                return
             }
-        }
-
-        // test if Children need to be evaluated
-        for i := range task.control.Children{
-            // get child
-            child := task.control.GetChild(i)
-
-            // set control to child if necessary
-            if(!child.IsNF() && !child.IsPartial()){
-                task.stack = append(task.stack, task.control)
-                task.control = task.control.Children[i]
-                return
-            }
-        }
-
-        // evaluate control node
-        task.control.evaluated = true
-
-        // if the stack is not empty, move to parent
-        if(len(task.stack) > 0){
-            task.control = task.stack[len(task.stack) - 1]
-            task.stack = task.stack[:len(task.stack) - 1]
-        }
-    case INT_LITERAL, FLOAT_LITERAL, CHAR_LITERAL:
-        // unlock node
-        control_lock.Unlock()
-
-        // set node to evaluated
-        task.control.evaluated = true
-        
-        // move to parent if possible
-        if(len(task.stack) > 0){
-            task.control = task.stack[len(task.stack) - 1]
-            task.stack = task.stack[:len(task.stack) - 1]
+            
+            task.PopStack()
         }
     }
+}
+
+func toNf(task *Task){
+    root := task.GetControl()
+    x1 := root.GetChild(0)
+    
+    if(x1.IsFree()){
+        task.ToHNF(x1)
+        return
+    }
+    
+    if (len(x1.Children) == 0){
+        RedirectCreate(root, x1)
+        return
+    }
+    
+    root.function = nfArgs
+    root.int_value = 0
+    root.Children = root.Children[:0]
+    for i := range(x1.Children){
+        root.Children = append(root.Children, NfCreate(task.NewNode(), x1.Children[i]))
+    }
+    root.Children = append(root.Children, x1)
+    root.number_args = len(x1.Children) + 1
+    root.name = "ArgsToNf"
+}
+
+func nfArgs(task *Task){
+    root := task.GetControl()
+    
+    if (root.int_value == root.number_args-2){
+        x1 := root.Children[len(root.Children) - 1]
+        root.node_type = x1.node_type
+        root.int_value = x1.int_value
+        root.name = x1.name
+        root.ot = x1.ot
+        root.Children = root.Children[:len(root.Children) - 1]
+        return
+    }
+    
+    root.int_value += 1
 }
 
 // Evaluates a graph to normal form.
@@ -477,7 +462,7 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
 
     // create a task for the root node
     var first_task Task
-    first_task.control = root
+    first_task.control = NfCreate(new(Node), root)
     first_task.fingerprint = make(map[int]int)    
 
     // write task to the queue
@@ -486,9 +471,10 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
     // call function implementing the search strategy
     switch search_strat{
     case DFS:
-        go dfs()
+        go singleRoutineSearch()
     case BFS:
-        go bfs()
+        use_bfs = true
+        go singleRoutineSearch()
     case FS:
         go fsTaskHandler(max_tasks)
     }
@@ -532,8 +518,9 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
     }
 }
 
-// Implementation of a depth-first search to evaluate a task.
-func dfs(){
+// Evaluation loop for a search-strategy executing
+// in a single routine.
+func singleRoutineSearch(){
     // set first task as current task
     cur_task := <- queue
 
@@ -542,19 +529,13 @@ func dfs(){
         //printDebug(cur_task.control, cur_task.id, cur_task.parents)
         //fmt.Println()
         //printResult(cur_task.control)
-        //fmt.Println("\n")
+        //afmt.Println("\n")
 
         // perform a step
-        evalStep(&cur_task)
+        toHnf(&cur_task)
 
         // test the task state
-        if(cur_task.control.evaluated){
-            if(len(cur_task.stack) > 0){
-                cur_task.control = cur_task.stack[len(cur_task.stack) - 1]
-                cur_task.stack = cur_task.stack[: len(cur_task.stack) - 1]
-                continue
-            }
-        
+        if(cur_task.control.IsHNF() && len(cur_task.stack) == 0){
             // return result if control is evaluated
             result_chan <- cur_task.control
 
@@ -581,36 +562,6 @@ func dfs(){
     }
 }
 
-// Implementation of a breadth-first search to evaluate a task.
-func bfs(){
-    // loop until done
-    for{
-        // try to select a task from the queue
-        select{
-        case t := <-queue:
-
-            // perform a step
-            evalStep(&t)
-
-            // test the task state
-            if (t.control.evaluated && len(t.stack) == 0) {
-                // return result if control is evaluated
-                result_chan <- t.control
-
-                continue
-            } else if (t.control.node_type == EXEMPT){
-                // continue without the task on an exempt node
-                continue
-            }
-            // add task back to end of queue
-            queue <- t
-        default:
-            // return if queue is empty
-            close(result_chan)
-            return
-        }   
-    }    
-}
 
 // Handles the evaluation of a task in a fair search.
 // task is the task to start the evaluation on.
@@ -618,13 +569,13 @@ func fsRoutine(task Task){
     // loop until done
     for{
         // perform an evaluation step
-        evalStep(&task)
+        toHnf(&task)
         
         // lock control node
         task.control.lock.Lock()
         
         // test the task state
-        if(task.control.evaluated && len(task.stack) == 0){
+        if(task.control.IsHNF() && len(task.stack) == 0){
             // return result if control is evaluated
             result_chan <- task.control
             task.control.lock.Unlock()
@@ -771,7 +722,6 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
 
     new_node.number_args = node.number_args
     new_node.name = node.name
-    new_node.evaluated = node.evaluated
     new_node.ot = node.ot
 
     // create new choice-identifier for choice nodes

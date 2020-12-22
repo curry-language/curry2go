@@ -17,7 +17,6 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
     root.int_value = constructor
     root.name = name
     root.number_args = num_args
-    root.evaluated = false
     root.Children = append(root.Children, args...)
     root.node_type = CONSTRUCTOR
     return root
@@ -35,7 +34,6 @@ func FuncCreate(root *Node, function func(*Task), name string, number_args int, 
     root.function = function
     root.number_args = number_args
     root.name = name
-    root.evaluated = false
     root.int_value = demanded_args
     root.Children = append(root.Children, args...)
     root.node_type = FCALL
@@ -46,7 +44,6 @@ func FuncCreate(root *Node, function func(*Task), name string, number_args int, 
 // Returns a pointer to the updated root.
 func RedirectCreate(root, x1 *Node)(*Node){
     root.Children = root.Children[:0]
-    root.evaluated = false
     root.Children = append(root.Children, x1)
     root.node_type = REDIRECT
     return root
@@ -57,7 +54,6 @@ func RedirectCreate(root, x1 *Node)(*Node){
 func ChoiceCreate(root, x1, x2 *Node)(*Node){
     root.Children = root.Children[:0]
     root.int_value = NextChoiceId()
-    root.evaluated = false
     root.Children = append(root.Children, x1, x2)
     root.node_type = CHOICE
     return root
@@ -68,7 +64,6 @@ func ChoiceCreate(root, x1, x2 *Node)(*Node){
 func ExemptCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
     root.node_type = EXEMPT
-    root.evaluated = false
     return root
 }
 
@@ -78,7 +73,6 @@ func IntLitCreate(root *Node, value int)(*Node){
     root.Children = root.Children[:0]
     root.node_type = INT_LITERAL
     root.int_value = value
-    root.evaluated = true
     return root
 }
 
@@ -88,7 +82,6 @@ func FloatLitCreate(root *Node, value float64)(*Node){
     root.Children = root.Children[:0]
     root.node_type = FLOAT_LITERAL
     root.float_literal = value
-    root.evaluated = true
     return root
 }
 
@@ -98,7 +91,6 @@ func CharLitCreate(root *Node, value rune)(*Node){
     root.Children = root.Children[:0]
     root.node_type = CHAR_LITERAL
     root.char_literal = value
-    root.evaluated = true
     return root
 }
 
@@ -117,6 +109,10 @@ func FreeCreate(root *Node)(*Node){
 func IOCreate(root *Node, child *Node)(*Node){
     ConstCreate(root, 0, 1, "IO", child)
     return root
+}
+
+func NfCreate(root, arg *Node) *Node{
+    return FuncCreate(root, toNf, "toNf", 1, 0, arg)  
 }
 
 // Creates a list containing elements starting at root.
@@ -331,10 +327,6 @@ func (node *Node) IsHNF() bool {
     return (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit())
 }
 
-func (node *Node) IsNF() bool{
-    return node.evaluated
-}
-
 // Searches the task result map of node for entries
 // with the key id or any key from parents.
 // If a matching entry is found it and true is returned.
@@ -379,7 +371,6 @@ func (task *Task) NewNode() *Node{
 // might have to be called repeatedly.
 // Should only be used in external functions.
 func (task *Task) ToHNF(node *Node){
-    task.notHnf = true
     task.stack = append(task.stack, task.control)
     task.stack = append(task.stack, node)
 }
@@ -391,7 +382,6 @@ func (task *Task) ToHNF(node *Node){
 // might have to be called repeatedly.
 // Should only be used in external functions.
 func (task *Task) ToNF(node *Node){
-    task.notHnf = false
     task.stack = append(task.stack, task.control)
     task.stack = append(task.stack, node)
 }
@@ -399,6 +389,17 @@ func (task *Task) ToNF(node *Node){
 // Do not share a child of the control node.
 func (task *Task) NoShare(index int){
     task.control.Children[index] = CopyNode(task.control.Children[index])
+}
+
+func (task *Task) PopStack(){
+    if(len(task.stack) > 0){
+        task.control = task.stack[len(task.stack) - 1]
+        task.stack = task.stack[:len(task.stack) - 1]
+    }
+}
+
+func (task *Task) MoveTo(child int){
+    task.control = task.control.Children[child]
 }
 
 // Benchmark //

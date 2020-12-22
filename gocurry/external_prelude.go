@@ -29,12 +29,9 @@ func ExternalPrelude_DolExclExcl(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(1)
     
-    if(!x1.IsNF()){
-        task.ToNF(x1)
-        return
-    }
-
-    ExternalPrelude_apply(task)
+    root.SetChild(1, NfCreate(task.NewNode(), x1))
+    
+    Prelude_DolExclCreate(root, root.Children...)
 }
 
 func ExternalPrelude_DolHashHash(task *Task){
