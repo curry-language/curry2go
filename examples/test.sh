@@ -58,6 +58,11 @@ PROGRAMS="NDNums Strategy"
 CGOPTS="-r --bfs --first"
 testall TESTBFS.txt
 
+# Tests where fair strategy is relevant:
+PROGRAMS="FairSearch"
+CGOPTS="-r --fs --first"
+testall TESTFS.txt
+
 exit
 
 # Tests with functional patterns:
