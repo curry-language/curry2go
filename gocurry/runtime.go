@@ -3,6 +3,8 @@ package gocurry
 import "sync"
 import "fmt"
 
+////// Definitions of types
+
 // Enumeration of node types
 type NodeType uint8
 const(
@@ -48,6 +50,8 @@ type Task struct{
     fingerprint map[int]int
 }
 
+////// Declarations for choice-id generation
+
 // Variable to generate unique ids for choice-nodes
 var nextId = 0
 
@@ -56,6 +60,8 @@ func NextChoiceId() int {
     nextId += 1
     return nextId
 }
+
+////// Declarations for task-id generation
 
 // Channel saving number of created tasks
 var taskCount chan int
@@ -74,6 +80,8 @@ func UpTaskCount(){
     taskCount <- count
 }
 
+////// Global variables
+
 // flag indicating whether or not to use bfs
 var use_bfs = false
 
@@ -83,45 +91,38 @@ var queue = make(chan Task, 1000000)
 // channel to pass results
 var result_chan = make(chan *Node, 0)
 
-// channel to signal ending of search
+// channel to signal end of search
 var done_chan = make(chan bool, 0)
 
-// Handles panics thrown by prim_error
-func errorHandler(task *Task){
-    // get error
-    if err := recover(); err != nil{
-        // test for catch call in stack
-        for i := len(task.stack) - 1; i >= 0; i--{
-            // if there is a catch continue
-            if(task.stack[i].IsFcall() && task.stack[i].name == "Prelude_catch"){
-                // move back to catch call
-                task.control = task.stack[i]
-                task.stack = task.stack[:i]
-                
-                // set first argument of catch to error
-                task.control.SetChild(0, Prelude_IOErrorCreate(new(Node), StringCreate(new(Node), err.(string))))
-                return
-            }
-        }
-        // throw error again
-        panic(err)
-    }
-}
+////// Task evaluation functions
 
+// Evaluates a task to head-normalform.
+// Returns when the control node is an
+// exempt node or in hnf or an
+// error is caught by catch.
+// task is the task to evaluate.
 func toHnf(task *Task){
     
+    // defer error handler
     defer errorHandler(task)
     
     for{
-        // lock control node for switch
+        // lock control node
         control_lock := &task.control.lock
         control_lock.Lock()
         
-        if(len(task.stack) == 0 && task.control.IsHNF()){
+        // return if evaluation is done
+        if(len(task.stack) == 0 && (task.control.IsHNF() || task.control.LockedIsPartial())){
             control_lock.Unlock()
             return
         }
         
+        //printDebug(task.control, task.id, task.parents)
+        //fmt.Println()
+        //printResult(task.control)
+        //fmt.Println("\n")
+        
+        // evluate node depending on the node type
         switch task.control.node_type {
         case FCALL:
             // check if task result map exists
@@ -190,10 +191,7 @@ func toHnf(task *Task){
             if(task.control.LockedIsPartial()){
 
                 // if the stack is not empty, move to parent
-                if(len(task.stack) > 0){
-                    task.control = task.stack[len(task.stack) - 1]
-                    task.stack = task.stack[:len(task.stack) - 1]
-                }
+                task.PopStack()
 
                 // unlock control node
                 control_lock.Unlock()
@@ -208,8 +206,7 @@ func toHnf(task *Task){
                 
                 // if the child needs to be evaluated, put it in control
                 if (!child.IsHNF()){
-                    task.stack = append(task.stack, task.control)
-                    task.control = child
+                    task.MoveTo(task.control.int_value)
                     control_lock.Unlock()
                     continue
                 }
@@ -217,12 +214,9 @@ func toHnf(task *Task){
 
             // call the function
             task.control.function(task)
-
-            // if the stack is not empty, move to parent
-            if(len(task.stack) > 0){
-                task.control = task.stack[len(task.stack) - 1]
-                task.stack = task.stack[:len(task.stack) - 1]
-            }
+            
+            // move to parent
+            task.PopStack()
 
             // unlock control node
             control_lock.Unlock()
@@ -269,6 +263,7 @@ func toHnf(task *Task){
                     // move to new control
                     task.control = task.control.Children[0]
                     
+                    // change task on bfs
                     if(use_bfs){
                         queue <- *task
                         *task = <- queue
@@ -366,52 +361,65 @@ func toHnf(task *Task){
             // unlock control node
             control_lock.Unlock()
             
+            // if task result map exists, check for an entry
             if(task.control.tr != nil){
                 node, ok := task.control.GetTr(task.id, task.parents)
                 
+                // if an entry exists, update parent
                 if(ok){
                     parent := task.stack[len(task.stack) - 1]
                     parent.lock.Lock()
                     
+                    // if parent is older, cannot update in place
                     if(parent.ot < node.ot){
+                        // copy parent
                         new_node := LockedCopyNode(parent)
                         new_node.ot = node.ot
                         
+                        // create task result map for parent
                         if(parent.tr == nil){
                             parent.tr = make(map[int]*Node)
                         }
                         
+                        // update children of copy
                         for i := range(new_node.Children){
                             if(new_node.GetChild(i) == task.control){
                                 new_node.Children[i] = node
                             }
                         }
+                        
+                        // replace parent with copy
                         parent.tr[node.ot] = new_node
                         task.stack[len(task.stack) - 1] = new_node
                     } else{
+                        // update parent in place
                         for i := range(parent.Children){
                             if(parent.GetChild(i) == task.control){
                                 parent.Children[i] = node
                             }
                         }
                     }
+                    
+                    // move to task result map entry
                     parent.lock.Unlock()
                     task.control = node
                     continue
                 }
             }
             
+            // pop stack
             task.PopStack()
         }
     }
 }
 
+// Evaluates its child to normalform
 func toNf(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     if(x1.IsFree()){
-        task.ToHNF(x1)
+        task.ToHnf(x1)
         return
     }
     
@@ -420,20 +428,28 @@ func toNf(task *Task){
         return
     }
     
+    // Evaluate arguments to normalform with nfArgs
     root.function = nfArgs
     root.int_value = 0
+    root.name = "ArgsToNf"
     root.Children = root.Children[:0]
+    
+    // wrap children with toNf
     for i := range(x1.Children){
         root.Children = append(root.Children, NfCreate(task.NewNode(), x1.Children[i]))
     }
+    
+    // save current constructor as function argument
     root.Children = append(root.Children, x1)
     root.number_args = len(x1.Children) + 1
-    root.name = "ArgsToNf"
 }
 
+// Helper function to evaluate all
+// children of a node to normalform.
 func nfArgs(task *Task){
     root := task.GetControl()
     
+    // if every argument has been evaluated to normalform return original constructor
     if (root.int_value == root.number_args-2){
         x1 := root.Children[len(root.Children) - 1]
         root.node_type = x1.node_type
@@ -444,16 +460,19 @@ func nfArgs(task *Task){
         return
     }
     
+    // evaluate next argument to normalform
     root.int_value += 1
 }
 
-// Evaluates a graph to normal form.
+////// Declarations for search strategies
+
+// Evaluates a graph.
 // root is the root node of the graph to be evaluated.
 // If interactive is set, the user can decide to stop or continue
 // the search after every result.
 // search_strat is the search strategy to be used.
 // max_results is the maximum number of results to be computed.
-// max_tasks is the maximum number of threads that can be used in a concurrent execution.
+// max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
 func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_results int, max_tasks int){
 
     // initialize task count
@@ -518,78 +537,45 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
     }
 }
 
-// Evaluation loop for a search-strategy executing
+// Evaluation loop for a search-strategies executing
 // in a single routine.
 func singleRoutineSearch(){
     // set first task as current task
-    cur_task := <- queue
+    task := <- queue
 
     // loop until done
     for{
-        //printDebug(cur_task.control, cur_task.id, cur_task.parents)
-        //fmt.Println()
-        //printResult(cur_task.control)
-        //afmt.Println("\n")
-
-        // perform a step
-        toHnf(&cur_task)
-
-        // test the task state
-        if(cur_task.control.IsHNF() && len(cur_task.stack) == 0){
-            // return result if control is evaluated
-            result_chan <- cur_task.control
-
-            // select next task from queue
-            select{
-            case cur_task = <-queue:
-            
-            default:
-                // if the queue is empty, end search
-                close(result_chan)
-                return
-            }   
-        } else if (cur_task.control.node_type == EXEMPT){
-            // move to next task in queue on an exempt node
-            select{
-            case cur_task = <-queue:
-
-            default:
-                // if the queue is empty, end search
-                close(result_chan)
-                return
-            }    
+        // perform evaluation to hnf
+        toHnf(&task)
+        
+        // write result if one was computed
+        if (!task.control.IsExempt()){
+            result_chan <- task.control
+        }
+        
+        // continue with next task or finish
+        select{
+        case task = <- queue:
+        
+        default:
+            close(result_chan)
+            return
         }
     }
 }
 
 
 // Handles the evaluation of a task in a fair search.
-// task is the task to start the evaluation on.
+// task is the task to evaluate.
 func fsRoutine(task Task){
-    // loop until done
-    for{
-        // perform an evaluation step
-        toHnf(&task)
+    // perform evaluation to hnf
+    toHnf(&task)
         
-        // lock control node
-        task.control.lock.Lock()
-        
-        // test the task state
-        if(task.control.IsHNF() && len(task.stack) == 0){
-            // return result if control is evaluated
-            result_chan <- task.control
-            task.control.lock.Unlock()
-            break
-        } else if(task.control.node_type == EXEMPT){
-            // finish if control is an exempt node
-            task.control.lock.Unlock()
-            break
-        }
-        
-        // unlock control node
-        task.control.lock.Unlock()
+    // write result if one was computed
+    if(!task.control.IsExempt()){
+        result_chan <- task.control   
     }
-
+    
     // finish
     done_chan <- false
 }
@@ -638,6 +624,31 @@ func fsTaskHandler(max_tasks int){
                 }
             }
         }
+    }
+}
+
+////// Declarations of other helpful functions
+
+// Handles panics thrown by prim_error
+func errorHandler(task *Task){
+    // get error
+    if err := recover(); err != nil{
+        // test for catch call in stack
+        for i := len(task.stack) - 1; i >= 0; i--{
+            // if there is a catch continue
+            if(task.stack[i].IsFcall() && task.stack[i].name == "Prelude_catch"){
+                // move back to catch call
+                task.control = task.stack[i]
+                task.stack = task.stack[:i]
+                
+                // set first argument of catch to error
+                task.control.SetChild(0, Prelude_IOErrorCreate(new(Node), StringCreate(new(Node), err.(string))))
+                toHnf(task)
+                return
+            }
+        }
+        // throw error again
+        panic(err)
     }
 }
 

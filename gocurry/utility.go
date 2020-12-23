@@ -4,13 +4,13 @@ import "fmt"
 import "time"
 import "regexp"
 
-// Functions to create specific types of nodes. //
+////// Functions to create specific types of nodes
 
 // Sets root to a constructor node.
 // num_args is the number of arguments the constructor expects.
 // constructor is the number given to the constructor by icurry.
 // name is the constructor name as a string for printing.
-// Every pointer in args is added to the constructor Children.
+// Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, num_args int, name string, args ...*Node)(*Node){
     root.Children = root.Children[:0]
@@ -27,7 +27,7 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
 // name is the function name as a string for printing.
 // number_args are the total number of arguments the function expects.
 // demanded_args is a integers representing the position of an argument which have to be evaluated.
-// Every pointer in args is added to the function Children.
+// Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args int, args ...*Node)(*Node){
     root.Children = root.Children[:0]
@@ -111,6 +111,9 @@ func IOCreate(root *Node, child *Node)(*Node){
     return root
 }
 
+// Sets root to a function that evaluates
+// its argument to normalform.
+// Returns a pointer to the updated root.
 func NfCreate(root, arg *Node) *Node{
     return FuncCreate(root, toNf, "toNf", 1, 0, arg)  
 }
@@ -184,7 +187,7 @@ func ReadString(root *Node)(result string){
     return
 }
 
-// Methods on nodes //
+////// Methods on nodes
 
 func (node *Node) GetNumChildren() int{
     return len(node.Children)
@@ -351,7 +354,7 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     return node, false
 }
 
-// Methods on tasks //
+////// Methods on tasks
 
 
 func (task *Task) GetControl() *Node{
@@ -370,18 +373,7 @@ func (task *Task) NewNode() *Node{
 // after every call and the method
 // might have to be called repeatedly.
 // Should only be used in external functions.
-func (task *Task) ToHNF(node *Node){
-    task.stack = append(task.stack, task.control)
-    task.stack = append(task.stack, node)
-}
-
-// Forces the evaluation of a node to NF.
-// Doesn't guarantee the node is in NF after one
-// call. The check for NF has to be done
-// after every call and the method
-// might have to be called repeatedly.
-// Should only be used in external functions.
-func (task *Task) ToNF(node *Node){
+func (task *Task) ToHnf(node *Node){
     task.stack = append(task.stack, task.control)
     task.stack = append(task.stack, node)
 }
@@ -391,6 +383,8 @@ func (task *Task) NoShare(index int){
     task.control.Children[index] = CopyNode(task.control.Children[index])
 }
 
+// Takes the top entry from the stack
+// and sets it as the task control node.
 func (task *Task) PopStack(){
     if(len(task.stack) > 0){
         task.control = task.stack[len(task.stack) - 1]
@@ -398,11 +392,15 @@ func (task *Task) PopStack(){
     }
 }
 
-func (task *Task) MoveTo(child int){
-    task.control = task.control.Children[child]
+// Puts the current control node onto the stack
+// and sets the control node to the
+// specified child.
+func (task *Task) MoveTo(index int){
+    task.stack = append(task.stack, task.control)
+    task.control = task.control.Children[index]
 }
 
-// Benchmark //
+/////// Benchmark
 
 func Benchmark(node *Node, count int, search_strat SearchStrat, max_results int, max_tasks int){
 
@@ -429,7 +427,7 @@ func Benchmark(node *Node, count int, search_strat SearchStrat, max_results int,
     fmt.Printf("Average time: %fs\n", avg)
 }
 
-// Print functions //
+////// Print functions
 
 // Prints a node and all its children in a
 // parenthesized prefix notation.
