@@ -7,11 +7,13 @@ main = diamond 10
 diamond :: Int -> IO ()
 diamond n = lineloop1 1 1 >> lineloop2 1 (n*n-n+2)  where
 
- lineloop1 i j = if i<=n then line j i >> lineloop1 (i+1) (j+n) else done
+ lineloop1 i j = if i<=n then line j i >> lineloop1 (i+1) (j+n)
+                         else return ()
 
- lineloop2 i j = if i<n then line j (n-i) >> lineloop2 (i+1) (j+1) else done
+ lineloop2 i j = if i<n then line j (n-i) >> lineloop2 (i+1) (j+1)
+                        else return ()
 
- line s e = tab((n-e)*(size(n*n)+1)) >> lineloop 1 s
+ line s e = tab ((n-e) * (size(n*n) + 1)) >> lineloop 1 s
    where
       lineloop i t =
              if i<=e
@@ -22,7 +24,7 @@ diamond n = lineloop1 1 1 >> lineloop2 1 (n*n-n+2)  where
 
 
 tab :: Int -> IO ()
-tab n = if n==0 then done else putChar ' ' >> tab (n-1)
+tab n = if n==0 then return () else putChar ' ' >> tab (n-1)
 
 -- number of characters for the string representation of a number:
 size :: Int -> Int

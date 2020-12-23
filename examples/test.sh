@@ -47,11 +47,16 @@ testall() {
   fi
 }
 
-
 # Tests
-PROGRAMS="Colormap Data FreeBool Half InfList NonDet Perm PermSort Rev Xor Zip"
+PROGRAMS="Colormap ColormapFree Data Fac FreeBool Half Higher Last InfList NonDet Perm PermSort Rev Xor Zip"
+# currently not working: CaseLiteral
 CGOPTS="-r"
 testall TESTDFS.txt
+
+# Tests where BFS strategy is relevant:
+PROGRAMS="NDNums Strategy"
+CGOPTS="-r --bfs --first"
+testall TESTBFS.txt
 
 exit
 
@@ -59,8 +64,3 @@ exit
 PROGRAMS="FunPatsLast FunPatsPali FunPatsExpSimp FunPatsExpVar"
 CGOPTS="-r"
 testall TESTFUNPATS.txt
-
-# Tests where BFS strategy is relevant:
-PROGRAMS="NDNums Strategy"
-CGOPTS="-r --bfs --first"
-testall TESTBFS.txt

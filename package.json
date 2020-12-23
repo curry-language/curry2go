@@ -7,6 +7,7 @@
   "license": "BSD-3-Clause",
   "licenseFile": "LICENSE",
   "dependencies": {
+    "base"     : ">=3.0.0, <4.0.0",
     "icurry"   : ">=3.1.0, <4.0.0",
     "flatcurry": ">=3.0.0, <4.0.0",
     "currypath": ">=0.0.1",
