@@ -205,7 +205,7 @@ func toHnf(task *Task){
 	            child := task.control.GetChild(task.control.int_value)
                 
                 // if the child needs to be evaluated, put it in control
-                if (!child.IsHNF()){
+                if (!child.IsHNF() && !child.IsPartial()){
                     task.MoveTo(task.control.int_value)
                     control_lock.Unlock()
                     continue
