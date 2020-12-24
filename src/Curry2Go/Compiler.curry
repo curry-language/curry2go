@@ -28,6 +28,8 @@ data CGOptions = CGOptions
   , time       :: Bool         -- measure execution time
   , times      :: Int          -- number of runs to average execution time over
   , interact   :: Bool         -- interactive result printing
+  , mainName   :: String       -- name of the function to run as main
+  , onlyHnf      :: Bool         -- only compute hnf
   }
 
 --- Default options.
@@ -43,6 +45,8 @@ defaultCGOptions = CGOptions
   , time       = False
   , times      = 1
   , interact   = False
+  , mainName   = "main"
+  , onlyHnf      = False
   }
 
 --- Data type for search strategies.
@@ -92,8 +96,8 @@ var n = GoOpName (varName n)
 --- @param opts  - compiler options 
 createMainProg :: [IFunction] -> CGOptions -> GoProg
 createMainProg [] _ = error "No main function found!"
-createMainProg (x:xs) opts = case x of
- (IFunction name@(modName, "main",_) _ _ _ _) -> GoProg "main" 
+createMainProg ((IFunction name@(modName, fname,_) _ _ _ _):xs) opts
+  | fname == mainName opts = GoProg "main" 
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
   (GoFuncDecl "main" [] []
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2Go opts name ++ "Create"))
@@ -102,9 +106,9 @@ createMainProg (x:xs) opts = case x of
     (GoOpName (runtime ++ if time opts then ".Benchmark" else ".Evaluate"))
     ((if time opts then [GoOpName "node", GoIntLit (times opts)] 
                    else [GoOpName "node", GoBoolLit (interact opts)])
-    ++ [GoOpName (runtime ++ "." ++ (show (strat opts)))
+    ++ [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
     , GoIntLit (maxResults opts), GoIntLit (maxTasks opts)]))])]
- _                        -> createMainProg xs opts
+ | otherwise = createMainProg xs opts
 
 --- Creates a string in Go syntax from an IProg.
 --- @param opts     - compiler options

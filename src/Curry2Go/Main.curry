@@ -120,29 +120,36 @@ options :: [OptDescr (CGOptions -> CGOptions)]
 options = 
   [ Option "h?" ["help"]
     (NoArg (\opts -> opts {help = True})) "print help and exit"
-  , Option ""   ["nomain"] 
-    (NoArg (\opts -> opts {genMain = False})) "don't generate a main package"
+  , Option "" ["dfs"]
+    (NoArg (\opts -> opts {strat = DFS})) "use depth first search (default)"
   , Option ""   ["bfs"]
     (NoArg (\opts -> opts {strat = BFS})) "use breadth first search"
   , Option ""   ["fs"]
     (OptArg (maybe (\opts -> opts {strat = FS}) 
     (\s opts -> opts {strat = FS, maxTasks = (safeRead (reads s))})) "<n>") 
-    "use fair search. n = maximum number of concurrent computations. (0 = infinite)"
-  , Option "n" ["results"] 
-    (ReqArg (\s opts -> opts {maxResults = (safeRead (reads s))}) "<n>")
-    "maximum number of results. (0 = infinite)"
+    "use fair search\nn = maximum number of concurrent computations (default: 0 = infinite)"
   , Option "r" ["run"]
     (NoArg (\opts -> opts {run = True})) "run the program after compilation"
   , Option "t" ["time"]
     (OptArg (maybe (\opts -> opts {time = True})
     (\s opts -> opts {time = True, times = (safeRead (reads s))})) "<n>")
-    "Average the time over the number of runs n."
-  , Option "i" ["interactive"]
-    (NoArg (\opts -> opts {interact = True}))
-    "Interactive result printing"
+    "print execution time\nn>1: average over runs n"
   , Option "" ["first"]
     (NoArg (\opts -> opts {maxResults = 1}))
-    "Stop evaluation after the first result"
+    "stop evaluation after the first result"
+  , Option "n" ["results"] 
+    (ReqArg (\s opts -> opts {maxResults = (safeRead (reads s))}) "<n>")
+    "set maximum number of results to be computed (default: 0 = infinite)"
+  , Option "i" ["interactive"]
+    (NoArg (\opts -> opts {interact = True}))
+    "interactive result printing (ask to print next result)"
+  , Option ""   ["nomain"]
+    (NoArg (\opts -> opts {genMain = False})) "do not generate a main package"
+  , Option "m" ["main"]
+    (ReqArg (\s opts -> opts {mainName = s}) "<f>")
+    "set name of main function to f (default: main)"
+  , Option "" ["hnf"]
+    (NoArg (\opts -> opts {onlyHnf = True})) "only compute hnf"
   ]
  where
   safeRead result = case result of
