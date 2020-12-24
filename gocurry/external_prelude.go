@@ -35,7 +35,7 @@ func ExternalPrelude_DolExcl(task *Task){
     x1 := root.GetChild(1)
     
     // evaluate argument to hnf
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }
@@ -82,7 +82,7 @@ func ExternalPrelude_cond(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }
@@ -104,7 +104,7 @@ func ExternalPrelude_And(task *Task){
     x2 := root.GetChild(1)
     
     // evaluate first argument
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }
@@ -116,7 +116,7 @@ func ExternalPrelude_And(task *Task){
     }
     
     // evaluate second argument
-    if(!x2.IsHNF()){
+    if(!x2.IsHnf()){
         task.ToHnf(x2)
         return
     } 
@@ -139,12 +139,12 @@ func ExternalPrelude_constrEq(task *Task){
     x2 := root.GetChild(1)
     
     // evaluate children to hnf
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }
     
-    if(!x2.IsHNF()){
+    if(!x2.IsHnf()){
         task.ToHnf(x2)
         return
     }
@@ -262,7 +262,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
     x1 := root.GetChild(0)
     
     // evaluate first child to HNF
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }
@@ -287,7 +287,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
     }
     
     // evaluate second child
-    if(!x2.IsHNF()){
+    if(!x2.IsHnf()){
         task.ToHnf(x2)
         return
     }
@@ -993,7 +993,7 @@ func ExternalPrelude_catch(task *Task){
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
 
-    if(!x1.IsHNF()){
+    if(!x1.IsHnf()){
         task.ToHnf(x1)
         return
     }

@@ -112,7 +112,7 @@ func toHnf(task *Task){
         control_lock.Lock()
         
         // return if evaluation is done
-        if(len(task.stack) == 0 && (task.control.IsHNF() || task.control.LockedIsPartial())){
+        if(len(task.stack) == 0 && (task.control.IsHnf() || task.control.LockedIsPartial())){
             control_lock.Unlock()
             return
         }
@@ -205,7 +205,7 @@ func toHnf(task *Task){
 	            child := task.control.GetChild(task.control.int_value)
                 
                 // if the child needs to be evaluated, put it in control
-                if (!child.IsHNF() && !child.IsPartial()){
+                if (!child.IsHnf()){
                     task.MoveTo(task.control.int_value)
                     control_lock.Unlock()
                     continue
@@ -423,7 +423,8 @@ func toNf(task *Task){
         return
     }
     
-    if (len(x1.Children) == 0){
+    // return if argument is in normalform
+    if (len(x1.Children) == 0 || x1.IsPartial()){
         RedirectCreate(root, x1)
         return
     }
@@ -441,7 +442,7 @@ func toNf(task *Task){
     
     // save current constructor as function argument
     root.Children = append(root.Children, x1)
-    root.number_args = len(x1.Children) + 1
+    root.number_args = len(root.Children)
 }
 
 // Helper function to evaluate all
@@ -450,7 +451,7 @@ func nfArgs(task *Task){
     root := task.GetControl()
     
     // if every argument has been evaluated to normalform return original constructor
-    if (root.int_value == root.number_args-2){
+    if (root.int_value == len(root.Children)-2){
         x1 := root.Children[len(root.Children) - 1]
         root.node_type = x1.node_type
         root.int_value = x1.int_value

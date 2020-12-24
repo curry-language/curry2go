@@ -13,11 +13,12 @@ import "regexp"
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, num_args int, name string, args ...*Node)(*Node){
+    root.number_args = 0
     root.Children = root.Children[:0]
     root.int_value = constructor
     root.name = name
-    root.number_args = num_args
     root.Children = append(root.Children, args...)
+    root.number_args = num_args
     root.node_type = CONSTRUCTOR
     return root
 }
@@ -30,12 +31,13 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args int, args ...*Node)(*Node){
+    root.number_args = 0
     root.Children = root.Children[:0]
     root.function = function
     root.number_args = number_args
     root.name = name
-    root.int_value = demanded_args
     root.Children = append(root.Children, args...)
+    root.int_value = demanded_args
     root.node_type = FCALL
     return root
 }
@@ -326,8 +328,8 @@ func (node *Node) LockedIsPartial() bool{
     return false
 }
 
-func (node *Node) IsHNF() bool {
-    return (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit())
+func (node *Node) IsHnf() bool {
+    return (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit() || node.LockedIsPartial())
 }
 
 // Searches the task result map of node for entries
