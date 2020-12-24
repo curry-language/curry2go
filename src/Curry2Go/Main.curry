@@ -89,15 +89,15 @@ curry2Go inp opts = do
   compile (goStruct {compProg = compileIProg2GoString opts}) (stripCurrySuffix inp)
   IProg moduleName _ _ funcs <- (icCompile (defaultICOptions {optVerb=0}) (stripCurrySuffix inp))
   when (genMain opts) (putStrLn "Generating Main"
-    >> (writeFile (".gocurry/" ++ removeDots moduleName ++ "Main.go")
+    >> (writeFile (".gocurry/" ++ removeDots moduleName ++ ".go")
       (showGoProg (createMainProg funcs (opts {modName = "main"})))))
   putStrLn "Saved to ./.gocurry!"
   if (run opts) then do
     putStrLn "Building..."
-    i <- system ("go build .gocurry/" ++ removeDots moduleName ++ "Main.go")
+    i <- system ("go build .gocurry/" ++ removeDots moduleName ++ ".go")
     when (i /= 0) (error "Build failed!")
     putStrLn "Running..."
-    system ("./" ++ removeDots moduleName ++ "Main")
+    system ("./" ++ removeDots moduleName)
     return ()
                 else return ()
 
