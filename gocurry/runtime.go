@@ -474,7 +474,7 @@ func nfArgs(task *Task){
 // search_strat is the search strategy to be used.
 // max_results is the maximum number of results to be computed.
 // max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
-func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_results int, max_tasks int){
+func Evaluate(root *Node, interactive bool, onlyHnf bool, search_strat SearchStrat, max_results int, max_tasks int){
 
     // initialize task count
     taskCount = make(chan int, 1)
@@ -482,7 +482,11 @@ func Evaluate(root *Node, interactive bool, search_strat SearchStrat, max_result
 
     // create a task for the root node
     var first_task Task
-    first_task.control = NfCreate(new(Node), root)
+    if(onlyHnf){
+        first_task.control = root
+    } else{
+        first_task.control = NfCreate(new(Node), root)
+    }
     first_task.fingerprint = make(map[int]int)    
 
     // write task to the queue

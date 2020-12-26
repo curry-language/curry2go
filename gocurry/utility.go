@@ -404,7 +404,7 @@ func (task *Task) MoveTo(index int){
 
 /////// Benchmark
 
-func Benchmark(node *Node, count int, search_strat SearchStrat, max_results int, max_tasks int){
+func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, max_results int, max_tasks int){
 
     var sum float64 = 0
 
@@ -417,7 +417,7 @@ func Benchmark(node *Node, count int, search_strat SearchStrat, max_results int,
 
         start := time.Now()
 
-        Evaluate(root, false, search_strat, max_results, max_tasks)
+        Evaluate(root, false, onlyHnf, search_strat, max_results, max_tasks)
 
         end := time.Now()
         dif := end.Sub(start).Seconds()
