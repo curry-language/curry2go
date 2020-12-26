@@ -2,6 +2,7 @@ package gocurry
 
 import "sync"
 import "fmt"
+import "strconv"
 
 ////// Definitions of types
 
@@ -80,19 +81,29 @@ func UpTaskCount(){
     taskCount <- count
 }
 
+// Declarations for free-name generation
+var freeCount chan int
+
+func nextFree() string{
+    i := <- freeCount
+    i += 1
+    freeCount <- i
+    return ("Free" + strconv.Itoa(i))
+}
+
 ////// Global variables
 
 // flag indicating whether or not to use bfs
 var use_bfs = false
 
 // channel to queue tasks
-var queue = make(chan Task, 1000000)
+var queue chan Task
 
 // channel to pass results
-var result_chan = make(chan *Node, 0)
+var result_chan chan *Node
 
 // channel to signal end of search
-var done_chan = make(chan bool, 0)
+var done_chan chan bool
 
 ////// Task evaluation functions
 
@@ -111,6 +122,68 @@ func toHnf(task *Task){
         control_lock := &task.control.lock
         control_lock.Lock()
         
+        // check if task result map exists
+        if(task.control.tr != nil){
+            // test task result map for already computed results
+            node, ok := task.control.GetTr(task.id, task.parents)
+            
+            if(ok){
+                control_lock.Unlock()
+                
+                // if a parent exists, update it with the computed result
+                if(len(task.stack) > 0){
+                    // get and lock parent
+                    parent := task.stack[len(task.stack) - 1]
+                    parent.lock.Lock()
+                
+                    // check if update has to be in task result map or in place
+                    if(node.ot > parent.ot){
+                        // create copy of parent with new owner task
+                        new_node := LockedCopyNode(parent)
+                        new_node.ot = node.ot
+                        
+                        // update the children to the computed result
+                        if(new_node.IsFcall() && new_node.int_value >= 0){
+                            new_node.Children[new_node.int_value] = node
+                        } else{
+                            for i := range(new_node.Children){
+                                if(new_node.GetChild(i) == task.control){
+                                    new_node.Children[i] = node
+                                }
+                            }
+                        }
+                        
+                        // create task result map if necessary
+                        if(parent.tr == nil){
+                            parent.tr = make(map[int]*Node)
+                        }
+                        
+                        // update task result map of parent and stack
+                        parent.tr[node.ot] = new_node
+                        task.stack[len(task.stack) - 1] = new_node
+                    } else{
+                        // update children of parent in place
+                        if(parent.IsFcall() && parent.int_value >= 0){
+                            parent.Children[parent.int_value] = node
+                        } else{
+                            for i := range(parent.Children){
+                                if(parent.GetChild(i) == task.control){
+                                    parent.Children[i] = node
+                                }
+                            }
+                        }
+                    }
+                    
+                    // unlock parent
+                    parent.lock.Unlock()
+                }
+            
+                // go to already computed result
+                task.control = node
+                continue
+            }
+        }
+        
         // return if evaluation is done
         if(len(task.stack) == 0 && (task.control.IsHnf() || task.control.LockedIsPartial())){
             control_lock.Unlock()
@@ -125,68 +198,6 @@ func toHnf(task *Task){
         // evluate node depending on the node type
         switch task.control.node_type {
         case FCALL:
-            // check if task result map exists
-            if(task.control.tr != nil){
-                // test task result map for already computed results
-                node, ok := task.control.GetTr(task.id, task.parents)
-                
-                if(ok){
-                    control_lock.Unlock()
-                    
-                    // if a parent exists, update it with the computed result
-                    if(len(task.stack) > 0){
-                        // get and lock parent
-                        parent := task.stack[len(task.stack) - 1]
-                        parent.lock.Lock()
-                    
-                        // check if update has to be in task result map or in place
-                        if(node.ot > parent.ot){
-                            // create copy of parent with new owner task
-                            new_node := LockedCopyNode(parent)
-                            new_node.ot = node.ot
-                            
-                            // update the children to the computed result
-                            if(new_node.IsFcall() && new_node.int_value >= 0){
-                                new_node.Children[new_node.int_value] = node
-                            } else{
-                                for i := range(new_node.Children){
-                                    if(new_node.GetChild(i) == task.control){
-                                        new_node.Children[i] = node
-                                    }
-                                }
-                            }
-                            
-                            // create task result map if necessary
-                            if(parent.tr == nil){
-                                parent.tr = make(map[int]*Node)
-                            }
-                            
-                            // update task result map of parent and stack
-                            parent.tr[node.ot] = new_node
-                            task.stack[len(task.stack) - 1] = new_node
-                        } else{
-                            // update children of parent in place
-                            if(parent.IsFcall() && parent.int_value >= 0){
-                                parent.Children[parent.int_value] = node
-                            } else{
-                                for i := range(parent.Children){
-                                    if(parent.GetChild(i) == task.control){
-                                        parent.Children[i] = node
-                                    }
-                                }
-                            }
-                        }
-                        
-                        // unlock parent
-                        parent.lock.Unlock()
-                    }
-                
-                    // go to already computed result
-                    task.control = node
-                    continue
-                }
-            }
-        
             // test for partial function call
             if(task.control.LockedIsPartial()){
 
@@ -361,52 +372,6 @@ func toHnf(task *Task){
             // unlock control node
             control_lock.Unlock()
             
-            // if task result map exists, check for an entry
-            if(task.control.tr != nil){
-                node, ok := task.control.GetTr(task.id, task.parents)
-                
-                // if an entry exists, update parent
-                if(ok){
-                    parent := task.stack[len(task.stack) - 1]
-                    parent.lock.Lock()
-                    
-                    // if parent is older, cannot update in place
-                    if(parent.ot < node.ot){
-                        // copy parent
-                        new_node := LockedCopyNode(parent)
-                        new_node.ot = node.ot
-                        
-                        // create task result map for parent
-                        if(parent.tr == nil){
-                            parent.tr = make(map[int]*Node)
-                        }
-                        
-                        // update children of copy
-                        for i := range(new_node.Children){
-                            if(new_node.GetChild(i) == task.control){
-                                new_node.Children[i] = node
-                            }
-                        }
-                        
-                        // replace parent with copy
-                        parent.tr[node.ot] = new_node
-                        task.stack[len(task.stack) - 1] = new_node
-                    } else{
-                        // update parent in place
-                        for i := range(parent.Children){
-                            if(parent.GetChild(i) == task.control){
-                                parent.Children[i] = node
-                            }
-                        }
-                    }
-                    
-                    // move to task result map entry
-                    parent.lock.Unlock()
-                    task.control = node
-                    continue
-                }
-            }
-            
             // pop stack
             task.PopStack()
         }
@@ -418,8 +383,36 @@ func toNf(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
+    //check task result map
+    if(x1.tr != nil){
+        node, ok := x1.GetTr(task.id, task.parents)
+        
+        if(ok){
+            if(x1.ot > root.ot){
+                // create copy of root
+                new_node := LockedCopyNode(root)
+                new_node.ot = node.ot
+                new_node.Children[0] = node
+                
+                // create task result map for root
+                if(root.tr == nil){
+                    root.tr = make(map[int]*Node)
+                }
+                
+                // update task result map of root
+                root.tr[node.ot] = new_node
+                return
+            }else{
+                // update root in place
+                root.Children[0] = node
+            }
+            return
+        }
+    }
+    
+    // if x1 is free redirect to it
     if(x1.IsFree()){
-        task.ToHnf(x1)
+        RedirectCreate(root, x1)
         return
     }
     
@@ -474,11 +467,18 @@ func nfArgs(task *Task){
 // search_strat is the search strategy to be used.
 // max_results is the maximum number of results to be computed.
 // max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
-func Evaluate(root *Node, interactive bool, onlyHnf bool, search_strat SearchStrat, max_results int, max_tasks int){
+func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchStrat, max_results int, max_tasks int){
 
-    // initialize task count
+    // initialize channels
     taskCount = make(chan int, 1)
     taskCount <- 0
+    
+    freeCount = make(chan int, 1)
+    freeCount <- 0
+    
+    queue = make(chan Task, 1000000)
+    result_chan = make(chan *Node, 0)
+    done_chan = make(chan bool, 0)
 
     // create a task for the root node
     var first_task Task

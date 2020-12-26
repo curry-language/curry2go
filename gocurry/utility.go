@@ -101,7 +101,7 @@ func CharLitCreate(root *Node, value rune)(*Node){
 func FreeCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
     root.node_type = CONSTRUCTOR
-    root.name = "Free"
+    root.name = nextFree()
     root.int_value = -1
     return root
 }
@@ -409,9 +409,6 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
     var sum float64 = 0
 
     for i := 0; i < count; i++{
-
-        queue = make(chan Task, 1000000)
-        result_chan = make(chan *Node, 0)
 
         root := CopyNode(node)
 
