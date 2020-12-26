@@ -273,13 +273,17 @@ istatement2Go opts (ICaseCons i cases) = [GoExprSwitch
   [GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
   [var i, createGenerator opts cases]), GoReturn []])
   :(map (iConsBranch2Go opts) cases))]
-istatement2Go opts (ICaseLit i cases)  = [iLitCases2Go opts i cases]
+istatement2Go opts (ICaseLit i cases)  = 
+  [GoIf (GoCall (GoSelector (var i) "IsFree") []) 
+  [GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
+  [var i, createLitGenerator cases]), GoReturn []] []
+  , iLitCases2Go opts i cases]
 
 --- Creates a generator from a list of IConsBranches.
 --- @param opts     - compiler options
 --- @param branches - list of IConstBranches to base generator on
 createGenerator :: CGOptions ->  [IConsBranch] -> GoExpr
-createGenerator _ []                              = error "Empty Cons list"
+createGenerator _ []                                 = error "Empty Cons list"
 createGenerator opts [(IConsBranch name n _)]        = GoCall
   (GoOpName (iqname2Go opts name ++ "Create"))
   (newNode : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
@@ -311,6 +315,22 @@ iLitCases2Go opts i cases@(c:_)   = GoExprSwitch
     ILitBranch (IInt   _) _ -> "GetInt"
     ILitBranch (IChar  _) _ -> "GetChar"
     ILitBranch (IFloat _) _ -> "GetFloat"
+
+--- Creates a generator from a list of ILitBranches.
+createLitGenerator :: [ILitBranch] -> GoExpr
+createLitGenerator cases = case cases of
+  []                      -> error "Empty case list"
+  [(ILitBranch lit _)]    -> litCreate lit
+  ((ILitBranch lit _):xs) -> GoCall (GoOpName (runtime ++ ".ChoiceCreate"))
+    [newNode, litCreate lit, createLitGenerator xs]
+ where
+  litCreate l = case l of
+    IInt   i  -> GoCall 
+      (GoOpName (runtime ++ ".IntLitCreate")) [newNode, GoIntLit i]
+    IChar  c -> GoCall
+      (GoOpName (runtime ++ ".CharLitCreate")) [newNode, GoByteLit c]
+    IFloat f -> GoCall
+      (GoOpName (runtime ++ ".FloatLitCreate")) [newNode, GoFloatLit f]
 
 --- Creates a Go expression branch for an ILitBranch.
 --- @param opts   - compiler options
