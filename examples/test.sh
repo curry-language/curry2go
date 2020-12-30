@@ -10,7 +10,7 @@ C2GO=curry2go
 clean() {
   /bin/rm -rf .curry .gocurry
   for P in $PROGRAMS ; do
-    /bin/rm -f $P"Main"
+    /bin/rm -f $P
   done
 }
 
