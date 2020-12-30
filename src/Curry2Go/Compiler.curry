@@ -124,7 +124,9 @@ compileIProg2Go :: CGOptions -> IProg -> GoProg
 compileIProg2Go opts (IProg moduleName _ dtypes funcs) = 
   GoProg (removeDots moduleName) 
   ("gocurry" : (foldl union [] (map (getImports opts) funcs)))
-  (concatMap (idata2GoCreate (opts {modName = moduleName})) dtypes
+  ([ifuncNames2Go opts funcs]
+  ++ map (idataNames2Go opts) dtypes
+  ++ concatMap (idata2GoCreate (opts {modName = moduleName})) dtypes
   ++ map (ifunc2GoCreate (opts {modName = moduleName})) funcs
   ++ map (ifunc2Go (opts {modName = moduleName})) funcs)
 
@@ -164,27 +166,51 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
     | otherwise         =
       (concat (replicate (length (splitModuleIdentifiers (modName opts)))"../")
       ++ modNameToPath x) : (toImport xs)
+      
+--- Creates a top-level declaration for an array with all function names.
+--- @param opts  - compiler options
+--- @param funcs - list of IFunctions
+ifuncNames2Go :: CGOptions -> [IFunction] -> GoTopLevelDecl
+ifuncNames2Go opts funcs = GoTopLevelDecl 
+  (GoVarDecl ["func_names"] "[]string"
+  [GoCompositeLit "[]string" (map getName funcs)])
+ where
+  getName (IFunction (_,name,_) _ _ _ _) = GoStringLit name
+  
+--- Creates a top-level declaration for an array with all constructor names.
+--- @param opts   - compiler options
+--- @param dtype  - datatype
+idataNames2Go :: CGOptions -> IDataType -> GoTopLevelDecl
+idataNames2Go opts (IDataType dname constrs) = GoTopLevelDecl
+  (GoVarDecl [iqname2Go opts dname ++ "_names"] "[]string"
+  [GoCompositeLit "[]string" (map getName constrs)])
+ where
+  getName ((_,name,_), _) = GoStringLit name
 
 --- Creates a list of Go top-level function declarations
 --- of constructor create functions for every constructor of a data type.
 --- @param opts - compiler options
 --- @param dtype - IDataType to generate create functions for
 idata2GoCreate :: CGOptions -> IDataType -> [GoTopLevelDecl]
-idata2GoCreate opts (IDataType _ constrs) = map (constr2GoCreate opts) constrs
+idata2GoCreate opts (IDataType name constrs) = map (constr2GoCreate opts name) constrs
 
 
 --- Creates a Go top-level function declaration
 --- of a constructor create function for a constructor.
 --- @param opts  - compiler options
+--- @param dname - datatype name
 --- @param cname - constructor name to generatre create function for
-constr2GoCreate :: CGOptions -> (IQName, IArity) -> GoTopLevelDecl
-constr2GoCreate opts (cname@((_, name, i)), n) = GoTopLevelFuncDecl 
+constr2GoCreate :: CGOptions -> IQName -> (IQName, IArity) -> GoTopLevelDecl
+constr2GoCreate opts dname (cname@((_, _, i)), n) = GoTopLevelFuncDecl 
   (GoFuncDecl ((iqname2Go opts cname) ++ "Create")
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
   [GoParam [] ("*" ++ node)]
   [GoExprStat (GoCall (GoOpName (runtime ++ ".ConstCreate")) 
-  [root, GoIntLit i, GoIntLit n, GoStringLit name, GoVariadic (GoOpName "args")])
+  [root, GoIntLit i, GoIntLit n
+  , GoUnaryExpr "&" 
+    (GoIndex (GoOpName (iqname2Go opts dname ++ "_names")) (GoIntLit i))
+  , GoVariadic (GoOpName "args")])
   , GoReturn [root]])
 
 --- Creates a Go top-level function declaration
@@ -192,16 +218,15 @@ constr2GoCreate opts (cname@((_, name, i)), n) = GoTopLevelFuncDecl
 --- @param opts - compiler options
 --- @param func - IFunction to generate create function for
 ifunc2GoCreate :: CGOptions -> IFunction -> GoTopLevelDecl
-ifunc2GoCreate opts (IFunction name n _ args _) = GoTopLevelFuncDecl
+ifunc2GoCreate opts (IFunction name@(_,_,i) n _ args _) = GoTopLevelFuncDecl
   (GoFuncDecl ((iqname2Go opts name) ++ "Create")
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
   [GoParam [] ("*" ++ node)]
   [GoExprStat (GoCall (GoOpName (runtime ++ ".FuncCreate"))
     [GoOpName "root", GoOpName (iqname2Go opts name)
-    , GoStringLit (iqname2Go opts name), GoIntLit n
-    , demandedArg
-    , GoVariadic (GoOpName "args")])
+    , GoUnaryExpr "&" (GoIndex (GoOpName "func_names") (GoIntLit i))
+    , GoIntLit n, demandedArg, GoVariadic (GoOpName "args")])
   , GoReturn [root]])
  where
   demandedArg = case args of

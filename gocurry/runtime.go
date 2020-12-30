@@ -36,7 +36,7 @@ type Node struct{
     char_literal rune
     function func(*Task)
     number_args int
-    name string
+    name *string
     lock sync.Mutex
     tr map[int]*Node
     ot int
@@ -84,11 +84,12 @@ func UpTaskCount(){
 // Declarations for free-name generation
 var freeCount chan int
 
-func nextFree() string{
+func nextFree() *string{
     i := <- freeCount
     i += 1
     freeCount <- i
-    return ("Free" + strconv.Itoa(i))
+    var name = "Free" + strconv.Itoa(i)
+    return &name
 }
 
 ////// Global variables
@@ -425,7 +426,7 @@ func toNf(task *Task){
     // Evaluate arguments to normalform with nfArgs
     root.function = nfArgs
     root.int_value = 0
-    root.name = "ArgsToNf"
+    root.name = &runtime_names[2]
     root.Children = root.Children[:0]
     
     // wrap children with toNf
@@ -641,7 +642,7 @@ func errorHandler(task *Task){
         // test for catch call in stack
         for i := len(task.stack) - 1; i >= 0; i--{
             // if there is a catch continue
-            if(task.stack[i].IsFcall() && task.stack[i].name == "Prelude_catch"){
+            if(task.stack[i].IsFcall() && *task.stack[i].name == "Prelude_catch"){
                 // move back to catch call
                 task.control = task.stack[i]
                 task.stack = task.stack[:i]

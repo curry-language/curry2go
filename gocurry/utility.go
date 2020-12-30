@@ -4,6 +4,8 @@ import "fmt"
 import "time"
 import "regexp"
 
+var runtime_names []string = []string{"IO", "toNf", "ArgsToNf"}
+
 ////// Functions to create specific types of nodes
 
 // Sets root to a constructor node.
@@ -12,7 +14,7 @@ import "regexp"
 // name is the constructor name as a string for printing.
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
-func ConstCreate(root *Node, constructor, num_args int, name string, args ...*Node)(*Node){
+func ConstCreate(root *Node, constructor, num_args int, name *string, args ...*Node)(*Node){
     root.number_args = 0
     root.Children = root.Children[:0]
     root.int_value = constructor
@@ -30,7 +32,7 @@ func ConstCreate(root *Node, constructor, num_args int, name string, args ...*No
 // demanded_args is a integers representing the position of an argument which have to be evaluated.
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
-func FuncCreate(root *Node, function func(*Task), name string, number_args int, demanded_args int, args ...*Node)(*Node){
+func FuncCreate(root *Node, function func(*Task), name *string, number_args int, demanded_args int, args ...*Node)(*Node){
     root.number_args = 0
     root.Children = root.Children[:0]
     root.function = function
@@ -109,7 +111,7 @@ func FreeCreate(root *Node)(*Node){
 // Sets root to an IO node with a child.
 // Returns a pointer to the updated root.
 func IOCreate(root *Node, child *Node)(*Node){
-    ConstCreate(root, 0, 1, "IO", child)
+    ConstCreate(root, 0, 1, &runtime_names[0], child)
     return root
 }
 
@@ -117,7 +119,7 @@ func IOCreate(root *Node, child *Node)(*Node){
 // its argument to normalform.
 // Returns a pointer to the updated root.
 func NfCreate(root, arg *Node) *Node{
-    return FuncCreate(root, toNf, "toNf", 1, 0, arg)  
+    return FuncCreate(root, toNf, &runtime_names[1], 1, 0, arg)  
 }
 
 // Creates a list containing elements starting at root.
@@ -271,7 +273,7 @@ func (node *Node) GetChoiceId() int{
 }
 
 func (node *Node) GetName() string{
-    return node.name
+    return *node.name
 }
 
 func (node *Node) IsFcall() bool{
@@ -524,11 +526,11 @@ func printNode(node *Node) {
     } else if(node.node_type == CHOICE){
         fmt.Printf("?")
     } else if (node.node_type == CONSTRUCTOR){
-        fmt.Printf(node.name)
+        fmt.Printf(node.GetName())
     } else if (node.node_type == REDIRECT){
         fmt.Printf("Redirect")
     } else if (node.node_type == FCALL){
-        fmt.Printf(node.name)
+        fmt.Printf(node.GetName())
     } else if (node.node_type == EXEMPT){ 
         fmt.Printf("Exempt")    
     } else {
