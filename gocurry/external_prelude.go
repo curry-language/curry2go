@@ -10,8 +10,13 @@ import "math"
 
 func ExternalPrelude_ensureNotFree(task *Task){
     root := task.GetControl()
-    //TODO implement properly
-    root = RedirectCreate(root, root.GetChild(0))
+    x1 := root.GetChild(0)
+    
+    if(x1.IsFree()){
+        panic("ERROR: Free variable in ensureNotFree")
+    }
+    
+    root = RedirectCreate(root, x1)
 }
 
 // apply
