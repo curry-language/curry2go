@@ -48,7 +48,6 @@ do
         else
           echo $RESULT
         fi
+        rm $FILE
     fi 
 done
-
-

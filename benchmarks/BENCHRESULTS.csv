@@ -1,16 +1,16 @@
-,KiCS2,PAKCS/SWI,PAKCS/SICStus,C2Go 30/09/20,C2Go 30/10/20,C2Go 04/11/20,C2Go 28/11/20 (MPT),C2Go 23/11/20 (Unif)
-,:set dfs,,,,,,bench.sh dfs,bench.sh dfs
-DupND,7.755,0.491,2.074,,,,2.552,2.459462
-Reverse,0.331,21.912,3.843,,,,2.87,3.017241
-ReverseUser,0.322,21.276,3.941,,,,2.891,2.997987
-Select,12.031,1.121,2.155,,,,0.169,0.16809
-,:set bfs,,,,,,bench.sh bfs,bench.sh bfs
-DupND,12.612,,,,,,7.527,2.456999
-Reverse,0.338,,,,,,6.946,2.996288
-ReverseUser,0.341,,,,,,7.003,2.998251
-Select,12.808,,,,,,0.51,0.168577
-,,,,bench.sh fs,bench.sh fs,bench.sh fs,bench.sh fs,bench.sh fs
-DupND,,,,8.151,8.193,7.51,0.883,0.82231
-Reverse,,,,4.86,4.047,3.299,3.316,3.012404
-ReverseUser,,,,4.86,4.046,3.334,3.296,3.005475
-Select,,,,8.18,8.157,7.302,0.068,0.057356
+,KiCS2,PAKCS/SWI,PAKCS/SICStus,C2Go 30/09/20,C2Go 30/10/20,C2Go 04/11/20,C2Go 28/11/20 (MPT),C2Go 23/11/20 (Unif),C2Go 07/01/21 (no strings)
+,:set dfs,,,,,,bench.sh dfs,bench.sh dfs,bench.sh dfs
+DupND,7.755,0.491,2.074,,,,2.552,2.459462,2.601839
+Reverse,0.331,21.912,3.843,,,,2.87,3.017241,2.814596
+ReverseUser,0.322,21.276,3.941,,,,2.891,2.997987,2.900426
+Select,12.031,1.121,2.155,,,,0.169,0.16809,0.186149
+,:set bfs,,,,,,bench.sh bfs,bench.sh bfs,bench.sh bfs
+DupND,12.612,,,,,,7.527,2.456999,2.623486
+Reverse,0.338,,,,,,6.946,2.996288,2.888558
+ReverseUser,0.341,,,,,,7.003,2.998251,2.841807
+Select,12.808,,,,,,0.51,0.168577,0.183348
+,,,,bench.sh fs,bench.sh fs,bench.sh fs,bench.sh fs,bench.sh fs,bench.sh fs
+DupND,,,,8.151,8.193,7.51,0.883,0.82231,0.939885
+Reverse,,,,4.86,4.047,3.299,3.316,3.012404,2.813327
+ReverseUser,,,,4.86,4.046,3.334,3.296,3.005475,2.815341
+Select,,,,8.18,8.157,7.302,0.068,0.057356,0.070868
