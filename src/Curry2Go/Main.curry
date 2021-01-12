@@ -1,6 +1,5 @@
 module Curry2Go.Main where
 
-import Curry2Go.Compiler
 import Go.Show
 import Go.Types
 import CompilerStructure
@@ -18,13 +17,17 @@ import System.FrontendExec
 import FlatCurry.Files
 import Control.Monad
 
+import Curry2Go.Compiler
+import Curry2Go.Config   ( packageVersion )
+
 --- Implementation of CompStruct for the curry2go compiler.
 
 --- Gets the path to the source file of a curry module.
 loadCurryPath :: String -> IO String
-loadCurryPath inp = lookupModuleSourceInLoadPath (stripCurrySuffix inp) >>= (\path -> case path of
-                      Nothing          -> error ("Unknown module " ++ inp)
-                      Just (dir, file) -> return (combine dir file))
+loadCurryPath inp =
+  lookupModuleSourceInLoadPath (stripCurrySuffix inp) >>= \path -> case path of
+    Nothing          -> error ("Unknown module " ++ inp)
+    Just (dir, file) -> return (combine dir file)
 
 --- Loads an IProg from the name of a curry module.
 --- Copies external files that are in the include folder or
@@ -47,11 +50,12 @@ loadCurry inp = do extFilePath <- getExtFilePath
                      (setQuiet True (setDefinitions [] defaultParams))
                    flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
  where
-  getExtFilePath =
-    loadCurryPath (stripCurrySuffix inp)
-    >>= (\path -> return (replaceFileName path 
-      ("external_" ++ takeFileName (replaceExtension path "go"))))
-  
+  getExtFilePath = do
+    path <- loadCurryPath (stripCurrySuffix inp)
+    return $
+      replaceFileName path
+        ("external_" ++ takeFileName (replaceExtension path "go"))
+
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
@@ -71,17 +75,25 @@ goStruct = defaultStruct
 main :: IO()
 main = do
   args <- getArgs
-  (opts, paths) <- (processOptions args)
+  (opts, paths) <- processOptions args
   case paths of
     []        -> error "Input path missing!"
     [i]       -> curry2Go i opts
     _         -> error "Too many paths given!"
 
+c2goBanner :: String
+c2goBanner = unlines [bannerLine, bannerText, bannerLine]
+ where
+  bannerText =
+    "Curry->Go Compiler (Version " ++ packageVersion ++ ")"
+  bannerLine = take (length bannerText) (repeat '-')
+
 --- Compiles a curry program into a go program.
 --- @param inp  - path to curry program
 --- @param opts - compiler options 
-curry2Go :: String -> CGOptions -> IO()
+curry2Go :: String -> CGOptions -> IO ()
 curry2Go inp opts = do
+  putStrLn c2goBanner
   home <- getHomeDirectory
   createDirectoryIfMissing True
     (home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++ "include")
@@ -108,7 +120,9 @@ processOptions argv = do
       opts = foldr (\f x -> f x) defaultCGOptions funopts
   unless (null opterrors)
     (putStr (unlines opterrors) >> (putStr usageText) >> (exitWith 1))
-  when (help opts) ((putStr usageText) >> (exitWith 0))
+  when (help opts) $ do
+    putStr $ c2goBanner ++ "\n" ++ usageText
+    exitWith 0
   return (opts, args)
 
 --- Help text
