@@ -18,35 +18,41 @@ import Data.List
 
 --- Data type for compiler options.
 data CGOptions = CGOptions
-  { help       :: Bool         -- should help text be displayed
-  , genMain    :: Bool         -- should a main method be generated
-  , strat      :: SearchStrat  -- search strategy to be used by the runtime system
-  , maxResults :: Int          -- maximum number of results to compute
-  , maxTasks   :: Int          -- maximum number of concurrent tasks in a fair search
-  , run        :: Bool         -- run the program after compilation
-  , modName    :: String       -- used internally to track main module. not configurable
-  , time       :: Bool         -- measure execution time
-  , times      :: Int          -- number of runs to average execution time over
-  , interact   :: Bool         -- interactive result printing
-  , mainName   :: String       -- name of the function to run as main
+  { help         :: Bool         -- should help text be displayed
+  , genMain      :: Bool         -- should a main method be generated
+  , strat        :: SearchStrat  -- search strategy to be used by the runtime system
+  , maxResults   :: Int          -- maximum number of results to compute
+  , maxTasks     :: Int          -- maximum number of concurrent tasks in a fair search
+  , run          :: Bool         -- run the program after compilation
+  , modName      :: String       -- used internally to track main module. not configurable
+  , time         :: Bool         -- measure execution time
+  , times        :: Int          -- number of runs to average execution time over
+  , interact     :: Bool         -- interactive result printing
+  , mainName     :: String       -- name of the function to run as main
   , onlyHnf      :: Bool         -- only compute hnf
+  , printName    :: Bool         -- print compiler name
+  , printNumVer  :: Bool         -- print numeric version
+  , printBaseVer :: Bool         -- print base version
   }
 
 --- Default options.
 defaultCGOptions :: CGOptions
 defaultCGOptions = CGOptions 
-  {help        = False
-  , genMain    = True
-  , strat      = DFS
-  , maxResults = 0
-  , maxTasks   = 0
-  , run        = False
-  , modName    = ""
-  , time       = False
-  , times      = 1
-  , interact   = False
-  , mainName   = "main"
+  {help          = False
+  , genMain      = True
+  , strat        = DFS
+  , maxResults   = 0
+  , maxTasks     = 0
+  , run          = False
+  , modName      = ""
+  , time         = False
+  , times        = 1
+  , interact     = False
+  , mainName     = "main"
   , onlyHnf      = False
+  , printName    = False
+  , printNumVer  = False
+  , printBaseVer = False
   }
 
 --- Data type for search strategies.

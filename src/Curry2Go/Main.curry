@@ -123,7 +123,19 @@ processOptions argv = do
   when (help opts) $ do
     putStr $ c2goBanner ++ "\n" ++ usageText
     exitWith 0
+  printArgs argv
+  when (printName opts || printNumVer opts || printBaseVer opts) (exitWith 0)
   return (opts, args)
+ 
+--- Prints text for certain compiler flags, that need to be
+--- printed in the same order as they were provided.
+printArgs :: [String] -> IO ()
+printArgs []     = return ()
+printArgs (x:xs) = case x of
+  "--compiler-name"   -> putStrLn "curry2go" >> printArgs xs
+  "--numeric-version" -> putStrLn packageVersion >> printArgs xs
+  "--base-version"    -> putStrLn "3.0.0" >> printArgs xs
+  _                   -> printArgs xs
 
 --- Help text
 usageText :: String
@@ -164,6 +176,12 @@ options =
     "set name of main function to f (default: main)"
   , Option "" ["hnf"]
     (NoArg (\opts -> opts {onlyHnf = True})) "only compute hnf"
+  , Option "" ["compiler-name"]
+    (NoArg (\opts -> opts {printName = True})) "print the compiler name and exit"
+  , Option "" ["numeric-version"]
+    (NoArg (\opts -> opts {printNumVer = True})) "print the numeric version and exit"
+  , Option "" ["base-version"]
+    (NoArg (\opts -> opts {printBaseVer = True})) "print the base version and exit"
   ]
  where
   safeRead result = case result of
