@@ -459,35 +459,39 @@ func printResult(node *Node) {
         // test if node is a tupel
         isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
 
-        // do not print tupel prefix
-        if(!isTupel){
-            // print node if it is not a tupel
-            printNode(node)
-        } else{
+        if(isTupel){
             // print empty tupel
             if(len(node.Children) == 0){
                 fmt.Printf("()")
                 return
             }
+            
+            // print tupel elements
+            fmt.Printf("(")
+            printResult(node.Children[0])
+            for i := 1; i < len(node.Children); i++{
+                fmt.Printf(", ")
+                printResult(node.Children[i])
+            }
+            fmt.Printf(")")
+            return
         }
-    }else{
-        // print node
-        printNode(node)
     }
+    
+    // print node
+    printNode(node)
 
-    // end if node does not have Children
-    if(len(node.Children) == 0){
-        return
+    // print children of node
+    for i := 0; i < len(node.Children); i++ {
+        fmt.Printf(" ")
+        if(len(node.Children[i].Children) > 0){
+            fmt.Printf("(")
+            printResult(node.Children[i])
+            fmt.Printf(")")
+        } else{
+            printResult(node.Children[i])
+        }
     }
-
-    // print all Children
-    fmt.Printf("(")
-    printResult(node.Children[0])
-    for i := 1; i < len(node.Children); i++ {
-        fmt.Printf(", ")
-        printResult(node.Children[i])
-    }
-    fmt.Printf(")")
 }
 
 // Prints every item of a list
