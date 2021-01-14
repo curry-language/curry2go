@@ -18,35 +18,41 @@ import Data.List
 
 --- Data type for compiler options.
 data CGOptions = CGOptions
-  { help       :: Bool         -- should help text be displayed
-  , genMain    :: Bool         -- should a main method be generated
-  , strat      :: SearchStrat  -- search strategy to be used by the runtime system
-  , maxResults :: Int          -- maximum number of results to compute
-  , maxTasks   :: Int          -- maximum number of concurrent tasks in a fair search
-  , run        :: Bool         -- run the program after compilation
-  , modName    :: String       -- used internally to track main module. not configurable
-  , time       :: Bool         -- measure execution time
-  , times      :: Int          -- number of runs to average execution time over
-  , interact   :: Bool         -- interactive result printing
-  , mainName   :: String       -- name of the function to run as main
+  { help         :: Bool         -- should help text be displayed
+  , genMain      :: Bool         -- should a main method be generated
+  , strat        :: SearchStrat  -- search strategy to be used by the runtime system
+  , maxResults   :: Int          -- maximum number of results to compute
+  , maxTasks     :: Int          -- maximum number of concurrent tasks in a fair search
+  , run          :: Bool         -- run the program after compilation
+  , modName      :: String       -- used internally to track main module. not configurable
+  , time         :: Bool         -- measure execution time
+  , times        :: Int          -- number of runs to average execution time over
+  , interact     :: Bool         -- interactive result printing
+  , mainName     :: String       -- name of the function to run as main
   , onlyHnf      :: Bool         -- only compute hnf
+  , printName    :: Bool         -- print compiler name
+  , printNumVer  :: Bool         -- print numeric version
+  , printBaseVer :: Bool         -- print base version
   }
 
 --- Default options.
 defaultCGOptions :: CGOptions
 defaultCGOptions = CGOptions 
-  {help        = False
-  , genMain    = True
-  , strat      = DFS
-  , maxResults = 0
-  , maxTasks   = 0
-  , run        = False
-  , modName    = ""
-  , time       = False
-  , times      = 1
-  , interact   = False
-  , mainName   = "main"
+  {help          = False
+  , genMain      = True
+  , strat        = DFS
+  , maxResults   = 0
+  , maxTasks     = 0
+  , run          = False
+  , modName      = ""
+  , time         = False
+  , times        = 1
+  , interact     = False
+  , mainName     = "main"
   , onlyHnf      = False
+  , printName    = False
+  , printNumVer  = False
+  , printBaseVer = False
   }
 
 --- Data type for search strategies.
@@ -88,7 +94,7 @@ var n = GoOpName (varName n)
 
 --- Functions compiling ICurry to Go code ---
 
---- Creates an executable Go program, which calls 
+--- Creates an executable Go program, which calls
 --- the evaluation function on the main function
 --- of a curry module, that is being translated.
 --- Throws an error if there is no main function in funcs.
@@ -97,14 +103,14 @@ var n = GoOpName (varName n)
 createMainProg :: [IFunction] -> CGOptions -> GoProg
 createMainProg [] _ = error "No main function found!"
 createMainProg ((IFunction name@(modName, fname,_) _ _ _ _):xs) opts
-  | fname == mainName opts = GoProg "main" 
+  | fname == mainName opts = GoProg "main"
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
   (GoFuncDecl "main" [] []
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2Go opts name ++ "Create"))
   [newNode]]
   , GoExprStat (GoCall
     (GoOpName (runtime ++ if time opts then ".Benchmark" else ".Evaluate"))
-    ((if time opts then [GoOpName "node", GoIntLit (times opts)] 
+    ((if time opts then [GoOpName "node", GoIntLit (times opts)]
                    else [GoOpName "node", GoBoolLit (interact opts)])
     ++ [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
     , GoIntLit (maxResults opts), GoIntLit (maxTasks opts)]))])]
@@ -114,20 +120,20 @@ createMainProg ((IFunction name@(modName, fname,_) _ _ _ _):xs) opts
 --- @param opts     - compiler options
 --- @param iprog    - IProg to convert
 compileIProg2GoString :: CGOptions -> IProg -> String
-compileIProg2GoString opts iprog@(IProg moduleName _ _ _) = 
+compileIProg2GoString opts iprog@(IProg moduleName _ _ _) =
   showGoProg (compileIProg2Go (opts {modName = moduleName}) iprog)
 
 --- Creates a Go program from an IProg.
 --- @param opts     - compiler options
 --- @param iprog    - IProg to convert
 compileIProg2Go :: CGOptions -> IProg -> GoProg
-compileIProg2Go opts (IProg moduleName _ dtypes funcs) = 
-  GoProg (removeDots moduleName) 
+compileIProg2Go opts (IProg moduleName _ dtypes funcs) =
+  GoProg (removeDots moduleName)
   ("gocurry" : (foldl union [] (map (getImports opts) funcs)))
   ([ifuncNames2Go opts funcs]
   ++ map (idataNames2Go opts) dtypes
   ++ concatMap (idata2GoCreate (opts {modName = moduleName})) dtypes
-  ++ map (ifunc2GoCreate (opts {modName = moduleName})) funcs
+  ++ ifunc2GoCreate (opts {modName = moduleName}) 0 funcs
   ++ map (ifunc2Go (opts {modName = moduleName})) funcs)
 
 --- Extracts the modules used by an IFunction.
@@ -192,16 +198,19 @@ idataNames2Go opts (IDataType dname constrs) = GoTopLevelDecl
 --- @param opts - compiler options
 --- @param dtype - IDataType to generate create functions for
 idata2GoCreate :: CGOptions -> IDataType -> [GoTopLevelDecl]
-idata2GoCreate opts (IDataType name constrs) = map (constr2GoCreate opts name) constrs
+idata2GoCreate opts (IDataType name constrs) = 
+  constr2GoCreate opts name 0 constrs
 
 
 --- Creates a Go top-level function declaration
 --- of a constructor create function for a constructor.
---- @param opts  - compiler options
---- @param dname - datatype name
---- @param cname - constructor name to generatre create function for
-constr2GoCreate :: CGOptions -> IQName -> (IQName, IArity) -> GoTopLevelDecl
-constr2GoCreate opts dname (cname@((_, _, i)), n) = GoTopLevelFuncDecl 
+--- @param opts   - compiler options
+--- @param dname  - datatype name
+--- @param i      - index of the current constructor 
+--- @param cnames - list of constructor names to generatre create functions for
+constr2GoCreate :: CGOptions -> IQName -> Int -> [(IQName, IArity)] -> [GoTopLevelDecl]
+constr2GoCreate _    _     _ []                          = []
+constr2GoCreate opts dname i ((cname, n):xs) = (GoTopLevelFuncDecl 
   (GoFuncDecl ((iqname2Go opts cname) ++ "Create")
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
@@ -211,14 +220,16 @@ constr2GoCreate opts dname (cname@((_, _, i)), n) = GoTopLevelFuncDecl
   , GoUnaryExpr "&" 
     (GoIndex (GoOpName (iqname2Go opts dname ++ "_names")) (GoIntLit i))
   , GoVariadic (GoOpName "args")])
-  , GoReturn [root]])
+  , GoReturn [root]])):(constr2GoCreate opts dname (i+1) xs)
 
 --- Creates a Go top-level function declaration
 --- of a create function for an IFunction.
 --- @param opts - compiler options
---- @param func - IFunction to generate create function for
-ifunc2GoCreate :: CGOptions -> IFunction -> GoTopLevelDecl
-ifunc2GoCreate opts (IFunction name@(_,_,i) n _ args _) = GoTopLevelFuncDecl
+--- @param i    - index of the current function
+--- @param func - list of IFunctions to generate create functions for
+ifunc2GoCreate :: CGOptions -> Int -> [IFunction] -> [GoTopLevelDecl]
+ifunc2GoCreate _    _ []                                  = []
+ifunc2GoCreate opts i ((IFunction name n _ args _):xs) = (GoTopLevelFuncDecl
   (GoFuncDecl ((iqname2Go opts name) ++ "Create")
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
@@ -227,7 +238,7 @@ ifunc2GoCreate opts (IFunction name@(_,_,i) n _ args _) = GoTopLevelFuncDecl
     [GoOpName "root", GoOpName (iqname2Go opts name)
     , GoUnaryExpr "&" (GoIndex (GoOpName "func_names") (GoIntLit i))
     , GoIntLit n, demandedArg, GoVariadic (GoOpName "args")])
-  , GoReturn [root]])
+  , GoReturn [root]])):(ifunc2GoCreate opts (i+1) xs)
  where
   demandedArg = case args of
     []    -> GoIntLit (-1)
