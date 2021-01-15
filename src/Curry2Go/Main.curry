@@ -59,7 +59,7 @@ loadCurry inp = do extFilePath <- getExtFilePath
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
-  { outputDir      = ".gocurry"
+  { outputDir      = combine ".curry" ("curry2go-" ++ packageVersion)
   , filePath       =
       (\s -> combine (modNameToPath s) 
         (last (splitModuleIdentifiers s) ++ ".go"))
@@ -101,12 +101,13 @@ curry2Go inp opts = do
   compile (goStruct {compProg = compileIProg2GoString opts}) (stripCurrySuffix inp)
   IProg moduleName _ _ funcs <- (icCompile (defaultICOptions {optVerb=0}) (stripCurrySuffix inp))
   when (genMain opts) (putStrLn "Generating Main"
-    >> (writeFile (".gocurry/" ++ removeDots moduleName ++ ".go")
+    >> (writeFile (combine (outputDir goStruct) (removeDots moduleName ++ ".go"))
       (showGoProg (createMainProg funcs (opts {modName = "main"})))))
-  putStrLn "Saved to ./.gocurry!"
+  putStrLn ("Saved to " ++ outputDir goStruct)
   if (run opts) then do
     putStrLn "Building..."
-    i <- system ("go build .gocurry/" ++ removeDots moduleName ++ ".go")
+    i <- system ("go build " ++ (outputDir goStruct) ++ [pathSeparator]
+      ++ removeDots moduleName ++ ".go")
     when (i /= 0) (error "Build failed!")
     putStrLn "Running..."
     system ("./" ++ removeDots moduleName)

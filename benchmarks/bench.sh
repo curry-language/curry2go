@@ -25,7 +25,7 @@ case "$1" in
 esac
 
 #delete old files to ensure new compilation
-rm -rf .gocurry
+rm -rf .curry
 
 #run all benchmarks in the directory
 for FILE in *
