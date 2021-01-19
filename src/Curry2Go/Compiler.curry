@@ -1,5 +1,10 @@
-module Curry2Go.Compiler (CGOptions(..), defaultCGOptions, SearchStrat(..), compileIProg2GoString, compileIProg2Go, createMainProg, removeDots) where
+module Curry2Go.Compiler
+  ( CGOptions(..), defaultCGOptions, printVerb
+  , SearchStrat(..), compileIProg2GoString, compileIProg2Go
+  , createMainProg, removeDots)
+ where
 
+import Control.Monad ( when )
 import Go.Show
 import Go.Types
 import CompilerStructure
@@ -19,6 +24,8 @@ import Data.List
 --- Data type for compiler options.
 data CGOptions = CGOptions
   { help         :: Bool         -- should help text be displayed
+  , verbosity    :: Int          -- verbosity (0..4)
+                                 -- (0: quiet, 1: status,...)
   , genMain      :: Bool         -- should a main method be generated
   , strat        :: SearchStrat  -- search strategy to be used by the runtime system
   , maxResults   :: Int          -- maximum number of results to compute
@@ -38,7 +45,8 @@ data CGOptions = CGOptions
 --- Default options.
 defaultCGOptions :: CGOptions
 defaultCGOptions = CGOptions 
-  {help          = False
+  { help         = False
+  , verbosity    = 1
   , genMain      = True
   , strat        = DFS
   , maxResults   = 0
@@ -54,6 +62,9 @@ defaultCGOptions = CGOptions
   , printNumVer  = False
   , printBaseVer = False
   }
+
+printVerb :: CGOptions -> Int -> String -> IO ()
+printVerb opts v s = when (verbosity opts >= v) $ putStrLn s
 
 --- Data type for search strategies.
 data SearchStrat = DFS
@@ -102,8 +113,8 @@ var n = GoOpName (varName n)
 --- @param opts  - compiler options 
 createMainProg :: [IFunction] -> CGOptions -> GoProg
 createMainProg [] _ = error "No main function found!"
-createMainProg ((IFunction name@(modName, fname,n) _ _ _ _):xs) opts
-  | fname == mainName opts && n > 0 = error "Overloaded initial expression"
+createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
+  | fname == mainName opts && ar > 0 = error $ "Overloaded initial expression"
   | fname == mainName opts = GoProg "main"
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
   (GoFuncDecl "main" [] []
