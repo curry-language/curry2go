@@ -78,7 +78,7 @@ main = do
   (opts, paths) <- processOptions args
   case paths of
     []        -> error "Input path missing!"
-    [i]       -> curry2Go i opts
+    [i]       -> curry2Go (stripCurrySuffix i) opts
     _         -> error "Too many paths given!"
 
 c2goBanner :: String
@@ -89,30 +89,42 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
   bannerLine = take (length bannerText) (repeat '-')
 
 --- Compiles a curry program into a go program.
---- @param inp  - path to curry program
---- @param opts - compiler options 
+--- @param mainmod - name of main module
+--- @param opts    - compiler options 
 curry2Go :: String -> CGOptions -> IO ()
-curry2Go inp opts = do
-  putStrLn c2goBanner
+curry2Go mainmod opts = do
+  printVerb opts 1 c2goBanner
   home <- getHomeDirectory
-  createDirectoryIfMissing True
-    (home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++ "include")
-  putStrLn "Compiling..."
-  compile (goStruct {compProg = compileIProg2GoString opts}) (stripCurrySuffix inp)
-  IProg moduleName _ _ funcs <- (icCompile (defaultICOptions {optVerb=0}) (stripCurrySuffix inp))
-  when (genMain opts) (putStrLn "Generating Main"
-    >> (writeFile (combine (outputDir goStruct) (removeDots moduleName ++ ".go"))
-      (showGoProg (createMainProg funcs (opts {modName = "main"})))))
-  putStrLn ("Saved to " ++ outputDir goStruct)
-  if (run opts) then do
-    putStrLn "Building..."
-    i <- system ("go build " ++ (outputDir goStruct) ++ [pathSeparator]
-      ++ removeDots moduleName ++ ".go")
-    when (i /= 0) (error "Build failed!")
-    putStrLn "Running..."
-    system ("./" ++ removeDots moduleName)
+  let includedir = home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++
+                  "include"
+  printVerb opts 3 $ "Creating directory: " ++ includedir
+  createDirectoryIfMissing True includedir
+  printVerb opts 1 "Compiling..."
+  compile (goStruct {compProg = compileIProg2GoString opts}) mainmod
+  printVerb opts 2 $ "Go programs written to " ++ outputDir goStruct
+  IProg moduleName _ _ funcs <- icCompile (defaultICOptions {optVerb=0}) mainmod
+  when (genMain opts) $ do
+    let mainprogname = removeDots moduleName ++ ".go"
+    printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
+    let mainprog = showGoProg (createMainProg funcs (opts {modName = "main"}))
+    printVerb opts 4 $ "Main Go program:\n\n" ++ mainprog
+    let mainfile = combine (outputDir goStruct) mainprogname
+    writeFile mainfile mainprog
+    printVerb opts 2 $ "...written to " ++ mainfile
+  when (genMain opts) $ do
+    printVerb opts 1 "Creating executable..."
+    let bcmd = "go build " ++ outputDir goStruct ++ [pathSeparator] ++
+               removeDots moduleName ++ ".go"
+    printVerb opts 2 $ "...with command: " ++ bcmd
+    i <- system bcmd
+    when (i /= 0) $ error "Build failed!"
+    printVerb opts 2 $ "Executable stored in: " ++ removeDots moduleName
+  when (run opts) $ do
+    printVerb opts 1 "Running..."
+    let rcmd = "./" ++ removeDots moduleName
+    printVerb opts 2 $ "...with command: " ++ rcmd
+    system rcmd
     return ()
-                else return ()
 
 --- Turns command line arguments into options and arguments.
 processOptions :: [String] -> IO (CGOptions, [String])
@@ -120,12 +132,14 @@ processOptions argv = do
   let (funopts, args, opterrors) = getOpt Permute options argv
       opts = foldr (\f x -> f x) defaultCGOptions funopts
   unless (null opterrors)
-    (putStr (unlines opterrors) >> (putStr usageText) >> (exitWith 1))
+    (putStr (unlines opterrors) >> putStr usageText >> exitWith 1)
   when (help opts) $ do
     putStr $ c2goBanner ++ "\n" ++ usageText
     exitWith 0
   printArgs argv
   when (printName opts || printNumVer opts || printBaseVer opts) (exitWith 0)
+  when (not (genMain opts) && run opts) $
+    error "Options 'compile' and 'run' cannot be combined!"
   return (opts, args)
  
 --- Prints text for certain compiler flags, that need to be
@@ -147,31 +161,39 @@ options :: [OptDescr (CGOptions -> CGOptions)]
 options = 
   [ Option "h?" ["help"]
     (NoArg (\opts -> opts {help = True})) "print help and exit"
+  , Option "q" ["quiet"]
+           (NoArg (\opts -> opts { verbosity = 0 }))
+           "run quietly (no output, only exit code)"
+  , Option "v" ["verbosity"]
+      (OptArg (maybe (\opts -> opts { verbosity = 2}) checkVerb) "<n>")
+         "verbosity level:\n0: quiet (same as `-q')\n1: show status messages (default)\n2: show commands (same as `-v')\n3: show intermedate infos\n4: show all details"
   , Option "" ["dfs"]
     (NoArg (\opts -> opts {strat = DFS})) "use depth first search (default)"
   , Option ""   ["bfs"]
     (NoArg (\opts -> opts {strat = BFS})) "use breadth first search"
   , Option ""   ["fs"]
     (OptArg (maybe (\opts -> opts {strat = FS}) 
-    (\s opts -> opts {strat = FS, maxTasks = (safeRead (reads s))})) "<n>") 
-    "use fair search\nn = maximum number of concurrent computations (default: 0 = infinite)"
+    (\s opts -> opts {strat = FS, maxTasks = safeRead s})) "<n>") 
+    "use fair search\nn = maximum number of concurrent computations\n(default: 0 = infinite)"
+  , Option "c" ["compile"]
+           (NoArg (\opts -> opts {genMain = False}))
+           "only compile, do not generate executable"
   , Option "r" ["run"]
-    (NoArg (\opts -> opts {run = True})) "run the program after compilation"
+           (NoArg (\opts -> opts {run = True}))
+           "run program after compilation"
   , Option "t" ["time"]
     (OptArg (maybe (\opts -> opts {time = True})
-    (\s opts -> opts {time = True, times = (safeRead (reads s))})) "<n>")
+    (\s opts -> opts {time = True, times = safeRead s})) "<n>")
     "print execution time\nn>1: average over runs n"
   , Option "" ["first"]
     (NoArg (\opts -> opts {maxResults = 1}))
     "stop evaluation after the first result"
   , Option "n" ["results"] 
-    (ReqArg (\s opts -> opts {maxResults = (safeRead (reads s))}) "<n>")
-    "set maximum number of results to be computed (default: 0 = infinite)"
+    (ReqArg (\s opts -> opts {maxResults = safeRead s}) "<n>")
+    "set maximum number of results to be computed\n(default: 0 = infinite)"
   , Option "i" ["interactive"]
     (NoArg (\opts -> opts {interact = True}))
-    "interactive result printing (ask to print next result)"
-  , Option ""   ["nomain"]
-    (NoArg (\opts -> opts {genMain = False})) "do not generate a main package"
+    "interactive result printing\n(ask to print next result)"
   , Option "m" ["main"]
     (ReqArg (\s opts -> opts {mainName = s}) "<f>")
     "set name of main function to f (default: main)"
@@ -185,6 +207,12 @@ options =
     (NoArg (\opts -> opts {printBaseVer = True})) "print the base version and exit"
   ]
  where
-  safeRead result = case result of
+  safeRead s = case reads s of
     [(n,"")] -> n
     _        -> error "Invalid argument! Use -h for help."
+
+  checkVerb s opts = if n >= 0 && n <= 4
+                       then opts { verbosity = n }
+                       else error "Illegal verbosity level (use `-h' for help)"
+   where n = safeRead s
+
