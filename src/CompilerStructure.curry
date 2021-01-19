@@ -55,56 +55,63 @@ getFileDir struct name = takeDirectory (getFilePath struct name)
 --- Compiles a program with its imports according to the CompStruct.
 --- and compilation function given.
 --- @param struct - CompStruct with compilation information
+--- @param quiet  - no printing of status information?
 --- @param inp    - path to the program to start compilation with
-compile :: CompStruct a -> String -> IO ()
-compile struct inp = do createDirectoryIfMissing True (outputDir struct)
-                        compileProg struct inp
-                        return ()
+compile :: CompStruct a -> Bool -> String -> IO ()
+compile struct quiet inp = do
+  createDirectoryIfMissing True (outputDir struct)
+  compileProg struct quiet inp
+  return ()
 
 --- Calls the compilation function on a program and 
 --- saves the output according to the given CompStruct,
 --- unless it has not been modified since the last compilation.
 --- @param struct  - CompStruct with compilation information
+--- @param quiet   - no printing of status information?
 --- @param name    - name of the program to compile
 --- @return        - Bool indicating whether
 ---                - the program was (re)compiled(True) or not(False).
-compileProg :: CompStruct a -> String -> IO Bool
-compileProg struct name =
+compileProg :: CompStruct a -> Bool -> String -> IO Bool
+compileProg struct quiet name =
   do createDirectoryIfMissing True (getFileDir struct name)
      prog <- getProg struct name
      alreadyExists <- doesFileExist (getFilePath struct name)
      if alreadyExists
-       then do modulePath <- getPath struct name
-               lastMod <- getModificationTime modulePath
-               lastCompile <- getModificationTime (getFilePath struct name)
-               compAnyway <- compileImports struct (getImports struct prog)
-               if(compareClockTime lastMod lastCompile == GT || compAnyway)
-                 then do
-                   writeFile (getFilePath struct name) (compProg struct prog)
-                   compModules <- readGlobal compiledModules 
-                   writeGlobal compiledModules (name:compModules)
-                   putStrLn ("Compiled " ++ name) >> return True
-                 else putStrLn ("Skipping " ++ name) >> return False
+       then do
+         modulePath <- getPath struct name
+         lastMod <- getModificationTime modulePath
+         lastCompile <- getModificationTime (getFilePath struct name)
+         compAnyway <- compileImports struct quiet (getImports struct prog)
+         if compareClockTime lastMod lastCompile == GT || compAnyway
+           then do
+             writeFile (getFilePath struct name) (compProg struct prog)
+             compModules <- readGlobal compiledModules 
+             writeGlobal compiledModules (name:compModules)
+             printStatus ("Compiled " ++ name) >> return True
+                 else printStatus ("Skipping " ++ name) >> return False
        else do
-         compileImports struct (getImports struct prog)
+         compileImports struct quiet (getImports struct prog)
          writeFile (getFilePath struct name) (compProg struct prog)
          compModules <- readGlobal compiledModules 
          writeGlobal compiledModules (name:compModules)
-         putStrLn ("Compiled " ++ name) >> return True
+         printStatus ("Compiled " ++ name) >> return True
+ where
+  printStatus s = if quiet then return () else putStrLn s
 
 --- Calls compileProg on every imported module 
 --- if it is not in the excludedModules list.
 --- @param struct  - CompStruct with compilation information
+--- @param quiet   - no printing of status information?
 --- @param imports - list of imported modules
 --- @return        - Bool indicating whether any
 ---                - import was (re)compiled(True) or not(False).
-compileImports :: CompStruct a -> [String] -> IO Bool
-compileImports _    []         = return False
-compileImports struct (x:xs) 
-  | elem x (excludeModules struct) = compileImports struct xs
+compileImports :: CompStruct a -> Bool -> [String] -> IO Bool
+compileImports _      _     []     = return False
+compileImports struct quiet (x:xs) 
+  | elem x (excludeModules struct) = compileImports struct quiet xs
   | otherwise                    = do
-    b <- compileImports struct xs
+    b <- compileImports struct quiet xs
     compMods <- readGlobal compiledModules
     if elem x compMods then return True
-                       else compileProg struct x
+                       else compileProg struct quiet x
                             >>= (\b2 -> return (b || b2))

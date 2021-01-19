@@ -50,17 +50,17 @@ testall() {
 # Tests
 PROGRAMS="Colormap ColormapFree Data Fac FreeBool Half Higher Last InfList NonDet Perm PermSort Rev Xor Zip"
 # currently not working: CaseLiteral
-CGOPTS="-r"
+CGOPTS="-q -r"
 testall TESTDFS.txt
 
 # Tests where BFS strategy is relevant:
 PROGRAMS="NDNums Strategy"
-CGOPTS="-r --bfs --first"
+CGOPTS="-q -r --bfs --first"
 testall TESTBFS.txt
 
 # Tests where fair strategy is relevant:
 PROGRAMS="FairSearch"
-CGOPTS="-r --fs --first"
+CGOPTS="-q -r --fs --first"
 testall TESTFS.txt
 
 exit

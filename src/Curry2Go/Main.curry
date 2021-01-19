@@ -100,7 +100,8 @@ curry2Go mainmod opts = do
   printVerb opts 3 $ "Creating directory: " ++ includedir
   createDirectoryIfMissing True includedir
   printVerb opts 1 "Compiling..."
-  compile (goStruct {compProg = compileIProg2GoString opts}) mainmod
+  compile (goStruct {compProg = compileIProg2GoString opts})
+          (verbosity opts == 0) mainmod
   printVerb opts 2 $ "Go programs written to " ++ outputDir goStruct
   IProg moduleName _ _ funcs <- icCompile (defaultICOptions {optVerb=0}) mainmod
   when (genMain opts) $ do
