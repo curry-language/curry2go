@@ -102,7 +102,7 @@ var n = GoOpName (varName n)
 --- @param opts  - compiler options 
 createMainProg :: [IFunction] -> CGOptions -> GoProg
 createMainProg [] _ = error "No main function found!"
-createMainProg ((IFunction name@(modName, fname,n) _ _ _ _):xs) opts
+createMainProg ((IFunction name@(modName, fname,_) n _ _ _):xs) opts
   | fname == mainName opts && n > 0 = error "Overloaded initial expression"
   | fname == mainName opts = GoProg "main"
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
