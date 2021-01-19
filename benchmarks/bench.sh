@@ -6,8 +6,6 @@
 
 # Number of iterations:
 ITER=3
-# Default strategy:
-STRAT="--fs"
 # Output in CSV format?
 CSV=yes
 
@@ -28,8 +26,15 @@ esac
 rm -rf .curry
 
 #run all benchmarks in the directory
-for FILE in *
-do
+run_benchmarks() {
+  STRAT=$1
+  if [ $CSV = yes ] ; then
+    echo Program,$STRAT
+  else
+    echo Strategy: $STRAT
+  fi
+  for FILE in *
+  do
     #only compile curry files
     if [[ $FILE == *".curry" ]]
       then
@@ -50,4 +55,10 @@ do
         fi
         rm $FILE
     fi 
-done
+  done
+}
+
+# run benchmarks with different strategies:
+run_benchmarks --dfs
+run_benchmarks --bfs
+run_benchmarks --fs
