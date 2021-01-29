@@ -20,19 +20,21 @@ data CompStruct a = CompStruct
   , getProg         :: (String -> IO a)      -- returns a program from a module name.
   , getPath         :: (String -> IO String) -- returns the path to the source file of a program.
   , getImports      :: (a -> [String])       -- returns the names of imported programs.
-  , compProg            :: (a -> String)         -- compiles a program to a String in the target language.
+  , compProg        :: (a -> String)         -- compiles a program to a String in the target language.
+  , postProc        :: (String -> IO ())     -- post processing function that runs after compilation of a module.
   }
 
 --- Default CompStruct.
 defaultStruct :: CompStruct a
 defaultStruct = CompStruct
-  { outputDir = ""
-  , filePath  = id
+  { outputDir      = ""
+  , filePath       = id
   , excludeModules = []
-  , getProg  =  \_ -> error "Undefined getProg"
-  , getPath  =  \_ -> error "Undefined getPath"
-  , getImports = \_ -> error "Undefined getImports"
-  , compProg = \_ -> error "Undefined compProg"
+  , getProg        = \_ -> error "Undefined getProg"
+  , getPath        = \_ -> error "Undefined getPath"
+  , getImports     = \_ -> error "Undefined getImports"
+  , compProg       = \_ -> error "Undefined compProg"
+  , postProc       = \_ -> return ()
   }
 
 --- List of already compiled modules.
@@ -85,16 +87,23 @@ compileProg struct quiet name =
          if compareClockTime lastMod lastCompile == GT || compAnyway
            then do
              writeFile (getFilePath struct name) (compProg struct prog)
+             postProc struct name
              compModules <- readGlobal compiledModules 
              writeGlobal compiledModules (name:compModules)
-             printStatus ("Compiled " ++ name) >> return True
-                 else printStatus ("Skipping " ++ name) >> return False
+             printStatus ("Compiled " ++ name)
+             return True
+           else do
+             postProc struct name
+             printStatus ("Skipping " ++ name)
+             return False
        else do
          compileImports struct quiet (getImports struct prog)
          writeFile (getFilePath struct name) (compProg struct prog)
-         compModules <- readGlobal compiledModules 
+         postProc struct name
+         compModules <- readGlobal compiledModules
          writeGlobal compiledModules (name:compModules)
-         printStatus ("Compiled " ++ name) >> return True
+         printStatus ("Compiled " ++ name)
+         return True
  where
   printStatus s = if quiet then return () else putStrLn s
 
@@ -109,7 +118,7 @@ compileImports :: CompStruct a -> Bool -> [String] -> IO Bool
 compileImports _      _     []     = return False
 compileImports struct quiet (x:xs) 
   | elem x (excludeModules struct) = compileImports struct quiet xs
-  | otherwise                    = do
+  | otherwise                      = do
     b <- compileImports struct quiet xs
     compMods <- readGlobal compiledModules
     if elem x compMods then return True

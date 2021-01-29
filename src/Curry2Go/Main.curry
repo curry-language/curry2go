@@ -30,32 +30,34 @@ loadCurryPath inp =
     Just (dir, file) -> return (combine dir file)
 
 --- Loads an IProg from the name of a curry module.
+loadCurry :: String -> IO IProg
+loadCurry inp = do prog <- readFlatCurryWithParseOptions (stripCurrySuffix inp)
+                     (setQuiet True (setDefinitions [] defaultParams))
+                   flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
+
 --- Copies external files that are in the include folder or
 --- next to the source file.
-loadCurry :: String -> IO IProg
-loadCurry inp = do extFilePath <- getExtFilePath
+postProcess :: String -> IO ()
+postProcess s = do extFilePath <- getExtFilePath
                    extFileName <- return (takeFileName extFilePath)
                    home <- getHomeDirectory
                    extInSource <- doesFileExist extFilePath
                    if extInSource
                      then copyFile extFilePath
-                       (combine (getFileDir goStruct inp) extFileName)
+                       (combine (getFileDir goStruct s) extFileName)
                      else do 
                        extInInclude <- doesFileExist
                          (joinPath [home, ".gocurry", "include", extFileName])
                        when extInInclude (copyFile
                          (joinPath [home, ".gocurry", "include", extFileName])
-                         (combine (getFileDir goStruct inp) extFileName))
-                   prog <- readFlatCurryWithParseOptions (stripCurrySuffix inp)
-                     (setQuiet True (setDefinitions [] defaultParams))
-                   flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
+                         (combine (getFileDir goStruct s) extFileName))
+                   return ()
  where
   getExtFilePath = do
-    path <- loadCurryPath (stripCurrySuffix inp)
+    path <- loadCurryPath (stripCurrySuffix s)
     return $
       replaceFileName path
         ("external_" ++ takeFileName (replaceExtension path "go"))
-
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
@@ -64,9 +66,10 @@ goStruct = defaultStruct
       (\s -> combine (modNameToPath s) 
         (last (splitModuleIdentifiers s) ++ ".go"))
   , excludeModules = ["Prelude"]
-  , getProg = loadCurry
-  , getPath = loadCurryPath
-  , getImports = (\(IProg _ imports _ _) -> imports)
+  , getProg        = loadCurry
+  , getPath        = loadCurryPath
+  , getImports     = (\(IProg _ imports _ _) -> imports)
+  , postProc       = postProcess
   }
 
 --- Implementation of compiler io.
