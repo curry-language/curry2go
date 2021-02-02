@@ -11,24 +11,24 @@ import System.FrontendExec
 import Global
 
 --- Data type for compiler options regarding output structure and modules.
---- The compiled version of a module m will be saved as outputDir/(filePath m).
+--- The compiled version of a module m will be saved as outputDir\(filePath m).
 data CompStruct a = CompStruct
-  { outputDir       :: String                -- directory where all compiled files will be saved.
-  , filePath        :: (String -> String)    -- function taking a module name, 
-                                             -- converting it to a path for the compiled version.
-  , excludeModules  :: [String]              -- list of modules to ignore if they appear as an import.
-  , getProg         :: (String -> IO a)      -- returns a program from a module name.
-  , getPath         :: (String -> IO String) -- returns the path to the source file of a program.
-  , getImports      :: (a -> [String])       -- returns the names of imported programs.
-  , compProg        :: (a -> String)         -- compiles a program to a String in the target language.
-  , postProc        :: (String -> IO ())     -- post processing function that runs after compilation of a module.
+  { outputDir      :: String                -- directory where all compiled files will be saved.
+  , filePath       :: (String -> IO String) -- function taking a module name,
+                                            -- converting it to a path for the compiled version.
+  , excludeModules :: [String]              -- list of modules to ignore if they appear as an import.
+  , getProg        :: (String -> IO a)      -- returns a program from a module name.
+  , getPath        :: (String -> IO String) -- returns the path to the source file of a program.
+  , getImports     :: (a -> [String])       -- returns the names of imported programs.
+  , compProg       :: (a -> String)         -- compiles a program to a String in the target language.
+  , postProc       :: (String -> IO ())     -- post processing function that runs after compilation/skipping of a module.
   }
 
 --- Default CompStruct.
 defaultStruct :: CompStruct a
 defaultStruct = CompStruct
   { outputDir      = ""
-  , filePath       = id
+  , filePath       = \s -> return s
   , excludeModules = []
   , getProg        = \_ -> error "Undefined getProg"
   , getPath        = \_ -> error "Undefined getPath"
@@ -44,15 +44,16 @@ compiledModules = global [] Temporary
 --- Returns the path to the file containing the compiled version of a program.
 --- @param path - PathStruct containing directory information
 --- @param name - name of the curry module
-getFilePath :: CompStruct a -> String -> String
-getFilePath struct name = combine (outputDir struct) (filePath struct name)
+getFilePath :: CompStruct a -> String -> IO String
+getFilePath struct name = do fPath <- filePath struct name
+                             return (combine (outputDir struct) fPath)
 
 --- Returns the directory where the compiled version of a program will be saved.
 --- @param path - PathStruct containing directory information
 --- @param name - name of the curry module
-getFileDir :: CompStruct a -> String -> String
-getFileDir struct name = takeDirectory (getFilePath struct name)
-
+getFileDir :: CompStruct a -> String -> IO String
+getFileDir struct name = do fPath <- getFilePath struct name
+                            return (takeDirectory fPath)
 
 --- Compiles a program with its imports according to the CompStruct.
 --- and compilation function given.
@@ -75,20 +76,22 @@ compile struct quiet inp = do
 ---                - the program was (re)compiled(True) or not(False).
 compileProg :: CompStruct a -> Bool -> String -> IO Bool
 compileProg struct quiet name =
-  do createDirectoryIfMissing True (getFileDir struct name)
+  do fDir <- getFileDir struct name
+     fPath <- getFilePath struct name
+     createDirectoryIfMissing True fDir
      prog <- getProg struct name
-     alreadyExists <- doesFileExist (getFilePath struct name)
+     alreadyExists <- doesFileExist fPath
      if alreadyExists
        then do
          modulePath <- getPath struct name
          lastMod <- getModificationTime modulePath
-         lastCompile <- getModificationTime (getFilePath struct name)
+         lastCompile <- getModificationTime fPath
          compAnyway <- compileImports struct quiet (getImports struct prog)
          if compareClockTime lastMod lastCompile == GT || compAnyway
            then do
-             writeFile (getFilePath struct name) (compProg struct prog)
+             writeFile fPath (compProg struct prog)
              postProc struct name
-             compModules <- readGlobal compiledModules 
+             compModules <- readGlobal compiledModules
              writeGlobal compiledModules (name:compModules)
              printStatus ("Compiled " ++ name)
              return True
@@ -98,7 +101,7 @@ compileProg struct quiet name =
              return False
        else do
          compileImports struct quiet (getImports struct prog)
-         writeFile (getFilePath struct name) (compProg struct prog)
+         writeFile fPath (compProg struct prog)
          postProc struct name
          compModules <- readGlobal compiledModules
          writeGlobal compiledModules (name:compModules)
@@ -123,4 +126,4 @@ compileImports struct quiet (x:xs)
     compMods <- readGlobal compiledModules
     if elem x compMods then return True
                        else compileProg struct quiet x
-                            >>= (\b2 -> return (b || b2))
+                         >>= (\b2 -> return (b || b2))

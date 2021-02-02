@@ -7,7 +7,6 @@ module Curry2Go.Compiler
 import Control.Monad ( when )
 import Go.Show
 import Go.Types
-import CompilerStructure
 import ICurry.Types
 import ICurry.Compiler
 import System.Environment
@@ -189,7 +188,7 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
 --- @param opts  - compiler options
 --- @param funcs - list of IFunctions
 ifuncNames2Go :: CGOptions -> [IFunction] -> GoTopLevelDecl
-ifuncNames2Go opts funcs = GoTopLevelDecl 
+ifuncNames2Go _ funcs = GoTopLevelDecl 
   (GoVarDecl ["func_names"] "[]string"
   [GoCompositeLit "[]string" (map getName funcs)])
  where
@@ -306,7 +305,7 @@ iassign2Go opts (INodeAssign i ls expr) = GoExprStat
 --- @param otps       - compiler options
 --- @param istatement - IStatement to convert
 istatement2Go :: CGOptions -> IStatement -> [GoStat]
-istatement2Go opts  IExempt            = [GoExprStat
+istatement2Go _    IExempt            = [GoExprStat
   (GoCall (GoOpName (runtime ++ ".ExemptCreate")) [root]), GoReturn []]
 istatement2Go opts (IReturn expr)      = case expr of
  IVar i          -> [GoExprStat (GoCall

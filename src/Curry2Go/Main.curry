@@ -10,6 +10,7 @@ import System.CurryPath
 import System.Console.GetOpt
 import System.Directory
 import Data.Char
+import Data.Time
 import System.FilePath
 import System.Process
 import Data.List
@@ -22,36 +23,66 @@ import Curry2Go.Config   ( packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
+--- .curry subdirectory where curry2go compiled files will be stored. 
+curry2goDir :: String
+curry2goDir = combine ".curry" ("curry2go-" ++ packageVersion)
+
+--- Returns the filepath relative to curry2goDir where
+--- the compiled version of the module s will be stored.
+modPackage :: String -> String
+modPackage s =
+  combine (modNameToPath s) (last (splitModuleIdentifiers s) ++ ".go")
+
+--- Creates the output path for a compiled curry module.
+createFilePath :: String -> IO String
+createFilePath s = do
+  path <- lookupModuleSourceInLoadPath s
+  case path of
+    Nothing       -> error ("Unknown moduel " ++ s)
+    Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage s])
+
 --- Gets the path to the source file of a curry module.
 loadCurryPath :: String -> IO String
-loadCurryPath inp =
-  lookupModuleSourceInLoadPath (stripCurrySuffix inp) >>= \path -> case path of
-    Nothing          -> error ("Unknown module " ++ inp)
-    Just (dir, file) -> return (combine dir file)
+loadCurryPath s =
+  lookupModuleSourceInLoadPath (stripCurrySuffix s) >>= \path -> case path of
+    Nothing          -> error ("Unknown module " ++ s)
+    Just (dir, file) -> return file
 
 --- Loads an IProg from the name of a curry module.
 loadCurry :: String -> IO IProg
-loadCurry inp = do prog <- readFlatCurryWithParseOptions (stripCurrySuffix inp)
-                     (setQuiet True (setDefinitions [] defaultParams))
-                   flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
+loadCurry s = do prog <- readFlatCurryWithParseOptions (stripCurrySuffix s)
+                   (setQuiet True (setDefinitions [] defaultParams))
+                 flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
 
 --- Copies external files that are in the include folder or
---- next to the source file.
+--- next to the source file into the directory with the
+--- compiled version of a curry module.
 postProcess :: String -> IO ()
 postProcess s = do extFilePath <- getExtFilePath
                    extFileName <- return (takeFileName extFilePath)
                    home <- getHomeDirectory
                    extInSource <- doesFileExist extFilePath
+                   fPath <- getFilePath goStruct s
+                   let outPath = combine curry2goDir (modPackage s)
+                   let outDir = takeDirectory outPath
+                   createDirectoryIfMissing True outDir
                    if extInSource
                      then copyFile extFilePath
-                       (combine (getFileDir goStruct s) extFileName)
+                       (combine outDir extFileName)
                      else do 
                        extInInclude <- doesFileExist
                          (joinPath [home, ".gocurry", "include", extFileName])
                        when extInInclude (copyFile
                          (joinPath [home, ".gocurry", "include", extFileName])
-                         (combine (getFileDir goStruct s) extFileName))
-                   return ()
+                         (combine outDir extFileName))
+                   alreadyExists <- doesFileExist outPath
+                   if alreadyExists
+                     then do 
+                       fMod <- getModificationTime fPath
+                       outMod <- getModificationTime outPath
+                       when (compareClockTime outMod fMod == GT)
+                         (copyFile fPath outPath)
+                     else copyFile fPath outPath
  where
   getExtFilePath = do
     path <- loadCurryPath (stripCurrySuffix s)
@@ -61,10 +92,8 @@ postProcess s = do extFilePath <- getExtFilePath
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
-  { outputDir      = combine ".curry" ("curry2go-" ++ packageVersion)
-  , filePath       =
-      (\s -> combine (modNameToPath s) 
-        (last (splitModuleIdentifiers s) ++ ".go"))
+  { outputDir      = ""
+  , filePath       = createFilePath
   , excludeModules = ["Prelude"]
   , getProg        = loadCurry
   , getPath        = loadCurryPath
@@ -112,13 +141,12 @@ curry2Go mainmod opts = do
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
     let mainprog = showGoProg (createMainProg funcs (opts {modName = "main"}))
     printVerb opts 4 $ "Main Go program:\n\n" ++ mainprog
-    let mainfile = combine (outputDir goStruct) mainprogname
+    let mainfile = combine curry2goDir mainprogname
     writeFile mainfile mainprog
     printVerb opts 2 $ "...written to " ++ mainfile
   when (genMain opts) $ do
     printVerb opts 1 "Creating executable..."
-    let bcmd = "go build " ++ outputDir goStruct ++ [pathSeparator] ++
-               removeDots moduleName ++ ".go"
+    let bcmd = "go build " ++ combine curry2goDir (removeDots moduleName ++ ".go")
     printVerb opts 2 $ "...with command: " ++ bcmd
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
@@ -198,7 +226,7 @@ options =
   , Option "i" ["interactive"]
     (NoArg (\opts -> opts {interact = True}))
     "interactive result printing\n(ask to print next result)"
-  , Option "m" ["main"]
+  , Option "s" ["main"]
     (ReqArg (\s opts -> opts {mainName = s}) "<f>")
     "set name of main function to f (default: main)"
   , Option "" ["hnf"]
