@@ -41,6 +41,10 @@ defaultStruct = CompStruct
 compiledModules :: Global [String]
 compiledModules = global [] Temporary
 
+--- List of already skipped modules.
+skippedModules :: Global [String]
+skippedModules = global [] Temporary
+
 --- Returns the path to the file containing the compiled version of a program.
 --- @param path - PathStruct containing directory information
 --- @param name - name of the curry module
@@ -97,6 +101,8 @@ compileProg struct quiet name =
              return True
            else do
              postProc struct name
+             skipModules <- readGlobal skippedModules
+             writeGlobal skippedModules (name:skipModules)
              printStatus ("Skipping " ++ name)
              return False
        else do
@@ -124,6 +130,10 @@ compileImports struct quiet (x:xs)
   | otherwise                      = do
     b <- compileImports struct quiet xs
     compMods <- readGlobal compiledModules
-    if elem x compMods then return True
-                       else compileProg struct quiet x
-                         >>= (\b2 -> return (b || b2))
+    skipMods <- readGlobal skippedModules
+    if elem x compMods 
+      then return True
+      else if elem x skipMods 
+             then return False
+             else compileProg struct quiet x
+               >>= (\b2 -> return (b || b2))
