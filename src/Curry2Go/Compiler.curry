@@ -166,20 +166,19 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
   getImportsExpr (IVarAccess _ _)            = []
   getImportsExpr (ILit _)                    = []
   getImportsExpr (IFCall (m, _, _) exprs)    = 
-    m:(unionize (map getImportsExpr exprs))
+    union [m] (unionize (map getImportsExpr exprs))
   getImportsExpr (ICCall (m, _, _) exprs)    = 
-    m:(unionize (map getImportsExpr exprs))
+    union [m] (unionize (map getImportsExpr exprs))
   getImportsExpr (IFPCall (m, _, _) _ exprs) = 
-    m:(unionize (map getImportsExpr exprs))
+    union [m] (unionize (map getImportsExpr exprs))
   getImportsExpr (ICPCall (m, _, _) _ exprs) = 
-    m:(unionize (map getImportsExpr exprs))
+    union [m] (unionize (map getImportsExpr exprs))
   getImportsExpr (IOr expr1 expr2)           = 
     union (getImportsExpr expr1) (getImportsExpr expr2)
   unionize ls = foldl union [] ls
   toImport [] = []
   toImport (x:xs)
-    | x == "Prelude"    = (toImport xs)
-    | x == modName opts = (toImport xs)       
+    | x == modName opts = (toImport xs)
     | otherwise         =
       (concat (replicate (length (splitModuleIdentifiers (modName opts)))"../")
       ++ modNameToPath x) : (toImport xs)
@@ -427,9 +426,7 @@ ilit2Go _ expr (IFloat f) = GoCall
 --- @param opts - compiler options
 --- @param name - IQName to convert
 iqname2Go :: CGOptions -> IQName -> String
-iqname2Go opts (m, n, _) | m == "Prelude"    = "gocurry."
-  ++ replaceInvalidChars ("Prelude_" ++ n)
-                         | m /= modName opts = removeDots m 
+iqname2Go opts (m, n, _) | m /= modName opts = removeDots m 
   ++ "." ++ replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
                          | otherwise         = 
   replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)

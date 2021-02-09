@@ -4,8 +4,6 @@ import "fmt"
 import "time"
 import "regexp"
 
-var runtime_names []string = []string{"IO", "toNf", "ArgsToNf"}
-
 ////// Functions to create specific types of nodes
 
 // Sets root to a constructor node.
@@ -122,27 +120,6 @@ func NfCreate(root, arg *Node) *Node{
     return FuncCreate(root, toNf, &runtime_names[1], 1, 0, arg)  
 }
 
-// Creates a list containing elements starting at root.
-// Returns a pointer to root.
-func ListCreate(root *Node, elements ...*Node)(*Node){
-
-    // next node to write to
-    cur_node := root
-
-    for i:= 0; i < len(elements); i++{
-
-        // create a : with the current element and the rest
-        Prelude_ColCreate(cur_node, elements[i], new(Node))
-        
-        // move to next node
-        cur_node = cur_node.GetChild(1)
-    }
-
-    // set last element to []
-    Prelude_LSbRSbCreate(cur_node)
-    return root
-}
-
 // Converts a Go string to a Curry String.
 // root is the node receiving the first character.
 // str is the Go string.
@@ -157,14 +134,14 @@ func StringCreate(root *Node, str string)(*Node){
     // go through the string
     for i := 0; i < len(str); i++{
         // create a : at cur_node
-        Prelude_ColCreate(cur_node, CharLitCreate(new(Node), runes[i]), new(Node))
+        ConstCreate(cur_node, 1, 2, &runtime_names[4], CharLitCreate(new(Node), runes[i]), new(Node))
 
         // move to next node
         cur_node = cur_node.GetChild(1)
     }
     
     // set last element to []
-    Prelude_LSbRSbCreate(cur_node)
+    ConstCreate(cur_node, 0, 0, &runtime_names[3])
     return root
 }
 
@@ -276,6 +253,14 @@ func (node *Node) GetName() string{
     return *node.name
 }
 
+func (node *Node) GetOt() int{
+    return node.ot
+}
+
+func (node *Node) SetOt(ot int){
+    node.ot = ot
+}
+
 func (node *Node) IsFcall() bool{
     return (node.node_type == FCALL)
 }
@@ -334,6 +319,14 @@ func (node *Node) IsHnf() bool {
     return (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit() || node.LockedIsPartial())
 }
 
+func (node *Node) SetTr(id int, val *Node){
+    if(node.tr == nil){
+        node.tr = make(map[int]*Node)   
+    }
+
+    node.tr[id] = val
+}
+
 // Searches the task result map of node for entries
 // with the key id or any key from parents.
 // If a matching entry is found it and true is returned.
@@ -360,6 +353,9 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
 
 ////// Methods on tasks
 
+func (task *Task) GetId() int{
+    return task.id
+}
 
 func (task *Task) GetControl() *Node{
     return task.control

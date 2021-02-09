@@ -94,6 +94,9 @@ func nextFree() *string{
 
 ////// Global variables
 
+// array of names used to create nodes
+var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError"}
+
 // flag indicating whether or not to use bfs
 var use_bfs = false
 
@@ -190,11 +193,6 @@ func toHnf(task *Task){
             control_lock.Unlock()
             return
         }
-        
-        //printDebug(task.control, task.id, task.parents)
-        //fmt.Println()
-        //printResult(task.control)
-        //fmt.Println("\n")
         
         // evluate node depending on the node type
         switch task.control.node_type {
@@ -642,13 +640,13 @@ func errorHandler(task *Task){
         // test for catch call in stack
         for i := len(task.stack) - 1; i >= 0; i--{
             // if there is a catch continue
-            if(task.stack[i].IsFcall() && *task.stack[i].name == "Prelude_catch"){
+            if(task.stack[i].IsFcall() && *task.stack[i].name == "catch"){
                 // move back to catch call
                 task.control = task.stack[i]
                 task.stack = task.stack[:i]
                 
                 // set first argument of catch to error
-                task.control.SetChild(0, Prelude_IOErrorCreate(new(Node), StringCreate(new(Node), err.(string))))
+                task.control.SetChild(0, ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err.(string))))
                 toHnf(task)
                 return
             }

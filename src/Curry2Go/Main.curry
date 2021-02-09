@@ -94,7 +94,7 @@ goStruct :: CompStruct IProg
 goStruct = defaultStruct
   { outputDir      = ""
   , filePath       = createFilePath
-  , excludeModules = ["Prelude"]
+  , excludeModules = []
   , getProg        = loadCurry
   , getPath        = loadCurryPath
   , getImports     = (\(IProg _ imports _ _) -> imports)
