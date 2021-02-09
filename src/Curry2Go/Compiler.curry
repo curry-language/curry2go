@@ -153,7 +153,10 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
  where
   getImportsBody (IExternal _)     = []
   getImportsBody (IFuncBody block) = getImportsBlock block
-  getImportsBlock (IBlock _ _ stat) = getImportsStat stat
+  getImportsBlock (IBlock _ assign stat) =
+    union (getImportsStat stat) (unionize (map getImportsAssign assign))
+  getImportsAssign (IVarAssign _ expr)    = getImportsExpr expr
+  getImportsAssign (INodeAssign _ _ expr) = getImportsExpr expr
   getImportsStat IExempt                = []
   getImportsStat (IReturn expr)         = getImportsExpr expr
   getImportsStat (ICaseCons _ branches) =
