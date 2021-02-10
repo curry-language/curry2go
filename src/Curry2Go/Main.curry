@@ -69,7 +69,7 @@ postProcess s = do extFilePath <- getExtFilePath
                    if extInSource
                      then copyFile extFilePath
                        (combine outDir extFileName)
-                     else do 
+                     else do
                        extInInclude <- doesFileExist
                          (joinPath [home, ".gocurry", "include", extFileName])
                        when extInInclude (copyFile
@@ -88,7 +88,7 @@ postProcess s = do extFilePath <- getExtFilePath
     path <- loadCurryPath (stripCurrySuffix s)
     return $
       replaceFileName path
-        ("external_" ++ takeFileName (replaceExtension path "go"))
+        (stripCurrySuffix (takeFileName path) ++ "_external.go")
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
