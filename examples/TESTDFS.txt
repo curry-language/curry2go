@@ -21,8 +21,8 @@ Running: curry2go -q -r FreeBool
 False
 False
 Running: curry2go -q -r Half
-S(S(O))
-S(S(S(O)))
+S (S O)
+S (S (S O))
 Running: curry2go -q -r Higher
 [False, True]
 Running: curry2go -q -r Last
@@ -60,7 +60,7 @@ Running: curry2go -q -r Perm
 [4, 3, 1, 2]
 [4, 3, 2, 1]
 Running: curry2go -q -r PermSort
-[O, S(O), S(S(O)), S(S(S(O))), S(S(S(S(O))))]
+[O, S O, S (S O), S (S (S O)), S (S (S (S O)))]
 Running: curry2go -q -r Rev
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 Running: curry2go -q -r Xor
