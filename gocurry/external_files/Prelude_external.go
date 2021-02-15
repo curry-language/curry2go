@@ -881,7 +881,7 @@ func ExternalPrelude_bindIO(task *Task){
         return
     }
 
-    RedirectCreate(root, CopyNode(x2, x1.GetChild(0)))
+    Prelude_applyCreate(root, x2, x1.GetChild(0))
 }
 
 func ExternalPrelude_seqIO(task *Task){
