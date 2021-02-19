@@ -1,0 +1,52 @@
+############################################################################
+# curry2go configuration file
+#
+# The syntax of this file is
+#
+# property=value\n
+#
+# Lines starting with '#' are comments.
+#
+############################################################################
+
+# Default parameters that are always passed as initial parameters to KiCS2
+# (e.g., ":set +time :set +interactive :set fs")
+defaultparams=
+
+# Define path for searching modules in addition to standard libraries:
+# (this path is placed in front of the standard library path)
+libraries=
+
+# Allow Curry extensions (currently: function patterns and records)
+# (values: yes | no):
+curryextensions=yes
+
+# Show warnings for non-trivial overlapping rules (values: yes | no)
+warnoverlapping=yes
+
+# System command to edit the source file of a Curry program
+# (if not defined, the value of the environment variable EDITOR is used)
+editcommand=
+
+# System command to show the source file of a Curry program
+# (if not defined, the value of the environment variable PAGER is used)
+showcommand=
+
+# System command to view (Graphviz) dot graphs that come from stdin
+# (e.g., used in CPM, Curry browser, erd2curry tools)
+dotviewcommand=dot -Tpdf > /tmp/dotxxx.pdf && evince /tmp/dotxxx.pdf
+
+# Optimize Boolean equalities (==): transform them into binding
+# constraints (=:=) whenever they must be evaluated only to True.
+# possible values:
+#   no   (do not optimize)
+#   fast (optimize w.r.t. standard Prelude)
+#   full (perform full program analysis to optimize more occurrences)
+bindingoptimization=fast
+
+# Should the auxiliary files generated for the main goal be kept?
+# (values: yes | no )
+# Usually, they are deleted, i.e., "yes" might be useful for debugging
+keepfiles=no
+
+############################################################################
