@@ -1996,14 +1996,7 @@ userError = UserError
 
 --- Raises an I/O exception with a given error value.
 ioError :: IOError -> IO _
-#ifdef __PAKCS__
 ioError err = error (show err)
-#else
-ioError err = prim_ioError $## err
-
-prim_ioError :: IOError -> IO _
-prim_ioError external
-#endif
 
 --- Catches a possible error or failure during the execution of an
 --- I/O action. `catch act errfun` executes the I/O action `act`.
