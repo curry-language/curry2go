@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE primitives SYSTEM "http://www.informatik.uni-kiel.de/~pakcs/primitives.dtd">
+<primitives>
+ <primitive name="$!" arity="2">
+  <entry>prim_applySeq[raw]</entry>
+ </primitive>
+ <primitive name="$!!" arity="2">
+  <entry>prim_applyNormalForm[raw]</entry>
+ </primitive>
+ <primitive name="$#" arity="2">
+  <entry>prim_applyNotFree[raw]</entry>
+ </primitive>
+ <primitive name="$##" arity="2">
+  <entry>prim_applyGroundNormalForm[raw]</entry>
+ </primitive>
+ <primitive name="seq" arity="2">
+  <entry>prim_seq[raw]</entry>
+ </primitive>
+ <primitive name="ensureNotFree" arity="1">
+  <entry>prim_ensureNotFree[raw]</entry>
+ </primitive>
+ <primitive name="failed" arity="0">
+  <entry>prim_failed[raw]</entry>
+ </primitive>
+ <primitive name="constrEq" arity="2">
+  <entry>Prelude.constrEq[raw]</entry>
+ </primitive>
+ <primitive name="nonstrictEq" arity="2">
+  <entry>Prelude.nonstrictEq[raw]</entry>
+ </primitive>
+ <primitive name="unifEqLinear" arity="2">
+  <entry>unifEqLinear[raw]</entry>
+ </primitive>
+ <primitive name="ifVar" arity="3">
+  <entry>prim_ifVar[raw]</entry>
+ </primitive>
+ <primitive name="&amp;" arity="2">
+  <entry>prim_concurrent_and[raw]</entry>
+ </primitive>
+ <primitive name="apply" arity="2">
+  <entry>prim_apply[raw]</entry>
+ </primitive>
+ <primitive name="cond" arity="2">
+  <entry>prim_cond[raw]</entry>
+ </primitive>
+ <primitive name="letrec" arity="2">
+  <entry>prim_letrec[raw]</entry>
+ </primitive>
+ <primitive name="failure" arity="2">
+  <entry>prim_failure[raw]</entry>
+ </primitive>
+ <primitive name="bindIO" arity="2">
+  <entry>prim_Monad_bind[raw]</entry>
+ </primitive>
+ <primitive name="seqIO" arity="2">
+  <entry>prim_Monad_seq[raw]</entry>
+ </primitive>
+ <primitive name="returnIO" arity="1">
+  <entry>prim_return[raw]</entry>
+ </primitive>
+ <primitive name="prim_readFileContents" arity="1">
+  <entry>prim_readFileContents[raw]</entry>
+ </primitive>
+ <primitive name="prim_writeFile" arity="2">
+  <entry>prim_writeFile[raw]</entry>
+ </primitive>
+ <primitive name="prim_appendFile" arity="2">
+  <entry>prim_appendFile[raw]</entry>
+ </primitive>
+ <primitive name="catch" arity="2">
+  <entry>prim_catch[raw]</entry>
+ </primitive>
+</primitives>

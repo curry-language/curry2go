@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE primitives SYSTEM "http://www.informatik.uni-kiel.de/~pakcs/primitives.dtd">
+<primitives>
+ <primitive name="newIORef" arity="1">
+  <entry>prim_newIORef[raw]</entry>
+ </primitive>
+ <primitive name="prim_readIORef" arity="1">
+  <entry>prim_readIORef[raw]</entry>
+ </primitive>
+ <primitive name="prim_writeIORef" arity="2">
+  <entry>prim_writeIORef[raw]</entry>
+ </primitive>
+</primitives>
