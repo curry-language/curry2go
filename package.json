@@ -7,16 +7,22 @@
   "license": "BSD-3-Clause",
   "licenseFile": "LICENSE",
   "dependencies": {
-    "base"     : ">=3.0.0, <4.0.0",
-    "icurry"   : ">=3.1.0, <4.0.0",
-    "flatcurry": ">=3.0.0, <4.0.0",
-    "currypath": ">=3.0.0, <4.0.0",
-    "global"   : ">=3.0.0, <4.0.0",
-    "process"  : ">=3.0.0, <4.0.0"
+    "base"      : ">=3.0.0, <4.0.0",
+    "icurry"    : ">=3.1.0, <4.0.0",
+    "flatcurry" : ">=3.0.0, <4.0.0",
+    "curry-repl": ">=0.0.1",
+    "currypath" : ">=3.0.0, <4.0.0",
+    "global"    : ">=3.0.0, <4.0.0",
+    "process"   : ">=3.0.0, <4.0.0"
   },
   "configModule": "Curry2Go.Config",
-  "executable": {
-    "name": "curry2go",
-    "main": "Curry2Go.Main"
-  }
+  "executables": [ {
+                     "name": "curry2go",
+                     "main": "Curry2Go.Main"
+                   },
+                   {
+                     "name": "c2go",
+                     "main": "C2GoREPL"
+                   }
+                 ]
 }

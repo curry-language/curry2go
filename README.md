@@ -20,8 +20,20 @@ to copy the directory `gocurry` as follows:
     > mkdir -p ~/go/src
     > cp -r gocurry ~/go/src/
 
-Usage:
-------
+All this is automized by a Makefile. Thus, simply run
+
+    > make
+
+This copies the required Go files and installs the compiler
+as executable `$HOME/.cpm/bin/curry2go`.
+Therefore, you should include the directory `$HOME/.cpm/bin`
+into your path for convenient usage of the compiler.
+Furthermore, a simple interactive environment for the compiler
+(a basic REPL) is generated as executable `$HOME/.cpm/bin/c2go`.
+
+
+Using the Compiler:
+-------------------
 
 After installation with `cypm install`, the compiler can be
 invoked from a shell with the command:
@@ -41,6 +53,12 @@ evaluate the `main` function of this program, go into
 the `examples` directory and execute
 
     > curry2go -r Rev
+
+
+Using the interactive environment
+---------------------------------
+
+Start `c2go` and look into the command `:help`.
 
 
 Package contents
