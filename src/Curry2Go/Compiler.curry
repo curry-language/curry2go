@@ -322,16 +322,18 @@ istatement2Go opts (ICaseCons i cases) = [GoExprSwitch
   [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
   [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
   , GoReturn []] []
-  , GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
-  [var i, createGenerator opts cases]), GoReturn []])
+  , GoExprStat (GoCall (GoSelector (var i) "SetTr")
+  [GoCall (GoSelector (GoOpName "task") "GetId") []
+  , createGenerator opts cases]), GoReturn []])
   :(map (iConsBranch2Go opts) cases))]
 istatement2Go opts (ICaseLit i cases)  = 
   [GoIf (GoCall (GoSelector (var i) "IsFree") []) 
   [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
   [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
   , GoReturn []] []
-  , GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
-  [var i, createLitGenerator cases]), GoReturn []] []
+  , GoExprStat (GoCall (GoSelector (var i) "SetTr")
+  [GoCall (GoSelector (GoOpName "task") "GetId") []
+  , createLitGenerator cases]), GoReturn []] []
   , iLitCases2Go opts i cases]
 
 --- Creates a generator from a list of IConsBranches.
