@@ -63,9 +63,7 @@ PROGRAMS="FairSearch"
 CGOPTS="-q -r --fs --first"
 testall TESTFS.txt
 
-exit
-
 # Tests with functional patterns:
 PROGRAMS="FunPatsLast FunPatsPali FunPatsExpSimp FunPatsExpVar"
-CGOPTS="-r"
+CGOPTS="-q -r"
 testall TESTFUNPATS.txt

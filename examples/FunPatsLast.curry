@@ -1,6 +1,6 @@
 -- Examples for using functional patterns
 
-last :: [a] -> a
+last :: Data a => [a] -> a
 last (_ ++ [x]) = x
 
 main :: Int

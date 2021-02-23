@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- define a palindrome constraint with functional patterns:
-pali :: [a] -> Bool
+pali :: Data a => [a] -> Bool
 pali (xs ++ reverse xs) = True
 pali (xs ++ _ : reverse xs) = True
 

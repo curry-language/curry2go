@@ -1,0 +1,8 @@
+Running: curry2go -q -r FunPatsLast
+42
+Running: curry2go -q -r FunPatsPali
+True
+Running: curry2go -q -r FunPatsExpSimp
+2001
+Running: curry2go -q -r FunPatsExpVar
+X1
