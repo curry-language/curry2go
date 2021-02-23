@@ -319,12 +319,18 @@ istatement2Go opts (IReturn expr)      = case expr of
 istatement2Go opts (ICaseCons i cases) = [GoExprSwitch
   (GoCall (GoSelector (var i) "GetConstructor") [])
   ((GoExprBranch [GoIntLit (-1)] 
-  [GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
+  [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
+  [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
+  , GoReturn []] []
+  , GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
   [var i, createGenerator opts cases]), GoReturn []])
   :(map (iConsBranch2Go opts) cases))]
 istatement2Go opts (ICaseLit i cases)  = 
   [GoIf (GoCall (GoSelector (var i) "IsFree") []) 
-  [GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
+  [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
+  [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
+  , GoReturn []] []
+  , GoExprStat (GoCall (GoOpName (runtime ++ ".RedirectCreate"))
   [var i, createLitGenerator cases]), GoReturn []] []
   , iLitCases2Go opts i cases]
 

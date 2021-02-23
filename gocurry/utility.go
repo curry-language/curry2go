@@ -367,6 +367,11 @@ func (task *Task) NewNode() *Node{
     return node
 }
 
+func (task *Task) IsBound(variable *Node) bool{
+    _, ok := variable.GetTr(task.id, task.parents)
+    return ok
+}
+
 // Forces the evaluation of a node to HNF.
 // Doesn't guarantee the node is in HNF after one
 // call. The check for HNF has to be done
