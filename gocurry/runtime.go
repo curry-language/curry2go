@@ -194,6 +194,11 @@ func toHnf(task *Task){
             return
         }
         
+        //printResult(task.control)
+        //fmt.Println("")
+        //printDebug(task.control, task)
+        //fmt.Println("\n")
+        
         // evluate node depending on the node type
         switch task.control.node_type {
         case FCALL:
@@ -443,7 +448,15 @@ func nfArgs(task *Task){
     root := task.GetControl()
     
     // if every argument has been evaluated to normalform return original constructor
-    if (root.int_value == len(root.Children)-2){
+    if (root.int_value == len(root.Children)-2 || root.int_value < 0){
+        for i := 0; i < len(root.Children) - 1; i++{
+            if(root.Children[i].IsFree() && task.IsBound(root.Children[i])){
+                root.int_value = -1
+                task.ToHnf(root.Children[i])
+                return
+            }
+        }
+    
         x1 := root.Children[len(root.Children) - 1]
         root.node_type = x1.node_type
         root.int_value = x1.int_value

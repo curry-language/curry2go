@@ -543,9 +543,18 @@ func printNode(node *Node) {
     }
 }
 
-func printDebug(node *Node, id int, parents []int) {
+func printDebug(node *Node, task *Task) {
 
-    node, _ = node.GetTr(id, parents)
+    node, _ = node.GetTr(task.id, task.parents)
+    
+    
+    if(node.IsChoice()){
+        branch, ok := task.fingerprint[node.GetChoiceId()] 
+        if(ok){
+            printDebug(node.Children[branch], task)
+            return
+        }
+    }
     
     // test if node is a constructor
     if(node.IsConst()){
@@ -563,7 +572,7 @@ func printDebug(node *Node, id int, parents []int) {
 
             // print list
             fmt.Printf("[")
-            printDebugList(node, id, parents)
+            printDebugList(node, task)
             fmt.Printf("]")
             return
         }
@@ -594,10 +603,10 @@ func printDebug(node *Node, id int, parents []int) {
 
     // print all Children
     fmt.Printf("(")
-    printDebug(node.Children[0], id, parents)
+    printDebug(node.Children[0], task)
     for i := 1; i < len(node.Children); i++ {
         fmt.Printf(", ")
-        printDebug(node.Children[i], id, parents)
+        printDebug(node.Children[i], task)
     }
     fmt.Printf(")")
 }
@@ -605,10 +614,10 @@ func printDebug(node *Node, id int, parents []int) {
 // Prints every item of a list
 // separated by commas.
 // node has to be a : constructor.
-func printDebugList(node *Node, id int, parents []int){
+func printDebugList(node *Node, task *Task){
 
     // print the item
-    printDebug(node.GetChild(0), id, parents)
+    printDebug(node.GetChild(0), task)
 
     // end list on [] constructor
     if(node.GetChild(1).GetName() == "[]"){
@@ -617,11 +626,11 @@ func printDebugList(node *Node, id int, parents []int){
     
     if(node.GetChild(1).GetName() != ":"){
         fmt.Printf(", ")
-        printDebug(node.GetChild(1), id, parents)
+        printDebug(node.GetChild(1), task)
         return
     }
 
     // continue with next item
     fmt.Printf(", ")
-    printDebugList(node.GetChild(1), id, parents)
+    printDebugList(node.GetChild(1), task)
 }
