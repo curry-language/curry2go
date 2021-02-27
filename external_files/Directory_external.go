@@ -14,11 +14,11 @@ func ExternalSystem_Directory_prim_doesFileExist(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || info.IsDir()){
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(task.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
     } else if(err != nil){
         panic("ERROR: " + err.Error())
     } else{
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(task.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
     }
 }
 
@@ -31,11 +31,11 @@ func ExternalSystem_Directory_prim_doesDirectoryExist(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || !info.IsDir()){
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(task.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
     } else if(err != nil){
         panic("ERROR: " + err.Error())
     } else{
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(task.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
     }
 }
 
@@ -56,7 +56,7 @@ func ExternalSystem_Directory_prim_fileSize(task *gocurry.Task){
     }
     
     // return file size
-    sizeNode := gocurry.IntLitCreate(task.NewNode(), int(info.Size()))
+    sizeNode := gocurry.IntLitCreate(root.NewNode(), int(info.Size()))
     gocurry.IOCreate(root, sizeNode)
 }
 
@@ -77,8 +77,8 @@ func ExternalSystem_Directory_prim_getModificationTime(task *gocurry.Task){
     }
     
     // return modification time
-    modNode := gocurry.IntLitCreate(task.NewNode(), int(info.ModTime().Unix()))
-    gocurry.IOCreate(root, DataTime.DataTime_CTimeCreate(task.NewNode(), modNode))
+    modNode := gocurry.IntLitCreate(root.NewNode(), int(info.ModTime().Unix()))
+    gocurry.IOCreate(root, DataTime.DataTime_CTimeCreate(root.NewNode(), modNode))
 }
 
 func ExternalSystem_Directory_getCurrentDirectory(task *gocurry.Task){
@@ -90,7 +90,7 @@ func ExternalSystem_Directory_getCurrentDirectory(task *gocurry.Task){
         panic("ERROR: cannot load current directory")
     }
     
-    gocurry.IOCreate(root, gocurry.StringCreate(task.NewNode(), dir))
+    gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), dir))
 }
 
 func ExternalSystem_Directory_prim_setCurrentDirectory(task *gocurry.Task){
@@ -115,7 +115,7 @@ func ExternalSystem_Directory_prim_setCurrentDirectory(task *gocurry.Task){
     }
     
     // return
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Directory_prim_getDirectoryContents(task *gocurry.Task){
@@ -150,11 +150,11 @@ func ExternalSystem_Directory_prim_getDirectoryContents(task *gocurry.Task){
     // create result list
     result := make([]*gocurry.Node, len(names))
     for i := 0; i<len(names); i++{
-        result[i] = gocurry.StringCreate(task.NewNode(), names[i])
+        result[i] = gocurry.StringCreate(root.NewNode(), names[i])
     }
     
     // return result
-    gocurry.IOCreate(root, Prelude.ListCreate(task.NewNode(), result...))
+    gocurry.IOCreate(root, Prelude.ListCreate(root.NewNode(), result...))
 }
 
 func ExternalSystem_Directory_prim_createDirectory(task *gocurry.Task){
@@ -168,7 +168,7 @@ func ExternalSystem_Directory_prim_createDirectory(task *gocurry.Task){
         panic("ERROR: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Directory_prim_removeDirectory(task *gocurry.Task){
@@ -182,7 +182,7 @@ func ExternalSystem_Directory_prim_removeDirectory(task *gocurry.Task){
         panic("ERROR: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Directory_prim_renameDirectory(task *gocurry.Task){
@@ -209,7 +209,7 @@ func ExternalSystem_Directory_prim_renameDirectory(task *gocurry.Task){
     }
     
     // return
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Directory_prim_removeFile(task *gocurry.Task){
@@ -224,7 +224,7 @@ func ExternalSystem_Directory_prim_removeFile(task *gocurry.Task){
         panic("ERROR: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Directory_prim_renameFile(task *gocurry.Task){
@@ -251,5 +251,5 @@ func ExternalSystem_Directory_prim_renameFile(task *gocurry.Task){
     }
     
     // return
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }

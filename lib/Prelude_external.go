@@ -57,7 +57,7 @@ func ExternalPrelude_DolExclExcl(task *Task){
     x1 := root.GetChild(1)
     
     // wrap argument in nf wrapper
-    root.SetChild(1, NfCreate(task.NewNode(), x1))
+    root.SetChild(1, NfCreate(root.NewNode(), x1))
     
     // evaluate wrapper to hnf
     Prelude_DolExclCreate(root, root.Children...)
@@ -734,7 +734,7 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
         lit, _ := strconv.Atoi(string(data[start : end]))
 
         // create list of results
-        ListCreate(root, Prelude_LbCommaRbCreate(new(Node), IntLitCreate(new(Node), lit), StringCreate(new(Node), rest)))
+        ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // if the String doesn't start with a number, return an empty list
         Prelude_LSbRSbCreate(root)
@@ -779,7 +779,7 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
         lit, _ := strconv.ParseFloat(string(data[start : end]), 64)
 
         // create list of results
-        ListCreate(root, Prelude_LbCommaRbCreate(new(Node), FloatLitCreate(new(Node), lit), StringCreate(new(Node), rest)))
+        ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // return an empty list if the String doesn't start with a number
         Prelude_LSbRSbCreate(root)
@@ -809,7 +809,7 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
             lit := data[1]
 
             // create list of results
-            ListCreate(root, Prelude_LbCommaRbCreate(new(Node), CharLitCreate(new(Node), lit), StringCreate(new(Node), string(rest))))
+            ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
         }else{
             // return an empty list
             Prelude_LSbRSbCreate(root)
@@ -849,7 +849,7 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
             lit := string(data[start : end])
 
             // create list of results
-            ListCreate(root, Prelude_LbCommaRbCreate(new(Node), StringCreate(new(Node), lit), StringCreate(new(Node), rest)))
+            ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), StringCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
         }else{
             // return an empty list
         Prelude_LSbRSbCreate(root)
@@ -905,7 +905,7 @@ func ExternalPrelude_prim_putChar(task *Task){
 
     fmt.Printf("%c", x1.GetChar())
 
-    IOCreate(root, Prelude_LbRbCreate(new(Node)))
+    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalPrelude_getChar(task *Task){
@@ -914,7 +914,7 @@ func ExternalPrelude_getChar(task *Task){
 
     fmt.Scanf("%c", &char)
 
-    IOCreate(root, CharLitCreate(new(Node), char))
+    IOCreate(root, CharLitCreate(root.NewNode(), char))
 }
 
 func ExternalPrelude_prim_readFile(task *Task){
@@ -929,7 +929,7 @@ func ExternalPrelude_prim_readFile(task *Task){
     data, _ := ioutil.ReadFile(name)
 
     // return IO constructor with the data
-    IOCreate(root, StringCreate(new(Node), string(data)))
+    IOCreate(root, StringCreate(root.NewNode(), string(data)))
 }
 
 func ExternalPrelude_prim_writeFile(task *Task){
@@ -946,7 +946,7 @@ func ExternalPrelude_prim_writeFile(task *Task){
     ioutil.WriteFile(name, []byte(data), 0644)
 
     // return IO constructor
-    IOCreate(root, Prelude_LbRbCreate(new(Node)))
+    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalPrelude_prim_appendFile(task *Task){
@@ -966,7 +966,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     f.Close()
 
     // return IO constructor
-    IOCreate(root, Prelude_LbRbCreate(new(Node)))
+    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalPrelude_catch(task *Task){
@@ -1022,7 +1022,7 @@ func ListCreate(root *Node, elements ...*Node)(*Node){
     for i:= 0; i < len(elements); i++{
 
         // create a : with the current element and the rest
-        Prelude_ColCreate(cur_node, elements[i], new(Node))
+        Prelude_ColCreate(cur_node, elements[i], root.NewNode())
         
         // move to next node
         cur_node = cur_node.GetChild(1)

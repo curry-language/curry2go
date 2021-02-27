@@ -87,7 +87,7 @@ task = "*" ++ runtime ++ ".Task"
 
 --- Go expression creating a new node.
 newNode :: GoExpr
-newNode = GoCall (GoOpName "new") [GoOpName node]
+newNode = GoCall (GoSelector (var 0) "NewNode") []
 
 --- Go expression to access the root node.
 root :: GoExpr
@@ -118,7 +118,7 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
   (GoFuncDecl "main" [] []
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2Go opts name ++ "Create"))
-  [newNode]]
+  [GoCall (GoOpName "new") [GoOpName node]]]
   , GoExprStat (GoCall
     (GoOpName (runtime ++ if time opts then ".Benchmark" else ".Evaluate"))
     ((if time opts then [GoOpName "node", GoIntLit (times opts)]

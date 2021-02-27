@@ -170,6 +170,12 @@ func ReadString(root *Node)(result string){
 
 ////// Methods on nodes
 
+func (node *Node) NewNode() *Node{
+    new_node := new(Node)
+    new_node.ot = node.ot
+    return new_node
+}
+
 func (node *Node) GetNumChildren() int{
     return len(node.Children)
 }

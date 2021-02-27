@@ -12,7 +12,7 @@ func ExternalSystem_Process_getPID(task *gocurry.Task){
     
     pid := os.Getpid()
     
-    gocurry.IOCreate(root, gocurry.IntLitCreate(task.NewNode(), pid))
+    gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), pid))
 }
 
 func ExternalSystem_Process_prim_system(task *gocurry.Task){
@@ -29,7 +29,7 @@ func ExternalSystem_Process_prim_system(task *gocurry.Task){
         fmt.Println(err.Error())
     }
     
-    gocurry.IOCreate(root, gocurry.IntLitCreate(task.NewNode(), cmd.ProcessState.ExitCode()))
+    gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), cmd.ProcessState.ExitCode()))
 }
 
 func ExternalSystem_Process_prim_exitWith(task *gocurry.Task){
@@ -48,5 +48,5 @@ func ExternalSystem_Process_prim_sleep(task *gocurry.Task){
     dur := time.Duration(x1.GetInt())
     time.Sleep(dur * 1000000000)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }

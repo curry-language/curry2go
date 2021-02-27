@@ -14,11 +14,11 @@ func ExternalSystem_Environment_getArgs(task *gocurry.Task){
     // convert args into a list of curry strings
     var curArgs = make([]*gocurry.Node, len(args))
     for i:=0; i < len(args); i++{
-        curArgs[i] = gocurry.StringCreate(task.NewNode(), args[i])
+        curArgs[i] = gocurry.StringCreate(root.NewNode(), args[i])
     }
     
     // return args
-    gocurry.IOCreate(root, Prelude.ListCreate(task.NewNode(), curArgs...))
+    gocurry.IOCreate(root, Prelude.ListCreate(root.NewNode(), curArgs...))
 }
 
 func ExternalSystem_Environment_prim_getEnviron(task *gocurry.Task){
@@ -29,7 +29,7 @@ func ExternalSystem_Environment_prim_getEnviron(task *gocurry.Task){
     
     val := os.Getenv(key)
     
-    gocurry.IOCreate(root, gocurry.StringCreate(task.NewNode(), val))
+    gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), val))
 }
 
 func ExternalSystem_Environment_prim_setEnviron(task *gocurry.Task){
@@ -42,7 +42,7 @@ func ExternalSystem_Environment_prim_setEnviron(task *gocurry.Task){
     
     os.Setenv(key, val)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Environment_prim_unsetEnviron(task *gocurry.Task){
@@ -52,7 +52,7 @@ func ExternalSystem_Environment_prim_unsetEnviron(task *gocurry.Task){
     key := gocurry.ReadString(x1)
     os.Unsetenv(key)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
 
 func ExternalSystem_Environment_getHostname(task *gocurry.Task){
@@ -60,7 +60,7 @@ func ExternalSystem_Environment_getHostname(task *gocurry.Task){
     
     hostName, _ := os.Hostname()
     
-    gocurry.IOCreate(root, gocurry.StringCreate(task.NewNode(), hostName))
+    gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), hostName))
 }
 
 func ExternalSystem_Environment_getProgName(task *gocurry.Task){
@@ -68,7 +68,7 @@ func ExternalSystem_Environment_getProgName(task *gocurry.Task){
     
     progName := os.Args[0]
     
-    gocurry.IOCreate(root, gocurry.StringCreate(task.NewNode(), progName))
+    gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), progName))
 }
 
 func ExternalSystem_Environment_isWindows(task *gocurry.Task){

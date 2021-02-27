@@ -7,7 +7,7 @@ func ExternalData_IORef_newIORef(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
-    gocurry.IOCreate(root, DataIORef_IORefCreate(task.NewNode(), x1))
+    gocurry.IOCreate(root, DataIORef_IORefCreate(root.NewNode(), x1))
 }
 
 func ExternalData_IORef_prim_readIORef(task *gocurry.Task){
@@ -25,5 +25,5 @@ func ExternalData_IORef_prim_writeIORef(task *gocurry.Task){
     
     x1.SetChild(0, x2)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(task.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
 }
