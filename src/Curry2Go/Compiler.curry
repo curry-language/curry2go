@@ -343,13 +343,17 @@ createGenerator :: CGOptions ->  [IConsBranch] -> GoExpr
 createGenerator _ []                                 = error "Empty Cons list"
 createGenerator opts [(IConsBranch name n _)]        = GoCall
   (GoOpName (iqname2Go opts name ++ "Create"))
-  (newNode : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
-  [newNode]))
+  ((GoCall (GoSelector (GoOpName "task") "NewNode") [])
+  : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
+  [(GoCall (GoSelector (GoOpName "task") "NewNode") [])]))
 createGenerator opts (IConsBranch name n _:xs@(_:_)) = GoCall 
   (GoOpName (runtime ++ ".ChoiceCreate"))
-  [newNode, GoCall (GoOpName ((iqname2Go opts name) ++ "Create"))
-  (newNode : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
-  [newNode])), createGenerator opts xs]
+  [(GoCall (GoSelector (GoOpName "task") "NewNode") [])
+  , GoCall (GoOpName ((iqname2Go opts name) ++ "Create"))
+  ((GoCall (GoSelector (GoOpName "task") "NewNode") [])
+  : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
+  [(GoCall (GoSelector (GoOpName "task") "NewNode") [])]))
+  , createGenerator opts xs]
 
 --- Creates a Go expression branch for an IConsBranch.
 --- @param opts   - compiler options
@@ -379,15 +383,19 @@ createLitGenerator cases = case cases of
   []                      -> error "Empty case list"
   [(ILitBranch lit _)]    -> litCreate lit
   ((ILitBranch lit _):xs) -> GoCall (GoOpName (runtime ++ ".ChoiceCreate"))
-    [newNode, litCreate lit, createLitGenerator xs]
+    [(GoCall (GoSelector (GoOpName "task") "NewNode") [])
+    , litCreate lit, createLitGenerator xs]
  where
   litCreate l = case l of
     IInt   i  -> GoCall 
-      (GoOpName (runtime ++ ".IntLitCreate")) [newNode, GoIntLit i]
+      (GoOpName (runtime ++ ".IntLitCreate"))
+      [(GoCall (GoSelector (GoOpName "task") "NewNode") []), GoIntLit i]
     IChar  c -> GoCall
-      (GoOpName (runtime ++ ".CharLitCreate")) [newNode, GoByteLit c]
+      (GoOpName (runtime ++ ".CharLitCreate"))
+      [(GoCall (GoSelector (GoOpName "task") "NewNode") []), GoByteLit c]
     IFloat f -> GoCall
-      (GoOpName (runtime ++ ".FloatLitCreate")) [newNode, GoFloatLit f]
+      (GoOpName (runtime ++ ".FloatLitCreate"))
+      [(GoCall (GoSelector (GoOpName "task") "NewNode") []), GoFloatLit f]
 
 --- Creates a Go expression branch for an ILitBranch.
 --- @param opts   - compiler options
