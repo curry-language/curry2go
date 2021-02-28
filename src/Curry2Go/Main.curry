@@ -80,7 +80,7 @@ postProcess s = do extFilePath <- getExtFilePath
                      then do 
                        fMod <- getModificationTime fPath
                        outMod <- getModificationTime outPath
-                       when (compareClockTime outMod fMod == GT)
+                       when (compareClockTime fMod outMod == GT)
                          (copyFile fPath outPath)
                      else copyFile fPath outPath
  where
