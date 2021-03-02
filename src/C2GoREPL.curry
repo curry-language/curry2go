@@ -2,18 +2,19 @@
 --- A REPL for the Curry->Go compiler based on the universal REPL.
 ---
 --- @author  Michael Hanus
---- @version February 2021
+--- @version March 2021
 ------------------------------------------------------------------------------
 
 module C2GoREPL where
 
-import Data.List        ( intercalate )
-import System.CurryPath ( inCurrySubdir, modNameToPath, sysLibPath )
+import Data.List          ( intercalate )
+import System.CurryPath   ( inCurrySubdir, modNameToPath, sysLibPath )
 
 import REPL.Compiler
-import REPL.Main        ( mainREPL )
+import REPL.Main          ( mainREPL )
 
-import Curry2Go.Config  ( packageExecutables, packagePath, packageVersion )
+import Curry2Go.Config    ( compilerName, lowerCompilerName )
+import Curry2Go.PkgConfig ( packageExecutables, packagePath, packageVersion )
 
 main :: IO ()
 main = mainREPL c2go
@@ -22,7 +23,7 @@ main = mainREPL c2go
 
 c2go :: CCDescription
 c2go = CCDescription
-  "curry2go"                 -- the compiler name
+  lowerCompilerName          -- the compiler name
   c2goBanner                 -- the banner
   c2goHome                   -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
@@ -46,7 +47,7 @@ c2goHome = packagePath
 c2goBanner :: String
 c2goBanner = unlines [bannerLine, bannerText, bannerLine]
  where
-  bannerText = "Curry2Go Interactive Environment (Version " ++
+  bannerText = compilerName ++ " Interactive Environment (Version " ++
                packageVersion ++ ")"
   bannerLine = take (length bannerText) (repeat '-')
 

@@ -16,7 +16,7 @@
     "icurry"       : ">=3.1.0, <4.0.0",
     "process"      : ">=3.0.0, <4.0.0"
   },
-  "configModule": "Curry2Go.Config",
+  "configModule": "Curry2Go.PkgConfig",
   "executables": [ {
                      "name": "curry2go",
                      "main": "Curry2Go.Main"

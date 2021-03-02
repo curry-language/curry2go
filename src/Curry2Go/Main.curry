@@ -19,13 +19,15 @@ import FlatCurry.Files
 import Control.Monad
 
 import Curry2Go.Compiler
-import Curry2Go.Config   ( packageVersion )
+import Curry2Go.Config     ( compilerMajorVersion, compilerMinorVersion
+                           , compilerName, lowerCompilerName, upperCompilerName )
+import Curry2Go.PkgConfig  ( packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
 --- .curry subdirectory where curry2go compiled files will be stored. 
 curry2goDir :: String
-curry2goDir = combine ".curry" ("curry2go-" ++ packageVersion)
+curry2goDir = combine ".curry" (lowerCompilerName ++ "-" ++ packageVersion)
 
 --- Returns the filepath relative to curry2goDir where
 --- the compiled version of the module s will be stored.
@@ -38,7 +40,7 @@ createFilePath :: String -> IO String
 createFilePath s = do
   path <- lookupModuleSourceInLoadPath s
   case path of
-    Nothing       -> error ("Unknown moduel " ++ s)
+    Nothing       -> error ("Unknown module " ++ s)
     Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage s])
 
 --- Gets the path to the source file of a curry module.
@@ -58,7 +60,8 @@ loadCurry s = do
 c2gFrontendParams :: FrontendParams
 c2gFrontendParams = setQuiet True (setDefinitions [gocurryDef] defaultParams)
  where
-  gocurryDef = ("__GOCURRY__",100) -- TODO: set to compiler version
+  gocurryDef = ("__" ++ upperCompilerName ++ "__",
+                compilerMajorVersion * 100 + compilerMinorVersion)
 
 -- The ICurry compiler options for Curry2Go.
 c2gICOptions :: ICOptions
@@ -127,8 +130,7 @@ main = do
 c2goBanner :: String
 c2goBanner = unlines [bannerLine, bannerText, bannerLine]
  where
-  bannerText =
-    "Curry->Go Compiler (Version " ++ packageVersion ++ ")"
+  bannerText = compilerName ++ " Compiler (Version " ++ packageVersion ++ ")"
   bannerLine = take (length bannerText) (repeat '-')
 
 --- Compiles a curry program into a go program.
@@ -190,7 +192,7 @@ processOptions argv = do
 printArgs :: [String] -> IO ()
 printArgs []     = return ()
 printArgs (x:xs) = case x of
-  "--compiler-name"   -> putStrLn "curry2go" >> printArgs xs
+  "--compiler-name"   -> putStrLn lowerCompilerName >> printArgs xs
   "--numeric-version" -> putStrLn packageVersion >> printArgs xs
   "--base-version"    -> putStrLn "3.0.0" >> printArgs xs
   _                   -> printArgs xs
