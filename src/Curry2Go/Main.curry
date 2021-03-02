@@ -45,14 +45,25 @@ createFilePath s = do
 loadCurryPath :: String -> IO String
 loadCurryPath s =
   lookupModuleSourceInLoadPath (stripCurrySuffix s) >>= \path -> case path of
-    Nothing          -> error ("Unknown module " ++ s)
-    Just (dir, file) -> return file
+    Nothing        -> error ("Unknown module " ++ s)
+    Just (_, file) -> return file
 
 --- Loads an IProg from the name of a curry module.
 loadCurry :: String -> IO IProg
-loadCurry s = do prog <- readFlatCurryWithParseOptions (stripCurrySuffix s)
-                   (setQuiet True (setDefinitions [] defaultParams))
-                 flatCurry2ICurry (defaultICOptions {optVerb = 0}) prog
+loadCurry s = do
+  prog <- readFlatCurryWithParseOptions (stripCurrySuffix s) c2gFrontendParams
+  flatCurry2ICurry c2gICOptions prog
+
+-- The front-end parameters for Curry2Go.
+c2gFrontendParams :: FrontendParams
+c2gFrontendParams = setQuiet True (setDefinitions [gocurryDef] defaultParams)
+ where
+  gocurryDef = ("__GOCURRY__",100) -- TODO: set to compiler version
+
+-- The ICurry compiler options for Curry2Go.
+c2gICOptions :: ICOptions
+c2gICOptions =
+  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams }
 
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
@@ -92,7 +103,7 @@ postProcess s = do extFilePath <- getExtFilePath
 
 goStruct :: CompStruct IProg
 goStruct = defaultStruct
-  { outputDir      = ""
+  { outputDir      = "."
   , filePath       = createFilePath
   , excludeModules = []
   , getProg        = loadCurry
@@ -134,8 +145,8 @@ curry2Go mainmod opts = do
   printVerb opts 1 "Compiling..."
   compile (goStruct {compProg = compileIProg2GoString opts})
           (verbosity opts == 0) mainmod
-  printVerb opts 2 $ "Go programs written to " ++ outputDir goStruct
-  IProg moduleName _ _ funcs <- icCompile (defaultICOptions {optVerb=0}) mainmod
+  printVerb opts 2 $ "Go programs written to '" ++ outputDir goStruct ++ "'"
+  IProg moduleName _ _ funcs <- icCompile c2gICOptions mainmod
   when (genMain opts) $ do
     let mainprogname = removeDots moduleName ++ ".go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
