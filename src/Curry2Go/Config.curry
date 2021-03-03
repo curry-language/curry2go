@@ -7,7 +7,7 @@
 
 module Curry2Go.Config
   ( compilerName, lowerCompilerName, upperCompilerName
-  , compilerMajorVersion, compilerMinorVersion
+  , compilerMajorVersion, compilerMinorVersion, compilerRevisionVersion
   , curry2goDir
   ) where
 
@@ -41,6 +41,12 @@ compilerMinorVersion :: Int
 compilerMinorVersion = case reads ((splitOn "." packageVersion) !! 1) of
   [(n,"")] -> n
   _        -> 0
+
+--- The major version of the compiler.
+compilerRevisionVersion :: Int
+compilerRevisionVersion = case reads ((splitOn "." packageVersion) !! 2) of
+  [(n,_)] -> n -- maybe there is a suffix with a pre-release identifier
+  _       -> 0
 
 --- The subdirectory where the compiled Go target files will be stored,
 --- e.g., `.curry/curry2go-1.0.0`.
