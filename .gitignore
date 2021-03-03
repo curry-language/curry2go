@@ -3,3 +3,4 @@ src/Curry2Go/PkgConfig.curry
 .curry
 .cpm
 .gocurry
+bin/
