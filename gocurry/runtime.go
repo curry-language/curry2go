@@ -392,7 +392,7 @@ func toNf(task *Task){
         node, ok := x1.GetTr(task.id, task.parents)
         
         if(ok){
-            if(x1.ot > root.ot){
+            if(node.ot > root.ot){
                 // create copy of root
                 new_node := LockedCopyNode(root)
                 new_node.ot = node.ot
@@ -434,7 +434,7 @@ func toNf(task *Task){
     
     // wrap children with toNf
     for i := range(x1.Children){
-        root.Children = append(root.Children, NfCreate(task.NewNode(), x1.Children[i]))
+        root.Children = append(root.Children, NfCreate(root.NewNode(), x1.Children[i]))
     }
     
     // save current constructor as function argument
