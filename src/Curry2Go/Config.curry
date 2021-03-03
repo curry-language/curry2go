@@ -5,10 +5,16 @@
 --- @version March 2021
 ------------------------------------------------------------------------------
 
-module Curry2Go.Config where
+module Curry2Go.Config
+  ( compilerName, lowerCompilerName, upperCompilerName
+  , compilerMajorVersion, compilerMinorVersion
+  , curry2goDir
+  ) where
 
 import Data.Char ( toLower, toUpper )
 import Data.List ( splitOn )
+
+import System.FilePath    ( (</>) )
 
 import Curry2Go.PkgConfig ( packageVersion )
 
@@ -35,3 +41,8 @@ compilerMinorVersion :: Int
 compilerMinorVersion = case reads ((splitOn "." packageVersion) !! 1) of
   [(n,"")] -> n
   _        -> 0
+
+--- The subdirectory where the compiled Go target files will be stored,
+--- e.g., `.curry/curry2go-1.0.0`.
+curry2goDir :: String
+curry2goDir = ".curry" </> (lowerCompilerName ++ "-" ++ packageVersion)

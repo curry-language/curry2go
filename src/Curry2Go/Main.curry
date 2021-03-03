@@ -20,14 +20,11 @@ import Control.Monad
 
 import Curry2Go.Compiler
 import Curry2Go.Config     ( compilerMajorVersion, compilerMinorVersion
-                           , compilerName, lowerCompilerName, upperCompilerName )
+                           , compilerName, lowerCompilerName, upperCompilerName
+                           , curry2goDir )
 import Curry2Go.PkgConfig  ( packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
-
---- .curry subdirectory where curry2go compiled files will be stored. 
-curry2goDir :: String
-curry2goDir = combine ".curry" (lowerCompilerName ++ "-" ++ packageVersion)
 
 --- Returns the filepath relative to curry2goDir where
 --- the compiled version of the module s will be stored.

@@ -8,12 +8,13 @@
 module C2GoREPL where
 
 import Data.List          ( intercalate )
-import System.CurryPath   ( inCurrySubdir, modNameToPath, sysLibPath )
 
 import REPL.Compiler
 import REPL.Main          ( mainREPL )
+import System.CurryPath   ( inCurrySubdir, modNameToPath, sysLibPath )
+import System.FilePath    ( (</>) )
 
-import Curry2Go.Config    ( compilerName, lowerCompilerName )
+import Curry2Go.Config    ( compilerName, lowerCompilerName, curry2goDir )
 import Curry2Go.PkgConfig ( packageExecutables, packagePath, packageVersion )
 
 main :: IO ()
@@ -38,8 +39,9 @@ c2go = CCDescription
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt]
  where
-  cleanCmd m =
-    "/bin/rm -f " ++ inCurrySubdir m ++ ".* " ++ modNameToPath m ++ ".curry"
+  cleanCmd m = unwords
+    [ "/bin/rm -rf", inCurrySubdir m ++ ".*", modNameToPath m ++ ".curry"
+    , curry2goDir </> m ++ ".go", curry2goDir </> m ]
 
 c2goHome :: String
 c2goHome = packagePath
