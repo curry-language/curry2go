@@ -1,7 +1,7 @@
 module Curry2Go.Main where
 
-import Go.Show
-import Go.Types
+import Language.Go.Show
+import Language.Go.Types
 import CompilerStructure
 import ICurry.Types
 import ICurry.Compiler

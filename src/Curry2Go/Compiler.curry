@@ -5,8 +5,8 @@ module Curry2Go.Compiler
  where
 
 import Control.Monad ( when )
-import Go.Show
-import Go.Types
+import Language.Go.Show
+import Language.Go.Types
 import ICurry.Types
 import ICurry.Compiler
 import System.Environment
