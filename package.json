@@ -22,11 +22,11 @@
   },
   "configModule": "Curry2Go.PkgConfig",
   "executables": [ {
-                     "name": "curry2go",
+                     "name": "curry2goc",
                      "main": "Curry2Go.Main"
                    },
                    {
-                     "name": "c2go",
+                     "name": "curry2goi",
                      "main": "C2GoREPL"
                    }
                  ]

@@ -3,7 +3,7 @@
 ##############################################################################
 
 # the scripts to be installed
-BINS = $(BINDIR)/c2go
+BINS = $(BINDIR)/curry2go
 
 
 .PHONY: all

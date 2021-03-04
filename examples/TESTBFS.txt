@@ -1,4 +1,4 @@
-Running: curry2go -q -r --bfs --first NDNums
+Running: curry2goc -q -r --bfs --first NDNums
 True
-Running: curry2go -q -r --bfs --first Strategy
+Running: curry2goc -q -r --bfs --first Strategy
 True

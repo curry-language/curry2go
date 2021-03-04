@@ -10,5 +10,5 @@ f n = loop n ? n ? loop n
 
 main = f O
 -- DFS: no result
--- BFS: one result, try: curry2go -r -i --bfs FairSearch
--- FS : one result, try: curry2go -r -i --fs FairSearch
+-- BFS: one result, try: curry2goc -r -i --bfs FairSearch
+-- FS : one result, try: curry2goc -r -i --fs FairSearch

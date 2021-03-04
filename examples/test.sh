@@ -4,7 +4,7 @@
 CURRYHOME=..
 CURRYBIN=$CURRYHOME/bin
 
-C2GO=curry2go
+C2GO=curry2goc
 
 # Clean old stuff:
 clean() {
