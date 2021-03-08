@@ -5,7 +5,7 @@
 --- @version March 2021
 ------------------------------------------------------------------------------
 
-module C2GoREPL where
+module Curry2Go.REPL where
 
 import Data.List          ( intercalate )
 

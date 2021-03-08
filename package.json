@@ -27,7 +27,7 @@
                    },
                    {
                      "name": "curry2goi",
-                     "main": "C2GoREPL"
+                     "main": "Curry2Go.REPL"
                    }
                  ]
 }
