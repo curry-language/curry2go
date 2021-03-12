@@ -18,6 +18,7 @@ COMPILER=$(HOME)/.cpm/bin/curry2go
 .PHONY: install
 install: scripts runtime
 	$(CPM) install
+	$(CPM) curry :load Install :eval main :quit
 
 .PHONY: uninstall
 uninstall: runtime
