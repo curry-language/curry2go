@@ -18,5 +18,5 @@ func ExternalSystem_CPUTime_getCPUTime(task *gocurry.Task){
 }
 
 func ExternalSystem_CPUTime_getElapsedTime(task *gocurry.Task){
-    panic("Not yet implemented")
+    panic("System.CPUTime.getElapsedTime: not yet implemented")
 }
