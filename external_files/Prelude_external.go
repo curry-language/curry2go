@@ -14,6 +14,11 @@ func ExternalPrelude_ensureNotFree(task *Task){
     x1 := root.GetChild(0)
     
     if(x1.IsFree()){
+        if(task.IsBound(x1)){
+            task.ToHnf(x1)
+            return    
+        }
+        
         panic("ERROR: Free variable in ensureNotFree")
     }
     
