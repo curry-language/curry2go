@@ -18,6 +18,9 @@ COMPILER=$(HOME)/.cpm/bin/curry2go
 .PHONY: install
 install: scripts runtime
 	$(CPM) install
+	$(MAKE) lib/Curry/Compiler/Distribution_external.go
+
+lib/Curry/Compiler/Distribution_external.go: src/Install.curry src/Curry2Go/Config.curry
 	$(CPM) curry :load Install :eval main :quit
 
 .PHONY: uninstall
