@@ -1,4 +1,5 @@
 src/Curry2Go/PkgConfig.curry
+lib/Curry/Compiler/Distribution_external.go
 *~
 .curry
 .cpm

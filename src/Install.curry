@@ -2,25 +2,29 @@ import Language.Go.Types
 import Language.Go.Show (showGoProg)
 import Curry2Go.PkgConfig (packagePath)
 
-import Curry.Compiler.Distribution 
-  (curryRuntime, curryRuntimeMajorVersion
-  , curryRuntimeMinorVersion, baseVersion)
-
 import Curry2Go.Config 
-  (compilerName, compilerMajorVersion
+  (lowerCompilerName, compilerMajorVersion
   , compilerMinorVersion, compilerRevisionVersion)
 
 main :: IO ()
-main = writeFile (packagePath ++ "lib/Curry/Compiler/Distribution_external.go") (showGoProg createGoDistribution)
+main = do
+  bvs <- readFile (packagePath ++ "/lib/VERSION")
+  -- TODO: extract this information from actual go compiler
+  let gomajor = 1
+      gominor = 14
+  writeFile (packagePath ++ "lib/Curry/Compiler/Distribution_external.go")
+            (showGoProg (createGoDistribution (head (lines bvs)) "go"
+                                              gomajor gominor))
 
-createGoDistribution :: GoProg
-createGoDistribution = GoProg "CurryCompilerDistribution" ["gocurry"]
+createGoDistribution :: String -> String -> Int -> Int -> GoProg
+createGoDistribution baseversion gocompiler gomajor gominor =
+ GoProg "CurryCompilerDistribution" ["gocurry"]
   [ GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryCompiler"
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.StringCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoStringLit compilerName])])
+    , GoStringLit lowerCompilerName])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryCompilerMajorVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
@@ -44,25 +48,25 @@ createGoDistribution = GoProg "CurryCompilerDistribution" ["gocurry"]
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.StringCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoStringLit curryRuntime])])
+    , GoStringLit gocompiler])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryRuntimeMajorVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.IntLitCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoIntLit curryRuntimeMajorVersion])])
+    , GoIntLit gomajor])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryRuntimeMinorVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.IntLitCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoIntLit curryRuntimeMinorVersion])])
+    , GoIntLit gominor])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_baseVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.StringCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoStringLit baseVersion])])
+    , GoStringLit baseversion])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_installDir"
     [GoParam ["task"] "*gocurry.Task"] [] 
@@ -70,4 +74,4 @@ createGoDistribution = GoProg "CurryCompilerDistribution" ["gocurry"]
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
     , GoStringLit packagePath])])
   ]
-  
+
