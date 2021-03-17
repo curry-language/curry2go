@@ -9,15 +9,11 @@ import Curry2Go.Config
 main :: IO ()
 main = do
   bvs <- readFile (packagePath ++ "/lib/VERSION")
-  -- TODO: extract this information from actual go compiler
-  let gomajor = 1
-      gominor = 14
   writeFile (packagePath ++ "lib/Curry/Compiler/Distribution_external.go")
-            (showGoProg (createGoDistribution (head (lines bvs)) "go"
-                                              gomajor gominor))
+            (showGoProg (createGoDistribution (head (lines bvs)) "go"))
 
-createGoDistribution :: String -> String -> Int -> Int -> GoProg
-createGoDistribution baseversion gocompiler gomajor gominor =
+createGoDistribution :: String -> String -> GoProg
+createGoDistribution baseversion gocompiler =
  GoProg "CurryCompilerDistribution" ["gocurry"]
   [ GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryCompiler"
@@ -52,15 +48,13 @@ createGoDistribution baseversion gocompiler gomajor gominor =
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryRuntimeMajorVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
-    [GoExprStat (GoCall (GoOpName "gocurry.IntLitCreate")
-    [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoIntLit gomajor])])
+    [GoExprStat (GoCall (GoOpName "gocurry.GoMajVer")
+    [GoCall (GoSelector (GoOpName "task") "GetControl") []])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryRuntimeMinorVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 
-    [GoExprStat (GoCall (GoOpName "gocurry.IntLitCreate")
-    [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoIntLit gominor])])
+    [GoExprStat (GoCall (GoOpName "gocurry.GoMinVer")
+    [GoCall (GoSelector (GoOpName "task") "GetControl") []])])
   , GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_baseVersion"
     [GoParam ["task"] "*gocurry.Task"] [] 

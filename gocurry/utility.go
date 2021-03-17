@@ -3,6 +3,9 @@ package gocurry
 import "fmt"
 import "time"
 import "regexp"
+import "runtime"
+import "strings"
+import "strconv"
 
 ////// Functions to create specific types of nodes
 
@@ -166,6 +169,42 @@ func ReadString(root *Node)(result string){
         cur_node = cur_node.GetChild(1)
     }
     return
+}
+
+// Sets root to an IntLiteral with the
+// Go major version number.
+// Or -1 if the version is not
+// of form goMaj.Min.
+func GoMajVer(root *Node){
+    version := runtime.Version()
+    
+    match,_ := regexp.MatchString("go(\\d+).(\\d+)", version)
+    
+    if(match){
+        majMin := strings.Split(version, ".")
+        maj,_ := strconv.Atoi(majMin[0][2:])
+        IntLitCreate(root, maj)
+    } else{
+        IntLitCreate(root, -1)
+    }
+}
+
+// Sets root to an IntLiteral with the
+// Go minor version number.
+// Or -1 if the version is not
+// of form goMaj.Min.
+func GoMinVer(root *Node){
+    version := runtime.Version()
+    
+    match,_ := regexp.MatchString("go(\\d+).(\\d+)", version)
+    
+    if(match){
+        majMin := strings.Split(version, ".")
+        min,_ := strconv.Atoi(majMin[1])
+        IntLitCreate(root, min)
+    } else{
+        IntLitCreate(root, -1)
+    }
 }
 
 ////// Methods on nodes
