@@ -9,6 +9,7 @@ BINS = $(BINDIR)/curry2go
 .PHONY: all
 all:
 	$(MAKE) $(BINS)
+	cd $(BINDIR) && ln -s curry2go curry
 
 # install some script of PAKCS in the bin directory:
 $(BINDIR)/%: %.sh

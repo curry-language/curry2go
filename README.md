@@ -25,24 +25,33 @@ All this is automized by a Makefile. Thus, simply run
     > make
 
 This copies the required Go files and installs the compiler
-as executable `$HOME/.cpm/bin/curry2go`.
-Therefore, you should include the directory `$HOME/.cpm/bin`
-into your path for convenient usage of the compiler.
-Furthermore, a simple interactive environment for the compiler
-(a basic REPL) is generated as executable `$HOME/.cpm/bin/c2go`.
+as executable `$HOME/.cpm/bin/curry2goc` and a simple interactive
+execution environment (a basic "REPL") as executable
+`$HOME/.cpm/bin/curry2goi`.
+However, it is not necessary to use these executables directly.
+Instead, the make process installs in the `bin` directory of this package
+a script `curry2go` (and an alias `curry` for this script)
+so that you should include the directory `bin` of this
+package into your path for convenient usage of `curry2go`.
 
 
-Using the Compiler:
--------------------
+Using the interactive environment
+---------------------------------
+
+Start `curry2go` and look into the command `:help`.
+
+
+Using the Curry2Go compiler:
+----------------------------
 
 After installation with `cypm install`, the compiler can be
 invoked from a shell with the command:
 
-    > curry2go [options] <program>
+    > curry2goc [options] <program>
 
 To see the list of current options, execute
 
-    > curry2go --help
+    > curry2goc --help
 
 Examples:
 ---------
@@ -52,13 +61,7 @@ For instance, to compile the program `Rev.curry` and
 evaluate the `main` function of this program, go into
 the `examples` directory and execute
 
-    > curry2go -r Rev
-
-
-Using the interactive environment
----------------------------------
-
-Start `c2go` and look into the command `:help`.
+    > curry2goc -r Rev
 
 
 Package contents
@@ -67,4 +70,7 @@ Package contents
 * `benchmarks`: Benchmarks to evaluate the compiler
 * `examples`:   Example programs
 * `gocurry`:    Run-time system and primitives implemented in Go
+* `lib`:        The base libraries of the distribution (basically a copy
+                of the Curry package base)
 * `src`:        The source code of the compiler
+* `scripts`:    Scripts installed into `bin` by the Makefile
