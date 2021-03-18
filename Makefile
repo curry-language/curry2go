@@ -29,6 +29,15 @@ install: scripts runtime
 $(COMPDISTGO): src/Install.curry src/Curry2Go/Config.curry
 	$(CPM) curry :load Install :eval main :quit
 
+# install base libraries from package `base`:
+.PHONY: baselibs
+baselibs:
+	$(RM) -rf base
+	$(CPM) checkout base
+	$(RM) -rf $(LIBDIR)
+	/bin/cp -r base/src $(LIBDIR)
+	/bin/cp base/VERSION $(LIBDIR)/VERSION
+
 .PHONY: uninstall
 uninstall: runtime
 	$(RM) -rf $(GOWORKSPACE)

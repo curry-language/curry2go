@@ -4,4 +4,5 @@ lib/Curry/Compiler/Distribution_external.go
 .curry
 .cpm
 .gocurry
+base/
 bin/
