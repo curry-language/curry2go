@@ -1,0 +1,59 @@
+{-# LANGUAGE CPP #-}
+import Control.Exception as C   (IOException, handle)
+import Network.BSD              (getHostName)
+#if __GLASGOW_HASKELL__ < 840
+import System.Environment       (getArgs, getEnv, setEnv, unsetEnv, getProgName)
+#else
+import System.Environment       (getArgs, getProgName)
+import System.Environment.Blank (setEnv, getEnvDefault, unsetEnv)
+#endif
+
+external_d_C_getArgs :: Cover -> ConstStore -> Curry_Prelude.C_IO (Curry_Prelude.OP_List Curry_Prelude.C_String)
+external_d_C_getArgs _ _ = toCurry getArgs
+
+#if __GLASGOW_HASKELL__ < 840
+external_d_C_prim_getEnviron :: Curry_Prelude.C_String -> Cover -> ConstStore
+                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_prim_getEnviron str _ _ =
+  toCurry (handle handleIOException . getEnv) str
+  where
+  handleIOException :: IOException -> IO String
+  handleIOException _ = return ""
+#elif
+external_d_C_prim_getEnviron :: Curry_Prelude.C_String -> Cover -> ConstStore
+                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_prim_getEnviron str _ _ =
+  toCurry (\v -> getEnvDefault v "") str
+#endif
+
+#if __GLASGOW_HASKELL__ < 840
+external_d_C_prim_setEnviron :: Curry_Prelude.C_String -> Curry_Prelude.C_String
+                             -> Cover -> ConstStore
+                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_prim_setEnviron str val _ _ =
+  toCurry setEnv str val
+#elif
+external_d_C_prim_setEnviron :: Curry_Prelude.C_String -> Curry_Prelude.C_String
+                             -> Cover -> ConstStore
+                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_prim_setEnviron str val _ _ =
+  toCurry (\s v -> setEnv s v True) str val
+#endif
+
+external_d_C_prim_unsetEnviron :: Curry_Prelude.C_String -> Cover -> ConstStore
+                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_prim_getEnviron str _ _ =
+  toCurry unsetEnv str
+
+external_d_C_getHostname :: Cover -> ConstStore -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_getHostname _ _ = toCurry getHostName
+
+external_d_C_getProgName :: Cover -> ConstStore -> Curry_Prelude.C_IO Curry_Prelude.C_String
+external_d_C_getProgName _ _ = toCurry getProgName
+
+external_d_C_isWindows :: Cover -> ConstStore -> Curry_Prelude.C_Bool
+#if defined(mingw32_HOST_OS) || defined(__MINGW32__)
+external_d_C_isWindows _ _ = Curry_Prelude.C_True
+#else
+external_d_C_isWindows _ _ = Curry_Prelude.C_False
+#endif

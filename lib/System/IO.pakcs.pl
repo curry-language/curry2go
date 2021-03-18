@@ -116,33 +116,3 @@ selectInstreams([Stream|Streams],[Stream|InStreams]) :-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% choice on a stream and an external message stream:
-?- block prim_hWaitForInputsOrMsg(?,?,?,-,?).
-prim_hWaitForInputsOrMsg(H,M,partcall(1,exec_hWaitForInputsOrMsg,[M,H]),E,E).
-
-?- block exec_hWaitForInputsOrMsg(?,-,?,?,?,?),
-         exec_hWaitForInputsOrMsg(?,?,?,?,-,?).
-exec_hWaitForInputsOrMsg(Handles,share(M),World,Result,E0,E) :-
-        !,
-	get_mutable(V,M),
-	(V='$eval'(R) % external message stream has been already evaluated
-	 -> E0=E, Result='$io'('Prelude.Right'(R))
-	  ; exec_hWaitForInputsOrMsg(Handles,V,World,CResult,E0,E),
-	    (CResult='$io'('Prelude.Left'(_))
-  	     -> Result=CResult
-	      ; CResult='$io'('Prelude.Right'(S)),
-	        (compileWithSharing(variable) -> user:propagateShare(S,TResult)
-		                               ; S=TResult),
-	        Result='$io'('Prelude.Right'(TResult)),
-	        update_mutable('$eval'(TResult),M))).
-exec_hWaitForInputsOrMsg(_,[M|Ms],_,'$io'('Prelude.Right'([M|Ms])),E0,E) :-
-	!, E0=E. % stream already evaluated
-exec_hWaitForInputsOrMsg(RHandles,[],_,'$io'('Prelude.Left'(N)),E0,E) :- !,
-	% message stream is empty, so anything must be received from the handles.
-	user:derefAll(RHandles,Handles),
-	selectInstreams(Handles,InStreams),
-	waitForInputDataOnStreams(InStreams,-1,N),
-	!, E0=E.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

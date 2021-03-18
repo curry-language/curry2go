@@ -7,7 +7,4 @@
  <primitive name="prim_hWaitForInputs" arity="2">
   <entry>prim_hWaitForInputs[raw]</entry>
  </primitive>
- <primitive name="prim_hWaitForInputsOrMsg" arity="2">
-  <entry>prim_hWaitForInputsOrMsg[raw]</entry>
- </primitive>
 </primitives>
