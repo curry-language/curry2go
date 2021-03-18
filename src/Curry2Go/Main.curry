@@ -22,7 +22,7 @@ import Curry2Go.Compiler
 import Curry2Go.Config     ( compilerMajorVersion, compilerMinorVersion
                            , compilerName, lowerCompilerName, upperCompilerName
                            , curry2goDir )
-import Curry2Go.PkgConfig  ( packageVersion )
+import Curry2Go.PkgConfig  ( packagePath, packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
@@ -191,8 +191,12 @@ printArgs []     = return ()
 printArgs (x:xs) = case x of
   "--compiler-name"   -> putStrLn lowerCompilerName >> printArgs xs
   "--numeric-version" -> putStrLn packageVersion >> printArgs xs
-  "--base-version"    -> putStrLn "3.0.0" >> printArgs xs
+  "--base-version"    -> printBaseVersion >> printArgs xs
   _                   -> printArgs xs
+ where
+  printBaseVersion = do
+    bvs <- readFile (packagePath ++ "/lib/VERSION")
+    putStrLn (head (lines bvs))
 
 --- Help text
 usageText :: String
