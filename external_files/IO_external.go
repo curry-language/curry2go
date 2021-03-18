@@ -126,19 +126,11 @@ func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
 }
 
 func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
-    panic("Not yet implemented")
+    panic("System.IO.hWaitForInput: not yet implemented")
 }
 
 func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
-    panic("Not yet implemented")
-}
-
-func ExternalSystem_IO_prim_hWaitForInputOrMsg(task *gocurry.Task){
-    panic("Not yet implemented")
-}
-
-func ExternalSystem_IO_prim_hWaitForInputsOrMsg(task *gocurry.Task){
-    panic("Not yet implemented")
+    panic("System.IO.hWaitForInputs: not yet implemented")
 }
 
 func ExternalSystem_IO_prim_hGetChar(task *gocurry.Task){
@@ -201,7 +193,7 @@ func ExternalSystem_IO_prim_hIsWritable(task *gocurry.Task){
 }
 
 func ExternalSystem_IO_prim_hIsTerminalDevice(task *gocurry.Task){
-    panic("Not yet implemented")
+    panic("System.IO.hisTerminalDevice: not yet implemented")
 }
 
 
