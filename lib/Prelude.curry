@@ -1329,17 +1329,17 @@ class Applicative f => Alternative f where
 
     -- | One or more.
     some :: f a -> f [a]
-    some v = some_v
+    some v = some_ v
       where
-        many_v = some_v <|> pure []
-        some_v = (:) <$> v <*> many_v
+        many_ x = some_ x <|> pure []
+        some_ x = (:) <$> x <*> many_ x
 
     -- | Zero or more.
     many :: f a -> f [a]
-    many v = many_v
+    many v = many_ v
       where
-        many_v = some_v <|> pure []
-        some_v = (:) <$> v <*> many_v
+        many_ x = some_ x <|> pure []
+        some_ x = (:) <$> x <*> many_ x
 
 instance Alternative [] where
     empty = []
@@ -1996,7 +1996,14 @@ userError = UserError
 
 --- Raises an I/O exception with a given error value.
 ioError :: IOError -> IO _
+#ifdef __KICS2__
+ioError err = prim_ioError $## err
+
+prim_ioError :: IOError -> IO _
+prim_ioError external
+#else
 ioError err = error (show err)
+#endif
 
 --- Catches a possible error or failure during the execution of an
 --- I/O action. `catch act errfun` executes the I/O action `act`.

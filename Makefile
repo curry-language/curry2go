@@ -15,23 +15,29 @@ GOWORKSPACE=$(HOME)/go/src
 # The generated compiler executable
 COMPILER=$(HOME)/.cpm/bin/curry2go
 
+# Remove command
+RM=/bin/rm
+
+# The Go implementation of the base module Curry.Compiler.Distribution
+COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
+
 .PHONY: install
 install: scripts runtime
 	$(CPM) install
 	$(MAKE) lib/Curry/Compiler/Distribution_external.go
 
-lib/Curry/Compiler/Distribution_external.go: src/Install.curry src/Curry2Go/Config.curry
+$(COMPDISTGO): src/Install.curry src/Curry2Go/Config.curry
 	$(CPM) curry :load Install :eval main :quit
 
 .PHONY: uninstall
 uninstall: runtime
-	/bin/rm -rf $(GOWORKSPACE)
+	$(RM) -rf $(GOWORKSPACE)
 	$(CPM) uninstall
 
 # install run-time libraries:
 .PHONY: runtime
 runtime:
-	/bin/rm -rf $(GOWORKSPACE)
+	$(RM) -rf $(GOWORKSPACE)
 	mkdir -p $(GOWORKSPACE)
 	cp -r gocurry $(GOWORKSPACE)/gocurry
 
@@ -49,9 +55,10 @@ cleanscripts:
 .PHONY: clean
 clean:
 	$(CPM) clean
+	$(RM) -f $(COMPDISTGO)
 
 # clean all installed components
 .PHONY: cleanall
 cleanall: clean cleanscripts
-	/bin/rm -rf $(GOWORKSPACE) $(COMPILER)
+	$(RM) -rf $(GOWORKSPACE) $(COMPILER)
 
