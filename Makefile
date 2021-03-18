@@ -21,6 +21,9 @@ RM=/bin/rm
 # The Go implementation of the base module Curry.Compiler.Distribution
 COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
 
+# The root of the Curry system used to install this package
+INSTALLROOT := $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)
+
 .PHONY: install
 install: scripts runtime
 	$(CPM) install
@@ -54,6 +57,11 @@ runtime:
 .PHONY: scripts
 scripts:
 	cd scripts && $(MAKE) all
+	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
+	# add alias `curry`:
+	cd $(BINDIR) && ln -s curry2go curry
+	# add alias for frontend:
+	ln -s $(INSTALLROOT)/bin/*-frontend bin/curry2go-frontend
 
 # remove the scripts in the bin directory:
 .PHONY: cleanscripts
