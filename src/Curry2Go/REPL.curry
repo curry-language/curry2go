@@ -14,7 +14,9 @@ import REPL.Main          ( mainREPL )
 import System.CurryPath   ( inCurrySubdir, modNameToPath, sysLibPath )
 import System.FilePath    ( (</>) )
 
-import Curry2Go.Config    ( compilerName, lowerCompilerName, curry2goDir )
+import Curry2Go.Config    ( compilerName, lowerCompilerName, curry2goDir
+                          , compilerMajorVersion, compilerMinorVersion
+                          , compilerRevisionVersion )
 import Curry2Go.PkgConfig ( packageExecutables, packagePath, packageVersion )
 
 main :: IO ()
@@ -25,6 +27,7 @@ main = mainREPL c2go
 c2go :: CCDescription
 c2go = CCDescription
   lowerCompilerName          -- the compiler name
+  (compilerMajorVersion, compilerMinorVersion, compilerRevisionVersion)
   c2goBanner                 -- the banner
   c2goHome                   -- home directory of the compiler
   "info@curry-lang.org"      -- contact email

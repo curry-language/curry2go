@@ -20,6 +20,7 @@ import Control.Monad
 
 import Curry2Go.Compiler
 import Curry2Go.Config     ( compilerMajorVersion, compilerMinorVersion
+                           , compilerRevisionVersion
                            , compilerName, lowerCompilerName, upperCompilerName
                            , curry2goDir )
 import Curry2Go.PkgConfig  ( packagePath, packageVersion )
@@ -55,10 +56,20 @@ loadCurry s = do
 
 -- The front-end parameters for Curry2Go.
 c2gFrontendParams :: FrontendParams
-c2gFrontendParams = setQuiet True (setDefinitions [gocurryDef] defaultParams)
+c2gFrontendParams =
+  setQuiet True $
+  setDefinitions [gocurryDef] $
+  setOutDir goOutDir $
+  defaultParams
  where
   gocurryDef = ("__" ++ upperCompilerName ++ "__",
                 compilerMajorVersion * 100 + compilerMinorVersion)
+
+  goOutDir =
+    ".curry" </> lowerCompilerName ++ "-" ++
+    intercalate "."
+      (map show [compilerMajorVersion, compilerMinorVersion,
+                 compilerRevisionVersion])
 
 -- The ICurry compiler options for Curry2Go.
 c2gICOptions :: ICOptions
