@@ -4,19 +4,14 @@ module Curry2Go.Compiler
   , createMainProg, removeDots)
  where
 
-import Control.Monad ( when )
-import Language.Go.Show
-import Language.Go.Types
+import Control.Monad     ( when )
+import Data.Char         ( toUpper )
+import Data.List         ( union )
+
 import ICurry.Types
-import ICurry.Compiler
-import System.Environment
+import Language.Go.Show  ( showGoProg )
+import Language.Go.Types
 import System.CurryPath
-import System.Console.GetOpt
-import System.Directory
-import Data.Char
-import Data.Time
-import System.FilePath
-import Data.List
 
 --- Data types ---
 

@@ -1,29 +1,31 @@
 module Curry2Go.Main where
 
-import Language.Go.Show
+import Data.List           ( intercalate,last )
+import System.Environment  ( getArgs )
+
+import Control.Monad       ( unless, when )
+
+import Data.Time             ( compareClockTime )
+import FlatCurry.Files       ( readFlatCurryWithParseOptions )
+import Language.Go.Show      ( showGoProg )
 import Language.Go.Types
-import CompilerStructure
 import ICurry.Types
-import ICurry.Compiler
-import System.Environment
+import ICurry.Compiler       ( flatCurry2ICurry, icCompile )
+import ICurry.Options        ( ICOptions(..), defaultICOptions )
 import System.CurryPath
 import System.Console.GetOpt
 import System.Directory
-import Data.Char
-import Data.Time
 import System.FilePath
-import System.Process
-import Data.List
+import System.Process        ( exitWith, system )
 import System.FrontendExec
-import FlatCurry.Files
-import Control.Monad
 
+import CompilerStructure
 import Curry2Go.Compiler
-import Curry2Go.Config     ( compilerMajorVersion, compilerMinorVersion
-                           , compilerRevisionVersion
-                           , compilerName, lowerCompilerName, upperCompilerName
-                           , curry2goDir )
-import Curry2Go.PkgConfig  ( packagePath, packageVersion )
+import Curry2Go.Config       ( compilerMajorVersion, compilerMinorVersion
+                             , compilerRevisionVersion
+                             , compilerName, lowerCompilerName
+                             , curry2goDir, upperCompilerName )
+import Curry2Go.PkgConfig    ( packagePath, packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
@@ -41,14 +43,14 @@ createFilePath s = do
     Nothing       -> error ("Unknown module " ++ s)
     Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage s])
 
---- Gets the path to the source file of a curry module.
+--- Gets the path to the source file of a Curry module.
 loadCurryPath :: String -> IO String
 loadCurryPath s =
   lookupModuleSourceInLoadPath (stripCurrySuffix s) >>= \path -> case path of
     Nothing        -> error ("Unknown module " ++ s)
     Just (_, file) -> return file
 
---- Loads an IProg from the name of a curry module.
+--- Loads an IProg from the name of a Curry module.
 loadCurry :: String -> IO IProg
 loadCurry s = do
   prog <- readFlatCurryWithParseOptions (stripCurrySuffix s) c2gFrontendParams
