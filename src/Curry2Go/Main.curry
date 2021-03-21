@@ -10,7 +10,8 @@ import FlatCurry.Files       ( readFlatCurryWithParseOptions )
 import Language.Go.Show      ( showGoProg )
 import Language.Go.Types
 import ICurry.Types
-import ICurry.Compiler       ( flatCurry2ICurry, icCompile )
+import ICurry.Compiler       ( flatCurry2ICurryWithProgs )
+import ICurry.Files          ( readICurryFile, writeICurryFile )
 import ICurry.Options        ( ICOptions(..), defaultICOptions )
 import System.CurryPath
 import System.Console.GetOpt
@@ -50,63 +51,87 @@ loadCurryPath s =
     Nothing        -> error ("Unknown module " ++ s)
     Just (_, file) -> return file
 
+--- Gets the base directory of a Curry module.
+getBaseDirOfModule :: String -> IO String
+getBaseDirOfModule m = do
+  path <- lookupModuleSourceInLoadPath (stripCurrySuffix m)
+  case path of
+    Nothing       -> error ("Unknown module " ++ m)
+    Just (dir, _) -> return dir
+
 --- Loads an IProg from the name of a Curry module.
 loadCurry :: String -> IO IProg
 loadCurry s = do
-  prog <- readFlatCurryWithParseOptions (stripCurrySuffix s) c2gFrontendParams
-  flatCurry2ICurry c2gICOptions prog
+  --putStrLn $ "LOADING ICURRY OF " ++ s
+  let mname = stripCurrySuffix s -- really necessary?
+  basedir <- getBaseDirOfModule mname
+  let fcypath = basedir </> curry2goDir </> mname <.> "fcy"
+      icypath = basedir </> curry2goDir </> mname <.> "icy"
+  fcyexists <- doesFileExist fcypath
+  unless fcyexists $
+    error $ "Curry2Go internal error: " ++ fcypath ++ " does not exist!"
+  fcytime   <- getModificationTime fcypath
+  icyexists <- doesFileExist icypath
+  if icyexists
+    then do icytime <- getModificationTime icypath
+            if icytime > fcytime
+              then readICurryFile icypath
+              else genIProg icypath mname
+    else genIProg icypath mname
+ where
+  genIProg icypath mname = do
+    prog  <- readFlatCurryWithParseOptions mname c2gFrontendParams
+    iprog <- flatCurry2ICurryWithProgs c2gICOptions [] prog
+    --putStrLn $ "WRITING " ++ icypath
+    writeICurryFile icypath iprog
+    return iprog
 
 -- The front-end parameters for Curry2Go.
 c2gFrontendParams :: FrontendParams
 c2gFrontendParams =
   setQuiet True $
   setDefinitions [gocurryDef] $
-  setOutDir goOutDir $
+  setOutDir curry2goDir $
   defaultParams
  where
   gocurryDef = ("__" ++ upperCompilerName ++ "__",
                 compilerMajorVersion * 100 + compilerMinorVersion)
 
-  goOutDir =
-    ".curry" </> lowerCompilerName ++ "-" ++
-    intercalate "."
-      (map show [compilerMajorVersion, compilerMinorVersion,
-                 compilerRevisionVersion])
-
 -- The ICurry compiler options for Curry2Go.
 c2gICOptions :: ICOptions
 c2gICOptions =
-  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams }
+  defaultICOptions { optVerb = 1, optFrontendParams = c2gFrontendParams }
 
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
 --- compiled version of a curry module.
 postProcess :: String -> IO ()
-postProcess s = do extFilePath <- getExtFilePath
-                   extFileName <- return (takeFileName extFilePath)
-                   home <- getHomeDirectory
-                   extInSource <- doesFileExist extFilePath
-                   fPath <- getFilePath goStruct s
-                   let outPath = combine curry2goDir (modPackage s)
-                   let outDir = takeDirectory outPath
-                   createDirectoryIfMissing True outDir
-                   if extInSource
-                     then copyFile extFilePath
-                       (combine outDir extFileName)
-                     else do
-                       extInInclude <- doesFileExist
-                         (joinPath [home, ".gocurry", "include", extFileName])
-                       when extInInclude (copyFile
-                         (joinPath [home, ".gocurry", "include", extFileName])
-                         (combine outDir extFileName))
-                   alreadyExists <- doesFileExist outPath
-                   if alreadyExists
-                     then do 
-                       fMod <- getModificationTime fPath
-                       outMod <- getModificationTime outPath
-                       when (compareClockTime fMod outMod == GT)
-                         (copyFile fPath outPath)
-                     else copyFile fPath outPath
+postProcess s = do
+  extFilePath <- getExtFilePath
+  extFileName <- return (takeFileName extFilePath)
+  home <- getHomeDirectory
+  extInSource <- doesFileExist extFilePath
+  fPath <- getFilePath goStruct s
+  let outPath = combine curry2goDir (modPackage s)
+  let outDir = takeDirectory outPath
+  createDirectoryIfMissing True outDir
+  if extInSource
+    then copyFile extFilePath
+      (combine outDir extFileName)
+    else do
+      extInInclude <- doesFileExist
+        (joinPath [home, ".gocurry", "include", extFileName])
+      when extInInclude (copyFile
+        (joinPath [home, ".gocurry", "include", extFileName])
+        (combine outDir extFileName))
+  alreadyExists <- doesFileExist outPath
+  if alreadyExists
+    then do 
+      fMod <- getModificationTime fPath
+      outMod <- getModificationTime outPath
+      when (compareClockTime fMod outMod == GT)
+        (copyFile fPath outPath)
+    else copyFile fPath outPath
  where
   getExtFilePath = do
     path <- loadCurryPath (stripCurrySuffix s)
@@ -155,10 +180,11 @@ curry2Go mainmod opts = do
   printVerb opts 3 $ "Creating directory: " ++ includedir
   createDirectoryIfMissing True includedir
   printVerb opts 1 "Compiling..."
+  fprog <- readFlatCurryWithParseOptions mainmod c2gFrontendParams
   compile (goStruct {compProg = compileIProg2GoString opts})
           (verbosity opts == 0) mainmod
   printVerb opts 2 $ "Go programs written to '" ++ outputDir goStruct ++ "'"
-  IProg moduleName _ _ funcs <- icCompile c2gICOptions mainmod
+  IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions [] fprog
   when (genMain opts) $ do
     let mainprogname = removeDots moduleName ++ ".go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"

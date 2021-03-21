@@ -43,7 +43,7 @@ c2go = CCDescription
   [stratOpt, intOpt, firstOpt]
  where
   cleanCmd m = unwords
-    [ "/bin/rm -rf", inCurrySubdir m ++ ".*", modNameToPath m ++ ".curry"
+    [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
     , curry2goDir </> m ++ ".go", curry2goDir </> m ]
 
 c2goHome :: String

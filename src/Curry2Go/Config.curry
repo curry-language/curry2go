@@ -12,7 +12,7 @@ module Curry2Go.Config
   ) where
 
 import Data.Char ( toLower, toUpper )
-import Data.List ( splitOn )
+import Data.List ( intercalate, splitOn )
 
 import System.FilePath    ( (</>) )
 
@@ -48,7 +48,11 @@ compilerRevisionVersion = case reads ((splitOn "." packageVersion) !! 2) of
   [(n,_)] -> n -- maybe there is a suffix with a pre-release identifier
   _       -> 0
 
---- The subdirectory where the compiled Go target files will be stored,
---- e.g., `.curry/curry2go-1.0.0`.
+--- The subdirectory where intermediate program files and the compiled
+--- Go target files will be stored, e.g., `.curry/curry2go-1.0.0`.
 curry2goDir :: String
-curry2goDir = ".curry" </> (lowerCompilerName ++ "-" ++ packageVersion)
+curry2goDir =
+  ".curry" </> lowerCompilerName ++ "-" ++
+  intercalate "."
+    (map show [compilerMajorVersion, compilerMinorVersion,
+               compilerRevisionVersion])
