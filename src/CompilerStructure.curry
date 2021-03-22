@@ -9,14 +9,14 @@ import Global
 --- Data type for compiler options regarding output structure and modules.
 --- The compiled version of a module m will be saved as outputDir\(filePath m).
 data CompStruct a = CompStruct
-  { outputDir      :: String                -- directory where all compiled files will be saved.
-  , filePath       :: (String -> IO String) -- function taking a module name,
-                                            -- converting it to a path for the compiled version.
-  , excludeModules :: [String]              -- list of modules to ignore if they appear as an import.
-  , getProg        :: (String -> IO a)      -- returns a program from a module name.
-  , getPath        :: (String -> IO String) -- returns the path to the source file of a program.
-  , getImports     :: (a -> [String])       -- returns the names of imported programs.
-  , compProg       :: (a -> String)         -- compiles a program to a String in the target language.
+  { outputDir      :: String                -- directory where all compiled files will be saved
+  , filePath       :: (String -> IO String) -- function taking a module name and
+                                            -- converting it to a path for the compiled version
+  , excludeModules :: [String]              -- list of modules to ignore if they appear as an import
+  , getProg        :: (String -> IO a)      -- returns a program from a module name
+  , getPath        :: (String -> IO String) -- returns the path to the source file of a program
+  , getImports     :: String -> IO [String] -- gets the imports of a module
+  , compProg       :: (a -> String)         -- compiles a program to a String in the target language
   , postProc       :: (String -> IO ())     -- post processing function that runs after compilation/skipping of a module.
   }
 
@@ -79,17 +79,18 @@ compileProg struct quiet name = do
   fDir <- getFileDir struct name
   fPath <- getFilePath struct name
   createDirectoryIfMissing True fDir
-  printStatus $ "Reading program '" ++ name ++ "'..."
-  prog <- getProg struct name
+  printStatus $ "Processing program '" ++ name ++ "'..."
   alreadyExists <- doesFileExist fPath
   if alreadyExists
     then do
       modulePath <- getPath struct name
       lastMod <- getModificationTime modulePath
       lastCompile <- getModificationTime fPath
-      compAnyway <- compileImports struct quiet (getImports struct prog)
+      impmods <- getImports struct name
+      compAnyway <- compileImports struct quiet impmods
       if compareClockTime lastMod lastCompile == GT || compAnyway
         then do
+          prog <- getProg struct name
           writeFile fPath (compProg struct prog)
           postProc struct name
           compModules <- readGlobal compiledModules
@@ -103,7 +104,9 @@ compileProg struct quiet name = do
           printStatus $ "Skipping '" ++ name ++ "'"
           return False
     else do
-      compileImports struct quiet (getImports struct prog)
+      impmods <- getImports struct name
+      compileImports struct quiet impmods
+      prog <- getProg struct name
       writeFile fPath (compProg struct prog)
       postProc struct name
       compModules <- readGlobal compiledModules

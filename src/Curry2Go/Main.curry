@@ -1,17 +1,20 @@
 module Curry2Go.Main where
 
-import Data.List           ( intercalate,last )
+import Data.List           ( find, intercalate, last )
 import System.Environment  ( getArgs )
 
 import Control.Monad       ( unless, when )
 
 import Data.Time             ( compareClockTime )
-import FlatCurry.Files       ( readFlatCurryWithParseOptions )
+import FlatCurry.Types       ( Prog )
+import FlatCurry.Files       ( readFlatCurryWithParseOptions
+                             , readFlatCurryIntWithParseOptions )
+import FlatCurry.Goodies     ( progImports, progName )
+import Global
 import Language.Go.Show      ( showGoProg )
 import Language.Go.Types
 import ICurry.Types
 import ICurry.Compiler       ( flatCurry2ICurryWithProgs )
-import ICurry.Files          ( readICurryFile, writeICurryFile )
 import ICurry.Options        ( ICOptions(..), defaultICOptions )
 import System.CurryPath
 import System.Console.GetOpt
@@ -45,8 +48,8 @@ createFilePath s = do
     Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage s])
 
 --- Gets the path to the source file of a Curry module.
-loadCurryPath :: String -> IO String
-loadCurryPath s =
+getCurryPath :: String -> IO String
+getCurryPath s =
   lookupModuleSourceInLoadPath (stripCurrySuffix s) >>= \path -> case path of
     Nothing        -> error ("Unknown module " ++ s)
     Just (_, file) -> return file
@@ -59,32 +62,30 @@ getBaseDirOfModule m = do
     Nothing       -> error ("Unknown module " ++ m)
     Just (dir, _) -> return dir
 
+--- List of already loaded FlatCurry interfaces to avoid multiple readings.
+loadedInterfaces :: Global [Prog]
+loadedInterfaces = global [] Temporary
+
+--- Load a FlatCurry interface for a module if not already done.
+loadInterface :: String -> IO Prog
+loadInterface mname = do
+  loadedints <- readGlobal loadedInterfaces
+  maybe (do int <- readFlatCurryIntWithParseOptions mname c2gFrontendParams
+            writeGlobal loadedInterfaces (int:loadedints)
+            return int)
+        return
+        (find (\fp -> progName fp == mname) loadedints)
+
+--- Gets the imported modules of a Curry module.
+getCurryImports :: String -> IO [String]
+getCurryImports mname = loadInterface mname >>= return . progImports
+
 --- Loads an IProg from the name of a Curry module.
-loadCurry :: String -> IO IProg
-loadCurry s = do
-  --putStrLn $ "LOADING ICURRY OF " ++ s
-  let mname = stripCurrySuffix s -- really necessary?
-  basedir <- getBaseDirOfModule mname
-  let fcypath = basedir </> curry2goDir </> mname <.> "fcy"
-      icypath = basedir </> curry2goDir </> mname <.> "icy"
-  fcyexists <- doesFileExist fcypath
-  unless fcyexists $
-    error $ "Curry2Go internal error: " ++ fcypath ++ " does not exist!"
-  fcytime   <- getModificationTime fcypath
-  icyexists <- doesFileExist icypath
-  if icyexists
-    then do icytime <- getModificationTime icypath
-            if icytime > fcytime
-              then readICurryFile icypath
-              else genIProg icypath mname
-    else genIProg icypath mname
- where
-  genIProg icypath mname = do
-    prog  <- readFlatCurryWithParseOptions mname c2gFrontendParams
-    iprog <- flatCurry2ICurryWithProgs c2gICOptions [] prog
-    --putStrLn $ "WRITING " ++ icypath
-    writeICurryFile icypath iprog
-    return iprog
+loadICurry :: String -> IO IProg
+loadICurry mname = do
+  prog  <- readFlatCurryWithParseOptions mname c2gFrontendParams
+  impints <- mapM loadInterface (progImports prog)
+  flatCurry2ICurryWithProgs c2gICOptions impints prog
 
 -- The front-end parameters for Curry2Go.
 c2gFrontendParams :: FrontendParams
@@ -134,7 +135,7 @@ postProcess s = do
     else copyFile fPath outPath
  where
   getExtFilePath = do
-    path <- loadCurryPath (stripCurrySuffix s)
+    path <- getCurryPath (stripCurrySuffix s)
     return $
       replaceFileName path
         (stripCurrySuffix (takeFileName path) ++ "_external.go")
@@ -144,9 +145,9 @@ goStruct = defaultStruct
   { outputDir      = "."
   , filePath       = createFilePath
   , excludeModules = []
-  , getProg        = loadCurry
-  , getPath        = loadCurryPath
-  , getImports     = (\(IProg _ imports _ _) -> imports)
+  , getProg        = loadICurry
+  , getPath        = getCurryPath
+  , getImports     = getCurryImports
   , postProc       = postProcess
   }
 
@@ -180,11 +181,14 @@ curry2Go mainmod opts = do
   printVerb opts 3 $ "Creating directory: " ++ includedir
   createDirectoryIfMissing True includedir
   printVerb opts 1 "Compiling..."
+  -- read main FlatCurry in order to be sure that all imports are up-to-date
   fprog <- readFlatCurryWithParseOptions mainmod c2gFrontendParams
   compile (goStruct {compProg = compileIProg2GoString opts})
           (verbosity opts == 0) mainmod
   printVerb opts 2 $ "Go programs written to '" ++ outputDir goStruct ++ "'"
-  IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions [] fprog
+  impints <- mapM loadInterface (progImports fprog)
+  IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions impints
+                                                          fprog
   when (genMain opts) $ do
     let mainprogname = removeDots moduleName ++ ".go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
