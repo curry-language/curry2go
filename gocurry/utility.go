@@ -171,6 +171,27 @@ func ReadString(root *Node)(result string){
     return
 }
 
+// Reads a curry list and turns it
+// into a go slice.
+func ReadList(root *Node)(result []*Node){
+    
+    cur_node := root
+    
+    for{
+        // finish on []
+        if(cur_node.GetConstructor() == 0){
+            return
+        }
+
+        // append next element to result
+        result = append(result, cur_node.GetChild(0))
+
+        // move to the next element
+        cur_node = cur_node.GetChild(1)
+    }
+}
+
+
 // Sets root to an IntLiteral with the
 // Go major version number.
 // Or -1 if the version is not

@@ -166,6 +166,6 @@ compileImports struct cref sref quiet (x:xs)
     if x `elem`  compiledMods cstate
       then return True
       else if x `elem` skippedMods cstate
-             then return False
+             then return b
              else do b2 <- compileProg struct cref sref quiet x
                      return (b || b2)
