@@ -1,5 +1,6 @@
 module Curry2Go.Main where
 
+import Data.IORef
 import Data.List           ( find, intercalate, last )
 import System.Environment  ( getArgs )
 
@@ -10,7 +11,6 @@ import FlatCurry.Types       ( Prog )
 import FlatCurry.Files       ( readFlatCurryWithParseOptions
                              , readFlatCurryIntWithParseOptions )
 import FlatCurry.Goodies     ( progImports, progName )
-import Global
 import Language.Go.Show      ( showGoProg )
 import Language.Go.Types
 import ICurry.Types
@@ -34,57 +34,53 @@ import Curry2Go.PkgConfig    ( packagePath, packageVersion )
 --- Implementation of CompStruct for the curry2go compiler.
 
 --- Returns the filepath relative to curry2goDir where
---- the compiled version of the module s will be stored.
+--- the compiled version of the module `m` will be stored.
 modPackage :: String -> String
-modPackage s =
-  combine (modNameToPath s) (last (splitModuleIdentifiers s) ++ ".go")
+modPackage m =
+  combine (modNameToPath m) (last (splitModuleIdentifiers m) ++ ".go")
 
---- Creates the output path for a compiled curry module.
+--- Creates the output path for a compiled Curry module.
 createFilePath :: String -> IO String
-createFilePath s = do
-  path <- lookupModuleSourceInLoadPath s
+createFilePath m = do
+  path <- lookupModuleSourceInLoadPath m
   case path of
-    Nothing       -> error ("Unknown module " ++ s)
-    Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage s])
+    Nothing       -> error ("Unknown module " ++ m)
+    Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage m])
 
 --- Gets the path to the source file of a Curry module.
 getCurryPath :: String -> IO String
-getCurryPath s =
-  lookupModuleSourceInLoadPath (stripCurrySuffix s) >>= \path -> case path of
-    Nothing        -> error ("Unknown module " ++ s)
+getCurryPath m =
+  lookupModuleSourceInLoadPath m >>= \path -> case path of
+    Nothing        -> error ("Unknown module " ++ m)
     Just (_, file) -> return file
 
 --- Gets the base directory of a Curry module.
 getBaseDirOfModule :: String -> IO String
 getBaseDirOfModule m = do
-  path <- lookupModuleSourceInLoadPath (stripCurrySuffix m)
+  path <- lookupModuleSourceInLoadPath m
   case path of
     Nothing       -> error ("Unknown module " ++ m)
     Just (dir, _) -> return dir
 
---- List of already loaded FlatCurry interfaces to avoid multiple readings.
-loadedInterfaces :: Global [Prog]
-loadedInterfaces = global [] Temporary
-
 --- Load a FlatCurry interface for a module if not already done.
-loadInterface :: String -> IO Prog
-loadInterface mname = do
-  loadedints <- readGlobal loadedInterfaces
+loadInterface :: IORef [Prog] -> String -> IO Prog
+loadInterface sref mname = do
+  loadedints <- readIORef sref
   maybe (do int <- readFlatCurryIntWithParseOptions mname c2gFrontendParams
-            writeGlobal loadedInterfaces (int:loadedints)
+            writeIORef sref (int : loadedints)
             return int)
         return
         (find (\fp -> progName fp == mname) loadedints)
 
 --- Gets the imported modules of a Curry module.
-getCurryImports :: String -> IO [String]
-getCurryImports mname = loadInterface mname >>= return . progImports
+getCurryImports :: IORef [Prog] -> String -> IO [String]
+getCurryImports sref mname = loadInterface sref mname >>= return . progImports
 
 --- Loads an IProg from the name of a Curry module.
-loadICurry :: String -> IO IProg
-loadICurry mname = do
+loadICurry :: IORef [Prog] -> String -> IO IProg
+loadICurry sref mname = do
   prog  <- readFlatCurryWithParseOptions mname c2gFrontendParams
-  impints <- mapM loadInterface (progImports prog)
+  impints <- mapM (loadInterface sref) (progImports prog)
   flatCurry2ICurryWithProgs c2gICOptions impints prog
 
 -- The front-end parameters for Curry2Go.
@@ -101,19 +97,19 @@ c2gFrontendParams =
 -- The ICurry compiler options for Curry2Go.
 c2gICOptions :: ICOptions
 c2gICOptions =
-  defaultICOptions { optVerb = 1, optFrontendParams = c2gFrontendParams }
+  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams }
 
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
---- compiled version of a curry module.
+--- compiled version of a Curry module.
 postProcess :: String -> IO ()
-postProcess s = do
+postProcess mname = do
   extFilePath <- getExtFilePath
   extFileName <- return (takeFileName extFilePath)
   home <- getHomeDirectory
   extInSource <- doesFileExist extFilePath
-  fPath <- getFilePath goStruct s
-  let outPath = combine curry2goDir (modPackage s)
+  fPath <- getFilePath goStruct mname
+  let outPath = combine curry2goDir (modPackage mname)
   let outDir = takeDirectory outPath
   createDirectoryIfMissing True outDir
   if extInSource
@@ -128,19 +124,22 @@ postProcess s = do
   alreadyExists <- doesFileExist outPath
   if alreadyExists
     then do 
-      fMod <- getModificationTime fPath
+      fMod   <- getModificationTime fPath
       outMod <- getModificationTime outPath
       when (compareClockTime fMod outMod == GT)
         (copyFile fPath outPath)
     else copyFile fPath outPath
  where
   getExtFilePath = do
-    path <- getCurryPath (stripCurrySuffix s)
+    path <- getCurryPath mname
     return $
       replaceFileName path
         (stripCurrySuffix (takeFileName path) ++ "_external.go")
 
-goStruct :: CompStruct IProg
+--- The structure for the Curry2Go compilation process.
+--- The compiler cache manages the list of already loaded FlatCurry interfaces
+--- to avoid multiple readings.
+goStruct :: CompStruct IProg [Prog]
 goStruct = defaultStruct
   { outputDir      = "."
   , filePath       = createFilePath
@@ -154,7 +153,7 @@ goStruct = defaultStruct
 --- Implementation of compiler io.
 
 --- main function
-main :: IO()
+main :: IO ()
 main = do
   args <- getArgs
   (opts, paths) <- processOptions args
@@ -183,10 +182,11 @@ curry2Go mainmod opts = do
   printVerb opts 1 "Compiling..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   fprog <- readFlatCurryWithParseOptions mainmod c2gFrontendParams
-  compile (goStruct {compProg = compileIProg2GoString opts})
+  sref <- newIORef []
+  compile (goStruct {compProg = compileIProg2GoString opts}) sref
           (verbosity opts == 0) mainmod
   printVerb opts 2 $ "Go programs written to '" ++ outputDir goStruct ++ "'"
-  impints <- mapM loadInterface (progImports fprog)
+  impints <- mapM (loadInterface sref) (progImports fprog)
   IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions impints
                                                           fprog
   when (genMain opts) $ do
@@ -199,7 +199,8 @@ curry2Go mainmod opts = do
     printVerb opts 2 $ "...written to " ++ mainfile
   when (genMain opts) $ do
     printVerb opts 1 "Creating executable..."
-    let bcmd = "go build " ++ combine curry2goDir (removeDots moduleName ++ ".go")
+    let bcmd = "go build " ++
+               combine curry2goDir (removeDots moduleName ++ ".go")
     printVerb opts 2 $ "...with command: " ++ bcmd
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
