@@ -131,6 +131,6 @@ compileImports struct quiet (x:xs)
     if elem x compMods 
       then return True
       else if elem x skipMods 
-             then return False
+             then return (False || b)
              else compileProg struct quiet x
                >>= (\b2 -> return (b || b2))
