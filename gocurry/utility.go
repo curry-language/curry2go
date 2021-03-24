@@ -497,22 +497,26 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
 
 ////// Print functions
 
-// Prints a node and all its children in a
-// parenthesized prefix notation.
-// Tupels and strings are pretty printed.
+// Prints a node and all its children.
 func printResult(node *Node) {
+    fmt.Printf(showResult(node))
+}
+
+// Turns a node and all its children into
+// a string in standard prefix notation.
+func showResult(node *Node)(result string){
     
     // test if node is a constructor
     if(node.IsConst()){
         // test if node is IO
         if(node.GetName() == "IO"){
-            // only print child if its not ()
+            // only show child if its not ()
             if(node.GetChild(0).IsConst()){
                 if(node.GetChild(0).GetName() != "()"){
-                    printResult(node.GetChild(0))
+                    result = showResult(node.GetChild(0))
                 }
             } else {
-                printResult(node.GetChild(0))
+                result = showResult(node.GetChild(0))
             }
             return
         }
@@ -522,16 +526,13 @@ func printResult(node *Node) {
 
             // test if the list is a string
             if(node.GetChild(0).IsCharLit()){
-                // print string
-                val := ReadString(node)
-                fmt.Printf("\"%s\"",val)
+                // show string
+                result = "\"" + ReadString(node) + "\""
                 return
             }
 
-            // print list
-            fmt.Printf("[")
-            printList(node)
-            fmt.Printf("]")
+            // show list
+            result = "[" + showList(node) + "]"
             return
         }
 
@@ -539,86 +540,82 @@ func printResult(node *Node) {
         isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
 
         if(isTupel){
-            // print empty tupel
+            // show empty tupel
             if(len(node.Children) == 0){
-                fmt.Printf("()")
+                result = "()"
                 return
             }
             
-            // print tupel elements
-            fmt.Printf("(")
-            printResult(node.Children[0])
+            // show tupel elements
+            result = "(" + showResult(node.Children[0])
             for i := 1; i < len(node.Children); i++{
-                fmt.Printf(", ")
-                printResult(node.Children[i])
+                result += ", " + showResult(node.Children[i])
             }
-            fmt.Printf(")")
+            result += ")"
             return
         }
     }
     
-    // print node
-    printNode(node)
+    // show node
+    result = showNode(node)
 
-    // print children of node
+    // show children of node
     for i := 0; i < len(node.Children); i++ {
-        fmt.Printf(" ")
+        result += " "
         if(len(node.Children[i].Children) > 0){
-            fmt.Printf("(")
-            printResult(node.Children[i])
-            fmt.Printf(")")
+            result += "(" + showResult(node.Children[i]) + ")"
         } else{
-            printResult(node.Children[i])
+            result += showResult(node.Children[i])
         }
     }
+    
+    return
 }
 
-// Prints every item of a list
-// separated by commas.
-// node has to be a : constructor.
-func printList(node *Node){
+// Returns a string representation of a curry list.
+// node has to be a ':' constructor.
+func showList(node *Node)(result string){
 
-    // print the item
-    printResult(node.GetChild(0))
+    // get string representation of the element
+    result = showResult(node.GetChild(0))
 
     // end list on [] constructor
     if(node.GetChild(1).GetName() == "[]"){
         return
     }
     
+    // handle not fully evaluated lists
     if(node.GetChild(1).GetName() != ":"){
-        fmt.Printf(", ")
-        printResult(node.GetChild(1))
+        result += ", " + showResult(node.GetChild(1))
         return
     }
 
-    // continue with next item
-    fmt.Printf(", ")
-    printList(node.GetChild(1))
+    // continue with next element
+    result += ", " + showList(node.GetChild(1))
+    return
 }
 
 
-// Prints a textual representation of a node.
-func printNode(node *Node) {
-    if(node.node_type == INT_LITERAL){
-        fmt.Printf("%d", node.int_value)
-    } else if(node.node_type == FLOAT_LITERAL){
-        fmt.Printf("%f", node.float_literal)
-    } else if(node.node_type == CHAR_LITERAL){
-        fmt.Printf("'%c'", node.char_literal)
-    } else if(node.node_type == CHOICE){
-        fmt.Printf("?")
-    } else if (node.node_type == CONSTRUCTOR){
-        fmt.Printf(node.GetName())
-    } else if (node.node_type == REDIRECT){
-        fmt.Printf("Redirect")
-    } else if (node.node_type == FCALL){
-        fmt.Printf(node.GetName())
-    } else if (node.node_type == EXEMPT){ 
-        fmt.Printf("Exempt")    
-    } else {
-        fmt.Printf("UnknownNode")
+// Returns a string representation of a node.
+func showNode(node *Node) string{
+    switch node.node_type {
+    case INT_LITERAL:
+        return strconv.Itoa(node.int_value)
+    case FLOAT_LITERAL:
+        return strconv.FormatFloat(node.float_literal, 'f', -1, 64)
+    case CHAR_LITERAL:
+        return ("'" + string(node.char_literal) + "'")
+    case CONSTRUCTOR, FCALL:
+        return node.GetName()
+    case CHOICE:
+        return "?"
+    case REDIRECT:
+        return "Redirect"
+    case EXEMPT:
+        return "Exempt"
     }
+    
+    return "UnknownNode"
 }
 
 func printDebug(node *Node, task *Task) {
@@ -661,7 +658,7 @@ func printDebug(node *Node, task *Task) {
         // do not print tupel prefix
         if(!isTupel){
             // print node if it is not a tupel
-            printNode(node)
+            fmt.Printf(showNode(node))
         } else{
             // print empty tupel
             if(len(node.Children) == 0){
@@ -671,7 +668,7 @@ func printDebug(node *Node, task *Task) {
         }
     }else{
         // print node
-        printNode(node)
+        fmt.Printf(showNode(node))
     }
 
     // end if node does not have Children
