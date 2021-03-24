@@ -16,7 +16,7 @@ func ExternalSystem_Directory_prim_doesFileExist(task *gocurry.Task){
     if(os.IsNotExist(err) || info.IsDir()){
         gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
     } else if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.doesFileExist: " + err.Error())
     } else{
         gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
     }
@@ -33,7 +33,7 @@ func ExternalSystem_Directory_prim_doesDirectoryExist(task *gocurry.Task){
     if(os.IsNotExist(err) || !info.IsDir()){
         gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
     } else if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.doesDirectoryExist: " + err.Error())
     } else{
         gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
     }
@@ -49,9 +49,9 @@ func ExternalSystem_Directory_prim_fileSize(task *gocurry.Task){
     
     if(err != nil){
         if(os.IsNotExist(err)){
-            panic("EXISTENCE ERROR: file " + path + " does not exist")
+            panic("System.Directory.fileSize: file " + path + " does not exist")
         } else{
-            panic("ERROR: cannot load file " + path + ". " + err.Error())
+            panic("System.Directory.fileSize: cannot load file " + path + ". " + err.Error())
         }
     }
     
@@ -70,9 +70,9 @@ func ExternalSystem_Directory_prim_getModificationTime(task *gocurry.Task){
     
     if(err != nil){
         if(os.IsNotExist(err)){
-            panic("EXISTENCE ERROR: file " + path + " does not exist")
+            panic("System.Directory.getModificationTime: file " + path + " does not exist")
         } else{
-            panic("ERROR: cannot load file " + path + ". " + err.Error())
+            panic("System.Directory.getModificationTime: cannot load file " + path + ". " + err.Error())
         }
     }
     
@@ -87,7 +87,7 @@ func ExternalSystem_Directory_getCurrentDirectory(task *gocurry.Task){
     dir, err := os.Getwd()
     
     if(err != nil){
-        panic("ERROR: cannot load current directory")
+        panic("System.Directory.getCurrentDirectory: cannot load current directory")
     }
     
     gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), dir))
@@ -102,16 +102,16 @@ func ExternalSystem_Directory_prim_setCurrentDirectory(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || !info.IsDir()){
-        panic("EXISTENCE ERROR: directory " + path + " does not exist")
+        panic("System.Directory.setCurrentDirectory: directory " + path + " does not exist")
     } else if(err != nil){
-        panic("ERROR: cannot load directory " + path + ". " + err.Error())
+        panic("System.Directory.setCurrentDirectory: cannot load directory " + path + ". " + err.Error())
     }
     
     // change working directory
     err = os.Chdir(path)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.setCurrentDirectory: " + err.Error())
     }
     
     // return
@@ -127,16 +127,16 @@ func ExternalSystem_Directory_prim_getDirectoryContents(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || !info.IsDir()){
-        panic("EXISTENCE ERROR: directory " + path + " does not exist")
+        panic("System.Directory.getDirectoryContents: directory " + path + " does not exist")
     } else if(err != nil){
-        panic("ERROR: cannot load directory " + path + ". " + err.Error())
+        panic("System.Directory.getDirectoryContents: cannot load directory " + path + ". " + err.Error())
     }
     
     // open directory
     file, fErr := os.Open(path)
     
     if(fErr != nil){
-        panic("ERROR: " + fErr.Error())
+        panic("System.Directory.getDirectoryContents: " + fErr.Error())
     }
     
     
@@ -144,7 +144,7 @@ func ExternalSystem_Directory_prim_getDirectoryContents(task *gocurry.Task){
     names, nErr := file.Readdirnames(0)
     
     if(nErr != nil){
-        panic("ERROR: cannot load directory contents for " + path)
+        panic("System.Directory.getDirectoryContents: cannot load directory contents for " + path)
     }
     
     // create result list
@@ -165,7 +165,7 @@ func ExternalSystem_Directory_prim_createDirectory(task *gocurry.Task){
     err := os.Mkdir(path, os.ModePerm)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.createDirectory: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -179,7 +179,7 @@ func ExternalSystem_Directory_prim_removeDirectory(task *gocurry.Task){
     err := os.RemoveAll(path)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.removeDirectory: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -195,9 +195,9 @@ func ExternalSystem_Directory_prim_renameDirectory(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || !info.IsDir()){
-        panic("EXISTENCE ERROR: directory " + path + " does not exist")
+        panic("System.Directory.renameDirectory: directory " + path + " does not exist")
     } else if(err != nil){
-        panic("ERROR: cannot load directory " + path + ". " + err.Error())
+        panic("System.Directory.renameDirectory: cannot load directory " + path + ". " + err.Error())
     }
     
     // rename directory
@@ -205,7 +205,7 @@ func ExternalSystem_Directory_prim_renameDirectory(task *gocurry.Task){
     err = os.Rename(path, name)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.renameDirectory: " + err.Error())
     }
     
     // return
@@ -221,7 +221,7 @@ func ExternalSystem_Directory_prim_removeFile(task *gocurry.Task){
     err := os.Remove(path)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.removeFile: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -237,9 +237,9 @@ func ExternalSystem_Directory_prim_renameFile(task *gocurry.Task){
     info, err := os.Stat(path)
     
     if(os.IsNotExist(err) || info.IsDir()){
-        panic("EXISTENCE ERROR: file " + path + " does not exist")
+        panic("System.Directory.renameDirectory: file " + path + " does not exist")
     } else if(err != nil){
-        panic("ERROR: cannot load file " + path + ". " + err.Error())
+        panic("System.Directory.renameDirectory: cannot load file " + path + ". " + err.Error())
     }
     
     // rename file
@@ -247,7 +247,7 @@ func ExternalSystem_Directory_prim_renameFile(task *gocurry.Task){
     err = os.Rename(path, name)
     
     if(err != nil){
-        panic("ERROR: " + err.Error())
+        panic("System.Directory.renameDirectory: " + err.Error())
     }
     
     // return

@@ -19,7 +19,7 @@ func ExternalPrelude_ensureNotFree(task *Task){
             return    
         }
         
-        panic("ERROR: Free variable in ensureNotFree")
+        panic("Prelude.ensureNotFree: Free variable")
     }
     
     root = RedirectCreate(root, x1)
@@ -81,7 +81,7 @@ func ExternalPrelude_prim_error(task *Task){
 
     msg := ReadString(root.GetChild(0))
 
-    panic("ERROR: " + msg)
+    panic("Prelude.error: " + msg)
 }
 
 func ExternalPrelude_failed(task *Task){
@@ -995,7 +995,7 @@ func ExternalPrelude_catch(task *Task){
 ////// PAKCS functions
 
 func ExternalPrelude_unifEqLinear(task * Task){
-    panic("UnifEqLineary not yet implemented")
+    panic("Prelude.UnifEqLineary: not yet implemented")
 }
 
 func ExternalPrelude_letrec(task *Task){

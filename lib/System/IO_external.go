@@ -90,7 +90,7 @@ func ExternalSystem_IO_prim_openFile(task *gocurry.Task){
     file, err := os.OpenFile(path, mode, 0)
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.openFile: " + err.Error())
     }
     
     // create and return Handle
@@ -106,7 +106,7 @@ func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
     err := handles[hIndex].Close()
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.hClose: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -120,7 +120,7 @@ func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
     err := handles[hIndex].Sync()
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.hFlush: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -148,7 +148,7 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
         if(errors.Is(err, io.EOF)){
             gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
         } else{
-            panic(err.Error())
+            panic("System.IO.hIsEOF: " + err.Error())
         }
     } else{
         // store read rune in buffer and return false
@@ -168,7 +168,7 @@ func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
     _, err := handles[hIndex].Seek(int64(pos), hMode)
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.hSeek: " + err.Error())
     }
     
     gocurry.CharLitCreate(hBuffer, '\000')
@@ -267,7 +267,7 @@ func ExternalSystem_IO_prim_hGetChar(task *gocurry.Task){
         _, err := fmt.Fscanf(handles[hIndex], "%c", &char)
     
         if(err != nil){
-            panic(err.Error())
+            panic("System.IO.hGetChar: " + err.Error())
         }
     }
     
@@ -284,7 +284,7 @@ func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
     _, err := handles[hIndex.GetInt()].WriteString(string(char.GetChar()))
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.hPutChar: " + err.Error())
     }
     
     gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
@@ -323,7 +323,7 @@ func ExternalSystem_IO_prim_hIsTerminalDevice(task *gocurry.Task){
     info, err := handles[hIndex].Stat()
     
     if(err != nil){
-        panic(err.Error())
+        panic("System.IO.hIsTerminalDevice: " + err.Error())
     }
     
     if((info.Mode() & os.ModeCharDevice) != 0){

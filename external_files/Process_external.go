@@ -26,7 +26,7 @@ func ExternalSystem_Process_prim_system(task *gocurry.Task){
     err := cmd.Run()
     
     if(err != nil) {
-        fmt.Println(err.Error())
+        fmt.Println("System.Process.system: " + err.Error())
     }
     
     gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), cmd.ProcessState.ExitCode()))
