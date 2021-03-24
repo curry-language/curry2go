@@ -64,7 +64,24 @@ the `examples` directory and execute
     > curry2goc -r Rev
 
 
-Package contents
+Remarks:
+--------
+
+The default search strategy is "fair search", i.e., non-deterministic
+branches are evaluated by different
+[goroutines](https://tour.golang.org/concurrency/1).
+The actual number of CPUs used to execute these routines
+can be influenced by setting the environment variable `GOMAXPROCS`.
+This variable limits the number of operating system threads
+that can execute Go code simultaneously.
+For instance, by setting
+
+    > export GOMAXPROCS=2
+
+before invoking Curry2Go enforces the limit to two CPUs.
+
+
+Package contents:
 ----------------
 
 * `benchmarks`: Benchmarks to evaluate the compiler

@@ -40,6 +40,7 @@ baselibs:
 	$(RM) -rf $(LIBDIR)
 	/bin/cp -r base/src $(LIBDIR)
 	/bin/cp base/VERSION $(LIBDIR)/VERSION
+	$(RM) -rf base
 
 .PHONY: uninstall
 uninstall: runtime
