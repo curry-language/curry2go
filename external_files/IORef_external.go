@@ -3,11 +3,17 @@ package DataIORef
 import "gocurry"
 import "../../Prelude"
 
+var names []string = []string{"IORef"}
+
+func IORefCreate(root *gocurry.Node, args ...*gocurry.Node)(*gocurry.Node){
+    return gocurry.ConstCreate(root, 0, 1, &names[0], args...)
+}
+
 func ExternalData_IORef_newIORef(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
-    gocurry.IOCreate(root, DataIORef_IORefCreate(root.NewNode(), x1))
+    gocurry.IOCreate(root, IORefCreate(root.NewNode(), x1))
 }
 
 func ExternalData_IORef_prim_readIORef(task *gocurry.Task){
