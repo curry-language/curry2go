@@ -504,6 +504,18 @@ func printResult(node *Node) {
     
     // test if node is a constructor
     if(node.IsConst()){
+        // test if node is IO
+        if(node.GetName() == "IO"){
+            // only print child if its not ()
+            if(node.GetChild(0).IsConst()){
+                if(node.GetChild(0).GetName() != "()"){
+                    printResult(node.GetChild(0))
+                }
+            } else {
+                printResult(node.GetChild(0))
+            }
+            return
+        }
 
         // test if node is a list
         if(node.GetName() == ":"){
