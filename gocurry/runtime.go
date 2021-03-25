@@ -194,7 +194,7 @@ func toHnf(task *Task){
             return
         }
         
-        //printResult(task.control)
+        //PrintResult(task.control)
         //fmt.Println("")
         //printDebug(task.control, task)
         //fmt.Println("\n")
@@ -519,8 +519,7 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
     number_results := 0
     for result := range result_chan{
         // print result
-        printResult(result)
-        fmt.Println("")
+        PrintResult(result)
         number_results += 1
 
         // interactive mode

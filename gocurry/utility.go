@@ -498,13 +498,16 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
 ////// Print functions
 
 // Prints a node and all its children.
-func printResult(node *Node) {
-    fmt.Printf(showResult(node))
+func PrintResult(node *Node) {
+    result := ShowResult(node)
+    if(result != ""){
+        fmt.Println(result)
+    }
 }
 
 // Turns a node and all its children into
 // a string in standard prefix notation.
-func showResult(node *Node)(result string){
+func ShowResult(node *Node)(result string){
     
     // test if node is a constructor
     if(node.IsConst()){
@@ -513,10 +516,10 @@ func showResult(node *Node)(result string){
             // only show child if its not ()
             if(node.GetChild(0).IsConst()){
                 if(node.GetChild(0).GetName() != "()"){
-                    result = showResult(node.GetChild(0))
+                    result = ShowResult(node.GetChild(0))
                 }
             } else {
-                result = showResult(node.GetChild(0))
+                result = ShowResult(node.GetChild(0))
             }
             return
         }
@@ -547,9 +550,9 @@ func showResult(node *Node)(result string){
             }
             
             // show tupel elements
-            result = "(" + showResult(node.Children[0])
+            result = "(" + ShowResult(node.Children[0])
             for i := 1; i < len(node.Children); i++{
-                result += ", " + showResult(node.Children[i])
+                result += ", " + ShowResult(node.Children[i])
             }
             result += ")"
             return
@@ -563,9 +566,9 @@ func showResult(node *Node)(result string){
     for i := 0; i < len(node.Children); i++ {
         result += " "
         if(len(node.Children[i].Children) > 0){
-            result += "(" + showResult(node.Children[i]) + ")"
+            result += "(" + ShowResult(node.Children[i]) + ")"
         } else{
-            result += showResult(node.Children[i])
+            result += ShowResult(node.Children[i])
         }
     }
     
@@ -577,7 +580,7 @@ func showResult(node *Node)(result string){
 func showList(node *Node)(result string){
 
     // get string representation of the element
-    result = showResult(node.GetChild(0))
+    result = ShowResult(node.GetChild(0))
 
     // end list on [] constructor
     if(node.GetChild(1).GetName() == "[]"){
@@ -586,7 +589,7 @@ func showList(node *Node)(result string){
     
     // handle not fully evaluated lists
     if(node.GetChild(1).GetName() != ":"){
-        result += ", " + showResult(node.GetChild(1))
+        result += ", " + ShowResult(node.GetChild(1))
         return
     }
 
