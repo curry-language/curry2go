@@ -46,7 +46,7 @@ for i in $* ; do
   esac
 done
 
-REPL="$CPMBIN/curry2goi"
+REPL="$CURRY2GOHOME/bin/curry2goi"
 if [ ! -x "$REPL" ] ; then
   echo "ERROR: executable '$REPL' not found!" >&2
   echo "Run: cd $CURRY2GOHOME && make" >&2

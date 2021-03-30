@@ -13,7 +13,10 @@ CPM=cypm
 GOWORKSPACE=$(HOME)/go/src
 
 # The generated compiler executable
-COMPILER=$(HOME)/.cpm/bin/curry2go
+COMPILER=$(BINDIR)/curry2goc
+
+# The generated executable of the REPL
+REPL=$(BINDIR)/curry2goi
 
 # Remove command
 RM=/bin/rm
@@ -26,10 +29,18 @@ INSTALLROOT := $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribut
 
 .PHONY: install
 install: scripts runtime
-	$(CPM) install
-	$(MAKE) lib/Curry/Compiler/Distribution_external.go
+	#$(CPM) install
+	$(MAKE) $(COMPILER)
+	$(MAKE) $(REPL)
+	$(MAKE) $(COMPDISTGO)
 
-$(COMPDISTGO): src/Install.curry src/Curry2Go/Config.curry
+$(COMPILER): src/*.curry src/Curry2Go/*.curry
+	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
+
+$(REPL): src/*.curry src/Curry2Go/*.curry
+	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
+
+$(COMPDISTGO): src/Install.curry src/Curry2Go/PkgConfig.curry
 	$(CPM) curry :load Install :eval main :quit
 
 # install base libraries from package `base`:
@@ -54,7 +65,7 @@ runtime:
 	mkdir -p $(GOWORKSPACE)
 	cp -r gocurry $(GOWORKSPACE)/gocurry
 
-# install the scripts in the bin directory:
+# install scripts in the bin directory:
 .PHONY: scripts
 scripts:
 	cd scripts && $(MAKE) all
@@ -64,7 +75,7 @@ scripts:
 	# add alias for frontend:
 	ln -s $(INSTALLROOT)/bin/*-frontend bin/curry2go-frontend
 
-# remove the scripts in the bin directory:
+# remove scripts in the bin directory:
 .PHONY: cleanscripts
 cleanscripts:
 	cd scripts && $(MAKE) clean
@@ -73,10 +84,10 @@ cleanscripts:
 .PHONY: clean
 clean:
 	$(CPM) clean
-	$(RM) -f $(COMPDISTGO)
+	$(RM) -f $(COMPILER) $(REPL) $(COMPDISTGO)
 
 # clean all installed components
 .PHONY: cleanall
 cleanall: clean cleanscripts
-	$(RM) -rf $(GOWORKSPACE) $(COMPILER)
+	$(RM) -rf $(GOWORKSPACE)
 

@@ -17,7 +17,7 @@ import System.FilePath    ( (</>) )
 import Curry2Go.Config    ( compilerName, lowerCompilerName, curry2goDir
                           , compilerMajorVersion, compilerMinorVersion
                           , compilerRevisionVersion )
-import Curry2Go.PkgConfig ( packageExecutables, packagePath, packageVersion )
+import Curry2Go.PkgConfig ( packagePath, packageVersion )
 
 main :: IO ()
 main = mainREPL c2go
@@ -31,8 +31,8 @@ c2go = CCDescription
   c2goBanner                 -- the banner
   c2goHome                   -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
-  (head packageExecutables)  -- compiler executable
-  (c2goHome ++ "/lib")       -- base library path
+  (packagePath </> "bin" </> "curry2goc") -- compiler executable
+  (c2goHome </> "lib")       -- base library path
   False                      -- parser should read untyped FlatCurry
   True                       -- use CURRYPATH variable
   (\s -> "-v" ++ s)          -- option to pass verbosity
