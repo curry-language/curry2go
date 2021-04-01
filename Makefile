@@ -34,9 +34,15 @@ install: scripts runtime
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
 
+.PHONY: compiler
+compiler: $(COMPILER)
+
 $(COMPILER): src/CompilerStructure.curry src/Curry2Go/Compiler.curry \
              src/Curry2Go/Main.curry src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
+
+.PHONY: repl
+repl: $(REPL)
 
 $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goi

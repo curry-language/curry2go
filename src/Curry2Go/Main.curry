@@ -1,10 +1,10 @@
 module Curry2Go.Main where
 
 import Data.IORef
-import Data.List           ( find, intercalate, last )
-import System.Environment  ( getArgs )
+import Data.List             ( find, intercalate, last )
+import System.Environment    ( getArgs )
 
-import Control.Monad       ( unless, when )
+import Control.Monad         ( unless, when )
 
 import Data.Time             ( compareClockTime )
 import FlatCurry.Types       ( Prog )
@@ -158,9 +158,9 @@ main = do
   args <- getArgs
   (opts, paths) <- processOptions args
   case paths of
-    []        -> error "Input path missing!"
-    [i]       -> curry2Go (stripCurrySuffix i) opts
-    _         -> error "Too many paths given!"
+    []  -> error "Input path missing!"
+    [p] -> runModuleAction (curry2Go opts) (stripCurrySuffix p)
+    _   -> error "Too many paths given!"
 
 c2goBanner :: String
 c2goBanner = unlines [bannerLine, bannerText, bannerLine]
@@ -169,10 +169,10 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
   bannerLine = take (length bannerText) (repeat '-')
 
 --- Compiles a curry program into a go program.
---- @param mainmod - name of main module
 --- @param opts    - compiler options 
-curry2Go :: String -> CGOptions -> IO ()
-curry2Go mainmod opts = do
+--- @param mainmod - name of main module
+curry2Go :: CGOptions -> String -> IO ()
+curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
   home <- getHomeDirectory
   let includedir = home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++
