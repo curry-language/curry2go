@@ -158,7 +158,8 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
     unionize (map getImportsCons branches)
   getImportsStat (ICaseLit _ branches)  =
     unionize (map getImportsLit branches)
-  getImportsCons (IConsBranch _ _ block) = getImportsBlock block
+  getImportsCons (IConsBranch (m, _, _) _ block) = 
+    union [m] (getImportsBlock block)
   getImportsLit (ILitBranch _ block) = getImportsBlock block
   getImportsExpr (IVar _)                    = []
   getImportsExpr (IVarAccess _ _)            = []
