@@ -29,7 +29,7 @@ INSTALLROOT := $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribut
 
 .PHONY: install
 install: scripts runtime
-	$(CPM) install
+	$(CPM) install --noexec
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)

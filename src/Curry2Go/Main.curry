@@ -87,12 +87,12 @@ loadICurry sref mname = do
 c2gFrontendParams :: FrontendParams
 c2gFrontendParams =
   setQuiet True $
-  setDefinitions [gocurryDef] $
+  setDefinitions [curry2goDef] $
   setOutDir curry2goDir $
   defaultParams
  where
-  gocurryDef = ("__" ++ upperCompilerName ++ "__",
-                compilerMajorVersion * 100 + compilerMinorVersion)
+  curry2goDef = ("__" ++ upperCompilerName ++ "__",
+                 compilerMajorVersion * 100 + compilerMinorVersion)
 
 -- The ICurry compiler options for Curry2Go.
 c2gICOptions :: ICOptions
@@ -102,34 +102,37 @@ c2gICOptions =
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
 --- compiled version of a Curry module.
-postProcess :: String -> IO ()
-postProcess mname = do
-  extFilePath <- getExtFilePath
-  extFileName <- return (takeFileName extFilePath)
-  home <- getHomeDirectory
-  extInSource <- doesFileExist extFilePath
-  fPath <- getFilePath goStruct mname
+postProcess :: CGOptions -> String -> IO ()
+postProcess opts mname = do
   let outPath = combine curry2goDir (modPackage mname)
-  let outDir = takeDirectory outPath
+      outDir  = takeDirectory outPath
   createDirectoryIfMissing True outDir
+  fPath       <- getFilePath (goStruct opts) mname
+  extFilePath <- getExtFilePath
+  extInSource <- doesFileExist extFilePath
+  let extFileName = takeFileName extFilePath
   if extInSource
-    then copyFile extFilePath
-      (combine outDir extFileName)
+    then copyIfNewer extFilePath (combine outDir extFileName)
     else do
-      extInInclude <- doesFileExist
-        (joinPath [home, ".gocurry", "include", extFileName])
-      when extInInclude (copyFile
-        (joinPath [home, ".gocurry", "include", extFileName])
-        (combine outDir extFileName))
-  alreadyExists <- doesFileExist outPath
-  if alreadyExists
-    then do 
-      fMod   <- getModificationTime fPath
-      outMod <- getModificationTime outPath
-      when (compareClockTime fMod outMod == GT)
-        (copyFile fPath outPath)
-    else copyFile fPath outPath
+      let c2gExtFile = packagePath </> "external_files" </> extFileName
+      extInC2GInclude <- doesFileExist c2gExtFile
+      when extInC2GInclude $
+        copyIfNewer c2gExtFile (combine outDir extFileName)
+  copyIfNewer fPath outPath
  where
+  copyIfNewer source target = do
+    alreadyExists <- doesFileExist target
+    if alreadyExists
+      then do
+        sMod <- getModificationTime source
+        tMod <- getModificationTime target
+        when (compareClockTime sMod tMod == GT) $ showCopyFile source target
+      else showCopyFile source target
+
+  showCopyFile source target = do
+    printVerb opts 3 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
+    copyFile source target
+
   getExtFilePath = do
     path <- getCurryPath mname
     return $
@@ -139,15 +142,15 @@ postProcess mname = do
 --- The structure for the Curry2Go compilation process.
 --- The compiler cache manages the list of already loaded FlatCurry interfaces
 --- to avoid multiple readings.
-goStruct :: CompStruct IProg [Prog]
-goStruct = defaultStruct
+goStruct :: CGOptions -> CompStruct IProg [Prog]
+goStruct opts = defaultStruct
   { outputDir      = "."
   , filePath       = createFilePath
   , excludeModules = []
   , getProg        = loadICurry
   , getPath        = getCurryPath
   , getImports     = getCurryImports
-  , postProc       = postProcess
+  , postProc       = postProcess opts
   }
 
 --- Implementation of compiler io.
@@ -174,18 +177,14 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
 curry2Go :: CGOptions -> String -> IO ()
 curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
-  home <- getHomeDirectory
-  let includedir = home ++ [pathSeparator] ++ ".gocurry" ++ [pathSeparator] ++
-                  "include"
-  printVerb opts 3 $ "Creating directory: " ++ includedir
-  createDirectoryIfMissing True includedir
-  printVerb opts 1 "Compiling..."
+  printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   fprog <- readFlatCurryWithParseOptions mainmod c2gFrontendParams
   sref <- newIORef []
-  compile (goStruct {compProg = compileIProg2GoString opts}) sref
+  let gostruct = goStruct opts
+  compile (gostruct {compProg = compileIProg2GoString opts}) sref
           (verbosity opts == 0) mainmod
-  printVerb opts 2 $ "Go programs written to '" ++ outputDir goStruct ++ "'"
+  printVerb opts 2 $ "Go programs written to '" ++ outputDir gostruct ++ "'"
   impints <- mapM (loadInterface sref) (progImports fprog)
   IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions impints
                                                           fprog
@@ -239,7 +238,7 @@ printArgs (x:xs) = case x of
   _                   -> printArgs xs
  where
   printBaseVersion = do
-    bvs <- readFile (packagePath ++ "/lib/VERSION")
+    bvs <- readFile (packagePath </> "lib" </> "VERSION")
     putStrLn (head (lines bvs))
 
 --- Help text

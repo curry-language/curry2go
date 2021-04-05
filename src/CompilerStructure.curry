@@ -125,6 +125,7 @@ compileProg struct cref sref quiet name = do
         then do
           prog <- getProg struct sref name
           writeFile fPath (compProg struct prog)
+          printStatus $ "File '" ++ fPath ++ "' written"
           postProc struct name
           addCompiledModule cref name
           printStatus $ "Compiled '" ++ name ++ "'"
@@ -139,6 +140,7 @@ compileProg struct cref sref quiet name = do
       compileImports struct cref sref quiet impmods
       prog <- getProg struct sref name
       writeFile fPath (compProg struct prog)
+      printStatus $ "File '" ++ fPath ++ "' written"
       postProc struct name
       addCompiledModule cref name
       printStatus $ "Compiled '" ++ name ++ "'"
