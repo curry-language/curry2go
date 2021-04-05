@@ -48,5 +48,5 @@ func ExternalSystem_Process_prim_sleep(task *gocurry.Task){
     dur := time.Duration(x1.GetInt())
     time.Sleep(dur * 1000000000)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }

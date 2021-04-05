@@ -1,3 +1,10 @@
+------------------------------------------------------------------------------
+--- This module contains a compiler from ICurry to Go programs.
+---
+--- @author Jonas Boehm (with modifications by Michael Hanus)
+--- @version April 2021
+------------------------------------------------------------------------------
+
 module Curry2Go.Compiler
   ( CGOptions(..), defaultCGOptions, printVerb
   , SearchStrat(..), compileIProg2GoString, compileIProg2Go
@@ -112,7 +119,7 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   | fname == mainName opts = GoProg "main"
   ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
   (GoFuncDecl "main" [] []
-  [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2Go opts name ++ "Create"))
+  [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2GoCreate opts name))
   [GoCall (GoOpName "new") [GoOpName node]]]
   , GoExprStat (GoCall
     (GoOpName (runtime ++ if time opts then ".Benchmark" else ".Evaluate"))
@@ -220,7 +227,7 @@ idata2GoCreate opts (IDataType name constrs) =
 constr2GoCreate :: CGOptions -> IQName -> Int -> [(IQName, IArity)] -> [GoTopLevelDecl]
 constr2GoCreate _    _     _ []                          = []
 constr2GoCreate opts dname i ((cname, n):xs) = (GoTopLevelFuncDecl 
-  (GoFuncDecl ((iqname2Go opts cname) ++ "Create")
+  (GoFuncDecl (iqname2GoCreate opts cname)
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
   [GoParam [] ("*" ++ node)]
@@ -239,7 +246,7 @@ constr2GoCreate opts dname i ((cname, n):xs) = (GoTopLevelFuncDecl
 ifunc2GoCreate :: CGOptions -> Int -> [IFunction] -> [GoTopLevelDecl]
 ifunc2GoCreate _    _ []                                  = []
 ifunc2GoCreate opts i ((IFunction name n _ args _):xs) = (GoTopLevelFuncDecl
-  (GoFuncDecl ((iqname2Go opts name) ++ "Create")
+  (GoFuncDecl (iqname2GoCreate opts name)
   [GoParam ["root"] ("*" ++ node)
   , GoParam ["args"] ("...*" ++ node)]
   [GoParam [] ("*" ++ node)]
@@ -338,14 +345,14 @@ istatement2Go opts (ICaseLit i cases)  =
 createGenerator :: CGOptions ->  [IConsBranch] -> GoExpr
 createGenerator _ []                                 = error "Empty Cons list"
 createGenerator opts [(IConsBranch name n _)]        = GoCall
-  (GoOpName (iqname2Go opts name ++ "Create"))
+  (GoOpName (iqname2GoCreate opts name))
   ((GoCall (GoSelector (GoOpName "task") "NewNode") [])
   : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
   [(GoCall (GoSelector (GoOpName "task") "NewNode") [])]))
 createGenerator opts (IConsBranch name n _:xs@(_:_)) = GoCall 
   (GoOpName (runtime ++ ".ChoiceCreate"))
   [(GoCall (GoSelector (GoOpName "task") "NewNode") [])
-  , GoCall (GoOpName ((iqname2Go opts name) ++ "Create"))
+  , GoCall (GoOpName (iqname2GoCreate opts name))
   ((GoCall (GoSelector (GoOpName "task") "NewNode") [])
   : replicate n (GoCall (GoOpName (runtime ++ ".FreeCreate"))
   [(GoCall (GoSelector (GoOpName "task") "NewNode") [])]))
@@ -423,7 +430,7 @@ iexpr2Go opts expr x = case x of
     , iexpr2Go opts newNode expr2]
  where
   createCall name fargs  = GoCall
-    (GoOpName (iqname2Go opts name ++ "Create"))
+    (GoOpName (iqname2GoCreate opts name))
     (expr :(map (iexpr2Go opts newNode) fargs))
 
 --- Creates a Go expression from an ILiteral.
@@ -437,54 +444,63 @@ ilit2Go _ expr (IChar c)  = GoCall
 ilit2Go _ expr (IFloat f) = GoCall
   (GoOpName (runtime ++ ".FloatLitCreate")) [expr, GoFloatLit f]
 
---- Creates a function name from an IQName, replacing invalid characters.
+--- Maps an IQName into the name of a Go function name to create the entity.
+--- @param opts - compiler options
+--- @param name - IQName to convert
+iqname2GoCreate :: CGOptions -> IQName -> String
+iqname2GoCreate opts (m,n,i) = iqname2Go opts (m, "_CREATE_" ++ n, i)
+
+--- Maps an IQName into a Go function name, replacing invalid characters.
 --- @param opts - compiler options
 --- @param name - IQName to convert
 iqname2Go :: CGOptions -> IQName -> String
-iqname2Go opts (m, n, _) | m /= modName opts = removeDots m 
-  ++ "." ++ replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
-                         | otherwise         = 
-  replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
+iqname2Go opts (m, n, _)
+  | m /= modName opts
+  = removeDots m ++ "." ++
+    replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
+  | otherwise
+  = replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
  where
-  fstUp [] = []
-  fstUp (x:xs) = (toUpper x) : xs
+  fstUp []     = []
+  fstUp (x:xs) = toUpper x : xs
 
 --- Replaces invalid characters in a string.
 replaceInvalidChars :: String -> String
-replaceInvalidChars [] = []
-replaceInvalidChars (x : xs) 
-  | x == '$'   = "Dol" ++ replaceInvalidChars xs
-  | x == ')'   = "Rb" ++ replaceInvalidChars xs
-  | x == '('   = "Lb" ++ replaceInvalidChars xs
-  | x == '+'   = "Add" ++ replaceInvalidChars xs
-  | x == ','   = "Comma" ++ replaceInvalidChars xs
-  | x == '.'   = "_" ++ replaceInvalidChars xs
-  | x == '#'   = "Hash" ++ replaceInvalidChars xs
-  | x == '-'   = "Sub" ++ replaceInvalidChars xs
-  | x == '*'   = "Mul" ++ replaceInvalidChars xs
-  | x == '/'   = "Slash" ++ replaceInvalidChars xs
-  | x == '%'   = "Percent" ++ replaceInvalidChars xs
-  | x == '['   = "LSb" ++ replaceInvalidChars xs
-  | x == ']'   = "RSb" ++ replaceInvalidChars xs
-  | x == '{'   = "LCb" ++ replaceInvalidChars xs
-  | x == '}'   = "RCb" ++ replaceInvalidChars xs
-  | x == ':'   = "Col" ++ replaceInvalidChars xs
-  | x == '^'   = "Pow" ++ replaceInvalidChars xs
-  | x == '@'   = "At" ++ replaceInvalidChars xs
-  | x == '!'   = "Excl" ++ replaceInvalidChars xs
-  | x == '?'   = "Qstn" ++ replaceInvalidChars xs
-  | x == '&'   = "And" ++ replaceInvalidChars xs
-  | x == '='   = "Eq" ++ replaceInvalidChars xs
-  | x == '<'   = "Lt" ++ replaceInvalidChars xs
-  | x == '>'   = "Gt" ++ replaceInvalidChars xs
-  | x == ';'   = "Semi" ++ replaceInvalidChars xs
-  | x == '|'   = "Strt" ++ replaceInvalidChars xs
-  | x == '\\'  = "BSlash" ++ replaceInvalidChars xs
-  | x == '\''  = "SQuote" ++ replaceInvalidChars xs
-  | x == '"'   = "DQuote" ++ replaceInvalidChars xs
-  | x == '~'   = "Tilde" ++ replaceInvalidChars xs
-  | x == '`'   = "Accent" ++ replaceInvalidChars xs
-  | otherwise  = x : replaceInvalidChars xs
+replaceInvalidChars = concatMap replaceInvalidChar
+ where
+  replaceInvalidChar x
+    | x == '$'   = "Dol"
+    | x == ')'   = "Rb"
+    | x == '('   = "Lb"
+    | x == '+'   = "Add"
+    | x == ','   = "Comma"
+    | x == '.'   = "_"
+    | x == '#'   = "Hash"
+    | x == '-'   = "Sub"
+    | x == '*'   = "Mul"
+    | x == '/'   = "Slash"
+    | x == '%'   = "Percent"
+    | x == '['   = "LSb"
+    | x == ']'   = "RSb"
+    | x == '{'   = "LCb"
+    | x == '}'   = "RCb"
+    | x == ':'   = "Col"
+    | x == '^'   = "Pow"
+    | x == '@'   = "At"
+    | x == '!'   = "Excl"
+    | x == '?'   = "Qstn"
+    | x == '&'   = "And"
+    | x == '='   = "Eq"
+    | x == '<'   = "Lt"
+    | x == '>'   = "Gt"
+    | x == ';'   = "Semi"
+    | x == '|'   = "Strt"
+    | x == '\\'  = "BSlash"
+    | x == '\''  = "SQuote"
+    | x == '"'   = "DQuote"
+    | x == '~'   = "Tilde"
+    | x == '`'   = "Accent"
+    | otherwise  = [x]
 
 --- Creates a chain of child accesses.
 --- Chain is in reverse order of the list.

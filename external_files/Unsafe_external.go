@@ -38,9 +38,9 @@ func ExternalSystem_IO_Unsafe_prim_isVar(task *gocurry.Task){
     x1 := root.GetChild(0)
     
     if(x1.IsFree() && !task.IsBound(x1)){
-        Prelude.Prelude_TrueCreate(root)
+        Prelude.Prelude__CREATE_True(root)
     } else{
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
     }
 }
 
@@ -50,19 +50,19 @@ func ExternalSystem_IO_Unsafe_prim_identicalVar(task *gocurry.Task){
     x2 := root.GetChild(1)
     
     if(!x1.IsFree() || task.IsBound(x1)){
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
         return
     }
     
     if(!x2.IsFree() || task.IsBound(x2)){
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
         return
     }
     
     if(x1 == x2){
-        Prelude.Prelude_TrueCreate(root)
+        Prelude.Prelude__CREATE_True(root)
     } else{
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
     }
 }
 
@@ -71,28 +71,28 @@ func ExternalSystem_IO_Unsafe_prim_isGround(task *gocurry.Task){
     x1 := root.GetChild(0)
     
     if(x1.IsFree()){
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
         return
     }
     
     if(x1.GetNumChildren() == 0){
-        Prelude.Prelude_TrueCreate(root)
+        Prelude.Prelude__CREATE_True(root)
         return
     }
     
     if(x1.GetNumChildren() == 1){
-        SystemIOUnsafe_prim_isGroundCreate(root, x1.GetChild(0))
+        SystemIOUnsafe__CREATE_prim_isGround(root, x1.GetChild(0))
         return
     }
     
-    node := Prelude.Prelude_AndAndCreate(root, SystemIOUnsafe_prim_isGroundCreate(root.NewNode(), x1.GetChild(0)), root.NewNode())
+    node := Prelude.Prelude__CREATE_AndAnd(root, SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(0)), root.NewNode())
     
     for i := 0; i < x1.GetNumChildren() - 1; i ++{
-        Prelude.Prelude_AndAndCreate(node.GetChild(1), SystemIOUnsafe_prim_isGroundCreate(root.NewNode(), x1.GetChild(i)), root.NewNode())
+        Prelude.Prelude__CREATE_AndAnd(node.GetChild(1), SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(i)), root.NewNode())
         node = node.GetChild(1)
     }
     
-    node.SetChild(1, SystemIOUnsafe_prim_isGroundCreate(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
+    node.SetChild(1, SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
 }
 
 func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
@@ -102,37 +102,37 @@ func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
     
     if(x1.IsFree() && x2.IsFree()){
         if(x1 == x2){
-            Prelude.Prelude_EQCreate(root)
+            Prelude.Prelude__CREATE_EQ(root)
             return
         }else {
             if(x1.GetName() < x2.GetName()){
-                Prelude.Prelude_LTCreate(root)
+                Prelude.Prelude__CREATE_LT(root)
             } else{
-                Prelude.Prelude_GTCreate(root)
+                Prelude.Prelude__CREATE_GT(root)
             }
             return
         }
     } else if(x1.IsFree()){
-        Prelude.Prelude_LTCreate(root)
+        Prelude.Prelude__CREATE_LT(root)
         return
     } else if(x2.IsFree()){
-        Prelude.Prelude_GTCreate(root)
+        Prelude.Prelude__CREATE_GT(root)
         return
     }
     
     if(x1.GetConstructor() < x2.GetConstructor()){
-        Prelude.Prelude_LTCreate(root)
+        Prelude.Prelude__CREATE_LT(root)
     } else if(x1.GetConstructor() > x2.GetConstructor()){
-        Prelude.Prelude_GTCreate(root)
+        Prelude.Prelude__CREATE_GT(root)
     } else{
         for i := range(x1.Children){
-            SystemIOUnsafe_compareAnyTermCreate(root, x1.GetChild(i), x2.GetChild(i))
+            SystemIOUnsafe__CREATE_compareAnyTerm(root, x1.GetChild(i), x2.GetChild(i))
             ExternalSystem_IO_Unsafe_compareAnyTerm(task)
             if(root.GetConstructor() != 1){
                 return   
             }
         }
-        Prelude.Prelude_EQCreate(root)
+        Prelude.Prelude__CREATE_EQ(root)
     }
 }
 

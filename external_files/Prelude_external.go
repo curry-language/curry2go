@@ -65,7 +65,7 @@ func ExternalPrelude_DolExclExcl(task *Task){
     root.SetChild(1, NfCreate(root.NewNode(), x1))
     
     // evaluate wrapper to hnf
-    Prelude_DolExclCreate(root, root.Children...)
+    Prelude__CREATE_DolExcl(root, root.Children...)
 }
 
 // $##
@@ -122,7 +122,7 @@ func ExternalPrelude_And(task *Task){
     
     // return false if the first argument is false
     if(x1.GetConstructor() == 0){
-        Prelude_FalseCreate(root)      
+        Prelude__CREATE_False(root)      
         return
     }
     
@@ -134,12 +134,12 @@ func ExternalPrelude_And(task *Task){
 
     // return false if the second argument is false
     if(x2.GetConstructor() == 0){
-        Prelude_FalseCreate(root)       
+        Prelude__CREATE_False(root)       
         return
     }
 
     // return true
-    Prelude_TrueCreate(root)
+    Prelude__CREATE_True(root)
     return
 }
 
@@ -165,7 +165,7 @@ func ExternalPrelude_constrEq(task *Task){
        x1.SetTr(task.GetId(), RedirectCreate(task.NewNode(), x2))
         
         // return true
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else if(x1.IsFree()){
         
         // create copy of x2 to bind x1 to
@@ -197,21 +197,21 @@ func ExternalPrelude_constrEq(task *Task){
         if(x1.IsIntLit()){
             // unify int
             if(x1.GetInt() == x2.GetInt()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
         } else if(x1.IsCharLit()){
             // unify char
             if(x1.GetChar() == x2.GetChar()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
         } else if(x1.IsFloatLit()){
             // unify float
             if(x1.GetFloat() == x2.GetFloat()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
@@ -233,23 +233,23 @@ func unifChain(task *Task, root, x1, x2 *Node){
 
     // no children: return true
     if(len(x1.Children) == 0){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
         return
     }
     
     // unify single children
     if(len(x1.Children) == 1){
-        Prelude_constrEqCreate(root, x1.GetChild(0), x2.GetChild(0))
+        Prelude__CREATE_constrEq(root, x1.GetChild(0), x2.GetChild(0))
         return
     }
 
     // combine unification of children with and
-    node := Prelude_AndCreate(root, Prelude_constrEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    node := Prelude__CREATE_And(root, Prelude__CREATE_constrEq(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude_AndCreate(node.Children[1], Prelude_constrEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_constrEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
         node = node.Children[1]                    
     }
-    Prelude_constrEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+    Prelude__CREATE_constrEq(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
 }
 
 // Nonstrict unification (=:<=)
@@ -273,7 +273,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
 
         // bind x1 to x2 and return true
         x1.SetTr(task.GetId(), new_node)
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
         return
     }
     
@@ -300,21 +300,21 @@ func ExternalPrelude_nonstrictEq(task *Task){
         if(x1.IsIntLit()){
             // unify int
             if(x1.GetInt() == x2.GetInt()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
         } else if(x1.IsCharLit()){
             // unify char
             if(x1.GetChar() == x2.GetChar()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
         } else if(x1.IsFloatLit()){
             // unify float
             if(x1.GetFloat() == x2.GetFloat()){
-                Prelude_TrueCreate(root)
+                Prelude__CREATE_True(root)
             } else{
                 ExemptCreate(root)
             }
@@ -336,23 +336,23 @@ func nonstrictUnifChain(task *Task, root, x1, x2 *Node){
 
     // no children: return true
     if(len(x1.Children) == 0){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
         return
     }
     
     // unify single children
     if(len(x1.Children) == 1){
-        Prelude_nonstrictEqCreate(root, x1.GetChild(0), x2.GetChild(0))
+        Prelude__CREATE_nonstrictEq(root, x1.GetChild(0), x2.GetChild(0))
         return
     }
 
     // combine unification of children with and
-    node := Prelude_AndCreate(root, Prelude_nonstrictEqCreate(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    node := Prelude__CREATE_And(root, Prelude__CREATE_nonstrictEq(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude_AndCreate(node.Children[1], Prelude_nonstrictEqCreate(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_nonstrictEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
         node = node.Children[1]                    
     }
-    Prelude_nonstrictEqCreate(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+    Prelude__CREATE_nonstrictEq(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
 }
 
 ////// Arithmetic on characters
@@ -363,9 +363,9 @@ func ExternalPrelude_prim_eqChar(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetChar() == x1.GetChar()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -375,9 +375,9 @@ func ExternalPrelude_prim_ltEqChar(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetChar() <= x1.GetChar()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -402,9 +402,9 @@ func ExternalPrelude_prim_eqInt(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetInt() == x1.GetInt()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -414,9 +414,9 @@ func ExternalPrelude_prim_ltEqInt(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetInt() <= x1.GetInt()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -483,9 +483,9 @@ func ExternalPrelude_prim_eqFloat(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetFloat() == x1.GetFloat()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -495,9 +495,9 @@ func ExternalPrelude_prim_ltEqFloat(task *Task){
     x2 := root.GetChild(1)
 
     if(x2.GetFloat() <= x1.GetFloat()){
-        Prelude_TrueCreate(root)
+        Prelude__CREATE_True(root)
     } else{
-        Prelude_FalseCreate(root)
+        Prelude__CREATE_False(root)
     }
 }
 
@@ -715,7 +715,7 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
         return
     }
 
@@ -739,10 +739,10 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
         lit, _ := strconv.Atoi(string(data[start : end]))
 
         // create list of results
-        ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+        ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // if the String doesn't start with a number, return an empty list
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
     }
 }
 
@@ -756,7 +756,7 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
         return
     }
 
@@ -784,10 +784,10 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
         lit, _ := strconv.ParseFloat(string(data[start : end]), 64)
 
         // create list of results
-        ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+        ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // return an empty list if the String doesn't start with a number
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
     }
 }
 
@@ -802,7 +802,7 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
     // if the String is empty, return an empty list
     // TODO FIX
     if(len(data) < 3){
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
         return
     }
 
@@ -814,14 +814,14 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
             lit := data[1]
 
             // create list of results
-            ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
+            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
         }else{
             // return an empty list
-            Prelude_LSbRSbCreate(root)
+            Prelude__CREATE_LSbRSb(root)
         }
     }else{
         // return an empty list
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
     }
 }
 
@@ -835,7 +835,7 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
         return
     }
     
@@ -854,14 +854,14 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
             lit := string(data[start : end])
 
             // create list of results
-            ListCreate(root, Prelude_LbCommaRbCreate(root.NewNode(), StringCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), StringCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
         }else{
             // return an empty list
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
         }
     } else{
         // return an empty list
-        Prelude_LSbRSbCreate(root)
+        Prelude__CREATE_LSbRSb(root)
     }
 }
 
@@ -886,7 +886,7 @@ func ExternalPrelude_bindIO(task *Task){
         return
     }
 
-    Prelude_applyCreate(root, x2, x1.GetChild(0))
+    Prelude__CREATE_apply(root, x2, x1.GetChild(0))
 }
 
 func ExternalPrelude_seqIO(task *Task){
@@ -910,7 +910,7 @@ func ExternalPrelude_prim_putChar(task *Task){
 
     fmt.Printf("%c", x1.GetChar())
 
-    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
+    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalPrelude_getChar(task *Task){
@@ -951,7 +951,7 @@ func ExternalPrelude_prim_writeFile(task *Task){
     ioutil.WriteFile(name, []byte(data), 0644)
 
     // return IO constructor
-    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
+    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalPrelude_prim_appendFile(task *Task){
@@ -971,7 +971,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     f.Close()
 
     // return IO constructor
-    IOCreate(root, Prelude_LbRbCreate(root.NewNode()))
+    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalPrelude_catch(task *Task){
@@ -1027,14 +1027,14 @@ func ListCreate(root *Node, elements ...*Node)(*Node){
     for i:= 0; i < len(elements); i++{
 
         // create a : with the current element and the rest
-        Prelude_ColCreate(cur_node, elements[i], root.NewNode())
+        Prelude__CREATE_Col(cur_node, elements[i], root.NewNode())
         
         // move to next node
         cur_node = cur_node.GetChild(1)
     }
 
     // set last element to []
-    Prelude_LSbRSbCreate(cur_node)
+    Prelude__CREATE_LSbRSb(cur_node)
     return root
 }
 

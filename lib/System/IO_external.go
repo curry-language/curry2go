@@ -44,9 +44,9 @@ func ExternalSystem_IO_handle_eq(task *gocurry.Task){
     hIndex2 := handle2.GetChild(0).GetInt()
     
     if(handles[hIndex1].Fd() == handles[hIndex2].Fd()){
-        Prelude.Prelude_TrueCreate(root)
+        Prelude.Prelude__CREATE_True(root)
     } else{
-        Prelude.Prelude_FalseCreate(root)
+        Prelude.Prelude__CREATE_False(root)
     }
 }
 
@@ -109,7 +109,7 @@ func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
         panic("System.IO.hClose: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
@@ -123,7 +123,7 @@ func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
         panic("System.IO.hFlush: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
@@ -134,7 +134,7 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
     
     // if buffer not empty, return false
     if(hBuffer.GetChar() != '\000'){
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
         return
     }
     
@@ -146,14 +146,14 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
     if(err != nil){
         // return True on EOF
         if(errors.Is(err, io.EOF)){
-            gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+            gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
         } else{
             panic("System.IO.hIsEOF: " + err.Error())
         }
     } else{
         // store read rune in buffer and return false
         gocurry.CharLitCreate(hBuffer, char)
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
 
@@ -173,7 +173,7 @@ func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
     
     gocurry.CharLitCreate(hBuffer, '\000')
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
@@ -185,7 +185,7 @@ func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
     
     // if buffer is not empty, return true
     if(hBuffer.GetChar() != '\000'){
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
         return
     }
     
@@ -205,7 +205,7 @@ func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
     // wait for available input or timeout
     select{
     case  <-ch:
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     case  <-time.After(timeout * time.Millisecond):
          gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), -1))
     }
@@ -243,7 +243,7 @@ func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
     // wait for available input or timeout
     select{
     case  <-ch:
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     case  <-time.After(timeout * time.Millisecond):
          gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), -1))
     }
@@ -287,7 +287,7 @@ func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
         panic("System.IO.hPutChar: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
@@ -296,9 +296,9 @@ func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
     hMode := handle.GetChild(1).GetInt()
 
     if(hMode == 0){
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     }else{
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
 
@@ -309,9 +309,9 @@ func ExternalSystem_IO_prim_hIsWritable(task *gocurry.Task){
     hMode := handle.GetChild(1).GetInt()
 
     if(hMode > 0){
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     }else{
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
 
@@ -327,9 +327,9 @@ func ExternalSystem_IO_prim_hIsTerminalDevice(task *gocurry.Task){
     }
     
     if((info.Mode() & os.ModeCharDevice) != 0){
-        gocurry.IOCreate(root, Prelude.Prelude_TrueCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     }else{
-        gocurry.IOCreate(root, Prelude.Prelude_FalseCreate(root.NewNode()))
+        gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
 

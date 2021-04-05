@@ -31,5 +31,5 @@ func ExternalData_IORef_prim_writeIORef(task *gocurry.Task){
     
     x1.SetChild(0, x2)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }

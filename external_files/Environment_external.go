@@ -42,7 +42,7 @@ func ExternalSystem_Environment_prim_setEnviron(task *gocurry.Task){
     
     os.Setenv(key, val)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_Environment_prim_unsetEnviron(task *gocurry.Task){
@@ -52,7 +52,7 @@ func ExternalSystem_Environment_prim_unsetEnviron(task *gocurry.Task){
     key := gocurry.ReadString(x1)
     os.Unsetenv(key)
     
-    gocurry.IOCreate(root, Prelude.Prelude_LbRbCreate(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_Environment_getHostname(task *gocurry.Task){
@@ -75,9 +75,9 @@ func ExternalSystem_Environment_isWindows(task *gocurry.Task){
     root := task.GetControl()
     
     if(runtime.GOOS == "windows"){
-        Prelude.Prelude_TrueCreate(root)
+        Prelude.Prelude__CREATE_True(root)
         return
     }
     
-    Prelude.Prelude_FalseCreate(root)
+    Prelude.Prelude__CREATE_False(root)
 }
