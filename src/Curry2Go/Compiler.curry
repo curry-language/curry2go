@@ -370,6 +370,8 @@ iConsBranch2Go opts (IConsBranch (_, _, i) _ block) = GoExprBranch
 --- @param i     - switch variable index
 --- @param cases - list of ILitCases
 iLitCases2Go :: CGOptions -> Int -> [ILitBranch] -> GoStat
+iLitCases2Go _ _ [] =
+  error "ICurry.Compiler.itLitCases2Go: case literal without branches occurred"
 iLitCases2Go opts i cases@(c:_)   = GoExprSwitch 
   (GoCall (GoSelector (var i) getLit) [])
   (map (iLitBranch2Go opts) cases ++ [GoExprDefault 
