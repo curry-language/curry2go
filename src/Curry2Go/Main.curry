@@ -67,8 +67,7 @@ getBaseDirOfModule m = do
 loadInterface :: CGOptions -> IORef [Prog] -> String -> IO Prog
 loadInterface opts sref mname = do
   loadedints <- readIORef sref
-  maybe (do int <- readFlatCurryIntWithParseOptions mname
-                     (c2gFrontendParams opts)
+  maybe (do int <- showReadFlatCurryIntWithParseOptions opts mname
             writeIORef sref (int : loadedints)
             return int)
         return
@@ -82,13 +81,25 @@ getCurryImports opts sref mname =
 --- Loads an IProg from the name of a Curry module.
 loadICurry :: CGOptions -> IORef [Prog] -> String -> IO IProg
 loadICurry opts sref mname = do
+  prog    <- showReadFlatCurryWithParseOptions opts mname
+  impints <- mapM (loadInterface opts sref) (progImports prog)
+  flatCurry2ICurryWithProgs (c2gICOptions opts) impints prog
+
+showReadFlatCurryWithParseOptions :: CGOptions -> String -> IO Prog
+showReadFlatCurryWithParseOptions opts mname = do
   let frontendparams = c2gFrontendParams opts
   when (verbosity opts > 1) $ do
     cmd <- getFrontendCall FCY frontendparams mname
     putStrLn $ "Executing: " ++ cmd
-  prog  <- readFlatCurryWithParseOptions mname frontendparams
-  impints <- mapM (loadInterface opts sref) (progImports prog)
-  flatCurry2ICurryWithProgs (c2gICOptions opts) impints prog
+  readFlatCurryWithParseOptions mname frontendparams
+
+showReadFlatCurryIntWithParseOptions :: CGOptions -> String -> IO Prog
+showReadFlatCurryIntWithParseOptions opts mname = do
+  let frontendparams = c2gFrontendParams opts
+  when (verbosity opts > 1) $ do
+    cmd <- getFrontendCall FINT frontendparams mname
+    putStrLn $ "Executing: " ++ cmd
+  readFlatCurryIntWithParseOptions mname frontendparams
 
 -- The front-end parameters for Curry2Go.
 c2gFrontendParams :: CGOptions -> FrontendParams
@@ -192,7 +203,7 @@ curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
-  fprog <- readFlatCurryWithParseOptions mainmod (c2gFrontendParams opts)
+  fprog <- showReadFlatCurryWithParseOptions opts mainmod
   sref <- newIORef []
   let gostruct = goStruct opts
   compile (gostruct {compProg = compileIProg2GoString opts}) sref mainmod
