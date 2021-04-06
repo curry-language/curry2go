@@ -2,6 +2,7 @@ module CompilerStructure
   ( CompStruct (..), defaultStruct, getFilePath, getFileDir, compile )
  where
 
+import Control.Monad    ( when )
 import Data.IORef
 
 import System.Directory ( createDirectoryIfMissing, doesFileExist
@@ -16,8 +17,15 @@ import System.FilePath  ( combine, takeDirectory )
 --- The compiled version of a module `m` will be saved as
 --- `outputDir </> (filePath m)`.
 data CompStruct p s = CompStruct
-  { -- directory where all compiled files will be saved
-    outputDir      :: String
+  { -- verbosity level of the compilation process:
+    -- 0: quiet
+    -- 1: show status messages
+    -- 2: show commands
+    -- 3: show intermedate infos
+    -- 4: show all details
+    cmpVerbosity   :: Int
+    -- directory where all compiled files will be saved
+  , outputDir      :: String
     -- function taking a module name and converting it to a path
     -- for the compiled version
   , filePath       :: String -> IO String
@@ -38,7 +46,8 @@ data CompStruct p s = CompStruct
 --- Default CompStruct.
 defaultStruct :: CompStruct a s
 defaultStruct = CompStruct
-  { outputDir      = ""
+  { cmpVerbosity   = 0
+  , outputDir      = ""
   , filePath       = return
   , excludeModules = []
   , getProg        = error "Undefined getProg"
@@ -87,13 +96,12 @@ getFileDir struct name = do fPath <- getFilePath struct name
 --- and compilation function given.
 --- @param struct - CompStruct with compilation information
 --- @param istate - the initial state used during compilation
---- @param quiet  - no printing of status information?
 --- @param inp    - path to the program to start compilation with
-compile :: CompStruct a s -> IORef s -> Bool -> String -> IO ()
-compile struct sref quiet inp = do
+compile :: CompStruct a s -> IORef s -> String -> IO ()
+compile struct sref inp = do
   createDirectoryIfMissing True (outputDir struct)
   cref <- newIORef (CompState [] [])
-  compileProg struct cref sref quiet inp
+  compileProg struct cref sref inp
   return ()
 
 --- Calls the compilation function on a program and 
@@ -102,72 +110,75 @@ compile struct sref quiet inp = do
 --- @param struct  - CompStruct with compilation information
 --- @param cref    - IORef for the compiler state
 --- @param sref    - IORef for the compilation cache
---- @param quiet   - no printing of status information?
 --- @param name    - name of the program to compile
 --- @return        - Bool indicating whether
 ---                - the program was (re)compiled(True) or not(False).
-compileProg :: CompStruct a s -> IORef CompState -> IORef s -> Bool -> String
+compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
             -> IO Bool
-compileProg struct cref sref quiet name = do
-  fDir <- getFileDir struct name
+compileProg struct cref sref name = do
+  fDir  <- getFileDir struct name
   fPath <- getFilePath struct name
   createDirectoryIfMissing True fDir
   printStatus $ "Processing program '" ++ name ++ "'..."
   alreadyExists <- doesFileExist fPath
   if alreadyExists
     then do
-      modulePath <- getPath struct name
-      lastMod <- getModificationTime modulePath
+      modulePath  <- getPath struct name
+      lastMod     <- getModificationTime modulePath
       lastCompile <- getModificationTime fPath
-      impmods <- getImports struct sref name
-      compAnyway <- compileImports struct cref sref quiet impmods
+      compAnyway  <- translateImports
       if compareClockTime lastMod lastCompile == GT || compAnyway
-        then do
-          prog <- getProg struct sref name
-          writeFile fPath (compProg struct prog)
-          printStatus $ "File '" ++ fPath ++ "' written"
-          postProc struct name
-          addCompiledModule cref name
-          printStatus $ "Compiled '" ++ name ++ "'"
-          return True
+        then translateProg fPath
         else do
           postProc struct name
           addSkippedModule cref name
-          printStatus $ "Skipping '" ++ name ++ "'"
+          printStatus $ "Skipping compilation of '" ++ name ++ "'"
           return False
     else do
-      impmods <- getImports struct sref name
-      compileImports struct cref sref quiet impmods
-      prog <- getProg struct sref name
-      writeFile fPath (compProg struct prog)
-      printStatus $ "File '" ++ fPath ++ "' written"
-      postProc struct name
-      addCompiledModule cref name
-      printStatus $ "Compiled '" ++ name ++ "'"
-      return True
+      translateImports
+      translateProg fPath
  where
-  printStatus s = if quiet then return () else putStrLn s
+  translateImports = do
+    impmods <- getImports struct sref name
+    if null impmods
+      then return False
+      else do printStatus $ "Processing imports: " ++ unwords impmods
+              compileImports struct cref sref impmods
+
+  translateProg targetpath = do
+    prog <- getProg struct sref name
+    let target = compProg struct prog
+    printStatus $ "Writing file '" ++ targetpath ++ "'..."
+    when (cmpVerbosity struct > 3) $
+      putStrLn $ "...with compiled program:\n" ++ target
+    writeFile targetpath target
+    postProc struct name
+    addCompiledModule cref name
+    printStatus $ "Program '" ++ name ++ "' compiled"
+    return True
+
+  printStatus s = if cmpVerbosity struct == 0 then return ()
+                                              else putStrLn s
 
 --- Calls compileProg on every imported module 
 --- if it is not in the excludedModules list.
 --- @param struct  - CompStruct with compilation information
 --- @param cref    - IORef for the compiler state
 --- @param sref    - IORef for the compilation cache
---- @param quiet   - no printing of status information?
 --- @param imports - list of imported modules
 --- @return        - Bool indicating whether any
 ---                - import was (re)compiled(True) or not(False).
-compileImports :: CompStruct a s -> IORef CompState -> IORef s -> Bool
-               -> [String] -> IO Bool
-compileImports _      _    _    _     []     = return False
-compileImports struct cref sref quiet (x:xs) 
-  | elem x (excludeModules struct) = compileImports struct cref sref quiet xs
+compileImports :: CompStruct a s -> IORef CompState -> IORef s -> [String]
+               -> IO Bool
+compileImports _      _    _    []     = return False
+compileImports struct cref sref (x:xs) 
+  | elem x (excludeModules struct) = compileImports struct cref sref xs
   | otherwise                      = do
-    b <- compileImports struct cref sref quiet xs
+    b <- compileImports struct cref sref xs
     cstate <- readIORef cref
     if x `elem`  compiledMods cstate
       then return True
       else if x `elem` skippedMods cstate
              then return b
-             else do b2 <- compileProg struct cref sref quiet x
+             else do b2 <- compileProg struct cref sref x
                      return (b || b2)

@@ -1,5 +1,6 @@
 module Curry2Go.Main where
 
+import Curry.Compiler.Distribution
 import Data.IORef
 import Data.List             ( find, intercalate, last )
 import System.Environment    ( getArgs )
@@ -63,30 +64,36 @@ getBaseDirOfModule m = do
     Just (dir, _) -> return dir
 
 --- Load a FlatCurry interface for a module if not already done.
-loadInterface :: IORef [Prog] -> String -> IO Prog
-loadInterface sref mname = do
+loadInterface :: CGOptions -> IORef [Prog] -> String -> IO Prog
+loadInterface opts sref mname = do
   loadedints <- readIORef sref
-  maybe (do int <- readFlatCurryIntWithParseOptions mname c2gFrontendParams
+  maybe (do int <- readFlatCurryIntWithParseOptions mname
+                     (c2gFrontendParams opts)
             writeIORef sref (int : loadedints)
             return int)
         return
         (find (\fp -> progName fp == mname) loadedints)
 
 --- Gets the imported modules of a Curry module.
-getCurryImports :: IORef [Prog] -> String -> IO [String]
-getCurryImports sref mname = loadInterface sref mname >>= return . progImports
+getCurryImports :: CGOptions -> IORef [Prog] -> String -> IO [String]
+getCurryImports opts sref mname =
+  loadInterface opts sref mname >>= return . progImports
 
 --- Loads an IProg from the name of a Curry module.
-loadICurry :: IORef [Prog] -> String -> IO IProg
-loadICurry sref mname = do
-  prog  <- readFlatCurryWithParseOptions mname c2gFrontendParams
-  impints <- mapM (loadInterface sref) (progImports prog)
-  flatCurry2ICurryWithProgs c2gICOptions impints prog
+loadICurry :: CGOptions -> IORef [Prog] -> String -> IO IProg
+loadICurry opts sref mname = do
+  let frontendparams = c2gFrontendParams opts
+  when (verbosity opts > 1) $ do
+    cmd <- getFrontendCall FCY frontendparams mname
+    putStrLn $ "Executing: " ++ cmd
+  prog  <- readFlatCurryWithParseOptions mname frontendparams
+  impints <- mapM (loadInterface opts sref) (progImports prog)
+  flatCurry2ICurryWithProgs (c2gICOptions opts) impints prog
 
 -- The front-end parameters for Curry2Go.
-c2gFrontendParams :: FrontendParams
-c2gFrontendParams =
-  setQuiet True $
+c2gFrontendParams :: CGOptions -> FrontendParams
+c2gFrontendParams opts =
+  setQuiet (verbosity opts < 2) $
   setDefinitions [curry2goDef] $
   setOutDir curry2goDir $
   defaultParams
@@ -95,9 +102,9 @@ c2gFrontendParams =
                  compilerMajorVersion * 100 + compilerMinorVersion)
 
 -- The ICurry compiler options for Curry2Go.
-c2gICOptions :: ICOptions
-c2gICOptions =
-  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams }
+c2gICOptions :: CGOptions -> ICOptions
+c2gICOptions opts =
+  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams opts }
 
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
@@ -144,12 +151,13 @@ postProcess opts mname = do
 --- to avoid multiple readings.
 goStruct :: CGOptions -> CompStruct IProg [Prog]
 goStruct opts = defaultStruct
-  { outputDir      = "."
+  { cmpVerbosity   = verbosity opts
+  , outputDir      = "."
   , filePath       = createFilePath
   , excludeModules = []
-  , getProg        = loadICurry
+  , getProg        = loadICurry opts
   , getPath        = getCurryPath
-  , getImports     = getCurryImports
+  , getImports     = getCurryImports opts
   , postProc       = postProcess opts
   }
 
@@ -168,8 +176,13 @@ main = do
 c2goBanner :: String
 c2goBanner = unlines [bannerLine, bannerText, bannerLine]
  where
-  bannerText = compilerName ++ " Compiler (Version " ++ packageVersion ++ ")"
+  bannerText = compilerName ++ " Compiler (Version " ++ packageVersion ++
+               ", installed with " ++ curryCompiler ++ "-" ++ distVersion ++ ")"
   bannerLine = take (length bannerText) (repeat '-')
+  distVersion = intercalate "." $ map show
+                  [ curryCompilerMajorVersion
+                  , curryCompilerMinorVersion
+                  , curryCompilerRevisionVersion ]
 
 --- Compiles a curry program into a go program.
 --- @param opts    - compiler options 
@@ -179,15 +192,14 @@ curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
-  fprog <- readFlatCurryWithParseOptions mainmod c2gFrontendParams
+  fprog <- readFlatCurryWithParseOptions mainmod (c2gFrontendParams opts)
   sref <- newIORef []
   let gostruct = goStruct opts
-  compile (gostruct {compProg = compileIProg2GoString opts}) sref
-          (verbosity opts == 0) mainmod
+  compile (gostruct {compProg = compileIProg2GoString opts}) sref mainmod
   printVerb opts 2 $ "Go programs written to '" ++ outputDir gostruct ++ "'"
-  impints <- mapM (loadInterface sref) (progImports fprog)
-  IProg moduleName _ _ funcs <- flatCurry2ICurryWithProgs c2gICOptions impints
-                                                          fprog
+  impints <- mapM (loadInterface opts sref) (progImports fprog)
+  IProg moduleName _ _ funcs <-
+    flatCurry2ICurryWithProgs (c2gICOptions opts) impints fprog
   when (genMain opts) $ do
     let mainprogname = removeDots moduleName ++ ".go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
