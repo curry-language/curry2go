@@ -13,8 +13,4 @@
  <primitive name="showAnyExpression" arity="1">
   <entry>prim_showAnyExpression[raw]</entry>
  </primitive>
- <primitive name="showAnyQExpression" arity="1">
-  <entry>prim_showAnyQExpression[raw]</entry>
- </primitive>
 </primitives>
-

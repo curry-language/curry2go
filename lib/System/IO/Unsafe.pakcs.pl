@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Prolog implementation of builtins of module Unsafe:
+% Prolog implementation of builtins of module System.IO.Unsafe:
 %
 
 ?- block 'prim_unsafePerformIO'(?,?,-,?).

@@ -1,23 +1,18 @@
 ------------------------------------------------------------------------------
---- Library containing unsafe operations.
+--- Library containing *unsafe* operations.
 --- These operations should be carefully used (e.g., for testing or debugging).
 --- These operations should not be used in application programs!
 ---
 --- @author Michael Hanus, Bjoern Peemoeller
---- @version September 2013
---- @category general
+--- @version April 2021
 ------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 
 module System.IO.Unsafe
   ( unsafePerformIO, trace
-#ifdef __PAKCS__
   , spawnConstraint, isVar, identicalVar, isGround, compareAnyTerm
-  , showAnyTerm, showAnyQTerm, showAnyExpression, showAnyQExpression
+  , showAnyTerm, showAnyExpression
   , readsAnyUnqualifiedTerm, readAnyUnqualifiedTerm
-  , readsAnyQTerm, readAnyQTerm
-  , readsAnyQExpression, readAnyQExpression
-#endif
   ) where
 
 import Data.Char (isSpace)
@@ -32,8 +27,6 @@ unsafePerformIO external
 trace :: String -> a -> a
 trace s x = unsafePerformIO (hPutStrLn stderr s >> return x)
 
-#ifdef __PAKCS__
-
 --- Spawns a constraint and returns the second argument.
 --- This function can be considered as defined by
 --- `spawnConstraint c x | c = x`.
@@ -46,43 +39,75 @@ trace s x = unsafePerformIO (hPutStrLn stderr s >> return x)
 --- spawned constraints are suspended (use the PAKCS option
 --- `+suspend` to show such suspended goals).
 spawnConstraint :: Bool -> a -> a
+#ifdef __KICS2__
+spawnConstraint c x | c = x -- non-concurrent implementation
+#else
 spawnConstraint external
+#endif
 
 --- Tests whether the first argument evaluates to a currently unbound
 --- variable (use with care!).
-isVar :: _ -> Bool
+isVar :: Data a => a -> Bool
 isVar v = prim_isVar $! v
 
-prim_isVar :: _ -> Bool
+prim_isVar :: a -> Bool
+#ifdef __KICS2__
+prim_isVar = error "System.IO.Unsafe.isVar: not yet implemented"
+#else
 prim_isVar external
+#endif
 
 --- Tests whether both arguments evaluate to the identical currently unbound
 --- variable (use with care!).
---- For instance, `identicalVar (id x) (fst (x,1))` evaluates to
---- `True` whereas `identicalVar x y` and
---- `let x=1 in identicalVar x x` evaluate to `False`
-identicalVar :: a -> a -> Bool
+--- For instance,
+---
+---     identicalVar (id x) (fst (x,1))  where x free
+---
+--- evaluates to `True`, whereas
+---
+---     identicalVar x y  where x,y free
+---
+--- and
+---
+---     let x=1 in identicalVar x x
+---
+--- evaluate to `False`
+identicalVar :: Data a => a -> a -> Bool
 identicalVar x y = (prim_identicalVar $! y) $! x
 
 --- `let x=1 in identicalVar x x` evaluate to `False`
 prim_identicalVar :: a -> a -> Bool
+#ifdef __KICS2__
+prim_identicalVar = error "System.IO.Unsafe.identicalVar: not yet implemented"
+#else
 prim_identicalVar external
+#endif
 
 --- Tests whether the argument evaluates to a ground value
 --- (use with care!).
-isGround :: _ -> Bool
+isGround :: Data a => a -> Bool
 isGround v = prim_isGround $!! v
 
 prim_isGround :: _ -> Bool
+#ifdef __KICS2__
+prim_isGround = error "System.IO.Unsafe.isGround: not yet implemented"
+#else
 prim_isGround external
+#endif
 
 --- Comparison of any data terms, possibly containing variables.
 --- Data constructors are compared in the order of their definition
 --- in the datatype declarations and recursively in the arguments.
 --- Variables are compared in some internal order.
 compareAnyTerm :: a -> a -> Ordering
+#ifdef __KICS2__
+compareAnyTerm = error "System.IO.Unsafe.compareAnyTerm: not yet implemented"
+#else
 compareAnyTerm external
+#endif
 
+------------------------------------------------------------------------------
+-- Read and show operations on arbitrary terms and expressions
 
 --- Transforms the normal form of a term into a string representation
 --- in standard prefix notation.
@@ -96,24 +121,14 @@ showAnyTerm :: _ -> String
 showAnyTerm x = prim_showAnyTerm $!! x
 
 prim_showAnyTerm :: _ -> String
+#ifdef __KICS2__
+prim_showAnyTerm = error "System.IO.Unsafe.showAnyTerm: not yet implemented"
+#else
 prim_showAnyTerm external
-
---- Transforms the normal form of a term into a string representation
---- in standard prefix notation.
---- Thus, showAnyQTerm evaluates its argument to normal form.
---- This function is similar to the function `ReadShowTerm.showQTerm`
---- but it also transforms logic variables into a string representation
---- that can be read back by `Unsafe.read(s)AnyQTerm`.
---- Thus, the result depends on the evaluation and binding status of
---- logic variables so that it should be used with care!
-showAnyQTerm :: _ -> String
-showAnyQTerm x = prim_showAnyQTerm $!! x
-
-prim_showAnyQTerm :: _ -> String
-prim_showAnyQTerm external
+#endif
 
 
---- Transform a string containing a term in standard prefix notation
+--- Transforms a string containing a term in standard prefix notation
 --- without module qualifiers into the corresponding data term.
 --- The string might contain logical variable encodings produced by showAnyTerm.
 --- In case of a successful parse, the result is a one element list
@@ -130,7 +145,12 @@ readsAnyUnqualifiedTermWithPrefixes prefixes s =
   (prim_readsAnyUnqualifiedTerm $## prefixes) $## s
 
 prim_readsAnyUnqualifiedTerm :: [String] -> String -> [(_,String)]
+#ifdef __KICS2__
+prim_readsAnyUnqualifiedTerm =
+  error "System.IO.Unsafe.readsAnyUnqualifiedTerm: not yet implemented"
+#else
 prim_readsAnyUnqualifiedTerm external
+#endif
 
 
 --- Transforms a string containing a term in standard prefix notation
@@ -149,75 +169,15 @@ readAnyUnqualifiedTerm prefixes s = case result of
   _  ->  error "Unsafe.readAnyUnqualifiedTerm: ambiguous parse"
  where result = readsAnyUnqualifiedTerm prefixes s
 
---- Transforms a string containing a term in standard prefix notation
---- with qualified constructor names into the corresponding data term.
---- The string might contain logical variable encodings produced by
---- `showAnyQTerm`.
---- In case of a successful parse, the result is a one element list
---- containing a pair of the data term and the remaining unparsed string.
-
-readsAnyQTerm :: String -> [(_,String)]
-readsAnyQTerm s = prim_readsAnyQTerm $## s
-
-prim_readsAnyQTerm :: String -> [(_,String)]
-prim_readsAnyQTerm external
-
---- Transforms a string containing a term in standard prefix notation
---- with qualified constructor names into the corresponding data term.
---- The string might contain logical variable encodings produced by
---- `showAnyQTerm`.
-
-readAnyQTerm :: String -> _
-readAnyQTerm s = case result of
-  [(term,tail)] -> if all isSpace tail
-                     then term
-                     else error "Unsafe.readAnyQTerm: no parse"
-  []            ->  error "Unsafe.readAnyQTerm: no parse"
-  _             ->  error "Unsafe.readAnyQTerm: ambiguous parse"
- where result = readsAnyQTerm s
-
-
 --- Transforms any expression (even not in normal form)
 --- into a string representation
 --- in standard prefix notation without module qualifiers.
 --- The result depends on the evaluation and binding status of
 --- logic variables so that it should be used with care!
 showAnyExpression :: _ -> String
+#ifdef __KICS2__
+showAnyExpression =
+  error "System.IO.Unsafe.showAnyExpression: not yet implemented"
+#else
 showAnyExpression external
-
---- Transforms any expression (even not in normal form)
---- into a string representation
---- in standard prefix notation with module qualifiers.
---- The result depends on the evaluation and binding status of
---- logic variables so that it should be used with care!
-showAnyQExpression :: _ -> String
-showAnyQExpression external
-
-
---- Transforms a string containing an expression in standard prefix notation
---- with qualified constructor names into the corresponding expression.
---- The string might contain logical variable and defined function
---- encodings produced by showAnyQExpression.
---- In case of a successful parse, the result is a one element list
---- containing a pair of the expression and the remaining unparsed string.
-
-readsAnyQExpression :: String -> [(_,String)]
-readsAnyQExpression s = prim_readsAnyQExpression $## s
-
-prim_readsAnyQExpression :: String -> [(_,String)]
-prim_readsAnyQExpression external
-
---- Transforms a string containing an expression in standard prefix notation
---- with qualified constructor names into the corresponding expression.
---- The string might contain logical variable and defined function
---- encodings produced by showAnyQExpression.
-
-readAnyQExpression :: String -> _
-readAnyQExpression s = case result of
-  [(term,tail)] -> if all isSpace tail
-                     then term
-                     else error "Unsafe.readAnyQExpression: no parse"
-  []            ->  error "Unsafe.readAnyQExpression: no parse"
-  _             ->  error "Unsafe.readAnyQExpression: ambiguous parse"
- where result = readsAnyQExpression s
 #endif
