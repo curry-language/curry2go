@@ -9,30 +9,32 @@ import "io"
 import "bufio"
 import "../../Prelude"
 
+type Handle struct{
+    file *os.File
+    buffer rune
+    mode int
+}
+
 // Array storing file pointers of handles.
-var handles []*os.File = []*os.File{}
+var handles []Handle
 
 var IO_Handle_names []string = []string{"Handle"}
 
-var stdin_node *gocurry.Node = HandleCreate(new(gocurry.Node), os.Stdin, 0)
-var stdout_node *gocurry.Node = HandleCreate(new(gocurry.Node), os.Stdout, 1)
-var stderr_node *gocurry.Node = HandleCreate(new(gocurry.Node), os.Stderr, 1)
+var stdin_node *gocurry.Node = HandleFromFile(new(gocurry.Node), os.Stdin, 0)
+var stdout_node *gocurry.Node = HandleFromFile(new(gocurry.Node), os.Stdout, 1)
+var stderr_node *gocurry.Node = HandleFromFile(new(gocurry.Node), os.Stderr, 1)
 
 // Implements the Handle data type.
 // A Handle is a constructor with two children of type INT_LITERAL.
 // The first child stores the index, where the file pointer
 // handle is stored in the handles array.
-// The second child saves the opening mode of the Handle.
-// A third child of type CHAR_LITERAL acts as a read-buffer
-// in order to test for EOF.
-func HandleCreate(root *gocurry.Node, handle *os.File, mode int)(*gocurry.Node){
+func HandleFromFile(root *gocurry.Node, file *os.File, mode int)(*gocurry.Node){
     id := len(handles)
+    handle := Handle{file, '\000', mode}
     handles = append(handles, handle)
     
     gocurry.ConstCreate(root, 0, 1, &IO_Handle_names[0],
-        gocurry.IntLitCreate(root.NewNode(), id),
-        gocurry.IntLitCreate(root.NewNode(), mode),
-        gocurry.CharLitCreate(root.NewNode(), '\000'))
+        gocurry.IntLitCreate(root.NewNode(), id))
     return root
 }
 
@@ -43,7 +45,8 @@ func ExternalSystem_IO_handle_eq(task *gocurry.Task){
     hIndex1 := handle1.GetChild(0).GetInt()
     hIndex2 := handle2.GetChild(0).GetInt()
     
-    if(handles[hIndex1].Fd() == handles[hIndex2].Fd()){
+    // compare files
+    if(handles[hIndex1].file.Fd() == handles[hIndex2].file.Fd()){
         Prelude.Prelude__CREATE_True(root)
     } else{
         Prelude.Prelude__CREATE_False(root)
@@ -94,7 +97,7 @@ func ExternalSystem_IO_prim_openFile(task *gocurry.Task){
     }
     
     // create and return Handle
-    handle := HandleCreate(root.NewNode(), file, hMode)
+    handle := HandleFromFile(root.NewNode(), file, hMode)
     gocurry.IOCreate(root, handle)
 }
 
@@ -103,7 +106,8 @@ func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
     
-    err := handles[hIndex].Close()
+    // handle files
+    err := handles[hIndex].file.Close()
     
     if(err != nil){
         panic("System.IO.hClose: " + err.Error())
@@ -117,7 +121,8 @@ func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
     
-    err := handles[hIndex].Sync()
+    // handle files
+    err := handles[hIndex].file.Sync()
     
     if(err != nil){
         panic("System.IO.hFlush: " + err.Error())
@@ -130,17 +135,17 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
-    hBuffer := handle.GetChild(2)
     
+    // handle files
     // if buffer not empty, return false
-    if(hBuffer.GetChar() != '\000'){
+    if(handles[hIndex].buffer != '\000'){
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
         return
     }
     
     // read a rune from the handle
     var char rune
-    _, err := fmt.Fscanf(handles[hIndex], "%c", &char)
+    _, err := fmt.Fscanf(handles[hIndex].file, "%c", &char)
     
     // test if read was successful
     if(err != nil){
@@ -152,7 +157,7 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
         }
     } else{
         // store read rune in buffer and return false
-        gocurry.CharLitCreate(hBuffer, char)
+        handles[hIndex].buffer = char
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
@@ -163,28 +168,26 @@ func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
     hMode := root.GetChild(1).GetInt()
     pos := root.GetChild(2).GetInt()
     hIndex := handle.GetChild(0).GetInt()
-    hBuffer := handle.GetChild(2)
-    
-    _, err := handles[hIndex].Seek(int64(pos), hMode)
+   
+    // handle files
+    _, err := handles[hIndex].file.Seek(int64(pos), hMode)
     
     if(err != nil){
         panic("System.IO.hSeek: " + err.Error())
     }
     
-    gocurry.CharLitCreate(hBuffer, '\000')
+    handles[hIndex].buffer = '\000'
     
     gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
 
 func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
-    // TODO: make it work with stdin
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
-    hBuffer := handle.GetChild(2)
     
     // if buffer is not empty, return true
-    if(hBuffer.GetChar() != '\000'){
+    if(handles[hIndex].buffer != '\000'){
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
         return
     }
@@ -195,7 +198,7 @@ func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
     
     // start input test in another routine
     go func() {
-        reader := bufio.NewReader(handles[hIndex])
+        reader := bufio.NewReader(handles[hIndex].file)
         
         if(reader.Size() > 0){
             ch <- true
@@ -207,7 +210,7 @@ func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
     case  <-ch:
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
     case  <-time.After(timeout * time.Millisecond):
-         gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), -1))
+         gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
     }
 }
 
@@ -217,8 +220,8 @@ func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
     
     // if any buffer is not empty, return its index
     for i := range(hList){
-        hBuffer := hList[i].GetChild(2)
-        if(hBuffer.GetChar() != '\000'){
+        hIndex := hList[i].GetChild(0).GetInt()
+        if(handles[hIndex].buffer != '\000'){
             gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), i))
         }
     }
@@ -232,7 +235,7 @@ func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
         hIndex := hList[i].GetChild(0).GetInt()
         
         go func(index int){
-            reader := bufio.NewReader(handles[hIndex])
+            reader := bufio.NewReader(handles[hIndex].file)
         
             if(reader.Size() > 0){
                 ch <- i
@@ -242,8 +245,8 @@ func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
     
     // wait for available input or timeout
     select{
-    case  <-ch:
-        gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
+    case  index := <-ch:
+        gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), index))
     case  <-time.After(timeout * time.Millisecond):
          gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), -1))
     }
@@ -253,18 +256,17 @@ func ExternalSystem_IO_prim_hGetChar(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
-    hBuffer := handle.GetChild(2)
     
     // get buffer content
-    var char rune = hBuffer.GetChar()
+    var char rune = handles[hIndex].buffer
     
     // test if buffer is not empty
     if(char != '\000'){
         // empty the buffer
-        gocurry.CharLitCreate(hBuffer, '\000')
+        handles[hIndex].buffer = '\000'
     } else{
         // read a new rune
-        _, err := fmt.Fscanf(handles[hIndex], "%c", &char)
+        _, err := fmt.Fscanf(handles[hIndex].file, "%c", &char)
     
         if(err != nil){
             panic("System.IO.hGetChar: " + err.Error())
@@ -279,9 +281,10 @@ func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     char := root.GetChild(1)
-    hIndex := handle.GetChild(0)
+    hIndex := handle.GetChild(0).GetInt()
     
-    _, err := handles[hIndex.GetInt()].WriteString(string(char.GetChar()))
+    // handle files
+    _, err := handles[hIndex].file.WriteString(string(char.GetChar()))
     
     if(err != nil){
         panic("System.IO.hPutChar: " + err.Error())
@@ -293,7 +296,7 @@ func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
 func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
-    hMode := handle.GetChild(1).GetInt()
+    hMode := handles[handle.GetChild(0).GetInt()].mode
 
     if(hMode == 0){
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
@@ -306,7 +309,7 @@ func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
 func ExternalSystem_IO_prim_hIsWritable(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
-    hMode := handle.GetChild(1).GetInt()
+    hMode := handles[handle.GetChild(0).GetInt()].mode
 
     if(hMode > 0){
         gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
@@ -320,7 +323,8 @@ func ExternalSystem_IO_prim_hIsTerminalDevice(task *gocurry.Task){
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
     
-    info, err := handles[hIndex].Stat()
+    // handle files
+    info, err := handles[hIndex].file.Stat()
     
     if(err != nil){
         panic("System.IO.hIsTerminalDevice: " + err.Error())
