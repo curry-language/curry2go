@@ -203,17 +203,6 @@ func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
 
 func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
     root := task.GetControl()
-    handle := root.GetChild(0)
-    hIndex := handle.GetChild(0).GetInt()
-    
-    // handle files
-    if(handles[hIndex].file != nil){
-        err := handles[hIndex].file.Sync()
-        
-        if(err != nil){
-            panic("System.IO.hFlush: " + err.Error())
-        }
-    }
     
     gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
 }
