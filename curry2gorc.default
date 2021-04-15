@@ -9,7 +9,7 @@
 #
 ############################################################################
 
-# Default parameters that are always passed as initial parameters to KiCS2
+# Default parameters that are always passed as initial parameters to Curry2Go
 # (e.g., ":set +time :set +interactive :set fs")
 defaultparams=
 
