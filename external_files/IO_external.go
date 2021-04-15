@@ -149,13 +149,13 @@ func ExternalSystem_IO_prim_openFile(task *gocurry.Task){
     if(hMode == 0){
         mode = os.O_RDONLY
     } else if(hMode == 1){
-        mode = os.O_WRONLY
+        mode = os.O_WRONLY | os.O_CREATE
     } else if(hMode == 2){
-        mode = os.O_WRONLY | os.O_APPEND
+        mode = os.O_WRONLY | os.O_APPEND | os.O_CREATE
     }
     
     // open file
-    file, err := os.OpenFile(path, mode, 0)
+    file, err := os.OpenFile(path, mode, 0777)
     
     if(err != nil){
         panic("System.IO.openFile: " + err.Error())
