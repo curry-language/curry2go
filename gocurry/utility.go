@@ -1,6 +1,7 @@
 package gocurry
 
 import "fmt"
+import "bytes"
 import "time"
 import "regexp"
 import "runtime"
@@ -153,9 +154,11 @@ func StringCreate(root *Node, str string)(*Node){
 }
 
 // Converts a Curry String to a Go byte list.
-// root is the first character of the String.
-func ReadString(root *Node)(result string){
-    
+// root is the entry to the representation of Curry's character list.
+func ReadString(root *Node)(string){
+
+    var b bytes.Buffer // buffer to create result string
+
     // next character to read
     cur_node := root    
 
@@ -166,16 +169,17 @@ func ReadString(root *Node)(result string){
             break
         }
 
-        // append next character to result
-        result += string(cur_node.GetChild(0).GetChar())
+        // append next character to buffer
+        b.WriteString(string(cur_node.GetChild(0).GetChar()))
 
         // move to the next character
         cur_node = cur_node.GetChild(1)
     }
-    return
+
+    return b.String()
 }
 
-// Reads a curry list and turns it
+// Reads a Curry list and turns it
 // into a go slice.
 func ReadList(root *Node)(result []*Node){
     
