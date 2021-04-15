@@ -70,12 +70,15 @@ $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/*Config.curry
 $(COMPDISTGO): checkcurrysystem src/Install.curry src/Curry2Go/PkgConfig.curry
 	$(CPM) curry :load Install :eval main :quit
 
-# Bootstrap step, i.e., compile the compiler with existing Curry2Go compiler
+# Bootstrap, i.e., compile the compiler and REPL with existing Curry2Go compiler
+# Saves existing executables in $(LOCALBIN)
 .PHONY: bootstrap
-bootstrap: $(COMPILER)
+bootstrap: $(COMPILER) $(REPL)
 	mkdir -p $(LOCALBIN)
-	cp -p $(COMPILER) $(LOCALBIN)/curry2goc-initial
+	cp -p $(COMPILER) $(LOCALBIN)/curry2goc
 	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
+	cp -p $(REPL) $(LOCALBIN)/curry2goi
+	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
 
 # install base libraries from package `base`:
 .PHONY: baselibs
@@ -119,7 +122,7 @@ cleanscripts:
 .PHONY: clean
 clean:
 	$(CPM) clean
-	$(RM) -f $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
+	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
 
 # clean all installed components
 .PHONY: cleanall
