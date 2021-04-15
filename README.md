@@ -11,23 +11,26 @@ Installation:
 An installation of Go is necessary, which can be downloaded
 from <https://golang.org/>.
 
-The directory `gocurry` has to be copied to a workspace directory of Go.
+Since the Curry2Go compiler is implemented in Curry,
+you need another Curry compiler for the initial
+installation, e.g., [PAKCS](https://www.informatik.uni-kiel.de/~pakcs/)
+(if you use another Curry compiler, adapt the `Makefile`).
+Then, simply run
+
+    > make
+
+This copies the directory `gocurry` to a workspace directory of Go.
 Workspace directories can be set using the environment variable `GOPATH`.
 If the variable is not set, the workspace directory `$HOME/go`
-is assumed. Thus, in the simplest case, it is sufficient
-to copy the directory `gocurry` as follows:
+is assumed. Thus, the `make` command copies the directory `gocurry`
+as follows:
 
     > mkdir -p ~/go/src
     > cp -r gocurry ~/go/src/
 
-All this is automized by a Makefile. Thus, simply run
-
-    > make
-
-This copies the required Go files and installs the compiler
-as executable `$HOME/.cpm/bin/curry2goc` and a simple interactive
-execution environment (a basic "REPL") as executable
-`$HOME/.cpm/bin/curry2goi`.
+Furthermore, the Curry2Go compiler is installed as executable
+`bin/curry2goc` and a simple interactive execution environment
+(a basic "REPL") as executable `bin/curry2goi`.
 However, it is not necessary to use these executables directly.
 Instead, the make process installs in the `bin` directory of this package
 a script `curry2go` (and an alias `curry` for this script)
