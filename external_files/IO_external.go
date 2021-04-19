@@ -218,6 +218,18 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
         return
     }
     
+    // test stdio
+    if(handles[hIndex].terminal && handles[hIndex].file != nil){
+        bufReader := bufio.NewReader(handles[hIndex].file)
+        
+        if(bufReader.Size() > 0){
+            gocurry.IOCreate(root, Prelude.Prelude__CREATE_False(root.NewNode()))
+        } else{
+            gocurry.IOCreate(root, Prelude.Prelude__CREATE_True(root.NewNode()))
+        }
+        return
+    }
+    
     // get reader
     var reader io.Reader
     if(handles[hIndex].reader != nil){
