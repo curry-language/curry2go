@@ -252,8 +252,11 @@ prim_Monad_bindWorld(Action1,FunAction2,W,R,E0,E) :-
 	prim_apply(HAction2,W,R,E2,E).
 
 
-% although (>>) is a defined function,
-% we provide a slightly faster primitive implementation:
+% Although the IO instance of (*>), having the internal name
+% "_impl#*>#Prelude.Applicative#Prelude.IO"
+% (and, thus, the IO instance of (>>)) is a defined function,
+% we provide a slightly faster primitive implementation.
+% The usage of this implementation is specified in Prelude.pakcs
 ?- block prim_Monad_seq(?,?,?,-,?).
 prim_Monad_seq(A1,A2,partcall(1,prim_Monad_seqWorld,[A2,A1]),E,E).
 

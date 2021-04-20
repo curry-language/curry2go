@@ -102,13 +102,13 @@ prim_hWaitForInput :: Handle -> Int -> IO Bool
 prim_hWaitForInput external
 
 --- Waits until input is available on some of the given handles.
---- If no input is available within t milliseconds, it returns -1,
---- otherwise it returns the index of the corresponding handle with the available
---- data.
+--- If no input is available within the given milliseconds, it returns `-1`,
+--- otherwise it returns the index of the corresponding handle
+--- with the available data.
 --- @param handles - a list of handles for input streams
 --- @param timeout - milliseconds to wait for input (< 0 : no time out)
---- @return -1 if no input is available within the time out, otherwise i
----         if (handles!!i) has data available
+--- @return `-1` if no input is available within the time out, otherwise `i`
+---         if `(handles!!i)` has data available
 hWaitForInputs :: [Handle] -> Int -> IO Int
 hWaitForInputs handles timeout = (prim_hWaitForInputs $## handles) $## timeout
 
@@ -134,14 +134,14 @@ prim_hGetChar external
 --- the *first* character. If the end of file is reached later in the line,
 --- it ist treated as a line terminator and the (partial) line is returned.
 hGetLine  :: Handle -> IO String
-hGetLine h = do c  <- hGetChar h
-                if c == '\n'
-                   then return []
-                   else do eof <- hIsEOF h
-                           if eof then return [c]
-                                  else do cs <- hGetLine h
-                                          return (c:cs)
-
+hGetLine h = do
+  c <- hGetChar h
+  if c == '\n'
+     then return []
+     else do eof <- hIsEOF h
+             if eof then return [c]
+                    else do cs <- hGetLine h
+                            return (c:cs)
 
 --- Reads the complete contents from an input handle and closes the input handle
 --- before returning the contents.

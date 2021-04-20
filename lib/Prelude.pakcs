@@ -52,7 +52,7 @@
  <primitive name="bindIO" arity="2">
   <entry>prim_Monad_bind[raw]</entry>
  </primitive>
- <primitive name="seqIO" arity="2">
+ <primitive name="_impl#*>#Prelude.Applicative#Prelude.IO" arity="2">
   <entry>prim_Monad_seq[raw]</entry>
  </primitive>
  <primitive name="returnIO" arity="1">
