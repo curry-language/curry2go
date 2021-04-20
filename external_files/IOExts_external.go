@@ -12,7 +12,7 @@ func ExternalSystem_IOExts_prim_execCmd(task *gocurry.Task){
     command := gocurry.ReadString(commandNode)
     
     // create command
-    cmd := exec.Command(command)
+    cmd := exec.Command("bash", "-c", command)
     
     // get pipes from command
     stdinPipe, err := cmd.StdinPipe()
@@ -48,8 +48,9 @@ func ExternalSystem_IOExts_prim_connectToCmd(task *gocurry.Task){
     commandNode := root.GetChild(0)
     command := gocurry.ReadString(commandNode)
     
+    
     // create command
-    cmd := exec.Command(command)
+    cmd := exec.Command("bash", "-c", command)
     
     // get pipes from command
     stdinPipe, err := cmd.StdinPipe()
