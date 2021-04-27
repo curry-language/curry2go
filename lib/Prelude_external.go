@@ -673,7 +673,7 @@ func ExternalPrelude_prim_showCharLiteral(task *Task){
 
     x1 := root.GetChild(0)
     
-    ListCreate(root, x1)
+    StringCreate(root, "'" + ShowChar(x1.GetChar()) + "'")
 }
 
 func ExternalPrelude_prim_showStringLiteral(task *Task){
@@ -681,7 +681,7 @@ func ExternalPrelude_prim_showStringLiteral(task *Task){
 
     x1 := root.GetChild(0)
     
-    str := ReadString(x1)
+    str := ShowString(x1)
     StringCreate(root, "\"" + str + "\"")
 }
 
@@ -799,27 +799,36 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
     // read it into a Go byte slice
     data := []rune(ReadString(x1))
 
-    // if the String is empty, return an empty list
-    // TODO FIX
+    // if no char literal possible, return an empty list
     if(len(data) < 3){
         Prelude__CREATE_LSbRSb(root)
         return
     }
 
-    // read a character
+    // test if the string starts with a char literal
     if(data[0] == '\''){
-        if(data[2] == '\''){
-            //TODO fix
-            rest := data[3:]
-            lit := data[1]
-
-            // create list of results
-            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
-        }else{
-            // return an empty list
-            Prelude__CREATE_LSbRSb(root)
+        // find end of char literal
+        for i := 1; i < len(data); i++{
+            if(data[i] == '\''){
+                // return on empty literal
+                if(i == 1){
+                    Prelude__CREATE_LSbRSb(root)
+                    return
+                }
+            
+                // parse char
+                rest := data[i+1:]
+                lit := ParseChar(data[1:i])
+                
+                // return result
+                ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
+                return
+            }
         }
-    }else{
+        
+        // return an empty list
+        Prelude__CREATE_LSbRSb(root)
+    } else{
         // return an empty list
         Prelude__CREATE_LSbRSb(root)
     }
@@ -854,7 +863,7 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
             lit := string(data[start : end])
 
             // create list of results
-            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), StringCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), StringCreate(root.NewNode(), ParseString(lit)), StringCreate(root.NewNode(), rest)))
         }else{
             // return an empty list
         Prelude__CREATE_LSbRSb(root)

@@ -11,6 +11,7 @@ import "text/scanner"
 import "go/parser"
 import "go/token"
 import "go/ast"
+import "unicode"
 
 ////// Functions to create specific types of nodes
 
@@ -140,7 +141,7 @@ func StringCreate(root *Node, str string)(*Node){
     runes := []rune(str)
 
     // go through the string
-    for i := 0; i < len(str); i++{
+    for i := 0; i < len(runes); i++{
         // create a : at cur_node
         ConstCreate(cur_node, 1, 2, &runtime_names[4], CharLitCreate(new(Node), runes[i]), new(Node))
 
@@ -255,6 +256,7 @@ func ReadUQTerm(root *Node, term string, modules []string)(*Node, *Node){
     // create scanner for term
     var s scanner.Scanner
     s.Init(strings.NewReader(term))
+    s.Error = func(s *scanner.Scanner, msg string){}
     s.Mode |= scanner.ScanFloats | scanner.ScanChars | scanner.ScanStrings
     
     // scan term
@@ -301,9 +303,9 @@ func ParseTokens(root *Node, tokenList []mToken, constructors [][]string)(*Node,
         
         return FloatLitCreate(root, value), 0
     case scanner.Char:
-        return CharLitCreate(root, []rune(tok.name)[1]), 0
+        return CharLitCreate(root, ParseChar([]rune(tok.name))), 0
     case scanner.String:
-        return StringCreate(root, strings.Trim(tok.name, "\"")), 0
+        return StringCreate(root, ParseString(strings.Trim(tok.name, "\""))), 0
     case '[':
         return ParseList(root, tokenList[1:], constructors)
     case '(':
@@ -311,6 +313,116 @@ func ParseTokens(root *Node, tokenList []mToken, constructors [][]string)(*Node,
     default:
         return ParseConstructor(root, tokenList, constructors)
     }
+}
+
+func ParseString(str string)(result string){
+    runes := []rune(str)
+    
+    for i := 0; i < len(runes); i++{
+        // check for escape sequences
+        if(runes[i] == '\\'){
+            if(unicode.IsDigit(runes[i+1])){
+                end := i+1
+                for u := i + 1; u < len(runes); u++{
+                    if(unicode.IsDigit(runes[u])){
+                        end = u
+                    } else{
+                        break
+                    }
+                }
+                
+                number, _ :=  strconv.Atoi(string(runes[i+1:end+1]))
+                result += string(rune(number))
+                i = end
+                continue
+            }
+            
+            switch runes[i+1]{
+            case 'a':
+                result += "\a"
+            case 'b':
+                result += "\b"
+            case 't':
+                result += "\t"
+            case 'n':
+                result += "\n"
+            case 'v':
+                result += "\v"
+            case 'f':
+                result += "\f"
+            case 'r':
+                result += "\r"
+            case '\\':
+                result += "\\"
+            case '"':
+                result += "\""
+            default:
+                result += string(runes[i])
+                continue
+            }
+            
+            i += 1
+            continue
+        }
+        
+        // add rune to result
+        result += string(runes[i])
+    }
+
+    return
+}
+
+func ParseChar(char []rune) rune{
+    // delete leading and trailing quotes
+    if(char[0] == '\''){
+        char = char[1:]
+    }
+    
+    if(char[len(char) - 1] == '\''){
+        char = char[:len(char) - 1]
+    }
+    
+    // return single rune
+    if(len(char) == 1){
+        return char[0]
+    }
+    
+    // condense escape sequence
+    if(char[0] == '\\'){
+        // handle ascii numbers
+        if(unicode.IsDigit(char[1])){
+            i, err := strconv.Atoi(string(char[1:]))
+            if(err != nil){
+                panic("Error parsing char: " + err.Error())
+            }
+            
+            return rune(i)
+        }
+        
+        switch char[1]{
+        case 'a':
+            return '\a'
+        case 'b':
+            return '\b'
+        case '\\':
+            return '\\'
+        case 't':
+            return '\t'
+        case 'n':
+            return '\n'
+        case 'f':
+            return '\f'
+        case 'r':
+            return '\r'
+        case 'v':
+            return '\v'
+        case '\'':
+            return '\''
+        }
+    }
+    
+    // throw error
+    panic("Cannot parse char: " + string(char))
 }
 
 func ParseConstructor(root *Node, tokenList []mToken, constructors [][]string)(*Node, int){    
@@ -813,7 +925,7 @@ func ShowResult(node *Node)(result string){
             // test if the list is a string
             if(node.GetChild(0).IsCharLit()){
                 // show string
-                result = "\"" + ReadString(node) + "\""
+                result = "\"" + ShowString(node) + "\""
                 return
             }
 
@@ -858,6 +970,30 @@ func ShowResult(node *Node)(result string){
     return
 }
 
+// Returns a string representation of a curry string.
+// node has to be a ':' constructor.
+func ShowString(node *Node)(result string){
+    
+    // get character
+    char := node.GetChild(0).GetChar()
+    if(char == 34){
+        result = "\\\""
+    } else if(char == 39){
+        result = "'"
+    } else{
+        result = ShowChar(node.GetChild(0).GetChar())
+    }
+    
+    // end string on '[]' constructor
+    if(node.GetChild(1).GetName() == "[]"){
+        return
+    }
+    
+    // continue with next character
+    result += ShowString(node.GetChild(1))
+    return
+}
+
 // Returns a string representation of a curry list.
 // node has to be a ':' constructor.
 func showList(node *Node)(result string){
@@ -865,7 +1001,7 @@ func showList(node *Node)(result string){
     // get string representation of the element
     result = ShowResult(node.GetChild(0))
 
-    // end list on [] constructor
+    // end list on '[]' constructor
     if(node.GetChild(1).GetName() == "[]"){
         return
     }
@@ -890,7 +1026,7 @@ func showNode(node *Node) string{
     case FLOAT_LITERAL:
         return strconv.FormatFloat(node.float_literal, 'f', -1, 64)
     case CHAR_LITERAL:
-        return ("'" + string(node.char_literal) + "'")
+        return ("'" + ShowChar(node.char_literal) + "'")
     case CONSTRUCTOR, FCALL:
         return node.GetName()
     case CHOICE:
@@ -902,6 +1038,49 @@ func showNode(node *Node) string{
     }
     
     return "UnknownNode"
+}
+
+func ShowChar(char rune)string{
+    if(char <= 6){
+        return "\\0" + strconv.Itoa(int(char))
+    }
+    
+    if(char <= 13){
+        switch char{
+        case 7:
+            return "\\a"
+        case 8:
+            return "\\b"
+        case 9:
+            return "\\t"
+        case 10:
+            return "\\n"
+        case 11:
+            return "\\v"
+        case 12:
+            return "\\f"
+        case 13:
+            return "\\r"
+        }
+    }
+    
+    if(char <= 31){
+        return "\\" + strconv.Itoa(int(char))
+    }
+    
+    if(char == 39){
+        return "\\'"
+    }
+    
+    if(char == 92){
+        return "\\\\"
+    }
+    
+    if(char >= 127 && char <= 255){
+        return "\\" + strconv.Itoa(int(char))
+    }
+    
+    return string(char)
 }
 
 func printDebug(node *Node, task *Task) {
