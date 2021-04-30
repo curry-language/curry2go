@@ -818,7 +818,7 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
             
                 // parse char
                 rest := data[i+1:]
-                lit := ParseChar(data[1:i])
+                lit,_ := ParseChar(data[1:i])
                 
                 // return result
                 ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))

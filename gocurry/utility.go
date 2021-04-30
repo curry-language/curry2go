@@ -303,7 +303,8 @@ func ParseTokens(root *Node, tokenList []mToken, constructors [][]string)(*Node,
         
         return FloatLitCreate(root, value), 0
     case scanner.Char:
-        return CharLitCreate(root, ParseChar([]rune(tok.name))), 0
+        char,_ := ParseChar([]rune(tok.name))
+        return CharLitCreate(root, char), 0
     case scanner.String:
         return StringCreate(root, ParseString(strings.Trim(tok.name, "\""))), 0
     case '[':
@@ -337,31 +338,9 @@ func ParseString(str string)(result string){
                 continue
             }
             
-            switch runes[i+1]{
-            case 'a':
-                result += "\a"
-            case 'b':
-                result += "\b"
-            case 't':
-                result += "\t"
-            case 'n':
-                result += "\n"
-            case 'v':
-                result += "\v"
-            case 'f':
-                result += "\f"
-            case 'r':
-                result += "\r"
-            case '\\':
-                result += "\\"
-            case '"':
-                result += "\""
-            default:
-                result += string(runes[i])
-                continue
-            }
-            
-            i += 1
+            char, l := ParseChar(runes[i:i+5])
+            result += string(char)
+            i += l - 1
             continue
         }
         
@@ -372,7 +351,7 @@ func ParseString(str string)(result string){
     return
 }
 
-func ParseChar(char []rune) rune{
+func ParseChar(char []rune) (rune, int){
     // delete leading and trailing quotes
     if(char[0] == '\''){
         char = char[1:]
@@ -384,7 +363,7 @@ func ParseChar(char []rune) rune{
     
     // return single rune
     if(len(char) == 1){
-        return char[0]
+        return char[0], 1
     }
     
     // condense escape sequence
@@ -396,28 +375,81 @@ func ParseChar(char []rune) rune{
                 panic("Error parsing char: " + err.Error())
             }
             
-            return rune(i)
+            return rune(i), len(char)
         }
         
-        switch char[1]{
-        case 'a':
-            return '\a'
-        case 'b':
-            return '\b'
-        case '\\':
-            return '\\'
-        case 't':
-            return '\t'
-        case 'n':
-            return '\n'
-        case 'f':
-            return '\f'
-        case 'r':
-            return '\r'
-        case 'v':
-            return '\v'
-        case '\'':
-            return '\''
+        str := string(char[1:])
+        switch {
+        case strings.HasPrefix(str, "a"):
+            return '\a', 2
+        case strings.HasPrefix(str, "b"):
+            return '\b', 2
+        case strings.HasPrefix(str, "\\"):
+            return '\\', 2
+        case strings.HasPrefix(str, "t"):
+            return '\t', 2
+        case strings.HasPrefix(str, "n"):
+            return '\n', 2
+        case strings.HasPrefix(str, "f"):
+            return '\f', 2
+        case strings.HasPrefix(str, "r"):
+            return '\r', 2
+        case strings.HasPrefix(str, "v"):
+            return '\v', 2
+        case strings.HasPrefix(str, "'"):
+            return '\'', 2
+        case strings.HasPrefix(str, "NUL"):
+            return 0, 4
+        case strings.HasPrefix(str, "SOH"):
+            return 1, 4
+        case strings.HasPrefix(str, "STX"):
+            return 2, 4
+        case strings.HasPrefix(str, "ETX"):
+            return 3, 4
+        case strings.HasPrefix(str, "EOT"):
+            return 4, 4
+        case strings.HasPrefix(str, "ENQ"):
+            return 5, 4
+        case strings.HasPrefix(str, "ACK"):
+            return 6, 4
+        case strings.HasPrefix(str, "SO"):
+            return 14, 3
+        case strings.HasPrefix(str, "SI"):
+            return 15, 3
+        case strings.HasPrefix(str, "DLE"):
+            return 16, 4
+        case strings.HasPrefix(str, "DC1"):
+            return 17, 4
+        case strings.HasPrefix(str, "DC2"):
+            return 18, 4
+        case strings.HasPrefix(str, "DC3"):
+            return 19, 4
+        case strings.HasPrefix(str, "DC4"):
+            return 20, 4
+        case strings.HasPrefix(str, "NAK"):
+            return 21, 4
+        case strings.HasPrefix(str, "SYN"):
+            return 22, 4
+        case strings.HasPrefix(str, "ETB"):
+            return 23, 4
+        case strings.HasPrefix(str, "CAN"):
+            return 24, 4
+        case strings.HasPrefix(str, "EM"):
+            return 25, 3
+        case strings.HasPrefix(str, "SUB"):
+            return 26, 4
+        case strings.HasPrefix(str, "ESC"):
+            return 27, 4
+        case strings.HasPrefix(str, "FS"):
+            return 28, 3
+        case strings.HasPrefix(str, "GS"):
+            return 29, 3
+        case strings.HasPrefix(str, "RS"):
+            return 30, 3
+        case strings.HasPrefix(str, "US"):
+            return 31, 3
+        case strings.HasPrefix(str, "DEL"):
+            return 127, 4
         }
     }
     
