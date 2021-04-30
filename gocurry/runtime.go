@@ -116,7 +116,7 @@ var done_chan chan bool
 // exempt node or in hnf or an
 // error is caught by catch.
 // task is the task to evaluate.
-func toHnf(task *Task){
+func toHnf(task *Task, queue chan Task, bfs bool){
     
     // defer error handler
     defer errorHandler(task)
@@ -279,7 +279,7 @@ func toHnf(task *Task){
                     task.control = task.control.Children[0]
                     
                     // change task on bfs
-                    if(use_bfs){
+                    if(bfs){
                         queue <- *task
                         *task = <- queue
                     }
@@ -562,7 +562,7 @@ func singleRoutineSearch(){
     // loop until done
     for{
         // perform evaluation to hnf
-        toHnf(&task)
+        toHnf(&task, queue, use_bfs)
         
         // write result if one was computed
         if (!task.control.IsExempt()){
@@ -585,7 +585,7 @@ func singleRoutineSearch(){
 // task is the task to evaluate.
 func fsRoutine(task Task){
     // perform evaluation to hnf
-    toHnf(&task)
+    toHnf(&task, queue, use_bfs)
         
     // write result if one was computed
     if(!task.control.IsExempt()){
@@ -659,7 +659,7 @@ func errorHandler(task *Task){
                 
                 // set first argument of catch to error
                 task.control.SetChild(0, ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err.(string))))
-                toHnf(task)
+                toHnf(task, queue, use_bfs)
                 return
             }
         }

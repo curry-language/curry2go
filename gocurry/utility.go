@@ -812,7 +812,19 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     return node, false
 }
 
-////// Methods on tasks
+////// Functions for tasks tasks
+
+func CreateTask(control *Node, id int)*Task{
+    task := new(Task)
+    task.id = id
+    task.control = control
+    task.fingerprint = make(map[int]int)
+    return task
+}
+
+func EvaluateTask(task *Task, queue chan Task){
+    toHnf(task, queue, false)
+}
 
 func (task *Task) GetId() int{
     return task.id
