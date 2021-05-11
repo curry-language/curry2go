@@ -1,10 +1,20 @@
 #!/bin/bash
-# Simple script to benchmark curry2go
+# Simple script to benchmark the Curry2Go compiler
 
+######### BENCHMARKING OPTIONS #########################################
 # Number of iterations:
 ITER=3
 # Output in CSV format?
 CSV=yes
+
+########################################################################
+ROOT=`pwd`/..
+
+# set CURRYPATH for the compiler:
+CURRYPATH=$ROOT/lib
+export CURRYPATH
+
+CURRY2GOC=$ROOT/bin/curry2goc
 
 # delete old files to ensure new compilation
 #rm -rf .curry
@@ -31,7 +41,7 @@ run_benchmarks() {
         else
           echo "Running benchmark: $FILE"
         fi
-        RESULT=$(curry2go --time=$ITER -r $STRAT $FILE | tail -1)
+        RESULT=$($CURRY2GOC --time=$ITER -r $STRAT $FILE | tail -1)
         if [ $CSV = yes ] ; then
           RESULT=${RESULT#Average time: }
           RESULT=${RESULT%s}
