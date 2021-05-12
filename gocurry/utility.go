@@ -7,7 +7,6 @@ import "regexp"
 import "runtime"
 import "strings"
 import "strconv"
-import "text/scanner"
 import "go/parser"
 import "go/token"
 import "go/ast"
@@ -253,67 +252,117 @@ func ReadUQTerm(root *Node, term string, modules []string)(*Node, *Node){
         }
     }
     
-    // create scanner for term
-    var s scanner.Scanner
-    s.Init(strings.NewReader(term))
-    s.Error = func(s *scanner.Scanner, msg string){}
-    s.Mode |= scanner.ScanFloats | scanner.ScanChars | scanner.ScanStrings
-    
-    // scan term
-    var tokenList []mToken
-    for tok := s.Scan(); tok != scanner.EOF; tok = s.Scan(){
-        tokenList = append(tokenList, mToken{tok, s.TokenText()})
-    }
     
     // parse term
-    node, offset := ParseTokens(root, tokenList, constructors)
-    retString := ""
+    node, offset := ParseTerm(root, []rune(term), constructors)
     
-    if(offset + 1 < len(tokenList)){
-        for i := offset + 1; i < len(tokenList); i++{
-            retString += " " + tokenList[i].name
-        }
-        
-        if(node == nil){
-            panic("Could not parse term: " + retString)
-        }
-    }
+    // create rest string
+    retString := term[offset+1:]
     
     // return result
     return node, StringCreate(root.NewNode(), retString)
 }
 
+func isWhitespace(r rune) bool{
+    return (r == ' ' || r == '\t' || r == '\n' || r == '\r')
+}
 
 // Parses a list of tokens.
-func ParseTokens(root *Node, tokenList []mToken, constructors [][]string)(*Node, int){
-    tok := tokenList[0]   
-    switch tok.token{
-    case scanner.Int:
-        value, err := strconv.Atoi(tok.name)
-        if(err != nil){
-            panic(err.Error())
+func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
+    // remove leading whitespace
+    if(isWhitespace(term[0])){
+        start := 1
+        
+        for ; start < len(term); start++{
+            if(!isWhitespace(term[start])){
+                break
+            }
         }
         
-        return IntLitCreate(root, value), 0
-    case scanner.Float:
-        value, err := strconv.ParseFloat(tok.name, 64)
-        if(err != nil){
-            panic(err.Error())
-        }
-        
-        return FloatLitCreate(root, value), 0
-    case scanner.Char:
-        char,_ := ParseChar([]rune(tok.name))
-        return CharLitCreate(root, char), 0
-    case scanner.String:
-        return StringCreate(root, ParseString(strings.Trim(tok.name, "\""))), 0
-    case '[':
-        return ParseList(root, tokenList[1:], constructors)
-    case '(':
-        return ParseTupel(root, tokenList[1:], constructors)
-    default:
-        return ParseConstructor(root, tokenList, constructors)
+        term = term[start:]
     }
+    
+    // parse numbers
+    if(unicode.IsDigit(term[0])){
+        return ParseNumber(root, term)
+    }
+    
+    // parse character literals
+    if(term[0] == '\''){
+        end := 1
+        for ; end < len(term); end++{
+            if(term[end] == '\''){
+                break
+            }
+        }
+        
+        char, _ := ParseChar(term[1:end])
+        return CharLitCreate(root, char), end
+    }
+    
+    // parse string literals
+    if(term[0] == '"'){
+        end := 1
+        for ; end < len(term); end++{
+            if(term[end] == '"'){
+                break
+            }
+        }
+        
+        return StringCreate(root, string(term[1: end])), end
+    }
+    
+    // parse lists
+    if(term[0] == '['){
+        return ParseList(root, term, constructors)
+    }
+    
+    // parse tupels
+    if(term[0] == '('){
+        return ParseTupel(root, term, constructors)
+    }
+    
+    // parse constructors
+    return ParseConstructor(root, term, constructors)
+}
+
+func ParseNumber(root *Node, term []rune)(*Node, int){
+    isFloat := false
+    end := 1
+    for ; end < len(term); end++{
+        // read until the digits end
+        if(!unicode.IsDigit(term[end])){
+            if(!isFloat){
+                // test if float
+                if(term[end] == '.'){
+                    isFloat = true
+                    continue
+                }
+            }
+            
+            break
+        }
+    }
+    
+    // return float
+    if(isFloat){
+        num, err := strconv.ParseFloat(string(term[:end]), 64)
+            
+        if(err != nil){
+            panic(err.Error())
+        }
+        
+        return FloatLitCreate(root, num), end-1
+    }
+    
+    // return int
+    num, err := strconv.Atoi(string(term[:end]))
+                
+    if(err != nil){
+        panic(err.Error())
+    }
+    
+    return IntLitCreate(root, num), end-1
 }
 
 func ParseString(str string)(result string){
@@ -457,59 +506,70 @@ func ParseChar(char []rune) (rune, int){
     panic("Cannot parse char: " + string(char))
 }
 
-func ParseConstructor(root *Node, tokenList []mToken, constructors [][]string)(*Node, int){    
-    // search for constructor
-    constructor_num := FindConstructor(tokenList[0].name, constructors)
+func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, int){
+    isTerminal := func(r rune)(bool){
+        return(r == ')' || r == ']' || r == ',')
+    }
     
-    // return nil on invalid constructor
-    if(constructor_num < 0){
-        return nil, 0
+    // parse root constructor
+    end := 0
+    for ; end < len(term); end++{
+        if(isWhitespace(term[end]) || isTerminal(term[end])){
+            break
+        }
+    }
+    
+    name := string(term[0:end])
+    number := FindConstructor(name, constructors)
+    
+    if(number < 0){
+        panic("Could not parse constructor: " + name)
     }
     
     // parse children
-    isTerminal := func (tok rune)(bool){
-        return tok == ')' || tok == ']' || tok == ','
-    }
     var children []*Node
-    
-    i := 1
-    loop:
-    for ; i < len(tokenList); i++{
-        // break on terminal
-        if(isTerminal(tokenList[i].token)){
+    for ; end < len(term); end++{
+        // ignore whitespace
+        if(isWhitespace(term[end])){
+            continue
+        }
+        
+        // break on terminals
+        if(isTerminal(term[end])){
             break
         }
         
-        // test for 0 arity constructors
-        switch tokenList[i].token{
-        case '(', '[', scanner.String, scanner.Char, scanner.Int, scanner.Float:
-            // get next child
-            child, offset := ParseTokens(root.NewNode(), tokenList[i:], constructors)
-            
-            if(child == nil){
-                break loop
-            }
-            
-            children = append(children, child)
-            i += offset
-        default:
-            // find constructor
-            number := FindConstructor(tokenList[i].name, constructors)
-            
-            // break on invalid constructor
-            if(number < 0){
-                break loop
-            }
-            
-            // create constructor and add to children
-            child := ConstCreate(root.NewNode(), number, 0, &tokenList[i].name)
-            children = append(children, child)
+        // parse non constructors
+        if(term[end] == '(' || term[end] == '[' || term[end] == '"' || term[end] == '\'' || unicode.IsDigit(term[end])){
+            child, offset := ParseTerm(root.NewNode(), term[end:], constructors)
+            children= append(children, child)
+            end += offset
+            continue
         }
+        
+        // parse constructor
+        const_end := end
+        for ; const_end < len(term); const_end++{
+            if(isWhitespace(term[const_end])){
+                break
+            }
+        }
+        const_name := string(term[end:const_end])
+        const_number := FindConstructor(const_name, constructors)
+        
+        if(const_number < 0){
+            panic("Could not parse constructor: " + const_name)
+        }
+        
+        children = append(children, ConstCreate(root.NewNode(), const_number, 0, &const_name))
+        
+        end = const_end
     }
     
-    // create constructor node
-    ConstCreate(root, constructor_num, len(children), &tokenList[0].name, children...)
-    return root, (i - 1)
+    // create root constructor
+    ConstCreate(root, number, len(children), &name, children...)
+    
+    return root, end - 1
 }
 
 func FindConstructor(name string, constructors [][]string)(int){
@@ -527,25 +587,31 @@ func FindConstructor(name string, constructors [][]string)(int){
     return -1
 }
 
-func ParseList(root *Node, tokenList []mToken, constructors [][]string)(*Node, int){
+func ParseList(root *Node, term []rune, constructors [][]string)(*Node, int){
     // parse list
     var elemList []*Node
-    i := 0
-    for ; i < len(tokenList); i++{
-        // break on terminal
-        if(tokenList[i].token == ']'){
+    end := 1
+    for i:= 1; i < len(term); i++{
+        // break on ']'
+        if(term[i] == ']'){
+            end = i
             break
         }
         
-        // continue on ','
-        if(tokenList[i].token == ','){
+        // ignore','
+        if(term[i] == ','){
             continue
         }
         
-        // get next element
-        elem, offset := ParseTokens(root.NewNode(), tokenList[i:], constructors)
+        // ignore whitespace
+        if(isWhitespace(term[i])){
+            continue
+        }
         
+        elem, offset := ParseTerm(root.NewNode(), term[i:], constructors)
+            
         if(elem == nil){
+            end = i
             break
         }
         
@@ -555,7 +621,7 @@ func ParseList(root *Node, tokenList []mToken, constructors [][]string)(*Node, i
     
     // return empty list
     if(len(elemList) == 0){
-        return ConstCreate(root, 0, 0, &runtime_names[3]), (i + 1)
+        return ConstCreate(root, 0, 0, &runtime_names[3]), end
     }
     
     // start list on root
@@ -570,53 +636,58 @@ func ParseList(root *Node, tokenList []mToken, constructors [][]string)(*Node, i
     
     // finish and return list
     ConstCreate(node, 0, 0, &runtime_names[3])
-    return root, (i + 1)
+    return root, end
 }
 
 
-func ParseTupel(root *Node, tokenList []mToken, constructors [][]string)(*Node, int){
+func ParseTupel(root *Node, term []rune, constructors [][]string)(*Node, int){
     // parse tupel
     name := "("
     var elemList []*Node
-    i := 0
-    for  ;i < len(tokenList); i++{
-        // break on terminal
-        if(tokenList[i].token == ')'){
-            break        
+    end := 1
+    for i := 1; i < len(term); i++{
+        // break on ')'
+        if(term[i] == ')'){
+            end = i
+            break
         }
         
-        // continue on ','
-        if(tokenList[i].token == ','){
+        // ignore ','
+        if(term[i] == ','){
             continue
         }
         
-        // get next element
-        elem, offset := ParseTokens(root.NewNode(), tokenList[i:], constructors)
+        // ignore whitespace
+        if(isWhitespace(term[i])){
+            continue
+        }
+        
+        elem, offset := ParseTerm(root.NewNode(), term[i:], constructors)
         
         if(elem == nil){
+            end = i
             break
         }
         
         elemList = append(elemList, elem)
-        i += offset
-        
         name += ","
+        i += offset
     }
     name += ")"
     
     // return empty tupel
     if(len(elemList) == 0){
-        return ConstCreate(root, 0, 0, &name), (i + 1)
+        return ConstCreate(root, 0, 0, &name), end
     }
     
     // return one element tupel as the element itself
     if(len(elemList) == 1){
         *root = *elemList[0]
-        return root, (i + 1)
+        return root, end
     }
     
     // return tupel
-    return ConstCreate(root, 0, 0, &name, elemList...), (i + 1)
+    return ConstCreate(root, 0, 0, &name, elemList...), end
 }
 
 // Sets root to an IntLiteral with the
