@@ -550,7 +550,7 @@ func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, i
         // parse constructor
         const_end := end
         for ; const_end < len(term); const_end++{
-            if(isWhitespace(term[const_end])){
+            if(isWhitespace(term[const_end]) || isTerminal(term[const_end])){
                 break
             }
         }
@@ -563,7 +563,7 @@ func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, i
         
         children = append(children, ConstCreate(root.NewNode(), const_number, 0, &const_name))
         
-        end = const_end
+        end = const_end - 1
     }
     
     // create root constructor
