@@ -8,8 +8,8 @@ and run-time system to compile and run Curry programs as Go programs.
 Installation:
 -------------
 
-An installation of Go is necessary, which can be downloaded
-from <https://golang.org/>.
+An installation of Go (version 1.13 or newer) is necessary,
+which can be downloaded from <https://golang.org/>.
 
 Since the Curry2Go compiler is implemented in Curry,
 you need another Curry compiler for the initial
