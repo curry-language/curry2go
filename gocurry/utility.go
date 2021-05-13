@@ -199,13 +199,6 @@ func ReadList(root *Node)(result []*Node){
     }
 }
 
-// Structure to save token data
-// for parsing functions.
-type mToken struct{
-    token rune
-    name string
-}
-
 // Reads an unqualified term.
 // root is the root node of the read term.
 // term is the term to be read.
@@ -267,7 +260,7 @@ func isWhitespace(r rune) bool{
     return (r == ' ' || r == '\t' || r == '\n' || r == '\r')
 }
 
-// Parses a list of tokens.
+// Parses a term.
 func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
     // remove leading whitespace
     if(isWhitespace(term[0])){
