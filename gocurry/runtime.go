@@ -97,18 +97,6 @@ func nextFree() *string{
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError"}
 
-// flag indicating whether or not to use bfs
-var use_bfs = false
-
-// channel to queue tasks
-var queue chan Task
-
-// channel to pass results
-var result_chan chan *Node
-
-// channel to signal end of search
-var done_chan chan bool
-
 ////// Task evaluation functions
 
 // Evaluates a task to head-normalform.
@@ -119,7 +107,7 @@ var done_chan chan bool
 func toHnf(task *Task, queue chan Task, bfs bool){
     
     // defer error handler
-    defer errorHandler(task)
+    defer errorHandler(task, queue, bfs)
     
     for{
         // lock control node
@@ -488,9 +476,9 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
     freeCount = make(chan int, 1)
     freeCount <- 0
     
-    queue = make(chan Task, 1000000)
-    result_chan = make(chan *Node, 0)
-    done_chan = make(chan bool, 0)
+    queue := make(chan Task, 1000000) // queue for tasks
+    result_chan := make(chan *Node, 0) // channel receiving results of search
+    done_chan := make(chan bool, 0) // channel signaling end of search
 
     // create a task for the root node
     var first_task Task
@@ -507,12 +495,11 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
     // call function implementing the search strategy
     switch search_strat{
     case DFS:
-        go singleRoutineSearch()
+        go singleRoutineSearch(queue, result_chan, false)
     case BFS:
-        use_bfs = true
-        go singleRoutineSearch()
+        go singleRoutineSearch(queue, result_chan, true)
     case FS:
-        go fsTaskHandler(max_tasks)
+        go fsTaskHandler(queue, result_chan, done_chan, max_tasks)
     }
 
     // loop until done
@@ -555,14 +542,14 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
 
 // Evaluation loop for a search-strategies executing
 // in a single routine.
-func singleRoutineSearch(){
+func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
     // set first task as current task
     task := <- queue
 
     // loop until done
     for{
         // perform evaluation to hnf
-        toHnf(&task, queue, use_bfs)
+        toHnf(&task, queue, bfs)
         
         // write result if one was computed
         if (!task.control.IsExempt()){
@@ -583,9 +570,9 @@ func singleRoutineSearch(){
 
 // Handles the evaluation of a task in a fair search.
 // task is the task to evaluate.
-func fsRoutine(task Task){
+func fsRoutine(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
     // perform evaluation to hnf
-    toHnf(&task, queue, use_bfs)
+    toHnf(&task, queue, false)
         
     // write result if one was computed
     if(!task.control.IsExempt()){
@@ -603,7 +590,7 @@ func fsRoutine(task Task){
 // reached yet.
 // max_tasks is the maximum number of task that
 // can be evaluated concurrently.
-func fsTaskHandler(max_tasks int){
+func fsTaskHandler(queue chan Task, result_chan chan *Node, done_chan chan bool, max_tasks int){
     // number of tasks currently in use
     used_tasks := 0
 
@@ -615,19 +602,19 @@ func fsTaskHandler(max_tasks int){
             // if the max number of tasks is running, wait till one finishes
             if(max_tasks != 0 && used_tasks == max_tasks){
                 <- done_chan
-                go fsRoutine(t)
+                go fsRoutine(t, queue, result_chan, done_chan)
                 continue
             }
 
             // start a new task
             used_tasks += 1
-            go fsRoutine(t)
+            go fsRoutine(t, queue, result_chan, done_chan)
         case <- done_chan:
             // test if the queue is really empty
             select{
             case t := <- queue:
                 // start a new task
-                go fsRoutine(t)
+                go fsRoutine(t, queue, result_chan, done_chan)
                 continue
             default:
                 // delete task
@@ -646,7 +633,7 @@ func fsTaskHandler(max_tasks int){
 ////// Declarations of other helpful functions
 
 // Handles panics thrown by prim_error
-func errorHandler(task *Task){
+func errorHandler(task *Task, queue chan Task, bfs bool){
     // get error
     if err := recover(); err != nil{
         // test for catch call in stack
@@ -659,7 +646,7 @@ func errorHandler(task *Task){
                 
                 // set first argument of catch to error
                 task.control.SetChild(0, ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err.(string))))
-                toHnf(task, queue, use_bfs)
+                toHnf(task, queue, bfs)
                 return
             }
         }
