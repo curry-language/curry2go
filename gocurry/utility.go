@@ -295,6 +295,11 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
                 break
             }
         }
+        if(end < len(term)){
+            if(term[end + 1] == '\''){
+                end += 1
+            }
+        }
         
         char, _ := ParseChar(term[1:end])
         return CharLitCreate(root, char), end
@@ -401,15 +406,6 @@ func ParseString(str string)(result string){
 }
 
 func ParseChar(char []rune) (rune, int){
-    // delete leading and trailing quotes
-    if(char[0] == '\''){
-        char = char[1:]
-    }
-    
-    if(char[len(char) - 1] == '\''){
-        char = char[:len(char) - 1]
-    }
-    
     // return single rune
     if(len(char) == 1){
         return char[0], 1
