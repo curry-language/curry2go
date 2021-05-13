@@ -914,8 +914,10 @@ func CreateTask(control *Node, id int)*Task{
     return task
 }
 
-func EvaluateTask(task *Task, queue chan Task){
-    toHnf(task, queue, false)
+func EvaluateTask(task *Task, queue chan Task, result_chan chan *Node){
+    queue <- *task
+    done_chan := make(chan bool, 0)
+    go fsTaskHandler(queue, result_chan, done_chan, 0)
 }
 
 func (task *Task) GetId() int{
