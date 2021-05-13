@@ -34,12 +34,10 @@ RM=/bin/rm
 # The Go implementation of the base module Curry.Compiler.Distribution
 COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
 
-# The root of the Curry system used to install this package
-CURRYSYSTEMROOT = $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)
-
 # Install the Curry2Go system (compiler and REPL) with CURRYSYSTEM
-install: checkcurrysystem scripts runtime
+install: checkcurrysystem runtime
 	$(CPM) install --noexec
+	$(MAKE) scripts
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
@@ -101,6 +99,9 @@ runtime:
 	$(RM) -rf $(GOWORKSPACE)
 	mkdir -p $(GOWORKSPACE)
 	cp -r gocurry $(GOWORKSPACE)/gocurry
+
+# The root of the Curry system used to install this package
+CURRYSYSTEMROOT = $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)
 
 # install scripts in the bin directory:
 .PHONY: scripts
