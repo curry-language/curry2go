@@ -100,9 +100,6 @@ runtime:
 	mkdir -p $(GOWORKSPACE)
 	cp -r gocurry $(GOWORKSPACE)/gocurry
 
-# The root of the Curry system used to install this package
-CURRYSYSTEMROOT = $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)
-
 # install scripts in the bin directory:
 .PHONY: scripts
 scripts:
@@ -110,8 +107,9 @@ scripts:
 	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
 	# add alias `curry`:
 	cd $(BINDIR) && ln -s curry2go curry
-	# add alias for frontend:
-	ln -s $(CURRYSYSTEMROOT)/bin/*-frontend bin/curry2go-frontend
+	# add alias for frontend to the frontend of the Curry system
+	# used to install this package:
+	ln -s $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
 
 # remove scripts in the bin directory:
 .PHONY: cleanscripts
