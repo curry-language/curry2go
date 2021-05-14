@@ -250,7 +250,7 @@ func ReadUQTerm(root *Node, term string, modules []string)(*Node, *Node){
     node, offset := ParseTerm(root, []rune(term), constructors)
     
     // create rest string
-    retString := term[offset+1:]
+    retString := string([]rune(term)[offset+1:])
     
     // return result
     return node, StringCreate(root.NewNode(), retString)
@@ -300,18 +300,43 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
     
     // parse string literals
     if(term[0] == '"'){
-        end := 1
-        for ; end < len(term); end++{
-            if(term[end] == '"'){
-                // ignore escaped quotes
-                if(term[end-1] == '\\'){
+        result := ""
+        end := 0
+        for i := 1; i < len(term); i++{
+            // check for escape sequences
+            if(term[i] == '\\'){
+                if(unicode.IsDigit(term[i+1])){
+                    num_end := i + 1
+                    for u := i + 1; u < len(term); u++{
+                        if(unicode.IsDigit(term[u])){
+                            num_end = u
+                        } else{
+                            break
+                        }
+                    }
+                    
+                    number, _ :=  strconv.Atoi(string(term[i+1:num_end+1]))
+                    result += string(rune(number))
+                    i = num_end
                     continue
                 }
+                
+                char, l := ParseChar(term[i:i+5])
+                result += string(char)
+                i += l - 1
+                continue
+            }
+            
+            // end on '"'
+            if(term[i] == '"'){
+                end = i
                 break
             }
+            
+            result += string(term[i])
         }
         
-        return StringCreate(root, ParseString(string(term[1: end]))), end
+        return StringCreate(root, result), end
     }
     
     // parse lists
