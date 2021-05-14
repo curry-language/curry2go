@@ -121,6 +121,7 @@ cleanscripts:
 .PHONY: clean
 clean:
 	$(CPM) clean
+	$(CPMC2G) clean
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
 
 # clean all installed components
