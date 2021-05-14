@@ -8,8 +8,16 @@ and run-time system to compile and run Curry programs as Go programs.
 Installation:
 -------------
 
-An installation of Go (version 1.13 or newer) is necessary,
+An installation of Go (version 1.13 to 1.16) is necessary,
 which can be downloaded from <https://golang.org/>.
+The environment variable `GO111MODULE` has to be
+either `auto` (default in versions 1.13 to 1.15) or `off`,
+because the Curry2Go compiler uses the GOPATH build mode.
+With version 1.16 the variable defaults to `on` and
+has to be set manually, which can be done with:
+
+    > go env -w GO111MODULE=auto
+
 
 Since the Curry2Go compiler is implemented in Curry,
 you need another Curry compiler for the initial
