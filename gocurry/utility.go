@@ -21,7 +21,6 @@ import "unicode"
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, num_args int, name *string, args ...*Node)(*Node){
-    root.number_args = 0
     root.Children = root.Children[:0]
     root.int_value = constructor
     root.name = name
@@ -39,7 +38,6 @@ func ConstCreate(root *Node, constructor, num_args int, name *string, args ...*N
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name *string, number_args int, demanded_args int, args ...*Node)(*Node){
-    root.number_args = 0
     root.Children = root.Children[:0]
     root.function = function
     root.number_args = number_args
