@@ -303,11 +303,15 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
         end := 1
         for ; end < len(term); end++{
             if(term[end] == '"'){
+                // ignore escaped quotes
+                if(term[end-1] == '\\'){
+                    continue
+                }
                 break
             }
         }
         
-        return StringCreate(root, string(term[1: end])), end
+        return StringCreate(root, ParseString(string(term[1: end]))), end
     }
     
     // parse lists
@@ -410,7 +414,7 @@ func ParseChar(char []rune) (rune, int){
         if(unicode.IsDigit(char[1])){
             i, err := strconv.Atoi(string(char[1:]))
             if(err != nil){
-                panic("Error parsing char: " + err.Error())
+                panic("Error parsing char: '" + string(char)  + "' " + err.Error())
             }
             
             return rune(i), len(char)
@@ -436,6 +440,8 @@ func ParseChar(char []rune) (rune, int){
             return '\v', 2
         case strings.HasPrefix(str, "'"):
             return '\'', 2
+        case strings.HasPrefix(str, "\""):
+            return '"', 2
         case strings.HasPrefix(str, "NUL"):
             return 0, 4
         case strings.HasPrefix(str, "SOH"):
@@ -492,7 +498,7 @@ func ParseChar(char []rune) (rune, int){
     }
     
     // throw error
-    panic("Cannot parse char: " + string(char))
+    panic("Cannot parse char: '" + string(char) + "'")
 }
 
 func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, int){
