@@ -744,6 +744,25 @@ func GoMinVer(root *Node){
     }
 }
 
+func DeepCopy(node *Node)*Node{
+    new_node := new(Node)
+    
+    for i := range(node.Children){
+        new_child := DeepCopy(node.Children[i])
+        new_node.Children = append(new_node.Children, new_child)
+    }
+    
+    new_node.node_type = node.node_type
+    new_node.int_value = node.int_value
+    new_node.float_literal = node.float_literal
+    new_node.char_literal = node.char_literal
+    new_node.function = node.function
+    new_node.number_args = node.number_args
+    new_node.name = node.name
+    new_node.ot = node.ot
+    return new_node
+}
+
 ////// Methods on nodes
 
 func (node *Node) NewNode() *Node{
