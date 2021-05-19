@@ -84,3 +84,23 @@ func ExternalControl_Findall_isFail(task *gocurry.Task){
         Prelude.Prelude__CREATE_True(root)
     }
 }
+
+func ExternalControl_Findall_try(task *gocurry.Task){
+    panic("Control.Findall.try: not yet implemented")
+}
+
+func ExternalControl_Findall_findall(task *gocurry.Task){
+    panic("Control.Findall.findall: not yet implemented")
+}
+
+func ExternalControl_Findall_findfirst(task *gocurry.Task){
+    panic("Control.Findall.findfirst: not yet implemented")
+}
+
+func ExternalControl_Findall_rewriteAll(task *gocurry.Task){
+    panic("Control.Findall.rewriteAll: not yet implemented")
+}
+
+func ExternalControl_Findall_rewriteSome(task *gocurry.Task){
+    panic("Control.Findall.rewriteSome: not yet implemented")
+}
