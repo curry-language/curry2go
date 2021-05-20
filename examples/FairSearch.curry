@@ -9,6 +9,5 @@ f n = loop n ? n ? loop n
   loop n = loop (S n)
 
 main = f O
--- DFS: no result
--- BFS: one result, try: curry2goc -r -i --bfs FairSearch
+-- DFS or BFS: no result
 -- FS : one result, try: curry2goc -r -i --fs FairSearch
