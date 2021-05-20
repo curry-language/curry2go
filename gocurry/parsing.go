@@ -110,7 +110,7 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
     
     // parse string literals
     if(term[0] == '"'){
-        result := ""
+        var builder strings.Builder
         end := 0
         for i := 1; i < len(term); i++{
             // check for escape sequences
@@ -129,14 +129,14 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
                     
                     // parse number
                     number, _ :=  strconv.Atoi(string(term[i+1:num_end+1]))
-                    result += string(rune(number))
+                    builder.WriteRune(rune(number))
                     i = num_end
                     continue
                 }
                 
                 // handle escaped text
                 char, l := ParseChar(term[i:i+5])
-                result += string(char)
+                builder.WriteRune(char)
                 i += l - 1
                 continue
             }
@@ -148,10 +148,10 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
             }
             
             // add char to result
-            result += string(term[i])
+            builder.WriteRune(term[i])
         }
         
-        return StringCreate(root, result), end
+        return StringCreate(root, builder.String()), end
     }
     
     // parse lists
@@ -307,9 +307,10 @@ func ParseChar(char []rune) (rune, int){
     panic("Cannot parse char: '" + string(char) + "'")
 }
 
-func ParseString(str string)(result string){
+func ParseString(str string)(string){
     runes := []rune(str)
     
+    var builder strings.Builder
     for i := 0; i < len(runes); i++{
         // check for escape sequences
         if(runes[i] == '\\'){
@@ -327,23 +328,23 @@ func ParseString(str string)(result string){
     
                 // parse number
                 number, _ :=  strconv.Atoi(string(runes[i+1:end+1]))
-                result += string(rune(number))
+                builder.WriteRune(rune(number))
                 i = end
                 continue
             }
             
             // handle escaped text
             char, l := ParseChar(runes[i:i+5])
-            result += string(char)
+            builder.WriteRune(char)
             i += l - 1
             continue
         }
         
         // add rune to result
-        result += string(runes[i])
+        builder.WriteRune(runes[i])
     }
 
-    return
+    return builder.String()
 }
 
 func ParseList(root *Node, term []rune, constructors [][]string)(*Node, int){

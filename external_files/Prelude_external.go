@@ -13,6 +13,11 @@ func ExternalPrelude_ensureNotFree(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
+    if(!x1.IsHnf()){
+        task.ToHnf(x1)
+        return
+    }
+    
     if(x1.IsFree()){
         if(task.IsBound(x1)){
             task.ToHnf(x1)

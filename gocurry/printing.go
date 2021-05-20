@@ -3,6 +3,7 @@ package gocurry
 import "fmt"
 import "regexp"
 import "strconv"
+import "strings"
 
 ////// Print functions
 
@@ -16,7 +17,21 @@ func PrintResult(node *Node) {
 
 // Turns a node and all its children into
 // a string in standard prefix notation.
-func ShowResult(node *Node)(result string){
+func ShowResult(node *Node) string{
+    builder := new(strings.Builder)
+    showResult(node, builder)
+    return builder.String()
+}
+
+// Returns a string representation of a curry string.
+// node is the entry to the representation of Curry's character list.
+func ShowString(node *Node) string{
+    builder := new(strings.Builder)
+    showString(node, builder)
+    return builder.String()
+}
+
+func showResult(node *Node, builder *strings.Builder){
     
     // test if node is a constructor
     if(node.IsConst()){
@@ -25,10 +40,10 @@ func ShowResult(node *Node)(result string){
             // only show child if its not ()
             if(node.GetChild(0).IsConst()){
                 if(node.GetChild(0).GetName() != "()"){
-                    result = ShowResult(node.GetChild(0))
+                    showResult(node.GetChild(0), builder)
                 }
             } else {
-                result = ShowResult(node.GetChild(0))
+                showResult(node.GetChild(0), builder)
             }
             return
         }
@@ -39,12 +54,16 @@ func ShowResult(node *Node)(result string){
             // test if the list is a string
             if(node.GetChild(0).IsCharLit()){
                 // show string
-                result = "\"" + ShowString(node) + "\""
+                builder.WriteByte('"')
+                showString(node, builder)
+                builder.WriteByte('"')
                 return
             }
 
             // show list
-            result = "[" + showList(node) + "]"
+            builder.WriteByte('[')
+            showList(node, builder)
+            builder.WriteByte(']')
             return
         }
 
@@ -54,47 +73,49 @@ func ShowResult(node *Node)(result string){
         if(isTupel){
             // show empty tupel
             if(len(node.Children) == 0){
-                result = "()"
+                builder.WriteString("()")
                 return
             }
             
             // show tupel elements
-            result = "(" + ShowResult(node.Children[0])
+            builder.WriteByte('(')
+            showResult(node.Children[0], builder)
             for i := 1; i < len(node.Children); i++{
-                result += ", " + ShowResult(node.Children[i])
+                builder.WriteString(", ")
+                showResult(node.Children[i], builder)
             }
-            result += ")"
+            builder.WriteByte(')')
             return
         }
     }
     
     // show node
-    result = showNode(node)
+    builder.WriteString(showNode(node))
 
     // show children of node
     for i := 0; i < len(node.Children); i++ {
-        result += " "
+        builder.WriteByte(' ')
         if(len(node.Children[i].Children) > 0){
-            result += "(" + ShowResult(node.Children[i]) + ")"
+            builder.WriteByte('(')
+            showResult(node.Children[i], builder)
+            builder.WriteByte(')')
         } else{
-            result += ShowResult(node.Children[i])
+            showResult(node.Children[i], builder)
         }
     }
     return
 }
 
-// Returns a string representation of a curry string.
-// node is the entry to the representation of Curry's character list.
-func ShowString(node *Node)(result string){
+func showString(node *Node, builder *strings.Builder){
     
     // get character
     char := node.GetChild(0).GetChar()
     if(char == 34){
-        result = "\\\""
+        builder.WriteString("\\\"")
     } else if(char == 39){
-        result = "'"
+        builder.WriteByte('\'')
     } else{
-        result = ShowChar(node.GetChild(0).GetChar())
+        builder.WriteString(ShowChar(node.GetChild(0).GetChar()))
     }
     
     // end string on '[]' constructor
@@ -103,16 +124,16 @@ func ShowString(node *Node)(result string){
     }
     
     // continue with next character
-    result += ShowString(node.GetChild(1))
+    showString(node.GetChild(1), builder)
     return
 }
 
 // Returns a string representation of a curry list.
 // node is the entry to the curry list.
-func showList(node *Node)(result string){
+func showList(node *Node, builder *strings.Builder){
 
     // get string representation of the element
-    result = ShowResult(node.GetChild(0))
+    showResult(node.GetChild(0), builder)
 
     // end list on '[]' constructor
     if(node.GetChild(1).GetName() == "[]"){
@@ -121,12 +142,14 @@ func showList(node *Node)(result string){
     
     // handle not fully evaluated lists
     if(node.GetChild(1).GetName() != ":"){
-        result += ", " + ShowResult(node.GetChild(1))
+        builder.WriteString(", ")
+        showResult(node.GetChild(1), builder)
         return
     }
 
     // continue with next element
-    result += ", " + showList(node.GetChild(1))
+    builder.WriteString(", ")
+    showList(node.GetChild(1), builder)
     return
 }
 
