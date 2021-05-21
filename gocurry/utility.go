@@ -10,17 +10,17 @@ import "time"
 ////// Functions to create specific types of nodes
 
 // Sets root to a constructor node.
-// num_args is the number of arguments the constructor expects.
+// arity is the number of arguments the constructor expects.
 // constructor is the number given to the constructor by icurry.
 // name is the constructor name as a string for printing.
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
-func ConstCreate(root *Node, constructor, num_args int, name *string, args ...*Node)(*Node){
+func ConstCreate(root *Node, constructor, arity int, name *string, args ...*Node)(*Node){
     root.Children = root.Children[:0]
     root.int_value = constructor
     root.name = name
     root.Children = append(root.Children, args...)
-    root.number_args = num_args
+    root.arity = arity
     root.node_type = CONSTRUCTOR
     return root
 }
@@ -28,14 +28,14 @@ func ConstCreate(root *Node, constructor, num_args int, name *string, args ...*N
 // Sets root to a function node.
 // function is the function to be called when the node is evaluated.
 // name is the function name as a string for printing.
-// number_args are the total number of arguments the function expects.
+// arity are the total number of arguments the function expects.
 // demanded_args is a integers representing the position of an argument which have to be evaluated.
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
-func FuncCreate(root *Node, function func(*Task), name *string, number_args int, demanded_args int, args ...*Node)(*Node){
+func FuncCreate(root *Node, function func(*Task), name *string, arity int, demanded_args int, args ...*Node)(*Node){
     root.Children = root.Children[:0]
     root.function = function
-    root.number_args = number_args
+    root.arity = arity
     root.name = name
     root.Children = append(root.Children, args...)
     root.int_value = demanded_args
@@ -247,7 +247,7 @@ func DeepCopy(node *Node) *Node{
     new_node.float_literal = node.float_literal
     new_node.char_literal = node.char_literal
     new_node.function = node.function
-    new_node.number_args = node.number_args
+    new_node.arity = node.arity
     new_node.name = node.name
     new_node.ot = node.ot
     return new_node
@@ -322,8 +322,8 @@ func (node *Node) GetName() string{
     return *node.name
 }
 
-func (node *Node) GetNumArgs() int{
-    return node.number_args
+func (node *Node) GetArity() int{
+    return node.arity
 }
 
 func (node *Node) GetNumChildren() int{
@@ -401,7 +401,7 @@ func (node *Node) IsIntLit() bool{
 func (node *Node) IsPartial() bool{
     node.lock.Lock()
     if(node.node_type == FCALL || node.node_type == CONSTRUCTOR){
-        result := len(node.Children) < node.number_args
+        result := len(node.Children) < node.arity
         node.lock.Unlock()
         return result
     }
@@ -415,7 +415,7 @@ func (node *Node) IsRedirect() bool{
 
 func (node *Node) LockedIsPartial() bool{
     if(node.node_type == FCALL || node.node_type == CONSTRUCTOR){
-        return len(node.Children) < node.number_args
+        return len(node.Children) < node.arity
     }
     return false
 }

@@ -27,19 +27,19 @@ const(
     FS
 )
 
-// Struct representing a graphnode
+// Struct representing a graph node
 type Node struct{
-    Children []*Node 
-    node_type NodeType
+    Children []*Node       // successors of the node
+    node_type NodeType     // kind of node
     int_value int          // int_literal, constructor, demanded_arg, int_value
     float_literal float64
     char_literal rune
-    function func(*Task)
-    number_args int
-    name *string
-    lock sync.Mutex
-    tr map[int]*Node
-    ot int
+    function func(*Task)   // code of function nodes
+    arity int              // number of arguments expected by function/constr.
+    name *string           // reference to name of function/constructor
+    lock sync.Mutex        // lock for synchronisation in fair search
+    tr map[int]*Node       // task result map
+    ot int                 // identifier of owner task
 }
 
 // Struct representing an icurry task
@@ -99,7 +99,7 @@ var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOEr
 
 ////// Task evaluation functions
 
-// Evaluates a task to head-normalform.
+// Evaluates a task to head normal form.
 // Returns when the control node is an
 // exempt node or in hnf or an
 // error is caught by catch.
@@ -187,7 +187,7 @@ func toHnf(task *Task, queue chan Task, bfs bool){
         //printDebug(task.control, task)
         //fmt.Println("\n")
         
-        // evluate node depending on the node type
+        // evaluate node depending on the node type
         switch task.control.node_type {
         case FCALL:
             // test for partial function call
@@ -427,7 +427,7 @@ func toNf(task *Task){
     
     // save current constructor as function argument
     root.Children = append(root.Children, x1)
-    root.number_args = len(root.Children)
+    root.arity = len(root.Children)
 }
 
 // Helper function to evaluate all
@@ -512,7 +512,7 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
         // interactive mode
         if(interactive){
             // print question
-            fmt.Println("Find another result?(y|n)")
+            fmt.Print("More values? (y|n) ")
             
             // get answer
             for{
@@ -540,7 +540,7 @@ func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchSt
     }
 }
 
-// Evaluation loop for a search-strategies executing
+// Evaluation loop for a search strategy executing
 // in a single routine.
 func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
     // set first task as current task
@@ -570,7 +570,7 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
 
 // Handles the evaluation of a task in a fair search.
 // task is the task to evaluate.
-func fsRoutine(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
+func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
     // perform evaluation to hnf
     toHnf(&task, queue, false)
         
@@ -602,19 +602,19 @@ func fsTaskHandler(queue chan Task, result_chan chan *Node, done_chan chan bool,
             // if the max number of tasks is running, wait till one finishes
             if(max_tasks != 0 && used_tasks == max_tasks){
                 <- done_chan
-                go fsRoutine(t, queue, result_chan, done_chan)
+                go fsRunner(t, queue, result_chan, done_chan)
                 continue
             }
 
             // start a new task
             used_tasks += 1
-            go fsRoutine(t, queue, result_chan, done_chan)
+            go fsRunner(t, queue, result_chan, done_chan)
         case <- done_chan:
             // test if the queue is really empty
             select{
             case t := <- queue:
                 // start a new task
-                go fsRoutine(t, queue, result_chan, done_chan)
+                go fsRunner(t, queue, result_chan, done_chan)
                 continue
             default:
                 // delete task
@@ -734,7 +734,7 @@ func LockedCopyNode(node *Node, args ...*Node) *Node{
     new_node.char_literal = node.char_literal
     new_node.function = node.function
 
-    new_node.number_args = node.number_args
+    new_node.arity = node.arity
     new_node.name = node.name
     new_node.ot = node.ot
 
