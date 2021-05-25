@@ -77,11 +77,16 @@ isort (x:xs) = insert (isort xs)
 primeList :: [Int]
 primeList = [primes!!303, primes!!302, primes!!301, primes!!300]
 
-isort_primes :: [Int]
-isort_primes = isort primeList
+isort_primes4 :: [Int]
+isort_primes4 = isort primeList
 
-psort_primes :: [Int]
-psort_primes = psort primeList
+psort_primes4 :: [Int]
+psort_primes4 = psort primeList
 
 main :: [Int]
-main = psort_primes
+main = psort_primes4
+
+psort_primes8 :: [Int]
+psort_primes8 =
+  psort [primes!!307, primes!!306, primes!!305, primes!!304,
+         primes!!303, primes!!302, primes!!301, primes!!300]
