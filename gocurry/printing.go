@@ -96,6 +96,20 @@ func showResult(node *Node, builder *strings.Builder){
     for i := 0; i < len(node.Children); i++ {
         builder.WriteByte(' ')
         if(len(node.Children[i].Children) > 0){
+            // do not use parenthesis with lists and tupels
+            if(node.Children[i].IsConst()){
+                if(node.Children[i].GetName() == ":" || node.Children[i].GetName() == "[]"){
+                    showResult(node.Children[i], builder)
+                    continue
+                }
+                
+                isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.Children[i].GetName())
+                if(isTupel){
+                    showResult(node.Children[i], builder)
+                    continue
+                }
+            }
+        
             builder.WriteByte('(')
             showResult(node.Children[i], builder)
             builder.WriteByte(')')
