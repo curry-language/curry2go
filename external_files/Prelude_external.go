@@ -254,7 +254,7 @@ func unifChain(task *Task, root, x1, x2 *Node){
         Prelude__CREATE_And(node.Children[1], Prelude__CREATE_constrEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
         node = node.Children[1]                    
     }
-    Prelude__CREATE_constrEq(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+    Prelude__CREATE_constrEq(node.Children[1], x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1))
 }
 
 // Nonstrict unification (=:<=)
@@ -357,7 +357,7 @@ func nonstrictUnifChain(task *Task, root, x1, x2 *Node){
         Prelude__CREATE_And(node.Children[1], Prelude__CREATE_nonstrictEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
         node = node.Children[1]                    
     }
-    Prelude__CREATE_nonstrictEq(node.Children[1], x1.GetChild(x1.GetNumArgs() - 1), x2.GetChild(x1.GetNumArgs() - 1))
+    Prelude__CREATE_nonstrictEq(node.Children[1], x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1))
 }
 
 ////// Arithmetic on characters

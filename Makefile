@@ -34,6 +34,9 @@ RM=/bin/rm
 # The Go implementation of the base module Curry.Compiler.Distribution
 COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
 
+###############################################################################
+# installing
+
 # Install the Curry2Go system (compiler and REPL) with CURRYSYSTEM
 install: checkcurrysystem runtime
 	$(CPM) install --noexec
@@ -51,6 +54,7 @@ ifneq ($(shell test -x "$(CURRYSYSTEM)" ; echo $$?),0)
 	@exit 1
 endif
 
+# Build the compiler
 .PHONY: compiler
 compiler: checkcurrysystem $(COMPILER)
 
@@ -58,6 +62,7 @@ $(COMPILER): src/CompilerStructure.curry src/Curry2Go/Compiler.curry \
              src/Curry2Go/Main.curry src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 
+# Build the REPL
 .PHONY: repl
 repl: checkcurrysystem $(REPL)
 
@@ -111,6 +116,16 @@ scripts:
 	# used to install this package:
 	ln -s $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
 
+##############################################################################
+# testing
+
+.PHONY: runtest
+runtest:
+	cd examples && ./test.sh
+
+##############################################################################
+# cleaning
+
 # remove scripts in the bin directory:
 .PHONY: cleanscripts
 cleanscripts:
@@ -129,3 +144,4 @@ clean:
 cleanall: clean cleanscripts
 	$(RM) -rf $(BINDIR) $(GOWORKSPACE)
 
+##############################################################################
