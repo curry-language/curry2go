@@ -23,7 +23,7 @@ func evalToList(root *gocurry.Node, result_chan chan *gocurry.Node)(*gocurry.Nod
         if ok{
             Prelude.Prelude__CREATE_Col(root, node, evalToList(root.NewNode(), result_chan))
         } else{
-            Prelude.Prelude__CREATE_LbRb(root)
+            Prelude.Prelude__CREATE_LSbRSb(root)
         }
     }
     
@@ -83,18 +83,6 @@ func ExternalControl_Findall_isFail(task *gocurry.Task){
     } else{
         Prelude.Prelude__CREATE_True(root)
     }
-}
-
-func ExternalControl_Findall_try(task *gocurry.Task){
-    panic("Control.Findall.try: not yet implemented")
-}
-
-func ExternalControl_Findall_findall(task *gocurry.Task){
-    panic("Control.Findall.findall: not yet implemented")
-}
-
-func ExternalControl_Findall_findfirst(task *gocurry.Task){
-    panic("Control.Findall.findfirst: not yet implemented")
 }
 
 func ExternalControl_Findall_rewriteAll(task *gocurry.Task){
