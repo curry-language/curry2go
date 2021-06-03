@@ -334,7 +334,12 @@ func ParseString(str string)(string){
             }
             
             // handle escaped text
-            char, l := ParseChar(runes[i:i+5])
+            end := i + 5
+            if(end > len(runes)){
+                end = len(runes)
+            }
+            
+            char, l := ParseChar(runes[i:end])
             builder.WriteRune(char)
             i += l - 1
             continue

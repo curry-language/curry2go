@@ -13,7 +13,7 @@ module Curry2Go.Compiler
 
 import Control.Monad     ( when )
 import Data.Char         ( toUpper )
-import Data.List         ( union )
+import Data.List         ( union, init )
 
 import ICurry.Types
 import Language.Go.Show  ( showGoProg )
@@ -165,21 +165,25 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
     unionize (map getImportsCons branches)
   getImportsStat (ICaseLit _ branches)  =
     unionize (map getImportsLit branches)
-  getImportsCons (IConsBranch (m, _, _) _ block) = 
+  getImportsCons (IConsBranch (m, _, _) _ block) =
     union [m] (getImportsBlock block)
   getImportsLit (ILitBranch _ block) = getImportsBlock block
-  getImportsExpr (IVar _)                    = []
-  getImportsExpr (IVarAccess _ _)            = []
-  getImportsExpr (ILit _)                    = []
-  getImportsExpr (IFCall (m, _, _) exprs)    = 
+  getImportsExpr (IVar _)                             = []
+  getImportsExpr (IVarAccess _ _)                     = []
+  getImportsExpr (ILit _)                             = []
+  getImportsExpr (IFCall (m, _, _) exprs)             =
     union [m] (unionize (map getImportsExpr exprs))
-  getImportsExpr (ICCall (m, _, _) exprs)    = 
+  getImportsExpr (ICCall (m, n, _) exprs) | n == ":"  = case exprs of
+    (ILit (IChar _):[ICCall (_,"[]",_) _]) -> []
+    (ILit (IChar _):r) -> unionize (map getImportsExpr r)
+    _                  -> union [m] (unionize (map getImportsExpr exprs))
+                                          | otherwise =
     union [m] (unionize (map getImportsExpr exprs))
-  getImportsExpr (IFPCall (m, _, _) _ exprs) = 
+  getImportsExpr (IFPCall (m, _, _) _ exprs)          =
     union [m] (unionize (map getImportsExpr exprs))
-  getImportsExpr (ICPCall (m, _, _) _ exprs) = 
+  getImportsExpr (ICPCall (m, _, _) _ exprs)          =
     union [m] (unionize (map getImportsExpr exprs))
-  getImportsExpr (IOr expr1 expr2)           = 
+  getImportsExpr (IOr expr1 expr2)                    =
     union (getImportsExpr expr1) (getImportsExpr expr2)
   unionize ls = foldl union [] ls
   toImport [] = []
@@ -423,6 +427,7 @@ iexpr2Go opts expr x = case x of
   (IVarAccess i xs)      -> childAccess i (reverse xs)
   (ILit lit)             -> ilit2Go opts expr lit
   (IFCall name fargs)    -> createCall name fargs
+  (ICCall name@(_,":",_) fargs@(ILit (IChar _):_)) -> createString name fargs
   (ICCall name fargs)    -> createCall name fargs
   (IFPCall name _ fargs) -> createCall name fargs
   (ICPCall name _ fargs) -> createCall name fargs
@@ -431,9 +436,18 @@ iexpr2Go opts expr x = case x of
     [expr, iexpr2Go opts newNode expr1
     , iexpr2Go opts newNode expr2]
  where
-  createCall name fargs  = GoCall
+  createCall name fargs   = GoCall
     (GoOpName (iqname2GoCreate opts name))
     (expr :(map (iexpr2Go opts newNode) fargs))
+  createString name fargs = case extractString fargs "" of
+    Just s  -> GoCall (GoOpName (runtime ++ ".StringCreate")) [expr
+      , GoCall (GoOpName (runtime ++ ".ParseString")) [GoStringLit s]]
+    Nothing -> createCall name fargs
+  extractString fargs str = case fargs of
+    [ICCall (_,"[]",_) _] -> Just str
+    [ICCall (_,":",_) r]  -> extractString r str
+    (ILit (IChar c):r)    -> extractString r (str ++ tail (init (show [c])))
+    _                     -> Nothing
 
 --- Creates a Go expression from an ILiteral.
 --- @param expr  - Go operand to use as root for runtime function calls
