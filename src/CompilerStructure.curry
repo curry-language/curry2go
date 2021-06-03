@@ -119,7 +119,7 @@ compileProg struct cref sref name = do
   fDir  <- getFileDir struct name
   fPath <- getFilePath struct name
   createDirectoryIfMissing True fDir
-  printStatus $ "Processing program '" ++ name ++ "'..."
+  printStatusLn $ "Processing module '" ++ name ++ "'..."
   alreadyExists <- doesFileExist fPath
   if alreadyExists
     then do
@@ -132,33 +132,37 @@ compileProg struct cref sref name = do
         else do
           postProc struct name
           addSkippedModule cref name
-          printStatus $ "Skipping compilation of '" ++ name ++ "'"
+          printStatusLn $ "Skipping compilation of '" ++ name ++ "'"
           return False
     else do
       translateImports
       translateProg fPath
  where
   translateImports = do
+    printStatus $ "Getting imports of '" ++ name ++ "': "
     impmods <- getImports struct sref name
     if null impmods
-      then return False
-      else do printStatus $ "Processing imports: " ++ unwords impmods
+      then printStatusLn "" >> return False
+      else do printStatusLn $ unwords impmods
               compileImports struct cref sref impmods
 
   translateProg targetpath = do
+    printStatusLn $ "Translating module '" ++ name ++ "'"
     prog <- getProg struct sref name
     let target = compProg struct prog
-    printStatus $ "Writing file '" ++ targetpath ++ "'..."
+    printStatusLn $ "Writing file '" ++ targetpath ++ "'..."
     when (cmpVerbosity struct > 3) $
       putStrLn $ "...with compiled program:\n" ++ target
     writeFile targetpath target
     postProc struct name
     addCompiledModule cref name
-    printStatus $ "Program '" ++ name ++ "' compiled"
+    printStatusLn $ "Module '" ++ name ++ "' compiled"
     return True
 
+  printStatusLn s = printStatus (s ++ "\n")
+
   printStatus s = if cmpVerbosity struct == 0 then return ()
-                                              else putStrLn s
+                                              else putStr s
 
 --- Calls compileProg on every imported module 
 --- if it is not in the excludedModules list.
