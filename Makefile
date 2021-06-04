@@ -35,11 +35,18 @@ RM=/bin/rm
 COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
 
 ###############################################################################
-# installing
+# Installation
 
 # Install the Curry2Go system (compiler and REPL) with CURRYSYSTEM
-install: checkcurrysystem runtime
+.PHONY: install
+install: checkcurrysystem
 	$(CPM) install --noexec
+	$(MAKE) kernel
+
+# Install the kernel of Curry2Go (compiler and REPL) with CURRYSYSTEM
+# without installing all packages
+.PHONY: kernel
+kernel: checkcurrysystem runtime
 	$(MAKE) scripts
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
@@ -48,8 +55,8 @@ install: checkcurrysystem runtime
 # Check validity of variable CURRYSYSTEM
 .PHONY: checkcurrysystem
 checkcurrysystem:
-ifneq ($(shell test -x "$(CURRYSYSTEM)" ; echo $$?),0)
-	@echo "Executable defined by CURRYSYSTEM not found!"
+ifneq ($(shell test -f "$(CURRYSYSTEM)" -a -x "$(CURRYSYSTEM)" ; echo $$?),0)
+	@echo "'$(CURRYSYSTEM)' is not an executable!"
 	@echo "Please redefine variable CURRYSYSTEM in Makefile!"
 	@exit 1
 endif
@@ -133,15 +140,15 @@ cleanscripts:
 	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
 
 # clean compilation targets
-.PHONY: clean
-clean:
+.PHONY: cleantargets
+cleantargets:
 	$(CPM) clean
 	$(CPMC2G) clean
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
 
 # clean all installed components
-.PHONY: cleanall
-cleanall: clean cleanscripts
+.PHONY: clean
+clean: cleantargets cleanscripts
 	$(RM) -rf $(BINDIR) $(GOWORKSPACE)
 
 ##############################################################################
