@@ -134,8 +134,11 @@ postProcess opts mname = do
     else do
       let c2gExtFile = packagePath </> "external_files" </> extFileName
       extInC2GInclude <- doesFileExist c2gExtFile
-      when extInC2GInclude $
-        copyIfNewer c2gExtFile (combine outDir extFileName)
+      when extInC2GInclude $ do
+        content <- readFile c2gExtFile
+        let packageName = (words content) !! 1
+        when (packageName == removeDots mname) $
+          copyIfNewer c2gExtFile (combine outDir extFileName)
   copyIfNewer fPath outPath
  where
   copyIfNewer source target = do
