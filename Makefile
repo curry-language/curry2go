@@ -161,14 +161,33 @@ GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 
 .PHONY: dist
 dist:
+	$(RM) -rf $(TMPC2GDIR)
 	git clone $(GITURL) $(TMPC2GDIR)
 	cd $(TMPC2GDIR) && make && make bootstrap
-	cd $(TMPC2GDIR)  && $(RM) -rf .git bin/.local bin/curry2goc bin/curry2goi
+	cd $(TMPC2GDIR) && $(CPMC2G) checkout cpm
+	cd $(TMPC2GDIR)/cpm && $(CPMC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
+	cd $(TMPC2GDIR)  && $(MAKE) distclean
 	cd $(TMPC2GDIR)/.. && tar cfvz $(TARFILE) Curry2Go
 
 .PHONY: distclean
 distclean:
-	#$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) # for later use...
-	$(RM) -rf .git bin/.local bin/curry2goc bin/curry2goi
+	$(RM) -rf .git $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
+
+# installing from the distribution
+.PHONY: installdist
+installdist:
+	# Compile the Curry2Go compiler
+	cp goinstall/Compiler.go .curry/curry2go-*/
+	go build .curry/curry2go-*/Compiler.go
+	mv Compiler bin/curry2goc
+	# Compile the Curry2Go REPL
+	cp goinstall/REPL.go .curry/curry2go-*/
+	go build .curry/curry2go-*/REPL.go
+	mv REPL bin/curry2goi
+	# install CPM
+	cp goinstall/CPM.go cpm/.curry/curry2go-*/
+	cd cpm && go build .curry/curry2go-*/CPM.go
+	mv cpm/CPM bin/cypm
+	@echo "Put '$(ROOT)/bin' into your path to use the installed system!"
 
 ##############################################################################
