@@ -119,9 +119,9 @@ scripts:
 	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
 	# add alias `curry`:
 	cd $(BINDIR) && ln -s curry2go curry
-	# add alias for frontend to the frontend of the Curry system
+	# copy the frontend executable of the Curry system
 	# used to install this package:
-	ln -s $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
+	cp -p $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
 
 ##############################################################################
 # testing
@@ -150,5 +150,25 @@ cleantargets:
 .PHONY: clean
 clean: cleantargets cleanscripts
 	$(RM) -rf $(BINDIR) $(GOWORKSPACE)
+
+##############################################################################
+# distributing
+
+TARFILE=$(ROOT)/tmpcurry2go.tgz
+# put the distribution in a /tmp directory available on all machines:
+TMPC2GDIR=/tmp/Curry2Go
+GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
+
+.PHONY: dist
+dist:
+	git clone $(GITURL) $(TMPC2GDIR)
+	cd $(TMPC2GDIR) && make && make bootstrap
+	cd $(TMPC2GDIR)  && $(RM) -rf .git bin/.local bin/curry2goc bin/curry2goi
+	cd $(TMPC2GDIR)/.. && tar cfvz $(TARFILE) Curry2Go
+
+.PHONY: distclean
+distclean:
+	#$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) # for later use...
+	$(RM) -rf .git bin/.local bin/curry2goc bin/curry2goi
 
 ##############################################################################
