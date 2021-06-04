@@ -161,7 +161,7 @@ GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 
 .PHONY: dist
 dist:
-	$(RM) -rf $(TMPC2GDIR)
+	$(RM) -rf $(TMPC2GDIR) $(TARFILE)
 	git clone $(GITURL) $(TMPC2GDIR)
 	cd $(TMPC2GDIR) && make && make bootstrap
 	cd $(TMPC2GDIR) && $(CPMC2G) checkout cpm
