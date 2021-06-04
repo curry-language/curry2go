@@ -158,14 +158,16 @@ TARFILE=$(ROOT)/tmpcurry2go.tgz
 # put the distribution in a /tmp directory available on all machines:
 TMPC2GDIR=/tmp/Curry2Go
 GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
+# CPM with /tmp/Curry2Go compiler
+CPMTMPC2G = $(CPMBIN) -d CURRYBIN=$(TMPC2GDIR)/bin/curry2go
 
 .PHONY: dist
 dist:
 	$(RM) -rf $(TMPC2GDIR) $(TARFILE)
 	git clone $(GITURL) $(TMPC2GDIR)
-	cd $(TMPC2GDIR) && make && make bootstrap
-	cd $(TMPC2GDIR) && $(CPMC2G) checkout cpm
-	cd $(TMPC2GDIR)/cpm && $(CPMC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
+	cd $(TMPC2GDIR) && $(MAKE) && $(MAKE) bootstrap
+	cd $(TMPC2GDIR) && $(CPMTMPC2G) checkout cpm
+	cd $(TMPC2GDIR)/cpm && $(CPMTMPC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
 	cd $(TMPC2GDIR)  && $(MAKE) distclean
 	cd $(TMPC2GDIR)/.. && tar cfvz $(TARFILE) Curry2Go
 
@@ -175,7 +177,7 @@ distclean:
 
 # installing from the distribution
 .PHONY: installdist
-installdist:
+installdist: runtime
 	# Compile the Curry2Go compiler
 	cp goinstall/Compiler.go .curry/curry2go-*/
 	go build .curry/curry2go-*/Compiler.go
@@ -188,6 +190,6 @@ installdist:
 	cp goinstall/CPM.go cpm/.curry/curry2go-*/
 	cd cpm && go build .curry/curry2go-*/CPM.go
 	mv cpm/CPM bin/cypm
-	@echo "Put '$(ROOT)/bin' into your path to use the installed system!"
+	@echo "Add '$(ROOT)/bin' to your path to use the Curry2Go system!"
 
 ##############################################################################
