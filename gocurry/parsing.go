@@ -83,7 +83,7 @@ func ParseTerm(root *Node, term []rune, constructors [][]string)(*Node, int){
     }
     
     // parse numbers
-    if(unicode.IsDigit(term[0])){
+    if(unicode.IsDigit(term[0]) || term[0] == '-'){
         return ParseNumber(root, term)
     }
     
