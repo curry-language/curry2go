@@ -857,6 +857,12 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
         start := 1
         end := -1
         for i := 1; i < len(data); i++{
+            
+            if (data[i] == '\\'){
+                i += 1
+                continue
+            }
+            
             if (data[i] == '"'){
                 end = i
                 break
