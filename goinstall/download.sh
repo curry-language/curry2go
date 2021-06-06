@@ -4,11 +4,11 @@
 #
 # To install the Curry2Go system in directory /tmp/Curry2Go, run:
 #
-#    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download | sh
+#    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
 #
 # or:
 #
-#    > wget -qO- https://www.informatik.uni-kiel.de/~mh/curry2go/download | sh
+#    > wget -qO- https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
 #
 # In order to install a local Curry2Go system in directory C2GDIR
 # (which needs more time since the complete Curry2Go system will be

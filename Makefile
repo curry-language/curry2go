@@ -187,7 +187,7 @@ LOCALURL=$(HOME)/public_html/curry2go
 .PHONY: dist
 dist: $(TARFILE)
 	cp $(TARFILE) $(LOCALURL)/
-	cp goinstall/download.sh $(LOCALURL)/download
+	cp goinstall/download.sh $(LOCALURL)/
 	chmod -R go+rX $(LOCALURL)
 
 
