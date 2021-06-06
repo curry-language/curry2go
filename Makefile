@@ -175,6 +175,7 @@ $(TARFILE):
 .PHONY: distclean
 distclean:
 	$(RM) -rf .git $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
+	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
 # publish a current distribution
 # the local HTML directory containing the distribution:
