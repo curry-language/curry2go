@@ -169,12 +169,14 @@ $(TARFILE):
 	cd $(TMPC2GDIR) && $(MAKE) && $(MAKE) bootstrap
 	cd $(TMPC2GDIR) && $(CPMTMPC2G) checkout cpm
 	cd $(TMPC2GDIR)/cpm && $(CPMTMPC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
-	cd $(TMPC2GDIR)  && $(MAKE) distclean
+	cd $(TMPC2GDIR)  && $(MAKE) cleandist
 	cd $(TMPC2GDIR)/.. && tar cfvz $(TARFILE) Curry2Go
 
-.PHONY: distclean
-distclean:
-	$(RM) -rf .git $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
+# Clean all files that should not be included in a distribution
+.PHONY: cleandist
+cleandist:
+	$(RM) -rf .git .gitignore
+	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
 # publish a current distribution
