@@ -105,7 +105,8 @@ if [ -n "$INSTALLDIR" ] ; then
   git clone $C2GURL $INSTALLDIR
   cd $INSTALLDIR
   cypm update # get newest packages
-  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go
+  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go # create initial compiler
+  make bootstrap # to base Curry2Go on local libs and tools (front end)
 
   if [ $LOCALCPM = yes ] ; then
     # Install a local version of CPM:

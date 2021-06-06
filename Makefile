@@ -87,6 +87,7 @@ $(COMPDISTGO): checkcurrysystem src/Install.curry src/Curry2Go/PkgConfig.curry
 bootstrap: $(COMPILER) $(REPL)
 	mkdir -p $(LOCALBIN)
 	cp -p $(COMPILER) $(LOCALBIN)/curry2goc
+	touch lib/Curry/Compiler/Distribution.curry # enforce recompilation
 	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 	cp -p $(REPL) $(LOCALBIN)/curry2goi
 	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
