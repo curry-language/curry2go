@@ -20,7 +20,7 @@ CPM = $(CPMBIN) -d CURRYBIN=$(CURRYSYSTEM)
 CPMC2G = $(CPMBIN) -d CURRYBIN=$(BINDIR)/curry2go
 
 # Standard location of Curry2Go run-time auxiliaries
-GOWORKSPACE=$(HOME)/go/src
+GOCURRYWORKSPACE=$(HOME)/go/src/gocurry
 
 # The generated compiler executable
 COMPILER=$(BINDIR)/curry2goc
@@ -46,11 +46,12 @@ install: checkcurrysystem
 # Install the kernel of Curry2Go (compiler and REPL) with CURRYSYSTEM
 # without installing all packages
 .PHONY: kernel
-kernel: checkcurrysystem runtime
+kernel: checkcurrysystem
 	$(MAKE) scripts
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
+	$(MAKE) runtime # late creation: avoid conflicts with previous versions
 
 # Check validity of variable CURRYSYSTEM
 .PHONY: checkcurrysystem
@@ -101,16 +102,16 @@ baselibs:
 	$(RM) -rf base
 
 .PHONY: uninstall
-uninstall: runtime
-	$(RM) -rf $(GOWORKSPACE)
+uninstall:
 	$(CPM) uninstall
+	$(RM) -rf $(GOCURRYWORKSPACE)
 
 # install run-time libraries:
 .PHONY: runtime
 runtime:
-	$(RM) -rf $(GOWORKSPACE)
-	mkdir -p $(GOWORKSPACE)
-	cp -r gocurry $(GOWORKSPACE)/gocurry
+	mkdir -p $(GOCURRYWORKSPACE)
+	$(RM) -rf $(GOCURRYWORKSPACE)
+	cp -r gocurry $(GOCURRYWORKSPACE)
 
 # install scripts in the bin directory:
 .PHONY: scripts
@@ -149,7 +150,7 @@ cleantargets:
 # clean all installed components
 .PHONY: clean
 clean: cleantargets cleanscripts
-	$(RM) -rf $(BINDIR) $(GOWORKSPACE)
+	$(RM) -rf $(BINDIR) $(GOCURRYWORKSPACE)
 
 ##############################################################################
 # distributing
@@ -157,12 +158,12 @@ clean: cleantargets cleanscripts
 TARFILE=$(ROOT)/tmpcurry2go.tgz
 # put the distribution in a /tmp directory available on all machines:
 TMPC2GDIR=/tmp/Curry2Go
+# URL of the Curry2Go repository:
 GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 # CPM with /tmp/Curry2Go compiler
 CPMTMPC2G = $(CPMBIN) -d CURRYBIN=$(TMPC2GDIR)/bin/curry2go
 
-.PHONY: dist
-dist:
+$(TARFILE):
 	$(RM) -rf $(TMPC2GDIR) $(TARFILE)
 	git clone $(GITURL) $(TMPC2GDIR)
 	cd $(TMPC2GDIR) && $(MAKE) && $(MAKE) bootstrap
@@ -175,7 +176,18 @@ dist:
 distclean:
 	$(RM) -rf .git $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
 
-# installing from the distribution
+# publish a current distribution
+# the local HTML directory containing the distribution:
+LOCALURL=$(HOME)/public_html/curry2go
+
+.PHONY: dist
+dist: $(TARFILE)
+	cp $(TARFILE) $(LOCALURL)/
+	cp goinstall/download.sh $(LOCALURL)/download
+	chmod -R go+rX $(LOCALURL)
+
+
+# install from the tar file of the distribution
 .PHONY: installdist
 installdist: runtime
 	# Compile the Curry2Go compiler
