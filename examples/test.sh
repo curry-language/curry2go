@@ -1,8 +1,11 @@
 #!/bin/sh
 # Shell script to test some examples
 
-CURRYHOME=..
+CURRYHOME=`cd .. && pwd`
 CURRYBIN=$CURRYHOME/bin
+
+PATH=$CURRYBIN:$PATH
+export PATH
 
 C2GO=curry2goc
 
