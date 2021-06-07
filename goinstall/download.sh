@@ -88,7 +88,7 @@ fi
 # Download and install Curry2Go in /tmp:
 /bin/rm -rf $TMPC2GDIR $C2GTARFILE
 echo "Downloading and installing Curry2Go in directory '$TMPC2GDIR'..."
-curl -o $C2GTARFILE $C2GTARURL
+curl -sSLo $C2GTARFILE $C2GTARURL
 cd /tmp && tar xzf curry2go.tgz
 /bin/rm $C2GTARFILE
 cd $TMPC2GDIR && make installdist

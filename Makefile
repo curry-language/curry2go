@@ -81,10 +81,12 @@ $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/*Config.curry
 $(COMPDISTGO): checkcurrysystem src/Install.curry src/Curry2Go/PkgConfig.curry
 	$(CPM) curry :load Install :eval main :quit
 
-# Bootstrap, i.e., compile the compiler and REPL with existing Curry2Go compiler
-# Saves existing executables in $(LOCALBIN)
+# Bootstrap the system, i.e., first install the Curry2Go system (compiler and REPL)
+# with CURRYSYSTEM and then compile the compiler and REPL with installed Curry2Go compiler.
+# Saves existing executables in $(LOCALBIN).
 .PHONY: bootstrap
-bootstrap: $(COMPILER) $(REPL)
+bootstrap:
+	$(MAKE) install
 	mkdir -p $(LOCALBIN)
 	cp -p $(COMPILER) $(LOCALBIN)/curry2goc
 	touch lib/Curry/Compiler/Distribution.curry # enforce recompilation
@@ -161,7 +163,7 @@ JQ := $(shell which jq)
 # ...in order to get version number from package specification:
 C2GVERSION = $(shell $(JQ) -r '.version' package.json)
 # tar file to store the distribution
-TARFILE=$(ROOT)/curry2go-$(C2GVERSION).tgz
+TARFILE=curry2go-$(C2GVERSION).tgz
 # put the distribution in a /tmp directory available on all machines:
 TMPC2GDIR=/tmp/Curry2Go
 # URL of the Curry2Go repository:
@@ -172,11 +174,11 @@ CPMTMPC2G = $(CPMBIN) -d CURRYBIN=$(TMPC2GDIR)/bin/curry2go
 $(TARFILE):
 	$(RM) -rf $(TMPC2GDIR) $(TARFILE)
 	git clone $(GITURL) $(TMPC2GDIR)
-	cd $(TMPC2GDIR) && $(MAKE) && $(MAKE) bootstrap
+	$(MAKE) -C $(TMPC2GDIR) bootstrap
 	cd $(TMPC2GDIR) && $(CPMTMPC2G) checkout cpm
 	cd $(TMPC2GDIR)/cpm && $(CPMTMPC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
-	cd $(TMPC2GDIR)  && $(MAKE) cleandist
-	cd $(TMPC2GDIR)/.. && tar cfvz $(TARFILE) Curry2Go
+	$(MAKE) -C $(TMPC2GDIR) cleandist
+	cd $(TMPC2GDIR)/.. && tar cfvz $(ROOT)/$(TARFILE) Curry2Go
 
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist
