@@ -64,22 +64,45 @@ getBaseDirOfModule m = do
     Just (dir, _) -> return dir
 
 --- Load a FlatCurry interface for a module if not already done.
-loadInterface :: CGOptions -> IORef [Prog] -> String -> IO Prog
+loadInterface :: CGOptions -> IORef GSInfo -> String -> IO Prog
 loadInterface opts sref mname = do
-  loadedints <- readIORef sref
+  gsinfo <- readIORef sref
   maybe (do int <- showReadFlatCurryIntWithParseOptions opts mname
-            writeIORef sref (int : loadedints)
+            writeIORef sref (gsinfo { gsProgs = int : gsProgs gsinfo } )
             return int)
         return
-        (find (\fp -> progName fp == mname) loadedints)
+        (find (\fp -> progName fp == mname) (gsProgs gsinfo))
 
 --- Gets the imported modules of a Curry module.
-getCurryImports :: CGOptions -> IORef [Prog] -> String -> IO [String]
-getCurryImports opts sref mname =
-  loadInterface opts sref mname >>= return . progImports
+getCurryImports :: CGOptions -> IORef GSInfo -> String -> IO [String]
+getCurryImports opts sref mname = do
+  let outPath = combine curry2goDir (modPackage mname)
+      outDir  = takeDirectory outPath
+      impFile = outDir </> "IMPORTS"
+  createDirectoryIfMissing True outDir
+  eximps <- doesFileExist impFile
+  if eximps
+    then do
+      mbpath <- lookupModuleSourceInLoadPath mname
+      case mbpath of
+        Nothing         -> error $ "Unknown module " ++ mname
+        Just (_,source) -> do
+          stime <- getModificationTime source
+          itime <- getModificationTime impFile
+          if compareClockTime stime itime == LT
+            then readFile impFile >>= return . lines
+            else readImportsFromInterface outDir impFile
+    else readImportsFromInterface outDir impFile
+
+ where
+  readImportsFromInterface outDir impFile = do
+    imps <- loadInterface opts sref mname >>= return . progImports
+    createDirectoryIfMissing True outDir
+    writeFile impFile (unlines imps)
+    return imps
 
 --- Loads an IProg from the name of a Curry module.
-loadICurry :: CGOptions -> IORef [Prog] -> String -> IO IProg
+loadICurry :: CGOptions -> IORef GSInfo -> String -> IO IProg
 loadICurry opts sref mname = do
   prog    <- showReadFlatCurryWithParseOptions opts mname
   impints <- mapM (loadInterface opts sref) (progImports prog)
@@ -160,10 +183,11 @@ postProcess opts mname = do
       replaceFileName path
         (stripCurrySuffix (takeFileName path) ++ "_external.go")
 
+------------------------------------------------------------------------------
 --- The structure for the Curry2Go compilation process.
 --- The compiler cache manages the list of already loaded FlatCurry interfaces
 --- to avoid multiple readings.
-goStruct :: CGOptions -> CompStruct IProg [Prog]
+goStruct :: CGOptions -> CompStruct IProg GSInfo
 goStruct opts = defaultStruct
   { cmpVerbosity   = verbosity opts
   , outputDir      = "."
@@ -171,10 +195,20 @@ goStruct opts = defaultStruct
   , excludeModules = []
   , getProg        = loadICurry opts
   , getPath        = getCurryPath
-  , getImports     = getCurryImports opts
+  , getImports     = if noimports opts then (\_ _ -> return []) else getCurryImports opts
   , postProc       = postProcess opts
   }
 
+-- The state of the Go compilation process.
+-- It consists of a list of already loaded FlatCurry interfaces.
+data GSInfo = GSInfo
+  { gsProgs    :: [Prog] -- loaded interfaces
+  }
+
+initGSInfo :: GSInfo
+initGSInfo = GSInfo []
+
+------------------------------------------------------------------------------
 --- Implementation of compiler io.
 
 --- main function
@@ -207,7 +241,7 @@ curry2Go opts mainmod = do
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   fprog <- showReadFlatCurryWithParseOptions opts mainmod
-  sref <- newIORef []
+  sref <- newIORef initGSInfo
   let gostruct = goStruct opts
   compile (gostruct {compProg = compileIProg2GoString opts}) sref mainmod
   printVerb opts 2 $ "Go programs written to '" ++ outputDir gostruct ++ "'"
@@ -312,6 +346,9 @@ options =
   , Option "s" ["main"]
     (ReqArg (\s opts -> opts {mainName = s}) "<f>")
     "set name of main function to f (default: main)"
+  , Option "" ["noimports"]
+    (NoArg (\opts -> opts {noimports = True}))
+    "do not compile import modules"
   , Option "" ["hnf"]
     (NoArg (\opts -> opts {onlyHnf = True})) "only compute hnf"
   , Option "" ["compiler-name"]

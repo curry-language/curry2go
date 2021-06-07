@@ -2,7 +2,7 @@
 --- A REPL for the Curry->Go compiler based on the universal REPL.
 ---
 --- @author  Michael Hanus
---- @version March 2021
+--- @version June 2021
 ------------------------------------------------------------------------------
 
 module Curry2Go.REPL where
@@ -33,12 +33,12 @@ c2go = CCDescription
   "info@curry-lang.org"      -- contact email
   (packagePath </> "bin" </> "curry2goc") -- compiler executable
   (c2goHome </> "lib")       -- base library path
-  False                      -- parser should read untyped FlatCurry
+  Nothing                    -- compile program with load command
   True                       -- use CURRYPATH variable
   (\s -> "-v" ++ s)          -- option to pass verbosity
   (\_ -> "")                 -- option to pass parser options (ignored)
   (\s -> "--compile " ++ s)  -- option to compile only
-  (\s -> s)                  -- option to create an executable
+  ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt]
  where

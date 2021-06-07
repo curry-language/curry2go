@@ -57,6 +57,10 @@ defaultStruct = CompStruct
   , postProc       = \_ -> return ()
   }
 
+printStatus :: CompStruct _ _ -> String -> IO ()
+printStatus struct s = if cmpVerbosity struct == 0 then return ()
+                                                   else putStr s
+
 ------------------------------------------------------------------------------
 -- Compiler state with lists of already compiled and skipped modules.
 data CompState =
@@ -102,6 +106,11 @@ compile struct sref inp = do
   createDirectoryIfMissing True (outputDir struct)
   cref <- newIORef (CompState [] [])
   compileProg struct cref sref inp
+  cst <- readIORef cref
+  printStatus struct $
+    "Compilation summary: " ++
+    show (length (skippedMods cst)) ++ " modules skipped, " ++
+    show (length (compiledMods cst)) ++ " modules translated.\n"
   return ()
 
 --- Calls the compilation function on a program and 
@@ -139,7 +148,7 @@ compileProg struct cref sref name = do
       translateProg fPath
  where
   translateImports = do
-    printStatus $ "Getting imports of '" ++ name ++ "': "
+    printStatus struct $ "Getting imports of '" ++ name ++ "': "
     impmods <- getImports struct sref name
     if null impmods
       then printStatusLn "" >> return False
@@ -159,10 +168,8 @@ compileProg struct cref sref name = do
     printStatusLn $ "Module '" ++ name ++ "' compiled"
     return True
 
-  printStatusLn s = printStatus (s ++ "\n")
+  printStatusLn s = printStatus struct (s ++ "\n")
 
-  printStatus s = if cmpVerbosity struct == 0 then return ()
-                                              else putStr s
 
 --- Calls compileProg on every imported module 
 --- if it is not in the excludedModules list.

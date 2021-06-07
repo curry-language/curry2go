@@ -28,7 +28,9 @@ data CGOptions = CGOptions
   , verbosity    :: Int          -- verbosity (0..4)
                                  -- (0: quiet, 1: status,...)
   , genMain      :: Bool         -- should a main method be generated
-  , strat        :: SearchStrat  -- search strategy to be used by the runtime system
+  , noimports    :: Bool         -- compile only main module (i.e., the
+                                 -- imported modules are already compiled)
+  , strat        :: SearchStrat  -- search strategy to be used by the run-time system
   , maxResults   :: Int          -- maximum number of results to compute
   , maxTasks     :: Int          -- maximum number of concurrent tasks in a fair search
   , run          :: Bool         -- run the program after compilation
@@ -49,6 +51,7 @@ defaultCGOptions = CGOptions
   { help         = False
   , verbosity    = 1
   , genMain      = True
+  , noimports    = False
   , strat        = DFS
   , maxResults   = 0
   , maxTasks     = 0
