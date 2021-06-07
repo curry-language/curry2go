@@ -7,6 +7,8 @@ import "strconv"
 import "strings"
 import "unicode"
 
+var constructor_map = make(map[string][][]string)
+
 // Reads an unqualified term.
 // root is the root node of the read term.
 // term is the term to be read.
@@ -17,6 +19,15 @@ func ReadUQTerm(root *Node, term string, modules []string)(*Node, *Node){
     
     // extract constructor names from modules
     for i := range(modules){
+        
+        // test if module has already been loaded
+        constrs, ok := constructor_map[modules[i]]
+        
+        if(ok){
+            constructors = append(constructors, constrs...)
+            continue
+        }
+    
         // parse file
         fset := token.NewFileSet()
         pFile, err := parser.ParseFile(fset, modules[i], nil, 0)
@@ -50,6 +61,9 @@ func ReadUQTerm(root *Node, term string, modules []string)(*Node, *Node){
             
             // add names to name table
             constructors = append(constructors, names)
+            
+            // add names to map
+            constructor_map[modules[i]] = append(constructor_map[modules[i]], names)
         }
     }
     
