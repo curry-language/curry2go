@@ -23,7 +23,7 @@
 ##############################################################################
 
 # Some URLs and locations:
-C2GTARURL=https://www.informatik.uni-kiel.de/~mh/curry2go/tmpcurry2go.tgz
+C2GTARURL=https://www.informatik.uni-kiel.de/~mh/curry2go/curry2go.tgz
 C2GTARFILE=/tmp/curry2go.tgz
 TMPC2GDIR=/tmp/Curry2Go
 C2GURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git

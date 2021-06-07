@@ -156,7 +156,12 @@ clean: cleantargets cleanscripts
 ##############################################################################
 # distributing
 
-TARFILE=$(ROOT)/tmpcurry2go.tgz
+# Executable of JSON command-line processor:
+JQ := $(shell which jq)
+# ...in order to get version number from package specification:
+C2GVERSION = $(shell $(JQ) -r '.version' package.json)
+# tar file to store the distribution
+TARFILE=$(ROOT)/curry2go-$(C2GVERSION).tgz
 # put the distribution in a /tmp directory available on all machines:
 TMPC2GDIR=/tmp/Curry2Go
 # URL of the Curry2Go repository:
@@ -186,12 +191,17 @@ LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
 dist: $(TARFILE)
+	@if [ ! -x "$(JQ)" ] ; then \
+		echo "Tool 'jq' not found!" ; \
+		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
+		exit 1 ; fi
 	cp $(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
+	cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
 	chmod -R go+rX $(LOCALURL)
 
 
-# install from the tar file of the distribution
+# install Curry2Go from the tar file of the distribution
 .PHONY: installdist
 installdist: runtime
 	# Compile the Curry2Go compiler
