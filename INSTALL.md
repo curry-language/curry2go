@@ -25,6 +25,13 @@ by the command
 
     > curry2go
 
+Note that this installation is _not relocatable_, i.e., it cannot
+be moved into some other directory. If you want to have
+a Curry2Go system in some other directory, this system
+can be used to install another Curry2Go system by bootstrapping,
+see <https://en.wikipedia.org/wiki/Bootstrapping_(compilers)>,
+which needs some more time, as described below.
+
 
 Installation of Curry2Go into some other directory
 --------------------------------------------------

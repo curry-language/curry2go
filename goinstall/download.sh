@@ -97,16 +97,15 @@ cd $TMPC2GDIR && make installdist
 PATH=$TMPC2GDIR/bin:$PATH
 export PATH
 
-echo "Configuration of Curry2Go CPM:"
-cypm  -d CURRYBIN=$TMPC2GDIR/bin/curry2go config
+#echo "Configuration of Curry2Go CPM:"
+#cypm  -d CURRYBIN=$TMPC2GDIR/bin/curry2go config
 
 if [ -n "$INSTALLDIR" ] ; then
   # Install a local Curry2Go system in directory INSTALLDIR:
   git clone $C2GURL $INSTALLDIR
   cd $INSTALLDIR
   cypm update # get newest packages
-  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go # create initial compiler
-  make bootstrap # to base Curry2Go on local libs and tools (front end)
+  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go bootstrap
 
   if [ $LOCALCPM = yes ] ; then
     # Install a local version of CPM:
