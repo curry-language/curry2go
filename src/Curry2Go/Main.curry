@@ -240,7 +240,10 @@ curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
-  fprog <- showReadFlatCurryWithParseOptions opts mainmod
+  -- and show warnings to the user of not in quiet mode
+  let verb     = verbosity opts
+      opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
+  fprog <- showReadFlatCurryWithParseOptions opts4fcy mainmod
   sref <- newIORef initGSInfo
   let gostruct = goStruct opts
   compile (gostruct {compProg = compileIProg2GoString opts}) sref mainmod
