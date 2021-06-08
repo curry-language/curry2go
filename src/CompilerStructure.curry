@@ -109,9 +109,14 @@ compile struct sref inp = do
   cst <- readIORef cref
   printStatus struct $
     "Compilation summary: " ++
-    show (length (skippedMods cst)) ++ " modules skipped, " ++
-    show (length (compiledMods cst)) ++ " modules translated.\n"
+    showNumMods (skippedMods cst) ++ " skipped, " ++
+    showNumMods (compiledMods cst) ++ " compiled.\n"
   return ()
+ where
+  showNumMods ms =
+    let l = length ms
+    in (if l == 0 then "no" else show l) ++
+       " module" ++ (if l > 1 then "s" else "")
 
 --- Calls the compilation function on a program and 
 --- saves the output according to the given CompStruct,
@@ -128,44 +133,42 @@ compileProg struct cref sref name = do
   fDir  <- getFileDir struct name
   fPath <- getFilePath struct name
   createDirectoryIfMissing True fDir
-  printStatusLn $ "Processing module '" ++ name ++ "'..."
+  printStatus struct $ "Processing module '" ++ name ++ "'..."
   alreadyExists <- doesFileExist fPath
+  impcmpld  <- translateImports
   if alreadyExists
     then do
       modulePath  <- getPath struct name
       lastMod     <- getModificationTime modulePath
       lastCompile <- getModificationTime fPath
-      compAnyway  <- translateImports
-      if compareClockTime lastMod lastCompile == GT || compAnyway
+      if compareClockTime lastMod lastCompile == GT || impcmpld
         then translateProg fPath
         else do
           postProc struct name
           addSkippedModule cref name
           printStatusLn $ "Skipping compilation of '" ++ name ++ "'"
           return False
-    else do
-      translateImports
-      translateProg fPath
+    else translateProg fPath
  where
   translateImports = do
-    printStatus struct $ "Getting imports of '" ++ name ++ "': "
     impmods <- getImports struct sref name
+    printStatusLn $ "imports: " ++ unwords impmods
     if null impmods
-      then printStatusLn "" >> return False
-      else do printStatusLn $ unwords impmods
-              compileImports struct cref sref impmods
+      then return False
+      else compileImports struct cref sref impmods
 
   translateProg targetpath = do
-    printStatusLn $ "Translating module '" ++ name ++ "'"
+    printStatus struct $ "Compiling module '" ++ name ++ "'..."
     prog <- getProg struct sref name
     let target = compProg struct prog
-    printStatusLn $ "Writing file '" ++ targetpath ++ "'..."
+    if cmpVerbosity struct > 1
+      then printStatusLn $ "to: " ++ targetpath
+      else printStatusLn "done"
     when (cmpVerbosity struct > 3) $
-      putStrLn $ "...with compiled program:\n" ++ target
+      putStrLn $ "Compiled target program:\n" ++ target
     writeFile targetpath target
     postProc struct name
     addCompiledModule cref name
-    printStatusLn $ "Module '" ++ name ++ "' compiled"
     return True
 
   printStatusLn s = printStatus struct (s ++ "\n")

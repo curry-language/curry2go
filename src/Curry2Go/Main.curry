@@ -111,7 +111,7 @@ loadICurry opts sref mname = do
 showReadFlatCurryWithParseOptions :: CGOptions -> String -> IO Prog
 showReadFlatCurryWithParseOptions opts mname = do
   let frontendparams = c2gFrontendParams opts
-  when (verbosity opts > 1) $ do
+  when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FCY frontendparams mname
     putStrLn $ "Executing: " ++ cmd
   readFlatCurryWithParseOptions mname frontendparams
@@ -119,7 +119,7 @@ showReadFlatCurryWithParseOptions opts mname = do
 showReadFlatCurryIntWithParseOptions :: CGOptions -> String -> IO Prog
 showReadFlatCurryIntWithParseOptions opts mname = do
   let frontendparams = c2gFrontendParams opts
-  when (verbosity opts > 1) $ do
+  when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FINT frontendparams mname
     putStrLn $ "Executing: " ++ cmd
   readFlatCurryIntWithParseOptions mname frontendparams
@@ -174,7 +174,7 @@ postProcess opts mname = do
       else showCopyFile source target
 
   showCopyFile source target = do
-    printVerb opts 3 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
+    printVerb opts 2 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
     copyFile source target
 
   getExtFilePath = do
@@ -260,14 +260,14 @@ curry2Go opts mainmod = do
     printVerb opts 1 "Creating executable..."
     let bcmd = "go build " ++
                combine curry2goDir (removeDots moduleName ++ ".go")
-    printVerb opts 2 $ "...with command: " ++ bcmd
+    printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
     printVerb opts 2 $ "Executable stored in: " ++ removeDots moduleName
   when (run opts) $ do
     printVerb opts 1 "Running..."
     let rcmd = "./" ++ removeDots moduleName
-    printVerb opts 2 $ "...with command: " ++ rcmd
+    printVerb opts 3 $ "...with command: " ++ rcmd
     system rcmd
     return ()
 
@@ -315,7 +315,7 @@ options =
            "run quietly (no output, only exit code)"
   , Option "v" ["verbosity"]
       (OptArg (maybe (\opts -> opts { verbosity = 2}) checkVerb) "<n>")
-         "verbosity level:\n0: quiet (same as `-q')\n1: show status messages (default)\n2: show commands (same as `-v')\n3: show intermedate infos\n4: show all details"
+         "verbosity level:\n0: quiet (same as `-q')\n1: show status messages (default)\n2: show target file names (same as `-v')\n3: show invoked commands\n4: show all details"
   , Option "" ["dfs"]
     (NoArg (\opts -> opts {strat = DFS})) "use depth first search (default)"
   , Option ""   ["bfs"]
