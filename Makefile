@@ -218,6 +218,10 @@ installdist: runtime
 	cp goinstall/CPM.go cpm/.curry/curry2go-*/
 	cd cpm && go build .curry/curry2go-*/CPM.go
 	mv cpm/CPM bin/cypm
-	@echo "Add '$(ROOT)/bin' to your path to use the Curry2Go system!"
+	@echo "Add '$(ROOT)/bin' to your path to use the"
+	@echo 'installed Curry2Go system, e.g., by'
+	@echo ''
+	@echo '    > export PATH=$(ROOT)/bin:$$PATH'
+	@echo ''
 
 ##############################################################################
