@@ -3,6 +3,7 @@ package gocurry
 import "sync"
 import "fmt"
 import "strconv"
+import "time"
 
 ////// Definitions of types
 
@@ -96,6 +97,18 @@ func nextFree() *string{
 
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError"}
+
+// time since system start
+var startTime time.Time
+
+func Uptime() time.Duration{
+    return time.Since(startTime)
+}
+
+// setup
+func init(){
+    startTime = time.Now()
+}
 
 ////// Task evaluation functions
 
