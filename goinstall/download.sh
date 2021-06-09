@@ -2,19 +2,20 @@
 #
 # This is the Curry2Go installation script.
 #
-# To install the Curry2Go system in directory /tmp/Curry2Go, run:
+# To install the Curry2Go system in directory /opt/Curry2Go, you must be
+# able to run the `sudo` command to get admin rights. Then run:
 #
-#    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
+#    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sudo env "PATH=$PATH" sh
 #
 # or:
 #
-#    > wget -qO- https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
+#    > wget -qO- https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sudo env "PATH=$PATH" sh
 #
 # In order to install a local Curry2Go system in directory C2GDIR
-# (which needs more time since the complete Curry2Go system will be
-# compiled on the local machine), add an argument:
+# (which does not not `sudo` right but needs more time since the complete
+# Curry2Go system will be compiled on the local machine), add an argument:
 #
-#    > curl ... | sh -s - -d C2GDIR
+#    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh -s - -d C2GDIR
 #
 # The additional argument `--nocypm` does not install the Curry Package Manager
 # CPM with the local Curry2Go system (which is reasonable if you already
@@ -23,8 +24,10 @@
 ##############################################################################
 
 # Some URLs and locations:
-C2GTARURL=https://www.informatik.uni-kiel.de/~mh/curry2go/curry2go.tgz
-C2GTARFILE=/tmp/curry2go.tgz
+OPTC2GTARURL=https://www.informatik.uni-kiel.de/~mh/curry2go/opt-curry2go.tgz
+TMPC2GTARURL=https://www.informatik.uni-kiel.de/~mh/curry2go/tmp-curry2go.tgz
+C2GTARFILE=curry2go.tgz
+OPTC2GDIR=/opt/Curry2Go
 TMPC2GDIR=/tmp/Curry2Go
 C2GURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 
@@ -85,22 +88,45 @@ fi
 
 ##############################################################################
 
-# Download and install Curry2Go in /tmp:
-/bin/rm -rf $TMPC2GDIR $C2GTARFILE
-echo "Downloading and installing Curry2Go in directory '$TMPC2GDIR'..."
-curl -sSLo $C2GTARFILE $C2GTARURL
-cd /tmp && tar xzf curry2go.tgz
-/bin/rm $C2GTARFILE
-cd $TMPC2GDIR && make installdist
+# Download and install Curry2Go in /opt/Curry2Go (as root):
+installopt() {
+  mkdir -m 755 -p $OPTC2GDIR
+  cd $OPTC2GDIR
+  /bin/rm -rf Curry2Go $C2GTARFILE
+  echo "Downloading and installing Curry2Go in directory '$OPTC2GDIR'..."
+  curl -sSLo $C2GTARFILE $OPTC2GTARURL
+  tar xzf $C2GTARFILE && /bin/rm $C2GTARFILE
+  chown -R root:root Curry2go
+  cd Curry2Go
+  export GOPATH=`pwd`/go && make GOCURRYWORKSPACE=`pwd`/go/src/gocurry installdist
+  chmod -R go+rX .
+  cd ..
+  /bin/rm -f bin && ln -s Curry2Go/bin bin
 
-# include temporary Curry2Go in path:
-PATH=$TMPC2GDIR/bin:$PATH
-export PATH
+  echo "Add '$OPTC2GDIR/bin' to your path to use the Curry2Go system!"
+}
 
-#echo "Configuration of Curry2Go CPM:"
-#cypm  -d CURRYBIN=$TMPC2GDIR/bin/curry2go config
+# Download and install Curry2Go in /tmp/Curry2Go:
+installtmp() {
+  /bin/rm -rf $TMPC2GDIR /tmp/$C2GTARFILE
+  echo "Downloading and installing Curry2Go in directory '$TMPC2GDIR'..."
+  curl -sSLo /tmp/$C2GTARFILE $TMPC2GTARURL
+  cd /tmp && tar xzf $C2GTARFILE && /bin/rm $C2GTARFILE
+  cd $TMPC2GDIR && make installdist
+}
 
-if [ -n "$INSTALLDIR" ] ; then
+if [ -z "$INSTALLDIR" ] ; then
+  installopt
+else
+  installtmp
+
+  # include temporary Curry2Go in path:
+  PATH=$TMPC2GDIR/bin:$PATH
+  export PATH
+
+  echo "Configuration of Curry2Go CPM:"
+  cypm  -d CURRYBIN=$TMPC2GDIR/bin/curry2go config
+
   # Install a local Curry2Go system in directory INSTALLDIR:
   git clone $C2GURL $INSTALLDIR
   cd $INSTALLDIR

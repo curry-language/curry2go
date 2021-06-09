@@ -158,27 +158,33 @@ clean: cleantargets cleanscripts
 ##############################################################################
 # distributing
 
+# the location where the distribution is built:
+C2GDISTDIR=/tmp/Curry2Go
+
 # Executable of JSON command-line processor:
 JQ := $(shell which jq)
+
 # ...in order to get version number from package specification:
 C2GVERSION = $(shell $(JQ) -r '.version' package.json)
+
 # tar file to store the distribution
-TARFILE=curry2go-$(C2GVERSION).tgz
-# put the distribution in a /tmp directory available on all machines:
-TMPC2GDIR=/tmp/Curry2Go
+TARFILE=curry2go.tgz # curry2go-$(C2GVERSION).tgz
+
 # URL of the Curry2Go repository:
 GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
-# CPM with /tmp/Curry2Go compiler
-CPMTMPC2G = $(CPMBIN) -d CURRYBIN=$(TMPC2GDIR)/bin/curry2go
+
+# CPM with distribution compiler
+CPMDISTC2G = $(CPMBIN) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
 
 $(TARFILE):
-	$(RM) -rf $(TMPC2GDIR) $(TARFILE)
-	git clone $(GITURL) $(TMPC2GDIR)
-	$(MAKE) -C $(TMPC2GDIR) bootstrap
-	cd $(TMPC2GDIR) && $(CPMTMPC2G) checkout cpm
-	cd $(TMPC2GDIR)/cpm && $(CPMTMPC2G) -d BININSTALLPATH=$(TMPC2GDIR)/bin install
-	$(MAKE) -C $(TMPC2GDIR) cleandist
-	cd $(TMPC2GDIR)/.. && tar cfvz $(ROOT)/$(TARFILE) Curry2Go
+	mkdir -p $(C2GDISTDIR)
+	$(RM) -rf $(C2GDISTDIR) $(TARFILE)
+	git clone $(GITURL) $(C2GDISTDIR)
+	$(MAKE) -C $(C2GDISTDIR) bootstrap
+	cd $(C2GDISTDIR) && $(CPMDISTC2G) checkout cpm
+	cd $(C2GDISTDIR)/cpm && $(CPMDISTC2G) -d BININSTALLPATH=$(C2GDISTDIR)/bin install
+	$(MAKE) -C $(C2GDISTDIR) cleandist
+	cd $(C2GDISTDIR)/.. && tar cfvz $(ROOT)/$(TARFILE) Curry2Go
 
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist
@@ -192,14 +198,17 @@ cleandist:
 LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
-dist: $(TARFILE)
+dist:
 	@if [ ! -x "$(JQ)" ] ; then \
 		echo "Tool 'jq' not found!" ; \
 		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
 		exit 1 ; fi
-	cp $(TARFILE) $(LOCALURL)/
+	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
+	$(MAKE) C2GDISTDIR=/opt/Curry2Go/Curry2Go $(TARFILE) && mv $(TARFILE) opt-$(TARFILE)
+	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
+	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
-	cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
+	#cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
 	chmod -R go+rX $(LOCALURL)
 
 
