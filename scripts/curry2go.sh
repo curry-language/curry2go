@@ -11,6 +11,23 @@ CURRY2GOBIN=$CURRY2GOHOME/bin
 # The directory where CPM installs the binaries:
 CPMBIN="$HOME/.cpm/bin"
 
+# ensure that GOPATH contains src/gocurry
+ensuregopath() {
+  if [ -z "$GOPATH" ] ; then
+    GOP=$HOME/go
+  else
+    GOP=$GOPATH
+  fi
+  GOCURRYWORKSPACE=$GOP/src/gocurry
+  if [ ! -d "$GOCURRYWORKSPACE" ] ; then
+    echo "Copying run-time libraries to $GOCURRYWORKSPACE"
+    mkdir -p "$GOCURRYWORKSPACE"
+    /bin/rm -rf "$GOCURRYWORKSPACE"
+    cp -r "$CURRY2GOHOME/gocurry" "$GOCURRYWORKSPACE"
+  fi
+}
+
+
 # Check whether we should call CPM to compute the correct load path:
 WHICHCPM=`which cypm`
 if [ ! -d "$HOME" ] ; then
@@ -68,6 +85,8 @@ if [ $USECPM = yes ] ; then
   fi
   export CURRYPATH
 fi
+
+ensuregopath
 
 # do not use rlwrap inside emacs:
 if [ "$TERM" = dumb ] ; then
