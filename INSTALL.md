@@ -15,12 +15,14 @@ has to be set manually, which can be done with:
     > go env -w GO111MODULE=auto
 
 
-Quick installation into directory /tmp/Curry2Go
+Quick installation into directory /opt/Curry2Go
 -----------------------------------------------
 
     > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
 
-Then add `/tmp/Curry2Go/bin` to your path to start the Curry2Go REPL
+Since this installs the Curry2Go system in directory `/opt/Curry2Go`,
+you must allowed to run the `sudo` command.
+Then add `/opt/Curry2Go/bin` to your path to start the Curry2Go REPL
 by the command
 
     > curry2go
@@ -42,8 +44,12 @@ compiled on the local machine), add an argument to the above command:
 
     > curl ... | sh -s - -d C2GDIR
 
-Then add `C2GDIR/bin` to your path to start the Curry2Go REPL
-by the command
+This installation does not require `sudo` since
+an initial Curry2Go compiler is installed into `/tmp/Curry2Go`
+which is afterwards used to compile and install another Curry2Go system
+in directory `C2GDIR`.
+After this installation, add `C2GDIR/bin` to your path to start
+the Curry2Go REPL by the command
 
     > curry2go
 
