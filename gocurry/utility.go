@@ -475,6 +475,11 @@ func (task *Task) GetId() int{
     return task.id
 }
 
+func (task *Task) GetFingerprint() map[int]int{
+    return task.fingerprint
+}
+
+
 // Tests if variable is bound in task.
 func (task *Task) IsBound(variable *Node) bool{
     _, ok := variable.GetTr(task.id, task.parents)
@@ -498,6 +503,12 @@ func (task *Task) NewNode() *Node{
 // Do not share a child of the control node.
 func (task *Task) NoShare(index int){
     task.control.Children[index] = CopyNode(task.control.Children[index])
+}
+
+func (task *Task) SetFingerprint(finger map[int]int){
+    for k,v := range(finger){
+        task.fingerprint[k] = v
+    }
 }
 
 // Used in external functions to 
