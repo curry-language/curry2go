@@ -1,11 +1,14 @@
 package Prelude
 
 import . "gocurry"
+import "bufio"
 import "fmt"
-import "io/ioutil"
+import "io"
 import "os"
 import "strconv"
 import "math"
+
+var names = []string{"writeFileHelper", "readFileHelper"}
 
 /////// Evaluation functions
 
@@ -944,54 +947,194 @@ func ExternalPrelude_getChar(task *Task){
 
 func ExternalPrelude_prim_readFile(task *Task){
     root := task.GetControl()
-    // get child
     x1 := root.GetChild(0)
 
-    // get file name
+    // openFile
     name := ReadString(x1)
+    f, err := os.Open(name)
+    
+    if(err != nil){
+        panic("Prelude.prim_readFile: " + err.Error())
+    }
+    
+    // read a character
+    r := bufio.NewReader(f)
+    char, size, err := r.ReadRune()
+    f.Close()
+    
+    if(err != nil){
+        // return [] on EOF
+        if(err == io.EOF){
+            IOCreate(root, Prelude__CREATE_LSbRSb(root.NewNode()))
+            return
+        } else{
+            panic("Prelude.prim_readFile: " + err.Error())
+        }
+    }
 
-    // get data from file
-    data, _ := ioutil.ReadFile(name)
+    // return IO constructor with string
+    position := IntLitCreate(root.NewNode(), size)
+    reader := FuncCreate(root.NewNode(), readFileHelper(name), &names[1], 1, -1, position)
+    IOCreate(root, Prelude__CREATE_Col(root.NewNode(), CharLitCreate(root.NewNode(), char), reader))
+}
 
-    // return IO constructor with the data
-    IOCreate(root, StringCreate(root.NewNode(), string(data)))
+func readFileHelper(name string)(func (*Task)){
+    return func (task *Task){
+        root := task.GetControl()
+        position := root.GetChild(0)
+    
+        // open file
+        f, err := os.Open(name)
+    
+        if(err != nil){
+            panic("Prelude.prim_readFile: " + err.Error())
+        }
+        
+        // seek position
+        f.Seek(int64(position.GetInt()), 0)
+        
+        // read a character
+        r := bufio.NewReader(f)
+        char, size, err := r.ReadRune()
+        f.Close()
+        
+        if(err != nil){
+            // return [] on EOF
+            if(err == io.EOF){
+                Prelude__CREATE_LSbRSb(root)
+                return
+            } else{
+                panic("Prelude.prim_readFile: " + err.Error())
+            }
+        }
+        
+        // return string
+        IntLitCreate(position, position.GetInt() + size)
+        reader := FuncCreate(root.NewNode(), readFileHelper(name), &names[1], 1, -1, position)
+        Prelude__CREATE_Col(root, CharLitCreate(root.NewNode(), char), reader)
+    }
 }
 
 func ExternalPrelude_prim_writeFile(task *Task){
     root := task.GetControl()
     // get children
     x1 := root.GetChild(0)
-    x2 := root.GetChild(1)
-
-    // get strings
+    str := root.GetChild(1)
+    
+    // evaluate string to hnf
+    if(!str.IsHnf()){
+        task.ToHnf(str)
+        return
+    }
+    
+    // open file
     name := ReadString(x1)
-    data := ReadString(x2)
+    f, err := os.OpenFile(name, os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
+    
+    if(err != nil){
+        panic("Prelude.prim_writeFile: " + err.Error())
+    }
+    
+    // return on empty string
+    if(str.GetConstructor() == 0){
+        f.Close()
+        IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+        return
+    }
+    
+    // evaluate character
+    char := str.GetChild(0)
+    if(!char.IsHnf()){
+        f.Close()
+        task.ToHnf(char)
+        return
+    }
 
-    // write data to file
-    ioutil.WriteFile(name, []byte(data), 0644)
+    // write character to file
+    _, err = f.WriteString(string(char.GetChar()))
+    
+    if(err != nil){
+        panic("Prelude.prim_writeFile: " + err.Error())
+    }
 
     // return IO constructor
-    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+    FuncCreate(root, writeFileHelper(f), &names[0], 1, 0, str.GetChild(1))
+}
+
+func writeFileHelper(f *os.File)(func (*Task)){
+    return func(task *Task){
+        root := task.GetControl()
+        str := root.GetChild(0)
+        
+        // return on empty string
+        if(str.GetConstructor() == 0){
+            f.Close()
+            IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+            return
+        }
+        
+        // evaluate char
+        char := str.GetChild(0)
+        if(!char.IsHnf()){
+            task.ToHnf(char)
+            return
+        }
+        
+        // write character to file
+        _, err := f.WriteString(string(char.GetChar()))
+    
+        if(err != nil){
+            panic("Prelude.prim_write/appendFile: " + err.Error())
+        }
+        
+        root.SetChild(0, str.GetChild(1))
+    }
 }
 
 func ExternalPrelude_prim_appendFile(task *Task){
     root := task.GetControl()
-
     // get children
     x1 := root.GetChild(0)
-    x2 := root.GetChild(1)
-
-    // get strings
+    str := root.GetChild(1)
+    
+    // evaluate string to hnf
+    if(!str.IsHnf()){
+        task.ToHnf(str)
+        return
+    }
+    
+    // open file
     name := ReadString(x1)
-    data := ReadString(x2)
+    f, err := os.OpenFile(name, os.O_CREATE | os.O_WRONLY | os.O_APPEND, 0644)
+    
+    if(err != nil){
+        panic("Prelude.prim_appendFile: " + err.Error())
+    }
+    
+    // return on empty string
+    if(str.GetConstructor() == 0){
+        f.Close()
+        IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+        return
+    }
+    
+    // evaluate character
+    char := str.GetChild(0)
+    if(!char.IsHnf()){
+        f.Close()
+        task.ToHnf(char)
+        return
+    }
 
-    // append data to file
-    f, _ := os.OpenFile(name, os.O_APPEND | os.O_CREATE | os.O_WRONLY, 0644)
-    f.Write([]byte(data))
-    f.Close()
+    // write character to file
+    _, err = f.WriteString(string(char.GetChar()))
+    
+    if(err != nil){
+        panic("Prelude.prim_appendFile: " + err.Error())
+    }
 
     // return IO constructor
-    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+    FuncCreate(root, writeFileHelper(f), &names[0], 1, 0, str.GetChild(1))
 }
 
 func ExternalPrelude_catch(task *Task){

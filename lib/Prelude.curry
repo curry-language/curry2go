@@ -1949,11 +1949,7 @@ prim_readFileContents external
 
 --- An action that writes a file.
 writeFile :: FilePath -> String -> IO ()
-#ifdef __CURRY2GO__
-writeFile f s = (prim_writeFile $## f) $## s
-#else
 writeFile f s = (prim_writeFile $## f) s
-#endif
 
 prim_writeFile :: FilePath -> String -> IO ()
 prim_writeFile external
@@ -1961,11 +1957,7 @@ prim_writeFile external
 --- An action that appends a string to a file.
 --- It behaves like `writeFile` if the file does not exist.
 appendFile :: FilePath -> String -> IO ()
-#ifdef __CURRY2GO__
-appendFile f s = (prim_appendFile $## f) $## s
-#else
 appendFile f s = (prim_appendFile $## f) s
-#endif
 
 prim_appendFile :: FilePath -> String -> IO ()
 prim_appendFile external
