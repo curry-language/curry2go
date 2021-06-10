@@ -35,6 +35,23 @@ see <https://en.wikipedia.org/wiki/Bootstrapping_(compilers)>,
 which needs some more time, as described below.
 
 
+Quick installation into directory /tmp/Curry2Go
+-----------------------------------------------
+
+If you want to install Curry2Go without giving `sudo` permissions,
+you can install into the temporary directory `/tmp/Curry2Go` by
+
+    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh -s - -t
+
+Then add `/tmp/Curry2Go/bin` to your path to start the Curry2Go REPL
+by the command
+
+    > curry2go
+
+Note that this installation is _not relocatable_, i.e., it cannot
+be moved into some other directory.
+
+
 Installation of Curry2Go into some other directory
 --------------------------------------------------
 

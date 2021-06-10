@@ -195,7 +195,8 @@ goStruct opts = defaultStruct
   , excludeModules = []
   , getProg        = loadICurry opts
   , getPath        = getCurryPath
-  , getImports     = if noimports opts then (\_ _ -> return []) else getCurryImports opts
+  , getImports     = if noimports opts then (\_ _ -> return [])
+                                       else getCurryImports opts
   , postProc       = postProcess opts
   }
 

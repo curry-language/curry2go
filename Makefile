@@ -203,12 +203,12 @@ dist:
 		echo "Tool 'jq' not found!" ; \
 		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
 		exit 1 ; fi
-	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
 	$(MAKE) C2GDISTDIR=/opt/Curry2Go/Curry2Go $(TARFILE) && mv $(TARFILE) opt-$(TARFILE)
+	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
 	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
 	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
-	#cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
+	cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
 	chmod -R go+rX $(LOCALURL)
 
 
