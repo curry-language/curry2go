@@ -6,3 +6,4 @@ lib/Curry/Compiler/Distribution_external.go
 .gocurry
 base/
 bin/
+frontend/

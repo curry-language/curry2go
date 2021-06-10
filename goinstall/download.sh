@@ -48,9 +48,10 @@ fi
 
 ERROR=
 HELP=no
-INSTALLDIR=   # directory to install local Curry2Go system
-LOCALCPM=yes  # install local version of CPM with local Curry2Go systen?
-TMPINSTALL=no # install only into $TMPC2GDIR (without sudo)?
+INSTALLDIR=      # directory to install local Curry2Go system
+LOCALCPM=yes     # install local version of CPM with local Curry2Go systen?
+TMPINSTALL=no    # install only into $TMPC2GDIR (without sudo)?
+BUILDFRONTEND=no # compile and install front end from the repository?
 
 # check arguments for appropriate settings:
 while [ $# -gt 0 -a -z "$ERROR" ]; do
@@ -59,6 +60,7 @@ while [ $# -gt 0 -a -z "$ERROR" ]; do
     --dir    | -d       ) shift; INSTALLDIR=$1 ;;
     --nocypm | -n       ) LOCALCPM=no ;;
     --tmp    | -t       ) TMPINSTALL=yes ;;
+    --frontend          ) BUILDFRONTEND=yes ;;
     -*                  ) ERROR="Unknown option: $1" ;;
   esac
   shift
@@ -88,6 +90,7 @@ if [ $HELP = yes ] ; then
   echo "-d|--dir <DIR> : install a local Curry2Go system in directory <DIR>"
   echo "-n|--nocpm     : do not install CPM with local Curry2Go system"
   echo "-t|--tmp       : install into $TMPC2GDIR (without sudo)"
+  echo "--frontend     : compile front end from the sources"
   exit
 fi
 #echo INSTALLDIR=$INSTALLDIR
@@ -119,7 +122,7 @@ install_opt() {
   sudo chown -R root:root Curry2Go
   sudo chmod 755 Curry2Go
   cd Curry2Go
-  sudo env "PATH=$PATH" "GOPATH=`pwd`/go" "GO111MODULE=auto" make GOCURRYWORKSPACE=`pwd`/go/src/gocurry installdist
+  sudo env "PATH=$PATH" "GOPATH=`pwd`/go" "GO111MODULE=auto" make GOCURRYWORKSPACE=`pwd`/go/src/gocurry BUILDFRONTEND=$BUILDFRONTEND installdist
   sudo chmod -R go+rX .
   cd ..
   sudo /bin/rm -f bin
@@ -133,7 +136,7 @@ install_tmp() {
   echo "Downloading and installing Curry2Go in directory '$TMPC2GDIR'..."
   cd /tmp
   curl -sSL $TMPC2GTARURL | tar xz
-  cd $TMPC2GDIR && make installdist
+  cd $TMPC2GDIR && make BUILDFRONTEND=$BUILDFRONTEND installdist
 }
 
 if [ $TMPINSTALL = yes ] ; then

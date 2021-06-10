@@ -3,6 +3,9 @@
 # The name of a Curry system used for generating the initial compiler
 export CURRYSYSTEM := $(shell which pakcs)
 
+# Should the front end be built from the front-end repository sources?
+export BUILDFRONTEND = no
+
 # The root directory of the installation
 export ROOT = $(CURDIR)
 # The binary directory
@@ -48,6 +51,7 @@ install: checkcurrysystem
 .PHONY: kernel
 kernel: checkcurrysystem
 	$(MAKE) scripts
+	$(MAKE) frontend
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
@@ -123,9 +127,31 @@ scripts:
 	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
 	# add alias `curry`:
 	cd $(BINDIR) && ln -s curry2go curry
-	# copy the frontend executable of the Curry system
-	# used to install this package:
+
+# install the front end:
+.PHONY: frontend
+frontend:
+ifeq ($(BUILDFRONTEND),yes)
+	$(MAKE) buildfrontend
+else
+	$(MAKE) copyfrontend
+endif
+
+# Copy the front end from the Curry system used to install this package:
+FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
+.PHONY: copyfrontend
+copyfrontend:
+	$(RM) -f bin/curry2go-frontend
 	cp -p $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
+
+# Build and install the Curry front end from the repository:
+FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
+.PHONY: buildfrontend
+buildfrontend:
+	$(RM) -rf frontend bin/curry2go-frontend
+	git clone $(FRONTENDREPO) frontend
+	$(MAKE) -C frontend
+	cd bin && ln -s ../frontend/bin/curry-frontend curry2go-frontend
 
 ##############################################################################
 # testing
@@ -141,7 +167,7 @@ runtest:
 .PHONY: cleanscripts
 cleanscripts:
 	cd scripts && $(MAKE) clean
-	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
+	$(RM) -f $(BINDIR)/curry
 
 # clean compilation targets
 .PHONY: cleantargets
@@ -153,6 +179,7 @@ cleantargets:
 # clean all installed components
 .PHONY: clean
 clean: cleantargets cleanscripts
+	$(RM) -rf $(BINDIR)/curry2go-frontend frontend
 	$(RM) -rf $(BINDIR) $(GOCURRYWORKSPACE)
 
 ##############################################################################
