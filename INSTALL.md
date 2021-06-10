@@ -52,6 +52,21 @@ Note that this installation is _not relocatable_, i.e., it cannot
 be moved into some other directory.
 
 
+Installation with building the Curry front end
+----------------------------------------------
+
+The distribution of Curry2Go contains a binary of the Curry front end.
+If this does not work on the local machine (due to incompatible
+libraries), one can perform an installation which downloads
+the Curry front end from its repository and build it from the sources.
+To do so, the option `--frontend` should be added, e.g.,
+
+    > curl ... | sh -s - --frontend
+
+Note that the front-end build requires
+[Haskell stack v2.x](http://www.haskellstack.org/).
+
+
 Installation of Curry2Go into some other directory
 --------------------------------------------------
 
@@ -59,7 +74,7 @@ In order to install a local Curry2Go system in directory `C2GDIR`
 (which needs more time since the complete Curry2Go system will be
 compiled on the local machine), add an argument to the above command:
 
-    > curl ... | sh -s - -d C2GDIR
+    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh -s - -d C2GDIR
 
 This installation does not require `sudo` since
 an initial Curry2Go compiler is installed into `/tmp/Curry2Go`
@@ -75,7 +90,7 @@ into `~/.cpm/bin/cypm` (which is compiled with the local Curry2Go system).
 If this CPM version should not be installed (which might be reasonable
 if CPM is already installed), add the argument `--nocypm`, i.e.,
 
-    > curl ... | sh -s - -d C2GDIR --nocypm
+    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh -s - -d C2GDIR --nocypm
 
 
 Installation with an existing Curry system and CPM

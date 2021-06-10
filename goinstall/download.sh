@@ -159,7 +159,7 @@ else
   cd $INSTALLDIR
   cypm update # get newest packages
   git checkout 892b2e42429044e0a2b0c1eb4508cffd363b3d93 # just to be safe
-  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go bootstrap
+  make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go BUILDFRONTEND=$BUILDFRONTEND bootstrap
 
   if [ $LOCALCPM = yes ] ; then
     # Install a local version of CPM:
