@@ -235,7 +235,6 @@ dist:
 	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
 	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
-	cd $(LOCALURL) && $(RM) -f curry2go.tgz && ln -s $(TARFILE) curry2go.tgz
 	chmod -R go+rX $(LOCALURL)
 
 
@@ -254,5 +253,8 @@ installdist: runtime
 	cp goinstall/CPM.go cpm/.curry/curry2go-*/
 	cd cpm && go build .curry/curry2go-*/CPM.go
 	mv cpm/CPM bin/cypm
+ifeq ($(BUILDFRONTEND),yes)
+	$(MAKE) buildfrontend
+endif
 
 ##############################################################################
