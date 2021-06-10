@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 #
 # This is the Curry2Go installation script.
 #
@@ -50,17 +50,24 @@ ERROR=
 HELP=no
 INSTALLDIR=   # directory to install local Curry2Go system
 LOCALCPM=yes  # install local version of CPM with local Curry2Go systen?
+TMPINSTALL=no # install only into $TMPC2GDIR (without sudo)?
 
 # check arguments for appropriate settings:
 while [ $# -gt 0 -a -z "$ERROR" ]; do
   case $1 in
-    --help  | -h | -\? ) HELP=yes ;;
-    --dir   | -d       ) shift; INSTALLDIR=$1 ;;
-    --nocpm | -n       ) LOCALCPM=no ;;
-    -*                 ) ERROR="Unknown option: $1" ;;
+    --help   | -h | -\? ) HELP=yes ;;
+    --dir    | -d       ) shift; INSTALLDIR=$1 ;;
+    --nocypm | -n       ) LOCALCPM=no ;;
+    --tmp    | -t       ) TMPINSTALL=yes ;;
+    -*                  ) ERROR="Unknown option: $1" ;;
   esac
   shift
 done
+
+if [ -n "$ERROR" ] ; then
+  echo "ERROR: $ERROR"
+  exit 1
+fi
 
 if [ -n "$INSTALLDIR" ] ; then
   if [ -d "$INSTALLDIR" ] ; then
@@ -80,6 +87,7 @@ if [ $HELP = yes ] ; then
   echo "-h|-?|--help   : show this message and quit"
   echo "-d|--dir <DIR> : install a local Curry2Go system in directory <DIR>"
   echo "-n|--nocpm     : do not install CPM with local Curry2Go system"
+  echo "-t|--tmp       : install into $TMPC2GDIR (without sudo)"
   exit
 fi
 #echo INSTALLDIR=$INSTALLDIR
@@ -87,9 +95,22 @@ fi
 
 ##############################################################################
 
+installed_message() {
+  INSTDIR=$1
+  echo "--------------------------------------------------------------"
+  echo "Curry2Go system is installed in '$INSTDIR'."
+  echo "Add '$INSTDIR/bin' to your path for ease of use, e.g., by"
+  echo ""
+  echo "    > export PATH=$INSTDIR/bin:\$PATH"
+  echo ""
+  echo "Then start the Curry2Go REPL by the command"
+  echo ""
+  echo "    > curry2go"
+}
+
 # Download and install Curry2Go in /opt/Curry2Go (requires sudo):
-installopt() {
-  echo "sudo required to install into /opt/Curry2Go:"
+install_opt() {
+  echo "'sudo' is required to install into /opt/Curry2Go:"
   sudo mkdir -m 755 -p $OPTC2GDIR
   cd $OPTC2GDIR
   sudo /bin/rm -rf Curry2Go
@@ -98,21 +119,16 @@ installopt() {
   sudo chown -R root:root Curry2Go
   sudo chmod 755 Curry2Go
   cd Curry2Go
-  sudo env "PATH=$PATH" "GOPATH=`pwd`/go" make GOCURRYWORKSPACE=`pwd`/go/src/gocurry installdist
+  sudo env "PATH=$PATH" "GOPATH=`pwd`/go" "GO111MODULE=auto" make GOCURRYWORKSPACE=`pwd`/go/src/gocurry installdist
   sudo chmod -R go+rX .
   cd ..
   sudo /bin/rm -f bin
   sudo ln -s Curry2Go/bin bin
-
-  echo "Add '$OPTC2GDIR/bin' to your path to use the"
-  echo "installed Curry2Go system, e.g., by"
-  echo ""
-  echo "    > export PATH=$OPTC2GDIR/bin:\$PATH"
-  echo ""
+  installed_message $OPTC2GDIR
 }
 
 # Download and install Curry2Go in /tmp/Curry2Go:
-installtmp() {
+install_tmp() {
   /bin/rm -rf $TMPC2GDIR
   echo "Downloading and installing Curry2Go in directory '$TMPC2GDIR'..."
   cd /tmp
@@ -120,10 +136,13 @@ installtmp() {
   cd $TMPC2GDIR && make installdist
 }
 
-if [ -z "$INSTALLDIR" ] ; then
-  installopt
+if [ $TMPINSTALL = yes ] ; then
+  install_tmp
+  installed_message $TMPC2GDIR
+elif [ -z "$INSTALLDIR" ] ; then
+  install_opt
 else
-  installtmp
+  install_tmp
 
   # include temporary Curry2Go in path:
   PATH=$TMPC2GDIR/bin:$PATH
@@ -136,16 +155,14 @@ else
   git clone $C2GURL $INSTALLDIR
   cd $INSTALLDIR
   cypm update # get newest packages
+  git checkout 892b2e42429044e0a2b0c1eb4508cffd363b3d93 # just to be safe
   make CURRYSYSTEM=$TMPC2GDIR/bin/curry2go bootstrap
 
   if [ $LOCALCPM = yes ] ; then
     # Install a local version of CPM:
     cypm -d CURRYBIN=$INSTALLDIR/bin/curry2go install cpm
   fi
+  /bin/rm -rf $TMPC2GDIR  # delete bootstrap compiler
 
-  echo "Add '$INSTALLDIR/bin' to your path to use the"
-  echo "installed Curry2Go system, e.g., by"
-  echo ""
-  echo "    > export PATH=$INSTALLDIR/bin:\$PATH"
-  echo ""
+  installed_message $INSTALLDIR
 fi
