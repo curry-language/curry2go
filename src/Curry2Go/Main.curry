@@ -262,7 +262,7 @@ curry2Go opts mainmod = do
     printVerb opts 2 $ "...written to " ++ mainfile
   when (genMain opts) $ do
     printVerb opts 1 "Creating executable..."
-    let bcmd = "go build " ++
+    let bcmd = "env GO111MODULE=auto go build " ++
                combine curry2goDir (removeDots moduleName ++ ".go")
     printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd

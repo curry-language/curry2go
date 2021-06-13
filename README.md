@@ -13,11 +13,13 @@ which can be downloaded from <https://golang.org/>.
 The environment variable `GO111MODULE` has to be
 either `auto` (default in versions 1.13 to 1.15) or `off`,
 because the Curry2Go compiler uses the GOPATH build mode.
-With version 1.16 the variable defaults to `on` and
-has to be set manually, which can be done with:
+With version 1.16 the variable defaults to `on` so that
+it has to be set to `auto` to compile target programs.
+This will be done automatically by the Curry2Go environment.
+However, when further developing the implementation of Curry2Go,
+one should set this variable manually, which can be done with:
 
     > go env -w GO111MODULE=auto
-
 
 Since the Curry2Go compiler is implemented in Curry,
 you need another Curry compiler for the initial

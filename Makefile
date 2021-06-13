@@ -17,6 +17,9 @@ export LIBDIR = $(ROOT)/lib
 # The CPM executable
 CPMBIN=cypm
 
+# required for Go version 1.16 or higher:
+export GO111MODULE=auto
+
 # CPM with compiler specified by CURRYSYSTEM
 CPM = $(CPMBIN) -d CURRYBIN=$(CURRYSYSTEM)
 # CPM with Curry2Go compiler
