@@ -61,6 +61,12 @@ printStatus :: CompStruct _ _ -> String -> IO ()
 printStatus struct s = if cmpVerbosity struct == 0 then return ()
                                                    else putStr s
 
+showCreateDirectoryIfMissing :: CompStruct _ _ -> String -> IO ()
+showCreateDirectoryIfMissing struct dirname = do
+  when (cmpVerbosity struct > 2) $
+    putStrLn $ "Creating directory '" ++ dirname ++ "'..."
+  createDirectoryIfMissing True dirname
+
 ------------------------------------------------------------------------------
 -- Compiler state with lists of already compiled and skipped modules.
 data CompState =
@@ -103,7 +109,7 @@ getFileDir struct name = do fPath <- getFilePath struct name
 --- @param inp    - path to the program to start compilation with
 compile :: CompStruct a s -> IORef s -> String -> IO ()
 compile struct sref inp = do
-  createDirectoryIfMissing True (outputDir struct)
+  showCreateDirectoryIfMissing struct (outputDir struct)
   cref <- newIORef (CompState [] [])
   compileProg struct cref sref inp
   cst <- readIORef cref
@@ -132,7 +138,7 @@ compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
 compileProg struct cref sref name = do
   fDir  <- getFileDir struct name
   fPath <- getFilePath struct name
-  createDirectoryIfMissing True fDir
+  showCreateDirectoryIfMissing struct fDir
   printStatus struct $ "Processing module '" ++ name ++ "'..."
   alreadyExists <- doesFileExist fPath
   impcmpld  <- translateImports

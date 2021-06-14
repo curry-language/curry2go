@@ -79,7 +79,7 @@ getCurryImports opts sref mname = do
   let outPath = combine curry2goDir (modPackage mname)
       outDir  = takeDirectory outPath
       impFile = outDir </> "IMPORTS"
-  createDirectoryIfMissing True outDir
+  showCreateDirectory opts outDir
   eximps <- doesFileExist impFile
   if eximps
     then do
@@ -97,7 +97,7 @@ getCurryImports opts sref mname = do
  where
   readImportsFromInterface outDir impFile = do
     imps <- loadInterface opts sref mname >>= return . progImports
-    createDirectoryIfMissing True outDir
+    showCreateDirectory opts outDir
     writeFile impFile (unlines imps)
     return imps
 
@@ -147,7 +147,7 @@ postProcess :: CGOptions -> String -> IO ()
 postProcess opts mname = do
   let outPath = combine curry2goDir (modPackage mname)
       outDir  = takeDirectory outPath
-  createDirectoryIfMissing True outDir
+  showCreateDirectory opts outDir
   fPath       <- getFilePath (goStruct opts) mname
   extFilePath <- getExtFilePath
   extInSource <- doesFileExist extFilePath
@@ -175,7 +175,10 @@ postProcess opts mname = do
 
   showCopyFile source target = do
     printVerb opts 2 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
-    copyFile source target
+    -- copyFile source target
+    ec <- system $ unwords ["/bin/cp", source, target]
+    unless (ec == 0) $
+      error $ "Error during copying '" ++ source ++ "' to '" ++ target ++ "'!"
 
   getExtFilePath = do
     path <- getCurryPath mname
@@ -233,7 +236,7 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
                   , curryCompilerMinorVersion
                   , curryCompilerRevisionVersion ]
 
---- Compiles a curry program into a go program.
+--- Compiles a Curry program into a Go program.
 --- @param opts    - compiler options 
 --- @param mainmod - name of main module
 curry2Go :: CGOptions -> String -> IO ()
@@ -242,39 +245,57 @@ curry2Go opts mainmod = do
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   -- and show warnings to the user of not in quiet mode
-  let verb     = verbosity opts
-      opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
-  fprog <- showReadFlatCurryWithParseOptions opts4fcy mainmod
   sref <- newIORef initGSInfo
-  let gostruct = goStruct opts
-  compile (gostruct {compProg = compileIProg2GoString opts}) sref mainmod
-  printVerb opts 2 $ "Go programs written to '" ++ outputDir gostruct ++ "'"
-  impints <- mapM (loadInterface opts sref) (progImports fprog)
-  IProg moduleName _ _ funcs <-
-    flatCurry2ICurryWithProgs (c2gICOptions opts) impints fprog
-  when (genMain opts) $ do
-    let mainprogname = removeDots moduleName ++ ".go"
+  let gostruct = (goStruct opts) {compProg = compileIProg2GoString opts}
+  compile gostruct sref mainmod
+  printVerb opts 2 $ "Go programs written into '" ++
+                     combine (outputDir gostruct) curry2goDir ++ "'"
+  if not (genMain opts)
+    then return ()
+    else do
+      let verb     = verbosity opts
+          opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
+      fprog <- showReadFlatCurryWithParseOptions opts4fcy mainmod
+      impints <- mapM (loadInterface opts sref) (progImports fprog)
+      IProg modname _ _ funcs <-
+        flatCurry2ICurryWithProgs (c2gICOptions opts) impints fprog
+      generateMainProg modname funcs
+      createExecutable modname
+      when (runOpt opts) $ execProgram modname
+ where
+  generateMainProg modname funcs = do
+    let mainprogname = removeDots modname ++ ".go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
-    let mainprog = showGoProg (createMainProg funcs (opts {modName = "main"}))
+    let mainprog = showGoProg
+                     (createMainProg funcs (opts {modName = "main"}))
     printVerb opts 4 $ "Main Go program:\n\n" ++ mainprog
     let mainfile = combine curry2goDir mainprogname
     writeFile mainfile mainprog
     printVerb opts 2 $ "...written to " ++ mainfile
-  when (genMain opts) $ do
+
+
+  createExecutable modname = do
     printVerb opts 1 "Creating executable..."
     let bcmd = "env GO111MODULE=auto go build " ++
-               combine curry2goDir (removeDots moduleName ++ ".go")
+               combine curry2goDir (removeDots modname ++ ".go")
     printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
-    printVerb opts 2 $ "Executable stored in: " ++ removeDots moduleName
-  when (run opts) $ do
+    printVerb opts 2 $ "Executable stored in: " ++ removeDots modname
+
+  execProgram modname = do
     printVerb opts 1 "Running..."
-    let rcmd = "./" ++ removeDots moduleName
+    let rcmd = "./" ++ removeDots modname
     printVerb opts 3 $ "...with command: " ++ rcmd
     system rcmd
     return ()
 
+showCreateDirectory :: CGOptions -> String -> IO ()
+showCreateDirectory opts dirname = do
+  printVerb opts 3 $ "Creating directory '" ++ dirname ++ "'..."
+  createDirectoryIfMissing True dirname
+
+------------------------------------------------------------------------------
 --- Turns command line arguments into options and arguments.
 processOptions :: [String] -> IO (CGOptions, [String])
 processOptions argv = do
@@ -287,7 +308,7 @@ processOptions argv = do
     exitWith 0
   printArgs argv
   when (printName opts || printNumVer opts || printBaseVer opts) (exitWith 0)
-  when (not (genMain opts) && run opts) $
+  when (not (genMain opts) && runOpt opts) $
     error "Options 'compile' and 'run' cannot be combined!"
   return (opts, args)
  
@@ -332,11 +353,11 @@ options =
            (NoArg (\opts -> opts {genMain = False}))
            "only compile, do not generate executable"
   , Option "r" ["run"]
-           (NoArg (\opts -> opts {run = True}))
+           (NoArg (\opts -> opts {runOpt = True}))
            "run program after compilation"
   , Option "t" ["time"]
-    (OptArg (maybe (\opts -> opts {time = True})
-    (\s opts -> opts {time = True, times = safeRead s})) "<n>")
+    (OptArg (maybe (\opts -> opts {timeOpt = True})
+    (\s opts -> opts {timeOpt = True, times = safeRead s})) "<n>")
     "print execution time\nn>1: average over runs n"
   , Option "" ["first"]
     (NoArg (\opts -> opts {maxResults = 1}))
@@ -372,3 +393,4 @@ options =
                        else error "Illegal verbosity level (use `-h' for help)"
    where n = safeRead s
 
+------------------------------------------------------------------------------

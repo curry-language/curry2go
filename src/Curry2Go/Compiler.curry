@@ -33,9 +33,9 @@ data CGOptions = CGOptions
   , strat        :: SearchStrat  -- search strategy to be used by the run-time system
   , maxResults   :: Int          -- maximum number of results to compute
   , maxTasks     :: Int          -- maximum number of concurrent tasks in a fair search
-  , run          :: Bool         -- run the program after compilation
+  , runOpt       :: Bool         -- run the program after compilation
   , modName      :: String       -- used internally to track main module. not configurable
-  , time         :: Bool         -- measure execution time
+  , timeOpt      :: Bool         -- measure execution time
   , times        :: Int          -- number of runs to average execution time over
   , interact     :: Bool         -- interactive result printing
   , mainName     :: String       -- name of the function to run as main
@@ -55,9 +55,9 @@ defaultCGOptions = CGOptions
   , strat        = DFS
   , maxResults   = 0
   , maxTasks     = 0
-  , run          = False
+  , runOpt       = False
   , modName      = ""
-  , time         = False
+  , timeOpt      = False
   , times        = 1
   , interact     = False
   , mainName     = "main"
@@ -125,9 +125,9 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2GoCreate opts name))
   [GoCall (GoOpName "new") [GoOpName node]]]
   , GoExprStat (GoCall
-    (GoOpName (runtime ++ if time opts then ".Benchmark" else ".Evaluate"))
-    ((if time opts then [GoOpName "node", GoIntLit (times opts)]
-                   else [GoOpName "node", GoBoolLit (interact opts)])
+    (GoOpName (runtime ++ if timeOpt opts then ".Benchmark" else ".Evaluate"))
+    ((if timeOpt opts then [GoOpName "node", GoIntLit (times opts)]
+                      else [GoOpName "node", GoBoolLit (interact opts)])
     ++ [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
     , GoIntLit (maxResults opts), GoIntLit (maxTasks opts)]))])]
  | otherwise = createMainProg xs opts
