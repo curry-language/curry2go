@@ -116,7 +116,7 @@ uninstall:
 # install scripts in the bin directory:
 .PHONY: scripts
 scripts:
-	cd scripts && $(MAKE) all
+	$(MAKE) -C scripts all
 	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
 	# add alias `curry`:
 	cd $(BINDIR) && ln -s curry2go curry
@@ -159,7 +159,7 @@ runtest:
 # remove scripts in the bin directory:
 .PHONY: cleanscripts
 cleanscripts:
-	cd scripts && $(MAKE) clean
+	$(MAKE) -C scripts clean
 	$(RM) -f $(BINDIR)/curry
 
 # clean compilation targets

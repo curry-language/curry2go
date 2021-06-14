@@ -44,6 +44,10 @@ Using the interactive environment
 
 Start `curry2go` and look into the command `:help`.
 
+Note that generated Go programs are stored relative to the
+current directory in the directory `.curry/curry2go-<version>`.
+This means that one needs read/write access to the current directory.
+
 
 Using the Curry2Go compiler:
 ----------------------------
