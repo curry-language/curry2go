@@ -122,7 +122,7 @@ install_opt() {
   sudo chown -R root:root Curry2Go
   sudo chmod 755 Curry2Go
   cd Curry2Go
-  sudo env "PATH=$PATH" "GOPATH=`pwd`/go" "GO111MODULE=auto" make GOCURRYWORKSPACE=`pwd`/go/src/gocurry BUILDFRONTEND=$BUILDFRONTEND installdist
+  sudo env "PATH=$PATH" make BUILDFRONTEND=$BUILDFRONTEND installdist
   sudo chmod -R go+rX .
   cd ..
   sudo /bin/rm -f bin

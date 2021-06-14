@@ -29,17 +29,8 @@ Then, simply run
 
     > make
 
-This copies the directory `gocurry` to a workspace directory of Go.
-Workspace directories can be set using the environment variable `GOPATH`.
-If the variable is not set, the workspace directory `$HOME/go`
-is assumed. Thus, the `make` command copies the directory `gocurry`
-as follows:
-
-    > mkdir -p ~/go/src
-    > cp -r gocurry ~/go/src/
-
-Furthermore, the Curry2Go compiler is installed as executable
-`bin/curry2goc` and a simple interactive execution environment
+This installs the Curry2Go compiler as executable
+`bin/curry2goc` and an interactive execution environment
 (a basic "REPL") as executable `bin/curry2goi`.
 However, it is not necessary to use these executables directly.
 Instead, the make process installs in the `bin` directory of this package
@@ -97,10 +88,12 @@ before invoking Curry2Go enforces the limit to two CPUs.
 Package contents:
 ----------------
 
-* `benchmarks`: Benchmarks to evaluate the compiler
-* `examples`:   Example programs
-* `gocurry`:    Run-time system and primitives implemented in Go
-* `lib`:        The base libraries of the distribution (basically a copy
-                of the Curry package base)
-* `src`:        The source code of the compiler
-* `scripts`:    Scripts installed into `bin` by the Makefile
+* `benchmarks`:     Benchmarks to evaluate the compiler
+* `examples`:       Example programs
+* `external_files`: Go implementations of primitives for various libraries
+* `go/src/gocurry`: Run-time system and primitives implemented in Go
+* `goinstall`:      Auxiliaries required to install the distribution
+* `lib`:            The base libraries of the distribution (basically a copy
+                    of the Curry package `base`)
+* `scripts`:        Scripts installed into `bin` by the Makefile
+* `src`:            The source code of the compiler

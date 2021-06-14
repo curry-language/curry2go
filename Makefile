@@ -17,6 +17,8 @@ export LIBDIR = $(ROOT)/lib
 # The CPM executable
 CPMBIN=cypm
 
+# set GOPATH to directory containing run-time auxiliaries
+export GOPATH=$(ROOT)/go
 # required for Go version 1.16 or higher:
 export GO111MODULE=auto
 
@@ -24,9 +26,6 @@ export GO111MODULE=auto
 CPM = $(CPMBIN) -d CURRYBIN=$(CURRYSYSTEM)
 # CPM with Curry2Go compiler
 CPMC2G = $(CPMBIN) -d CURRYBIN=$(BINDIR)/curry2go
-
-# Standard location of Curry2Go run-time auxiliaries
-GOCURRYWORKSPACE=$(HOME)/go/src/gocurry
 
 # The generated compiler executable
 COMPILER=$(BINDIR)/curry2goc
@@ -58,7 +57,6 @@ kernel: checkcurrysystem
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
-	$(MAKE) runtime # late creation: avoid conflicts with previous versions
 
 # Check validity of variable CURRYSYSTEM
 .PHONY: checkcurrysystem
@@ -114,14 +112,6 @@ baselibs:
 .PHONY: uninstall
 uninstall:
 	$(CPM) uninstall
-	$(RM) -rf $(GOCURRYWORKSPACE)
-
-# install run-time libraries:
-.PHONY: runtime
-runtime:
-	mkdir -p $(GOCURRYWORKSPACE)
-	$(RM) -rf $(GOCURRYWORKSPACE)
-	cp -r gocurry $(GOCURRYWORKSPACE)
 
 # install scripts in the bin directory:
 .PHONY: scripts
@@ -183,7 +173,6 @@ cleantargets:
 .PHONY: clean
 clean: cleantargets cleanscripts
 	$(RM) -rf $(BINDIR)/curry2go-frontend frontend
-	$(RM) -rf $(BINDIR) $(GOCURRYWORKSPACE)
 
 ##############################################################################
 # distributing
@@ -240,10 +229,9 @@ dist:
 	cp goinstall/download.sh $(LOCALURL)/
 	chmod -R go+rX $(LOCALURL)
 
-
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist
-installdist: runtime
+installdist:
 	# Compile the Curry2Go compiler
 	cp goinstall/Compiler.go .curry/curry2go-*/
 	go build .curry/curry2go-*/Compiler.go

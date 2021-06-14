@@ -276,7 +276,8 @@ curry2Go opts mainmod = do
 
   createExecutable modname = do
     printVerb opts 1 "Creating executable..."
-    let bcmd = "env GO111MODULE=auto go build " ++
+    let bcmd = "env \"GO111MODULE=auto\" \"GOPATH=" ++
+               (packagePath </> "go") ++ "\" go build " ++
                combine curry2goDir (removeDots modname ++ ".go")
     printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd
