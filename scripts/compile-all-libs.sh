@@ -22,7 +22,6 @@ compile_all_targets() {
 
 compile_module() {
   FILE=$1
-  FILE=`expr $FILE : '\(.*\)\.lcurry' \| $FILE`
   FILE=`expr $FILE : '\(.*\)\.curry' \| $FILE`
   MODNAME=`echo $FILE | tr '/' '.'`
   compile_all_targets $MODNAME
@@ -31,6 +30,14 @@ compile_module() {
 compile_all_modules() {
   for F in `find * -name "*.curry"` ; do
     compile_module $F
+  done
+}
+
+compile_all_modules_to_Go() {
+  for F in `find * -name "*.curry"` ; do
+    F1=`expr $F : '\(.*\)\.curry' \| $F`
+    MODNAME=`echo $F1 | tr '/' '.'`
+    ../bin/curry2goc --compile $MODNAME
   done
 }
 
@@ -45,3 +52,7 @@ while [ $CCODE = 0 ] ; do
   CCODE=$?
 done
 /bin/rm -r $TMPOUT
+
+# generate Go targets for all libraries:
+compile_all_modules_to_Go
+
