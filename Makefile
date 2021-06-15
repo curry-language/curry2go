@@ -212,6 +212,7 @@ $(TARFILE):
 	$(MAKE) -C $(C2GDISTDIR) bootstrap
 	cd $(C2GDISTDIR) && $(CPMDISTC2G) checkout cpm
 	cd $(C2GDISTDIR)/cpm && $(CPMDISTC2G) -d BININSTALLPATH=$(C2GDISTDIR)/bin install
+	cd $(C2GDISTDIR)/lib && ../scripts/compile-all-libs.sh
 	$(MAKE) -C $(C2GDISTDIR) cleandist
 	cd $(C2GDISTDIR)/.. && tar cfvz $(ROOT)/$(TARFILE) Curry2Go
 
