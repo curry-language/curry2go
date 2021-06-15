@@ -101,9 +101,12 @@ bootstrap:
 
 # install base libraries from package `base`:
 .PHONY: baselibs
-baselibs:
+baselibs: require-jq
 	$(RM) -rf base
 	$(CPM) checkout base
+	@if [ "$(shell $(JQ) -r '.version' base/package.json)" != "$(shell cat base/VERSION)" ] ; then \
+	   echo "Corrupted base package: version different from file VERSION!" ; \
+	   exit 1 ; fi
 	$(RM) -rf $(LIBDIR)
 	/bin/cp -r base/src $(LIBDIR)
 	/bin/cp base/VERSION $(LIBDIR)/VERSION
@@ -177,13 +180,17 @@ clean: cleantargets cleanscripts
 ##############################################################################
 # distributing
 
-# the location where the distribution is built:
-C2GDISTDIR=/tmp/Curry2Go
-
 # Executable of JSON command-line processor:
 JQ := $(shell which jq)
 
-# ...in order to get version number from package specification:
+.PHONY: require-jq
+require-jq:
+	@if [ ! -x "$(JQ)" ] ; then \
+		echo "Tool 'jq' not found!" ; \
+		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
+		exit 1 ; fi
+
+# ...in order to get the version number from package specification:
 C2GVERSION = $(shell $(JQ) -r '.version' package.json)
 
 # tar file to store the distribution
@@ -194,6 +201,9 @@ GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 
 # CPM with distribution compiler
 CPMDISTC2G = $(CPMBIN) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
+
+# the location where the distribution is built:
+C2GDISTDIR=/tmp/Curry2Go
 
 $(TARFILE):
 	mkdir -p $(C2GDISTDIR)
@@ -217,17 +227,22 @@ cleandist:
 LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
-dist:
-	@if [ ! -x "$(JQ)" ] ; then \
-		echo "Tool 'jq' not found!" ; \
-		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
-		exit 1 ; fi
+dist: require-jq
 	$(MAKE) C2GDISTDIR=/opt/Curry2Go/Curry2Go $(TARFILE) && mv $(TARFILE) opt-$(TARFILE)
 	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
 	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
 	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
+	$(MAKE) savedist
 	chmod -R go+rX $(LOCALURL)
+
+# save the current distribution files:
+SAVEDISTPREFIX=ALLDISTS/`date -I`-$(C2GVERSION)
+.PHONY: savedist
+savedist:
+	cd $(LOCALURL) && cp opt-$(TARFILE) $(SAVEDISTPREFIX)-opt-$(TARFILE)
+	cd $(LOCALURL) && cp tmp-$(TARFILE) $(SAVEDISTPREFIX)-tmp-$(TARFILE)
+	cd $(LOCALURL) && cp download.sh    $(SAVEDISTPREFIX)-download.sh
 
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist
