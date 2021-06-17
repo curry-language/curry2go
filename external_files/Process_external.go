@@ -5,7 +5,7 @@ import "os"
 import "os/exec"
 import "time"
 import "fmt"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 func ExternalSystem_Process_getPID(task *gocurry.Task){
     root := task.GetControl()

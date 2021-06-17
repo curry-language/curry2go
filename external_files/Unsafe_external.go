@@ -1,7 +1,7 @@
 package SystemIOUnsafe
 
 import "gocurry"
-import "../../../Prelude"
+import "curry2go/Prelude"
 
 
 func ExternalSystem_IO_Unsafe_unsafePerformIO(task *gocurry.Task){

@@ -3,7 +3,7 @@ package SystemEnvironment
 import "gocurry"
 import "os"
 import "runtime"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 func ExternalSystem_Environment_getArgs(task *gocurry.Task){
     root := task.GetControl()

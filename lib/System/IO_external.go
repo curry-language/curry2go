@@ -7,7 +7,7 @@ import "fmt"
 import "errors"
 import "io"
 import "bufio"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 // Struct representing a handle.
 type Handle struct{

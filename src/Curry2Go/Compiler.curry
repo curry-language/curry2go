@@ -120,8 +120,8 @@ createMainProg [] _ = error "No main function found!"
 createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   | fname == mainName opts && ar > 0 = error $ "Overloaded initial expression"
   | fname == mainName opts = GoProg "main"
-  ["gocurry", "./" ++ modNameToPath modName] [GoTopLevelFuncDecl
-  (GoFuncDecl "main" [] []
+  [runtime, "curry2go/" ++ modNameToPath modName]
+  [GoTopLevelFuncDecl (GoFuncDecl "main" [] []
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2GoCreate opts name))
   [GoCall (GoOpName "new") [GoOpName node]]]
   , GoExprStat (GoCall
@@ -145,7 +145,7 @@ compileIProg2GoString opts iprog@(IProg moduleName _ _ _) =
 compileIProg2Go :: CGOptions -> IProg -> GoProg
 compileIProg2Go opts (IProg moduleName _ dtypes funcs) =
   GoProg (removeDots moduleName)
-  ("gocurry" : (foldl union [] (map (getImports opts) funcs)))
+  (runtime : (foldl union [] (map (getImports opts) funcs)))
   ([ifuncNames2Go opts funcs]
   ++ map (idataNames2Go opts) dtypes
   ++ concatMap (idata2GoCreate (opts {modName = moduleName})) dtypes
@@ -193,8 +193,7 @@ getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
   toImport (x:xs)
     | x == modName opts = (toImport xs)
     | otherwise         =
-      (concat (replicate (length (splitModuleIdentifiers (modName opts)))"../")
-      ++ modNameToPath x) : (toImport xs)
+      ("curry2go/" ++ modNameToPath x) : (toImport xs)
       
 --- Creates a top-level declaration for an array with all function names.
 --- @param opts  - compiler options

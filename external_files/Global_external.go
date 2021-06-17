@@ -1,7 +1,7 @@
 package DataGlobal
 
 import "gocurry"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 var global_map = make(map[string]*gocurry.Node)
 var func_name = "arg_eval"
