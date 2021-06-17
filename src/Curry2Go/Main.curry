@@ -42,26 +42,23 @@ modPackage m =
 
 --- Creates the output path for a compiled Curry module.
 createFilePath :: String -> IO String
-createFilePath m = do
-  path <- lookupModuleSourceInLoadPath m
-  case path of
-    Nothing       -> error ("Unknown module " ++ m)
-    Just (dir, _) -> return (joinPath [dir, curry2goDir, modPackage m])
+createFilePath m = doOnModuleSource m
+  (\ (dir, _) -> return (joinPath [dir, curry2goDir, modPackage m]))
 
 --- Gets the path to the source file of a Curry module.
-getCurryPath :: String -> IO String
-getCurryPath m =
-  lookupModuleSourceInLoadPath m >>= \path -> case path of
-    Nothing        -> error ("Unknown module " ++ m)
-    Just (_, file) -> return file
+getCurrySourcePath :: String -> IO String
+getCurrySourcePath m = doOnModuleSource m (return . snd)
 
 --- Gets the base directory of a Curry module.
 getBaseDirOfModule :: String -> IO String
-getBaseDirOfModule m = do
-  path <- lookupModuleSourceInLoadPath m
-  case path of
-    Nothing       -> error ("Unknown module " ++ m)
-    Just (dir, _) -> return dir
+getBaseDirOfModule m = doOnModuleSource m (return . fst)
+
+--- Lookup module dir and source file and run an action on this information.
+doOnModuleSource :: String -> ((String,String) -> IO a) -> IO a
+doOnModuleSource mname modact =
+  lookupModuleSourceInLoadPath mname >>= \path -> case path of
+    Nothing      -> error $ "Unknown module " ++ mname
+    Just dirfile -> modact dirfile
 
 --- Load a FlatCurry interface for a module if not already done.
 loadInterface :: CGOptions -> IORef GSInfo -> String -> IO Prog
@@ -83,15 +80,12 @@ getCurryImports opts sref mname = do
   eximps <- doesFileExist impFile
   if eximps
     then do
-      mbpath <- lookupModuleSourceInLoadPath mname
-      case mbpath of
-        Nothing         -> error $ "Unknown module " ++ mname
-        Just (_,source) -> do
-          stime <- getModificationTime source
-          itime <- getModificationTime impFile
-          if compareClockTime stime itime == LT
-            then readFile impFile >>= return . lines
-            else readImportsFromInterface outDir impFile
+      source <- getCurrySourcePath mname
+      stime  <- getModificationTime source
+      itime  <- getModificationTime impFile
+      if compareClockTime stime itime == LT
+        then readFile impFile >>= return . lines
+        else readImportsFromInterface outDir impFile
     else readImportsFromInterface outDir impFile
 
  where
@@ -181,7 +175,7 @@ postProcess opts mname = do
       error $ "Error during copying '" ++ source ++ "' to '" ++ target ++ "'!"
 
   getExtFilePath = do
-    path <- getCurryPath mname
+    path <- getCurrySourcePath mname
     return $
       replaceFileName path
         (stripCurrySuffix (takeFileName path) ++ "_external.go")
@@ -197,7 +191,7 @@ goStruct opts = defaultStruct
   , filePath       = createFilePath
   , excludeModules = []
   , getProg        = loadICurry opts
-  , getPath        = getCurryPath
+  , getPath        = getCurrySourcePath
   , getImports     = if noimports opts then (\_ _ -> return [])
                                        else getCurryImports opts
   , postProc       = postProcess opts
@@ -213,7 +207,7 @@ initGSInfo :: GSInfo
 initGSInfo = GSInfo []
 
 ------------------------------------------------------------------------------
---- Implementation of compiler io.
+--- Implementation of compiler invokation.
 
 --- main function
 main :: IO ()
@@ -244,7 +238,9 @@ curry2Go opts mainmod = do
   printVerb opts 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
-  -- and show warnings to the user of not in quiet mode
+  -- and show warnings to the user if not in quiet mode (but avoid reading
+  -- the prelude if not necessary in order to speed up REPL start)
+  fprog <- parseMainFlatCurry
   sref <- newIORef initGSInfo
   let gostruct = (goStruct opts) {compProg = compileIProg2GoString opts}
   compile gostruct sref mainmod
@@ -254,9 +250,6 @@ curry2Go opts mainmod = do
   if not (genMain opts)
     then return ()
     else do
-      let verb     = verbosity opts
-          opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
-      fprog <- showReadFlatCurryWithParseOptions opts4fcy mainmod
       impints <- mapM (loadInterface opts sref) (progImports fprog)
       IProg modname _ _ funcs <-
         flatCurry2ICurryWithProgs (c2gICOptions opts) impints fprog
@@ -264,13 +257,27 @@ curry2Go opts mainmod = do
       createExecutable modname
       when (runOpt opts) $ execProgram modname
  where
+  parseMainFlatCurry = do
+    let verb     = verbosity opts
+        opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
+    if mainmod /= "Prelude" || genMain opts
+      then showReadFlatCurryWithParseOptions opts4fcy mainmod
+      else do
+        (pdir,pfile) <- doOnModuleSource mainmod return
+        stime  <- getModificationTime pfile
+        ftime  <- getModificationTime
+                    (joinPath [pdir, curry2goDir, mainmod ++ ".fcy"])
+        if compareClockTime stime ftime == LT
+          then return (error "Internal error: unread prelude")
+          else showReadFlatCurryWithParseOptions opts4fcy mainmod
+
   createModFile dir = do
     let content = unlines ["module curry2go"
                     , "require gocurry v1.0.0"
                     , "replace gocurry => "
                     ++ (packagePath </> "go" </> "src" </> "gocurry")]
     writeFile (combine dir "go.mod") content
- 
+    
   generateMainProg modname funcs = do
     let mainprogname = removeDots modname ++ "Main.go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
