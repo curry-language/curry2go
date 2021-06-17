@@ -170,6 +170,7 @@ cleanscripts:
 cleantargets:
 	$(CPM) clean
 	$(CPMC2G) clean
+	$(RM) -rf $(LIBDIR)/.curry
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
 
 # clean all installed components
