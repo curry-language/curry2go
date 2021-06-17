@@ -44,7 +44,7 @@ c2go = CCDescription
  where
   cleanCmd m = unwords
     [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
-    , curry2goDir </> m ++ ".go", curry2goDir </> m ]
+    , curry2goDir </> m ++ "Main.go", curry2goDir </> m ]
 
 c2goHome :: String
 c2goHome = packagePath
