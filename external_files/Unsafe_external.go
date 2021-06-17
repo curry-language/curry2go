@@ -140,28 +140,12 @@ func ExternalSystem_IO_Unsafe_prim_showAnyTerm(task *gocurry.Task){
     panic("System.IO.Unsafe.showAnyTerm: Not yet implemented")
 }
 
-func ExternalSystem_IO_Unsafe_prim_showAnyQTerm(task *gocurry.Task){
-    panic("System.IO.Unsafe.showAnyQTerm: Not yet implemented")
-}
-
 func ExternalSystem_IO_Unsafe_prim_readsAnyUnqualifiedTerm(task *gocurry.Task){
     panic("System.IO.Unsafe.readsAnyUnqualifiedTerm: Not yet implemented")
 }
 
-func ExternalSystem_IO_Unsafe_prim_readsAnyQTerm(task *gocurry.Task){
-    panic("System.IO.Unsafe.readsAnyQTerm: Not yet implemented")
-}
-
 func ExternalSystem_IO_Unsafe_showAnyExpression(task *gocurry.Task){
     panic("System.IO.Unsafe.showAnyExpression: Not yet implemented")
-}
-
-func ExternalSystem_IO_Unsafe_showAnyQExpression(task *gocurry.Task){
-    panic("System.IO.Unsafe.showAnyQExpression: Not yet implemented")
-}
-
-func ExternalSystem_IO_Unsafe_prim_readsAnyQExpression(task *gocurry.Task){
-    panic("System.IO.Unsafe.readsAnyQExpression: Not yet implemented")
 }
 
 
