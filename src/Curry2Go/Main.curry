@@ -285,11 +285,8 @@ curry2Go opts mainmod = do
     if mainmod /= "Prelude" || genMain opts
       then showReadFlatCurryWithParseOptions opts4fcy mainmod
       else do
-        (pdir,pfile) <- doOnModuleSource mainmod return
-        stime  <- getModificationTime pfile
-        ftime  <- getModificationTime
-                    (joinPath [pdir, curry2goDir, mainmod ++ ".fcy"])
-        if compareClockTime stime ftime == LT
+        preludeready <- isCompiledCurryModule opts "Prelude"
+        if preludeready
           then return (error "Internal error: unread prelude")
           else showReadFlatCurryWithParseOptions opts4fcy mainmod
 
