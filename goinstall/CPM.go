@@ -1,7 +1,7 @@
 package main
 
 import "gocurry"
-import "./CPM/Main"
+import "gocurry/CPM/Main"
 
 func main(  )(  ){
     node := CPMMain.CPMMain__CREATE_main( new( gocurry.Node ) )
