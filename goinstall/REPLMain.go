@@ -1,7 +1,7 @@
 package main
 
 import "gocurry"
-import "gocurry/Curry2Go/REPL"
+import "curry2go/Curry2Go/REPL"
 
 func main(  )(  ){
     node := Curry2GoREPL.Curry2GoREPL__CREATE_main( new( gocurry.Node ) )

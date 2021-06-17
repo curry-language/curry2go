@@ -250,17 +250,17 @@ savedist:
 .PHONY: installdist
 installdist:
 	# Compile the Curry2Go compiler
-	cp goinstall/Compiler.go .curry/curry2go-*/
-	cd .curry/curry2go-*/ && go build Compiler.go
-	mv .curry/curry2go-*/Compiler bin/curry2goc
+	cp goinstall/CompilerMain.go .curry/curry2go-*/
+	cd .curry/curry2go-*/ && go build CompilerMain.go
+	mv .curry/curry2go-*/CompilerMain bin/curry2goc
 	# Compile the Curry2Go REPL
-	cp goinstall/REPL.go .curry/curry2go-*/
-	cd .curry/curry2go-*/ && go build .curry/curry2go-*/REPL.go
-	mv .curry/curry2go-*/REPL bin/curry2goi
+	cp goinstall/REPLMain.go .curry/curry2go-*/
+	cd .curry/curry2go-*/ && go build REPLMain.go
+	mv .curry/curry2go-*/REPLMain bin/curry2goi
 	# install CPM
-	cp goinstall/CPM.go cpm/.curry/curry2go-*/
-	cd cpm/.curry/curry2go-* && go build CPM.go
-	mv .curry/curry2go-*/cpm/CPM bin/cypm
+	cp goinstall/CPMMain.go cpm/.curry/curry2go-*/
+	cd cpm/.curry/curry2go-* && go build CPMMain.go
+	mv .curry/curry2go-*/cpm/CPMMain bin/cypm
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif
