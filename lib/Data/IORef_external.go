@@ -1,7 +1,7 @@
 package DataIORef
 
 import "gocurry"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 var names []string = []string{"IORef"}
 

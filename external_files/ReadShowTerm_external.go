@@ -4,7 +4,7 @@ import "strings"
 import "runtime"
 import "gocurry"
 import "path/filepath"
-import "../Prelude"
+import "curry2go/Prelude"
 
 func ExternalReadShowTerm_prim_showTerm(task *gocurry.Task){
     root := task.GetControl()

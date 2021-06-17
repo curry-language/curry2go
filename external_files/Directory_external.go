@@ -2,8 +2,8 @@ package SystemDirectory
 
 import "gocurry"
 import "os"
-import "../../Prelude"
-import "../../Data/Time"
+import "curry2go/Prelude"
+import "curry2go/Data/Time"
 
 func ExternalSystem_Directory_prim_doesFileExist(task *gocurry.Task){
     root := task.GetControl()

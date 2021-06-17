@@ -239,6 +239,12 @@ func ExternalPrelude_constrEq(task *Task){
 // the children of x1 and x2.
 func unifChain(task *Task, root, x1, x2 *Node){
 
+    PrintResult(x1)
+    fmt.Println(x1.GetArity())
+    PrintResult(x2)
+    fmt.Println(x2.GetArity())
+    fmt.Println("")
+
     // no children: return true
     if(len(x1.Children) == 0){
         Prelude__CREATE_True(root)

@@ -1,8 +1,8 @@
 package SystemIOExts
 
 import "gocurry"
-import "../IO"
-import "../../Prelude"
+import "curry2go/IO"
+import "curry2go/Prelude"
 import "os/exec"
 
 

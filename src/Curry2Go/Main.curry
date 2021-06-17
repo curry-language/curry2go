@@ -248,6 +248,7 @@ curry2Go opts mainmod = do
   sref <- newIORef initGSInfo
   let gostruct = (goStruct opts) {compProg = compileIProg2GoString opts}
   compile gostruct sref mainmod
+  createModFile curry2goDir
   printVerb opts 2 $ "Go programs written into '" ++
                      combine (outputDir gostruct) curry2goDir ++ "'"
   if not (genMain opts)
@@ -263,8 +264,15 @@ curry2Go opts mainmod = do
       createExecutable modname
       when (runOpt opts) $ execProgram modname
  where
+  createModFile dir = do
+    let content = unlines ["module curry2go"
+                    , "require gocurry v1.0.0"
+                    , "replace gocurry => "
+                    ++ (packagePath </> "go" </> "src" </> "gocurry")]
+    writeFile (combine dir "go.mod") content
+ 
   generateMainProg modname funcs = do
-    let mainprogname = removeDots modname ++ ".go"
+    let mainprogname = removeDots modname ++ "Main.go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
     let mainprog = showGoProg
                      (createMainProg funcs (opts {modName = "main"}))
@@ -276,12 +284,15 @@ curry2Go opts mainmod = do
 
   createExecutable modname = do
     printVerb opts 1 "Creating executable..."
-    let bcmd = "env \"GO111MODULE=auto\" \"GOPATH=" ++
-               (packagePath </> "go") ++ "\" go build " ++
-               combine curry2goDir (removeDots modname ++ ".go")
+    oldDir <- getCurrentDirectory
+    setCurrentDirectory curry2goDir
+    let mainname = removeDots modname ++ "Main"
+    let bcmd = "env \"GO111MODULE=auto\" go build " ++ mainname ++ ".go"
     printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
+    setCurrentDirectory oldDir
+    renameFile (curry2goDir </> mainname) (removeDots modname)
     printVerb opts 2 $ "Executable stored in: " ++ removeDots modname
 
   execProgram modname = do

@@ -3,7 +3,7 @@ package DebugProfile
 import "gocurry"
 import "runtime"
 import "runtime/debug"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 
 func ExternalDebug_Profile_getProcessInfos(task *gocurry.Task){

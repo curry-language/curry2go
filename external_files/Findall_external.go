@@ -1,7 +1,7 @@
 package ControlFindall
 
 import "gocurry"
-import "../../Prelude"
+import "curry2go/Prelude"
 
 var names = []string{"ExternalControl_Findall_oneValue", "evalSomeVal", "evalIsFail", "evalToList"}
 
