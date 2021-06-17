@@ -1,5 +1,5 @@
 module CompilerStructure
-  ( CompStruct (..), defaultStruct, getFilePath, getFileDir, compile )
+  ( CompStruct (..), defaultStruct, compile, getTargetFilePath )
  where
 
 import Control.Monad    ( when )
@@ -15,7 +15,7 @@ import System.FilePath  ( combine, takeDirectory )
 --- and the type of an `IORef` keeping some state accross compilation steps,
 --- e.g., to cache already loaded modules or interfaces.
 --- The compiled version of a module `m` will be saved as
---- `outputDir </> (filePath m)`.
+--- `outputDir </> (targetFilePath m)`.
 data CompStruct p s = CompStruct
   { -- verbosity level of the compilation process:
     -- 0: quiet
@@ -27,16 +27,17 @@ data CompStruct p s = CompStruct
     -- directory where all compiled files will be saved
   , outputDir      :: String
     -- function taking a module name and converting it to a path
-    -- for the compiled version
-  , filePath       :: String -> IO String
+    -- for the compiled target file
+  , targetFilePath  :: String -> IO String
     -- list of modules to ignore if they appear as an import
   , excludeModules :: [String]
     -- returns a program from a module name
   , getProg        :: IORef s -> String -> IO p
-    -- returns the path to the source file of a program
-  , getPath        :: String -> IO String
     -- gets the imports of a module
   , getImports     :: IORef s -> String -> IO [String]
+    -- returns `True` if the module has already a compilation target which
+    -- is newer than the source file (or other intermediate representations)
+  , isCompiled     :: String -> IO Bool
     -- compiles a program to a String in the target language
   , compProg       :: (p -> String)
     -- post processing function that runs after compilation/skipping of a module
@@ -48,11 +49,11 @@ defaultStruct :: CompStruct a s
 defaultStruct = CompStruct
   { cmpVerbosity   = 0
   , outputDir      = ""
-  , filePath       = return
+  , targetFilePath = return
   , excludeModules = []
   , getProg        = error "Undefined getProg"
-  , getPath        = error "Undefined getPath"
   , getImports     = error "Undefined getImports"
+  , isCompiled     = \_ -> return False
   , compProg       = error "Undefined compProg"
   , postProc       = \_ -> return ()
   }
@@ -91,16 +92,10 @@ addSkippedModule cref mname = do
 --- Returns the path to the file containing the compiled version of a program.
 --- @param path - PathStruct containing directory information
 --- @param name - name of the curry module
-getFilePath :: CompStruct a s -> String -> IO String
-getFilePath struct name = do fPath <- filePath struct name
-                             return (combine (outputDir struct) fPath)
-
---- Returns the directory where the compiled version of a program will be saved.
---- @param path - PathStruct containing directory information
---- @param name - name of the curry module
-getFileDir :: CompStruct a s -> String -> IO String
-getFileDir struct name = do fPath <- getFilePath struct name
-                            return (takeDirectory fPath)
+getTargetFilePath :: CompStruct a s -> String -> IO String
+getTargetFilePath struct name = do
+  fPath <- targetFilePath struct name
+  return (combine (outputDir struct) fPath)
 
 --- Compiles a program with its imports according to the CompStruct.
 --- and compilation function given.
@@ -136,25 +131,21 @@ compile struct sref inp = do
 compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
             -> IO Bool
 compileProg struct cref sref name = do
-  fDir  <- getFileDir struct name
-  fPath <- getFilePath struct name
-  showCreateDirectoryIfMissing struct fDir
   printStatus struct $ "Processing module '" ++ name ++ "'..."
-  alreadyExists <- doesFileExist fPath
-  impcmpld  <- translateImports
-  if alreadyExists
-    then do
-      modulePath  <- getPath struct name
-      lastMod     <- getModificationTime modulePath
-      lastCompile <- getModificationTime fPath
-      if compareClockTime lastMod lastCompile == GT || impcmpld
-        then translateProg fPath
-        else do
+  fPath <- getTargetFilePath struct name
+  showCreateDirectoryIfMissing struct (takeDirectory fPath)
+  impcmpld <- translateImports
+  if impcmpld
+    then translateProg fPath
+    else do
+      modcmpld <- isCompiled struct name
+      if modcmpld
+        then do
           postProc struct name
           addSkippedModule cref name
           printStatusLn $ "Skipping compilation of '" ++ name ++ "'"
           return False
-    else translateProg fPath
+        else translateProg fPath
  where
   translateImports = do
     impmods <- getImports struct sref name

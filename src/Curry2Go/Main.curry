@@ -9,7 +9,7 @@ import Control.Monad         ( unless, when )
 
 import Data.Time             ( compareClockTime )
 import FlatCurry.Types       ( Prog )
-import FlatCurry.Files       ( readFlatCurryWithParseOptions
+import FlatCurry.Files       ( flatCurryFileName, readFlatCurryWithParseOptions
                              , readFlatCurryIntWithParseOptions )
 import FlatCurry.Goodies     ( progImports, progName )
 import Language.Go.Show      ( showGoProg )
@@ -34,31 +34,53 @@ import Curry2Go.PkgConfig    ( packagePath, packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
---- Returns the filepath relative to curry2goDir where
---- the compiled version of the module `m` will be stored.
-modPackage :: String -> String
-modPackage m =
-  combine (modNameToPath m) (last (splitModuleIdentifiers m) ++ ".go")
-
---- Creates the output path for a compiled Curry module.
-createFilePath :: String -> IO String
-createFilePath m = doOnModuleSource m
-  (\ (dir, _) -> return (joinPath [dir, curry2goDir, modPackage m]))
-
---- Gets the path to the source file of a Curry module.
-getCurrySourcePath :: String -> IO String
-getCurrySourcePath m = doOnModuleSource m (return . snd)
-
---- Gets the base directory of a Curry module.
-getBaseDirOfModule :: String -> IO String
-getBaseDirOfModule m = doOnModuleSource m (return . fst)
-
 --- Lookup module dir and source file and run an action on this information.
 doOnModuleSource :: String -> ((String,String) -> IO a) -> IO a
 doOnModuleSource mname modact =
   lookupModuleSourceInLoadPath mname >>= \path -> case path of
     Nothing      -> error $ "Unknown module " ++ mname
     Just dirfile -> modact dirfile
+
+--- Returns the filepath relative to `curry2goDir` where
+--- the compiled version of the module `m` will be stored.
+modPackage :: String -> String
+modPackage m =
+  combine (modNameToPath m) (last (splitModuleIdentifiers m) ++ ".go")
+
+--- Returns the output path for a compiled Curry module.
+getGoTargetFilePath :: String -> IO String
+getGoTargetFilePath m = doOnModuleSource m
+  (\ (dir, _) -> return (joinPath [dir, curry2goDir, modPackage m]))
+
+--- Returns `True` if the module has already a compilation target which
+--- is newer than the source and the FlatCurry file (if present).
+isCompiledCurryModule :: CGOptions -> String -> IO Bool
+isCompiledCurryModule opts mname = doOnModuleSource mname $ \ (mdir,msrc) -> do
+  printVerb opts 2 $ "Source file: " ++ msrc
+  let targetfile = joinPath [mdir, curry2goDir, modPackage mname]
+  printVerb opts 2 $ "Target file: " ++ targetfile
+  extarget <- doesFileExist targetfile
+  if extarget
+    then do
+      mtime <- getModificationTime msrc
+      ttime <- getModificationTime targetfile
+      if compareClockTime mtime ttime == GT
+        then return False
+        else do
+          let fcyfile = joinPath [mdir, curry2goDir, mname ++ ".fcy"]
+          printVerb opts 2 $ "FlatCurry file: " ++ fcyfile
+          exfcy <- doesFileExist fcyfile
+          if exfcy
+            then do
+              ftime <- getModificationTime fcyfile
+              return $ compareClockTime ftime ttime == LT
+            else return True -- fcy does not exist: not relevant here
+    else return False
+  
+
+--- Gets the path to the source file of a Curry module.
+getCurrySourcePath :: String -> IO String
+getCurrySourcePath m = doOnModuleSource m (return . snd)
 
 --- Load a FlatCurry interface for a module if not already done.
 loadInterface :: CGOptions -> IORef GSInfo -> String -> IO Prog
@@ -142,7 +164,7 @@ postProcess opts mname = do
   let outPath = combine curry2goDir (modPackage mname)
       outDir  = takeDirectory outPath
   showCreateDirectory opts outDir
-  fPath       <- getFilePath (goStruct opts) mname
+  fPath       <- getTargetFilePath (goStruct opts) mname
   extFilePath <- getExtFilePath
   extInSource <- doesFileExist extFilePath
   let extFileName = takeFileName extFilePath
@@ -188,12 +210,12 @@ goStruct :: CGOptions -> CompStruct IProg GSInfo
 goStruct opts = defaultStruct
   { cmpVerbosity   = verbosity opts
   , outputDir      = "."
-  , filePath       = createFilePath
+  , targetFilePath = getGoTargetFilePath
   , excludeModules = []
   , getProg        = loadICurry opts
-  , getPath        = getCurrySourcePath
   , getImports     = if noimports opts then (\_ _ -> return [])
                                        else getCurryImports opts
+  , isCompiled     = isCompiledCurryModule opts
   , postProc       = postProcess opts
   }
 
