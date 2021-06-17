@@ -316,12 +316,12 @@ curry2Go opts mainmod = do
     i <- system bcmd
     when (i /= 0) $ error "Build failed!"
     setCurrentDirectory oldDir
-    renameFile (curry2goDir </> mainname) (removeDots modname)
-    printVerb opts 2 $ "Executable stored in: " ++ removeDots modname
+    renameFile (curry2goDir </> mainname) modname
+    printVerb opts 2 $ "Executable stored in: " ++ modname
 
   execProgram modname = do
     printVerb opts 1 "Running..."
-    let rcmd = "./" ++ removeDots modname
+    let rcmd = "./" ++ modname
     printVerb opts 3 $ "...with command: " ++ rcmd
     system rcmd
     return ()
