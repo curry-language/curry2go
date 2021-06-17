@@ -1,5 +1,5 @@
 module CompilerStructure
-  ( CompStruct (..), defaultStruct, compile, getTargetFilePath )
+  ( CompStruct (..), defaultStruct, compile )
  where
 
 import Control.Monad    ( when )
@@ -11,11 +11,10 @@ import Data.Time        ( compareClockTime )
 import System.FilePath  ( combine, takeDirectory )
 
 --- Data type for compiler options regarding output structure and modules.
---- It is parameterized over the type of programs to be compiled
---- and the type of an `IORef` keeping some state accross compilation steps,
---- e.g., to cache already loaded modules or interfaces.
---- The compiled version of a module `m` will be saved as
---- `outputDir </> (targetFilePath m)`.
+--- It is parameterized over the type `p` of a representation of
+--- source programs to be compiled
+--- and the type `s` of an `IORef` keeping some state accross compilation
+--- steps, e.g., to cache already loaded modules or interfaces.
 data CompStruct p s = CompStruct
   { -- verbosity level of the compilation process:
     -- 0: quiet
@@ -24,11 +23,9 @@ data CompStruct p s = CompStruct
     -- 3: show intermedate infos
     -- 4: show all details
     cmpVerbosity   :: Int
-    -- directory where all compiled files will be saved
-  , outputDir      :: String
-    -- function taking a module name and converting it to a path
-    -- for the compiled target file
-  , targetFilePath  :: String -> IO String
+    -- returns the file path to store the compiled target file for a
+    -- given module name
+  , getTargetFilePath  :: String -> IO String
     -- list of modules to ignore if they appear as an import
   , excludeModules :: [String]
     -- returns a program from a module name
@@ -47,15 +44,14 @@ data CompStruct p s = CompStruct
 --- Default CompStruct.
 defaultStruct :: CompStruct a s
 defaultStruct = CompStruct
-  { cmpVerbosity   = 0
-  , outputDir      = ""
-  , targetFilePath = return
-  , excludeModules = []
-  , getProg        = error "Undefined getProg"
-  , getImports     = error "Undefined getImports"
-  , isCompiled     = \_ -> return False
-  , compProg       = error "Undefined compProg"
-  , postProc       = \_ -> return ()
+  { cmpVerbosity      = 0
+  , getTargetFilePath = return
+  , excludeModules    = []
+  , getProg           = error "Undefined getProg"
+  , getImports        = error "Undefined getImports"
+  , isCompiled        = \_ -> return False
+  , compProg          = error "Undefined compProg"
+  , postProc          = \_ -> return ()
   }
 
 printStatus :: CompStruct _ _ -> String -> IO ()
@@ -89,14 +85,6 @@ addSkippedModule cref mname = do
 
 ------------------------------------------------------------------------------
 
---- Returns the path to the file containing the compiled version of a program.
---- @param path - PathStruct containing directory information
---- @param name - name of the curry module
-getTargetFilePath :: CompStruct a s -> String -> IO String
-getTargetFilePath struct name = do
-  fPath <- targetFilePath struct name
-  return (combine (outputDir struct) fPath)
-
 --- Compiles a program with its imports according to the CompStruct.
 --- and compilation function given.
 --- @param struct - CompStruct with compilation information
@@ -104,7 +92,6 @@ getTargetFilePath struct name = do
 --- @param inp    - path to the program to start compilation with
 compile :: CompStruct a s -> IORef s -> String -> IO ()
 compile struct sref inp = do
-  showCreateDirectoryIfMissing struct (outputDir struct)
   cref <- newIORef (CompState [] [])
   compileProg struct cref sref inp
   cst <- readIORef cref
@@ -131,9 +118,9 @@ compile struct sref inp = do
 compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
             -> IO Bool
 compileProg struct cref sref name = do
-  printStatus struct $ "Processing module '" ++ name ++ "'..."
   fPath <- getTargetFilePath struct name
   showCreateDirectoryIfMissing struct (takeDirectory fPath)
+  printStatus struct $ "Processing module '" ++ name ++ "'..."
   impcmpld <- translateImports
   if impcmpld
     then translateProg fPath

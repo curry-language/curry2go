@@ -208,15 +208,14 @@ postProcess opts mname = do
 --- to avoid multiple readings.
 goStruct :: CGOptions -> CompStruct IProg GSInfo
 goStruct opts = defaultStruct
-  { cmpVerbosity   = verbosity opts
-  , outputDir      = "."
-  , targetFilePath = getGoTargetFilePath
-  , excludeModules = []
-  , getProg        = loadICurry opts
-  , getImports     = if noimports opts then (\_ _ -> return [])
+  { cmpVerbosity      = verbosity opts
+  , getTargetFilePath = getGoTargetFilePath
+  , excludeModules    = []
+  , getProg           = loadICurry opts
+  , getImports        = if noimports opts then (\_ _ -> return [])
                                        else getCurryImports opts
-  , isCompiled     = isCompiledCurryModule opts
-  , postProc       = postProcess opts
+  , isCompiled        = isCompiledCurryModule opts
+  , postProc          = postProcess opts
   }
 
 -- The state of the Go compilation process.
@@ -267,8 +266,7 @@ curry2Go opts mainmod = do
   let gostruct = (goStruct opts) {compProg = compileIProg2GoString opts}
   compile gostruct sref mainmod
   createModFile curry2goDir
-  printVerb opts 2 $ "Go programs written into '" ++
-                     combine (outputDir gostruct) curry2goDir ++ "'"
+  printVerb opts 2 $ "Go programs written into '" ++ curry2goDir ++ "'"
   if not (genMain opts)
     then return ()
     else do
