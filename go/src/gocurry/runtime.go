@@ -464,6 +464,7 @@ func nfArgs(task *Task){
         root.name = x1.name
         root.ot = x1.ot
         root.Children = root.Children[:len(root.Children) - 1]
+        root.arity -= 1
         return
     }
     
