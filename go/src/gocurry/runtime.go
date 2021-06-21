@@ -390,7 +390,7 @@ func toNf(task *Task){
     
     //check task result map
     if(x1.tr != nil){
-        node, ok := x1.GetTr(task.id, task.parents)
+        node, ok := x1.GetTrLock(task.id, task.parents)
         
         if(ok){
             if(node.ot > root.ot){
