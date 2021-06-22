@@ -232,9 +232,9 @@ LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
 dist: require-jq
-	$(MAKE) $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
-	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
-	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
+	$(MAKE) $(TARFILE)
+	$(RM) -f $(LOCALURL)/$(TARFILE)
+	cp $(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
 	$(MAKE) savedist
 	chmod -R go+rX $(LOCALURL)
@@ -243,8 +243,8 @@ dist: require-jq
 SAVEDISTPREFIX=ALLDISTS/`date -I`-$(C2GVERSION)
 .PHONY: savedist
 savedist:
-	cd $(LOCALURL) && cp tmp-$(TARFILE) $(SAVEDISTPREFIX)-tmp-$(TARFILE)
-	cd $(LOCALURL) && cp download.sh    $(SAVEDISTPREFIX)-download.sh
+	cd $(LOCALURL) && cp $(TARFILE)  $(SAVEDISTPREFIX)-$(TARFILE)
+	cd $(LOCALURL) && cp download.sh $(SAVEDISTPREFIX)-download.sh
 
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist

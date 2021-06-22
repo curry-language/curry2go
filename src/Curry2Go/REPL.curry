@@ -7,6 +7,7 @@
 
 module Curry2Go.REPL where
 
+import Curry.Compiler.Distribution ( curryCompiler, installDir )
 import Data.List          ( intercalate )
 
 import REPL.Compiler
@@ -32,6 +33,7 @@ c2go c2goDir = CCDescription
   c2goBanner                 -- the banner
   c2goDir                    -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
+  frontendpath               -- executable of the Curry front end
   (c2goDir </> "bin" </> "curry2goc") -- compiler executable
   (c2goDir </> "lib")        -- base library path
   Nothing                    -- compile program with load command
@@ -43,6 +45,9 @@ c2go c2goDir = CCDescription
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt]
  where
+  frontendpath = (if curryCompiler == "curry2go" then c2goDir else installDir)
+                   </> "bin" </> curryCompiler ++ "-frontend"
+
   cleanCmd m = unwords
     [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
     , curry2goDir </> m ++ "Main.go", curry2goDir </> m ]
