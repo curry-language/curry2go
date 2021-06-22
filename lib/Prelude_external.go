@@ -158,12 +158,12 @@ func ExternalPrelude_constrEq(task *Task){
     x2 := root.GetChild(1)
     
     // evaluate children to hnf
-    if(!x1.IsHnf()){
+    if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
         task.ToHnf(x1)
         return
     }
     
-    if(!x2.IsHnf()){
+    if(!x2.IsHnf() || (x2.IsFree() && task.IsBound(x2))){
         task.ToHnf(x2)
         return
     }
@@ -266,7 +266,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
     x1 := root.GetChild(0)
     
     // evaluate first child to HNF
-    if(!x1.IsHnf()){
+    if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
         task.ToHnf(x1)
         return
     }
@@ -286,7 +286,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
     }
     
     // evaluate second child
-    if(!x2.IsHnf()){
+    if(!x2.IsHnf() || (x2.IsFree() && task.IsBound(x2))){
         task.ToHnf(x2)
         return
     }
