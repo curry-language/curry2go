@@ -232,8 +232,7 @@ LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
 dist: require-jq
-	#$(MAKE) C2GDISTDIR=/opt/Curry2Go/Curry2Go $(TARFILE) && mv $(TARFILE) opt-$(TARFILE)
-	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
+	$(MAKE) $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
 	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
 	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
@@ -244,22 +243,16 @@ dist: require-jq
 SAVEDISTPREFIX=ALLDISTS/`date -I`-$(C2GVERSION)
 .PHONY: savedist
 savedist:
-	#cd $(LOCALURL) && cp opt-$(TARFILE) $(SAVEDISTPREFIX)-opt-$(TARFILE)
 	cd $(LOCALURL) && cp tmp-$(TARFILE) $(SAVEDISTPREFIX)-tmp-$(TARFILE)
 	cd $(LOCALURL) && cp download.sh    $(SAVEDISTPREFIX)-download.sh
-
-# adapt Go implementation of Curry.Compiler.Distribution to current location:
-.PHONY: adaptinstalldir
-adaptinstalldir:
-	cat $(COMPDISTGO) | \
-	 sed "s|$(C2GDISTDIR)|$(ROOT)|"  > $(COMPDISTGO).tmp
-	mv $(COMPDISTGO).tmp $(COMPDISTGO)
 
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist
 installdist:
-	# Adapt installation directory
-	$(MAKE) adaptinstalldir
+	# Adapt installation directory in generated files:
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" "$(COMPDISTGO)"
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/go.mod
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/go.mod
 	# Compile the Curry2Go compiler
 	cp goinstall/CompilerMain.go .curry/curry2go-*/
 	cd .curry/curry2go-*/ && go build CompilerMain.go
