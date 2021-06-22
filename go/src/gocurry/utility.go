@@ -358,6 +358,13 @@ func (node *Node) GetTr(id int, parents []int) (*Node, bool){
     return node, false
 }
 
+func (node *Node) GetTrLock(id int, parents []int) (*Node, bool){
+    node.lock.Lock()
+    res, ok := node.GetTr(id, parents)
+    node.lock.Unlock()
+    return res, ok
+}
+
 func (node *Node) GetType() NodeType{
     return node.node_type
 }
@@ -443,6 +450,12 @@ func (node *Node) SetTr(id int, val *Node){
     node.tr[id] = val
 }
 
+func (node *Node) SetTrLock(id int, val *Node){
+    node.lock.Lock()
+    node.SetTr(id, val)
+    node.lock.Unlock()
+}
+
 ////// Functions for tasks
 
 // Returns a new task with id as task id
@@ -482,7 +495,7 @@ func (task *Task) GetFingerprint() map[int]int{
 
 // Tests if variable is bound in task.
 func (task *Task) IsBound(variable *Node) bool{
-    _, ok := variable.GetTr(task.id, task.parents)
+    _, ok := variable.GetTrLock(task.id, task.parents)
     return ok
 }
 

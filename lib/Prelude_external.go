@@ -170,7 +170,7 @@ func ExternalPrelude_constrEq(task *Task){
     
     if(x1.IsFree() && x2.IsFree()){        
         // bind x1 to x2
-       x1.SetTr(task.GetId(), RedirectCreate(task.NewNode(), x2))
+        x1.SetTrLock(task.GetId(), RedirectCreate(task.NewNode(), x2))
         
         // return true
         Prelude__CREATE_True(root)
@@ -184,7 +184,7 @@ func ExternalPrelude_constrEq(task *Task){
         }
         
         // bind x1 to copy
-        x1.SetTr(task.GetId(), new_node)
+        x1.SetTrLock(task.GetId(), new_node)
         
         // unify children
         unifChain(task, root, new_node, x2)      
@@ -197,7 +197,7 @@ func ExternalPrelude_constrEq(task *Task){
         }
 
         // bind x1 to copy
-        x2.SetTr(task.GetId(), new_node)
+        x2.SetTrLock(task.GetId(), new_node)
         
         // unify children
         unifChain(task, root, new_node, x1) 
@@ -280,7 +280,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
         new_node := RedirectCreate(task.NewNode(), x2)
 
         // bind x1 to x2 and return true
-        x1.SetTr(task.GetId(), new_node)
+        x1.SetTrLock(task.GetId(), new_node)
         Prelude__CREATE_True(root)
         return
     }
@@ -300,7 +300,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
         }
 
         // bind x1 to copy
-        x2.SetTr(task.GetId(), new_node)
+        x2.SetTrLock(task.GetId(), new_node)
         
         // unify children
         nonstrictUnifChain(task, root, new_node, x1)
