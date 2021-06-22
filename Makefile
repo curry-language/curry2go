@@ -264,7 +264,9 @@ installdist:
 	# install CPM
 	cp goinstall/CPMMain.go cpm/.curry/curry2go-*/
 	cd cpm/.curry/curry2go-* && go build CPMMain.go
-	mv cpm/.curry/curry2go-*/CPMMain bin/cypm
+	mv cpm/.curry/curry2go-*/CPMMain bin/cypm.bin
+	cp goinstall/cypm bin/cypm
+	chmod 755 bin/cypm
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif
