@@ -13,8 +13,7 @@ all:
 # install some script of PAKCS in the bin directory:
 $(BINDIR)/%: %.sh
 	mkdir -p $(@D)
-	cat $< | \
-	 sed "s|^CURRY2GOHOME=.*$$|CURRY2GOHOME=$(ROOT)|"  > $@
+	cp $< $@
 	chmod 755 $@
 
 .PHONY: clean

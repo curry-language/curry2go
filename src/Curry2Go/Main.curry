@@ -30,7 +30,8 @@ import Curry2Go.Config       ( compilerMajorVersion, compilerMinorVersion
                              , compilerRevisionVersion
                              , compilerName, lowerCompilerName
                              , curry2goDir, upperCompilerName )
-import Curry2Go.PkgConfig    ( packagePath, packageVersion )
+import Curry2Go.InstallPath  ( curry2GoHomeDir )
+import Curry2Go.PkgConfig    ( packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
@@ -171,7 +172,8 @@ postProcess opts mname = do
   if extInSource
     then copyIfNewer extFilePath (combine outDir extFileName)
     else do
-      let c2gExtFile = packagePath </> "external_files" </> extFileName
+      c2ghome <- curry2GoHomeDir
+      let c2gExtFile = c2ghome </> "external_files" </> extFileName
       extInC2GInclude <- doesFileExist c2gExtFile
       when extInC2GInclude $ do
         content <- readFile c2gExtFile
@@ -289,10 +291,11 @@ curry2Go opts mainmod = do
           else showReadFlatCurryWithParseOptions opts4fcy mainmod
 
   createModFile dir = do
+    c2ghome <- curry2GoHomeDir
     let content = unlines ["module curry2go"
                     , "require gocurry v1.0.0"
                     , "replace gocurry => "
-                    ++ (packagePath </> "go" </> "src" </> "gocurry")]
+                    ++ (c2ghome </> "go" </> "src" </> "gocurry")]
     writeFile (combine dir "go.mod") content
     
   generateMainProg modname funcs = do
@@ -359,7 +362,8 @@ printArgs (x:xs) = case x of
   _                   -> printArgs xs
  where
   printBaseVersion = do
-    bvs <- readFile (packagePath </> "lib" </> "VERSION")
+    c2ghome <- curry2GoHomeDir
+    bvs <- readFile (c2ghome </> "lib" </> "VERSION")
     putStrLn (head (lines bvs))
 
 --- Help text
