@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Invoke the Curry Package Manager with Curry2Go
+
+CURRY2GOHOME=$(dirname $(dirname $(realpath $0)))
+export CURRY2GOHOME
+
+"$CURRY2GOHOME/bin/cypm.bin" -d CURRYBIN="$CURRY2GOHOME/bin/curry2go"  ${1+"$@"}

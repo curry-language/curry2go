@@ -72,14 +72,16 @@ endif
 compiler: checkcurrysystem $(COMPILER)
 
 $(COMPILER): src/CompilerStructure.curry src/Curry2Go/Compiler.curry \
-             src/Curry2Go/Main.curry src/Curry2Go/*Config.curry
+             src/Curry2Go/Main.curry src/Curry2Go/InstallPath.curry \
+	     src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 
 # Build the REPL
 .PHONY: repl
 repl: checkcurrysystem $(REPL)
 
-$(REPL): src/Curry2Go/REPL.curry src/Curry2Go/*Config.curry
+$(REPL): src/Curry2Go/REPL.curry src/Curry2Go/InstallPath.curry \
+	 src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
 
 # Generate the implementation of externals of Curry.Compiler.Distribution
@@ -215,7 +217,7 @@ $(TARFILE):
 	cd $(C2GDISTDIR)/cpm && $(CPMDISTC2G) -d BININSTALLPATH=$(C2GDISTDIR)/bin install
 	cd $(C2GDISTDIR)/lib && ../scripts/compile-all-libs.sh
 	$(MAKE) -C $(C2GDISTDIR) cleandist
-	cd $(C2GDISTDIR)/.. && tar cfvz $(ROOT)/$(TARFILE) Curry2Go
+	cd $(C2GDISTDIR) && tar cfvz $(ROOT)/$(TARFILE) .
 
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist
@@ -230,10 +232,9 @@ LOCALURL=$(HOME)/public_html/curry2go
 
 .PHONY: dist
 dist: require-jq
-	$(MAKE) C2GDISTDIR=/opt/Curry2Go/Curry2Go $(TARFILE) && mv $(TARFILE) opt-$(TARFILE)
-	$(MAKE) C2GDISTDIR=/tmp/Curry2Go          $(TARFILE) && mv $(TARFILE) tmp-$(TARFILE)
-	cd $(LOCALURL) && $(RM) -f tmp-$(TARFILE) opt-$(TARFILE)
-	cp tmp-$(TARFILE) opt-$(TARFILE) $(LOCALURL)/
+	$(MAKE) $(TARFILE)
+	$(RM) -f $(LOCALURL)/$(TARFILE)
+	cp $(TARFILE) $(LOCALURL)/
 	cp goinstall/download.sh $(LOCALURL)/
 	$(MAKE) savedist
 	chmod -R go+rX $(LOCALURL)
@@ -242,13 +243,16 @@ dist: require-jq
 SAVEDISTPREFIX=ALLDISTS/`date -I`-$(C2GVERSION)
 .PHONY: savedist
 savedist:
-	cd $(LOCALURL) && cp opt-$(TARFILE) $(SAVEDISTPREFIX)-opt-$(TARFILE)
-	cd $(LOCALURL) && cp tmp-$(TARFILE) $(SAVEDISTPREFIX)-tmp-$(TARFILE)
-	cd $(LOCALURL) && cp download.sh    $(SAVEDISTPREFIX)-download.sh
+	cd $(LOCALURL) && cp $(TARFILE)  $(SAVEDISTPREFIX)-$(TARFILE)
+	cd $(LOCALURL) && cp download.sh $(SAVEDISTPREFIX)-download.sh
 
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist
 installdist:
+	# Adapt installation directory in generated files:
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" "$(COMPDISTGO)"
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/go.mod
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/go.mod
 	# Compile the Curry2Go compiler
 	cp goinstall/CompilerMain.go .curry/curry2go-*/
 	cd .curry/curry2go-*/ && go build CompilerMain.go
@@ -260,7 +264,9 @@ installdist:
 	# install CPM
 	cp goinstall/CPMMain.go cpm/.curry/curry2go-*/
 	cd cpm/.curry/curry2go-* && go build CPMMain.go
-	mv cpm/.curry/curry2go-*/CPMMain bin/cypm
+	mv cpm/.curry/curry2go-*/CPMMain bin/cypm.bin
+	cp goinstall/cypm bin/cypm
+	chmod 755 bin/cypm
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif

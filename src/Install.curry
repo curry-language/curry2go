@@ -1,6 +1,7 @@
+import System.FilePath       ( joinPath )
 import Language.Go.Types
-import Language.Go.Show (showGoProg)
-import Curry2Go.PkgConfig (packagePath)
+import Language.Go.Show      ( showGoProg )
+import Curry2Go.InstallPath  ( curry2GoHomeDir )
 
 import Curry2Go.Config 
   (lowerCompilerName, compilerMajorVersion
@@ -8,12 +9,14 @@ import Curry2Go.Config
 
 main :: IO ()
 main = do
-  bvs <- readFile (packagePath ++ "/lib/VERSION")
-  writeFile (packagePath ++ "lib/Curry/Compiler/Distribution_external.go")
-            (showGoProg (createGoDistribution (head (lines bvs)) "go"))
+  c2ghome <- curry2GoHomeDir
+  bvs <- readFile (joinPath [c2ghome, "lib", "VERSION"])
+  writeFile (joinPath [c2ghome, "lib", "Curry", "Compiler",
+                       "Distribution_external.go"])
+            (showGoProg (createGoDistribution (head (lines bvs)) c2ghome "go"))
 
-createGoDistribution :: String -> String -> GoProg
-createGoDistribution baseversion gocompiler =
+createGoDistribution :: String -> String -> String -> GoProg
+createGoDistribution baseversion c2ghome gocompiler =
  GoProg "CurryCompilerDistribution" ["gocurry"]
   [ GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryCompiler"
@@ -66,6 +69,6 @@ createGoDistribution baseversion gocompiler =
     [GoParam ["task"] "*gocurry.Task"] [] 
     [GoExprStat (GoCall (GoOpName "gocurry.StringCreate")
     [GoCall (GoSelector (GoOpName "task") "GetControl") []
-    , GoStringLit packagePath])])
+    , GoStringLit c2ghome])])
   ]
 

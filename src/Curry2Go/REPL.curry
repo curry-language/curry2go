@@ -7,6 +7,7 @@
 
 module Curry2Go.REPL where
 
+import Curry.Compiler.Distribution ( curryCompiler, installDir )
 import Data.List          ( intercalate )
 
 import REPL.Compiler
@@ -14,25 +15,27 @@ import REPL.Main          ( mainREPL )
 import System.CurryPath   ( inCurrySubdir, modNameToPath, sysLibPath )
 import System.FilePath    ( (</>) )
 
-import Curry2Go.Config    ( compilerName, lowerCompilerName, curry2goDir
-                          , compilerMajorVersion, compilerMinorVersion
-                          , compilerRevisionVersion )
-import Curry2Go.PkgConfig ( packagePath, packageVersion )
+import Curry2Go.Config      ( compilerName, lowerCompilerName, curry2goDir
+                            , compilerMajorVersion, compilerMinorVersion
+                            , compilerRevisionVersion )
+import Curry2Go.InstallPath ( curry2GoHomeDir )
+import Curry2Go.PkgConfig   ( packageVersion )
 
 main :: IO ()
-main = mainREPL c2go
+main = curry2GoHomeDir >>= mainREPL . c2go
 
---- Specification of the Curry->Go compiler:
-
-c2go :: CCDescription
-c2go = CCDescription
+--- Specification of the Curry2Go compiler (paramterized over the
+--- root directory of the Curry2Go compiler):
+c2go :: String -> CCDescription
+c2go c2goDir = CCDescription
   lowerCompilerName          -- the compiler name
   (compilerMajorVersion, compilerMinorVersion, compilerRevisionVersion)
   c2goBanner                 -- the banner
-  c2goHome                   -- home directory of the compiler
+  c2goDir                    -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
-  (packagePath </> "bin" </> "curry2goc") -- compiler executable
-  (c2goHome </> "lib")       -- base library path
+  frontendpath               -- executable of the Curry front end
+  (c2goDir </> "bin" </> "curry2goc") -- compiler executable
+  (c2goDir </> "lib")        -- base library path
   Nothing                    -- compile program with load command
   True                       -- use CURRYPATH variable
   (\s -> "-v" ++ s)          -- option to pass verbosity
@@ -42,12 +45,12 @@ c2go = CCDescription
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt]
  where
+  frontendpath = (if curryCompiler == "curry2go" then c2goDir else installDir)
+                   </> "bin" </> curryCompiler ++ "-frontend"
+
   cleanCmd m = unwords
     [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
     , curry2goDir </> m ++ "Main.go", curry2goDir </> m ]
-
-c2goHome :: String
-c2goHome = packagePath
 
 c2goBanner :: String
 c2goBanner = unlines [bannerLine, bannerText, bannerLine]

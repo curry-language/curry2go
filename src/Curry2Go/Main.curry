@@ -30,7 +30,8 @@ import Curry2Go.Config       ( compilerMajorVersion, compilerMinorVersion
                              , compilerRevisionVersion
                              , compilerName, lowerCompilerName
                              , curry2goDir, upperCompilerName )
-import Curry2Go.PkgConfig    ( packagePath, packageVersion )
+import Curry2Go.InstallPath  ( curry2GoHomeDir )
+import Curry2Go.PkgConfig    ( packageVersion )
 
 --- Implementation of CompStruct for the curry2go compiler.
 
@@ -120,13 +121,14 @@ getCurryImports opts sref mname = do
 --- Loads an IProg from the name of a Curry module.
 loadICurry :: CGOptions -> IORef GSInfo -> String -> IO IProg
 loadICurry opts sref mname = do
-  prog    <- showReadFlatCurryWithParseOptions opts mname
-  impints <- mapM (loadInterface opts sref) (progImports prog)
-  flatCurry2ICurryWithProgs (c2gICOptions opts) impints prog
+  prog      <- showReadFlatCurryWithParseOptions opts mname
+  impints   <- mapM (loadInterface opts sref) (progImports prog)
+  c2gicopts <- c2gICOptions opts
+  flatCurry2ICurryWithProgs c2gicopts impints prog
 
 showReadFlatCurryWithParseOptions :: CGOptions -> String -> IO Prog
 showReadFlatCurryWithParseOptions opts mname = do
-  let frontendparams = c2gFrontendParams opts
+  frontendparams <- c2gFrontendParams opts
   when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FCY frontendparams mname
     putStrLn $ "Executing: " ++ cmd
@@ -134,27 +136,33 @@ showReadFlatCurryWithParseOptions opts mname = do
 
 showReadFlatCurryIntWithParseOptions :: CGOptions -> String -> IO Prog
 showReadFlatCurryIntWithParseOptions opts mname = do
-  let frontendparams = c2gFrontendParams opts
+  frontendparams <- c2gFrontendParams opts
   when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FINT frontendparams mname
     putStrLn $ "Executing: " ++ cmd
   readFlatCurryIntWithParseOptions mname frontendparams
 
 -- The front-end parameters for Curry2Go.
-c2gFrontendParams :: CGOptions -> FrontendParams
-c2gFrontendParams opts =
-  setQuiet (verbosity opts < 2) $
-  setDefinitions [curry2goDef] $
-  setOutDir curry2goDir $
-  defaultParams
+c2gFrontendParams :: CGOptions -> IO FrontendParams
+c2gFrontendParams opts = do
+  frontendroot <- if curryCompiler == "curry2go"
+                    then curry2GoHomeDir
+                    else return installDir 
+  let frontendpath = frontendroot </> "bin" </> curryCompiler ++ "-frontend"
+  return (setFrontendPath frontendpath $
+          setQuiet (verbosity opts < 2) $
+          setDefinitions [curry2goDef] $
+          setOutDir curry2goDir $
+          defaultParams)
  where
   curry2goDef = ("__" ++ upperCompilerName ++ "__",
                  compilerMajorVersion * 100 + compilerMinorVersion)
 
 -- The ICurry compiler options for Curry2Go.
-c2gICOptions :: CGOptions -> ICOptions
-c2gICOptions opts =
-  defaultICOptions { optVerb = 0, optFrontendParams = c2gFrontendParams opts }
+c2gICOptions :: CGOptions -> IO ICOptions
+c2gICOptions opts = do
+  frontendparams <- c2gFrontendParams opts
+  return defaultICOptions { optVerb = 0, optFrontendParams = frontendparams }
 
 --- Copies external files that are in the include folder or
 --- next to the source file into the directory with the
@@ -171,7 +179,8 @@ postProcess opts mname = do
   if extInSource
     then copyIfNewer extFilePath (combine outDir extFileName)
     else do
-      let c2gExtFile = packagePath </> "external_files" </> extFileName
+      c2ghome <- curry2GoHomeDir
+      let c2gExtFile = c2ghome </> "external_files" </> extFileName
       extInC2GInclude <- doesFileExist c2gExtFile
       when extInC2GInclude $ do
         content <- readFile c2gExtFile
@@ -271,8 +280,8 @@ curry2Go opts mainmod = do
     then return ()
     else do
       impints <- mapM (loadInterface opts sref) (progImports fprog)
-      IProg modname _ _ funcs <-
-        flatCurry2ICurryWithProgs (c2gICOptions opts) impints fprog
+      icopts  <- c2gICOptions opts
+      IProg modname _ _ funcs <- flatCurry2ICurryWithProgs icopts impints fprog
       generateMainProg modname funcs
       createExecutable modname
       when (runOpt opts) $ execProgram modname
@@ -289,10 +298,11 @@ curry2Go opts mainmod = do
           else showReadFlatCurryWithParseOptions opts4fcy mainmod
 
   createModFile dir = do
+    c2ghome <- curry2GoHomeDir
     let content = unlines ["module curry2go"
                     , "require gocurry v1.0.0"
                     , "replace gocurry => "
-                    ++ (packagePath </> "go" </> "src" </> "gocurry")]
+                    ++ (c2ghome </> "go" </> "src" </> "gocurry")]
     writeFile (combine dir "go.mod") content
     
   generateMainProg modname funcs = do
@@ -359,7 +369,8 @@ printArgs (x:xs) = case x of
   _                   -> printArgs xs
  where
   printBaseVersion = do
-    bvs <- readFile (packagePath </> "lib" </> "VERSION")
+    c2ghome <- curry2GoHomeDir
+    bvs <- readFile (c2ghome </> "lib" </> "VERSION")
     putStrLn (head (lines bvs))
 
 --- Help text

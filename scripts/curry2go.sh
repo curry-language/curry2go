@@ -2,7 +2,7 @@
 #
 # Start interactive read-eval-print loop of Curry2Go
 
-CURRY2GOHOME=`echo CURRY2GOHOME must be defined here!`
+CURRY2GOHOME=$(dirname $(dirname $(realpath $0)))
 export CURRY2GOHOME
 
 # The bin directory of CURRY2GO:
