@@ -54,7 +54,7 @@ func ExternalPrelude_DolExcl(task *Task){
     x1 := root.GetChild(1)
     
     // evaluate argument to hnf
-    if(!x1.IsHnf()){
+    if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
         task.ToHnf(x1)
         return
     }
@@ -101,7 +101,7 @@ func ExternalPrelude_cond(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
-    if(!x1.IsHnf()){
+    if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
         task.ToHnf(x1)
         return
     }
@@ -123,7 +123,7 @@ func ExternalPrelude_And(task *Task){
     x2 := root.GetChild(1)
     
     // evaluate first argument
-    if(!x1.IsHnf()){
+    if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
         task.ToHnf(x1)
         return
     }
@@ -135,7 +135,7 @@ func ExternalPrelude_And(task *Task){
     }
     
     // evaluate second argument
-    if(!x2.IsHnf()){
+    if(!x2.IsHnf() || (x2.IsFree() && task.IsBound(x2))){
         task.ToHnf(x2)
         return
     } 
@@ -168,7 +168,7 @@ func ExternalPrelude_constrEq(task *Task){
         return
     }
     
-    if(x1.IsFree() && x2.IsFree()){        
+    if(x1.IsFree() && x2.IsFree()){    
         // bind x1 to x2
         x1.SetTrLock(task.GetId(), RedirectCreate(task.NewNode(), x2))
         
@@ -252,9 +252,9 @@ func unifChain(task *Task, root, x1, x2 *Node){
     }
 
     // combine unification of children with and
-    node := Prelude__CREATE_And(root, Prelude__CREATE_constrEq(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    node := Prelude__CREATE_And(root, Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(0), x2.GetChild(0)), root.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_constrEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(i), x2.GetChild(i)) , root.NewNode())
         node = node.Children[1]                    
     }
     Prelude__CREATE_constrEq(node.Children[1], x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1))
