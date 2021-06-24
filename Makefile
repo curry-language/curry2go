@@ -106,12 +106,9 @@ bootstrap:
 baselibs: require-jq
 	$(RM) -rf base
 	$(CPM) checkout base
-	@if [ "$(shell $(JQ) -r '.version' base/package.json)" != "$(shell cat base/VERSION)" ] ; then \
-	   echo "Corrupted base package: version different from file VERSION!" ; \
-	   exit 1 ; fi
 	$(RM) -rf $(LIBDIR)
 	/bin/cp -r base/src $(LIBDIR)
-	/bin/cp base/VERSION $(LIBDIR)/VERSION
+	$(JQ) -r '.version' base/package.json > $(LIBDIR)/VERSION
 	$(RM) -rf base
 
 .PHONY: uninstall
@@ -183,17 +180,7 @@ clean: cleantargets cleanscripts
 ##############################################################################
 # distributing
 
-# Executable of JSON command-line processor:
-JQ := $(shell which jq)
-
-.PHONY: require-jq
-require-jq:
-	@if [ ! -x "$(JQ)" ] ; then \
-		echo "Tool 'jq' not found!" ; \
-		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
-		exit 1 ; fi
-
-# ...in order to get the version number from package specification:
+# get the version number from package specification:
 C2GVERSION = $(shell $(JQ) -r '.version' package.json)
 
 # tar file to store the distribution
@@ -270,5 +257,18 @@ installdist:
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif
+
+##############################################################################
+# Required tools:
+
+# Executable of JSON command-line processor:
+JQ := $(shell which jq)
+
+.PHONY: require-jq
+require-jq:
+	@if [ ! -x "$(JQ)" ] ; then \
+		echo "Tool 'jq' not found!" ; \
+		echo "Install it, e.g.,  by 'sudo apt install jq'" ; \
+		exit 1 ; fi
 
 ##############################################################################
