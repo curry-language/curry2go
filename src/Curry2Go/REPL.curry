@@ -43,7 +43,7 @@ c2go c2goDir = CCDescription
   (\s -> "--compile " ++ s)  -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
-  [stratOpt, intOpt, firstOpt]
+  [stratOpt, intOpt, firstOpt, ctimeOpt]
  where
   frontendpath = (if curryCompiler == "curry2go" then c2goDir else installDir)
                    </> "bin" </> curryCompiler ++ "-frontend"
@@ -82,6 +82,14 @@ firstOpt = CCOption
   "turn on/off printing only first value/solution"
   [ ("-first","")
   , ("+first","--first")
+  ]
+
+ctimeOpt :: CCOption
+ctimeOpt = CCOption
+  "+/-ctime       "
+  "turn on/off showing compile messages with elapsed time"
+  [ ("-ctime","")
+  , ("+ctime","--ctime")
   ]
 
 ------------------------------------------------------------------------------

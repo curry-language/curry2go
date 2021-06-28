@@ -87,7 +87,8 @@ getCurrySourcePath m = doOnModuleSource m (return . snd)
 loadInterface :: CGOptions -> IORef GSInfo -> String -> IO Prog
 loadInterface opts sref mname = do
   gsinfo <- readIORef sref
-  maybe (do int <- showReadFlatCurryIntWithParseOptions opts mname
+  maybe (do printVerb opts 2 $ "Reading interface of '" ++ mname ++ "'"
+            int <- showReadFlatCurryIntWithParseOptions opts mname
             writeIORef sref (gsinfo { gsProgs = int : gsProgs gsinfo } )
             return int)
         return
@@ -131,7 +132,7 @@ showReadFlatCurryWithParseOptions opts mname = do
   frontendparams <- c2gFrontendParams opts
   when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FCY frontendparams mname
-    putStrLn $ "Executing: " ++ cmd
+    printVerb opts 3$ "Executing: " ++ cmd
   readFlatCurryWithParseOptions mname frontendparams
 
 showReadFlatCurryIntWithParseOptions :: CGOptions -> String -> IO Prog
@@ -139,7 +140,7 @@ showReadFlatCurryIntWithParseOptions opts mname = do
   frontendparams <- c2gFrontendParams opts
   when (verbosity opts > 2) $ do
     cmd <- getFrontendCall FINT frontendparams mname
-    putStrLn $ "Executing: " ++ cmd
+    printVerb opts 3 $ "Executing: " ++ cmd
   readFlatCurryIntWithParseOptions mname frontendparams
 
 -- The front-end parameters for Curry2Go.
@@ -218,6 +219,7 @@ postProcess opts mname = do
 goStruct :: CGOptions -> CompStruct IProg GSInfo
 goStruct opts = defaultStruct
   { cmpVerbosity      = verbosity opts
+  , cmpTime           = ctimeOpt opts
   , getTargetFilePath = getGoTargetFilePath
   , excludeModules    = []
   , getProg           = loadICurry opts
@@ -265,7 +267,7 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
 --- @param mainmod - name of main module
 curry2Go :: CGOptions -> String -> IO ()
 curry2Go opts mainmod = do
-  printVerb opts 1 c2goBanner
+  printVerb opts { ctimeOpt = False } 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   -- and show warnings to the user if not in quiet mode (but avoid reading
@@ -406,6 +408,9 @@ options =
     (OptArg (maybe (\opts -> opts {timeOpt = True})
     (\s opts -> opts {timeOpt = True, times = safeRead s})) "<n>")
     "print execution time\nn>1: average over runs n"
+  , Option "" ["ctime"]
+    (NoArg (\opts -> opts {ctimeOpt = True}))
+    "print compilation messages with elapsed time"
   , Option "" ["first"]
     (NoArg (\opts -> opts {maxResults = 1}))
     "stop evaluation after the first result"

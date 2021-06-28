@@ -15,6 +15,7 @@ import Control.Monad     ( when )
 import Data.Char         ( toUpper )
 import Data.List         ( union, init )
 
+import Debug.Profile    -- for show run-time
 import ICurry.Types
 import Language.Go.Show  ( showGoProg )
 import Language.Go.Types
@@ -37,6 +38,7 @@ data CGOptions = CGOptions
   , modName      :: String       -- used internally to track main module. not configurable
   , timeOpt      :: Bool         -- measure execution time
   , times        :: Int          -- number of runs to average execution time over
+  , ctimeOpt     :: Bool         -- print compile messages with elapsed time?
   , interact     :: Bool         -- interactive result printing
   , mainName     :: String       -- name of the function to run as main
   , onlyHnf      :: Bool         -- only compute hnf
@@ -59,6 +61,7 @@ defaultCGOptions = CGOptions
   , modName      = ""
   , timeOpt      = False
   , times        = 1
+  , ctimeOpt     = False
   , interact     = False
   , mainName     = "main"
   , onlyHnf      = False
@@ -68,7 +71,15 @@ defaultCGOptions = CGOptions
   }
 
 printVerb :: CGOptions -> Int -> String -> IO ()
-printVerb opts v s = when (verbosity opts >= v) $ putStrLn s
+printVerb opts v s = when (verbosity opts >= v) $
+  if ctimeOpt opts
+    then do
+      runtime <- getProcessInfos >>= return . maybe 0 id . lookup ElapsedTime
+      putStrLn $ "[" ++ showTime runtime ++ "s] " ++ s
+    else putStrLn s
+ where
+  showTime t = show (t `div` 1000) ++ "." ++ show2 ((t `mod` 1000) `div` 10)
+  show2 i = if i < 10 then '0' : show i else show i
 
 --- Data type for search strategies.
 data SearchStrat = DFS

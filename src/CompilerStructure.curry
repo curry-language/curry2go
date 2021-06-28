@@ -8,6 +8,7 @@ import Data.IORef
 import System.Directory ( createDirectoryIfMissing, doesFileExist
                         , getModificationTime)
 import Data.Time        ( compareClockTime )
+import Debug.Profile    -- for show run-time
 import System.FilePath  ( combine, takeDirectory )
 
 --- Data type for compiler options regarding output structure and modules.
@@ -23,6 +24,8 @@ data CompStruct p s = CompStruct
     -- 3: show intermedate infos
     -- 4: show all details
     cmpVerbosity   :: Int
+    -- print compilation messages with elapsed time?
+  , cmpTime        :: Bool
     -- returns the file path to store the compiled target file for a
     -- given module name
   , getTargetFilePath  :: String -> IO String
@@ -45,6 +48,7 @@ data CompStruct p s = CompStruct
 defaultStruct :: CompStruct a s
 defaultStruct = CompStruct
   { cmpVerbosity      = 0
+  , cmpTime           = False
   , getTargetFilePath = return
   , excludeModules    = []
   , getProg           = error "Undefined getProg"
@@ -54,14 +58,23 @@ defaultStruct = CompStruct
   , postProc          = \_ -> return ()
   }
 
-printStatus :: CompStruct _ _ -> String -> IO ()
-printStatus struct s = if cmpVerbosity struct == 0 then return ()
-                                                   else putStr s
+printVerb :: CompStruct _ _ -> Int -> String -> IO ()
+printVerb struct v s = when (cmpVerbosity struct >= v) $
+  if cmpTime struct
+    then do
+      runtime <- getProcessInfos >>= return . maybe 0 id . lookup ElapsedTime
+      putStr $ "[" ++ showTime runtime ++ "s] " ++ s
+    else putStr s
+ where
+  showTime t = show (t `div` 1000) ++ "." ++ show2 ((t `mod` 1000) `div` 10)
+  show2 i = if i < 10 then '0' : show i else show i
+
+printLnVerb :: CompStruct _ _ -> Int -> String -> IO ()
+printLnVerb struct v s = printVerb struct v (s ++ "\n")
 
 showCreateDirectoryIfMissing :: CompStruct _ _ -> String -> IO ()
 showCreateDirectoryIfMissing struct dirname = do
-  when (cmpVerbosity struct > 2) $
-    putStrLn $ "Creating directory '" ++ dirname ++ "'..."
+  printLnVerb struct 3 $ "Creating directory '" ++ dirname ++ "'..."
   createDirectoryIfMissing True dirname
 
 ------------------------------------------------------------------------------
@@ -95,7 +108,7 @@ compile struct sref inp = do
   cref <- newIORef (CompState [] [])
   compileProg struct cref sref inp
   cst <- readIORef cref
-  printStatus struct $
+  printVerb struct 1 $
     "Compilation summary: " ++
     showNumMods (skippedMods cst) ++ " skipped, " ++
     showNumMods (compiledMods cst) ++ " compiled.\n"
@@ -120,7 +133,7 @@ compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
 compileProg struct cref sref name = do
   fPath <- getTargetFilePath struct name
   showCreateDirectoryIfMissing struct (takeDirectory fPath)
-  printStatus struct $ "Processing module '" ++ name ++ "'..."
+  printStatusLn $ "Processing module '" ++ name ++ "'..."
   impcmpld <- translateImports
   if impcmpld
     then translateProg fPath
@@ -136,26 +149,25 @@ compileProg struct cref sref name = do
  where
   translateImports = do
     impmods <- getImports struct sref name
-    printStatusLn $ "imports: " ++ unwords impmods
+    printLnVerb struct 2 $ "Imports of '" ++ name ++ "': " ++ unwords impmods
     if null impmods
       then return False
       else compileImports struct cref sref impmods
 
   translateProg targetpath = do
-    printStatus struct $ "Compiling module '" ++ name ++ "'..."
+    printStatusLn $ "Compiling module '" ++ name ++ "'" ++
+      (if cmpVerbosity struct > 1 then " to '" ++ targetpath ++ "'" else "") ++
+      "..."
     prog <- getProg struct sref name
     let target = compProg struct prog
-    if cmpVerbosity struct > 1
-      then printStatusLn $ "to: " ++ targetpath
-      else printStatusLn "done"
-    when (cmpVerbosity struct > 3) $
-      putStrLn $ "Compiled target program:\n" ++ target
     writeFile targetpath target
+    printLnVerb struct 2 "Done!"
+    printLnVerb struct 4 $ "Compiled target program:\n" ++ target
     postProc struct name
     addCompiledModule cref name
     return True
 
-  printStatusLn s = printStatus struct (s ++ "\n")
+  printStatusLn = printLnVerb struct 1
 
 
 --- Calls compileProg on every imported module 
