@@ -55,32 +55,19 @@ type Task struct{
 ////// Declarations for choice-id generation
 
 // Variable to generate unique ids for choice-nodes
-var nextId = 0
+var choiceCount chan int
 
 // Returns the next unique choice-identifier
 func NextChoiceId() int {
-    nextId += 1
-    return nextId
+    count := <- choiceCount
+    choiceCount <- count + 1
+    return count
 }
 
 ////// Declarations for task-id generation
 
 // Channel saving number of created tasks
 var taskCount chan int
-
-// Returns the current number of created tasks
-func GetTaskCount() int{
-    count := <- taskCount
-    taskCount <- count
-    return count
-}
-
-// Increases the number of created tasks by 2
-func UpTaskCount(){
-    count := <- taskCount
-    count += 2
-    taskCount <- count
-}
 
 // Declarations for free-name generation
 var freeCount chan int
@@ -251,9 +238,10 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                     // select the branch
                     task.control = task.control.Children[branch]
                 }else{   
-                    // get task count
-                    count := GetTaskCount()
-                
+                    // get and increase task count
+                    count := <- taskCount
+                    taskCount <- count + 2
+                    
                     // update task
                     task.parents = append(task.parents, task.id)
                     task.id = count + 1
@@ -272,9 +260,6 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                     // set fingerprints
                     task.fingerprint[task.control.int_value] = 0
                     new_task.fingerprint[task.control.int_value] = 1
-                    
-                    // increase task count
-                    UpTaskCount()
                     
                     // move to new control
                     task.control = task.control.Children[0]
@@ -484,6 +469,9 @@ func nfArgs(task *Task){
 func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchStrat, max_results int, max_tasks int){
 
     // initialize channels
+    choiceCount = make(chan int, 1)
+    choiceCount <- 0
+    
     taskCount = make(chan int, 1)
     taskCount <- 0
     
@@ -701,7 +689,8 @@ func pullTab(choice_node, root *Node){
     }
     
     // update owner task
-    count := GetTaskCount()
+    count := <- taskCount
+    taskCount <- count
     new_children[0].ot = count + 1
     new_children[1].ot = count + 2
 
