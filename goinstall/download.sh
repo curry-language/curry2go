@@ -17,8 +17,8 @@
 ##############################################################################
 
 # URL of the distribution:
-#C2GTARURL=https://www-ps.informatik.uni-kiel.de/curry2go/curry2go.tgz
-C2GTARURL=https://www-ps.informatik.uni-kiel.de/~mh/curry2go/curry2go.tgz
+C2GTARURL=https://www-ps.informatik.uni-kiel.de/curry2go/curry2go.tgz
+#C2GTARURL=https://www-ps.informatik.uni-kiel.de/~mh/curry2go/curry2go.tgz
 
 ##############################################################################
 
