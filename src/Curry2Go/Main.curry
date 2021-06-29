@@ -137,10 +137,14 @@ loadInterface opts sref mname = do
 writeIntFile :: CGOptions -> String -> Prog -> IO ()
 writeIntFile opts intfile fint = do
   printVerb opts 2 $ "Writing interface cache file '" ++ intfile ++ "'"
-  let (mfuns,ofuns) = publicFunsOfProg fint
+  let pubfuns       = publicFunsOfProg fint
+      (mfuns,ofuns) = partition ((== progName fint) . fst) pubfuns
   writeFile intfile
-    (showTerm (progName fint, progImports fint,
-               consDeclsOfProg fint, map snd mfuns, ofuns))
+    (showTerm ( progName fint
+              , progImports fint
+              , consDeclsOfProg fint
+              , if null ofuns then map snd mfuns else []
+              , if null ofuns then []            else pubfuns))
  where
   -- compute list of data constructors
   consDeclsOfProg fcy = map (\ (_,cars) -> cars) (dataDeclsOf fcy)
@@ -148,7 +152,6 @@ writeIntFile opts intfile fint = do
   -- compute list of public function names split into names qualified
   -- by the module name or not
   publicFunsOfProg fcprog =
-    partition ((== progName fcprog) . fst)
       (map funcName
            (filter (\f -> funcVisibility f == FlatCurry.Types.Public)
                    (progFuncs fcprog)))
