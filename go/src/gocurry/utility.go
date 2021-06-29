@@ -135,7 +135,7 @@ func StringCreate(root *Node, str string)(*Node){
     // go through the string
     for i := 0; i < len(runes); i++{
         // create a : at cur_node
-        ConstCreate(cur_node, 1, 2, &runtime_names[4], CharLitCreate(new(Node), runes[i]), new(Node))
+        ConstCreate(cur_node, 1, 2, &runtime_names[4], CharLitCreate(root.NewNode(), runes[i]), root.NewNode())
 
         // move to next node
         cur_node = cur_node.GetChild(1)
@@ -233,7 +233,7 @@ func GoMinVer(root *Node){
 // Returns a copy of node.
 // Recursively copies all children.
 func DeepCopy(node *Node) *Node{
-    new_node := new(Node)
+    new_node := node.NewNode()
     
     // copy children
     for i := range(node.Children){
@@ -249,7 +249,6 @@ func DeepCopy(node *Node) *Node{
     new_node.function = node.function
     new_node.arity = node.arity
     new_node.name = node.name
-    new_node.ot = node.ot
     return new_node
 }
 
