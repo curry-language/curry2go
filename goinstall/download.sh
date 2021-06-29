@@ -57,6 +57,15 @@ if [ -n "$ERROR" ] ; then
   exit 1
 fi
 
+if [ $BUILDFRONTEND = yes ] ; then
+  STACK=`which stack`
+  if [ ! -x "$STACK" ] ; then
+    echo "Executable 'stack' (required for front end install) not found!"
+    echo "Please install 'stack' and try again!"
+    exit 1
+  fi
+fi
+
 if [ -e "$INSTALLDIR" ] ; then
   echo "Cannot install into directory '$INSTALLDIR' since it already exists!"
   exit 1
@@ -92,7 +101,7 @@ installed_message() {
 
 # Download and install Curry2Go in /tmp/Curry2Go:
 install_from_tar() {
-  echo "Downloading and installing Curry2Go into directory '$INSTALLDIR'..."
+  echo "Downloading and installing Curry2Go into '$INSTALLDIR'..."
   cd $INSTALLDIR && curl -sSL $C2GTARURL | tar xz
   cd $INSTALLDIR && make BUILDFRONTEND=$BUILDFRONTEND installdist
 }

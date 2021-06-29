@@ -11,14 +11,14 @@ module Curry2Go.Main where
 
 import Curry.Compiler.Distribution
 import Data.IORef
-import Data.List             ( find, intercalate, last )
+import Data.List             ( find, intercalate, last, partition )
 import System.Environment    ( getArgs )
 
 import Control.Monad         ( unless, when )
 
 import Data.Time             ( compareClockTime )
 import FlatCurry.CaseCompletion ( dataDeclsOf )
-import FlatCurry.Types       --( Prog )
+import FlatCurry.Types
 import FlatCurry.Files       ( flatCurryFileName, readFlatCurryWithParseOptions
                              , readFlatCurryIntWithParseOptions )
 import FlatCurry.Goodies     ( funcName, funcVisibility
@@ -137,27 +137,31 @@ loadInterface opts sref mname = do
 writeIntFile :: CGOptions -> String -> Prog -> IO ()
 writeIntFile opts intfile fint = do
   printVerb opts 2 $ "Writing interface cache file '" ++ intfile ++ "'"
+  let (mfuns,ofuns) = publicFunsOfProg fint
   writeFile intfile
     (showTerm (progName fint, progImports fint,
-               consDeclsOfProg fint, publicFunsOfProg fint))
+               consDeclsOfProg fint, map snd mfuns, ofuns))
  where
   -- compute list of data constructors
   consDeclsOfProg fcy = map (\ (_,cars) -> cars) (dataDeclsOf fcy)
 
-  -- compute list of public function names
+  -- compute list of public function names split into names qualified
+  -- by the module name or not
   publicFunsOfProg fcprog =
-    map funcName
-        (filter (\f -> funcVisibility f == FlatCurry.Types.Public)
-                (progFuncs fcprog))
+    partition ((== progName fcprog) . fst)
+      (map funcName
+           (filter (\f -> funcVisibility f == FlatCurry.Types.Public)
+                   (progFuncs fcprog)))
 
 --- Reads an `INTERFACE` file and reconstruct a FlatCurry interface.
 readIntFile :: CGOptions -> String -> IO Prog
 readIntFile opts intfile = do
   printVerb opts 2 $ "Reading interface cache file '" ++ intfile ++ "'"
-  (mname,imps,consmap,funmap) <-
+  (mname,imps,consmap,mfuns,ofuns) <-
     readFile intfile >>= return . readUnqualifiedTerm ["Prelude"]
   return (Prog mname imps (map consItem2TypeDecl consmap)
-               (map funcItem2Func funmap) notUsed)
+               (map funcItem2Func (map (\f->(mname,f)) mfuns ++ ofuns))
+               notUsed)
  where
   consItem2TypeDecl consitems =
     Type notUsed FlatCurry.Types.Public notUsed (map consItem2Cons consitems)
@@ -170,7 +174,6 @@ notUsed :: _
 notUsed = error "Internal error: access to unused interface component"
 
 ------------------------------------------------------------------------------
-
 --- Gets the imported modules of a Curry module.
 getCurryImports :: CGOptions -> IORef GSInfo -> String -> IO [String]
 getCurryImports opts sref mname = do
@@ -195,6 +198,7 @@ getCurryImports opts sref mname = do
     printVerb opts 2 $ "Reading imports cache file '" ++ impfile ++ "'"
     readFile impfile >>= return . lines
 
+------------------------------------------------------------------------------
 --- Loads an IProg from the name of a Curry module.
 loadICurry :: CGOptions -> IORef GSInfo -> String -> IO IProg
 loadICurry opts sref mname = do
@@ -386,7 +390,6 @@ curry2Go opts mainmod = do
     let mainfile = combine curry2goDir mainprogname
     writeFile mainfile mainprog
     printVerb opts 2 $ "...written to " ++ mainfile
-
 
   createExecutable modname = do
     printVerb opts 1 "Creating executable..."
