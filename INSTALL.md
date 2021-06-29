@@ -11,7 +11,7 @@ which can be downloaded from <https://golang.org/>.
 Quick installation
 ------------------
 
-    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh
+    > curl -sSL https://www-ps.informatik.uni-kiel.de/curry2go/download.sh | sh
 
 This installs the Curry2Go system into the local directory `Curry2Go`
 which is created by the installation. Then add `.../Curry2Go/bin` to
@@ -21,7 +21,7 @@ your path to start the Curry2Go REPL by the command
 
 In order to install into a (non-existing!) directory `C2GDIR`, add an argument:
 
-    > curl -sSL https://www.informatik.uni-kiel.de/~mh/curry2go/download.sh | sh -s - -d C2GDIR
+    > curl -sSL https://www-ps.informatik.uni-kiel.de/curry2go/download.sh | sh -s - -d C2GDIR
 
 Then add `C2GDIR/bin` to your path to start the Curry2Go REPL by the command
 
