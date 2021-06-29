@@ -21,6 +21,8 @@ import Language.Go.Show  ( showGoProg )
 import Language.Go.Types
 import System.CurryPath
 
+import CompilerStructure ( printWithElapsedTime )
+
 --- Data types ---
 
 --- Data type for compiler options.
@@ -71,15 +73,8 @@ defaultCGOptions = CGOptions
   }
 
 printVerb :: CGOptions -> Int -> String -> IO ()
-printVerb opts v s = when (verbosity opts >= v) $
-  if ctimeOpt opts
-    then do
-      runtime <- getProcessInfos >>= return . maybe 0 id . lookup ElapsedTime
-      putStrLn $ "[" ++ showTime runtime ++ "s] " ++ s
-    else putStrLn s
- where
-  showTime t = show (t `div` 1000) ++ "." ++ show2 ((t `mod` 1000) `div` 10)
-  show2 i = if i < 10 then '0' : show i else show i
+printVerb opts v s =
+  when (verbosity opts >= v) $ printWithElapsedTime (ctimeOpt opts) s
 
 --- Data type for search strategies.
 data SearchStrat = DFS

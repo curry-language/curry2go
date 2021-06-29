@@ -1,19 +1,30 @@
+------------------------------------------------------------------------------
+--- This library provides a generic operation `compile` to compile
+--- a program module and all its imports with a given compiler
+--- (implemented in Curry).
+--- The concrete compiler operations used by `compile` are specified
+--- with a data type `CompStruct`.
+---
+--- @author Jonas Boehm, Michael Hanus
+--- @version June 2021
+------------------------------------------------------------------------------
+
 module CompilerStructure
-  ( CompStruct (..), defaultStruct, compile )
+  ( CompStruct (..), defaultStruct, compile, printWithElapsedTime )
  where
 
 import Control.Monad    ( when )
 import Data.IORef
 
-import System.Directory ( createDirectoryIfMissing, doesFileExist
-                        , getModificationTime)
+import System.Directory ( createDirectoryIfMissing )
 import Data.Time        ( compareClockTime )
 import Debug.Profile    -- for show run-time
 import System.FilePath  ( combine, takeDirectory )
 
+------------------------------------------------------------------------------
 --- Data type for compiler options regarding output structure and modules.
 --- It is parameterized over the type `p` of a representation of
---- source programs to be compiled
+--- source programs to be compiled (e.g., FlatCurry or ICurry programs)
 --- and the type `s` of an `IORef` keeping some state accross compilation
 --- steps, e.g., to cache already loaded modules or interfaces.
 data CompStruct p s = CompStruct
@@ -59,23 +70,8 @@ defaultStruct = CompStruct
   }
 
 printVerb :: CompStruct _ _ -> Int -> String -> IO ()
-printVerb struct v s = when (cmpVerbosity struct >= v) $
-  if cmpTime struct
-    then do
-      runtime <- getProcessInfos >>= return . maybe 0 id . lookup ElapsedTime
-      putStr $ "[" ++ showTime runtime ++ "s] " ++ s
-    else putStr s
- where
-  showTime t = show (t `div` 1000) ++ "." ++ show2 ((t `mod` 1000) `div` 10)
-  show2 i = if i < 10 then '0' : show i else show i
-
-printLnVerb :: CompStruct _ _ -> Int -> String -> IO ()
-printLnVerb struct v s = printVerb struct v (s ++ "\n")
-
-showCreateDirectoryIfMissing :: CompStruct _ _ -> String -> IO ()
-showCreateDirectoryIfMissing struct dirname = do
-  printLnVerb struct 3 $ "Creating directory '" ++ dirname ++ "'..."
-  createDirectoryIfMissing True dirname
+printVerb struct v s =
+  when (cmpVerbosity struct >= v) $ printWithElapsedTime (cmpTime struct) s
 
 ------------------------------------------------------------------------------
 -- Compiler state with lists of already compiled and skipped modules.
@@ -111,7 +107,7 @@ compile struct sref inp = do
   printVerb struct 1 $
     "Compilation summary: " ++
     showNumMods (skippedMods cst) ++ " skipped, " ++
-    showNumMods (compiledMods cst) ++ " compiled.\n"
+    showNumMods (compiledMods cst) ++ " compiled."
   return ()
  where
   showNumMods ms =
@@ -132,8 +128,10 @@ compileProg :: CompStruct a s -> IORef CompState -> IORef s -> String
             -> IO Bool
 compileProg struct cref sref name = do
   fPath <- getTargetFilePath struct name
-  showCreateDirectoryIfMissing struct (takeDirectory fPath)
-  printStatusLn $ "Processing module '" ++ name ++ "'..."
+  let targetdir = takeDirectory fPath
+  printVerb struct 3 $ "Creating directory '" ++ targetdir ++ "'..."
+  createDirectoryIfMissing True targetdir
+  printStatus $ "Processing module '" ++ name ++ "'..."
   impcmpld <- translateImports
   if impcmpld
     then translateProg fPath
@@ -143,31 +141,31 @@ compileProg struct cref sref name = do
         then do
           postProc struct name
           addSkippedModule cref name
-          printStatusLn $ "Skipping compilation of '" ++ name ++ "'"
+          printStatus $ "Skipping compilation of '" ++ name ++ "'"
           return False
         else translateProg fPath
  where
   translateImports = do
     impmods <- getImports struct sref name
-    printLnVerb struct 2 $ "Imports of '" ++ name ++ "': " ++ unwords impmods
+    printVerb struct 2 $ "Imports of '" ++ name ++ "': " ++ unwords impmods
     if null impmods
       then return False
       else compileImports struct cref sref impmods
 
   translateProg targetpath = do
-    printStatusLn $ "Compiling module '" ++ name ++ "'" ++
+    printStatus $ "Compiling module '" ++ name ++ "'" ++
       (if cmpVerbosity struct > 1 then " to '" ++ targetpath ++ "'" else "") ++
       "..."
     prog <- getProg struct sref name
     let target = compProg struct prog
     writeFile targetpath target
-    printLnVerb struct 2 "Done!"
-    printLnVerb struct 4 $ "Compiled target program:\n" ++ target
+    printVerb struct 2 $ "'" ++ name ++ "' compiled!"
+    printVerb struct 4 $ "Compiled target program:\n" ++ target
     postProc struct name
     addCompiledModule cref name
     return True
 
-  printStatusLn = printLnVerb struct 1
+  printStatus = printVerb struct 1
 
 
 --- Calls compileProg on every imported module 
@@ -192,3 +190,21 @@ compileImports struct cref sref (x:xs)
              then return b
              else do b2 <- compileProg struct cref sref x
                      return (b || b2)
+
+------------------------------------------------------------------------------
+-- Auxiliaries
+
+--- Prints a given string. If the first argument is `True`,
+--- add also the elapsed time in front of the printed string.
+printWithElapsedTime :: Bool -> String -> IO ()
+printWithElapsedTime withtime s =
+  if withtime
+    then do
+      runtime <- getProcessInfos >>= return . maybe 0 id . lookup ElapsedTime
+      putStrLn $ "[" ++ showTime runtime ++ "s] " ++ s
+    else putStrLn s
+ where
+  showTime t = show (t `div` 1000) ++ "." ++ show2 ((t `mod` 1000) `div` 10)
+  show2 i = if i < 10 then '0' : show i else show i
+
+------------------------------------------------------------------------------

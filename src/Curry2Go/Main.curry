@@ -1,3 +1,12 @@
+------------------------------------------------------------------------------
+--- This is the main module of the Curry2Go compiler.
+--- It contains the operations to compiler complete Curry programs
+--- with the `CompilerStructure` module and the actual compiler.
+---
+--- @author Jonas Boehm, Michael Hanus
+--- @version June 2021
+------------------------------------------------------------------------------
+
 module Curry2Go.Main where
 
 import Curry.Compiler.Distribution
@@ -8,15 +17,17 @@ import System.Environment    ( getArgs )
 import Control.Monad         ( unless, when )
 
 import Data.Time             ( compareClockTime )
-import FlatCurry.Types       ( Prog )
+import FlatCurry.CaseCompletion ( dataDeclsOf )
+import FlatCurry.Types       --( Prog )
 import FlatCurry.Files       ( flatCurryFileName, readFlatCurryWithParseOptions
                              , readFlatCurryIntWithParseOptions )
-import FlatCurry.Goodies     ( progImports, progName )
+import FlatCurry.Goodies     ( funcName, funcVisibility
+                             , progFuncs, progImports, progName )
 import Language.Go.Show      ( showGoProg )
-import Language.Go.Types
 import ICurry.Types
 import ICurry.Compiler       ( flatCurry2ICurryWithProgs )
 import ICurry.Options        ( ICOptions(..), defaultICOptions )
+import ReadShowTerm          ( readUnqualifiedTerm, showTerm )
 import System.CurryPath
 import System.Console.GetOpt
 import System.Directory
@@ -83,16 +94,82 @@ isCompiledCurryModule opts mname = doOnModuleSource mname $ \ (mdir,msrc) -> do
 getCurrySourcePath :: String -> IO String
 getCurrySourcePath m = doOnModuleSource m (return . snd)
 
+------------------------------------------------------------------------------
+-- Loading and caching FlatCurry interfaces.
+-- In order to speed up reading of interfaces (like the Prelude interface),
+-- a cache file with reduced interface information is stored in the
+-- `curry2go` target directory. If it is up-to-date, the interface
+-- is reconstructed from the information in the cache file.
+--
+-- IMPORTANT NOTE: the cache file contains the minimum information
+-- required by the `icurry` compiler for interfaces. Thus, if something
+-- is changed in the `icurry` compiler, the structure of cache file
+-- might need to be adapted. 
+
 --- Load a FlatCurry interface for a module if not already done.
 loadInterface :: CGOptions -> IORef GSInfo -> String -> IO Prog
 loadInterface opts sref mname = do
   gsinfo <- readIORef sref
-  maybe (do printVerb opts 2 $ "Reading interface of '" ++ mname ++ "'"
-            int <- showReadFlatCurryIntWithParseOptions opts mname
-            writeIORef sref (gsinfo { gsProgs = int : gsProgs gsinfo } )
-            return int)
+  maybe (readInterface gsinfo)
         return
         (find (\fp -> progName fp == mname) (gsProgs gsinfo))
+ where
+  readInterface gsinfo = do
+    let outPath = combine curry2goDir (modPackage mname)
+        outDir  = takeDirectory outPath
+        intfile = outDir </> "INTERFACE"
+    showCreateDirectory opts outDir
+    sourcefile <- getCurrySourcePath mname
+    int <- ifNewerFile sourcefile
+                       intfile
+                       (readInterfaceFromFlatCurry intfile)
+                       (readIntFile opts intfile)
+    writeIORef sref (gsinfo { gsProgs = int : gsProgs gsinfo } )
+    return int
+
+  readInterfaceFromFlatCurry intfile = do
+    printVerb opts 2 $ "Reading interface of '" ++ mname ++ "'"
+    int <- showReadFlatCurryIntWithParseOptions opts mname
+    writeIntFile opts intfile int
+    return int
+
+--- Writes the `INTERFACE` file with reduced `fint` information.
+writeIntFile :: CGOptions -> String -> Prog -> IO ()
+writeIntFile opts intfile fint = do
+  printVerb opts 2 $ "Writing interface cache file '" ++ intfile ++ "'"
+  writeFile intfile
+    (showTerm (progName fint, progImports fint,
+               consDeclsOfProg fint, publicFunsOfProg fint))
+ where
+  -- compute list of data constructors
+  consDeclsOfProg fcy = map (\ (_,cars) -> cars) (dataDeclsOf fcy)
+
+  -- compute list of public function names
+  publicFunsOfProg fcprog =
+    map funcName
+        (filter (\f -> funcVisibility f == FlatCurry.Types.Public)
+                (progFuncs fcprog))
+
+--- Reads an `INTERFACE` file and reconstruct a FlatCurry interface.
+readIntFile :: CGOptions -> String -> IO Prog
+readIntFile opts intfile = do
+  printVerb opts 2 $ "Reading interface cache file '" ++ intfile ++ "'"
+  (mname,imps,consmap,funmap) <-
+    readFile intfile >>= return . readUnqualifiedTerm ["Prelude"]
+  return (Prog mname imps (map consItem2TypeDecl consmap)
+               (map funcItem2Func funmap) notUsed)
+ where
+  consItem2TypeDecl consitems =
+    Type notUsed FlatCurry.Types.Public notUsed (map consItem2Cons consitems)
+
+  consItem2Cons (cn,ar) = Cons cn ar FlatCurry.Types.Public notUsed
+
+  funcItem2Func qn = Func qn notUsed FlatCurry.Types.Public notUsed notUsed
+
+notUsed :: _
+notUsed = error "Internal error: access to unused interface component"
+
+------------------------------------------------------------------------------
 
 --- Gets the imported modules of a Curry module.
 getCurryImports :: CGOptions -> IORef GSInfo -> String -> IO [String]
@@ -101,23 +178,22 @@ getCurryImports opts sref mname = do
       outDir  = takeDirectory outPath
       impFile = outDir </> "IMPORTS"
   showCreateDirectory opts outDir
-  eximps <- doesFileExist impFile
-  if eximps
-    then do
-      source <- getCurrySourcePath mname
-      stime  <- getModificationTime source
-      itime  <- getModificationTime impFile
-      if compareClockTime stime itime == LT
-        then readFile impFile >>= return . lines
-        else readImportsFromInterface outDir impFile
-    else readImportsFromInterface outDir impFile
-
+  source <- getCurrySourcePath mname
+  ifNewerFile source
+              impFile
+              (readImportsFromInterface outDir impFile)
+              (readImportsFromCache impFile)
  where
   readImportsFromInterface outDir impFile = do
     imps <- loadInterface opts sref mname >>= return . progImports
     showCreateDirectory opts outDir
+    printVerb opts 2 $ "Writing imports cache file '" ++ impFile ++ "'"
     writeFile impFile (unlines imps)
     return imps
+
+  readImportsFromCache impfile = do
+    printVerb opts 2 $ "Reading imports cache file '" ++ impfile ++ "'"
+    readFile impfile >>= return . lines
 
 --- Loads an IProg from the name of a Curry module.
 loadICurry :: CGOptions -> IORef GSInfo -> String -> IO IProg
@@ -191,13 +267,7 @@ postProcess opts mname = do
   copyIfNewer fPath outPath
  where
   copyIfNewer source target = do
-    alreadyExists <- doesFileExist target
-    if alreadyExists
-      then do
-        sMod <- getModificationTime source
-        tMod <- getModificationTime target
-        when (compareClockTime sMod tMod == GT) $ showCopyFile source target
-      else showCopyFile source target
+    ifNewerFile source target (showCopyFile source target)  (return ())
 
   showCopyFile source target = do
     printVerb opts 2 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
@@ -444,5 +514,22 @@ options =
                        then opts { verbosity = n }
                        else error "Illegal verbosity level (use `-h' for help)"
    where n = safeRead s
+
+------------------------------------------------------------------------------
+-- Auxiliaries
+
+--- If `file1` is newer then `file2` or `file2` does not exist,
+--- run `action1`, otherwise run `action2`.
+ifNewerFile :: String -> String -> IO a -> IO a -> IO a
+ifNewerFile file1 file2 action1 action2 = do
+  exf2 <- doesFileExist file2
+  if exf2
+    then do
+      time1  <- getModificationTime file1
+      time2  <- getModificationTime file2
+      if compareClockTime time1 time2 == GT
+        then action1
+        else action2
+    else action1
 
 ------------------------------------------------------------------------------
