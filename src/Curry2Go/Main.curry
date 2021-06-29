@@ -344,7 +344,7 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
 --- @param mainmod - name of main module
 curry2Go :: CGOptions -> String -> IO ()
 curry2Go opts mainmod = do
-  printVerb opts { ctimeOpt = False } 1 c2goBanner
+  unless (nobanner opts) $ printVerb opts { ctimeOpt = False } 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   -- and show warnings to the user if not in quiet mode (but avoid reading
@@ -428,7 +428,8 @@ processOptions argv = do
   unless (null opterrors)
     (putStr (unlines opterrors) >> putStr usageText >> exitWith 1)
   when (help opts) $ do
-    putStr $ c2goBanner ++ "\n" ++ usageText
+    unless (nobanner opts) $ putStrLn c2goBanner
+    putStr usageText
     exitWith 0
   printArgs argv
   when (printName opts || printNumVer opts || printBaseVer opts) (exitWith 0)
@@ -502,6 +503,9 @@ options =
   , Option "" ["noimports"]
     (NoArg (\opts -> opts {noimports = True}))
     "do not compile import modules"
+  , Option "" ["nobanner"]
+    (NoArg (\opts -> opts {nobanner = True}))
+    "do not print banner on start up"
   , Option "" ["hnf"]
     (NoArg (\opts -> opts {onlyHnf = True})) "only compute hnf"
   , Option "" ["compiler-name"]

@@ -131,7 +131,7 @@ compileProg struct cref sref name = do
   let targetdir = takeDirectory fPath
   printVerb struct 3 $ "Creating directory '" ++ targetdir ++ "'..."
   createDirectoryIfMissing True targetdir
-  printStatus $ "Processing module '" ++ name ++ "'..."
+  printVerb struct 2 $ "Processing module '" ++ name ++ "'..."
   impcmpld <- translateImports
   if impcmpld
     then translateProg fPath
@@ -141,7 +141,7 @@ compileProg struct cref sref name = do
         then do
           postProc struct name
           addSkippedModule cref name
-          printStatus $ "Skipping compilation of '" ++ name ++ "'"
+          printVerb struct 1 $ "Skipping compilation of '" ++ name ++ "'"
           return False
         else translateProg fPath
  where
@@ -153,7 +153,7 @@ compileProg struct cref sref name = do
       else compileImports struct cref sref impmods
 
   translateProg targetpath = do
-    printStatus $ "Compiling module '" ++ name ++ "'" ++
+    printVerb struct 1 $ "Compiling module '" ++ name ++ "'" ++
       (if cmpVerbosity struct > 1 then " to '" ++ targetpath ++ "'" else "") ++
       "..."
     prog <- getProg struct sref name
@@ -164,8 +164,6 @@ compileProg struct cref sref name = do
     postProc struct name
     addCompiledModule cref name
     return True
-
-  printStatus = printVerb struct 1
 
 
 --- Calls compileProg on every imported module 

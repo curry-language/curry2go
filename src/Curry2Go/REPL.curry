@@ -22,15 +22,18 @@ import Curry2Go.InstallPath ( curry2GoHomeDir )
 import Curry2Go.PkgConfig   ( packageVersion )
 
 main :: IO ()
-main = curry2GoHomeDir >>= mainREPL . c2go
+main = do
+  c2godir <- curry2GoHomeDir
+  cmpdate <- readFile (c2godir </> "COMPDATE") >>= return . head . lines
+  mainREPL (c2go c2godir cmpdate)
 
 --- Specification of the Curry2Go compiler (paramterized over the
 --- root directory of the Curry2Go compiler):
-c2go :: String -> CCDescription
-c2go c2goDir = CCDescription
+c2go :: String -> String -> CCDescription
+c2go c2goDir cmpdate = CCDescription
   lowerCompilerName          -- the compiler name
   (compilerMajorVersion, compilerMinorVersion, compilerRevisionVersion)
-  c2goBanner                 -- the banner
+  (c2goBanner cmpdate)       -- the banner
   c2goDir                    -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
   frontendpath               -- executable of the Curry front end
@@ -40,7 +43,7 @@ c2go c2goDir = CCDescription
   True                       -- use CURRYPATH variable
   (\s -> "-v" ++ s)          -- option to pass verbosity
   (\_ -> "")                 -- option to pass parser options (ignored)
-  (\s -> "--compile " ++ s)  -- option to compile only
+  (\s -> "--compile --nobanner " ++ s) -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt, ctimeOpt]
@@ -52,11 +55,11 @@ c2go c2goDir = CCDescription
     [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
     , curry2goDir </> m ++ "Main.go", curry2goDir </> m ]
 
-c2goBanner :: String
-c2goBanner = unlines [bannerLine, bannerText, bannerLine]
+c2goBanner :: String -> String
+c2goBanner cmpdate = unlines [bannerLine, bannerText, bannerLine]
  where
   bannerText = compilerName ++ " Interactive Environment (Version " ++
-               packageVersion ++ ")"
+               packageVersion ++ " of " ++ cmpdate ++ ")"
   bannerLine = take (length bannerText) (repeat '-')
 
 stratOpt :: CCOption

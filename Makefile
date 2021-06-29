@@ -39,6 +39,9 @@ RM=/bin/rm
 # The Go implementation of the base module Curry.Compiler.Distribution
 COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
 
+# The file containing the compiler date
+COMPDATEFILE=COMPDATE
+
 ###############################################################################
 # Installation
 
@@ -54,6 +57,7 @@ install: checkcurrysystem
 kernel: checkcurrysystem
 	$(MAKE) scripts
 	$(MAKE) frontend
+	$(MAKE) $(COMPDATEFILE)
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
@@ -83,6 +87,10 @@ repl: checkcurrysystem $(REPL)
 $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/InstallPath.curry \
 	 src/Curry2Go/*Config.curry
 	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
+
+# Initializing compiler date file with repository date
+$(COMPDATEFILE):
+	git log -1 --format="%ci" | cut -c-10 > $@
 
 # Generate the implementation of externals of Curry.Compiler.Distribution
 $(COMPDISTGO): checkcurrysystem src/Install.curry src/Curry2Go/PkgConfig.curry
@@ -170,7 +178,7 @@ cleantargets:
 	$(CPM) clean
 	$(CPMC2G) clean
 	$(RM) -rf $(LIBDIR)/.curry
-	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO)
+	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO) $(COMPDATEFILE)
 
 # clean all installed components
 .PHONY: clean

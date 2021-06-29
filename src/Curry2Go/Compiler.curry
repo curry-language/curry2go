@@ -31,6 +31,7 @@ data CGOptions = CGOptions
   , verbosity    :: Int          -- verbosity (0..4)
                                  -- (0: quiet, 1: status,...)
   , genMain      :: Bool         -- should a main method be generated
+  , nobanner     :: Bool         -- do not print banner on start up
   , noimports    :: Bool         -- compile only main module (i.e., the
                                  -- imported modules are already compiled)
   , strat        :: SearchStrat  -- search strategy to be used by the run-time system
@@ -55,6 +56,7 @@ defaultCGOptions = CGOptions
   { help         = False
   , verbosity    = 1
   , genMain      = True
+  , nobanner     = False
   , noimports    = False
   , strat        = DFS
   , maxResults   = 0
