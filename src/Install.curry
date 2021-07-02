@@ -1,6 +1,6 @@
 import System.FilePath       ( joinPath )
 import Language.Go.Types
-import Language.Go.Show      ( showGoProg )
+import Language.Go.ShowS     ( showGoProg )
 import Curry2Go.InstallPath  ( curry2GoHomeDir )
 
 import Curry2Go.Config 
@@ -13,7 +13,7 @@ main = do
   bvs <- readFile (joinPath [c2ghome, "lib", "VERSION"])
   writeFile (joinPath [c2ghome, "lib", "Curry", "Compiler",
                        "Distribution_external.go"])
-            (showGoProg (createGoDistribution (head (lines bvs)) c2ghome "go"))
+    (showGoProg (createGoDistribution (head (lines bvs)) c2ghome "go") "")
 
 createGoDistribution :: String -> String -> String -> GoProg
 createGoDistribution baseversion c2ghome gocompiler =

@@ -23,7 +23,7 @@ import FlatCurry.Files       ( flatCurryFileName, readFlatCurryWithParseOptions
                              , readFlatCurryIntWithParseOptions )
 import FlatCurry.Goodies     ( funcName, funcVisibility
                              , progFuncs, progImports, progName )
-import Language.Go.Show      ( showGoProg )
+import Language.Go.ShowS     ( showGoProg )
 import ICurry.Types
 import ICurry.Compiler       ( flatCurry2ICurryWithProgs )
 import ICurry.Options        ( ICOptions(..), defaultICOptions )
@@ -388,7 +388,7 @@ curry2Go opts mainmod = do
     let mainprogname = removeDots modname ++ "Main.go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
     let mainprog = showGoProg
-                     (createMainProg funcs (opts {modName = "main"}))
+                     (createMainProg funcs (opts {modName = "main"})) ""
     printVerb opts 4 $ "Main Go program:\n\n" ++ mainprog
     let mainfile = combine curry2goDir mainprogname
     writeFile mainfile mainprog

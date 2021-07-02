@@ -119,6 +119,11 @@ baselibs: require-jq
 	$(JQ) -r '.version' base/package.json > $(LIBDIR)/VERSION
 	$(RM) -rf base
 
+# pre-compile all libraries:
+.PHONY: compilelibs
+compilelibs:
+	cd $(LIBDIR) && ../scripts/compile-all-libs.sh
+
 .PHONY: uninstall
 uninstall:
 	$(CPM) uninstall
@@ -210,9 +215,10 @@ $(TARFILE):
 	$(MAKE) -C $(C2GDISTDIR) bootstrap
 	cd $(C2GDISTDIR) && $(CPMDISTC2G) checkout cpm
 	cd $(C2GDISTDIR)/cpm && $(CPMDISTC2G) -d BININSTALLPATH=$(C2GDISTDIR)/bin install
-	cd $(C2GDISTDIR)/lib && ../scripts/compile-all-libs.sh
+	$(MAKE) -C $(C2GDISTDIR) compilelibs
 	$(MAKE) -C $(C2GDISTDIR) cleandist
 	cd $(C2GDISTDIR) && tar cfvz $(ROOT)/$(TARFILE) .
+	$(RM) -rf $(C2GDISTDIR)
 
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist

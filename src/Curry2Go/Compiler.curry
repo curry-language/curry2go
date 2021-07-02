@@ -2,7 +2,7 @@
 --- This module contains a compiler from ICurry to Go programs.
 ---
 --- @author Jonas Boehm (with modifications by Michael Hanus)
---- @version April 2021
+--- @version July 2021
 ------------------------------------------------------------------------------
 
 module Curry2Go.Compiler
@@ -11,13 +11,15 @@ module Curry2Go.Compiler
   , createMainProg, removeDots)
  where
 
+import Prelude hiding ( empty )
 import Control.Monad     ( when )
 import Data.Char         ( toUpper )
-import Data.List         ( union, init )
+import Data.List         ( init )
 
+import Data.Set
 import Debug.Profile    -- for show run-time
 import ICurry.Types
-import Language.Go.Show  ( showGoProg )
+import Language.Go.ShowS ( showGoProg )
 import Language.Go.Types
 import System.CurryPath
 
@@ -135,8 +137,8 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   , GoExprStat (GoCall
     (GoOpName (runtime ++ if timeOpt opts then ".Benchmark" else ".Evaluate"))
     ((if timeOpt opts then [GoOpName "node", GoIntLit (times opts)]
-                      else [GoOpName "node", GoBoolLit (interact opts)])
-    ++ [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
+                      else [GoOpName "node", GoBoolLit (interact opts)]) ++
+     [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
     , GoIntLit (maxResults opts), GoIntLit (maxTasks opts)]))])]
  | otherwise = createMainProg xs opts
 
@@ -145,64 +147,76 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
 --- @param iprog    - IProg to convert
 compileIProg2GoString :: CGOptions -> IProg -> String
 compileIProg2GoString opts iprog@(IProg moduleName _ _ _) =
-  showGoProg (compileIProg2Go (opts {modName = moduleName}) iprog)
+  showGoProg (compileIProg2Go (opts {modName = moduleName}) iprog) ""
 
---- Creates a Go program from an IProg.
+--- Creates a Go program from an `IProg`.
 --- @param opts     - compiler options
 --- @param iprog    - IProg to convert
 compileIProg2Go :: CGOptions -> IProg -> GoProg
 compileIProg2Go opts (IProg moduleName _ dtypes funcs) =
   GoProg (removeDots moduleName)
-  (runtime : (foldl union [] (map (getImports opts) funcs)))
+  (runtime : getFuncsImports opts funcs)
   ([ifuncNames2Go opts funcs]
   ++ map (idataNames2Go opts) dtypes
   ++ concatMap (idata2GoCreate (opts {modName = moduleName})) dtypes
   ++ ifunc2GoCreate (opts {modName = moduleName}) 0 funcs
   ++ map (ifunc2Go (opts {modName = moduleName})) funcs)
 
---- Extracts the modules used by an IFunction.
-getImports :: CGOptions -> IFunction -> [String]
-getImports opts (IFunction _ _ _ _ body) = toImport (getImportsBody body)
+--- Extracts the modules used by a list of `IFunction`s.
+getFuncsImports :: CGOptions -> [IFunction] -> [String]
+getFuncsImports opts ifuncs =
+  toImport (toList (unionize (map getImportsFunc ifuncs)))
  where
-  getImportsBody (IExternal _)     = []
+  getImportsFunc (IFunction _ _ _ _ body) = getImportsBody body
+
+  getImportsBody (IExternal _)     = empty
   getImportsBody (IFuncBody block) = getImportsBlock block
+
   getImportsBlock (IBlock _ assign stat) =
     union (getImportsStat stat) (unionize (map getImportsAssign assign))
+
   getImportsAssign (IVarAssign _ expr)    = getImportsExpr expr
   getImportsAssign (INodeAssign _ _ expr) = getImportsExpr expr
-  getImportsStat IExempt                = []
+
+  getImportsStat IExempt                = empty
   getImportsStat (IReturn expr)         = getImportsExpr expr
   getImportsStat (ICaseCons _ branches) =
     unionize (map getImportsCons branches)
   getImportsStat (ICaseLit _ branches)  =
     unionize (map getImportsLit branches)
+
   getImportsCons (IConsBranch (m, _, _) _ block) =
-    union [m] (getImportsBlock block)
+    insert m (getImportsBlock block)
+
   getImportsLit (ILitBranch _ block) = getImportsBlock block
-  getImportsExpr (IVar _)                             = []
-  getImportsExpr (IVarAccess _ _)                     = []
-  getImportsExpr (ILit _)                             = []
+
+  getImportsExpr (IVar _)                             = empty
+  getImportsExpr (IVarAccess _ _)                     = empty
+  getImportsExpr (ILit _)                             = empty
   getImportsExpr (IFCall (m, _, _) exprs)             =
-    union [m] (unionize (map getImportsExpr exprs))
-  getImportsExpr (ICCall (m, n, _) exprs) | n == ":"  = case exprs of
-    (ILit (IChar _):[ICCall (_,"[]",_) _]) -> []
-    (ILit (IChar _):r) -> unionize (map getImportsExpr r)
-    _                  -> union [m] (unionize (map getImportsExpr exprs))
-                                          | otherwise =
-    union [m] (unionize (map getImportsExpr exprs))
+    insert m (unionize (map getImportsExpr exprs))
+  getImportsExpr (ICCall (m, n, _) exprs)
+    | n == ":"
+    = case exprs of
+        (ILit (IChar _):[ICCall (_,"[]",_) _]) -> empty
+        (ILit (IChar _):r) -> unionize (map getImportsExpr r)
+        _                  -> insert m (unionize (map getImportsExpr exprs))
+    | otherwise
+    = insert m (unionize (map getImportsExpr exprs))
   getImportsExpr (IFPCall (m, _, _) _ exprs)          =
-    union [m] (unionize (map getImportsExpr exprs))
+    insert m (unionize (map getImportsExpr exprs))
   getImportsExpr (ICPCall (m, _, _) _ exprs)          =
-    union [m] (unionize (map getImportsExpr exprs))
+    insert m (unionize (map getImportsExpr exprs))
   getImportsExpr (IOr expr1 expr2)                    =
     union (getImportsExpr expr1) (getImportsExpr expr2)
-  unionize ls = foldl union [] ls
+
+  unionize ls = foldr union empty ls
+
   toImport [] = []
   toImport (x:xs)
-    | x == modName opts = (toImport xs)
-    | otherwise         =
-      ("curry2go/" ++ modNameToPath x) : (toImport xs)
-      
+    | x == modName opts = toImport xs
+    | otherwise         = ("curry2go/" ++ modNameToPath x) : toImport xs
+
 --- Creates a top-level declaration for an array with all function names.
 --- @param opts  - compiler options
 --- @param funcs - list of IFunctions
@@ -238,7 +252,8 @@ idata2GoCreate opts (IDataType name constrs) =
 --- @param dname  - datatype name
 --- @param i      - index of the current constructor 
 --- @param cnames - list of constructor names to generatre create functions for
-constr2GoCreate :: CGOptions -> IQName -> Int -> [(IQName, IArity)] -> [GoTopLevelDecl]
+constr2GoCreate :: CGOptions -> IQName -> Int -> [(IQName, IArity)]
+                -> [GoTopLevelDecl]
 constr2GoCreate _    _     _ []                          = []
 constr2GoCreate opts dname i ((cname, n):xs) = (GoTopLevelFuncDecl 
   (GoFuncDecl (iqname2GoCreate opts cname)
