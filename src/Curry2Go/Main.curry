@@ -25,7 +25,8 @@ import FlatCurry.Goodies     ( funcName, funcVisibility
                              , progFuncs, progImports, progName )
 import Language.Go.ShowS     ( showGoProg )
 import ICurry.Types
-import ICurry.Compiler       ( flatCurry2ICurryWithProgs )
+import ICurry.Compiler       ( flatCurry2ICurryWithProgs
+                             , flatCurry2ICurryWithProgsAndOptions )
 import ICurry.Options        ( ICOptions(..), defaultICOptions )
 import ReadShowTerm          ( readUnqualifiedTerm, showTerm )
 import System.CurryPath
@@ -205,10 +206,13 @@ getCurryImports opts sref mname = do
 --- Loads an IProg from the name of a Curry module.
 loadICurry :: CGOptions -> IORef GSInfo -> String -> IO IProg
 loadICurry opts sref mname = do
-  prog      <- showReadFlatCurryWithParseOptions opts mname
-  impints   <- mapM (loadInterface opts sref) (progImports prog)
-  c2gicopts <- c2gICOptions opts
-  flatCurry2ICurryWithProgs c2gicopts impints prog
+  prog           <- showReadFlatCurryWithParseOptions opts mname
+  impints        <- mapM (loadInterface opts sref) (progImports prog)
+  gsinfo         <- readIORef sref
+  (icopts,iprog) <- flatCurry2ICurryWithProgsAndOptions (gsICOpts gsinfo)
+                                                        impints prog
+  writeIORef sref (gsinfo { gsICOpts = icopts })
+  return iprog
 
 showReadFlatCurryWithParseOptions :: CGOptions -> String -> IO Prog
 showReadFlatCurryWithParseOptions opts mname = do
@@ -307,13 +311,15 @@ goStruct opts = defaultStruct
   }
 
 -- The state of the Go compilation process.
--- It consists of a list of already loaded FlatCurry interfaces.
+-- It consists of a list of already loaded FlatCurry interfaces and
+-- the current options for the ICurry compiler.
 data GSInfo = GSInfo
-  { gsProgs    :: [Prog] -- loaded interfaces
+  { gsProgs    :: [Prog]    -- loaded interfaces
+  , gsICOpts   :: ICOptions -- current options for the ICurry compiler
   }
 
-initGSInfo :: GSInfo
-initGSInfo = GSInfo []
+initGSInfo :: ICOptions -> GSInfo
+initGSInfo icopts = GSInfo [] icopts
 
 ------------------------------------------------------------------------------
 --- Implementation of compiler invokation.
@@ -349,8 +355,9 @@ curry2Go opts mainmod = do
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   -- and show warnings to the user if not in quiet mode (but avoid reading
   -- the prelude if not necessary in order to speed up REPL start)
-  fprog <- parseMainFlatCurry
-  sref <- newIORef initGSInfo
+  fprog      <- parseMainFlatCurry
+  initicopts <- c2gICOptions opts
+  sref       <- newIORef (initGSInfo initicopts)
   let gostruct = (goStruct opts) {compProg = compileIProg2GoString opts}
   compile gostruct sref mainmod
   createModFile curry2goDir
@@ -359,8 +366,9 @@ curry2Go opts mainmod = do
     then return ()
     else do
       impints <- mapM (loadInterface opts sref) (progImports fprog)
-      icopts  <- c2gICOptions opts
-      IProg modname _ _ funcs <- flatCurry2ICurryWithProgs icopts impints fprog
+      gsinfo <- readIORef sref
+      IProg modname _ _ funcs <- flatCurry2ICurryWithProgs (gsICOpts gsinfo)
+                                                           impints fprog
       generateMainProg modname funcs
       createExecutable modname
       when (runOpt opts) $ execProgram modname

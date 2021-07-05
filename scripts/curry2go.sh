@@ -35,14 +35,17 @@ if tty -s ; then
   fi
 fi
 
+QUIET=no
+
 # check arguments for appropriate settings:
 for i in $* ; do
   case $i in
     --help | -h | -\? ) USECPM=no ;;
     --version | -V    ) USECPM=no ;;
     --numeric-version | --compiler-name | --base-version ) USECPM=no ;;
-    --nocypm ) USECPM=no ;;
-    --noreadline ) USERLWRAP=no
+    --nocypm | -n     ) USECPM=no ;;
+    --quiet  | -q     ) QUIET=yes ;;
+    --noreadline      ) USERLWRAP=no
   esac
 done
 
@@ -55,7 +58,9 @@ fi
 
 if [ $USECPM = yes ] ; then
   # set CURRYPATH with 'deps' command of CPM
-  echo "Compute CURRYPATH with '$CYPMBIN'..."
+  if [ $QUIET = no ] ; then
+    echo "Compute CURRYPATH with '$CYPMBIN'..."
+  fi
   CPMPATH=`"$CYPMBIN" -v quiet -d CURRYBIN="$REPL" deps -p`
   if [ $? -gt 0 ] ; then
     echo $CPMPATH

@@ -17,8 +17,7 @@
 ##############################################################################
 
 # URL of the distribution:
-C2GTARURL=https://www-ps.informatik.uni-kiel.de/curry2go/curry2go.tgz
-#C2GTARURL=https://www-ps.informatik.uni-kiel.de/~mh/curry2go/curry2go.tgz
+DOWNLOADURL=https://www-ps.informatik.uni-kiel.de/curry2go/download
 
 ##############################################################################
 
@@ -47,6 +46,7 @@ while [ $# -gt 0 -a -z "$ERROR" ]; do
     --help   | -h | -\? ) HELP=yes ;;
     --dir    | -d       ) shift; INSTALLDIR=$1 ;;
     --frontend          ) BUILDFRONTEND=yes ;;
+    --version           ) shift; VERSION=$1 ;;
     -*                  ) ERROR="Unknown option: $1" ;;
   esac
   shift
@@ -81,6 +81,8 @@ if [ $HELP = yes ] ; then
   echo "-h|-?|--help   : show this message and quit"
   echo "-d|--dir <DIR> : install into directory <DIR>"
   echo "--frontend     : compile front end from the sources"
+  echo "--version <V>  : download version <V> instead of current version"
+  echo "                 (e.g., '2021-07-03-1.0.0')"
   exit
 fi
 
@@ -102,7 +104,7 @@ installed_message() {
 # Download and install Curry2Go in /tmp/Curry2Go:
 install_from_tar() {
   echo "Downloading and installing Curry2Go into '$INSTALLDIR'..."
-  cd $INSTALLDIR && curl -sSL $C2GTARURL | tar xz
+  cd $INSTALLDIR && curl -sSL $DOWNLOADURL/curry2go.tgz | tar xz
   cd $INSTALLDIR && make BUILDFRONTEND=$BUILDFRONTEND installdist
 }
 
