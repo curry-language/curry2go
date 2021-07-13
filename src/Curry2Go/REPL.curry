@@ -52,8 +52,14 @@ c2go c2goDir cmpdate = CCDescription
                    </> "bin" </> curryCompiler ++ "-frontend"
 
   cleanCmd m = unwords
-    [ "/bin/rm -rf", curry2goDir </> m ++ ".*", modNameToPath m ++ ".curry"
-    , curry2goDir </> m ++ "Main.go", curry2goDir </> m ]
+    [ "/bin/rm -rf", quote $ curry2goDir </> m ++ ".*"
+    , quote $ modNameToPath m ++ ".curry"
+    , quote $ curry2goDir </> m ++ "Main.go", quote $ curry2goDir </> m ]
+
+--- Puts a file argument into quotes to avoid problems with files containing
+--- blanks.
+quote :: String -> String
+quote s = "\"" ++ s ++ "\""
 
 c2goBanner :: String -> String
 c2goBanner cmpdate = unlines [bannerLine, bannerText, bannerLine]
