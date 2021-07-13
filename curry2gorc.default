@@ -34,7 +34,7 @@ showcommand=
 
 # System command to view (Graphviz) dot graphs that come from stdin
 # (e.g., used in CPM, Curry browser, erd2curry tools)
-dotviewcommand=dot -Tpdf > /tmp/dotxxx.pdf && evince /tmp/dotxxx.pdf
+dotviewcommand=dot -Tpdf > /tmp/dotxxx.pdf && xdg-open /tmp/dotxxx.pdf
 
 # Optimize Boolean equalities (==): transform them into binding
 # constraints (=:=) whenever they must be evaluated only to True.
