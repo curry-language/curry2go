@@ -150,9 +150,8 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                             parent.tr = make(map[int]*Node)
                         }
                         
-                        // update task result map of parent and stack
+                        // update task result map of parent
                         parent.tr[node.ot] = new_node
-                        task.stack[len(task.stack) - 1] = new_node
                     } else{
                         // update children of parent in place
                         if(parent.IsFcall() && parent.int_value >= 0){
@@ -169,9 +168,9 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                     // unlock parent
                     parent.lock.Unlock()
                 }
-            
-                // go to already computed result
-                task.control = node
+                
+                // move to parent
+                task.PopStack()
                 continue
             }
         }
@@ -306,10 +305,9 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                             parent.tr = make(map[int]*Node)
                         }
                         
-                        // update task result map of parent and move to new node
+                        // update task result map of parent
                         parent.tr[task.id] = new_node
-                        task.control = new_node
-                        task.stack = task.stack[:len(task.stack) - 1]
+                        task.PopStack()
                         
                         lock.Unlock()
                         continue
@@ -326,8 +324,7 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                         }
                         
                         // change control to parent
-                        task.control = parent
-                        task.stack = task.stack[:len(task.stack) - 1]
+                        task.PopStack()
                         lock.Unlock()
                         continue
                     }
@@ -335,8 +332,7 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                 
                 // move to parent if pulltabbing-step has already been performed by another task
                 if(parent.IsChoice()){
-                    task.control = parent
-                    task.stack = task.stack[:len(task.stack) - 1]
+                    task.PopStack()
                     lock.Unlock()
                     continue
                 }
@@ -373,7 +369,7 @@ func toNf(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
-    //check task result map
+    // check task result map
     if(x1.tr != nil){
         node, ok := x1.GetTrLock(task.id, task.parents)
         
