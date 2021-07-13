@@ -42,12 +42,14 @@ c2go c2goDir cmpdate = CCDescription
   Nothing                    -- compile program with load command
   True                       -- use CURRYPATH variable
   (\s -> "-v" ++ s)          -- option to pass verbosity
-  (\_ -> "")                 -- option to pass parser options (ignored)
+  parseopts                  -- option to pass parser options
   (\s -> "--compile --nobanner " ++ s) -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
   [stratOpt, intOpt, firstOpt, ctimeOpt]
  where
+  parseopts s = if null s then "" else "--parse-options=\"" ++ s ++ "\""
+
   frontendpath = (if curryCompiler == "curry2go" then c2goDir else installDir)
                    </> "bin" </> curryCompiler ++ "-frontend"
 

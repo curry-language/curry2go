@@ -4,7 +4,7 @@
 --- with the `CompilerStructure` module and the actual compiler.
 ---
 --- @author Jonas Boehm, Michael Hanus
---- @version June 2021
+--- @version July 2021
 ------------------------------------------------------------------------------
 
 module Curry2Go.Main where
@@ -237,10 +237,11 @@ c2gFrontendParams opts = do
                     then curry2GoHomeDir
                     else return installDir 
   let frontendpath = frontendroot </> "bin" </> curryCompiler ++ "-frontend"
-  return (setFrontendPath frontendpath $
+  return (setFrontendPath frontendpath  $
           setQuiet (verbosity opts < 2) $
-          setDefinitions [curry2goDef] $
-          setOutDir curry2goDir $
+          setDefinitions [curry2goDef]  $
+          setOutDir curry2goDir         $
+          setSpecials (optParser opts)  $
           defaultParams)
  where
   curry2goDef = ("__" ++ upperCompilerName ++ "__",
@@ -300,12 +301,12 @@ postProcess opts mname = do
 goStruct :: CGOptions -> CompStruct IProg GSInfo
 goStruct opts = defaultStruct
   { cmpVerbosity      = verbosity opts
-  , cmpTime           = ctimeOpt opts
+  , cmpTime           = optCTime opts
   , getTargetFilePath = getGoTargetFilePath
   , excludeModules    = []
   , getProg           = loadICurry opts
-  , getImports        = if noimports opts then (\_ _ -> return [])
-                                       else getCurryImports opts
+  , getImports        = if optNoImports opts then (\_ _ -> return [])
+                                             else getCurryImports opts
   , isCompiled        = isCompiledCurryModule opts
   , postProc          = postProcess opts
   }
@@ -350,7 +351,7 @@ c2goBanner = unlines [bannerLine, bannerText, bannerLine]
 --- @param mainmod - name of main module
 curry2Go :: CGOptions -> String -> IO ()
 curry2Go opts mainmod = do
-  unless (nobanner opts) $ printVerb opts { ctimeOpt = False } 1 c2goBanner
+  unless (optNoBanner opts) $ printVerb opts { optCTime = False } 1 c2goBanner
   printVerb opts 1 $ "Compiling program '" ++ mainmod ++ "'..."
   -- read main FlatCurry in order to be sure that all imports are up-to-date
   -- and show warnings to the user if not in quiet mode (but avoid reading
@@ -362,7 +363,7 @@ curry2Go opts mainmod = do
   compile gostruct sref mainmod
   createModFile curry2goDir
   printVerb opts 2 $ "Go programs written into '" ++ curry2goDir ++ "'"
-  if not (genMain opts)
+  if not (optGenMain opts)
     then return ()
     else do
       impints <- mapM (loadInterface opts sref) (progImports fprog)
@@ -371,12 +372,12 @@ curry2Go opts mainmod = do
                                                            impints fprog
       generateMainProg modname funcs
       createExecutable modname
-      when (runOpt opts) $ execProgram modname
+      when (optRun opts) $ execProgram modname
  where
   parseMainFlatCurry = do
     let verb     = verbosity opts
         opts4fcy = opts { verbosity = if verb == 1 then 2 else verb }
-    if mainmod /= "Prelude" || genMain opts
+    if mainmod /= "Prelude" || optGenMain opts
       then showReadFlatCurryWithParseOptions opts4fcy mainmod
       else do
         preludeready <- isCompiledCurryModule opts "Prelude"
@@ -435,13 +436,13 @@ processOptions argv = do
       opts = foldr (\f x -> f x) defaultCGOptions funopts
   unless (null opterrors)
     (putStr (unlines opterrors) >> putStr usageText >> exitWith 1)
-  when (help opts) $ do
-    unless (nobanner opts) $ putStrLn c2goBanner
+  when (optPrintHelp opts) $ do
+    unless (optNoBanner opts) $ putStrLn c2goBanner
     putStr usageText
     exitWith 0
   printArgs argv
   when (printName opts || printNumVer opts || printBaseVer opts) (exitWith 0)
-  when (not (genMain opts) && runOpt opts) $
+  when (not (optGenMain opts) && optRun opts) $
     error "Options 'compile' and 'run' cannot be combined!"
   return (opts, args)
  
@@ -468,7 +469,7 @@ usageText = usageInfo "Usage: curry2go [options] <input>\n" options
 options :: [OptDescr (CGOptions -> CGOptions)]
 options = 
   [ Option "h?" ["help"]
-    (NoArg (\opts -> opts {help = True})) "print help and exit"
+    (NoArg (\opts -> opts {optPrintHelp = True})) "print help and exit"
   , Option "q" ["quiet"]
            (NoArg (\opts -> opts { verbosity = 0 }))
            "run quietly (no output, only exit code)"
@@ -476,52 +477,54 @@ options =
       (OptArg (maybe (\opts -> opts { verbosity = 2}) checkVerb) "<n>")
          "verbosity level:\n0: quiet (same as `-q')\n1: show status messages (default)\n2: show target file names (same as `-v')\n3: show invoked commands\n4: show all details"
   , Option "" ["dfs"]
-    (NoArg (\opts -> opts {strat = DFS})) "use depth first search (default)"
+    (NoArg (\opts -> opts {optStrat = DFS})) "use depth first search (default)"
   , Option ""   ["bfs"]
-    (NoArg (\opts -> opts {strat = BFS})) "use breadth first search"
+    (NoArg (\opts -> opts {optStrat = BFS})) "use breadth first search"
   , Option ""   ["fs"]
-    (OptArg (maybe (\opts -> opts {strat = FS}) 
-    (\s opts -> opts {strat = FS, maxTasks = safeRead s})) "<n>") 
+    (OptArg (maybe (\opts -> opts {optStrat = FS}) 
+    (\s opts -> opts {optStrat = FS, optMaxTasks = safeRead s})) "<n>") 
     "use fair search\nn = maximum number of concurrent computations\n(default: 0 = infinite)"
   , Option "c" ["compile"]
-           (NoArg (\opts -> opts {genMain = False}))
+           (NoArg (\opts -> opts {optGenMain = False}))
            "only compile, do not generate executable"
   , Option "r" ["run"]
-           (NoArg (\opts -> opts {runOpt = True}))
+           (NoArg (\opts -> opts {optRun = True}))
            "run program after compilation"
   , Option "t" ["time"]
-    (OptArg (maybe (\opts -> opts {timeOpt = True})
-    (\s opts -> opts {timeOpt = True, times = safeRead s})) "<n>")
+    (OptArg (maybe (\opts -> opts {optTime = True})
+    (\s opts -> opts {optTime = True, optRuns = safeRead s})) "<n>")
     "print execution time\nn>1: average over runs n"
   , Option "" ["ctime"]
-    (NoArg (\opts -> opts {ctimeOpt = True}))
+    (NoArg (\opts -> opts {optCTime = True}))
     "print compilation messages with elapsed time"
   , Option "" ["first"]
-    (NoArg (\opts -> opts {maxResults = 1}))
+    (NoArg (\opts -> opts {optResults = 1}))
     "stop evaluation after the first result"
   , Option "n" ["results"] 
-    (ReqArg (\s opts -> opts {maxResults = safeRead s}) "<n>")
+    (ReqArg (\s opts -> opts {optResults = safeRead s}) "<n>")
     "set maximum number of results to be computed\n(default: 0 = infinite)"
   , Option "i" ["interactive"]
-    (NoArg (\opts -> opts {interact = True}))
+    (NoArg (\opts -> opts {optInteract = True}))
     "interactive result printing\n(ask to print next result)"
   , Option "s" ["main"]
-    (ReqArg (\s opts -> opts {mainName = s}) "<f>")
+    (ReqArg (\s opts -> opts {optMainName = s}) "<f>")
     "set name of main function to f (default: main)"
   , Option "" ["noimports"]
-    (NoArg (\opts -> opts {noimports = True}))
+    (NoArg (\opts -> opts {optNoImports = True}))
     "do not compile import modules"
   , Option "" ["nobanner"]
-    (NoArg (\opts -> opts {nobanner = True}))
+    (NoArg (\opts -> opts {optNoBanner = True}))
     "do not print banner on start up"
   , Option "" ["hnf"]
-    (NoArg (\opts -> opts {onlyHnf = True})) "only compute hnf"
+    (NoArg (\opts -> opts {optHNF = True})) "only compute hnf"
   , Option "" ["compiler-name"]
     (NoArg (\opts -> opts {printName = True})) "print the compiler name and exit"
   , Option "" ["numeric-version"]
     (NoArg (\opts -> opts {printNumVer = True})) "print the numeric version and exit"
   , Option "" ["base-version"]
     (NoArg (\opts -> opts {printBaseVer = True})) "print the base version and exit"
+  , Option "" ["parse-options"]
+    (ReqArg (\arg opts -> opts {optParser = arg}) "...") "additional options for the parser"
   ]
  where
   safeRead s = case reads s of

@@ -29,24 +29,25 @@ import CompilerStructure ( printWithElapsedTime )
 
 --- Data type for compiler options.
 data CGOptions = CGOptions
-  { help         :: Bool         -- should help text be displayed
-  , verbosity    :: Int          -- verbosity (0..4)
+  { verbosity    :: Int          -- verbosity (0..4)
                                  -- (0: quiet, 1: status,...)
-  , genMain      :: Bool         -- should a main method be generated
-  , nobanner     :: Bool         -- do not print banner on start up
-  , noimports    :: Bool         -- compile only main module (i.e., the
-                                 -- imported modules are already compiled)
-  , strat        :: SearchStrat  -- search strategy to be used by the run-time system
-  , maxResults   :: Int          -- maximum number of results to compute
-  , maxTasks     :: Int          -- maximum number of concurrent tasks in a fair search
-  , runOpt       :: Bool         -- run the program after compilation
   , modName      :: String       -- used internally to track main module. not configurable
-  , timeOpt      :: Bool         -- measure execution time
-  , times        :: Int          -- number of runs to average execution time over
-  , ctimeOpt     :: Bool         -- print compile messages with elapsed time?
-  , interact     :: Bool         -- interactive result printing
-  , mainName     :: String       -- name of the function to run as main
-  , onlyHnf      :: Bool         -- only compute hnf
+  , optCTime     :: Bool         -- print compile messages with elapsed time?
+  , optGenMain   :: Bool         -- should a main method be generated
+  , optHNF       :: Bool         -- only compute hnf
+  , optInteract  :: Bool         -- interactive result printing
+  , optMainName  :: String       -- name of the function to run as main
+  , optMaxTasks  :: Int          -- maximum number of concurrent tasks in a fair search
+  , optNoBanner  :: Bool         -- do not print banner on start up
+  , optNoImports :: Bool         -- compile only main module (i.e., the
+                                 -- imported modules are already compiled)
+  , optParser    :: String       -- additional options for the parser
+  , optPrintHelp :: Bool         -- should help text be displayed
+  , optResults   :: Int          -- maximum number of results to compute
+  , optRun       :: Bool         -- run the program after compilation
+  , optRuns      :: Int          -- number of runs to average execution time
+  , optStrat     :: SearchStrat  -- search strategy to be used by the run-time system
+  , optTime      :: Bool         -- measure execution time
   , printName    :: Bool         -- print compiler name
   , printNumVer  :: Bool         -- print numeric version
   , printBaseVer :: Bool         -- print base version
@@ -55,22 +56,23 @@ data CGOptions = CGOptions
 --- Default options.
 defaultCGOptions :: CGOptions
 defaultCGOptions = CGOptions 
-  { help         = False
-  , verbosity    = 1
-  , genMain      = True
-  , nobanner     = False
-  , noimports    = False
-  , strat        = DFS
-  , maxResults   = 0
-  , maxTasks     = 0
-  , runOpt       = False
+  { verbosity    = 1
   , modName      = ""
-  , timeOpt      = False
-  , times        = 1
-  , ctimeOpt     = False
-  , interact     = False
-  , mainName     = "main"
-  , onlyHnf      = False
+  , optCTime     = False
+  , optGenMain   = True
+  , optHNF       = False
+  , optInteract  = False
+  , optMainName  = "main"
+  , optMaxTasks  = 0
+  , optNoBanner  = False
+  , optNoImports = False
+  , optParser    = ""
+  , optPrintHelp = False
+  , optResults   = 0
+  , optRun       = False
+  , optRuns      = 1
+  , optStrat     = DFS
+  , optTime      = False
   , printName    = False
   , printNumVer  = False
   , printBaseVer = False
@@ -78,7 +80,7 @@ defaultCGOptions = CGOptions
 
 printVerb :: CGOptions -> Int -> String -> IO ()
 printVerb opts v s =
-  when (verbosity opts >= v) $ printWithElapsedTime (ctimeOpt opts) s
+  when (verbosity opts >= v) $ printWithElapsedTime (optCTime opts) s
 
 --- Data type for search strategies.
 data SearchStrat = DFS
@@ -128,18 +130,18 @@ var n = GoOpName (varName n)
 createMainProg :: [IFunction] -> CGOptions -> GoProg
 createMainProg [] _ = error "No main function found!"
 createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
-  | fname == mainName opts && ar > 0 = error $ "Overloaded initial expression"
-  | fname == mainName opts = GoProg "main"
+  | fname == optMainName opts && ar > 0 = error $ "Overloaded initial expression"
+  | fname == optMainName opts = GoProg "main"
   [runtime, "curry2go/" ++ modNameToPath modName]
   [GoTopLevelFuncDecl (GoFuncDecl "main" [] []
   [GoShortVarDecl ["node"] [GoCall (GoOpName (iqname2GoCreate opts name))
   [GoCall (GoOpName "new") [GoOpName node]]]
   , GoExprStat (GoCall
-    (GoOpName (runtime ++ if timeOpt opts then ".Benchmark" else ".Evaluate"))
-    ((if timeOpt opts then [GoOpName "node", GoIntLit (times opts)]
-                      else [GoOpName "node", GoBoolLit (interact opts)]) ++
-     [GoBoolLit (onlyHnf opts), GoOpName (runtime ++ "." ++ (show (strat opts)))
-    , GoIntLit (maxResults opts), GoIntLit (maxTasks opts)]))])]
+    (GoOpName (runtime ++ if optTime opts then ".Benchmark" else ".Evaluate"))
+    ((if optTime opts then [GoOpName "node", GoIntLit (optRuns opts)]
+                      else [GoOpName "node", GoBoolLit (optInteract opts)]) ++
+     [GoBoolLit (optHNF opts), GoOpName (runtime ++ "." ++ (show (optStrat opts)))
+    , GoIntLit (optResults opts), GoIntLit (optMaxTasks opts)]))])]
  | otherwise = createMainProg xs opts
 
 --- Creates a string in Go syntax from an IProg.
