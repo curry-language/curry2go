@@ -165,12 +165,14 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                         }
                     }
                     
-                    // unlock parent
+                    // move to and unlock parent
+                    task.PopStack()
                     parent.lock.Unlock()
+                } else{
+                    // move to already computed result
+                    task.control = node
                 }
                 
-                // move to parent
-                task.PopStack()
                 continue
             }
         }
