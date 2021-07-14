@@ -356,7 +356,7 @@ istatement2Go opts (ICaseCons i cases) = [GoExprSwitch
   [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
   [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
   , GoReturn []] []
-  , GoExprStat (GoCall (GoSelector (var i) "SetTr")
+  , GoExprStat (GoCall (GoSelector (var i) "SetTrLock")
   [GoCall (GoSelector (GoOpName "task") "GetId") []
   , createGenerator opts cases]), GoReturn []])
   :(map (iConsBranch2Go opts) cases))]
@@ -365,7 +365,7 @@ istatement2Go opts (ICaseLit i cases)  =
   [GoIf (GoCall (GoSelector (GoOpName "task") "IsBound") [var i])
   [GoExprStat (GoCall (GoSelector (GoOpName "task") "ToHnf") [var i])
   , GoReturn []] []
-  , GoExprStat (GoCall (GoSelector (var i) "SetTr")
+  , GoExprStat (GoCall (GoSelector (var i) "SetTrLock")
   [GoCall (GoSelector (GoOpName "task") "GetId") []
   , createLitGenerator cases]), GoReturn []] []
   , iLitCases2Go opts i cases]
