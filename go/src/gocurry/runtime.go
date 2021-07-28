@@ -685,12 +685,6 @@ func pullTab(choice_node, root *Node){
             }
         }
     }
-    
-    // update owner task
-    count := <- taskCount
-    taskCount <- count
-    new_children[0].ot = count + 1
-    new_children[1].ot = count + 2
 
     // set root to a choice node
     root.node_type = CHOICE
