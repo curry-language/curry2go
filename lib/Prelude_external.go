@@ -185,9 +185,6 @@ func ExternalPrelude_constrEq(task *Task){
         
         // bind x1 to copy
         x1.SetTrLock(task.GetId(), new_node)
-        
-        // unify children
-        unifChain(task, root, new_node, x2)      
     } else if(x2.IsFree()){
         // create copy of x1 to bind x2 to
         new_node := CopyNode(x1)
@@ -198,9 +195,6 @@ func ExternalPrelude_constrEq(task *Task){
 
         // bind x1 to copy
         x2.SetTrLock(task.GetId(), new_node)
-        
-        // unify children
-        unifChain(task, root, new_node, x1) 
     } else{
         if(x1.IsIntLit()){
             // unify int
@@ -301,9 +295,6 @@ func ExternalPrelude_nonstrictEq(task *Task){
 
         // bind x1 to copy
         x2.SetTrLock(task.GetId(), new_node)
-        
-        // unify children
-        nonstrictUnifChain(task, root, new_node, x1)
     } else{
         if(x1.IsIntLit()){
             // unify int
@@ -355,9 +346,9 @@ func nonstrictUnifChain(task *Task, root, x1, x2 *Node){
     }
 
     // combine unification of children with and
-    node := Prelude__CREATE_And(root, Prelude__CREATE_nonstrictEq(task.NewNode(), x1.GetChild(0), x2.GetChild(0)), task.NewNode())
+    node := Prelude__CREATE_And(root, Prelude__CREATE_nonstrictEq(root.NewNode(), x1.GetChild(0), x2.GetChild(0)), root.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_nonstrictEq(task.NewNode(), x1.GetChild(i), x2.GetChild(i)) , task.NewNode())
+        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_nonstrictEq(root.NewNode(), x1.GetChild(i), x2.GetChild(i)) , root.NewNode())
         node = node.Children[1]                    
     }
     Prelude__CREATE_nonstrictEq(node.Children[1], x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1))
