@@ -1,3 +1,6 @@
+Running: curry2goc -q -r CaseLiteral
+0
+2
 Running: curry2goc -q -r Colormap
 [Red, Blue, Green, Red]
 [Red, Green, Blue, Red]
@@ -61,6 +64,9 @@ Running: curry2goc -q -r Perm
 [4, 3, 2, 1]
 Running: curry2goc -q -r PermSort
 [O, S O, S (S O), S (S (S O)), S (S (S (S O)))]
+Running: curry2goc -q -r PullTabOwnerTask
+(F, F)
+(T, T)
 Running: curry2goc -q -r Rev
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 Running: curry2goc -q -r Xor
