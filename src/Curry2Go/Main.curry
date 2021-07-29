@@ -477,9 +477,9 @@ options =
       (OptArg (maybe (\opts -> opts { verbosity = 2}) checkVerb) "<n>")
          "verbosity level:\n0: quiet (same as `-q')\n1: show status messages (default)\n2: show target file names (same as `-v')\n3: show invoked commands\n4: show all details"
   , Option "" ["dfs"]
-    (NoArg (\opts -> opts {optStrat = DFS})) "use depth first search (default)"
+    (NoArg (\opts -> opts {optStrat = DFS})) "use depth-first search (default)"
   , Option ""   ["bfs"]
-    (NoArg (\opts -> opts {optStrat = BFS})) "use breadth first search"
+    (NoArg (\opts -> opts {optStrat = BFS})) "use breadth-first search"
   , Option ""   ["fs"]
     (OptArg (maybe (\opts -> opts {optStrat = FS}) 
     (\s opts -> opts {optStrat = FS, optMaxTasks = safeRead s})) "<n>") 
