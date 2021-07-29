@@ -271,6 +271,8 @@ installdist:
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif
+	# Make everything readable:
+	chmod -R go+rX .
 
 ##############################################################################
 # Required tools:

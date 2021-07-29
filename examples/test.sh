@@ -1,7 +1,7 @@
 #!/bin/sh
 # Shell script to test some examples
 
-CURRYHOME=`cd .. && pwd`
+CURRYHOME=$(dirname $(dirname $(realpath $0)))
 CURRYBIN=$CURRYHOME/bin
 
 PATH=$CURRYBIN:$PATH
@@ -51,8 +51,7 @@ testall() {
 }
 
 # Tests
-PROGRAMS="Colormap ColormapFree Data Fac FreeBool Half Higher Last InfList NonDet Perm PermSort Rev Xor Zip"
-# currently not working: CaseLiteral
+PROGRAMS="CaseLiteral Colormap ColormapFree Data Fac FreeBool Half Higher Last InfList NonDet Perm PermSort PullTabOwnerTask Rev Xor Zip"
 CGOPTS="-q -r"
 testall TESTDFS.txt
 
