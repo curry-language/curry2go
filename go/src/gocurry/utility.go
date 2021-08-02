@@ -249,6 +249,15 @@ func DeepCopy(node *Node) *Node{
     new_node.function = node.function
     new_node.arity = node.arity
     new_node.name = node.name
+    new_node.ot = node.ot
+    if(node.tr != nil){
+        new_node.tr = make(map[int]*Node)
+        node.lock.Lock()
+        for k,v := range(node.tr){
+            new_node.tr[k] = v
+        }
+        node.lock.Unlock()
+    }
     return new_node
 }
 
@@ -491,6 +500,10 @@ func (task *Task) GetFingerprint() map[int]int{
     return task.fingerprint
 }
 
+func (task *Task) GetParents() []int{
+    return task.parents
+}
+
 
 // Tests if variable is bound in task.
 func (task *Task) IsBound(variable *Node) bool{
@@ -521,6 +534,17 @@ func (task *Task) SetFingerprint(finger map[int]int){
     for k,v := range(finger){
         task.fingerprint[k] = v
     }
+}
+
+// Sets the parents of task to
+// a copy of the slice parents.
+func (task *Task) SetParents(parents []int){
+    if(len(task.parents) < len(parents)){
+        task.parents = make([]int, len(parents))
+    } else{
+        task.parents = task.parents[:len(parents)]
+    }
+    copy(task.parents, parents)
 }
 
 // Used in external functions to 
