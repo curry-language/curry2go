@@ -151,6 +151,29 @@ func ExternalPrelude_And(task *Task){
     return
 }
 
+// Tests if variable x is an argument of constructor c.
+func occur_check(x, c *Node) bool{
+    // test if c is a cosntructor
+    if(!c.IsConst()){
+        return false
+    }
+    
+    // test arguments of c for occurrences of x
+    for i := range(c.Children){
+        child := c.GetChild(i)
+        
+        if(child == x){
+            return true
+        }
+        
+        if(occur_check(x, child)){
+            return true
+        }
+    }
+    
+    return false
+}
+
 // Strict unification
 func ExternalPrelude_constrEq(task *Task){
     root := task.GetControl()
@@ -175,6 +198,12 @@ func ExternalPrelude_constrEq(task *Task){
         // return true
         Prelude__CREATE_True(root)
     } else if(x1.IsFree()){
+    
+        // run occur check
+        if(occur_check(x1, x2)){
+            ExemptCreate(root)
+            return
+        }
         
         // create copy of x2 to bind x1 to
         new_node := CopyNode(x2)
@@ -186,6 +215,12 @@ func ExternalPrelude_constrEq(task *Task){
         // bind x1 to copy
         x1.SetTrLock(task.GetId(), new_node)
     } else if(x2.IsFree()){
+        // run occur check
+        if(occur_check(x2, x1)){
+            ExemptCreate(root)
+            return
+        }
+    
         // create copy of x1 to bind x2 to
         new_node := CopyNode(x1)
         new_node.SetOt(task.GetId())
