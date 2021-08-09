@@ -233,6 +233,7 @@ func GoMinVer(root *Node){
 // Returns a copy of node.
 // Recursively copies all children.
 func DeepCopy(node *Node) *Node{
+    node.lock.Lock()
     new_node := node.NewNode()
     
     // copy children
@@ -252,12 +253,11 @@ func DeepCopy(node *Node) *Node{
     new_node.ot = node.ot
     if(node.tr != nil){
         new_node.tr = make(map[int]*Node)
-        node.lock.Lock()
         for k,v := range(node.tr){
             new_node.tr[k] = v
         }
-        node.lock.Unlock()
     }
+    node.lock.Unlock()
     return new_node
 }
 
