@@ -650,6 +650,19 @@ func errorHandler(task *Task, queue chan Task, bfs bool){
                 return
             }
         }
+        
+        // print control
+        fmt.Println("Error evaluating: " + ShowResult(task.control))
+        
+        // print stack
+        if(len(task.stack) > 0){
+            fmt.Printf("Stack: " + showNode(task.stack[0]))
+            for i := 1; i < len(task.stack); i++{
+                fmt.Printf(" -> " + showNode(task.stack[i]))
+            }
+            fmt.Println("")
+        }
+        
         // throw error again
         panic(err)
     }
