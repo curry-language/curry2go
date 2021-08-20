@@ -446,6 +446,10 @@ func (node *Node) SetChild(index int, child *Node){
     node.Children[index] = child
 }
 
+func (node *Node) SetIntVal(value int){
+    node.int_value = value
+}
+
 func (node *Node) SetOt(ot int){
     node.ot = ot
 }
