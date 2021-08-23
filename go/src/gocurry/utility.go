@@ -450,6 +450,10 @@ func (node *Node) SetIntVal(value int){
     node.int_value = value
 }
 
+func (node *Node) SetArity(value int){
+    node.arity = value
+}
+
 func (node *Node) SetOt(ot int){
     node.ot = ot
 }

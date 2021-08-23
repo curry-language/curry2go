@@ -316,14 +316,14 @@ func markedTest(task *Task){
     x1Marked := false
     x2Marked := false
     
-    if(x1.GetConstructor() == -2){
+    if(x1.GetArity() == -1){
         x1Marked = true
-        x1.SetIntVal(-1)
+        x1.SetArity(0)
     }
     
-    if(x2.GetConstructor() == -2){
+    if(x2.GetArity() == -1){
         x2Marked = true
-        x2.SetIntVal(-1)
+        x2.SetArity(0)
     }
         
     if(x1Marked && x2Marked){
@@ -396,11 +396,11 @@ func nonstrictEq(task *Task){
         Prelude__CREATE_True(root)
         
         // mark variable
-        x1.SetIntVal(-2)
+        x1.SetArity(-1)
         return
     }
     
-    // test for multiple variable occurences
+    // test for multiple variable occurences, linearize x1
     varUnif := root.GetChild(2)
     varList := make([]*Node, 1)
     varTest(x1, &varList, &varUnif)
