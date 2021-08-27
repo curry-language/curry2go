@@ -304,78 +304,22 @@ func ExternalPrelude_nonstrictEq(task *Task){
     Prelude__CREATE_AndAnd(root, nsEq, varUnif)
 }
 
-// Tests if its arguments are marked variables.
-// If both variables are marked they are unified.
-// Returns True otherwise.
-func markedTest(task *Task){
-    root := task.GetControl()
-    x1 := root.GetChild(0)
-    x2 := root.GetChild(1)
-    
-    // test if the variables are marked
-    x1Marked := false
-    x2Marked := false
-    
-    if(x1.GetConstructor() == -2){
-        x1Marked = true
-        x1.SetIntVal(-1)
-    }
-    
-    if(x2.GetConstructor() == -2){
-        x2Marked = true
-        x2.SetIntVal(-1)
-    }
-        
-    if(x1Marked && x2Marked){
-        // unify the variables
-        Prelude__CREATE_constrEq(root, x1, x2)
-    } else{
-        // return true
-        Prelude__CREATE_True(root)
-    }
-}
-
-// Tests if there are multiple occurences of
-// the same variables in root. If a variable occurs
-// multiple times new variables will be generated in its place
-// and unified via varUnif.
-// varList is the list of found variables.
-func varTest(root *Node, varList *[]*Node, varUnif **Node){
-    for i := range(root.Children){
-        // test if child is a variable
-        child := root.GetChild(i)
-        if(child.IsFree()){
-            // test if the variable hab been found before
-            found := false
-            for _, elem := range(*varList){
-                if(elem == child){
-                    // create unification with a fresh variable
-                    freshVar := FreeCreate(root.NewNode())
-                    unifNode := FuncCreate(root.NewNode(), markedTest, &names[3], 2, -1, child, freshVar)
-                    trueNode := Prelude__CREATE_True(root.NewNode())
-                    Prelude__CREATE_AndAnd(*varUnif, unifNode, trueNode)
-                    
-                    *varUnif = trueNode
-                    root.SetChild(i, freshVar)
-                    found = true
-                    break
-                }
-            }
-            
-            // add the variable to the list if its not a multiple
-            if(!found){
-                *varList = append(*varList, child)
-            }
-        } else{
-            // search child
-            varTest(child, varList, varUnif)
-        }
-    }
-}
-
 func nonstrictEq(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
+    
+    // test for multiple variable occurences, linearize x1
+    varUnif := root.GetChild(2)
+    if(x1.IsFree() && x1.GetArity() < 0 && task.IsBound(x1)){
+        freshVar := FreeCreate(root.NewNode())
+        unifNode := Prelude__CREATE_constrEq(root.NewNode(), x1, freshVar)
+        trueNode := Prelude__CREATE_True(root.NewNode())
+        Prelude__CREATE_AndAnd(varUnif, unifNode, trueNode)
+        
+        varUnif = trueNode
+        root.SetChild(0, freshVar)
+        x1 = root.GetChild(0)
+    }
     
     // evaluate first child to HNF
     if(!x1.IsHnf() || (x1.IsFree() && task.IsBound(x1))){
@@ -396,14 +340,9 @@ func nonstrictEq(task *Task){
         Prelude__CREATE_True(root)
         
         // mark variable
-        x1.SetIntVal(-2)
+        x1.SetArity(-1)
         return
     }
-    
-    // test for multiple variable occurences
-    varUnif := root.GetChild(2)
-    varList := make([]*Node, 1)
-    varTest(x1, &varList, &varUnif)
     
     // evaluate second child
     if(!x2.IsHnf() || (x2.IsFree() && task.IsBound(x2))){
@@ -422,6 +361,7 @@ func nonstrictEq(task *Task){
         // bind x1 to copy
         x2.SetTrLock(task.GetId(), new_node)
     } else{
+    
         if(x1.IsIntLit()){
             // unify int
             if(x1.GetInt() == x2.GetInt()){
