@@ -1,8 +1,69 @@
-Running: curry2goc -q -r FunPatsLast
+Running: curry2goc -q -r --fs Dutch
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+[Red, Red, White, White, Blue, Blue]
+Running: curry2goc -q -r --fs FunPatsLast
 42
-Running: curry2goc -q -r FunPatsPali
+Running: curry2goc -q -r --fs FunPatsPali
 True
-Running: curry2goc -q -r FunPatsExpSimp
+Running: curry2goc -q -r --fs FunPatsExpSimp
 2001
-Running: curry2goc -q -r FunPatsExpVar
+Running: curry2goc -q -r --fs FunPatsExpVar
 X1

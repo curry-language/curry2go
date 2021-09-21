@@ -66,6 +66,6 @@ CGOPTS="-q -r --fs --first"
 testall TESTFS.txt
 
 # Tests with functional patterns:
-PROGRAMS="FunPatsLast FunPatsPali FunPatsExpSimp FunPatsExpVar"
-CGOPTS="-q -r"
+PROGRAMS="Dutch FunPatsLast FunPatsPali FunPatsExpSimp FunPatsExpVar"
+CGOPTS="-q -r --fs"
 testall TESTFUNPATS.txt
