@@ -296,11 +296,12 @@ func ExternalPrelude_nonstrictEq(task *Task){
     x2 := root.GetChild(1)
     
     // term used for unification of variables in non-linear patterns
-    varUnif := Prelude__CREATE_True(root.NewNode())
+    varUnif := FreeCreate(root.NewNode())
     
     // nonstrict unification of x1 and x2
     nsEq := FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1, x2, varUnif)
     
+    varUnif.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
     Prelude__CREATE_AndAnd(root, nsEq, varUnif)
 }
 
@@ -313,9 +314,11 @@ func nonstrictEq(task *Task){
     if(x1.IsFree() && x1.GetArity() < 0 && task.IsBound(x1)){
         freshVar := FreeCreate(root.NewNode())
         unifNode := Prelude__CREATE_constrEq(root.NewNode(), x1, freshVar)
-        trueNode := Prelude__CREATE_True(root.NewNode())
-        Prelude__CREATE_AndAnd(varUnif, unifNode, trueNode)
+        trueNode := FreeCreate(root.NewNode())
+        trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
+        node := Prelude__CREATE_AndAnd(task.NewNode(), unifNode, trueNode)
         
+        varUnif.SetTrLock(task.GetId(), node)
         varUnif = trueNode
         root.SetChild(0, freshVar)
         x1 = root.GetChild(0)
@@ -412,15 +415,22 @@ func nonstrictUnifChain(task *Task, root, x1, x2, varUnif *Node){
     }
 
     // combine unification of children with and
-    Prelude__CREATE_AndAnd(varUnif, Prelude__CREATE_True(root.NewNode()), Prelude__CREATE_True(root.NewNode()))
-    node := Prelude__CREATE_AndAnd(root, FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(0), x2.GetChild(0), varUnif.Children[0]), root.NewNode())
-    varUnif = varUnif.Children[1]
+    trueNode := FreeCreate(root.NewNode())
+    trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
+    trueNode2 := Prelude__CREATE_True(root.NewNode())
+    varUnif.SetTrLock(task.GetId(), Prelude__CREATE_AndAnd(task.NewNode(), trueNode, trueNode2))
+    node := Prelude__CREATE_AndAnd(root, FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(0), x2.GetChild(0), trueNode), root.NewNode())
+    varUnif = trueNode2
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude__CREATE_AndAnd(varUnif, Prelude__CREATE_True(root.NewNode()), Prelude__CREATE_True(root.NewNode()))
-        Prelude__CREATE_AndAnd(node.Children[1], FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(i), x2.GetChild(i), varUnif.Children[0]) , root.NewNode())
+        trueNode = FreeCreate(root.NewNode())
+        trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
+        Prelude__CREATE_AndAnd(varUnif, trueNode, Prelude__CREATE_True(root.NewNode()))
+        Prelude__CREATE_AndAnd(node.Children[1], FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(i), x2.GetChild(i), trueNode) , root.NewNode())
         node = node.Children[1]
         varUnif = varUnif.Children[1]           
     }
+    FreeCreate(varUnif)
+    varUnif.SetTrLock(task.GetId(), Prelude__CREATE_True(task.NewNode()))
     FuncCreate(node.Children[1], nonstrictEq, &names[2], 3, -1, x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1), varUnif)
 }
 
