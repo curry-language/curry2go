@@ -17,7 +17,7 @@
 ##############################################################################
 
 # URL of the distribution:
-DOWNLOADURL=https://www-ps.informatik.uni-kiel.de/curry2go/download
+DOWNLOADPAGE=https://www-ps.informatik.uni-kiel.de/curry2go/download
 
 ##############################################################################
 
@@ -39,6 +39,7 @@ ERROR=
 HELP=no
 INSTALLDIR=Curry2Go # directory to install local Curry2Go system
 BUILDFRONTEND=no    # compile and install front end from the repository?
+VERSION=
 
 # check arguments for appropriate settings:
 while [ $# -gt 0 -a -z "$ERROR" ]; do
@@ -86,6 +87,12 @@ if [ $HELP = yes ] ; then
   exit
 fi
 
+if [ -n "$VERSION" ] ; then
+  DOWNLOADURL=$DOWNLOADPAGE/$VERSION-curry2go.tgz
+else
+  DOWNLOADURL=$DOWNLOADPAGE/curry2go.tgz
+fi
+
 ##############################################################################
 
 installed_message() {
@@ -106,8 +113,15 @@ installed_message() {
 # Download and install Curry2Go in $INSTALLDIR:
 install_from_tar() {
   echo "Downloading and installing Curry2Go into '$INSTALLDIR'..."
-  cd $INSTALLDIR && curl -sSL $DOWNLOADURL/curry2go.tgz | tar xz
-  cd $INSTALLDIR && make BUILDFRONTEND=$BUILDFRONTEND installdist
+  cd $INSTALLDIR && curl -sSL $DOWNLOADURL | tar xz
+  EC=$?
+  if [ $EC -eq 0 ] ; then
+    cd $INSTALLDIR && make BUILDFRONTEND=$BUILDFRONTEND installdist
+  else
+    rm -rf $INSTALLDIR
+    echo "ERROR downloading $DOWNLOADURL!"
+    exit $EC
+  fi
 }
 
 install_from_tar

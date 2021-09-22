@@ -230,18 +230,21 @@ cleandist:
 # publish a current distribution
 # the local HTML directory containing the distribution:
 LOCALURL=$(HOME)/public_html/curry2go
+# the distribution prefix (current date and package version)
+SAVEDISTPREFIX=`date -I`-$(C2GVERSION)
 
 .PHONY: dist
 dist: require-jq
 	$(MAKE) $(TARFILE)
 	$(RM) -f $(LOCALURL)/download/$(TARFILE)
 	cp $(TARFILE) $(LOCALURL)/download/
-	cp goinstall/download.sh $(LOCALURL)/
+	cat goinstall/download.sh | \
+	   sed "s|^VERSION=.*$$|VERSION=$(SAVEDISTPREFIX)|" \
+	     > $(LOCALURL)/download.sh
 	$(MAKE) savedist
 	chmod -R go+rX $(LOCALURL)
 
 # save the current distribution files:
-SAVEDISTPREFIX=`date -I`-$(C2GVERSION)
 .PHONY: savedist
 savedist:
 	cd $(LOCALURL)/download && cp $(TARFILE) $(SAVEDISTPREFIX)-$(TARFILE)
