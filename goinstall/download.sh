@@ -100,10 +100,10 @@ installed_message() {
   echo ""
   echo "    > curry2go [-n|--nocypm]"
   echo ""
-  echo "(if you do not use packages, use '-n' or '--nocypm' for faster startup)
+  echo "(if you do not use packages, use '-n' or '--nocypm' for faster startup)"
 }
 
-# Download and install Curry2Go in /tmp/Curry2Go:
+# Download and install Curry2Go in $INSTALLDIR:
 install_from_tar() {
   echo "Downloading and installing Curry2Go into '$INSTALLDIR'..."
   cd $INSTALLDIR && curl -sSL $DOWNLOADURL/curry2go.tgz | tar xz

@@ -223,7 +223,7 @@ $(TARFILE):
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist
 cleandist:
-	$(RM) -rf .git .gitignore .cpm
+	$(RM) -rf .git .gitignore .cpm src/.curry
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
@@ -256,6 +256,7 @@ installdist:
 	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/Curry2Go/PkgConfig/PkgConfig.go
 	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/REPL/PkgConfig/PkgConfig.go
 	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/go.mod
+	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/CPM/ConfigPackage/ConfigPackage.go
 	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/go.mod
 	# Compile the Curry2Go compiler
 	cp goinstall/CompilerMain.go .curry/curry2go-*/
