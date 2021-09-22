@@ -5,5 +5,5 @@ ROOT=$(dirname $(dirname $(realpath $0)))
 C2GDISTDIR=$1
 FILE=$2
 
-cat $FILE | sed "s|$C2GDISTDIR|$ROOT|"  > $FILE.tmp
+cat $FILE | sed "s|$C2GDISTDIR|$ROOT|g"  > $FILE.tmp
 mv $FILE.tmp $FILE

@@ -98,7 +98,9 @@ installed_message() {
   echo ""
   echo "Then start the Curry2Go REPL by the command"
   echo ""
-  echo "    > curry2go"
+  echo "    > curry2go [-n|--nocypm]"
+  echo ""
+  echo "(if you do not use packages, use '-n' or '--nocypm' for faster startup)
 }
 
 # Download and install Curry2Go in /tmp/Curry2Go:
