@@ -1,43 +1,29 @@
-Running: curry2goc -q -r CaseLiteral
-0
-2
-Running: curry2goc -q -r Colormap
+Executing: Colormap
 [Red, Blue, Green, Red]
 [Red, Green, Blue, Red]
 [Blue, Green, Red, Blue]
 [Blue, Red, Green, Blue]
 [Green, Blue, Red, Green]
 [Green, Red, Blue, Green]
-Running: curry2goc -q -r ColormapFree
+Executing: ColormapFree
 [Red, Blue, Green, Red]
 [Red, Green, Blue, Red]
 [Green, Blue, Red, Green]
 [Green, Red, Blue, Green]
 [Blue, Green, Red, Blue]
 [Blue, Red, Green, Blue]
-Running: curry2goc -q -r Data
+Executing: Data
 Black
 White
-Running: curry2goc -q -r Fac
-720
-Running: curry2goc -q -r FreeBool
-False
-False
-Running: curry2goc -q -r Half
+Executing: Half
 S (S O)
 S (S (S O))
-Running: curry2goc -q -r Higher
-[False, True]
-Running: curry2goc -q -r Last
-(True, 25)
-Running: curry2goc -q -r InfList
-1
-Running: curry2goc -q -r NonDet
+Executing: NonDet
 False
 True
 False
 False
-Running: curry2goc -q -r Perm
+Executing: Perm
 [1, 2, 3, 4]
 [1, 2, 4, 3]
 [1, 3, 2, 4]
@@ -62,15 +48,6 @@ Running: curry2goc -q -r Perm
 [4, 2, 3, 1]
 [4, 3, 1, 2]
 [4, 3, 2, 1]
-Running: curry2goc -q -r PermSort
-[O, S O, S (S O), S (S (S O)), S (S (S (S O)))]
-Running: curry2goc -q -r PullTabOwnerTask
+Executing: PullTabOwnerTask
 (F, F)
 (T, T)
-Running: curry2goc -q -r Rev
-[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-Running: curry2goc -q -r Xor
-False
-False
-Running: curry2goc -q -r Zip
-[(1, 1), (2, 1), (3, 1)]

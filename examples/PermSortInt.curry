@@ -1,13 +1,6 @@
--- The classical permutation sort example with Peano numbers.
+-- The classical permutation sort example with built-in integers.
 
 {-# OPTIONS_FRONTEND -Wno-incomplete-patterns -Wno-overlapping #-}
-
-data Nat = O | S Nat
-
-leq :: Nat -> Nat -> Bool
-leq O     _     = True
-leq (S _) O     = False
-leq (S m) (S n) = leq m n
 
 -- computing permutations
 ndinsert :: a -> [a] -> [a]
@@ -18,19 +11,19 @@ perm :: [a] -> [a]
 perm []     = []
 perm (x:xs) = ndinsert x (perm xs)
 
-sorted :: [Nat] -> Bool
+sorted :: Ord a => [a] -> Bool
 sorted [] = True
 sorted [_] = True
-sorted (x:y:zs) = cond (leq x y) (sorted (y:zs))
+sorted (x:y:zs) = cond (x <= y) (sorted (y:zs))
 
 cond :: Bool -> a -> a
 cond True x = x
 
-idSorted :: [Nat] -> [Nat]
+idSorted :: [Int] -> [Int]
 idSorted xs = cond (sorted xs) xs
 
-psort :: [Nat] -> [Nat]
+psort :: [Int] -> [Int]
 psort xs = idSorted (perm xs)
 
-main :: [Nat]
-main = psort [S (S (S (S O))), S (S (S O)), S (S O), S O, O]
+main :: [Int]
+main = psort [15,14 .. 1]

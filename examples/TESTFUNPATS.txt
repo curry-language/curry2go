@@ -1,4 +1,4 @@
-Running: curry2goc -q -r --fs Dutch
+Executing: Dutch
 [Red, Red, White, White, Blue, Blue]
 [Red, Red, White, White, Blue, Blue]
 [Red, Red, White, White, Blue, Blue]
@@ -59,11 +59,11 @@ Running: curry2goc -q -r --fs Dutch
 [Red, Red, White, White, Blue, Blue]
 [Red, Red, White, White, Blue, Blue]
 [Red, Red, White, White, Blue, Blue]
-Running: curry2goc -q -r --fs FunPatsLast
+Executing: FunPatsLast
 42
-Running: curry2goc -q -r --fs FunPatsPali
+Executing: FunPatsPali
 True
-Running: curry2goc -q -r --fs FunPatsExpSimp
+Executing: FunPatsExpSimp
 2001
-Running: curry2goc -q -r --fs FunPatsExpVar
+Executing: FunPatsExpVar
 X1

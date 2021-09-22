@@ -1,2 +1,2 @@
-Running: curry2goc -q -r --fs --first FairSearch
+Executing: FairSearch
 O

@@ -7,6 +7,9 @@ CURRYBIN=$CURRYHOME/bin
 PATH=$CURRYBIN:$PATH
 export PATH
 
+CURRYPATH=$CURRYHOME/lib
+export CURRYPATH
+
 C2GO=curry2goc
 
 # Clean old stuff:
@@ -19,7 +22,7 @@ clean() {
 
 run() {
   for P in $PROGRAMS ; do
-    echo "Running: $C2GO $CGOPTS $P"
+    echo "Executing: $P"
     $C2GO $CGOPTS $P
   done
 }
@@ -50,9 +53,18 @@ testall() {
   fi
 }
 
-# Tests
-PROGRAMS="CaseLiteral Colormap ColormapFree Data Fac FreeBool Half Higher Last InfList NonDet Perm PermSort PullTabOwnerTask Rev Xor Zip"
-CGOPTS="-q -r"
+# Tests where strategy is not relevant:
+PROGRAMS="CaseLiteral Fac FreeBool Higher Last InfList PermSort PermSortInt Rev Xor Zip"
+CGOPTS="-q -r --dfs"
+testall TESTANYSTRAT.txt
+CGOPTS="-q -r --bfs"
+testall TESTANYSTRAT.txt
+CGOPTS="-q -r --fs"
+testall TESTANYSTRAT.txt
+
+# Test with DFS strategy (to check fixed order of results):
+PROGRAMS="Colormap ColormapFree Data Half NonDet Perm PullTabOwnerTask"
+CGOPTS="-q -r --dfs"
 testall TESTDFS.txt
 
 # Tests where BFS strategy is relevant:
@@ -68,4 +80,8 @@ testall TESTFS.txt
 # Tests with functional patterns:
 PROGRAMS="Dutch FunPatsLast FunPatsPali FunPatsExpSimp FunPatsExpVar"
 CGOPTS="-q -r --fs"
+testall TESTFUNPATS.txt
+CGOPTS="-q -r --dfs"
+testall TESTFUNPATS.txt
+CGOPTS="-q -r --bfs"
 testall TESTFUNPATS.txt

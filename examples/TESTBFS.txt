@@ -1,4 +1,4 @@
-Running: curry2goc -q -r --bfs --first NDNums
+Executing: NDNums
 True
-Running: curry2goc -q -r --bfs --first Strategy
+Executing: Strategy
 True
