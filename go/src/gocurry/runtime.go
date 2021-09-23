@@ -165,14 +165,12 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                         }
                     }
                     
-                    // move to and unlock parent
-                    task.PopStack()
+                    // unlock parent
                     parent.lock.Unlock()
-                } else{
-                    // move to already computed result
-                    task.control = node
                 }
                 
+                // move to already computed result
+                task.control = node
                 continue
             }
         }
@@ -334,6 +332,13 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                 
                 // move to parent if pulltabbing-step has already been performed by another task
                 if(parent.IsChoice()){
+                    task.PopStack()
+                    lock.Unlock()
+                    continue
+                }
+                
+                // prevent pulltab-step from exiting task result maps
+                if(task.control.ot > parent.ot){
                     task.PopStack()
                     lock.Unlock()
                     continue
