@@ -54,7 +54,7 @@ c2go c2goDir cmpdate = CCDescription
                    </> "bin" </> curryCompiler ++ "-frontend"
 
   cleanCmd m = unwords
-    [ "/bin/rm -rf", quote $ curry2goDir </> m ++ ".*"
+    [ "/bin/rm -rf", quote (curry2goDir </> m) ++ ".*"
     , quote $ modNameToPath m ++ ".curry"
     , quote $ curry2goDir </> m ++ "Main.go", quote $ curry2goDir </> m ]
 
