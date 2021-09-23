@@ -1,6 +1,7 @@
 # Makefile to install all components of the Curry2Go compiler
 
 # The name of a Curry system used for generating the initial compiler
+# (we try PAKCS if this parameter is not explicitly set)
 export CURRYSYSTEM := $(shell which pakcs)
 
 # Should the front end be built from the front-end repository sources?

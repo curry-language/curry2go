@@ -20,7 +20,7 @@ your path to start the Curry2Go REPL by the command
     > curry2go
 
 If you do not use packages but only the base libraries contained
-on the distribution, add option `-n` or `--nocypm` for faster startup:
+in the distribution, add option `-n` or `--nocypm` for faster startup:
 
     > curry2go -n
 
