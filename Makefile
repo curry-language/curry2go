@@ -191,13 +191,13 @@ clean: cleantargets cleanscripts
 	$(RM) -rf $(BINDIR)/curry2go-frontend frontend
 
 ##############################################################################
-# distributing
+# targets for generating a distribution
 
 # get the version number from package specification:
 C2GVERSION = $(shell $(JQ) -r '.version' package.json)
 
 # tar file to store the distribution
-TARFILE=curry2go.tgz # curry2go-$(C2GVERSION).tgz
+TARFILE=curry2go.tgz
 
 # URL of the Curry2Go repository:
 GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
@@ -227,40 +227,39 @@ cleandist:
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
+##############################################################################
 # publish a current distribution
-# the local HTML directory containing the distribution:
-LOCALURL=$(HOME)/public_html/curry2go
+
+# the local HTML directory containing the distribution
+HTMLDIR=$(HOME)/public_html/curry2go
+
 # the distribution prefix (current date and package version)
-SAVEDISTPREFIX=`date -I`-$(C2GVERSION)
+DISTPREFIX=`date -I`-$(C2GVERSION)
 
 .PHONY: dist
 dist: require-jq
 	$(MAKE) $(TARFILE)
-	$(RM) -f $(LOCALURL)/download/$(TARFILE)
-	cp $(TARFILE) $(LOCALURL)/download/
+	cp $(TARFILE) $(HTMLDIR)/download/$(DISTPREFIX)-$(TARFILE)
 	cat goinstall/download.sh | \
-	   sed "s|^VERSION=.*$$|VERSION=$(SAVEDISTPREFIX)|" \
-	     > $(LOCALURL)/download.sh
-	$(MAKE) savedist
-	chmod -R go+rX $(LOCALURL)
+	   sed "s|^VERSION=.*$$|VERSION=$(DISTPREFIX)|" \
+	     > $(HTMLDIR)/download.sh
+	cd $(HTMLDIR) && cp download.sh download/$(DISTPREFIX)-download.sh
+	chmod -R go+rX $(HTMLDIR)
 
-# save the current distribution files:
-.PHONY: savedist
-savedist:
-	cd $(LOCALURL)/download && cp $(TARFILE) $(SAVEDISTPREFIX)-$(TARFILE)
-	cd $(LOCALURL) && cp download.sh download/$(SAVEDISTPREFIX)-download.sh
+# command to adapt installation directory in a file
+ADAPTINSTALLDIR=goinstall/adapt-installdir.sh "$(C2GDISTDIR)"
 
 # install Curry2Go from the tar file of the distribution
 .PHONY: installdist
 installdist:
-	# Adapt installation directory in generated files:
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" "$(COMPDISTGO)"
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/Curry/Compiler/Distribution/Distribution_external.go
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/Curry2Go/PkgConfig/PkgConfig.go
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/REPL/PkgConfig/PkgConfig.go
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" .curry/curry2go-*/go.mod
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/CPM/ConfigPackage/ConfigPackage.go
-	goinstall/adapt-installdir.sh "$(C2GDISTDIR)" cpm/.curry/curry2go-*/go.mod
+	# Adapt installation directory in generated files
+	@$(ADAPTINSTALLDIR) $(COMPDISTGO)
+	@$(ADAPTINSTALLDIR) .curry/curry2go-*/Curry/Compiler/Distribution/Distribution_external.go
+	@$(ADAPTINSTALLDIR) .curry/curry2go-*/Curry2Go/PkgConfig/PkgConfig.go
+	@$(ADAPTINSTALLDIR) .curry/curry2go-*/REPL/PkgConfig/PkgConfig.go
+	@$(ADAPTINSTALLDIR) .curry/curry2go-*/go.mod
+	@$(ADAPTINSTALLDIR) cpm/.curry/curry2go-*/CPM/ConfigPackage/ConfigPackage.go
+	@$(ADAPTINSTALLDIR) cpm/.curry/curry2go-*/go.mod
 	# Compile the Curry2Go compiler
 	cp goinstall/CompilerMain.go .curry/curry2go-*/
 	cd .curry/curry2go-*/ && go build CompilerMain.go

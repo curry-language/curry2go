@@ -18,6 +18,8 @@
 
 # URL of the distribution:
 DOWNLOADPAGE=https://www-ps.informatik.uni-kiel.de/curry2go/download
+# Version to be downloaded:
+VERSION=
 
 ##############################################################################
 
@@ -39,7 +41,6 @@ ERROR=
 HELP=no
 INSTALLDIR=Curry2Go # directory to install local Curry2Go system
 BUILDFRONTEND=no    # compile and install front end from the repository?
-VERSION=
 
 # check arguments for appropriate settings:
 while [ $# -gt 0 -a -z "$ERROR" ]; do
