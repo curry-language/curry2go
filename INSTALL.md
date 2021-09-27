@@ -19,6 +19,11 @@ your path to start the Curry2Go REPL by the command
 
     > curry2go
 
+If you do not use packages but only the base libraries contained
+in the distribution, add option `-n` or `--nocypm` for faster startup:
+
+    > curry2go -n
+
 In order to install into a (non-existing!) directory `C2GDIR`, add an argument:
 
     > curl -sSL https://www-ps.informatik.uni-kiel.de/curry2go/download.sh | sh -s - -d C2GDIR
