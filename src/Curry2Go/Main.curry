@@ -517,6 +517,9 @@ options =
     "do not print banner on start up"
   , Option "" ["hnf"]
     (NoArg (\opts -> opts {optHNF = True})) "only compute hnf"
+  , Option "" ["errdepth"]
+    (ReqArg (\s opts -> opts {optErrDepth = safeRead s}) "<n>")
+    "depth of expressions in error messages\nn>0: backtrack n nodes from the point of failure\nn=0: do not print an expression (default)\nn<0: use the complete stack"
   , Option "" ["compiler-name"]
     (NoArg (\opts -> opts {printName = True})) "print the compiler name and exit"
   , Option "" ["numeric-version"]

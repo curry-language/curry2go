@@ -85,6 +85,9 @@ func nextFree() *string{
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError"}
 
+// number of stack nodes used to build expressions in error messages
+var error_depth int
+
 // time since system start
 var startTime time.Time
 
@@ -469,7 +472,11 @@ func nfArgs(task *Task){
 // search_strat is the search strategy to be used.
 // max_results is the maximum number of results to be computed.
 // max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
-func Evaluate(root *Node, interactive bool, onlyHnf bool , search_strat SearchStrat, max_results int, max_tasks int){
+// err_depth is the maximum number of nodes to move up the stack when prining expressions
+// in error messages.
+func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, max_results, max_tasks, err_depth int){
+
+    error_depth = err_depth
 
     // initialize channels
     choiceCount = make(chan int, 1)
@@ -666,6 +673,13 @@ func errorHandler(task *Task, queue chan Task, bfs bool){
                 fmt.Printf(" -> " + showNode(task.stack[i]))
             }
             fmt.Println("")
+        }
+        
+        // print expression from control up
+        if(error_depth > len(task.stack) || error_depth < 0){
+            fmt.Println("Expression: " + ShowResult(task.stack[0]))
+        } else if(error_depth > 0) {
+            fmt.Println("Expression: " + ShowResult(task.stack[len(task.stack) - error_depth]))
         }
         
         // throw error again

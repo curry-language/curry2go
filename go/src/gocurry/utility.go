@@ -575,7 +575,7 @@ func (task *Task) PopStack(){
 
 // Calls Evaluate count times and
 // prints the average execution time.
-func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, max_results int, max_tasks int){
+func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, max_results, max_tasks, err_depth int){
 
     var sum float64 = 0
 
@@ -585,7 +585,7 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
 
         start := time.Now()
 
-        Evaluate(root, false, onlyHnf, search_strat, max_results, max_tasks)
+        Evaluate(root, false, onlyHnf, search_strat, max_results, max_tasks, err_depth)
 
         end := time.Now()
         dif := end.Sub(start).Seconds()
