@@ -663,27 +663,27 @@ func errorHandler(task *Task, queue chan Task, bfs bool){
             }
         }
         
-        // print control
-        fmt.Println("Error evaluating: " + ShowResult(task.control))
-        
+        // print control if nothing else is printed
         if(error_depth == 0){
-            fmt.Println("Hint: set option 'errdepth' to get more contextual information.")
-        }
-            
-        // print stack
-        if(error_depth != 0 && len(task.stack) > 0){
-            fmt.Printf("Stack     : " + showNode(task.stack[0]))
-            for i := 1; i < len(task.stack); i++{
-                fmt.Printf(" -> " + showNode(task.stack[i]))
-            }
-            fmt.Println("")
-        }
+            fmt.Println("Error evaluating: " + ShowResult(task.control))
         
-        // print expression from control up
-        if(error_depth > len(task.stack) || error_depth < 0){
-            fmt.Println("Expression: " + ShowResult(task.stack[0]))
-        } else if(error_depth > 0) {
-            fmt.Println("Expression: " + ShowResult(task.stack[len(task.stack) - error_depth]))
+            fmt.Println("Hint: set option 'errdepth' to get more contextual information.")
+        } else {
+            // print stack
+            if(len(task.stack) > 0){
+                fmt.Printf("Stack     : " + showNode(task.stack[0]))
+                for i := 1; i < len(task.stack); i++{
+                    fmt.Printf(" -> " + showNode(task.stack[i]))
+                }
+                fmt.Println("")
+            }
+            
+            // print expression from control up
+            if(error_depth >= len(task.stack) || error_depth < 0){
+                fmt.Println("Expression: " + ShowResult(task.stack[0]))
+            } else { // error_depth > 0
+                fmt.Println("Expression: ..." + ShowResult(task.stack[len(task.stack) - error_depth]))
+            }
         }
         
         // throw error again
