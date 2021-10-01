@@ -666,9 +666,13 @@ func errorHandler(task *Task, queue chan Task, bfs bool){
         // print control
         fmt.Println("Error evaluating: " + ShowResult(task.control))
         
+        if(error_depth == 0){
+            fmt.Println("Hint: set option 'errdepth' to get more contextual information.")
+        }
+            
         // print stack
-        if(len(task.stack) > 0){
-            fmt.Printf("Stack: " + showNode(task.stack[0]))
+        if(error_depth != 0 && len(task.stack) > 0){
+            fmt.Printf("Stack     : " + showNode(task.stack[0]))
             for i := 1; i < len(task.stack); i++{
                 fmt.Printf(" -> " + showNode(task.stack[i]))
             }
