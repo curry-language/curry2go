@@ -2,6 +2,15 @@
 #
 # Start interactive read-eval-print loop of Curry2Go
 
+# Unless the first argument is '--trace', stack traces are not shown
+# in case of errors:
+if [ $# != 0 -a "$1" = "--trace" ] ; then
+  shift
+else
+  GOTRACEBACK=none
+  export GOTRACEBACK
+fi
+
 CURRY2GOHOME=$(dirname $(dirname $(realpath $0)))
 export CURRY2GOHOME
 
