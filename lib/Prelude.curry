@@ -17,7 +17,7 @@ module Prelude
 
   -- * Type Classes
   , Data(..), (/==), Eq (..) , Ord (..)
-  , Show (..), ShowS, shows, showChar, showString, showParen
+  , Show (..), ShowS, shows, showChar, showString, showParen, showTuple
   , Read (..), ReadS, reads, readParen, read, lex
   , Bounded (..), Enum (..)
   -- ** Numerical Typeclasses
@@ -430,6 +430,11 @@ instance (Show a, Show b, Show c, Show d, Show e) => Show (a, b, c, d, e) where
   showsPrec _ (a, b, c, d, e) =
     showTuple [shows a, shows b, shows c, shows d, shows e]
 
+instance (Show a, Show b, Show c, Show d, Show e, Show f) =>
+         Show (a, b, c, d, e, f) where
+  showsPrec _ (a, b, c, d, e, f) =
+    showTuple [shows a, shows b, shows c, shows d, shows e, shows f]
+
 instance Show a => Show [a] where
   showsPrec _ = showList
 
@@ -442,12 +447,15 @@ instance Show Ordering where
   showsPrec _ EQ = showString "EQ"
   showsPrec _ GT = showString "GT"
 
+--- Converts a showable value to a show function that prepends this value.
 shows :: Show a => a -> ShowS
 shows = showsPrec 0
 
+--- Converts a character to a show function that prepends the character.
 showChar :: Char -> ShowS
 showChar = (:)
 
+--- Converts a string to a show function that prepends the string.
 showString :: String -> ShowS
 showString str s = foldr showChar s str
 
@@ -457,6 +465,9 @@ showListDefault (x:xs) s = '[' : shows x (showl xs)
  where showl []     = ']' : s
        showl (y:ys) = ',' : shows y (showl ys)
 
+--- If the first argument is `True`, Converts a show function to a
+--- show function adding enclosing brackets, otherwise the show function
+--- is returned unchanged.
 showParen :: Bool -> ShowS -> ShowS
 showParen b s = if b then showChar '(' . s . showChar ')' else s
 
@@ -465,6 +476,8 @@ showSigned showPos p x
   | x < 0     = showParen (p > 6) (showChar '-' . showPos (-x))
   | otherwise = showPos x
 
+--- Converts a list of show functions to a show function combining
+--- the given show functions to a tuple representation.
 showTuple :: [ShowS] -> ShowS
 showTuple ss = showChar '('
              . foldr1 (\s r -> s . showChar ',' . r) ss
@@ -575,6 +588,23 @@ instance (Read a, Read b, Read c, Read d, Read e) => Read (a, b, c, d, e) where
                                                 , (",", x) <- lex w
                                                 , (e, y) <- reads x
                                                 , (")", z) <- lex y ])
+
+instance (Read a, Read b, Read c, Read d, Read e, Read f) =>
+    Read (a, b, c, d, e, f) where
+  readsPrec _ = readParen False
+                  (\o -> [ ((a, b, c, d, e, f), z) | ("(", p) <- lex o
+                                                   , (a, q) <- reads p
+                                                   , (",", r) <- lex q
+                                                   , (b, s) <- reads r
+                                                   , (",", t) <- lex s
+                                                   , (c, u) <- reads t
+                                                   , (",", v) <- lex u
+                                                   , (d, w) <- reads v
+                                                   , (",", x) <- lex w
+                                                   , (e, y) <- reads x
+                                                   , (",", z1) <- lex y
+                                                   , (f, z2) <- reads z1
+                                                   , (")", z) <- lex z2 ])
 
 instance Read a => Read [a] where
   readsPrec _ = readList
