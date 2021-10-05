@@ -119,20 +119,28 @@ loadInterface opts sref mname = do
     let outPath = combine curry2goDir (modPackage mname)
         outDir  = takeDirectory outPath
         intfile = outDir </> "INTERFACE"
-    showCreateDirectory opts outDir
-    sourcefile <- getCurrySourcePath mname
+    (sourcedir,sourcefile) <- doOnModuleSource mname return
     int <- ifNewerFile sourcefile
                        intfile
-                       (readInterfaceFromFlatCurry intfile)
+                       (readInterfaceFromFlatCurry sourcedir sourcefile
+                                                   outDir intfile)
                        (readIntFile opts intfile)
     writeIORef sref (gsinfo { gsProgs = int : gsProgs gsinfo } )
     return int
 
-  readInterfaceFromFlatCurry intfile = do
-    printVerb opts 2 $ "Reading interface of '" ++ mname ++ "'"
-    int <- showReadFlatCurryIntWithParseOptions opts mname
-    writeIntFile opts intfile int
-    return int
+  readInterfaceFromFlatCurry sourcedir sourcefile outDir intfile = do
+    showCreateDirectory opts outDir
+    let sourceintfile = sourcedir </> intfile
+    ifNewerFile sourcefile sourceintfile
+      (do printVerb opts 2 $ "Reading interface of '" ++ mname ++ "'"
+          int <- showReadFlatCurryIntWithParseOptions opts mname
+          showCreateDirectory opts (takeDirectory sourceintfile)
+          writeIntFile opts sourceintfile int
+          unless (sourcedir == "./") $
+            showCopyFile opts sourceintfile intfile
+          return int)
+      (do showCopyFile opts sourceintfile intfile
+          readIntFile opts intfile)
 
 --- Writes the `INTERFACE` file with reduced `fint` information.
 writeIntFile :: CGOptions -> String -> Prog -> IO ()
@@ -184,7 +192,6 @@ getCurryImports opts sref mname = do
   let outPath = combine curry2goDir (modPackage mname)
       outDir  = takeDirectory outPath
       impFile = outDir </> "IMPORTS"
-  showCreateDirectory opts outDir
   source <- getCurrySourcePath mname
   ifNewerFile source
               impFile
@@ -193,7 +200,7 @@ getCurryImports opts sref mname = do
  where
   readImportsFromInterface outDir impFile = do
     imps <- loadInterface opts sref mname >>= return . progImports
-    showCreateDirectory opts outDir
+    --showCreateDirectory opts outDir -- created by loadInterface
     printVerb opts 2 $ "Writing imports cache file '" ++ impFile ++ "'"
     writeFile impFile (unlines imps)
     return imps
@@ -276,23 +283,24 @@ postProcess opts mname = do
         let packageName = (words content) !! 1
         when (packageName == removeDots mname) $
           copyIfNewer c2gExtFile (combine outDir extFileName)
-  copyIfNewer fPath outPath
+  copyIfNewer fPath outPath -- copy translated Go target file
  where
   copyIfNewer source target = do
-    ifNewerFile source target (showCopyFile source target)  (return ())
-
-  showCopyFile source target = do
-    printVerb opts 2 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
-    -- copyFile source target
-    ec <- system $ unwords ["/bin/cp", source, target]
-    unless (ec == 0) $
-      error $ "Error during copying '" ++ source ++ "' to '" ++ target ++ "'!"
+    ifNewerFile source target (showCopyFile opts source target)  (return ())
 
   getExtFilePath = do
     path <- getCurrySourcePath mname
     return $
       replaceFileName path
         (stripCurrySuffix (takeFileName path) ++ "_external.go")
+
+showCopyFile :: CGOptions -> String -> String -> IO ()
+showCopyFile opts source target = do
+  printVerb opts 2 $ "Copying '" ++ source ++ "' to '" ++ target ++ "'..."
+  -- copyFile source target
+  ec <- system $ unwords ["/bin/cp", source, target]
+  unless (ec == 0) $
+    error $ "Error during copying '" ++ source ++ "' to '" ++ target ++ "'!"
 
 ------------------------------------------------------------------------------
 --- The structure for the Curry2Go compilation process.
