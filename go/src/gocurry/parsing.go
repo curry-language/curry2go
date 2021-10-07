@@ -404,7 +404,7 @@ func ParseList(root *Node, term []rune, constructors [][]string)(*Node, int){
     }
     
     // start list on root
-    ConstCreate(root, 1, 2,&runtime_names[4], elemList[0], root.NewNode())
+    ConstCreate(root, 1, 2, &runtime_names[4], elemList[0], root.NewNode())
     node := root.Children[1]
     
     // add all elements to the list
@@ -465,7 +465,7 @@ func ParseTupel(root *Node, term []rune, constructors [][]string)(*Node, int){
     }
     
     // return tupel
-    return ConstCreate(root, 0, 0, &name, elemList...), end
+    return ConstCreate(root, 0, len(elemList), &name, elemList...), end
 }
 
 func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, int){
@@ -504,7 +504,7 @@ func ParseConstructor(root *Node, term []rune, constructors [][]string)(*Node, i
         // parse non constructors
         if(term[end] == '(' || term[end] == '[' || term[end] == '"' || term[end] == '\'' || unicode.IsDigit(term[end])){
             child, offset := ParseTerm(root.NewNode(), term[end:], constructors)
-            children= append(children, child)
+            children = append(children, child)
             end += offset
             continue
         }
