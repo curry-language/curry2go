@@ -83,13 +83,30 @@ if [ $USECPM = yes ] ; then
   export CURRYPATH
 fi
 
+# delete possible remaining Maincurry2go files if their processes do not exist:
+clean_maincurry() {
+  ECODE=$?
+  for i in Maincurry2go* ; do
+    MPID=`expr $i : 'Maincurry2go\([0-9]*\).*'`
+    if [ -n "$MPID" ] ; then
+      if [ -z "`ps -p $MPID | fgrep $MPID`" ] ; then
+        /bin/rm -f $i
+      fi
+    fi
+  done
+  exit $ECODE
+}
+
+# clean remaining Maincurry2go files in case of signals
+trap 'clean_maincurry' 1 2 3 6
+
 # do not use rlwrap inside Emacs:
 if [ "$TERM" = dumb ] ; then
   USERLWRAP=no
 fi
 
 if [ $USERLWRAP = yes ] ; then
-  exec rlwrap -c "$REPL" ${1+"$@"}
+  rlwrap -c "$REPL" ${1+"$@"}
 else
-  exec "$REPL" ${1+"$@"}
+  "$REPL" ${1+"$@"}
 fi
