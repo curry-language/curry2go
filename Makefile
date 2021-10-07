@@ -235,7 +235,8 @@ cleandist:
 HTMLDIR=$(HOME)/public_html/curry2go
 
 # the distribution prefix (current date and package version)
-DISTPREFIX=`date -I`-$(C2GVERSION)
+DISTDATE=$(shell date -I)
+DISTPREFIX=$(DISTDATE)-$(C2GVERSION)
 
 .PHONY: dist
 dist: require-jq
@@ -245,12 +246,28 @@ dist: require-jq
 	   sed "s|^VERSION=.*$$|VERSION=$(DISTPREFIX)|" \
 	     > $(HTMLDIR)/download.sh
 	cd $(HTMLDIR) && cp download.sh download/$(DISTPREFIX)-download.sh
+	$(MAKE) adddownloadref
 	chmod -R go+rX $(HTMLDIR)
+
+# The URL for downloads
+DOWNLOADURL=https://www-ps.informatik.uni-kiel.de/curry2go/download
+# The URL of the current download script
+DOWNLOADSCRIPTURL=$(DOWNLOADURL)/$(DISTPREFIX)-download.sh
+# The download HTML page
+DOWNLOADPAGE=$(HTMLDIR)/download.html
+
+# insert a new row containing a reference to this version in the download page
+.PHONY: adddownloadref
+adddownloadref: require-jq
+	mv $(DOWNLOADPAGE) $(DOWNLOADPAGE).bak
+	sed '/NEWESTDIST/a <tr><td>Version $(C2GVERSION) ($(DISTDATE))</td><td><kbd>curl -sSL $(DOWNLOADSCRIPTURL) | sh</kdb></td></tr>' < $(DOWNLOADPAGE).bak > $(DOWNLOADPAGE)
+
+##############################################################################
+# install Curry2Go from the tar file of the distribution
 
 # command to adapt installation directory in a file
 ADAPTINSTALLDIR=goinstall/adapt-installdir.sh "$(C2GDISTDIR)"
 
-# install Curry2Go from the tar file of the distribution
 .PHONY: installdist
 installdist:
 	# Adapt installation directory in generated files
