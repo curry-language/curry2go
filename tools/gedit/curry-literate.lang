@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Author: Finn Teegen
+ Copyright (c) 2016-2017 Finn Teegen <fte@informatik.uni-kiel.de>
+-->
+<language id="curry-literate" _name="Literate Curry" version="2.0" _section="Source">
+  <metadata>
+    <property name="mimetypes">text/x-literate-curry</property>
+    <property name="globs">*.lcurry</property>
+  </metadata>
+  <definitions>
+    <context id="curry-literate">
+      <include>
+        <context ref="def:in-comment"/>
+        <context id="line-code" end-at-line-end="true">
+          <start>^&gt;</start>
+          <include>
+            <context ref="curry:body"/>
+          </include>
+        </context>
+        <context id="block-code">
+          <start>^\\begin\{code\}</start>
+          <end>^\\end\{code\}</end>
+          <include>
+            <context ref="curry:body" />
+          </include>
+        </context>
+      </include>
+    </context>
+  </definitions>
+</language>
