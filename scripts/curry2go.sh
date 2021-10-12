@@ -65,7 +65,14 @@ if [ ! -x "$REPL" ] ; then
   exit 1
 fi
 
+# Title/version of CPM passed to PAKCS:
+CPMVERSION=
+
 if [ $USECPM = yes ] ; then
+  CPMVERSION=`"$CYPMBIN" -V`
+  if [ $? -gt 0 ] ; then
+    CPMVERSION=
+  fi
   # set CURRYPATH with 'deps' command of CPM
   if [ $QUIET = no ] ; then
     echo "Compute CURRYPATH with '$CYPMBIN'..."
@@ -106,7 +113,7 @@ if [ "$TERM" = dumb ] ; then
 fi
 
 if [ $USERLWRAP = yes ] ; then
-  rlwrap -c "$REPL" ${1+"$@"}
+  rlwrap -c -f "$CURRY2GOHOME/tools/rlwrap.words" "$REPL" --using "$CPMVERSION" ${1+"$@"}
 else
-  "$REPL" ${1+"$@"}
+  "$REPL" --using "$CPMVERSION" ${1+"$@"}
 fi
