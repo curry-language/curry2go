@@ -648,23 +648,32 @@ func fsTaskHandler(queue chan Task, result_chan chan *Node, done_chan chan bool,
 func errorHandler(task *Task, queue chan Task, bfs bool){
     // get error
     if err := recover(); err != nil{
-        // test for catch call in stack
-        for i := len(task.stack) - 1; i >= 0; i--{
-            // if there is a catch continue
-            if(task.stack[i].IsFcall() && *task.stack[i].name == "catch"){
-                // move back to catch call
-                task.control = task.stack[i]
-                task.stack = task.stack[:i]
-                
-                // set first argument of catch to error
-                task.control.SetChild(0, ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err.(string))))
-                toHnf(task, queue, bfs)
-                return
-            }
+    
+        // parse error
+        var err_node *Node
+        var err_msg string
+        
+        switch err.(type){
+        case string:
+            err_msg = err.(string)
+            err_node = ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err_msg))
+        case *Node:
+            err_node = err.(*Node)
+            err_msg = ShowResult(err_node)
+        case error:
+            err_msg = err.(error).Error()
+            err_node = ConstCreate(new(Node), 0, 1, &runtime_names[5], StringCreate(new(Node), err_msg))
         }
         
-        // print control if nothing else is printed
+        // try to catch error and continue computation
+        if(task.CatchError(err_node)){
+            toHnf(task, queue, bfs)
+            return
+        }
+        
+        // debug print
         if(error_depth == 0){
+            // print control if nothing else is printed
             fmt.Println("Error evaluating: " + ShowResult(task.control))
         
             fmt.Println("Hint: set option 'errdepth' to get more contextual information.")
@@ -687,7 +696,7 @@ func errorHandler(task *Task, queue chan Task, bfs bool){
         }
         
         // throw error again
-        panic(err)
+        panic(err_msg)
     }
 }
 

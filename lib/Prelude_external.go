@@ -1218,7 +1218,7 @@ func ExternalPrelude_catch(task *Task){
         return
     }
 
-    if(x1.GetName() == "IOError"){
+    if(x1.IsError()){
         RedirectCreate(root, CopyNode(x2, x1))
         return
     }

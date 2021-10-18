@@ -389,6 +389,10 @@ func (node *Node) IsConst() bool{
     return (node.node_type == CONSTRUCTOR)
 }
 
+func (node *Node) IsError() bool{
+    return (node.GetName() == "IOError" || node.GetName() == "UserError" || node.GetName() == "FailError" || node.GetName() == "NondetError")
+}
+
 func (node *Node) IsExempt() bool{
     return (node.node_type == EXEMPT)
 }
@@ -495,6 +499,25 @@ func EvaluateTask(task *Task, queue chan Task, result_chan chan *Node){
 }
 
 ////// Methods on tasks
+
+
+func (task *Task) CatchError(err *Node) bool{
+    // search for catch function on stack
+    for i := len(task.stack) - 1; i >= 0; i--{
+        if(task.stack[i].IsFcall()){
+            if(task.stack[i].GetName() == "catch"){
+                // set control to catch with the error
+                task.control = task.stack[i]
+                task.stack = task.stack[:i]
+                
+                task.control.SetChild(0, err)
+                return true
+            }   
+        }
+    }
+    
+    return false
+}
 
 func (task *Task) GetControl() *Node{
     return task.control
