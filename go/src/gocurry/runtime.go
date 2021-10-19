@@ -83,7 +83,7 @@ func nextFree() *string{
 ////// Global variables
 
 // array of names used to create nodes
-var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError"}
+var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError"}
 
 // number of stack nodes used to build expressions in error messages
 var error_depth int
@@ -357,6 +357,12 @@ func toHnf(task *Task, queue chan Task, bfs bool){
         case EXEMPT:
             // unlock control node
             control_lock.Unlock()
+            
+            // try to throw fail error
+            err_node := ConstCreate(task.control.NewNode(), 2, 1, &runtime_names[6], StringCreate(task.control.NewNode(), "IO action failed"))
+            if(task.CatchError(err_node)){
+                continue
+            }
             
             return
         case REDIRECT:
