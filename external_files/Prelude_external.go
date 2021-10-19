@@ -1219,7 +1219,7 @@ func ExternalPrelude_catch(task *Task){
     }
 
     if(x1.IsError()){
-        RedirectCreate(root, CopyNode(x2, x1))
+        Prelude__CREATE_apply(root, x2, x1)
         return
     }
 
