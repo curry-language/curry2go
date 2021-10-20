@@ -970,10 +970,15 @@ func ExternalPrelude_returnIO(task *Task){
 
 func ExternalPrelude_bindIO(task *Task){
     task.NoShare(0)
-
+    
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
+    
+    if(task.GetId() > 0){
+        err_node := Prelude__CREATE_NondetError(root.NewNode(), StringCreate(root.NewNode(), "Non-determinism in I/O actions occurred!"))
+        panic(err_node)
+    }
 
     if(x1.IsFcall()){
         task.ToHnf(x1)
