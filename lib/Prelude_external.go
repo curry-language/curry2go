@@ -800,13 +800,10 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
 
     // read every number in the string
     if(data[0] >= 48 && data[0] <= 57){
-        start := 0
         end := 1
 
-        for i := 1; i < len(data); i++{
-            if((data[i] >= 48 && data[i] <= 57)){
-                end = i + 1
-            } else {
+        for ; end < len(data); end++{
+            if(!(data[end] >= 48 && data[end] <= 57)){
                 break
             }
         }
@@ -815,7 +812,7 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
         rest := string(data[end:])
 
         // convert string to number
-        lit, _ := strconv.Atoi(string(data[start : end]))
+        lit, _ := strconv.Atoi(string(data[0 : end]))
 
         // create list of results
         ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
@@ -842,25 +839,28 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
     // read every number in the string
     if(data[0] >= 48 && data[0] <= 57){
         dot := false
-        start := 0
         end := 1
 
-        for i := 1; i < len(data); i++{
-            if(data[i] >= 48 && data[i] <= 57){
-                end = i + 1
-            }else if(data[i] == 46 && !dot){
-                // make sure only one dot is counted
-                dot = true
-            }else{
-                break
+        for ; end < len(data); end++{
+            // only read numbers
+            if(data[end] >= 48 && data[end] <= 57){
+                continue
             }
+            
+            // make sure only one dot is read
+            if(data[end] == 46 && !dot){
+                dot = true
+                continue
+            }
+            
+            break
         }
 
         // get rest String
         rest := string(data[end:])
 
         // convert String to number
-        lit, _ := strconv.ParseFloat(string(data[start : end]), 64)
+        lit, _ := strconv.ParseFloat(string(data[0 : end]), 64)
 
         // create list of results
         ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
@@ -928,7 +928,6 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
     }
     
     if (data[0] == '"'){
-        start := 1
         end := -1
         for i := 1; i < len(data); i++{
             
@@ -945,7 +944,7 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
 
         if(end > 0){
             rest := string(data[end+1 : len(data)])
-            lit := string(data[start : end])
+            lit := string(data[1 : end])
 
             // create list of results
             ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), StringCreate(root.NewNode(), ParseString(lit)), StringCreate(root.NewNode(), rest)))
