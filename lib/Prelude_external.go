@@ -1024,7 +1024,7 @@ func ExternalPrelude_prim_readFile(task *Task){
     f, err := os.Open(name)
     
     if(err != nil){
-        panic("Prelude.prim_readFile: " + err.Error())
+        panic("Prelude.readFile: " + err.Error())
     }
     
     // read a character
@@ -1038,7 +1038,7 @@ func ExternalPrelude_prim_readFile(task *Task){
             IOCreate(root, Prelude__CREATE_LSbRSb(root.NewNode()))
             return
         } else{
-            panic("Prelude.prim_readFile: " + err.Error())
+            panic("Prelude.readFile: " + err.Error())
         }
     }
 
@@ -1057,7 +1057,7 @@ func readFileHelper(name string)(func (*Task)){
         f, err := os.Open(name)
     
         if(err != nil){
-            panic("Prelude.prim_readFile: " + err.Error())
+            panic("Prelude.readFile: " + err.Error())
         }
         
         // seek position
@@ -1074,7 +1074,7 @@ func readFileHelper(name string)(func (*Task)){
                 Prelude__CREATE_LSbRSb(root)
                 return
             } else{
-                panic("Prelude.prim_readFile: " + err.Error())
+                panic("Prelude.readFile: " + err.Error())
             }
         }
         
@@ -1102,7 +1102,7 @@ func ExternalPrelude_prim_writeFile(task *Task){
     f, err := os.OpenFile(name, os.O_CREATE | os.O_WRONLY | os.O_TRUNC, 0644)
     
     if(err != nil){
-        panic("Prelude.prim_writeFile: " + err.Error())
+        panic("Prelude.writeFile: " + err.Error())
     }
     
     // return on empty string
@@ -1124,7 +1124,7 @@ func ExternalPrelude_prim_writeFile(task *Task){
     _, err = f.WriteString(string(char.GetChar()))
     
     if(err != nil){
-        panic("Prelude.prim_writeFile: " + err.Error())
+        panic("Prelude.writeFile: " + err.Error())
     }
 
     // return IO constructor
@@ -1154,7 +1154,7 @@ func writeFileHelper(f *os.File)(func (*Task)){
         _, err := f.WriteString(string(char.GetChar()))
     
         if(err != nil){
-            panic("Prelude.prim_write/appendFile: " + err.Error())
+            panic("Prelude.write/appendFile: " + err.Error())
         }
         
         root.SetChild(0, str.GetChild(1))
@@ -1178,7 +1178,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     f, err := os.OpenFile(name, os.O_CREATE | os.O_WRONLY | os.O_APPEND, 0644)
     
     if(err != nil){
-        panic("Prelude.prim_appendFile: " + err.Error())
+        panic("Prelude.appendFile: " + err.Error())
     }
     
     // return on empty string
@@ -1200,7 +1200,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     _, err = f.WriteString(string(char.GetChar()))
     
     if(err != nil){
-        panic("Prelude.prim_appendFile: " + err.Error())
+        panic("Prelude.appendFile: " + err.Error())
     }
 
     // return IO constructor
