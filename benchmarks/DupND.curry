@@ -1,4 +1,5 @@
 -- Examples for duplicating non-deterministic computations:
+{-# OPTIONS_FRONTEND -Wno-incomplete-patterns #-}
 
 -- arbitrary number between 1 and n:
 someNum :: Int -> Int
