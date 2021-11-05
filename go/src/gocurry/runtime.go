@@ -83,7 +83,7 @@ func nextFree() *string{
 ////// Global variables
 
 // array of names used to create nodes
-var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError"}
+var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError", "NondetError"}
 
 // number of stack nodes used to build expressions in error messages
 var error_depth int
@@ -346,6 +346,17 @@ func toHnf(task *Task, queue chan Task, bfs bool){
                     lock.Unlock()
                     continue
                 }
+                
+                // test for IO functions (NondetErrors)
+                if(parent.GetName() == "bindIO" || parent.GetName() == "catch"){
+                    err_node := ConstCreate(task.control.NewNode(), 3, 1, &runtime_names[7], StringCreate(task.control.NewNode(), "Non-determinism in I/O actions occurred!"))
+                    if(task.CatchError(err_node)){
+                        lock.Unlock()
+                        continue
+                    }
+                    lock.Unlock()
+                    panic(err_node)
+                }
 
                 // perform a pulltabbing-step
                 pullTab(task.control, task.stack[len(task.stack) - 1])
@@ -359,8 +370,9 @@ func toHnf(task *Task, queue chan Task, bfs bool){
             control_lock.Unlock()
             
             // try to throw fail error
-            err_node := ConstCreate(task.control.NewNode(), 2, 1, &runtime_names[6], StringCreate(task.control.NewNode(), "IO action failed"))
+            err_node := task.control.NewNode()
             if(task.CatchError(err_node)){
+                ConstCreate(err_node, 2, 1, &runtime_names[6], StringCreate(task.control.NewNode(), "IO action failed"))
                 continue
             }
             
