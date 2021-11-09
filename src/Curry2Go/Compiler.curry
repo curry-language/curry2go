@@ -8,7 +8,7 @@
 module Curry2Go.Compiler
   ( CGOptions(..), defaultCGOptions, printVerb
   , SearchStrat(..), compileIProg2GoString, compileIProg2Go
-  , createMainProg, removeDots)
+  , createMainProg, modName2Go)
  where
 
 import Prelude hiding ( empty )
@@ -158,7 +158,7 @@ compileIProg2GoString opts iprog@(IProg moduleName _ _ _) =
 --- @param iprog    - IProg to convert
 compileIProg2Go :: CGOptions -> IProg -> GoProg
 compileIProg2Go opts (IProg moduleName _ dtypes funcs) =
-  GoProg (removeDots moduleName)
+  GoProg (modName2Go moduleName)
   (runtime : getFuncsImports opts funcs)
   ([ifuncNames2Go opts funcs]
   ++ map (idataNames2Go opts) dtypes
@@ -501,13 +501,20 @@ iqname2GoCreate opts (m,n,i) = iqname2Go opts (m, "_CREATE_" ++ n, i)
 iqname2Go :: CGOptions -> IQName -> String
 iqname2Go opts (m, n, _)
   | m /= modName opts
-  = removeDots m ++ "." ++
-    replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
+  = modName2Go m ++ "." ++
+    replaceInvalidChars (fstUp (modName2Go m) ++ "_" ++ n)
   | otherwise
-  = replaceInvalidChars (fstUp (removeDots m) ++ "_" ++ n)
+  = replaceInvalidChars (fstUp (modName2Go m) ++ "_" ++ n)
  where
   fstUp []     = []
   fstUp (x:xs) = toUpper x : xs
+  
+--- Maps a Module name into a Go package name.
+modName2Go :: String -> String
+modName2Go [] = []
+modName2Go (x:xs) | x == '.'  = "_DOT_" ++ modName2Go xs
+                  | x == '_'  = "_US_" ++ modName2Go xs
+                  | otherwise = x : modName2Go xs
 
 --- Replaces invalid characters in a string.
 replaceInvalidChars :: String -> String
@@ -567,9 +574,3 @@ recursiveChildAccess :: Int -> [Int] -> GoExpr
 recursiveChildAccess i []     = var i
 recursiveChildAccess i (y:ys) = GoCall (GoSelector
   (recursiveChildAccess i ys) "GetChild") [GoIntLit y]
-
---- Removes dots from a String.
-removeDots :: String -> String
-removeDots [] = []
-removeDots (x:xs) | x == '.'  = removeDots xs
-                  | otherwise = x : (removeDots xs)

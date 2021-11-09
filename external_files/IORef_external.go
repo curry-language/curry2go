@@ -1,4 +1,4 @@
-package DataIORef
+package Data_DOT_IORef
 
 import "gocurry"
 import "curry2go/Prelude"

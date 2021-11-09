@@ -281,7 +281,7 @@ postProcess opts mname = do
       when extInC2GInclude $ do
         content <- readFile c2gExtFile
         let packageName = (words content) !! 1
-        when (packageName == removeDots mname) $
+        when (packageName == modName2Go mname) $
           copyIfNewer c2gExtFile (combine outDir extFileName)
   copyIfNewer fPath outPath -- copy translated Go target file
  where
@@ -402,7 +402,7 @@ curry2Go opts mainmod = do
     writeFile (combine dir "go.mod") content
     
   generateMainProg modname funcs = do
-    let mainprogname = removeDots modname ++ "Main.go"
+    let mainprogname = modName2Go modname ++ "Main.go"
     printVerb opts 1 $ "Generating main program '" ++ mainprogname ++ "'"
     let mainprog = showGoProg
                      (createMainProg funcs (opts {modName = "main"})) ""
@@ -415,7 +415,7 @@ curry2Go opts mainmod = do
     printVerb opts 1 "Creating executable..."
     oldDir <- getCurrentDirectory
     setCurrentDirectory curry2goDir
-    let mainname = removeDots modname ++ "Main"
+    let mainname = modName2Go modname ++ "Main"
     let bcmd = "env \"GO111MODULE=auto\" go build " ++ mainname ++ ".go"
     printVerb opts 3 $ "...with command: " ++ bcmd
     i <- system bcmd

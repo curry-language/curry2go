@@ -1,4 +1,4 @@
-package SystemIO
+package System_DOT_IO
 
 import "gocurry"
 import "os"

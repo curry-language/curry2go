@@ -1,4 +1,4 @@
-package DataGlobal
+package Data_DOT_Global
 
 import "gocurry"
 import "curry2go/Prelude"
@@ -22,13 +22,13 @@ func ExternalData_Global_prim_globalT(task *gocurry.Task){
         
         // evaluate the entry
         gocurry.FuncCreate(root, func(task *gocurry.Task){
-            DataGlobal__CREATE_GlobalT(task.GetControl(), curry_name)
+            Data_DOT_Global__CREATE_GlobalT(task.GetControl(), curry_name)
         }, &func_name, 1, 0, value)
         return
     }
     
     // return GlobalT
-    DataGlobal__CREATE_GlobalT(root, curry_name)
+    Data_DOT_Global__CREATE_GlobalT(root, curry_name)
 }
 
 func ExternalData_Global_prim_readGlobalT(task *gocurry.Task){

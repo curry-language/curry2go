@@ -17,7 +17,7 @@ main = do
 
 createGoDistribution :: String -> String -> String -> GoProg
 createGoDistribution baseversion c2ghome gocompiler =
- GoProg "CurryCompilerDistribution" ["gocurry"]
+ GoProg "Curry_DOT_Compiler_DOT_Distribution" ["gocurry"]
   [ GoTopLevelFuncDecl 
     (GoFuncDecl "ExternalCurry_Compiler_Distribution_curryCompiler"
     [GoParam ["task"] "*gocurry.Task"] [] 

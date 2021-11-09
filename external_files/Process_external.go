@@ -1,4 +1,4 @@
-package SystemProcess
+package System_DOT_Process
 
 import "gocurry"
 import "os"

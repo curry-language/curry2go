@@ -1,4 +1,4 @@
-package ControlFindall
+package Control_DOT_Findall
 
 import "gocurry"
 import "curry2go/Prelude"

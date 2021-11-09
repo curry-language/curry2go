@@ -1,4 +1,4 @@
-package SystemDirectory
+package System_DOT_Directory
 
 import "gocurry"
 import "os"
@@ -78,7 +78,7 @@ func ExternalSystem_Directory_prim_getModificationTime(task *gocurry.Task){
     
     // return modification time
     modNode := gocurry.IntLitCreate(root.NewNode(), int(info.ModTime().Unix()))
-    gocurry.IOCreate(root, DataTime.DataTime__CREATE_CTime(root.NewNode(), modNode))
+    gocurry.IOCreate(root, Data_DOT_Time.Data_DOT_Time__CREATE_CTime(root.NewNode(), modNode))
 }
 
 func ExternalSystem_Directory_getCurrentDirectory(task *gocurry.Task){

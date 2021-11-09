@@ -1,4 +1,4 @@
-package SystemCPUTime
+package System_DOT_CPUTime
 
 import "gocurry"
 import "syscall"

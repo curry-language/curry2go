@@ -1,4 +1,4 @@
-package SystemEnvironment
+package System_DOT_Environment
 
 import "gocurry"
 import "os"

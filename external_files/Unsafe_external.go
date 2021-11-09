@@ -1,4 +1,4 @@
-package SystemIOUnsafe
+package System_DOT_IO_DOT_Unsafe
 
 import "gocurry"
 import "curry2go/Prelude"
@@ -81,18 +81,18 @@ func ExternalSystem_IO_Unsafe_prim_isGround(task *gocurry.Task){
     }
     
     if(x1.GetNumChildren() == 1){
-        SystemIOUnsafe__CREATE_prim_isGround(root, x1.GetChild(0))
+        System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root, x1.GetChild(0))
         return
     }
     
-    node := Prelude.Prelude__CREATE_AndAnd(root, SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(0)), root.NewNode())
+    node := Prelude.Prelude__CREATE_AndAnd(root, System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(0)), root.NewNode())
     
     for i := 0; i < x1.GetNumChildren() - 1; i ++{
-        Prelude.Prelude__CREATE_AndAnd(node.GetChild(1), SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(i)), root.NewNode())
+        Prelude.Prelude__CREATE_AndAnd(node.GetChild(1), System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(i)), root.NewNode())
         node = node.GetChild(1)
     }
     
-    node.SetChild(1, SystemIOUnsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
+    node.SetChild(1, System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
 }
 
 func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
@@ -126,7 +126,7 @@ func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
         Prelude.Prelude__CREATE_GT(root)
     } else{
         for i := range(x1.Children){
-            SystemIOUnsafe__CREATE_compareAnyTerm(root, x1.GetChild(i), x2.GetChild(i))
+            System_DOT_IO_DOT_Unsafe__CREATE_compareAnyTerm(root, x1.GetChild(i), x2.GetChild(i))
             ExternalSystem_IO_Unsafe_compareAnyTerm(task)
             if(root.GetConstructor() != 1){
                 return   

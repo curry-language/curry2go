@@ -1,4 +1,4 @@
-package SystemIOExts
+package System_DOT_IOExts
 
 import "gocurry"
 import "curry2go/System/IO"
@@ -31,9 +31,9 @@ func ExternalSystem_IOExts_prim_execCmd(task *gocurry.Task){
     }
     
     // create handles for pipes
-    stdinHandle := SystemIO.HandleCreate(root.NewNode(), nil, &stdinPipe, 1, true)
-    stdoutHandle := SystemIO.HandleCreate(root.NewNode(), &stdoutPipe, nil, 0, true)
-    stderrHandle := SystemIO.HandleCreate(root.NewNode(), &stderrPipe, nil, 0, true)
+    stdinHandle := System_DOT_IO.HandleCreate(root.NewNode(), nil, &stdinPipe, 1, true)
+    stdoutHandle := System_DOT_IO.HandleCreate(root.NewNode(), &stdoutPipe, nil, 0, true)
+    stderrHandle := System_DOT_IO.HandleCreate(root.NewNode(), &stderrPipe, nil, 0, true)
     
     // start command
     cmd.Start()
@@ -65,7 +65,7 @@ func ExternalSystem_IOExts_prim_connectToCmd(task *gocurry.Task){
     
     
     // create handles for pipes
-    handle := SystemIO.HandleCreate(root.NewNode(), &stdoutPipe, &stdinPipe, 1, true)
+    handle := System_DOT_IO.HandleCreate(root.NewNode(), &stdoutPipe, &stdinPipe, 1, true)
     
     // start command
     cmd.Start()
