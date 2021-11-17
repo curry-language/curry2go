@@ -7,7 +7,7 @@ import "time"
 import "fmt"
 import "curry2go/Prelude"
 
-func ExternalSystem_Process_getPID(task *gocurry.Task){
+func ExternalSystemDot_ProcessDot_getPID(task *gocurry.Task){
     root := task.GetControl()
     
     pid := os.Getpid()
@@ -15,7 +15,7 @@ func ExternalSystem_Process_getPID(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), pid))
 }
 
-func ExternalSystem_Process_prim_system(task *gocurry.Task){
+func ExternalSystemDot_ProcessDot_primUs_system(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -32,7 +32,7 @@ func ExternalSystem_Process_prim_system(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), cmd.ProcessState.ExitCode()))
 }
 
-func ExternalSystem_Process_prim_exitWith(task *gocurry.Task){
+func ExternalSystemDot_ProcessDot_primUs_exitWith(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -41,12 +41,12 @@ func ExternalSystem_Process_prim_exitWith(task *gocurry.Task){
     os.Exit(code)
 }
 
-func ExternalSystem_Process_prim_sleep(task *gocurry.Task){
+func ExternalSystemDot_ProcessDot_primUs_sleep(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     dur := time.Duration(x1.GetInt())
     time.Sleep(dur * 1000000000)
     
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }

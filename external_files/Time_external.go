@@ -3,7 +3,7 @@ package Data_DOT_Time
 import "gocurry"
 import "time"
 
-func ExternalData_Time_getClockTime(task *gocurry.Task){
+func ExternalDataDot_TimeDot_getClockTime(task *gocurry.Task){
     root := task.GetControl()
     
     // save unix time as IntLit
@@ -12,7 +12,7 @@ func ExternalData_Time_getClockTime(task *gocurry.Task){
     gocurry.IOCreate(root, Data_DOT_Time__CREATE_CTime(root.NewNode(), cTime))
 }
 
-func ExternalData_Time_prim_toCalendarTime(task *gocurry.Task){
+func ExternalDataDot_TimeDot_primUs_toCalendarTime(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -36,7 +36,7 @@ func ExternalData_Time_prim_toCalendarTime(task *gocurry.Task){
     gocurry.IOCreate(root, Data_DOT_Time__CREATE_CalendarTime(root.NewNode(), year, month, day, hour, minute, second, zone))
 }
 
-func ExternalData_Time_prim_toUTCTime(task *gocurry.Task){
+func ExternalDataDot_TimeDot_primUs_toUTCTime(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -60,7 +60,7 @@ func ExternalData_Time_prim_toUTCTime(task *gocurry.Task){
     Data_DOT_Time__CREATE_CalendarTime(root, year, month, day, hour, minute, second, zone)
 }
 
-func ExternalData_Time_prim_toClockTime(task *gocurry.Task){
+func ExternalDataDot_TimeDot_primUs_toClockTime(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     

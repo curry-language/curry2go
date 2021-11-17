@@ -6,7 +6,7 @@ import "curry2go/Prelude"
 import "os/exec"
 
 
-func ExternalSystem_IOExts_prim_execCmd(task *gocurry.Task){
+func ExternalSystemDot_IOExtsDot_primUs_execCmd(task *gocurry.Task){
     root := task.GetControl()
     commandNode := root.GetChild(0)
     command := gocurry.ReadString(commandNode)
@@ -39,11 +39,11 @@ func ExternalSystem_IOExts_prim_execCmd(task *gocurry.Task){
     cmd.Start()
     
     // return
-    tupel := Prelude.Prelude__CREATE_LbCommaCommaCommaRb(root.NewNode(), stdinHandle, stdoutHandle, stderrHandle)
+    tupel := Prelude.Prelude__CREATE_Lb_Comma_Comma_Comma_Rb_(root.NewNode(), stdinHandle, stdoutHandle, stderrHandle)
     gocurry.IOCreate(root, tupel)
 }
 
-func ExternalSystem_IOExts_prim_connectToCmd(task *gocurry.Task){
+func ExternalSystemDot_IOExtsDot_primUs_connectToCmd(task *gocurry.Task){
     root := task.GetControl()
     commandNode := root.GetChild(0)
     command := gocurry.ReadString(commandNode)

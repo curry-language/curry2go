@@ -4,7 +4,7 @@ import "gocurry"
 import "curry2go/Prelude"
 
 
-func ExternalSystem_IO_Unsafe_unsafePerformIO(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_unsafePerformIO(task *gocurry.Task){
     root := task.GetControl()
     action := root.GetChild(0)
     
@@ -16,7 +16,7 @@ func ExternalSystem_IO_Unsafe_unsafePerformIO(task *gocurry.Task){
     gocurry.RedirectCreate(root, action.GetChild(0))
 }
 
-func ExternalSystem_IO_Unsafe_spawnConstraint(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_spawnConstraint(task *gocurry.Task){
     // TODO: make concurrent
     root := task.GetControl()
     constraint := root.GetChild(0)
@@ -33,7 +33,7 @@ func ExternalSystem_IO_Unsafe_spawnConstraint(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_Unsafe_prim_isVar(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_primUs_isVar(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -44,7 +44,7 @@ func ExternalSystem_IO_Unsafe_prim_isVar(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_Unsafe_prim_identicalVar(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_primUs_identicalVar(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -66,7 +66,7 @@ func ExternalSystem_IO_Unsafe_prim_identicalVar(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_Unsafe_prim_isGround(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_primUs_isGround(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -81,21 +81,21 @@ func ExternalSystem_IO_Unsafe_prim_isGround(task *gocurry.Task){
     }
     
     if(x1.GetNumChildren() == 1){
-        System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root, x1.GetChild(0))
+        System_DOT_IO_DOT_Unsafe__CREATE_primUs_isGround(root, x1.GetChild(0))
         return
     }
     
-    node := Prelude.Prelude__CREATE_AndAnd(root, System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(0)), root.NewNode())
+    node := Prelude.Prelude__CREATE_And_And_(root, System_DOT_IO_DOT_Unsafe__CREATE_primUs_isGround(root.NewNode(), x1.GetChild(0)), root.NewNode())
     
     for i := 0; i < x1.GetNumChildren() - 1; i ++{
-        Prelude.Prelude__CREATE_AndAnd(node.GetChild(1), System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(i)), root.NewNode())
+        Prelude.Prelude__CREATE_And_And_(node.GetChild(1), System_DOT_IO_DOT_Unsafe__CREATE_primUs_isGround(root.NewNode(), x1.GetChild(i)), root.NewNode())
         node = node.GetChild(1)
     }
     
-    node.SetChild(1, System_DOT_IO_DOT_Unsafe__CREATE_prim_isGround(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
+    node.SetChild(1, System_DOT_IO_DOT_Unsafe__CREATE_primUs_isGround(root.NewNode(), x1.GetChild(x1.GetNumChildren() - 1)))
 }
 
-func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_compareAnyTerm(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -127,7 +127,7 @@ func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
     } else{
         for i := range(x1.Children){
             System_DOT_IO_DOT_Unsafe__CREATE_compareAnyTerm(root, x1.GetChild(i), x2.GetChild(i))
-            ExternalSystem_IO_Unsafe_compareAnyTerm(task)
+            ExternalSystemDot_IODot_UnsafeDot_compareAnyTerm(task)
             if(root.GetConstructor() != 1){
                 return   
             }
@@ -136,15 +136,15 @@ func ExternalSystem_IO_Unsafe_compareAnyTerm(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_Unsafe_prim_showAnyTerm(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_primUs_showAnyTerm(task *gocurry.Task){
     panic("System.IO.Unsafe.showAnyTerm: Not yet implemented")
 }
 
-func ExternalSystem_IO_Unsafe_prim_readsAnyUnqualifiedTerm(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_primUs_readsAnyUnqualifiedTerm(task *gocurry.Task){
     panic("System.IO.Unsafe.readsAnyUnqualifiedTerm: Not yet implemented")
 }
 
-func ExternalSystem_IO_Unsafe_showAnyExpression(task *gocurry.Task){
+func ExternalSystemDot_IODot_UnsafeDot_showAnyExpression(task *gocurry.Task){
     panic("System.IO.Unsafe.showAnyExpression: Not yet implemented")
 }
 

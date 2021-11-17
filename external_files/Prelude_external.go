@@ -12,7 +12,7 @@ var names = []string{"writeFileHelper", "readFileHelper", "nonstrictEq", "marked
 
 /////// Evaluation functions
 
-func ExternalPrelude_ensureNotFree(task *Task){
+func ExternalPreludeDot_ensureNotFree(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -34,7 +34,7 @@ func ExternalPrelude_ensureNotFree(task *Task){
 }
 
 // apply
-func ExternalPrelude_apply(task *Task){
+func ExternalPreludeDot_apply(task *Task){
     root := task.GetControl()
     // get children
     x1 := root.GetChild(0)
@@ -49,7 +49,7 @@ func ExternalPrelude_apply(task *Task){
 }
 
 // $!
-func ExternalPrelude_DolExcl(task *Task){
+func ExternalPreludeDot_Dol_Excl_(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(1)
     
@@ -60,12 +60,12 @@ func ExternalPrelude_DolExcl(task *Task){
     }
 
     // apply function to argument in hnf
-    ExternalPrelude_apply(task)
+    ExternalPreludeDot_apply(task)
     return
 }
 
 // $!!
-func ExternalPrelude_DolExclExcl(task *Task){
+func ExternalPreludeDot_Dol_Excl_Excl_(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(1)
     
@@ -73,18 +73,18 @@ func ExternalPrelude_DolExclExcl(task *Task){
     root.SetChild(1, NfCreate(root.NewNode(), x1))
     
     // evaluate wrapper to hnf
-    Prelude__CREATE_DolExcl(root, root.Children...)
+    Prelude__CREATE_Dol_Excl_(root, root.Children...)
 }
 
 // $##
-func ExternalPrelude_DolHashHash(task *Task){
+func ExternalPreludeDot_Dol_Hash_Hash_(task *Task){
     //TODO implement properly
-    ExternalPrelude_DolExclExcl(task)
+    ExternalPreludeDot_Dol_Excl_Excl_(task)
 }
 
 ////// Control flow functions
 
-func ExternalPrelude_prim_error(task *Task){
+func ExternalPreludeDot_primUs_error(task *Task){
     root := task.GetControl()
 
     msg := ReadString(root.GetChild(0))
@@ -92,12 +92,12 @@ func ExternalPrelude_prim_error(task *Task){
     panic("Prelude.error: " + msg)
 }
 
-func ExternalPrelude_failed(task *Task){
+func ExternalPreludeDot_failed(task *Task){
     root := task.GetControl()
     ExemptCreate(root)
 }
 
-func ExternalPrelude_cond(task *Task){
+func ExternalPreludeDot_cond(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -117,7 +117,7 @@ func ExternalPrelude_cond(task *Task){
 ////// Logic functions
 
 // &
-func ExternalPrelude_And(task *Task){
+func ExternalPreludeDot_And_(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -175,7 +175,7 @@ func occur_check(x, c *Node) bool{
 }
 
 // Strict unification
-func ExternalPrelude_constrEq(task *Task){
+func ExternalPreludeDot_constrEq(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -281,16 +281,16 @@ func unifChain(task *Task, root, x1, x2 *Node){
     }
 
     // combine unification of children with and
-    node := Prelude__CREATE_And(root, Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(0), x2.GetChild(0)), root.NewNode())
+    node := Prelude__CREATE_And_(root, Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(0), x2.GetChild(0)), root.NewNode())
     for i := 1; i < len(x1.Children) - 1; i++{
-        Prelude__CREATE_And(node.Children[1], Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(i), x2.GetChild(i)) , root.NewNode())
+        Prelude__CREATE_And_(node.Children[1], Prelude__CREATE_constrEq(root.NewNode(), x1.GetChild(i), x2.GetChild(i)) , root.NewNode())
         node = node.Children[1]                    
     }
     Prelude__CREATE_constrEq(node.Children[1], x1.GetChild(x1.GetArity() - 1), x2.GetChild(x1.GetArity() - 1))
 }
 
 // Nonstrict unification (=:<=)
-func ExternalPrelude_nonstrictEq(task *Task){
+func ExternalPreludeDot_nonstrictEq(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -302,7 +302,7 @@ func ExternalPrelude_nonstrictEq(task *Task){
     nsEq := FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1, x2, varUnif)
     
     varUnif.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
-    Prelude__CREATE_AndAnd(root, nsEq, varUnif)
+    Prelude__CREATE_And_And_(root, nsEq, varUnif)
 }
 
 func nonstrictEq(task *Task){
@@ -316,7 +316,7 @@ func nonstrictEq(task *Task){
         unifNode := Prelude__CREATE_constrEq(root.NewNode(), x1, freshVar)
         trueNode := FreeCreate(root.NewNode())
         trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
-        node := Prelude__CREATE_AndAnd(task.NewNode(), unifNode, trueNode)
+        node := Prelude__CREATE_And_And_(task.NewNode(), unifNode, trueNode)
         
         varUnif.SetTrLock(task.GetId(), node)
         varUnif = trueNode
@@ -418,14 +418,14 @@ func nonstrictUnifChain(task *Task, root, x1, x2, varUnif *Node){
     trueNode := FreeCreate(root.NewNode())
     trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
     trueNode2 := Prelude__CREATE_True(root.NewNode())
-    varUnif.SetTrLock(task.GetId(), Prelude__CREATE_AndAnd(task.NewNode(), trueNode, trueNode2))
-    node := Prelude__CREATE_AndAnd(root, FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(0), x2.GetChild(0), trueNode), root.NewNode())
+    varUnif.SetTrLock(task.GetId(), Prelude__CREATE_And_And_(task.NewNode(), trueNode, trueNode2))
+    node := Prelude__CREATE_And_And_(root, FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(0), x2.GetChild(0), trueNode), root.NewNode())
     varUnif = trueNode2
     for i := 1; i < len(x1.Children) - 1; i++{
         trueNode = FreeCreate(root.NewNode())
         trueNode.SetTr(task.GetId(), Prelude__CREATE_True(task.NewNode()))
-        Prelude__CREATE_AndAnd(varUnif, trueNode, Prelude__CREATE_True(root.NewNode()))
-        Prelude__CREATE_AndAnd(node.Children[1], FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(i), x2.GetChild(i), trueNode) , root.NewNode())
+        Prelude__CREATE_And_And_(varUnif, trueNode, Prelude__CREATE_True(root.NewNode()))
+        Prelude__CREATE_And_And_(node.Children[1], FuncCreate(root.NewNode(), nonstrictEq, &names[2], 3, -1, x1.GetChild(i), x2.GetChild(i), trueNode) , root.NewNode())
         node = node.Children[1]
         varUnif = varUnif.Children[1]           
     }
@@ -436,7 +436,7 @@ func nonstrictUnifChain(task *Task, root, x1, x2, varUnif *Node){
 
 ////// Arithmetic on characters
 
-func ExternalPrelude_prim_eqChar(task *Task){
+func ExternalPreludeDot_primUs_eqChar(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -448,7 +448,7 @@ func ExternalPrelude_prim_eqChar(task *Task){
     }
 }
 
-func ExternalPrelude_prim_ltEqChar(task *Task){
+func ExternalPreludeDot_primUs_ltEqChar(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -460,14 +460,14 @@ func ExternalPrelude_prim_ltEqChar(task *Task){
     }
 }
 
-func ExternalPrelude_prim_ord(task *Task){
+func ExternalPreludeDot_primUs_ord(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     IntLitCreate(root, int(x1.GetChar()))
 }
 
-func ExternalPrelude_prim_chr(task *Task){
+func ExternalPreludeDot_primUs_chr(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
 
@@ -475,7 +475,7 @@ func ExternalPrelude_prim_chr(task *Task){
 }
 
 ////// Arithmetic on integers
-func ExternalPrelude_prim_eqInt(task *Task){
+func ExternalPreludeDot_primUs_eqInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -487,7 +487,7 @@ func ExternalPrelude_prim_eqInt(task *Task){
     }
 }
 
-func ExternalPrelude_prim_ltEqInt(task *Task){
+func ExternalPreludeDot_primUs_ltEqInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -499,7 +499,7 @@ func ExternalPrelude_prim_ltEqInt(task *Task){
     }
 }
 
-func ExternalPrelude_prim_plusInt(task *Task){
+func ExternalPreludeDot_primUs_plusInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -507,7 +507,7 @@ func ExternalPrelude_prim_plusInt(task *Task){
     IntLitCreate(root, x2.GetInt() + x1.GetInt())
 }
 
-func ExternalPrelude_prim_minusInt(task *Task){
+func ExternalPreludeDot_primUs_minusInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -515,7 +515,7 @@ func ExternalPrelude_prim_minusInt(task *Task){
     IntLitCreate(root, x2.GetInt() - x1.GetInt())
 }
 
-func ExternalPrelude_prim_timesInt(task *Task){
+func ExternalPreludeDot_primUs_timesInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -523,7 +523,7 @@ func ExternalPrelude_prim_timesInt(task *Task){
     IntLitCreate(root, x2.GetInt() * x1.GetInt())
 }
 
-func ExternalPrelude_prim_divInt(task *Task){
+func ExternalPreludeDot_primUs_divInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -531,7 +531,7 @@ func ExternalPrelude_prim_divInt(task *Task){
     IntLitCreate(root, x2.GetInt() / x1.GetInt())
 }
 
-func ExternalPrelude_prim_modInt(task *Task){
+func ExternalPreludeDot_primUs_modInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -539,7 +539,7 @@ func ExternalPrelude_prim_modInt(task *Task){
     IntLitCreate(root, x2.GetInt() % x1.GetInt())
 }
 
-func ExternalPrelude_prim_quotInt(task *Task){
+func ExternalPreludeDot_primUs_quotInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -547,7 +547,7 @@ func ExternalPrelude_prim_quotInt(task *Task){
     IntLitCreate(root, x2.GetInt() / x1.GetInt())
 }
 
-func ExternalPrelude_prim_remInt(task *Task){
+func ExternalPreludeDot_primUs_remInt(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -556,7 +556,7 @@ func ExternalPrelude_prim_remInt(task *Task){
 }
 
 ////// Arithmetic on floats
-func ExternalPrelude_prim_eqFloat(task *Task){
+func ExternalPreludeDot_primUs_eqFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -568,7 +568,7 @@ func ExternalPrelude_prim_eqFloat(task *Task){
     }
 }
 
-func ExternalPrelude_prim_ltEqFloat(task *Task){
+func ExternalPreludeDot_primUs_ltEqFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -580,14 +580,14 @@ func ExternalPrelude_prim_ltEqFloat(task *Task){
     }
 }
 
-func ExternalPrelude_prim_negateFloat(task *Task){
+func ExternalPreludeDot_primUs_negateFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
 
     FloatLitCreate(root, -x1.GetFloat())
 }
 
-func ExternalPrelude_prim_plusFloat(task *Task){
+func ExternalPreludeDot_primUs_plusFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -595,7 +595,7 @@ func ExternalPrelude_prim_plusFloat(task *Task){
     FloatLitCreate(root, x2.GetFloat() + x1.GetFloat())
 }
 
-func ExternalPrelude_prim_minusFloat(task *Task){
+func ExternalPreludeDot_primUs_minusFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -603,7 +603,7 @@ func ExternalPrelude_prim_minusFloat(task *Task){
     FloatLitCreate(root, x2.GetFloat() - x1.GetFloat())
 }
 
-func ExternalPrelude_prim_timesFloat(task *Task){
+func ExternalPreludeDot_primUs_timesFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -611,7 +611,7 @@ func ExternalPrelude_prim_timesFloat(task *Task){
     FloatLitCreate(root, x2.GetFloat() * x1.GetFloat())
 }
 
-func ExternalPrelude_prim_divFloat(task *Task){
+func ExternalPreludeDot_primUs_divFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -619,126 +619,126 @@ func ExternalPrelude_prim_divFloat(task *Task){
     FloatLitCreate(root, x2.GetFloat() / x1.GetFloat())
 }
 
-func ExternalPrelude_prim_intToFloat(task *Task){
+func ExternalPreludeDot_primUs_intToFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root ,float64(x1.GetInt()))
 }
 
-func ExternalPrelude_prim_truncateFloat(task *Task){
+func ExternalPreludeDot_primUs_truncateFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     IntLitCreate(root, int(math.Trunc(x1.GetFloat())))
 }
 
-func ExternalPrelude_prim_roundFloat(task *Task){
+func ExternalPreludeDot_primUs_roundFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     IntLitCreate(root, int(math.RoundToEven(x1.GetFloat())))    
 }
 
-func ExternalPrelude_prim_logFloat(task *Task){
+func ExternalPreludeDot_primUs_logFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Log(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_expFloat(task *Task){
+func ExternalPreludeDot_primUs_expFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
    FloatLitCreate(root, math.Exp(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_sqrtFloat(task *Task){
+func ExternalPreludeDot_primUs_sqrtFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Sqrt(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_sinFloat(task *Task){
+func ExternalPreludeDot_primUs_sinFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Sin(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_cosFloat(task *Task){
+func ExternalPreludeDot_primUs_cosFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Cos(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_tanFloat(task *Task){
+func ExternalPreludeDot_primUs_tanFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Tan(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_asinFloat(task *Task){
+func ExternalPreludeDot_primUs_asinFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Asin(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_acosFloat(task *Task){
+func ExternalPreludeDot_primUs_acosFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Acos(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_atanFloat(task *Task){
+func ExternalPreludeDot_primUs_atanFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Atan(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_sinhFloat(task *Task){
+func ExternalPreludeDot_primUs_sinhFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Sinh(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_coshFloat(task *Task){
+func ExternalPreludeDot_primUs_coshFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Cosh(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_tanhFloat(task *Task){
+func ExternalPreludeDot_primUs_tanhFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Tanh(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_asinhFloat(task *Task){
+func ExternalPreludeDot_primUs_asinhFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Asinh(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_acoshFloat(task *Task){
+func ExternalPreludeDot_primUs_acoshFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     FloatLitCreate(root, math.Acosh(x1.GetFloat()))
 }
 
-func ExternalPrelude_prim_atanhFloat(task *Task){
+func ExternalPreludeDot_primUs_atanhFloat(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -747,7 +747,7 @@ func ExternalPrelude_prim_atanhFloat(task *Task){
 
 ////// Show functions
 
-func ExternalPrelude_prim_showCharLiteral(task *Task){
+func ExternalPreludeDot_primUs_showCharLiteral(task *Task){
     root := task.GetControl() 
 
     x1 := root.GetChild(0)
@@ -755,7 +755,7 @@ func ExternalPrelude_prim_showCharLiteral(task *Task){
     StringCreate(root, "'" + ShowChar(x1.GetChar()) + "'")
 }
 
-func ExternalPrelude_prim_showStringLiteral(task *Task){
+func ExternalPreludeDot_primUs_showStringLiteral(task *Task){
     root := task.GetControl() 
 
     x1 := root.GetChild(0)
@@ -764,7 +764,7 @@ func ExternalPrelude_prim_showStringLiteral(task *Task){
     StringCreate(root, "\"" + str + "\"")
 }
 
-func ExternalPrelude_prim_showIntLiteral(task *Task){
+func ExternalPreludeDot_primUs_showIntLiteral(task *Task){
     root := task.GetControl() 
 
     x1 := root.GetChild(0)
@@ -773,7 +773,7 @@ func ExternalPrelude_prim_showIntLiteral(task *Task){
     StringCreate(root, strconv.Itoa(number))
 }
 
-func ExternalPrelude_prim_showFloatLiteral(task *Task){
+func ExternalPreludeDot_primUs_showFloatLiteral(task *Task){
     root := task.GetControl() 
 
     x1 := root.GetChild(0)
@@ -784,7 +784,7 @@ func ExternalPrelude_prim_showFloatLiteral(task *Task){
 
 ////// Read functions
 
-func ExternalPrelude_prim_readNatLiteral(task *Task){
+func ExternalPreludeDot_primUs_readNatLiteral(task *Task){
     root := task.GetControl()
     // get first element of the String
     x1 := root.GetChild(0)
@@ -794,7 +794,7 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
         return
     }
 
@@ -815,14 +815,14 @@ func ExternalPrelude_prim_readNatLiteral(task *Task){
         lit, _ := strconv.Atoi(string(data[0 : end]))
 
         // create list of results
-        ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+        ListCreate(root, Prelude__CREATE_Lb_Comma_Rb_(root.NewNode(), IntLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // if the String doesn't start with a number, return an empty list
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
     }
 }
 
-func ExternalPrelude_prim_readFloatLiteral(task *Task){
+func ExternalPreludeDot_primUs_readFloatLiteral(task *Task){
     root := task.GetControl()
     // get first element of the String
     x1 := root.GetChild(0)
@@ -832,7 +832,7 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
         return
     }
 
@@ -863,14 +863,14 @@ func ExternalPrelude_prim_readFloatLiteral(task *Task){
         lit, _ := strconv.ParseFloat(string(data[0 : end]), 64)
 
         // create list of results
-        ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
+        ListCreate(root, Prelude__CREATE_Lb_Comma_Rb_(root.NewNode(), FloatLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), rest)))
     }else{
         // return an empty list if the String doesn't start with a number
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
     }
 }
 
-func ExternalPrelude_prim_readCharLiteral(task *Task){
+func ExternalPreludeDot_primUs_readCharLiteral(task *Task){
     root := task.GetControl()
     // get first element of the String
     x1 := root.GetChild(0)
@@ -880,7 +880,7 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
 
     // if no char literal possible, return an empty list
     if(len(data) < 3){
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
         return
     }
 
@@ -891,7 +891,7 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
             if(data[i] == '\''){
                 // return on empty literal
                 if(i == 1){
-                    Prelude__CREATE_LSbRSb(root)
+                    Prelude__CREATE_LSb_RSb_(root)
                     return
                 }
             
@@ -900,20 +900,20 @@ func ExternalPrelude_prim_readCharLiteral(task *Task){
                 lit,_ := ParseChar(data[1:i])
                 
                 // return result
-                ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
+                ListCreate(root, Prelude__CREATE_Lb_Comma_Rb_(root.NewNode(), CharLitCreate(root.NewNode(), lit), StringCreate(root.NewNode(), string(rest))))
                 return
             }
         }
         
         // return an empty list
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
     } else{
         // return an empty list
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
     }
 }
 
-func ExternalPrelude_prim_readStringLiteral(task *Task){
+func ExternalPreludeDot_primUs_readStringLiteral(task *Task){
     root := task.GetControl()
     // get first element of the String
     x1 := root.GetChild(0)
@@ -923,7 +923,7 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
 
     // if the String is empty, return an empty list
     if(len(data) == 0){
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
         return
     }
     
@@ -947,27 +947,27 @@ func ExternalPrelude_prim_readStringLiteral(task *Task){
             lit := string(data[1 : end])
 
             // create list of results
-            ListCreate(root, Prelude__CREATE_LbCommaRb(root.NewNode(), StringCreate(root.NewNode(), ParseString(lit)), StringCreate(root.NewNode(), rest)))
+            ListCreate(root, Prelude__CREATE_Lb_Comma_Rb_(root.NewNode(), StringCreate(root.NewNode(), ParseString(lit)), StringCreate(root.NewNode(), rest)))
         }else{
             // return an empty list
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
         }
     } else{
         // return an empty list
-        Prelude__CREATE_LSbRSb(root)
+        Prelude__CREATE_LSb_RSb_(root)
     }
 }
 
 ////// IO functions
 
-func ExternalPrelude_returnIO(task *Task){
+func ExternalPreludeDot_returnIO(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
 
     IOCreate(root, x1)
 }
 
-func ExternalPrelude_bindIO(task *Task){
+func ExternalPreludeDot_bindIO(task *Task){
     task.NoShare(0)
     
     root := task.GetControl()
@@ -982,7 +982,7 @@ func ExternalPrelude_bindIO(task *Task){
     Prelude__CREATE_apply(root, x2, x1.GetChild(0))
 }
 
-func ExternalPrelude_seqIO(task *Task){
+func ExternalPreludeDot_seqIO(task *Task){
     task.NoShare(0)
 
     root := task.GetControl()
@@ -997,16 +997,16 @@ func ExternalPrelude_seqIO(task *Task){
     RedirectCreate(root, CopyNode(x2))
 }
 
-func ExternalPrelude_prim_putChar(task *Task){
+func ExternalPreludeDot_primUs_putChar(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
 
     fmt.Printf("%c", x1.GetChar())
 
-    IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+    IOCreate(root, Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalPrelude_getChar(task *Task){
+func ExternalPreludeDot_getChar(task *Task){
     root := task.GetControl()
     var char rune
 
@@ -1015,7 +1015,7 @@ func ExternalPrelude_getChar(task *Task){
     IOCreate(root, CharLitCreate(root.NewNode(), char))
 }
 
-func ExternalPrelude_prim_readFile(task *Task){
+func ExternalPreludeDot_primUs_readFile(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
 
@@ -1035,7 +1035,7 @@ func ExternalPrelude_prim_readFile(task *Task){
     if(err != nil){
         // return [] on EOF
         if(err == io.EOF){
-            IOCreate(root, Prelude__CREATE_LSbRSb(root.NewNode()))
+            IOCreate(root, Prelude__CREATE_LSb_RSb_(root.NewNode()))
             return
         } else{
             panic("Prelude.readFile: " + err.Error())
@@ -1045,7 +1045,7 @@ func ExternalPrelude_prim_readFile(task *Task){
     // return IO constructor with string
     position := IntLitCreate(root.NewNode(), size)
     reader := FuncCreate(root.NewNode(), readFileHelper(name), &names[1], 1, -1, position)
-    IOCreate(root, Prelude__CREATE_Col(root.NewNode(), CharLitCreate(root.NewNode(), char), reader))
+    IOCreate(root, Prelude__CREATE_Col_(root.NewNode(), CharLitCreate(root.NewNode(), char), reader))
 }
 
 func readFileHelper(name string)(func (*Task)){
@@ -1071,7 +1071,7 @@ func readFileHelper(name string)(func (*Task)){
         if(err != nil){
             // return [] on EOF
             if(err == io.EOF){
-                Prelude__CREATE_LSbRSb(root)
+                Prelude__CREATE_LSb_RSb_(root)
                 return
             } else{
                 panic("Prelude.readFile: " + err.Error())
@@ -1081,11 +1081,11 @@ func readFileHelper(name string)(func (*Task)){
         // return string
         IntLitCreate(position, position.GetInt() + size)
         reader := FuncCreate(root.NewNode(), readFileHelper(name), &names[1], 1, -1, position)
-        Prelude__CREATE_Col(root, CharLitCreate(root.NewNode(), char), reader)
+        Prelude__CREATE_Col_(root, CharLitCreate(root.NewNode(), char), reader)
     }
 }
 
-func ExternalPrelude_prim_writeFile(task *Task){
+func ExternalPreludeDot_primUs_writeFile(task *Task){
     root := task.GetControl()
     // get children
     x1 := root.GetChild(0)
@@ -1108,7 +1108,7 @@ func ExternalPrelude_prim_writeFile(task *Task){
     // return on empty string
     if(str.GetConstructor() == 0){
         f.Close()
-        IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+        IOCreate(root, Prelude__CREATE_Lb_Rb_(root.NewNode()))
         return
     }
     
@@ -1139,7 +1139,7 @@ func writeFileHelper(f *os.File)(func (*Task)){
         // return on empty string
         if(str.GetConstructor() == 0){
             f.Close()
-            IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+            IOCreate(root, Prelude__CREATE_Lb_Rb_(root.NewNode()))
             return
         }
         
@@ -1161,7 +1161,7 @@ func writeFileHelper(f *os.File)(func (*Task)){
     }
 }
 
-func ExternalPrelude_prim_appendFile(task *Task){
+func ExternalPreludeDot_primUs_appendFile(task *Task){
     root := task.GetControl()
     // get children
     x1 := root.GetChild(0)
@@ -1184,7 +1184,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     // return on empty string
     if(str.GetConstructor() == 0){
         f.Close()
-        IOCreate(root, Prelude__CREATE_LbRb(root.NewNode()))
+        IOCreate(root, Prelude__CREATE_Lb_Rb_(root.NewNode()))
         return
     }
     
@@ -1207,7 +1207,7 @@ func ExternalPrelude_prim_appendFile(task *Task){
     FuncCreate(root, writeFileHelper(f), &names[0], 1, 0, str.GetChild(1))
 }
 
-func ExternalPrelude_catch(task *Task){
+func ExternalPreludeDot_catch(task *Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -1227,7 +1227,7 @@ func ExternalPrelude_catch(task *Task){
 
 ////// PAKCS functions
 
-func ExternalPrelude_unifEqLinear(task * Task){
+func ExternalPreludeDot_unifEqLinear(task * Task){
     panic("Prelude.UnifEqLineary: not yet implemented")
 }
 
@@ -1260,14 +1260,14 @@ func ListCreate(root *Node, elements ...*Node)(*Node){
     for i:= 0; i < len(elements); i++{
 
         // create a : with the current element and the rest
-        Prelude__CREATE_Col(cur_node, elements[i], root.NewNode())
+        Prelude__CREATE_Col_(cur_node, elements[i], root.NewNode())
         
         // move to next node
         cur_node = cur_node.GetChild(1)
     }
 
     // set last element to []
-    Prelude__CREATE_LSbRSb(cur_node)
+    Prelude__CREATE_LSb_RSb_(cur_node)
     return root
 }
 

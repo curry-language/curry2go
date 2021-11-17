@@ -6,7 +6,7 @@ import "curry2go/Prelude"
 var global_map = make(map[string]*gocurry.Node)
 var func_name = "arg_eval"
 
-func ExternalData_Global_prim_globalT(task *gocurry.Task){
+func ExternalDataDot_GlobalDot_primUs_globalT(task *gocurry.Task){
     root := task.GetControl()
     curry_name := root.GetChild(0)
     value := root.GetChild(1)
@@ -17,7 +17,7 @@ func ExternalData_Global_prim_globalT(task *gocurry.Task){
     
     // initialize the entry
     if !ok{
-        value = Prelude.Prelude__CREATE_DolHashHash(root.NewNode(), Prelude.Prelude__CREATE_id(root.NewNode()), value)
+        value = Prelude.Prelude__CREATE_Dol_Hash_Hash_(root.NewNode(), Prelude.Prelude__CREATE_id(root.NewNode()), value)
         global_map[name] = value
         
         // evaluate the entry
@@ -31,7 +31,7 @@ func ExternalData_Global_prim_globalT(task *gocurry.Task){
     Data_DOT_Global__CREATE_GlobalT(root, curry_name)
 }
 
-func ExternalData_Global_prim_readGlobalT(task *gocurry.Task){
+func ExternalDataDot_GlobalDot_primUs_readGlobalT(task *gocurry.Task){
     root := task.GetControl()
     global := root.GetChild(0)
     curry_name := global.GetChild(0)
@@ -48,7 +48,7 @@ func ExternalData_Global_prim_readGlobalT(task *gocurry.Task){
     gocurry.IOCreate(root, value)
 }
 
-func ExternalData_Global_prim_writeGlobalT(task *gocurry.Task){
+func ExternalDataDot_GlobalDot_primUs_writeGlobalT(task *gocurry.Task){
     root := task.GetControl()
     global := root.GetChild(0)
     curry_name := global.GetChild(0)
@@ -59,6 +59,6 @@ func ExternalData_Global_prim_writeGlobalT(task *gocurry.Task){
     global_map[name] = value
     
     // return
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 

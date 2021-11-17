@@ -5,7 +5,7 @@ import "curry2go/Prelude"
 
 var names = []string{"ExternalControl_Findall_oneValue", "evalSomeVal", "evalIsFail", "evalToList"}
 
-func ExternalControl_Findall_allValues(task *gocurry.Task){
+func ExternalControlDot_FindallDot_allValues(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -32,21 +32,21 @@ func evalToList(root *gocurry.Node, result_chan chan *gocurry.Node)(*gocurry.Nod
         node, ok := <- result_chan
         
         if ok{
-            Prelude.Prelude__CREATE_Col(root, node, evalToList(root.NewNode(), result_chan))
+            Prelude.Prelude__CREATE_Col_(root, node, evalToList(root.NewNode(), result_chan))
         } else{
-            Prelude.Prelude__CREATE_LSbRSb(root)
+            Prelude.Prelude__CREATE_LSb_RSb_(root)
         }
     }
     
     return gocurry.FuncCreate(root, resultFunc, &names[3], 0, -1)
 }
 
-func ExternalControl_Findall_someValue(task *gocurry.Task){
+func ExternalControlDot_FindallDot_someValue(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     // call oneValue on argument and parse result
-    oneVal := gocurry.FuncCreate(root.NewNode(), ExternalControl_Findall_oneValue, &names[0], 1, -1, x1)
+    oneVal := gocurry.FuncCreate(root.NewNode(), ExternalControlDot_FindallDot_oneValue, &names[0], 1, -1, x1)
     gocurry.FuncCreate(root, evalSomeVal, &names[1], 1, 0, oneVal)
 }
 
@@ -63,7 +63,7 @@ func evalSomeVal(task *gocurry.Task){
     }
 }
 
-func ExternalControl_Findall_oneValue(task *gocurry.Task){
+func ExternalControlDot_FindallDot_oneValue(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -87,12 +87,12 @@ func ExternalControl_Findall_oneValue(task *gocurry.Task){
     }
 }
 
-func ExternalControl_Findall_isFail(task *gocurry.Task){
+func ExternalControlDot_FindallDot_isFail(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     // call oneValue on argument and parse result
-    oneVal := gocurry.FuncCreate(root.NewNode(), ExternalControl_Findall_oneValue, &names[0], 1, -1, x1)
+    oneVal := gocurry.FuncCreate(root.NewNode(), ExternalControlDot_FindallDot_oneValue, &names[0], 1, -1, x1)
     gocurry.FuncCreate(root, evalIsFail, &names[2], 1, 0, oneVal)
 }
 
@@ -109,10 +109,10 @@ func evalIsFail(task *gocurry.Task){
     }
 }
 
-func ExternalControl_Findall_rewriteAll(task *gocurry.Task){
+func ExternalControlDot_FindallDot_rewriteAll(task *gocurry.Task){
     panic("Control.Findall.rewriteAll: not yet implemented")
 }
 
-func ExternalControl_Findall_rewriteSome(task *gocurry.Task){
+func ExternalControlDot_FindallDot_rewriteSome(task *gocurry.Task){
     panic("Control.Findall.rewriteSome: not yet implemented")
 }

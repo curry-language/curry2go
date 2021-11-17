@@ -5,7 +5,7 @@ import "os"
 import "runtime"
 import "curry2go/Prelude"
 
-func ExternalSystem_Environment_getArgs(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_getArgs(task *gocurry.Task){
     root := task.GetControl()
     
     // get command line args
@@ -21,7 +21,7 @@ func ExternalSystem_Environment_getArgs(task *gocurry.Task){
     gocurry.IOCreate(root, Prelude.ListCreate(root.NewNode(), curArgs...))
 }
 
-func ExternalSystem_Environment_prim_getEnviron(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_primUs_getEnviron(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -32,7 +32,7 @@ func ExternalSystem_Environment_prim_getEnviron(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), val))
 }
 
-func ExternalSystem_Environment_prim_setEnviron(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_primUs_setEnviron(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     x2 := root.GetChild(1)
@@ -42,20 +42,20 @@ func ExternalSystem_Environment_prim_setEnviron(task *gocurry.Task){
     
     os.Setenv(key, val)
     
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_Environment_prim_unsetEnviron(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_primUs_unsetEnviron(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
     key := gocurry.ReadString(x1)
     os.Unsetenv(key)
     
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_Environment_getHostname(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_getHostname(task *gocurry.Task){
     root := task.GetControl()
     
     hostName, _ := os.Hostname()
@@ -63,7 +63,7 @@ func ExternalSystem_Environment_getHostname(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), hostName))
 }
 
-func ExternalSystem_Environment_getProgName(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_getProgName(task *gocurry.Task){
     root := task.GetControl()
     
     progName := os.Args[0]
@@ -71,7 +71,7 @@ func ExternalSystem_Environment_getProgName(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.StringCreate(root.NewNode(), progName))
 }
 
-func ExternalSystem_Environment_isWindows(task *gocurry.Task){
+func ExternalSystemDot_EnvironmentDot_isWindows(task *gocurry.Task){
     root := task.GetControl()
     
     if(runtime.GOOS == "windows"){

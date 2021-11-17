@@ -493,7 +493,8 @@ ilit2Go _ expr (IFloat f) = GoCall
 --- @param opts - compiler options
 --- @param name - IQName to convert
 iqname2GoCreate :: CGOptions -> IQName -> String
-iqname2GoCreate opts (m,n,i) = iqname2Go opts (m, "_CREATE_" ++ n, i)
+iqname2GoCreate opts (m,n,i) = 
+  (iqname2Go opts (m, "", i)) ++ "_CREATE_" ++ replaceInvalidChars n
 
 --- Maps an IQName into a Go function name, replacing invalid characters.
 --- @param opts - compiler options
@@ -501,10 +502,10 @@ iqname2GoCreate opts (m,n,i) = iqname2Go opts (m, "_CREATE_" ++ n, i)
 iqname2Go :: CGOptions -> IQName -> String
 iqname2Go opts (m, n, _)
   | m /= modName opts
-  = modName2Go m ++ "." ++
-    replaceInvalidChars (fstUp (modName2Go m) ++ "_" ++ n)
+  = modName2Go m ++ "." ++ 
+    (fstUp (modName2Go m) ++ "_" ++ replaceInvalidChars n)
   | otherwise
-  = replaceInvalidChars (fstUp (modName2Go m) ++ "_" ++ n)
+  = (fstUp (modName2Go m) ++ "_" ++ replaceInvalidChars n)
  where
   fstUp []     = []
   fstUp (x:xs) = toUpper x : xs
@@ -521,37 +522,38 @@ replaceInvalidChars :: String -> String
 replaceInvalidChars = concatMap replaceInvalidChar
  where
   replaceInvalidChar x
-    | x == '$'   = "Dol"
-    | x == ')'   = "Rb"
-    | x == '('   = "Lb"
-    | x == '+'   = "Add"
-    | x == ','   = "Comma"
-    | x == '.'   = "_"
-    | x == '#'   = "Hash"
-    | x == '-'   = "Sub"
-    | x == '*'   = "Mul"
-    | x == '/'   = "Slash"
-    | x == '%'   = "Percent"
-    | x == '['   = "LSb"
-    | x == ']'   = "RSb"
-    | x == '{'   = "LCb"
-    | x == '}'   = "RCb"
-    | x == ':'   = "Col"
-    | x == '^'   = "Pow"
-    | x == '@'   = "At"
-    | x == '!'   = "Excl"
-    | x == '?'   = "Qstn"
-    | x == '&'   = "And"
-    | x == '='   = "Eq"
-    | x == '<'   = "Lt"
-    | x == '>'   = "Gt"
-    | x == ';'   = "Semi"
-    | x == '|'   = "Strt"
-    | x == '\\'  = "BSlash"
-    | x == '\''  = "SQuote"
-    | x == '"'   = "DQuote"
-    | x == '~'   = "Tilde"
-    | x == '`'   = "Accent"
+    | x == '$'   = "Dol_"
+    | x == ')'   = "Rb_"
+    | x == '('   = "Lb_"
+    | x == '+'   = "Add_"
+    | x == ','   = "Comma_"
+    | x == '.'   = "Dot_"
+    | x == '#'   = "Hash_"
+    | x == '-'   = "Sub_"
+    | x == '*'   = "Mul_"
+    | x == '/'   = "Slash_"
+    | x == '%'   = "Percent_"
+    | x == '['   = "LSb_"
+    | x == ']'   = "RSb_"
+    | x == '{'   = "LCb_"
+    | x == '}'   = "RCb_"
+    | x == ':'   = "Col_"
+    | x == '^'   = "Pow_"
+    | x == '@'   = "At_"
+    | x == '!'   = "Excl_"
+    | x == '?'   = "Qstn_"
+    | x == '&'   = "And_"
+    | x == '='   = "Eq_"
+    | x == '<'   = "Lt_"
+    | x == '>'   = "Gt_"
+    | x == ';'   = "Semi_"
+    | x == '|'   = "Strt_"
+    | x == '\\'  = "BSlash_"
+    | x == '\''  = "SQuote_"
+    | x == '"'   = "DQuote_"
+    | x == '~'   = "Tilde_"
+    | x == '`'   = "Accent_"
+    | x == '_'   = "Us_"
     | otherwise  = [x]
 
 --- Creates a chain of child accesses.

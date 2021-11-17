@@ -76,7 +76,7 @@ func HandleFromFile(root *gocurry.Node, file *os.File, mode int)(*gocurry.Node){
     return root
 }
 
-func ExternalSystem_IO_handle_eq(task *gocurry.Task){
+func ExternalSystemDot_IODot_handleUs_eq(task *gocurry.Task){
     root := task.GetControl()
     handle1 := root.GetChild(0)
     handle2 := root.GetChild(1)
@@ -118,25 +118,25 @@ func ExternalSystem_IO_handle_eq(task *gocurry.Task){
     Prelude.Prelude__CREATE_True(root)
 }
 
-func ExternalSystem_IO_stdin(task *gocurry.Task){
+func ExternalSystemDot_IODot_stdin(task *gocurry.Task){
     root := task.GetControl()
     
     gocurry.RedirectCreate(root, stdin_node)
 }
 
-func ExternalSystem_IO_stdout(task *gocurry.Task){
+func ExternalSystemDot_IODot_stdout(task *gocurry.Task){
     root := task.GetControl()
     
     gocurry.RedirectCreate(root, stdout_node)
 }
 
-func ExternalSystem_IO_stderr(task *gocurry.Task){
+func ExternalSystemDot_IODot_stderr(task *gocurry.Task){
     root := task.GetControl()
     
     gocurry.RedirectCreate(root, stderr_node)
 }
 
-func ExternalSystem_IO_prim_openFile(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_openFile(task *gocurry.Task){
     root := task.GetControl()
     hPath := root.GetChild(0)
     hMode := root.GetChild(1).GetInt()
@@ -166,7 +166,7 @@ func ExternalSystem_IO_prim_openFile(task *gocurry.Task){
     gocurry.IOCreate(root, handle)
 }
 
-func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
@@ -198,16 +198,16 @@ func ExternalSystem_IO_prim_hClose(task *gocurry.Task){
         }
     }
 
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_IO_prim_hFlush(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hFlush(task *gocurry.Task){
     root := task.GetControl()
     
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hIsEOF(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
@@ -259,7 +259,7 @@ func ExternalSystem_IO_prim_hIsEOF(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hSeek(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hMode := root.GetChild(1).GetInt()
@@ -282,10 +282,10 @@ func ExternalSystem_IO_prim_hSeek(task *gocurry.Task){
     handles[hIndex].buffer = '\000'
     
     // return
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hWaitForInput(task *gocurry.Task){
     // TODO: make work with stdin
     root := task.GetControl()
     handle := root.GetChild(0)
@@ -329,7 +329,7 @@ func ExternalSystem_IO_prim_hWaitForInput(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hWaitForInputs(task *gocurry.Task){
     root := task.GetControl()
     hList := gocurry.ReadList(root.GetChild(0))
     
@@ -377,7 +377,7 @@ func ExternalSystem_IO_prim_hWaitForInputs(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_prim_hGetChar(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hGetChar(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
@@ -413,7 +413,7 @@ func ExternalSystem_IO_prim_hGetChar(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.CharLitCreate(root.NewNode(), char))
 }
 
-func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hPutChar(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     char := root.GetChild(1)
@@ -436,10 +436,10 @@ func ExternalSystem_IO_prim_hPutChar(task *gocurry.Task){
         panic("System.IO.hPutChar: " + err.Error())
     }
     
-    gocurry.IOCreate(root, Prelude.Prelude__CREATE_LbRb(root.NewNode()))
+    gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
 }
 
-func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hIsReadable(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
@@ -459,7 +459,7 @@ func ExternalSystem_IO_prim_hIsReadable(task *gocurry.Task){
 }
 
 
-func ExternalSystem_IO_prim_hIsWritable(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hIsWritable(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()
@@ -478,7 +478,7 @@ func ExternalSystem_IO_prim_hIsWritable(task *gocurry.Task){
     }
 }
 
-func ExternalSystem_IO_prim_hIsTerminalDevice(task *gocurry.Task){
+func ExternalSystemDot_IODot_primUs_hIsTerminalDevice(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
     hIndex := handle.GetChild(0).GetInt()

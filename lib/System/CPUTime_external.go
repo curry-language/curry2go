@@ -4,7 +4,7 @@ import "gocurry"
 import "syscall"
 
 
-func ExternalSystem_CPUTime_getCPUTime(task *gocurry.Task){
+func ExternalSystemDot_CPUTimeDot_getCPUTime(task *gocurry.Task){
     root := task.GetControl()
     
     usage := new(syscall.Rusage)
@@ -17,6 +17,6 @@ func ExternalSystem_CPUTime_getCPUTime(task *gocurry.Task){
     gocurry.IOCreate(root, gocurry.IntLitCreate(root.NewNode(), int(total_time)))
 }
 
-func ExternalSystem_CPUTime_getElapsedTime(task *gocurry.Task){
+func ExternalSystemDot_CPUTimeDot_getElapsedTime(task *gocurry.Task){
     panic("System.CPUTime.getElapsedTime: not yet implemented")
 }

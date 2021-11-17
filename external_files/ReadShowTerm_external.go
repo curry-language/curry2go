@@ -6,7 +6,7 @@ import "gocurry"
 import "path/filepath"
 import "curry2go/Prelude"
 
-func ExternalReadShowTerm_prim_showTerm(task *gocurry.Task){
+func ExternalReadShowTermDot_primUs_showTerm(task *gocurry.Task){
     root := task.GetControl()
     x1 := root.GetChild(0)
     
@@ -15,7 +15,7 @@ func ExternalReadShowTerm_prim_showTerm(task *gocurry.Task){
     gocurry.StringCreate(root, stringRep)
 }
 
-func ExternalReadShowTerm_prim_readsUnqualifiedTerm(task *gocurry.Task){
+func ExternalReadShowTermDot_primUs_readsUnqualifiedTerm(task *gocurry.Task){
     root := task.GetControl()
     cModList := gocurry.ReadList(root.GetChild(0))
     term := gocurry.ReadString(root.GetChild(1))
@@ -35,6 +35,6 @@ func ExternalReadShowTerm_prim_readsUnqualifiedTerm(task *gocurry.Task){
     
     // parse the term and return result
     parseResult, restString := gocurry.ReadUQTerm(root.NewNode(), term, modList)
-    tupel := Prelude.Prelude__CREATE_LbCommaRb(root.NewNode(), parseResult, restString)
+    tupel := Prelude.Prelude__CREATE_Lb_Comma_Rb_(root.NewNode(), parseResult, restString)
     Prelude.ListCreate(root, tupel)
 }
