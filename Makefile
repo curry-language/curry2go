@@ -292,6 +292,7 @@ installdist:
 	mv cpm/.curry/curry2go-*/CPMMain bin/cypm.bin
 	cp goinstall/cypm bin/cypm
 	chmod 755 bin/cypm
+	cd $(BINDIR) && ln -s cypm curry2go-cypm
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 endif

@@ -20,6 +20,30 @@ CURRY2GOBIN=$CURRY2GOHOME/bin
 # The directory where CPM installs the binaries:
 CPMBIN="$HOME/.cpm/bin"
 
+# check whether a requested tool is installed.
+# If yes, execute it, otherwise exit with error.
+check_and_exec_tool() {
+  TOOLNAME=$1
+  TOOLBIN="$CURRY2GOBIN/curry2go-$TOOLNAME"
+  if [ -x "$TOOLBIN" ] ; then
+    shift
+    if [ "$TOOLNAME" = cypm ] ; then
+      TOOLOPTS="-d curry_bin=$CURRY2GOBIN/curry2go"
+    else
+      TOOLOPTS=
+    fi
+    exec "$TOOLBIN" $TOOLOPTS ${1+"$@"}
+  else
+    echo "Incomplete installation: '$TOOLBIN' not installed!"
+    exit 1
+  fi
+}
+
+# check whether a tool of the distribution should be executed
+case $1 in
+  cypm | frontend ) check_and_exec_tool ${1+"$@"} ;;
+esac
+
 # Check whether we should call CPM to compute the correct load path:
 WHICHCPM=`which cypm`
 if [ ! -d "$HOME" ] ; then
@@ -65,7 +89,7 @@ if [ ! -x "$REPL" ] ; then
   exit 1
 fi
 
-# Title/version of CPM passed to PAKCS:
+# Title/version of CPM passed to Curry2Go:
 CPMVERSION=
 
 if [ $USECPM = yes ] ; then
