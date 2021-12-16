@@ -178,6 +178,12 @@ func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
         if(err != nil){
             panic("System.IO.hClose: " + err.Error())
         }
+        
+        // return if reader and writer are the same
+        if(Handles[hIndex].Mode == 3){
+            gocurry.IOCreate(root, Prelude.Prelude__CREATE_Lb_Rb_(root.NewNode()))
+            return
+        }
     }
     
     // close reader
