@@ -180,6 +180,9 @@ func showNode(node *Node) string{
     case CONSTRUCTOR, FCALL:
         return node.GetName()
     case CHOICE:
+        if(debug_mode){
+            return fmt.Sprintf("?_%d", node.int_value)
+        }
         return "?"
     case REDIRECT:
         return "Redirect"

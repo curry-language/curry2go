@@ -82,6 +82,9 @@ func nextFree() *string{
 
 ////// Global variables
 
+// flag indicating if the debug mode should be used
+var debug_mode = true
+
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError", "NondetError"}
 
@@ -531,6 +534,11 @@ func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, 
     case FS:
         go fsTaskHandler(queue, result_chan, done_chan, max_tasks)
     }
+    
+    if(debug_mode){
+        debugLoop(result_chan, search_strat == FS)
+        return
+    }
 
     // loop until done
     number_results := 0
@@ -575,11 +583,23 @@ func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, 
 func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
     // set first task as current task
     task := <- queue
-
+    
+    var cmd_chan = make(chan DebugCmd, 0)
+    var event_chan = make(chan DebugEvent, 0)
+    
+    if(debug_mode){
+        apply_chan <- DebugData{DebugEvent{DebugInit, ""}, &task, event_chan, cmd_chan}
+    }
+    
     // loop until done
     for{
         // perform evaluation to hnf
-        toHnf(&task, queue, bfs)
+        
+        if(debug_mode){
+            toHnfDebug(&task, queue, bfs, cmd_chan, event_chan)
+        } else{
+            toHnf(&task, queue, bfs)
+        }
         
         // write result if one was computed
         if (!task.control.IsExempt()){
@@ -601,6 +621,16 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
 // Handles the evaluation of a task in a fair search.
 // task is the task to evaluate.
 func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
+    
+    if(debug_mode){
+        var cmd_chan = make(chan DebugCmd, 0)
+        var event_chan = make(chan DebugEvent, 0)
+
+        apply_chan <- DebugData{DebugEvent{DebugInit, ""}, &task, event_chan, cmd_chan}
+
+        toHnfDebug(&task, queue, false, cmd_chan, event_chan)
+    }
+    
     // perform evaluation to hnf
     toHnf(&task, queue, false)
         

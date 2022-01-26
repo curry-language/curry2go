@@ -104,6 +104,11 @@ func FreeCreate(root *Node)(*Node){
     root.node_type = CONSTRUCTOR
     root.name = nextFree()
     root.int_value = -1
+    
+    if(debug_mode){
+        debug_varList = append(debug_varList, root)
+    }
+    
     return root
 }
 
