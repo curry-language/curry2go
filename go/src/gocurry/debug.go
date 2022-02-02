@@ -178,11 +178,11 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 }
             } else{
                 // print last event of current task
-                fmt.Println(debug_map[cur_task].last_event.text)
+                fmt.Print(debug_map[cur_task].last_event.text + " ")
             }
             
             // print usage info
-            fmt.Println("Step: <return>, Help: (h)elp")
+            fmt.Print("(RET|h)? ")
             
             // get input from user
             reader := bufio.NewReader(os.Stdin)
