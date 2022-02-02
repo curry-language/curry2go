@@ -1,0 +1,1 @@
+Dockerfile-curry2go-latest-debian-10

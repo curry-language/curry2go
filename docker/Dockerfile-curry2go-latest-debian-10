@@ -1,0 +1,66 @@
+FROM debian:buster
+
+RUN apt-get update
+
+RUN apt-get --assume-yes install curl make libnuma1
+
+# required for CPM:
+RUN apt-get --assume-yes install git zip unzip sqlite3
+
+# required for Curry2Go
+RUN apt-get --assume-yes install rlwrap time
+
+# install go:
+WORKDIR /usr/local
+RUN curl -sSL -o golang.tar.gz https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+RUN tar -C /usr/local -xvzf golang.tar.gz
+RUN rm golang.tar.gz
+ENV PATH /usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+RUN rm -rf /var/lib/apt/lists/*
+
+# just to be sure
+ENV LANG C.UTF-8
+
+# download and install curry2go
+WORKDIR /curry2go
+RUN curl -sSL -o download.sh https://www-ps.informatik.uni-kiel.de/curry2go/download.sh
+RUN sh download.sh
+RUN rm download.sh
+
+ENV PATH /curry2go/Curry2Go/bin:$PATH
+
+ENV HOME /userhome
+RUN mkdir -p  $HOME
+RUN chmod 777 $HOME
+
+RUN mkdir /curry2go/cpm
+
+# options for CPM so that tools will be installed in /curry2go/cpm
+ENV CPMOPTS="-d REPOSITORY_PATH=/curry2go/cpm/index -d PACKAGE_INSTALL_PATH=/curry2go/cpm/packages -d APP_PACKAGE_PATH=/curry2go/cpm/app_packages -d BIN_INSTALL_PATH=/curry2go/cpm/bin"
+
+WORKDIR /curry2go/Curry2Go
+RUN bin/cypm $CPMOPTS update
+RUN bin/cypm $CPMOPTS install importusage
+RUN bin/cypm $CPMOPTS install showflatcurry
+#RUN bin/cypm $CPMOPTS install currypp
+#RUN bin/cypm $CPMOPTS install currycheck
+#RUN bin/cypm $CPMOPTS install currydoc
+
+# set path with cpm bin directory included
+ENV PATH /curry2go/cpm/bin:$PATH
+
+# pre-compile libraries used by curry-check
+#COPY CheckExample.curry .
+#RUN /curry2go/cpm/bin/curry-check CheckExample
+
+# make tool files readable
+RUN chmod -R go+rX /curry2go/cpm/app_packages
+
+# install a patched version of bin/curry2go
+# (necessary due to aynchronous terminal setting problems with rlwrap/docker,
+# see https://github.com/moby/moby/issues/28009)
+COPY curry2go.sh /curry2go/Curry2Go/bin/curry2go
+RUN chmod 755 /curry2go/Curry2Go/bin/curry2go
+
+ENTRYPOINT ["/curry2go/Curry2Go/bin/curry2go"]
