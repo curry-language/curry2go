@@ -44,20 +44,6 @@ case $1 in
   cypm | frontend ) check_and_exec_tool ${1+"$@"} ;;
 esac
 
-# Check whether we should call CPM to compute the correct load path:
-WHICHCPM=`which cypm`
-if [ ! -d "$HOME" ] ; then
-  USECPM=no   # do not use CPM without a home directory
-elif [ -x $CPMBIN/cypm ] ; then
-  CYPMBIN=$CPMBIN/cypm
-  USECPM=yes
-elif [ -x "$WHICHCPM" ] ; then
-  CYPMBIN=$WHICHCPM
-  USECPM=yes
-else
-  USECPM=no
-fi
-
 # Use readline wrapper rlwrap for REPL if rlwrap exists,
 # we have tty as stdin, and we have a home dir to store rlwrap's history:
 USERLWRAP=no
@@ -68,19 +54,54 @@ if tty -s ; then
   fi
 fi
 
-QUIET=no
+QUIET=no    # quiet, i.e., no messages from this script?
+USECPM=yes  # should we call CPM to compute the correct load path?
+BINCYPM=no  # try to use local version of CPM?
 
-# check arguments for appropriate settings:
+# check and remove arguments that should not be passed to the REPL:
+for arg do
+  shift
+  case $arg in
+    --bincypm     ) BINCYPM=yes  ;;
+    --anycypm     ) BINCYPM=no   ;;
+    --nocypm | -n ) USECPM=no    ;;
+    --noreadline  ) USERLWRAP=no ;;
+    *             ) set -- "$@" "$arg" ;;
+  esac
+done
+#echo "ARGUMENTS PASSED TO REPL:"
+#printf '%s\n' "$@"
+
+# check REPL arguments that are relevant for this shell script:
 for i in $* ; do
   case $i in
     --help | -h | -\? ) USECPM=no ;;
     --version | -V    ) USECPM=no ;;
     --numeric-version | --compiler-name | --base-version ) USECPM=no ;;
-    --nocypm | -n     ) USECPM=no ;;
     --quiet  | -q     ) QUIET=yes ;;
-    --noreadline      ) USERLWRAP=no
   esac
 done
+
+CYPMBIN=
+# if USECPM=yes, set variable CYPMBIN to the binary of CPM
+if [ $USECPM = yes ] ; then
+  if [ ! -d "$HOME" ] ; then      # do not use CPM without a home directory
+    CYPMBIN=
+  else
+    if [ $BINCYPM = yes ] ; then
+      CYPMBIN=$CURRY2GOBIN/cypm  # try to use local binary of CPM
+    fi
+    if [ ! -x "$CYPMBIN" ] ; then
+      CYPMBIN=$CPMBIN/cypm       # try to use ~/.cpm/bin/cypm
+    fi
+    if [ ! -x "$CYPMBIN" ] ; then
+      WHICHCPM=`which cypm`      # try to use another binary of CPM in the path
+      if [ -x "$WHICHCPM" ] ; then
+        CYPMBIN=$WHICHCPM
+      fi
+    fi
+  fi
+fi
 
 REPL="$CURRY2GOHOME/bin/curry2goi"
 if [ ! -x "$REPL" ] ; then
@@ -92,11 +113,7 @@ fi
 # Title/version of CPM passed to Curry2Go:
 CPMVERSION=
 
-if [ $USECPM = yes ] ; then
-  CPMVERSION=`"$CYPMBIN" -V`
-  if [ $? -gt 0 ] ; then
-    CPMVERSION=
-  fi
+if [ -n "$CYPMBIN" ] ; then
   # set CURRYPATH with 'deps' command of CPM
   if [ $QUIET = no ] ; then
     echo "Compute CURRYPATH with '$CYPMBIN'..."
@@ -112,6 +129,11 @@ if [ $USECPM = yes ] ; then
     CURRYPATH=$CPMPATH
   fi
   export CURRYPATH
+  # set version string of CPM
+  CPMVERSION=`"$CYPMBIN" -V`
+  if [ $? -gt 0 ] ; then
+    CPMVERSION=
+  fi
 fi
 
 # delete possible remaining Maincurry2go files if their processes do not exist:
