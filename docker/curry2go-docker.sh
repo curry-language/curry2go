@@ -39,9 +39,6 @@ if [ $# -gt 1 -a "$1" = "-t" ] ; then
   shift ; DOCKERTAG=$1 ; shift
 fi
 
-# Options when the REPL is invoked:
-REPLOPTS="--bincypm"
-
 # check whether an installed tool should be invoked:
 case $1 in
   curry2go          ) shift ;;
@@ -51,8 +48,7 @@ case $1 in
 esac
 
 if [ -n "$ENTRYPOINT" ] ; then
-  REPLOPTS=
   DOCKEROPTS="$DOCKEROPTS --entrypoint=$ENTRYPOINT"
 fi
 
-docker run $DOCKEROPTS $DOCKERTAG $REPLOPTS ${1+"$@"}
+docker run $DOCKEROPTS $DOCKERTAG ${1+"$@"}

@@ -57,9 +57,10 @@ ENV PATH /curry2go/cpm/bin:$PATH
 # make tool files readable
 RUN chmod -R go+rX /curry2go/cpm/app_packages
 
-# install a patched version of bin/curry2go
-# (necessary due to aynchronous terminal setting problems with rlwrap/docker,
-# see https://github.com/moby/moby/issues/28009)
+# install a patched version of bin/curry2go,
+# which has option --bincypm as default and is
+# necessary due to aynchronous terminal setting problems with rlwrap/docker,
+# see https://github.com/moby/moby/issues/28009
 COPY curry2go.sh /curry2go/Curry2Go/bin/curry2go
 RUN chmod 755 /curry2go/Curry2Go/bin/curry2go
 
