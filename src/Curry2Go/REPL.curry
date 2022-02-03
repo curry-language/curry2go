@@ -2,7 +2,7 @@
 --- A REPL for the Curry->Go compiler based on the universal REPL.
 ---
 --- @author  Michael Hanus
---- @version October 2021
+--- @version February 2022
 ------------------------------------------------------------------------------
 
 module Curry2Go.REPL where
@@ -34,6 +34,12 @@ c2go c2goDir cmpdate = CCDescription
   lowerCompilerName          -- the compiler name
   (compilerMajorVersion, compilerMinorVersion, compilerRevisionVersion)
   (c2goBanner cmpdate)       -- the banner
+  -- description of specific REPL options:
+  [ ("-n|--nocypm",
+     "do not invoke `cypm' to compute package load path")
+  , ("--noreadline",
+     "do not use input line editing via command `rlwrap'")
+  ]
   c2goDir                    -- home directory of the compiler
   "info@curry-lang.org"      -- contact email
   frontendpath               -- executable of the Curry front end
