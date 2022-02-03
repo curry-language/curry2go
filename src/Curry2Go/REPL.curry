@@ -37,6 +37,10 @@ c2go c2goDir cmpdate = CCDescription
   -- description of specific REPL options:
   [ ("-n|--nocypm",
      "do not invoke `cypm' to compute package load path")
+  , ("--bincypm",
+     "if 'cypm' should be invoked, try to use\n'" ++ c2goDir ++ "'")
+  , ("--anycypm",
+     "try to use another binary of 'cypm'")
   , ("--noreadline",
      "do not use input line editing via command `rlwrap'")
   ]

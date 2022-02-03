@@ -224,7 +224,7 @@ $(TARFILE):
 # Clean all files that should not be included in a distribution
 .PHONY: cleandist
 cleandist:
-	$(RM) -rf .git .gitignore .cpm src/.curry
+	$(RM) -rf .git .gitignore .cpm src/.curry docker
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
