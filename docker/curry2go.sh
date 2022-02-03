@@ -56,14 +56,11 @@ fi
 
 QUIET=no    # quiet, i.e., no messages from this script?
 USECPM=yes  # should we call CPM to compute the correct load path?
-BINCYPM=yes # try to use local version of CPM?
 
 # check and remove arguments that should not be passed to the REPL:
 for arg do
   shift
   case $arg in
-    --bincypm     ) BINCYPM=yes  ;;
-    --anycypm     ) BINCYPM=no   ;;
     --nocypm | -n ) USECPM=no    ;;
     --noreadline  ) USERLWRAP=no ;;
     *             ) set -- "$@" "$arg" ;;
@@ -87,18 +84,14 @@ CYPMBIN=
 if [ $USECPM = yes ] ; then
   if [ ! -d "$HOME" ] ; then      # do not use CPM without a home directory
     CYPMBIN=
+  elif [ -x "$CURRY2GOBIN/cypm" ] ; then
+    CYPMBIN=$CURRY2GOBIN/cypm  # use local binary of CPM
+  elif [ -x "$CPMBIN/cypm" ] ; then
+    CYPMBIN=$CPMBIN/cypm       # use ~/.cpm/bin/cypm
   else
-    if [ $BINCYPM = yes ] ; then
-      CYPMBIN=$CURRY2GOBIN/cypm  # try to use local binary of CPM
-    fi
-    if [ ! -x "$CYPMBIN" ] ; then
-      CYPMBIN=$CPMBIN/cypm       # try to use ~/.cpm/bin/cypm
-    fi
-    if [ ! -x "$CYPMBIN" ] ; then
-      WHICHCPM=`which cypm`      # try to use another binary of CPM in the path
-      if [ -x "$WHICHCPM" ] ; then
-        CYPMBIN=$WHICHCPM
-      fi
+    WHICHCPM=`which cypm`  
+    if [ -x "$WHICHCPM" ] ; then
+      CYPMBIN=$WHICHCPM        # use another binary of CPM in the load path
     fi
   fi
 fi
