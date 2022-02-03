@@ -38,7 +38,7 @@ c2go c2goDir cmpdate = CCDescription
   [ ("-n|--nocypm",
      "do not invoke `cypm' to compute package load path")
   , ("--bincypm",
-     "if 'cypm' should be invoked, try to use\n'" ++ c2goDir ++ "'")
+     "if 'cypm' should be invoked, try to use\n'" ++ c2goDir ++ "/bin/cypm'")
   , ("--anycypm",
      "try to use another binary of 'cypm'")
   , ("--noreadline",
