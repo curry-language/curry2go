@@ -4,7 +4,7 @@ Installation of Curry2Go
 Requirements
 ------------
 
-An installation of Go (version 1.13 to 1.16) is necessary,
+An installation of Go (version 1.13 or newer) is necessary,
 which can be downloaded from <https://golang.org/>.
 
 
