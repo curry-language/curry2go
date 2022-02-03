@@ -54,9 +54,9 @@ if tty -s ; then
   fi
 fi
 
-QUIET=no
-USECPM=yes # should we call CPM to compute the correct load path?
-BINCYPM=no
+QUIET=no    # quiet, i.e., no messages from this script?
+USECPM=yes  # should we call CPM to compute the correct load path?
+BINCYPM=yes # try to use local version of CPM?
 
 # check and remove arguments that should not be passed to the REPL:
 for arg do
@@ -87,14 +87,18 @@ CYPMBIN=
 if [ $USECPM = yes ] ; then
   if [ ! -d "$HOME" ] ; then      # do not use CPM without a home directory
     CYPMBIN=
-  elif [ $BINCYPM = yes ] ; then  # use local binary of CPM
-    CYPMBIN=$CURRY2GOBIN/cypm
-  elif [ -x $CPMBIN/cypm ] ; then # use ~/.cpm/bin/cypm
-    CYPMBIN=$CPMBIN/cypm
-  else                            # use another binary of CPM
-    WHICHCPM=`which cypm`
-    if [ -x "$WHICHCPM" ] ; then
-      CYPMBIN=$WHICHCPM
+  else
+    if [ $BINCYPM = yes ] ; then
+      CYPMBIN=$CURRY2GOBIN/cypm  # try to use local binary of CPM
+    fi
+    if [ ! -x "$CYPMBIN" ] ; then
+      CYPMBIN=$CPMBIN/cypm       # try to use ~/.cpm/bin/cypm
+    fi
+    if [ ! -x "$CYPMBIN" ] ; then
+      WHICHCPM=`which cypm`      # try to use another binary of CPM in the path
+      if [ -x "$WHICHCPM" ] ; then
+        CYPMBIN=$WHICHCPM
+      fi
     fi
   fi
 fi
