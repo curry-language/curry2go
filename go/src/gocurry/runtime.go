@@ -557,7 +557,9 @@ func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, 
                 var answer string
                 fmt.Scanf("%s", &answer)
 
-                if(answer[0] == 'y'){
+                if(len(answer) == 0) {
+                    fmt.Print("Please answer with (y)es or (n)o: ")
+                } else if(answer[0] == 'y'){
                     // continue with search
                     break
                 } else if (answer[0] == 'n') {
@@ -566,7 +568,7 @@ func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, 
                 } else{
                     // print error message
                     fmt.Printf("Invalid anwer: %s\n", answer)
-                    fmt.Println("Please answer with 'y' or 'n' (yes|no).")
+                    fmt.Print("Please answer with (y)es or (n)o: ")
                 }
             }
         }
