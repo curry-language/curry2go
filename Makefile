@@ -274,7 +274,7 @@ $(TARFILE):
 cleandist:
 	$(RM) -rf .git .gitignore .cpm src/.curry docker
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
-	$(RM) -f $(VALIDCURRY) $(CPMDEPS)
+	$(RM) -rf $(MKTMPDIR)
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
 ##############################################################################
