@@ -191,6 +191,12 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             // check for special inputs
             if(len(input_split) != 0){
                 if(input_split[0] == "all"){
+                    // check if fair search is active
+                    if(!fair_search){
+                        fmt.Println("'all' modifier is only available during fair search.")
+                        continue
+                    }
+                    
                     // parse all modifier
                     data = getDebugValues()
                     input_split = input_split[1:]
@@ -199,6 +205,12 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                     _, err := strconv.Atoi(input_split[0])
                     
                     if(err == nil){
+                        // check if fair search is active
+                        if(!fair_search){
+                            fmt.Println("Executing specific tasks is only available during fair search.")
+                            continue
+                        }
+                        
                         // execute step on specified tasks
                         data = data[:0]
                         for _, arg := range(input_split){
@@ -351,12 +363,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 }
                 
                 // parse argument
-                n, err := strconv.Atoi(args[0])
-                            
-                if(err != nil){
-                    fmt.Println(err.Error())
-                    continue
-                }
+                _, n := parseTask(args[0])
                 
                 // switch current task
                 cur_task = n
@@ -410,28 +417,30 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             for{
                 d.last_event = <- d.event_chan
                 
-                // continue on split action
+                // handle split action
                 if(d.last_event.action == DebugSplit){
-                    if(!view){
-                        fmt.Println(d.last_event.text)
-                    }
                     
-                    continue
-                }
-                
-                // continue on switch action
-                if(d.last_event.action == DebugSwitch){
-                    if(!view){
-                        fmt.Println(d.last_event.text)
-                    }
-                    
-                    // remap tasks if fair search
+                    // check for fair search
                     if(fair_search){
+                        // print split event in single task view for the current task
+                        if(!view && cur_task == d.task.parents[len(d.task.parents) - 1]){
+                            fmt.Println(d.last_event.text)
+                        }
+                        
+                        // remap tasks
                         debug_map[d.task.id] = d
                         delete(debug_map, d.task.parents[len(d.task.parents) - 1])
-                        cur_task = d.task.id
+                        
+                        // change current task
+                        if(cur_task == d.task.parents[len(d.task.parents) - 1]){
+                            cur_task = d.task.id
+                        }
+                    } else{
+                        // print split event
+                        fmt.Println(d.last_event.text)
                     }
                     
+                    // pull next event
                     continue
                 }
                 
@@ -598,8 +607,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                     count := <- taskCount
                     taskCount <- count + 2
                     
-                    event_chan <- DebugEvent{DebugSplit,
-                        fmt.Sprintf("Splitting task %d into tasks %d & %d.", task.id, count + 1, count + 2)}
+                    old_id := task.id
                     
                     // update task
                     task.parents = append(task.parents, task.id)
@@ -629,7 +637,9 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                         *task = <- queue
                     }
                     
-                    event_chan <- DebugEvent{DebugSwitch, fmt.Sprintf("Continuing with task %d.", task.id)}
+                    event_chan <- DebugEvent{DebugSplit,
+                        fmt.Sprintf("Splitting task %d into tasks %d & %d.\nContinuing with task %d.",
+                            old_id, task.id, new_task.id, task.id)}
 
                     // append new task to queue
                     queue <- new_task
