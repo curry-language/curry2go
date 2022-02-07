@@ -24,7 +24,7 @@ import Curry2Go.PkgConfig   ( packageVersion )
 main :: IO ()
 main = do
   c2godir <- curry2GoHomeDir
-  cmpdate <- readFile (c2godir </> "COMPDATE") >>= return . head . lines
+  cmpdate <- readFile (c2godir </> "COMPILERDATE") >>= return . head . lines
   mainREPL (c2go c2godir cmpdate)
 
 --- Specification of the Curry2Go compiler (paramterized over the
