@@ -10,8 +10,9 @@ import "sort"
 // Text containing help information
 const helpText = "General commands:\n" +
                  "  <return>: evaluate a single program step\n" +
+                 "  (a)bort:  abort the program\n" +
                  "  fail:     fail the current task\n" +
-                 "  help:     display help text\n" +
+                 "  (h)elp:   display help text\n" +
                  "  task:     display information about the current task\n" +
                  "Fair search commands:\n" +
                  "  <cmd> <n>:  execute the general command <cmd> on all specified tasks \n" +
@@ -252,6 +253,8 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             args := input_split[1:]
             
             switch command{
+            case "a", "abort":
+                return
             case "fail":
                 // check if task ids were provided
                 if(len(args) != 0){
