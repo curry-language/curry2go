@@ -54,17 +54,16 @@ type DebugData struct{
 
 // Prints information about a task
 func printTask(task *Task){
-    fmt.Printf("Id: %d\n", task.id)
-    fmt.Printf("Parents: %v\n", task.parents)
-    fmt.Printf("Fingerprint: %v\n", task.fingerprint)
-    fmt.Printf("Bindings:\n")
+    fmt.Printf("Task %d:\n", task.id)
+    fmt.Printf("  Parents: %v\n", task.parents)
+    fmt.Printf("  Fingerprint: %v\n", task.fingerprint)
+    fmt.Printf("  Bindings:\n")
     for _, v := range(debug_varList){
         node, ok := v.GetTr(task.id, task.parents)
         if(ok){
-            fmt.Printf("  %s -> %s\n", ShowResult(v), ShowResult(node))
+            fmt.Printf("    %s -> %s\n", ShowResult(v), ShowResult(node))
         }
     }
-    fmt.Println("")
 }
 
 // Returns a sorted list of the keys of the debugging map
@@ -109,14 +108,14 @@ func parseTask(arg string) (*DebugData, int){
     n, err := strconv.Atoi(arg)
                 
     if(err != nil){
-        fmt.Println(err.Error() + "\n")
+        fmt.Println(err.Error())
         return nil, -1
     }
     
     // retrieve the task data from the debugging map
     d, ok := debug_map[n]
     if(!ok){
-        fmt.Printf("Task %d does not exist.\n\n", n)
+        fmt.Printf("Task %d does not exist.\n", n)
         return nil, n
     }
     
@@ -215,7 +214,6 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                         }
                         
                         input_split = input_split[:0]
-                        fmt.Println("")
                     }
                 }
             }
@@ -243,13 +241,11 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             
             switch command{
             case "fail":
-                fmt.Println("")
-                
                 // check if task ids were provided
                 if(len(args) != 0){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("Failing specific tasks is only available during fair search.\n")
+                        fmt.Println("Failing specific tasks is only available during fair search.")
                         continue
                     }
                     
@@ -284,13 +280,13 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 break CmdLoop
             case "h", "help":
                 // print help text
-                fmt.Println(helpText)
+                fmt.Print(helpText)
             case "task":
                 // check if task ids were provided
                 if(len(args) != 0){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("Printing specific tasks is only available during fair search.\n")
+                        fmt.Println("Printing specific tasks is only available during fair search.")
                         continue
                     }
                     
@@ -316,18 +312,16 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "ensemble":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.\n")
+                    fmt.Println("Command only available during fair search.")
                     continue
                 }
                 
                 // toggle 'ensemble' flag
                 ensemble = !ensemble
-                
-                fmt.Println("")
             case "list":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.\n")
+                    fmt.Println("Command only available during fair search.")
                     continue
                 }
                 
@@ -335,29 +329,24 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 for k := range debug_map{
                     fmt.Println(k)
                 }
-                
-                fmt.Println("")
             case "pull":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.\n")
+                    fmt.Println("Command only available during fair search.")
                     continue
                 }
-                
-                fmt.Println("")
-                
                 // move to apply loop
                 goto ApplyLoop
             case "select": 
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.\n")
+                    fmt.Println("Command only available during fair search.")
                     continue
                 }
                 
                 // check if id was provided
                 if(len(args) == 0){
-                    fmt.Println("Select expects a task id as argument.\n")
+                    fmt.Println("Select expects a task id as argument.")
                     continue
                 }
                 
@@ -365,27 +354,24 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 n, err := strconv.Atoi(args[0])
                             
                 if(err != nil){
-                    fmt.Println(err.Error() + "\n")
+                    fmt.Println(err.Error())
                     continue
                 }
                 
                 // switch current task
                 cur_task = n
-                fmt.Println("")
             case "view":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.\n")
+                    fmt.Println("Command only available during fair search.")
                     continue
                 }
                 
                 // toggle 'view' flag
                 view = !view
-                
-                fmt.Println("")
             default:
                 // print invalid command message
-                fmt.Println("Invalid Command: " + command + "\n")
+                fmt.Println("Invalid Command: " + command)
             }
         }
         
