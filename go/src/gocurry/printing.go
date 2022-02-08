@@ -31,6 +31,16 @@ func ShowString(node *Node) string{
     return builder.String()
 }
 
+func isListComplete(node *Node) bool{
+    if(node.GetName() == ":"){
+        return isListComplete(node.Children[1])
+    }else if(node.GetName() == "[]"){
+        return true
+    } else{
+        return false
+    }
+}
+
 func showResult(node *Node, builder *strings.Builder){
     
     // test if node is a constructor
@@ -50,21 +60,28 @@ func showResult(node *Node, builder *strings.Builder){
 
         // test if node is a list
         if(node.GetName() == ":"){
+            if(isListComplete(node)){
+                // test if the list is a string
+                if(node.GetChild(0).IsCharLit()){
+                    // show string
+                    builder.WriteByte('"')
+                    showString(node, builder)
+                    builder.WriteByte('"')
+                    return
+                }
 
-            // test if the list is a string
-            if(node.GetChild(0).IsCharLit()){
-                // show string
-                builder.WriteByte('"')
-                showString(node, builder)
-                builder.WriteByte('"')
+                // show list
+                builder.WriteByte('[')
+                showList(node, builder)
+                builder.WriteByte(']')
+                return
+            } else{
+                // show ':' infix
+                showChildNode(node.Children[0], builder)
+                builder.WriteString(" " + showNode(node) + " ")
+                showChildNode(node.Children[1], builder)
                 return
             }
-
-            // show list
-            builder.WriteByte('[')
-            showList(node, builder)
-            builder.WriteByte(']')
-            return
         }
 
         // test if node is a tupel
@@ -87,6 +104,23 @@ func showResult(node *Node, builder *strings.Builder){
             builder.WriteByte(')')
             return
         }
+    }else if(node.IsChoice()){
+        // show choice nodes infix
+        showChildNode(node.Children[0], builder)
+        builder.WriteString(" " + showNode(node) + " ")
+        showChildNode(node.Children[1], builder)
+        return
+    }else if(node.IsFcall()){
+        // handle infix operators
+        switch node.GetName(){
+        case ".", "!!" , "++", "&&", "||", "&", "&>", "$", "$!", "$!!", "$#", "$##":
+            if(len(node.Children) == 2){
+                showChildNode(node.Children[0], builder)
+                builder.WriteString(" " + showNode(node) + " ")
+                showChildNode(node.Children[1], builder)
+                return
+            }
+        }
     }
     
     // show node
@@ -95,29 +129,33 @@ func showResult(node *Node, builder *strings.Builder){
     // show children of node
     for i := 0; i < len(node.Children); i++ {
         builder.WriteByte(' ')
-        if(len(node.Children[i].Children) > 0){
-            // do not use parenthesis with lists and tupels
-            if(node.Children[i].IsConst()){
-                if(node.Children[i].GetName() == ":" || node.Children[i].GetName() == "[]"){
-                    showResult(node.Children[i], builder)
-                    continue
-                }
-                
-                isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.Children[i].GetName())
-                if(isTupel){
-                    showResult(node.Children[i], builder)
-                    continue
-                }
-            }
-        
-            builder.WriteByte('(')
-            showResult(node.Children[i], builder)
-            builder.WriteByte(')')
-        } else{
-            showResult(node.Children[i], builder)
-        }
+        showChildNode(node.Children[i], builder)
     }
     return
+}
+
+func showChildNode(node *Node, builder *strings.Builder){
+    if(len(node.Children) > 0){
+        // do not use parenthesis with lists and tupels
+        if(node.IsConst()){
+            if((node.GetName() == ":" && isListComplete(node)) || node.GetName() == "[]"){
+                showResult(node, builder)
+                return
+            }
+            
+            isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
+            if(isTupel){
+                showResult(node, builder)
+                return
+            }
+        }
+    
+        builder.WriteByte('(')
+        showResult(node, builder)
+        builder.WriteByte(')')
+    } else{
+        showResult(node, builder)
+    }
 }
 
 func showString(node *Node, builder *strings.Builder){
