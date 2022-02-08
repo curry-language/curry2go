@@ -48,22 +48,27 @@ Note that the front-end build requires
 [Haskell stack v2.x](http://www.haskellstack.org/).
 
 
-Installation with an existing Curry system and CPM
---------------------------------------------------
+Installation from the sources with an existing Curry system and CPM
+-------------------------------------------------------------------
 
-If you have already another Curry system (e.g., PAKCS) and CPM
-installed (i.e., the executable `cypm` must be in your path),
-you can install Curry2Go with this Curry system. To do so,
-run the following commands to clone the Curry2Go repository
+If you have already another Curry system (e.g., PAKCS) and
+the [Curry Package Manager CPM](http://www.curry-lang.org/tools/cpm)
+installed (e.g., the executable `cypm` is on your path),
+you can install Curry2Go from the sources with this Curry system.
+To do so, run the following commands to clone the Curry2Go repository
 and install Curry2Go (where the definition of the parameter
-`CURRYSYSTEM` must be set according to the installation of
+`CURRY` must be set according to the installation of
 the Curry system):
 
     > git clone https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
     > cd curry2go
-    > make CURRYSYSTEM=/usr/local/pakcs/bin/pakcs bootstrap
+    > make CURRY=/usr/local/pakcs/bin/pakcs bootstrap
 
-Then add `.../curry2go/bin` to your path to start the Curry2Go REPL
+If the executable `cypm` is not on your path, you can also explicitly
+define it with the parameter `CPM=.../cypm`.
+
+After the successful bootstrapping, which takes some time,
+add `.../curry2go/bin` to your path to start the Curry2Go REPL
 by the command
 
     > curry2go

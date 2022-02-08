@@ -1,22 +1,34 @@
 # Makefile to install all components of the Curry2Go compiler
 
-# The name of a Curry system used for generating the initial compiler
-# (we try PAKCS if this parameter is not explicitly set)
-export CURRYSYSTEM := $(shell which pakcs)
-
-# Should the front end be built from the front-end repository sources?
-export BUILDFRONTEND = no
-
 # The root directory of the installation
 export ROOT = $(CURDIR)
 # The binary directory
 export BINDIR = $(ROOT)/bin
+
+# The name of a Curry system used for generating the initial compiler
+# (we try PAKCS if this parameter is not explicitly set)
+ifneq ($(CURRY),)
+export CURRYSYSTEM := $(shell which $(CURRY))
+else ifneq ($(wildcard $(BINDIR)/curry2goi),)
+export CURRYSYSTEM := $(BINDIR)/curry2go
+else
+export CURRYSYSTEM := $(shell which pakcs)
+endif
+
+# The CPM executable
+ifneq ($(wildcard $(BINDIR)/cypm),)
+export CPM := $(BINDIR)/cypm
+else
+export CPM := $(shell which cypm)
+endif
+
+# Should the front end be built from the front-end repository sources?
+export BUILDFRONTEND = no
+
 # Directory where local executables are stored
 export LOCALBIN = $(BINDIR)/.local
 # Directory where the actual libraries are located
 export LIBDIR = $(ROOT)/lib
-# The CPM executable
-CPMBIN=cypm
 
 # set GOPATH to directory containing run-time auxiliaries
 export GOPATH=$(ROOT)/go
@@ -24,9 +36,12 @@ export GOPATH=$(ROOT)/go
 export GO111MODULE=auto
 
 # CPM with compiler specified by CURRYSYSTEM
-CPM = $(CPMBIN) -d CURRYBIN=$(CURRYSYSTEM)
-# CPM with Curry2Go compiler
-CPMC2G = $(CPMBIN) -d CURRYBIN=$(BINDIR)/curry2go
+CPMCURRY = $(CPM) -d CURRYBIN=$(CURRYSYSTEM)
+# CPM with local Curry2Go compiler
+CPMLOCAL = $(CPM) -d CURRYBIN=$(BINDIR)/curry2go
+
+# The frontend of Curry2Go
+CURRY2GOFRONTEND=$(BINDIR)/curry2go-frontend
 
 # The generated compiler executable
 COMPILER=$(BINDIR)/curry2goc
@@ -38,67 +53,94 @@ REPL=$(BINDIR)/curry2goi
 RM=/bin/rm
 
 # The Go implementation of the base module Curry.Compiler.Distribution
-COMPDISTGO=lib/Curry/Compiler/Distribution_external.go
+COMPDISTGO = lib/Curry/Compiler/Distribution_external.go
 
 # The file containing the compiler date
-COMPDATEFILE=COMPDATE
+COMPILERDATE = COMPILERDATE
+
+# Directory for auxiliary files for the make process
+MKTMPDIR = $(ROOT)/tmpmake
+# Dummy file to track installation of CPM dependencies
+CPMDEPS = $(MKTMPDIR)/CPMDEPSINSTALLED
+# Dummy file indicating that a valid Curry system is defined
+VALIDCURRY = $(MKTMPDIR)/VALIDCURRYSYSTEM
+# Clean possible old info about the Curry system
+$(shell $(RM) -f $(VALIDCURRY))
 
 ###############################################################################
 # Installation
 
 # Install the Curry2Go system (compiler and REPL) with CURRYSYSTEM
 .PHONY: install
-install: checkcurrysystem
-	$(CPM) install --noexec
+install: $(CPMDEPS)
 	$(MAKE) kernel
+
+# Checks validity of variable CURRYSYSTEM
+$(VALIDCURRY): | $(MKTMPDIR)
+ifeq ($(CURRYSYSTEM),)
+	$(error No Curry system found! Please make sure that 'pakcs' is on your PATH or specify a Curry system by passing 'make CURRY=...')
+else
+	@echo $(CURRYSYSTEM) > $(VALIDCURRY)
+endif
+
+# Creates directory for auxiliary files for the make process
+$(MKTMPDIR):
+	mkdir -p $@
+
+# Installs the dependencies from Curry packages by CPM
+.PHONY: deps
+deps: $(CPMDEPS)
+
+# Updates the dependencies installed by CPM
+.PHONY: updatedeps
+updatedeps:
+	$(MAKE) cleandeps
+	$(MAKE) $(CPMDEPS)
+
+$(CPMDEPS): | $(VALIDCURRY) $(MKTMPDIR)
+	$(CPMCURRY) update
+	$(CPMCURRY) install --noexec
+	@touch $@
 
 # Install the kernel of Curry2Go (compiler and REPL) with CURRYSYSTEM
 # without installing all packages
 .PHONY: kernel
-kernel: checkcurrysystem
+kernel:
 	$(MAKE) scripts
 	$(MAKE) frontend
-	$(MAKE) $(COMPDATEFILE)
+	$(MAKE) $(COMPILERDATE)
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
 
-# Check validity of variable CURRYSYSTEM
-.PHONY: checkcurrysystem
-checkcurrysystem:
-ifneq ($(shell test -f "$(CURRYSYSTEM)" -a -x "$(CURRYSYSTEM)" ; echo $$?),0)
-	@echo "'$(CURRYSYSTEM)' is not an executable!"
-	@echo "Please redefine variable CURRYSYSTEM in Makefile!"
-	@exit 1
-endif
-
 # Build the compiler
 .PHONY: compiler
-compiler: checkcurrysystem $(COMPILER)
+compiler: $(COMPILER)
 
 $(COMPILER): src/CompilerStructure.curry src/Curry2Go/Compiler.curry \
              src/Curry2Go/Main.curry src/Curry2Go/InstallPath.curry \
-	     src/Curry2Go/*Config.curry
-	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
+	     src/Curry2Go/*Config.curry | $(VALIDCURRY)
+	$(CPMCURRY) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 
 # Build the REPL
 .PHONY: repl
-repl: checkcurrysystem $(REPL)
+repl: $(REPL)
 
 $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/InstallPath.curry \
-	 src/Curry2Go/*Config.curry
-	$(CPM) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
+	 src/Curry2Go/*Config.curry | $(VALIDCURRY)
+	$(CPMCURRY) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
 
 # Initializing compiler date file with repository date
-$(COMPDATEFILE):
+$(COMPILERDATE):
 	git log -1 --format="%ci" | cut -c-10 > $@
 
 # Generate the implementation of externals of Curry.Compiler.Distribution
-$(COMPDISTGO): checkcurrysystem src/Install.curry src/Curry2Go/PkgConfig.curry
-	$(CPM) curry :load Install :eval main :quit
+$(COMPDISTGO): src/Install.curry src/Curry2Go/PkgConfig.curry | $(VALIDCURRY)
+	$(CPMCURRY) curry :load Install :eval main :quit
 
-# Bootstrap the system, i.e., first install the Curry2Go system (compiler and REPL)
-# with CURRYSYSTEM and then compile the compiler and REPL with installed Curry2Go compiler.
+# Bootstrap the system, i.e., first install the Curry2Go system
+# (compiler and REPL) with CURRYSYSTEM and then compile the compiler and REPL
+# with installed Curry2Go compiler.
 # Saves existing executables in $(LOCALBIN).
 .PHONY: bootstrap
 bootstrap:
@@ -106,15 +148,15 @@ bootstrap:
 	mkdir -p $(LOCALBIN)
 	cp -p $(COMPILER) $(LOCALBIN)/curry2goc
 	touch lib/Curry/Compiler/Distribution.curry # enforce recompilation
-	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
+	$(CPMLOCAL) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 	cp -p $(REPL) $(LOCALBIN)/curry2goi
-	$(CPMC2G) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
+	$(CPMLOCAL) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
 
 # install base libraries from package `base`:
 .PHONY: baselibs
 baselibs: require-jq
 	$(RM) -rf base
-	$(CPM) checkout base
+	$(CPMCURRY) checkout base
 	$(RM) -rf $(LIBDIR)
 	/bin/cp -r base/src $(LIBDIR)
 	$(JQ) -r '.version' base/package.json > $(LIBDIR)/VERSION
@@ -127,19 +169,21 @@ compilelibs:
 
 .PHONY: uninstall
 uninstall:
-	$(CPM) uninstall
+	$(CPMCURRY) uninstall
 
 # install scripts in the bin directory:
 .PHONY: scripts
 scripts:
 	$(MAKE) -C scripts all
-	cd $(BINDIR) && $(RM) -f curry curry2go-frontend
+	cd $(BINDIR) && $(RM) -f curry
 	# add alias `curry`:
 	cd $(BINDIR) && ln -s curry2go curry
 
 # install the front end:
 .PHONY: frontend
-frontend:
+frontend: $(CURRY2GOFRONTEND)
+
+$(CURRY2GOFRONTEND):
 ifeq ($(BUILDFRONTEND),yes)
 	$(MAKE) buildfrontend
 else
@@ -151,7 +195,7 @@ FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
 .PHONY: copyfrontend
 copyfrontend:
 	$(RM) -f bin/curry2go-frontend
-	cp -p $(shell $(CPM) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend bin/curry2go-frontend
+	cp -p $(shell $(CPMCURRY) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend $(CURRY2GOFRONTEND)
 
 # Build and install the Curry front end from the repository:
 FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
@@ -160,7 +204,7 @@ buildfrontend:
 	$(RM) -rf frontend bin/curry2go-frontend
 	git clone $(FRONTENDREPO) frontend
 	$(MAKE) -C frontend
-	cd bin && ln -s ../frontend/bin/curry-frontend curry2go-frontend
+	cd bin && ln -s ../frontend/bin/curry-frontend $(CURRY2GOFRONTEND)
 
 ##############################################################################
 # testing
@@ -169,8 +213,25 @@ buildfrontend:
 runtest:
 	cd examples && ./test.sh
 
+# just show some Makefile variables
+.PHONY: showvars
+showvars:
+	@echo "CURRYSYSTEM: $(CURRYSYSTEM)"
+	@echo "CPM        : $(CPM)"
+	@echo "CPMCURRY   : $(CPMCURRY)"
+	@echo "CPMLOCAL   : $(CPMLOCAL)"
+
 ##############################################################################
 # cleaning
+
+# clean the dependencies installed by CPM
+.PHONY: cleandeps
+cleandeps:
+ifneq ($(wildcard $(BINDIR)/curry2goi),)
+	$(CPMLOCAL) clean
+endif
+	$(CPMCURRY) clean
+	$(RM) -f $(CPMDEPS)
 
 # remove scripts in the bin directory:
 .PHONY: cleanscripts
@@ -181,14 +242,13 @@ cleanscripts:
 # clean compilation targets
 .PHONY: cleantargets
 cleantargets:
-	$(CPM) clean
-	$(CPMC2G) clean
-	$(RM) -rf $(LIBDIR)/.curry
-	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO) $(COMPDATEFILE)
+	$(RM) -rf $(LIBDIR)/.curry src/.curry
+	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO) $(COMPILERDATE)
+	$(RM) -rf $(MKTMPDIR)
 
 # clean all installed components
 .PHONY: clean
-clean: cleantargets cleanscripts
+clean: cleandeps cleantargets cleanscripts
 	$(RM) -rf $(BINDIR)/curry2go-frontend frontend
 
 ##############################################################################
@@ -204,13 +264,12 @@ TARFILE=curry2go.tgz
 GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
 
 # CPM with distribution compiler
-CPMDISTC2G = $(CPMBIN) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
+CPMDISTC2G = $(CPM) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
 
 # the location where the distribution is built:
 C2GDISTDIR=/tmp/Curry2Go
 
 $(TARFILE):
-	mkdir -p $(C2GDISTDIR)
 	$(RM) -rf $(C2GDISTDIR) $(TARFILE)
 	git clone $(GITURL) $(C2GDISTDIR)
 	$(MAKE) -C $(C2GDISTDIR) bootstrap
@@ -226,6 +285,7 @@ $(TARFILE):
 cleandist:
 	$(RM) -rf .git .gitignore .cpm src/.curry docker
 	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) bin/cypm
+	$(RM) -rf $(MKTMPDIR)
 	cd benchmarks && $(RM) -f bench.sh *.curry BENCHRESULTS.csv
 
 ##############################################################################
