@@ -43,6 +43,11 @@ func isListComplete(node *Node) bool{
 
 func showResult(node *Node, builder *strings.Builder){
     
+    if(node.IsRedirect()){
+        showResult(node.Children[0], builder)
+        return
+    }
+    
     // test if node is a constructor
     if(node.IsConst()){
         // test if node is IO
@@ -135,6 +140,10 @@ func showResult(node *Node, builder *strings.Builder){
 }
 
 func showChildNode(node *Node, builder *strings.Builder){
+    if(node.IsRedirect()){
+        node = node.GetChild(0)
+    }
+    
     if(len(node.Children) > 0){
         // do not use parenthesis with lists and tupels
         if(node.IsConst()){
