@@ -495,8 +495,9 @@ func nfArgs(task *Task){
 // max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
 // err_depth is the maximum number of nodes to move up the stack when prining expressions
 // in error messages.
-func Evaluate(root *Node, interactive, onlyHnf bool , search_strat SearchStrat, max_results, max_tasks, err_depth int){
+func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat SearchStrat, max_results, max_tasks, err_depth int){
 
+    debug_mode = debug
     error_depth = err_depth
 
     // initialize channels

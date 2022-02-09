@@ -33,6 +33,7 @@ data CGOptions = CGOptions
                                  -- (0: quiet, 1: status,...)
   , modName      :: String       -- used internally to track main module. not configurable
   , optCTime     :: Bool         -- print compile messages with elapsed time?
+  , optDebug     :: Bool         -- use debugging mode
   , optErrDepth  :: Int          -- depth of expressions in error messages
   , optGenMain   :: Bool         -- should a main method be generated
   , optHNF       :: Bool         -- only compute hnf
@@ -60,6 +61,7 @@ defaultCGOptions = CGOptions
   { verbosity    = 1
   , modName      = ""
   , optCTime     = False
+  , optDebug     = False
   , optErrDepth  = 0
   , optGenMain   = True
   , optHNF       = False
@@ -141,7 +143,7 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
   , GoExprStat (GoCall
     (GoOpName (runtime ++ if optTime opts then ".Benchmark" else ".Evaluate"))
     ((if optTime opts then [GoOpName "node", GoIntLit (optRuns opts)]
-                      else [GoOpName "node", GoBoolLit (optInteract opts)]) ++
+                      else [GoOpName "node", GoBoolLit (optInteract opts), GoBoolLit (optDebug opts)]) ++
      [GoBoolLit (optHNF opts), GoOpName (runtime ++ "." ++ (show (optStrat opts)))
     , GoIntLit (optResults opts), GoIntLit (optMaxTasks opts), GoIntLit (optErrDepth opts)]))])]
  | otherwise = createMainProg xs opts

@@ -505,6 +505,9 @@ options =
   , Option "" ["ctime"]
     (NoArg (\opts -> opts {optCTime = True}))
     "print compilation messages with elapsed time"
+  , Option "" ["debug"]
+    (NoArg (\opts -> opts {optDebug = True}))
+    "use debugging mode"
   , Option "" ["first"]
     (NoArg (\opts -> opts {optResults = 1}))
     "stop evaluation after the first result"
