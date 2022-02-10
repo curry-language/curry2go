@@ -11,16 +11,17 @@ import "sort"
 const helpText = "General commands:\n" +
                  "  <return>: evaluate a single program step\n" +
                  "  (a)bort:  abort the program\n" +
-                 "  fail:     fail the current task\n" +
+                 "  (e)val:   evaluate the control of the current task to normal form\n" +
+                 "  (f)ail:   fail the current task\n" +
                  "  (h)elp:   display help text\n" +
-                 "  task:     display information about the current task\n" +
+                 "  (t)ask:   display information about the current task\n" +
                  "Fair search commands:\n" +
                  "  <cmd> <n>:  execute the general command <cmd> on all specified tasks \n" +
                  "  all <cmd>:  executes the general command <cmd> on every task\n" +
                  "  ensemble:   if true general commands are executed on every task\n" +
                  "  list:       list all active task ids\n" +
                  "  pull:       check if new tasks are available\n" +
-                 "  select <n>: select task <n>\n" +
+                 "  select <n>: select task <n> (only useful if ensemble mode is off)\n" +
                  "  view:       switch between single task and ensemble view\n"
 
 // Type representing commands for tasks
@@ -93,8 +94,9 @@ func getDebugValues() []*DebugData{
     
     // loop over the map to get all the values
     i := 0
-    for _,v := range(debug_map){
-        values[i] = v
+    ids := getIds()
+    for _, id := range(ids){
+        values[i] = debug_map[id]
         i++
     }
     
@@ -109,14 +111,14 @@ func parseTask(arg string) (*DebugData, int){
     n, err := strconv.Atoi(arg)
                 
     if(err != nil){
-        fmt.Println(err.Error())
+        fmt.Println("  " + err.Error())
         return nil, -1
     }
     
     // retrieve the task data from the debugging map
     d, ok := debug_map[n]
     if(!ok){
-        fmt.Printf("Task %d does not exist.\n", n)
+        fmt.Printf("  Task %d does not exist.\n", n)
         return nil, n
     }
     
@@ -194,7 +196,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 if(input_split[0] == "all"){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("'all' modifier is only available during fair search.")
+                        fmt.Println("  'all' modifier is only available during fair search.")
                         continue
                     }
                     
@@ -208,7 +210,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                     if(err == nil){
                         // check if fair search is active
                         if(!fair_search){
-                            fmt.Println("Executing specific tasks is only available during fair search.")
+                            fmt.Println("  Executing specific tasks is only available during fair search.")
                             continue
                         }
                         
@@ -255,12 +257,78 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             switch command{
             case "a", "abort":
                 return
-            case "fail":
+            case "e", "eval":
                 // check if task ids were provided
                 if(len(args) != 0){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("Failing specific tasks is only available during fair search.")
+                        fmt.Println("  Failing specific tasks is only available during fair search.")
+                        continue
+                    }
+                    
+                    // set data to selected tasks
+                    data = data[:0]
+                    for _, arg := range(args){
+                        // get specified task
+                        d, _ := parseTask(arg)
+                        
+                        if(d == nil){
+                            continue CmdLoop
+                        }
+                        
+                        // append task to data
+                        data = append(data, d)
+                    }
+                }
+                
+                
+                
+                // save old counter values
+                old_chCount := <- choiceCount
+                choiceCount <- old_chCount
+                old_freeCount := <- freeCount
+                freeCount <- old_freeCount
+                old_taskCount := <- taskCount
+                taskCount <- old_taskCount
+                
+                // evaluate every task
+                for _, d := range(data){
+                    // skip already evaluated tasks
+                    if(d.last_event.action == DebugResult){
+                        continue
+                    }
+                    
+                    // copy control
+                    copy_control := DeepCopy(d.task.GetControl())
+                    
+                    // copy task
+                    copy_task := CreateTask(NfCreate(copy_control.NewNode(), copy_control), d.task.GetId())
+                    copy_task.SetFingerprint(d.task.GetFingerprint())
+                    copy_task.SetParents(d.task.GetParents())
+                    
+                    // evaluate task
+                    queue := make(chan Task, 1000000)
+                    toHnf(copy_task, queue, false)
+                    
+                    // print result
+                    fmt.Printf("  Task %d: " + ShowResult(copy_task.control) + "\n", d.task.id)
+                }
+                
+                // reset counters
+                <- taskCount
+                <- freeCount
+                <- choiceCount
+                taskCount <- old_taskCount
+                freeCount <- old_freeCount
+                choiceCount <- old_chCount
+                
+                continue
+            case "f", "fail":
+                // check if task ids were provided
+                if(len(args) != 0){
+                    // check if fair search is active
+                    if(!fair_search){
+                        fmt.Println("  Failing specific tasks is only available during fair search.")
                         continue
                     }
                     
@@ -296,12 +364,12 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "h", "help":
                 // print help text
                 fmt.Print(helpText)
-            case "task":
+            case "t", "task":
                 // check if task ids were provided
                 if(len(args) != 0){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("Printing specific tasks is only available during fair search.")
+                        fmt.Println("  Printing specific tasks is only available during fair search.")
                         continue
                     }
                     
@@ -327,7 +395,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "ensemble":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.")
+                    fmt.Println("  Command only available during fair search.")
                     continue
                 }
                 
@@ -336,7 +404,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "list":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.")
+                    fmt.Println("  Command only available during fair search.")
                     continue
                 }
                 
@@ -347,21 +415,21 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "pull":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.")
+                    fmt.Println("  Command only available during fair search.")
                     continue
                 }
                 // move to apply loop
                 goto ApplyLoop
-            case "select": 
+            case "select":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.")
+                    fmt.Println("  Command only available during fair search.")
                     continue
                 }
                 
                 // check if id was provided
                 if(len(args) == 0){
-                    fmt.Println("Select expects a task id as argument.")
+                    fmt.Println("  Select expects a task id as argument.")
                     continue
                 }
                 
@@ -373,7 +441,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             case "view":
                 // check if fair search is active
                 if(!fair_search){
-                    fmt.Println("Command only available during fair search.")
+                    fmt.Println("  Command only available during fair search.")
                     continue
                 }
                 
@@ -381,7 +449,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 view = !view
             default:
                 // print invalid command message
-                fmt.Println("Invalid Command: " + command)
+                fmt.Println("  Invalid Command: " + command)
             }
         }
         
