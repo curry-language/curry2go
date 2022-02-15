@@ -9,13 +9,14 @@ import "sort"
 
 // Text containing help information
 const helpText = "General commands:\n" +
-                 "  <return>: evaluate a single program step\n" +
-                 "  (a)bort:  abort the program\n" +
-                 "  (e)val:   evaluate the control of the current task to normal form\n" +
-                 "  (f)ail:   fail the current task\n" +
-                 "  (g)o <n>: execute <n> steps (use -1 or omit <n> to run untill a result is found)\n" +
-                 "  (h)elp:   display help text\n" +
-                 "  (t)ask:   display information about the current task\n" +
+                 "  <return>:  evaluate a single program step\n" +
+                 "  (a)bort:   abort the program\n" +
+                 "  depth <n>: set printing depth to <n> (-1 = infinit)\n" +
+                 "  (e)val:    evaluate the control of the current task to normal form\n" +
+                 "  (f)ail:    fail the current task\n" +
+                 "  (g)o <n>:  execute <n> steps (-1, omit <n> = run untill a result is found)\n" +
+                 "  (h)elp:    display help text\n" +
+                 "  (t)ask:    display information about the current task\n" +
                  "Fair search commands:\n" +
                  "  <cmd> <n>:    execute the general command <cmd> on all specified tasks\n" +
                  "  all <cmd>:    executes the general command <cmd> on every task\n" +
@@ -23,7 +24,7 @@ const helpText = "General commands:\n" +
                  "  hide_results: hide already printed results in ensemble view\n" +
                  "  list:         list all task ids currently in use\n" +
                  "  pull:         check if new tasks are available\n" +
-                 "  select <n>:   select task <n> (for single task view or execution)\n" +
+                 "  select <n>:   select task <n> (in single task view or execution)\n" +
                  "  view:         switch between single task and ensemble view\n"
 
 // Type representing commands for tasks
@@ -69,6 +70,16 @@ func printTask(task *Task){
             fmt.Printf("    %s -> %s\n", ShowResult(v), ShowResult(node))
         }
     }
+}
+
+func showDataEvent(data *DebugData) string{
+    if(data.last_event.action == DebugResult){
+        return "Result: " + ShowPartialNode(data.task.control, printing_depth)
+    } else if(data.last_event.action == DebugCall){
+        return "Call: " + ShowPartialNode(data.task.control, printing_depth)
+    }
+    
+    return ""
 }
 
 // Returns a sorted list of the keys of the debugging map
@@ -132,6 +143,7 @@ func parseTask(arg string) (*DebugData, int){
 var apply_chan = make(chan DebugData, 0) // channel for tasks to register for debugging
 var debug_varList = make([]*Node, 0) // list if nodes representing variables
 var debug_map = make(map[int]*DebugData) // mapping of task ids to their debugging data
+var printing_depth = -1
 
 func debugLoop(result_chan chan *Node, fair_search bool){
     var ensemble = fair_search
@@ -193,32 +205,34 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 } else{
                     data = []*DebugData{debug_map[cur_task]}
                 }
-            }
+            }    
             
             // display latest events
             if(view){
                 // print last events of all tasks
                 ids := getIds()
                 for i := 0; i < len(ids); i++{
+                    d := debug_map[ids[i]]
+                    
                     // check if keep_results is active
                     if(hide_results){
                         // skip already displayed results
-                        if(debug_map[ids[i]].done){
+                        if(d.done){
                             continue
                         }
                     }
                     
                     // print last event
-                    fmt.Printf("Task %d: " + debug_map[ids[i]].last_event.text + "\n", ids[i])
+                    fmt.Printf("Task %d: " + showDataEvent(d) + "\n", d.task.id)
                     
                     // check if task is inactive
-                    if(debug_map[ids[i]].last_event.action == DebugResult){
-                        debug_map[ids[i]].done = true
+                    if(d.last_event.action == DebugResult){
+                        d.done = true
                     }
                 }
             } else{
                 // print last event of current task
-                fmt.Print(debug_map[cur_task].last_event.text + " ")
+                fmt.Print(showDataEvent(debug_map[cur_task]) + " ")
                 
                 // check if task is inactive
                 if(debug_map[cur_task].last_event.action == DebugResult){
@@ -334,6 +348,21 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             switch command{
             case "a", "abort":
                 return
+            case "depth":
+                // check if an argument was provided
+                if(len(args) == 0){
+                    fmt.Println("  'depth' expects a number as argument")
+                }
+            
+                // parse argument
+                n, err := strconv.Atoi(args[0])
+                
+                if(err != nil){
+                    fmt.Println("  " + err.Error())
+                    continue
+                }
+                
+                printing_depth = n
             case "e", "eval":
                 // check if task ids were provided
                 if(len(args) != 0){
@@ -728,7 +757,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
             control_lock.Unlock()
             
             // log result
-            event_chan <- DebugEvent{DebugResult, "Result: " + ShowResult(task.control)}
+            event_chan <- DebugEvent{DebugResult, ""}
             
             return
         }
@@ -738,7 +767,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
         switch task.control.node_type{
         case FCALL:
             // log call
-            event_chan <- DebugEvent{DebugCall, "Call: " + ShowResult(task.control)}
+            event_chan <- DebugEvent{DebugCall, ""}
         case CONSTRUCTOR, INT_LITERAL, FLOAT_LITERAL, CHAR_LITERAL, REDIRECT, CHOICE, EXEMPT:
             skip = true
         }
@@ -944,7 +973,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                 continue
             }
             
-            event_chan <- DebugEvent{DebugResult, "Result: " + ShowResult(task.control)}
+            event_chan <- DebugEvent{DebugResult, ""}
             
             return
         case REDIRECT:
