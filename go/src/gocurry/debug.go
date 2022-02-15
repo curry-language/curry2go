@@ -13,10 +13,11 @@ const helpText = "General commands:\n" +
                  "  (a)bort:  abort the program\n" +
                  "  (e)val:   evaluate the control of the current task to normal form\n" +
                  "  (f)ail:   fail the current task\n" +
+                 "  (g)o <n>: execute <n> steps (use -1 or omit <n> to run untill a result is found)\n" +
                  "  (h)elp:   display help text\n" +
                  "  (t)ask:   display information about the current task\n" +
                  "Fair search commands:\n" +
-                 "  <cmd> <n>:  execute the general command <cmd> on all specified tasks \n" +
+                 "  <cmd> <n>:  execute the general command <cmd> on all specified tasks\n" +
                  "  all <cmd>:  executes the general command <cmd> on every task\n" +
                  "  ensemble:   if true general commands are executed on every task\n" +
                  "  list:       list all active task ids\n" +
@@ -52,6 +53,7 @@ type DebugData struct{
     task *Task
     event_chan chan DebugEvent
     cmd_chan chan DebugCmd
+    done bool
 }
 
 // Prints information about a task
@@ -134,8 +136,12 @@ func debugLoop(result_chan chan *Node, fair_search bool){
     var ensemble = fair_search
     var first = true
     var view = fair_search
+    var update_data = true
     var cur_task = 0
+    var run_steps = 0
     var data []*DebugData
+    var reader = bufio.NewReader(os.Stdin)
+    var input string
     
     // loop until done
     for{
@@ -161,14 +167,30 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             }
         }
         
+        // fair search specific conditions
+        if(fair_search){
+            // check if all tasks are done
+            done := true
+            for _, d := range getDebugValues(){
+                done = done && d.done
+            }
+            
+            // jump to ResultLoop if search appears done
+            if(done){
+                goto ResultLoop
+            }
+        }
+        
         // get input from user
         CmdLoop:
         for{
-           // get the selected task data
-            if(ensemble){
-                data = getDebugValues()
-            } else{
-                data = []*DebugData{debug_map[cur_task]}
+            if(update_data){
+                // get the selected task data
+                if(ensemble){
+                    data = getDebugValues()
+                } else{
+                    data = []*DebugData{debug_map[cur_task]}
+                }
             }
             
             // display latest events
@@ -177,18 +199,62 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 ids := getIds()
                 for i := 0; i < len(ids); i++{
                     fmt.Printf("Task %d: " + debug_map[ids[i]].last_event.text + "\n", ids[i])
+                    
+                    // check if task is inactive
+                    if(debug_map[ids[i]].last_event.action == DebugResult){
+                        debug_map[ids[i]].done = true
+                    }
                 }
             } else{
                 // print last event of current task
                 fmt.Print(debug_map[cur_task].last_event.text + " ")
+                
+                // check if task is inactive
+                if(debug_map[cur_task].last_event.action == DebugResult){
+                    debug_map[cur_task].done = true
+                }
+            }
+            
+            // check if go command is active
+            if(run_steps != 0){
+                // send step command to tasks in data
+                done := true
+                for _, d := range data{
+                    if(d.last_event.action == DebugResult){
+                        continue
+                    }
+                    
+                    done = false
+                    d.cmd_chan <- DebugStep
+                }
+                
+                // if all tasks are done in fair search, stop early
+                if(done && fair_search){
+                    run_steps = 0
+                    update_data = true
+                } else{
+                    fmt.Println("")
+                    
+                    // update step counter
+                    if(run_steps > 0){
+                        run_steps -= 1
+                        
+                        // test if go command is done
+                        if(run_steps == 0){
+                            update_data = true
+                        }
+                    }
+                    
+                    // skip rest of CmdLoop
+                    break
+                }
             }
             
             // print usage info
             fmt.Print("(RET|h)? ")
             
             // get input from user
-            reader := bufio.NewReader(os.Stdin)
-            input, _ := reader.ReadString('\n')
+            input, _ = reader.ReadString('\n')
             input_split := strings.Fields(input)
             
             // check for special inputs
@@ -262,7 +328,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 if(len(args) != 0){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("  Failing specific tasks is only available during fair search.")
+                        fmt.Println("  Evaluating specific tasks is only available during fair search.")
                         continue
                     }
                     
@@ -280,8 +346,6 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                         data = append(data, d)
                     }
                 }
-                
-                
                 
                 // save old counter values
                 old_chCount := <- choiceCount
@@ -361,6 +425,52 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                     d.cmd_chan <- DebugStep
                 }
                 break CmdLoop
+            case "g", "go":
+                // check if arguments were provided
+                if(len(args) == 0){
+                    // run forever
+                    run_steps = -1
+                } else{
+                    // parse argument
+                    n, err := strconv.Atoi(args[0])
+                    
+                    if(err != nil){
+                        fmt.Println("  " + err.Error())
+                        continue
+                    }
+                    
+                    // run n steps
+                    run_steps = n
+                }
+                
+                // check if task ids were provided
+                if(len(args) > 1){
+                    // check if fair search is active
+                    if(!fair_search){
+                        fmt.Println("  Running specific tasks is only available during fair search.")
+                        run_steps = 0
+                        continue
+                    }
+                    
+                    // set data to selected tasks
+                    data = data[:0]
+                    args = args[1:]
+                    for _, arg := range(args){
+                        // get specified task
+                        d, _ := parseTask(arg)
+                        
+                        if(d == nil){
+                            run_steps = 0
+                            continue CmdLoop
+                        }
+                        
+                        // append task to data
+                        data = append(data, d)
+                    }
+                    
+                    // keep the same data over multiple steps
+                    update_data = false
+                }
             case "h", "help":
                 // print help text
                 fmt.Print(helpText)
@@ -480,7 +590,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                     break
                 }
                 
-                // skipt already finished task in fair search
+                // skip already finished task in fair search
                 continue
             }
             
