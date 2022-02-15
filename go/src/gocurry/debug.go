@@ -17,13 +17,14 @@ const helpText = "General commands:\n" +
                  "  (h)elp:   display help text\n" +
                  "  (t)ask:   display information about the current task\n" +
                  "Fair search commands:\n" +
-                 "  <cmd> <n>:  execute the general command <cmd> on all specified tasks\n" +
-                 "  all <cmd>:  executes the general command <cmd> on every task\n" +
-                 "  ensemble:   if true general commands are executed on every task\n" +
-                 "  list:       list all active task ids\n" +
-                 "  pull:       check if new tasks are available\n" +
-                 "  select <n>: select task <n> (only useful if ensemble mode is off)\n" +
-                 "  view:       switch between single task and ensemble view\n"
+                 "  <cmd> <n>:    execute the general command <cmd> on all specified tasks\n" +
+                 "  all <cmd>:    executes the general command <cmd> on every task\n" +
+                 "  ensemble:     if true general commands are executed on every task\n" +
+                 "  hide_results: hide already printed results in ensemble view\n" +
+                 "  list:         list all task ids currently in use\n" +
+                 "  pull:         check if new tasks are available\n" +
+                 "  select <n>:   select task <n> (for single task view or execution)\n" +
+                 "  view:         switch between single task and ensemble view\n"
 
 // Type representing commands for tasks
 type DebugCmd uint8
@@ -136,6 +137,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
     var ensemble = fair_search
     var first = true
     var view = fair_search
+    var hide_results = false
     var update_data = true
     var cur_task = 0
     var run_steps = 0
@@ -198,6 +200,15 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 // print last events of all tasks
                 ids := getIds()
                 for i := 0; i < len(ids); i++{
+                    // check if keep_results is active
+                    if(hide_results){
+                        // skip already displayed results
+                        if(debug_map[ids[i]].done){
+                            continue
+                        }
+                    }
+                    
+                    // print last event
                     fmt.Printf("Task %d: " + debug_map[ids[i]].last_event.text + "\n", ids[i])
                     
                     // check if task is inactive
@@ -511,6 +522,13 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 
                 // toggle 'ensemble' flag
                 ensemble = !ensemble
+            case "hide_results":
+                if(!fair_search){
+                    fmt.Println("  Command only available during fair search.")
+                    continue
+                }
+                
+                hide_results = !hide_results
             case "list":
                 // check if fair search is active
                 if(!fair_search){
