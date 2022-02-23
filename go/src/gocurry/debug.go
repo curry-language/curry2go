@@ -11,7 +11,7 @@ import "sort"
 const helpText = "General commands:\n" +
                  "  <return>:  evaluate a single program step\n" +
                  "  (a)bort:   abort the program\n" +
-                 "  depth <n>: set printing depth to <n> (-1 = infinit)\n" +
+                 "  depth <n>: set printing depth to <n> (-1 = infinite)\n" +
                  "  (e)val:    evaluate the control of the current task to normal form\n" +
                  "  (f)ail:    fail the current task\n" +
                  "  (g)o <n>:  execute <n> steps (-1, omit <n> = run untill a result is found)\n" +
