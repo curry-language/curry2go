@@ -16,11 +16,11 @@ import "time"
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, arity int, name *string, args ...*Node)(*Node){
-    root.Children = root.Children[:0]
     root.int_value = constructor
     root.name = name
-    root.Children = append(root.Children, args...)
-    root.arity = arity
+    root.arity = 0
+    root.Children = args
+    root.arity= arity
     root.node_type = CONSTRUCTOR
     return root
 }
@@ -33,11 +33,11 @@ func ConstCreate(root *Node, constructor, arity int, name *string, args ...*Node
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name *string, arity int, demanded_args int, args ...*Node)(*Node){
-    root.Children = root.Children[:0]
     root.function = function
-    root.arity = arity
     root.name = name
-    root.Children = append(root.Children, args...)
+    root.arity = 0
+    root.Children = args
+    root.arity= arity
     root.int_value = demanded_args
     root.node_type = FCALL
     return root
