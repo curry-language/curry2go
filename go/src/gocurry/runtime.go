@@ -179,7 +179,7 @@ func toHnf(task *Task, queue chan Task, bfs bool){
         }
         
         // return if evaluation is done
-        if(len(task.stack) == 0 && (task.control.IsHnf() || task.control.LockedIsPartial())){
+        if(len(task.stack) == 0 && (task.control.LockedIsHnf())){
             control_lock.Unlock()
             return
         }
