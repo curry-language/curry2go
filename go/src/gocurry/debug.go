@@ -141,7 +141,7 @@ func parseTask(arg string) (*DebugData, int){
 }
 
 var apply_chan = make(chan DebugData, 0) // channel for tasks to register for debugging
-var debug_varList = make([]*Node, 0) // list if nodes representing variables
+var debug_varList = make([]*Node, 0) // list of nodes representing variables
 var debug_map = make(map[int]*DebugData) // mapping of task ids to their debugging data
 var printing_depth = -1
 
@@ -753,7 +753,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
         }
         
         // return if evaluation is done
-        if(len(task.stack) == 0 && (task.control.IsHnf() || task.control.LockedIsPartial())){
+        if(len(task.stack) == 0 && task.control.LockedIsHnf()){
             control_lock.Unlock()
             
             // log result
