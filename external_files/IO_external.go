@@ -155,7 +155,7 @@ func ExternalSystemDot_IODot_primUs_openFile(task *gocurry.Task){
     }
     
     // open file
-    file, err := os.OpenFile(path, mode, 0777)
+    file, err := os.OpenFile(path, mode, 0644)
     
     if(err != nil){
         panic("System.IO.openFile: " + err.Error())

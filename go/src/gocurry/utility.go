@@ -16,10 +16,9 @@ import "time"
 // Every pointer in args is added to the constructor children.
 // Returns a pointer to the updated root.
 func ConstCreate(root *Node, constructor, arity int, name *string, args ...*Node)(*Node){
-    root.Children = root.Children[:0]
     root.int_value = constructor
     root.name = name
-    root.Children = append(root.Children, args...)
+    root.Children = args
     root.arity = arity
     root.node_type = CONSTRUCTOR
     return root
@@ -33,11 +32,10 @@ func ConstCreate(root *Node, constructor, arity int, name *string, args ...*Node
 // Every pointer in args is added to the function children.
 // Returns a pointer to the updated root.
 func FuncCreate(root *Node, function func(*Task), name *string, arity int, demanded_args int, args ...*Node)(*Node){
-    root.Children = root.Children[:0]
     root.function = function
+    root.Children = args
     root.arity = arity
     root.name = name
-    root.Children = append(root.Children, args...)
     root.int_value = demanded_args
     root.node_type = FCALL
     return root
@@ -74,8 +72,8 @@ func ExemptCreate(root *Node)(*Node){
 // Returns a pointer to the updated root.
 func IntLitCreate(root *Node, value int)(*Node){
     root.Children = root.Children[:0]
-    root.node_type = INT_LITERAL
     root.int_value = value
+    root.node_type = INT_LITERAL
     return root
 }
 
@@ -83,8 +81,8 @@ func IntLitCreate(root *Node, value int)(*Node){
 // Returns a pointer to the updated root.
 func FloatLitCreate(root *Node, value float64)(*Node){
     root.Children = root.Children[:0]
-    root.node_type = FLOAT_LITERAL
     root.float_literal = value
+    root.node_type = FLOAT_LITERAL
     return root
 }
 
@@ -92,8 +90,8 @@ func FloatLitCreate(root *Node, value float64)(*Node){
 // Returns a pointer to the updated root.
 func CharLitCreate(root *Node, value rune)(*Node){
     root.Children = root.Children[:0]
-    root.node_type = CHAR_LITERAL
     root.char_literal = value
+    root.node_type = CHAR_LITERAL
     return root
 }
 
@@ -101,9 +99,9 @@ func CharLitCreate(root *Node, value rune)(*Node){
 // Returns a pointer to the updated root.
 func FreeCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
-    root.node_type = CONSTRUCTOR
     root.name = nextFree()
     root.int_value = -1
+    root.node_type = CONSTRUCTOR
     
     if(debug_mode){
         debug_varList = append(debug_varList, root)
@@ -272,13 +270,9 @@ func DeepCopy(node *Node) *Node{
 // a redirection node.
 func (node *Node) EliminateRedirect() *Node{
     for{
-        lock := &node.lock
-	    lock.Lock()
         if(node.IsRedirect()){
             node = node.Children[0]
-            lock.Unlock()
         } else{
-            lock.Unlock()
             break
         }
     }
@@ -292,13 +286,9 @@ func (node *Node) GetChar() rune{
 func (node *Node) GetChild(index int) *Node{
     // eliminate redirection nodes
     for{
-        lock := &node.Children[index].lock
-	    lock.Lock()
         if(node.Children[index].IsRedirect()){
             node.Children[index] = node.Children[index].Children[0]
-            lock.Unlock()
         } else{
-            lock.Unlock()
             break
         }
     }
@@ -414,8 +404,24 @@ func (node *Node) IsFloatLit() bool{
     return (node.node_type == FLOAT_LITERAL)
 }
 
+func (node *Node) LockedIsHnf() bool {
+    if (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit()){
+        return true
+    } else if(node.IsFcall()){
+        return node.LockedIsPartial()
+    }else{
+        return false
+    }
+}
+
 func (node *Node) IsHnf() bool {
-    return (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit() || node.LockedIsPartial())
+    if (node.IsConst() || node.IsIntLit() || node.IsFloatLit() || node.IsCharLit()){
+        return true
+    } else if(node.IsFcall()){
+        return node.IsPartial()
+    }else{
+        return false
+    }
 }
 
 func (node *Node) IsIntLit() bool{
