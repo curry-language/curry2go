@@ -14,7 +14,7 @@ const helpText = "General commands:\n" +
                  "  depth <n>: set printing depth to <n> (-1 = infinite)\n" +
                  "  (e)val:    evaluate the control of the current task to normal form\n" +
                  "  (f)ail:    fail the current task\n" +
-                 "  (g)o <n>:  execute <n> steps (-1, omit <n> = run untill a result is found)\n" +
+                 "  (g)o <n>:  execute <n> steps (-1, omit <n> = run until a result is found)\n" +
                  "  (h)elp:    display help text\n" +
                  "  (t)ask:    display information about the current task\n" +
                  "Fair search commands:\n" +
@@ -36,11 +36,9 @@ const(
 // Type representing actions taken by tasks
 type DebugAction uint8
 const(
-    DebugInit = iota
-    DebugCall
-    DebugSplit
-    DebugSwitch
-    DebugResult
+    DebugCall = iota // function call
+    DebugSplit // split into new tasks
+    DebugResult // computed result
 )
 
 // Type representing an event from a task
@@ -51,8 +49,8 @@ type DebugEvent struct{
 
 // Type representing a task and its debugging variables
 type DebugData struct{
-    last_event DebugEvent
     task *Task
+    last_event DebugEvent
     event_chan chan DebugEvent
     cmd_chan chan DebugCmd
     done bool
@@ -72,6 +70,8 @@ func printTask(task *Task){
     }
 }
 
+// Returns a string representation of the last
+// event saved in a DebugData instance
 func showDataEvent(data *DebugData) string{
     if(data.last_event.action == DebugResult){
         return "Result: " + ShowPartialNode(data.task.control, printing_depth)
@@ -83,7 +83,7 @@ func showDataEvent(data *DebugData) string{
 }
 
 // Returns a sorted list of the keys of the debugging map
-func getIds() []int{
+func getDebugIds() []int{
     // create a return slice
     ids := make([]int, len(debug_map))
     
@@ -108,7 +108,7 @@ func getDebugValues() []*DebugData{
     
     // loop over the map to get all the values
     i := 0
-    ids := getIds()
+    ids := getDebugIds()
     for _, id := range(ids){
         values[i] = debug_map[id]
         i++
@@ -145,19 +145,20 @@ var debug_varList = make([]*Node, 0) // list of nodes representing variables
 var debug_map = make(map[int]*DebugData) // mapping of task ids to their debugging data
 var printing_depth = -1
 
+// Starts a loop handling user and task interactions
 func debugLoop(result_chan chan *Node, fair_search bool){
-    var ensemble = fair_search
-    var first = true
-    var view = fair_search
-    var hide_results = false
-    var update_data = true
-    var cur_task = 0
-    var run_steps = 0
-    var data []*DebugData
+    var ensemble = fair_search // run all or only one task
+    var view = fair_search // print all or only one task
+    var hide_results = false // do not print results more than once
+    var update_data = true // update data slice after step
+    var cur_task = 0 // selected task id
+    var run_steps = 0 // number of steps to run after go command
+    var data []*DebugData // slice containing tasks to execute commands on
     var reader = bufio.NewReader(os.Stdin)
     var input string
     
     // loop until done
+    var first = true
     for{
         // pull new tasks from the apply channel
         ApplyLoop:
@@ -210,7 +211,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
             // display latest events
             if(view){
                 // print last events of all tasks
-                ids := getIds()
+                ids := getDebugIds()
                 for i := 0; i < len(ids); i++{
                     d := debug_map[ids[i]]
                     
@@ -679,6 +680,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
     }
 }
 
+// Debug version of the toHnf function
 func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, event_chan chan DebugEvent){
     
     // defer error handler
@@ -762,20 +764,23 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
             return
         }
         
+        // unlock control to prevent deadlock
         control_lock.Unlock()
         
         switch task.control.node_type{
         case FCALL:
-            // log call
+            // log function call
             event_chan <- DebugEvent{DebugCall, ""}
         case CONSTRUCTOR, INT_LITERAL, FLOAT_LITERAL, CHAR_LITERAL, REDIRECT, CHOICE, EXEMPT:
             skip = true
         }
         
-        if(!skip){
-            <- cmd_chan
-        } else{
+        // check if next step should be skipped
+        if(skip){
             skip = false
+        } else{
+            // pull next command
+            <- cmd_chan
         }
         
         control_lock.Lock()
@@ -835,6 +840,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                     count := <- taskCount
                     taskCount <- count + 2
                     
+                    // save old task id for event message
                     old_id := task.id
                     
                     // update task
@@ -865,6 +871,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                         *task = <- queue
                     }
                     
+                    // log split event
                     event_chan <- DebugEvent{DebugSplit,
                         fmt.Sprintf("Splitting task %d into tasks %d & %d.\nContinuing with task %d.",
                             old_id, task.id, new_task.id, task.id)}
@@ -973,6 +980,7 @@ func toHnfDebug(task *Task, queue chan Task, bfs bool, cmd_chan chan DebugCmd, e
                 continue
             }
             
+            // log result
             event_chan <- DebugEvent{DebugResult, ""}
             
             return

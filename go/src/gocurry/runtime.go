@@ -591,7 +591,7 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
     var event_chan = make(chan DebugEvent, 0)
     
     if(debug_mode){
-        apply_chan <- DebugData{DebugEvent{DebugInit, ""}, &task, event_chan, cmd_chan, false}
+        apply_chan <- DebugData{&task, DebugEvent{}, event_chan, cmd_chan, false}
     }
     
     // loop until done
@@ -626,11 +626,14 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
 func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
     
     if(debug_mode){
+        // create debug channels for the task
         var cmd_chan = make(chan DebugCmd, 0)
         var event_chan = make(chan DebugEvent, 0)
 
-        apply_chan <- DebugData{DebugEvent{DebugInit, ""}, &task, event_chan, cmd_chan, false}
+        // apply to the debug loop
+        apply_chan <- DebugData{&task, DebugEvent{}, event_chan, cmd_chan, false}
 
+        // start evaluation
         toHnfDebug(&task, queue, false, cmd_chan, event_chan)
     }
     
