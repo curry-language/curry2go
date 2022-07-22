@@ -202,8 +202,10 @@ getFuncsImports opts ifuncs =
   getImportsExpr (ICCall (m, n, _) exprs)
     | n == ":"
     = case exprs of
-        (ILit (IChar _):[ICCall (_,"[]",_) _]) -> empty
-        (ILit (IChar _):r) -> unionize (map getImportsExpr r)
+        (ILit (IChar _):[ICCall (_,"[]",_) _])   -> empty
+        (ILit (IChar _):xs@[ICCall (_,":",_) _]) ->
+          unionize (map getImportsExpr xs)
+        (ILit (IChar _):r) -> insert m (unionize (map getImportsExpr r))
         _                  -> insert m (unionize (map getImportsExpr exprs))
     | otherwise
     = insert m (unionize (map getImportsExpr exprs))
