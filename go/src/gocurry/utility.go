@@ -102,6 +102,11 @@ func FreeCreate(root *Node)(*Node){
     root.name = nextFree()
     root.int_value = -1
     root.node_type = CONSTRUCTOR
+    
+    if(debug_mode){
+        debug_varList = append(debug_varList, root)
+    }
+    
     return root
 }
 
@@ -614,7 +619,7 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
 
         start := time.Now()
 
-        Evaluate(root, false, onlyHnf, search_strat, max_results, max_tasks, err_depth)
+        Evaluate(root, false, false, onlyHnf, search_strat, max_results, max_tasks, err_depth)
 
         end := time.Now()
         dif := end.Sub(start).Seconds()

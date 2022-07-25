@@ -52,7 +52,7 @@ c2go c2goDir cmpdate = CCDescription
   (\s -> "--compile --nobanner " ++ s) -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
-  [stratOpt, intOpt, firstOpt, ctimeOpt, resultsOpt, errDepthtOpt]
+  [stratOpt, intOpt, firstOpt, ctimeOpt, debugOpt, resultsOpt, errDepthtOpt]
  where
   parseopts s = if null s then "" else "--parse-options=\"" ++ s ++ "\""
 
@@ -109,6 +109,13 @@ ctimeOpt = CCOption
   , ConstOpt "+ctime" "--ctime"
   ]
 
+debugOpt :: CCOption
+debugOpt = CCOption
+  "+/-debug       "
+  "turn on/off debugging mode"
+  [ ConstOpt "-debug" ""
+  , ConstOpt "+debug" "--debug"
+  ]
 
 resultsOpt :: CCOption
 resultsOpt = CCOption

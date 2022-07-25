@@ -19,7 +19,16 @@ func PrintResult(node *Node) {
 // a string in standard prefix notation.
 func ShowResult(node *Node) string{
     builder := new(strings.Builder)
-    showResult(node, builder)
+    showResult(node, builder, -1)
+    return builder.String()
+}
+
+// Turns a node and all its children untill
+// the specified depth into a string
+// in standard prefix notation.
+func ShowPartialNode(node *Node, depth int) string{
+    builder := new(strings.Builder)
+    showResult(node, builder, depth)
     return builder.String()
 }
 
@@ -31,7 +40,22 @@ func ShowString(node *Node) string{
     return builder.String()
 }
 
-func showResult(node *Node, builder *strings.Builder){
+func isListComplete(node *Node) bool{
+    if(node.GetName() == ":"){
+        return isListComplete(node.Children[1])
+    }else if(node.GetName() == "[]"){
+        return true
+    } else{
+        return false
+    }
+}
+
+func showResult(node *Node, builder *strings.Builder, depth int){
+    
+    if(node.IsRedirect()){
+        showResult(node.Children[0], builder, depth)
+        return
+    }
     
     // test if node is a constructor
     if(node.IsConst()){
@@ -39,32 +63,45 @@ func showResult(node *Node, builder *strings.Builder){
         if(node.GetName() == "IO"){
             // only show child if its not ()
             if(node.GetChild(0).IsConst()){
-                if(node.GetChild(0).GetName() != "()"){
-                    showResult(node.GetChild(0), builder)
+                if(node.GetChild(0).GetName() == "()"){
+                    return
                 }
-            } else {
-                showResult(node.GetChild(0), builder)
             }
+            
+            showResult(node.GetChild(0), builder, depth)
             return
         }
 
         // test if node is a list
         if(node.GetName() == ":"){
-
-            // test if the list is a string
-            if(node.GetChild(0).IsCharLit()){
-                // show string
-                builder.WriteByte('"')
-                showString(node, builder)
-                builder.WriteByte('"')
+            // check if depth is zero
+            if(depth == 0){
+                builder.WriteString("[...]")
                 return
             }
-
-            // show list
-            builder.WriteByte('[')
-            showList(node, builder)
-            builder.WriteByte(']')
-            return
+            
+            if(isListComplete(node)){
+                // test if the list is a string
+                if(node.GetChild(0).IsCharLit()){
+                    // show string
+                    builder.WriteByte('"')
+                    showString(node, builder)
+                    builder.WriteByte('"')
+                    return
+                }
+                
+                // show list
+                builder.WriteByte('[')
+                showList(node, builder, depth - 1)
+                builder.WriteByte(']')
+                return
+            } else{
+                // show ':' infix
+                showChildNode(node.Children[0], builder, depth - 1)
+                builder.WriteString(" " + showNode(node) + " ")
+                showChildNode(node.Children[1], builder, depth - 1)
+                return
+            }
         }
 
         // test if node is a tupel
@@ -77,47 +114,93 @@ func showResult(node *Node, builder *strings.Builder){
                 return
             }
             
+            // check if depth is zero
+            if(depth == 0){
+                builder.WriteString(showNode(node))
+                return
+            }
+            
             // show tupel elements
             builder.WriteByte('(')
-            showResult(node.Children[0], builder)
+            showResult(node.Children[0], builder, depth - 1)
             for i := 1; i < len(node.Children); i++{
                 builder.WriteString(", ")
-                showResult(node.Children[i], builder)
+                showResult(node.Children[i], builder, depth - 1)
             }
             builder.WriteByte(')')
             return
+        }
+    }else if(node.IsChoice()){
+        // show choice nodes infix
+        if(depth == 0){
+            builder.WriteString("(...) " + showNode(node) + " (...)")
+            return
+        }
+        
+        showChildNode(node.Children[0], builder, depth - 1)
+        builder.WriteString(" " + showNode(node) + " ")
+        showChildNode(node.Children[1], builder, depth - 1)
+        return
+    }else if(node.IsFcall()){
+        // handle infix operators
+        switch node.GetName(){
+        case ".", "!!" , "++", "&&", "||", "&", "&>", "$", "$!", "$!!", "$#", "$##":
+            if(len(node.Children) == 2){
+                if(depth == 0){
+                    builder.WriteString("(...) " + showNode(node) + " (...)")
+                    return
+                }
+                
+                showChildNode(node.Children[0], builder, depth - 1)
+                builder.WriteString(" " + showNode(node) + " ")
+                showChildNode(node.Children[1], builder, depth - 1)
+                return
+            }
         }
     }
     
     // show node
     builder.WriteString(showNode(node))
+    
+    // check if depth is zero
+    if(depth == 0){
+        return
+    }
 
     // show children of node
     for i := 0; i < len(node.Children); i++ {
         builder.WriteByte(' ')
-        if(len(node.Children[i].Children) > 0){
-            // do not use parenthesis with lists and tupels
-            if(node.Children[i].IsConst()){
-                if(node.Children[i].GetName() == ":" || node.Children[i].GetName() == "[]"){
-                    showResult(node.Children[i], builder)
-                    continue
-                }
-                
-                isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.Children[i].GetName())
-                if(isTupel){
-                    showResult(node.Children[i], builder)
-                    continue
-                }
-            }
-        
-            builder.WriteByte('(')
-            showResult(node.Children[i], builder)
-            builder.WriteByte(')')
-        } else{
-            showResult(node.Children[i], builder)
-        }
+        showChildNode(node.Children[i], builder, depth - 1)
     }
     return
+}
+
+func showChildNode(node *Node, builder *strings.Builder, depth int){
+    if(node.IsRedirect()){
+        node = node.GetChild(0)
+    }
+    
+    if(len(node.Children) > 0){
+        // do not use parenthesis with lists and tupels
+        if(node.IsConst()){
+            if((node.GetName() == ":" && isListComplete(node)) || node.GetName() == "[]"){
+                showResult(node, builder, depth)
+                return
+            }
+            
+            isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
+            if(isTupel){
+                showResult(node, builder, depth)
+                return
+            }
+        }
+    
+        builder.WriteByte('(')
+        showResult(node, builder, depth)
+        builder.WriteByte(')')
+    } else{
+        showResult(node, builder, depth)
+    }
 }
 
 func showString(node *Node, builder *strings.Builder){
@@ -144,10 +227,10 @@ func showString(node *Node, builder *strings.Builder){
 
 // Returns a string representation of a curry list.
 // node is the entry to the curry list.
-func showList(node *Node, builder *strings.Builder){
+func showList(node *Node, builder *strings.Builder, depth int){
 
     // get string representation of the element
-    showResult(node.GetChild(0), builder)
+    showResult(node.GetChild(0), builder, depth)
 
     // end list on '[]' constructor
     if(node.GetChild(1).GetName() == "[]"){
@@ -157,13 +240,13 @@ func showList(node *Node, builder *strings.Builder){
     // handle not fully evaluated lists
     if(node.GetChild(1).GetName() != ":"){
         builder.WriteString(", ")
-        showResult(node.GetChild(1), builder)
+        showResult(node.GetChild(1), builder, depth)
         return
     }
 
     // continue with next element
     builder.WriteString(", ")
-    showList(node.GetChild(1), builder)
+    showList(node.GetChild(1), builder, depth)
     return
 }
 
@@ -180,6 +263,9 @@ func showNode(node *Node) string{
     case CONSTRUCTOR, FCALL:
         return node.GetName()
     case CHOICE:
+        if(debug_mode){
+            return fmt.Sprintf("?_%d", node.int_value)
+        }
         return "?"
     case REDIRECT:
         return "Redirect"
