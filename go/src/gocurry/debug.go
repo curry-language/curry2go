@@ -21,7 +21,7 @@ const helpText = "General commands:\n" +
                  "  <cmd> <n>:    execute the general command <cmd> on all specified tasks\n" +
                  "  all <cmd>:    executes the general command <cmd> on every task\n" +
                  "  ensemble:     if true general commands are executed on every task\n" +
-                 "  hide_results: hide already printed results in ensemble view\n" +
+                 "  hide:         hide already printed results in ensemble view\n" +
                  "  list:         list all task ids currently in use\n" +
                  "  pull:         check if new tasks are available\n" +
                  "  select <n>:   select task <n> (in single task view or execution)\n" +
@@ -552,7 +552,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 
                 // toggle 'ensemble' flag
                 ensemble = !ensemble
-            case "hide_results":
+            case "hide":
                 if(!fair_search){
                     fmt.Println("  Command only available during fair search.")
                     continue
