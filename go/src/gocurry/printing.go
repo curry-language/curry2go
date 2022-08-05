@@ -42,7 +42,11 @@ func ShowString(node *Node) string{
 
 func isListComplete(node *Node) bool{
     if(node.GetName() == ":"){
-        return isListComplete(node.Children[1])
+        if(node.GetNumChildren() == 2){
+            return isListComplete(node.Children[1])
+        } else{
+            return false
+        }
     }else if(node.GetName() == "[]"){
         return true
     } else{
@@ -97,9 +101,16 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 return
             } else{
                 // show ':' infix
-                showChildNode(node.Children[0], builder, depth - 1)
-                builder.WriteString(" " + showNode(node) + " ")
-                showChildNode(node.Children[1], builder, depth - 1)
+                if(node.GetNumChildren() == 0){
+                    builder.WriteString("(" + showNode(node) + ")")
+                } else if(node.GetNumChildren() == 1){
+                    builder.WriteString("(" + showNode(node) + ") ")
+                    showChildNode(node.Children[0], builder, depth - 1)
+                } else{
+                    showChildNode(node.Children[0], builder, depth - 1)
+                    builder.WriteString(" " + showNode(node) + " ")
+                    showChildNode(node.Children[1], builder, depth - 1)
+                }
                 return
             }
         }
@@ -145,15 +156,32 @@ func showResult(node *Node, builder *strings.Builder, depth int){
         // handle infix operators
         switch node.GetName(){
         case ".", "!!" , "++", "&&", "||", "&", "&>", "$", "$!", "$!!", "$#", "$##":
+            // test for the right number of arguments
             if(len(node.Children) == 2){
                 if(depth == 0){
                     builder.WriteString("(...) " + showNode(node) + " (...)")
                     return
                 }
                 
+                // show operator infix
                 showChildNode(node.Children[0], builder, depth - 1)
                 builder.WriteString(" " + showNode(node) + " ")
                 showChildNode(node.Children[1], builder, depth - 1)
+                return
+            } else{
+                // show operator prefix in parenthesis
+                builder.WriteString("(" + showNode(node) + ")")
+                
+                // check if depth is zero
+                if(depth == 0){
+                    return
+                }
+
+                // show children of node
+                for i := 0; i < len(node.Children); i++ {
+                    builder.WriteByte(' ')
+                    showChildNode(node.Children[i], builder, depth - 1)
+                }
                 return
             }
         }
