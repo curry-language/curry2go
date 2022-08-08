@@ -12,20 +12,20 @@ const helpText = "General commands:\n" +
                  "  <return>:  evaluate a single program step\n" +
                  "  (a)bort:   abort the program\n" +
                  "  depth <n>: set printing depth to <n> (-1 = infinite)\n" +
-                 "  (e)val:    evaluate the control of the current task to normal form\n" +
-                 "  (f)ail:    fail the current task\n" +
+                 "  (e)val:    print control of the selected task in normal form\n" +
+                 "  (f)ail:    fail the selected task\n" +
                  "  (g)o <n>:  execute <n> steps (-1, omit <n> = run until a result is found)\n" +
                  "  (h)elp:    display help text\n" +
-                 "  (t)ask:    display information about the current task\n" +
+                 "  (t)ask:    display information about the selected task\n" +
                  "Fair search commands:\n" +
-                 "  <cmd> <n>:    execute the general command <cmd> on all specified tasks\n" +
-                 "  all <cmd>:    executes the general command <cmd> on every task\n" +
-                 "  ensemble:     if true general commands are executed on every task\n" +
-                 "  hide:         hide already printed results in ensemble view\n" +
-                 "  list:         list all task ids currently in use\n" +
-                 "  pull:         check if new tasks are available\n" +
-                 "  select <n>:   select task <n> (in single task view or execution)\n" +
-                 "  view:         switch between single task and ensemble view\n"
+                 "  [<cmd>] <n> ...: execute a step or the general command <cmd> on the specified tasks\n" +
+                 "  all [<cmd>]:     execute a step or the general command <cmd> on every task\n" +
+                 "  ensemble:        (%t) execute general commands on every task\n" +
+                 "  hide:            (%t) hide already printed results in multi-task view\n" +
+                 "  list:            list all task ids currently in use\n" +
+                 "  pull:            check if new tasks are available\n" +
+                 "  select <n>:      select task <n> (in single task view or execution)\n" +
+                 "  view:            switch between single and multi-task view\n"
 
 // Type representing commands for tasks
 type DebugCmd uint8
@@ -514,7 +514,7 @@ func debugLoop(result_chan chan *Node, fair_search bool){
                 }
             case "h", "help":
                 // print help text
-                fmt.Print(helpText)
+                fmt.Printf(helpText, ensemble, hide_results)
             case "t", "task":
                 // check if task ids were provided
                 if(len(args) != 0){
