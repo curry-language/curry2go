@@ -153,8 +153,8 @@ func showResult(node *Node, builder *strings.Builder, depth int){
         showChildNode(node.Children[1], builder, depth - 1)
         return
     }else if(node.IsFcall()){
-        // handle infix operators
         switch node.GetName(){
+        // handle infix operators
         case ".", "!!" , "++", "&&", "||", "&", "&>", "$", "$!", "$!!", "$#", "$##":
             // test for the right number of arguments
             if(len(node.Children) == 2){
@@ -184,6 +184,21 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 }
                 return
             }
+        case "ArgsToNf":
+            // show node
+            builder.WriteString(showNode(node))
+            
+            // check if depth is zero
+            if(depth == 0){
+                return
+            }
+
+            // show children of node
+            for i := 0; i < len(node.Children)-1; i++ {
+                builder.WriteByte(' ')
+                showChildNode(node.Children[i], builder, depth - 1)
+            }
+            return
         }
     }
     
