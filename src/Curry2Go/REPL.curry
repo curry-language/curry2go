@@ -2,7 +2,7 @@
 --- A REPL for the Curry->Go compiler based on the universal REPL.
 ---
 --- @author  Michael Hanus
---- @version February 2022
+--- @version August 2022
 ------------------------------------------------------------------------------
 
 module Curry2Go.REPL where
@@ -52,6 +52,7 @@ c2go c2goDir cmpdate = CCDescription
   (\s -> "--compile --nobanner " ++ s) -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
+  LegacyFreeMode
   [stratOpt, intOpt, firstOpt, ctimeOpt, debugOpt, resultsOpt, errDepthtOpt]
  where
   parseopts s = if null s then "" else "--parse-options=\"" ++ s ++ "\""
