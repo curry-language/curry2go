@@ -185,19 +185,12 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 return
             }
         case "ArgsToNf":
-            // show node
-            builder.WriteString(showNode(node))
+            // create copy of constructor for printing
+            const_copy := CopyNode(node.Children[len(node.Children) - 1])
+            const_copy.Children = node.Children[:len(node.Children) - 1]
             
-            // check if depth is zero
-            if(depth == 0){
-                return
-            }
-
-            // show children of node
-            for i := 0; i < len(node.Children)-1; i++ {
-                builder.WriteByte(' ')
-                showChildNode(node.Children[i], builder, depth - 1)
-            }
+            // print copy of last argument instead of ArgsToNf
+            showResult(const_copy, builder, depth)
             return
         }
     }
