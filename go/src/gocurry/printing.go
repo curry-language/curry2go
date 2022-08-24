@@ -19,7 +19,13 @@ func PrintResult(node *Node) {
 // a string in standard prefix notation.
 func ShowResult(node *Node) string{
     builder := new(strings.Builder)
-    showResult(node, builder, -1)
+    showResult(node, builder, -1, nil)
+    return builder.String()
+}
+
+func ShowTaskView(node *Node, task *Task) string{
+    builder := new(strings.Builder)
+    showResult(node, builder, -1, task)
     return builder.String()
 }
 
@@ -28,7 +34,7 @@ func ShowResult(node *Node) string{
 // in standard prefix notation.
 func ShowPartialNode(node *Node, depth int) string{
     builder := new(strings.Builder)
-    showResult(node, builder, depth)
+    showResult(node, builder, depth, nil)
     return builder.String()
 }
 
@@ -36,14 +42,18 @@ func ShowPartialNode(node *Node, depth int) string{
 // node is the entry to the representation of Curry's character list.
 func ShowString(node *Node) string{
     builder := new(strings.Builder)
-    showString(node, builder)
+    showString(node, builder, nil)
     return builder.String()
 }
 
-func isListComplete(node *Node) bool{
+func isListComplete(node *Node, task *Task) bool{
+    if(task != nil){
+        node = task.FollowTask(node)
+    }
+    
     if(node.GetName() == ":"){
         if(node.GetNumChildren() == 2){
-            return isListComplete(node.Children[1])
+            return isListComplete(node.Children[1], task)
         } else{
             return false
         }
@@ -54,10 +64,15 @@ func isListComplete(node *Node) bool{
     }
 }
 
-func showResult(node *Node, builder *strings.Builder, depth int){
+func showResult(node *Node, builder *strings.Builder, depth int, task *Task){
+    // check for task specific results
+    if(task != nil){
+        node = task.FollowTask(node)
+    }
     
+    // ignore redirect nodes
     if(node.IsRedirect()){
-        showResult(node.Children[0], builder, depth)
+        showResult(node.Children[0], builder, depth, task)
         return
     }
     
@@ -72,7 +87,7 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 }
             }
             
-            showResult(node.GetChild(0), builder, depth)
+            showResult(node.GetChild(0), builder, depth, task)
             return
         }
 
@@ -84,19 +99,19 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 return
             }
             
-            if(isListComplete(node)){
+            if(isListComplete(node, task)){
                 // test if the list is a string
                 if(node.GetChild(0).IsCharLit()){
                     // show string
                     builder.WriteByte('"')
-                    showString(node, builder)
+                    showString(node, builder, task)
                     builder.WriteByte('"')
                     return
                 }
                 
                 // show list
                 builder.WriteByte('[')
-                showList(node, builder, depth - 1)
+                showList(node, builder, depth - 1, task)
                 builder.WriteByte(']')
                 return
             } else{
@@ -105,11 +120,11 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                     builder.WriteString("(" + showNode(node) + ")")
                 } else if(node.GetNumChildren() == 1){
                     builder.WriteString("(" + showNode(node) + ") ")
-                    showChildNode(node.Children[0], builder, depth - 1)
+                    showChildNode(node.Children[0], builder, depth - 1, task)
                 } else{
-                    showChildNode(node.Children[0], builder, depth - 1)
+                    showChildNode(node.Children[0], builder, depth - 1, task)
                     builder.WriteString(" " + showNode(node) + " ")
-                    showChildNode(node.Children[1], builder, depth - 1)
+                    showChildNode(node.Children[1], builder, depth - 1, task)
                 }
                 return
             }
@@ -133,10 +148,10 @@ func showResult(node *Node, builder *strings.Builder, depth int){
             
             // show tupel elements
             builder.WriteByte('(')
-            showResult(node.Children[0], builder, depth - 1)
+            showResult(node.Children[0], builder, depth - 1, task)
             for i := 1; i < len(node.Children); i++{
                 builder.WriteString(", ")
-                showResult(node.Children[i], builder, depth - 1)
+                showResult(node.Children[i], builder, depth - 1, task)
             }
             builder.WriteByte(')')
             return
@@ -148,9 +163,9 @@ func showResult(node *Node, builder *strings.Builder, depth int){
             return
         }
         
-        showChildNode(node.Children[0], builder, depth - 1)
+        showChildNode(node.Children[0], builder, depth - 1, task)
         builder.WriteString(" " + showNode(node) + " ")
-        showChildNode(node.Children[1], builder, depth - 1)
+        showChildNode(node.Children[1], builder, depth - 1, task)
         return
     }else if(node.IsFcall()){
         switch node.GetName(){
@@ -164,9 +179,9 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 }
                 
                 // show operator infix
-                showChildNode(node.Children[0], builder, depth - 1)
+                showChildNode(node.Children[0], builder, depth - 1, task)
                 builder.WriteString(" " + showNode(node) + " ")
-                showChildNode(node.Children[1], builder, depth - 1)
+                showChildNode(node.Children[1], builder, depth - 1, task)
                 return
             } else{
                 // show operator prefix in parenthesis
@@ -180,7 +195,7 @@ func showResult(node *Node, builder *strings.Builder, depth int){
                 // show children of node
                 for i := 0; i < len(node.Children); i++ {
                     builder.WriteByte(' ')
-                    showChildNode(node.Children[i], builder, depth - 1)
+                    showChildNode(node.Children[i], builder, depth - 1, task)
                 }
                 return
             }
@@ -190,7 +205,7 @@ func showResult(node *Node, builder *strings.Builder, depth int){
             const_copy.Children = node.Children[:len(node.Children) - 1]
             
             // print copy of last argument instead of ArgsToNf
-            showResult(const_copy, builder, depth)
+            showResult(const_copy, builder, depth, task)
             return
         }
     }
@@ -206,12 +221,18 @@ func showResult(node *Node, builder *strings.Builder, depth int){
     // show children of node
     for i := 0; i < len(node.Children); i++ {
         builder.WriteByte(' ')
-        showChildNode(node.Children[i], builder, depth - 1)
+        showChildNode(node.Children[i], builder, depth - 1, task)
     }
     return
 }
 
-func showChildNode(node *Node, builder *strings.Builder, depth int){
+func showChildNode(node *Node, builder *strings.Builder, depth int, task *Task){
+    // check for task specific results
+    if(task != nil){
+        node = task.FollowTask(node)
+    }
+    
+    // ignore redirects
     if(node.IsRedirect()){
         node = node.GetChild(0)
     }
@@ -219,27 +240,31 @@ func showChildNode(node *Node, builder *strings.Builder, depth int){
     if(len(node.Children) > 0){
         // do not use parenthesis with lists and tupels
         if(node.IsConst()){
-            if((node.GetName() == ":" && isListComplete(node)) || node.GetName() == "[]"){
-                showResult(node, builder, depth)
+            if((node.GetName() == ":" && isListComplete(node, task)) || node.GetName() == "[]"){
+                showResult(node, builder, depth, task)
                 return
             }
             
             isTupel, _ := regexp.MatchString("^\\((\054*)\\)$", node.GetName())
             if(isTupel){
-                showResult(node, builder, depth)
+                showResult(node, builder, depth, task)
                 return
             }
         }
     
         builder.WriteByte('(')
-        showResult(node, builder, depth)
+        showResult(node, builder, depth, task)
         builder.WriteByte(')')
     } else{
-        showResult(node, builder, depth)
+        showResult(node, builder, depth, task)
     }
 }
 
-func showString(node *Node, builder *strings.Builder){
+func showString(node *Node, builder *strings.Builder, task *Task){
+    // check for task specific results
+    if(task != nil){
+        node = task.FollowTask(node)
+    }
     
     // get character
     char := node.GetChild(0).GetChar()
@@ -257,32 +282,31 @@ func showString(node *Node, builder *strings.Builder){
     }
     
     // continue with next character
-    showString(node.GetChild(1), builder)
+    showString(node.GetChild(1), builder, task)
     return
 }
 
 // Returns a string representation of a curry list.
 // node is the entry to the curry list.
-func showList(node *Node, builder *strings.Builder, depth int){
-
+func showList(node *Node, builder *strings.Builder, depth int, task *Task){
     // get string representation of the element
-    showResult(node.GetChild(0), builder, depth)
+    showResult(node.GetChild(0), builder, depth, task)
+
+    // get next element
+    nextElem := node.GetChild(1)
+    
+    if(task != nil){
+        nextElem = task.FollowTask(nextElem)
+    }
 
     // end list on '[]' constructor
-    if(node.GetChild(1).GetName() == "[]"){
-        return
-    }
-    
-    // handle not fully evaluated lists
-    if(node.GetChild(1).GetName() != ":"){
-        builder.WriteString(", ")
-        showResult(node.GetChild(1), builder, depth)
+    if(nextElem.GetName() == "[]"){
         return
     }
 
     // continue with next element
     builder.WriteString(", ")
-    showList(node.GetChild(1), builder, depth)
+    showList(nextElem, builder, depth, task)
     return
 }
 
@@ -297,6 +321,14 @@ func showNode(node *Node) string{
     case CHAR_LITERAL:
         return ("'" + ShowChar(node.char_literal) + "'")
     case CONSTRUCTOR, FCALL:
+        if(node.IsFree()){
+            for i, v := range(initialVars){
+                if(node == v){
+                    return varNames[i]
+                }
+            }
+        }
+    
         return node.GetName()
     case CHOICE:
         if(debug_mode){

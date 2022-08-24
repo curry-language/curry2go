@@ -146,7 +146,7 @@ var debug_map = make(map[int]*DebugData) // mapping of task ids to their debuggi
 var printing_depth = -1
 
 // Starts a loop handling user and task interactions
-func debugLoop(result_chan chan *Node, fair_search bool){
+func debugLoop(result_chan chan Task, fair_search bool){
     var ensemble = fair_search // run all or only one task
     var view = fair_search // print all or only one task
     var hide_results = false // do not print results more than once

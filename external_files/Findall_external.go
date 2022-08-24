@@ -17,7 +17,7 @@ func ExternalControlDot_FindallDot_allValues(task *gocurry.Task){
     
     // start evaluation of the new task
     queue := make(chan gocurry.Task, 1)
-    result_chan := make(chan *gocurry.Node, 0)
+    result_chan := make(chan gocurry.Task, 0)
     gocurry.EvaluateTask(new_task, queue, result_chan)
     
     // return function evaluating results
@@ -26,13 +26,13 @@ func ExternalControlDot_FindallDot_allValues(task *gocurry.Task){
 
 // Helper function for allValues.
 // Constructs a list with the results demand-driven.
-func evalToList(root *gocurry.Node, result_chan chan *gocurry.Node)(*gocurry.Node){
+func evalToList(root *gocurry.Node, result_chan chan gocurry.Task)(*gocurry.Node){
     resultFunc := func (task *gocurry.Task){
         root := task.GetControl()
-        node, ok := <- result_chan
+        result, ok := <- result_chan
         
         if ok{
-            Prelude.Prelude__CREATE_Col_(root, node, evalToList(root.NewNode(), result_chan))
+            Prelude.Prelude__CREATE_Col_(root, result.GetControl(), evalToList(root.NewNode(), result_chan))
         } else{
             Prelude.Prelude__CREATE_LSb_RSb_(root)
         }
@@ -75,13 +75,13 @@ func ExternalControlDot_FindallDot_oneValue(task *gocurry.Task){
     
     // start evaluation the new task
     queue := make(chan gocurry.Task, 1)
-    result_chan := make(chan *gocurry.Node, 0)
+    result_chan := make(chan gocurry.Task, 0)
     gocurry.EvaluateTask(new_task, queue, result_chan)
     
     // test for and return result
-    node, ok := <- result_chan
+    result, ok := <- result_chan
     if ok{
-        root.SetTr(task.GetId(), Prelude.Prelude__CREATE_Just(task.NewNode(), node))
+        root.SetTr(task.GetId(), Prelude.Prelude__CREATE_Just(task.NewNode(), result.GetControl()))
     } else{
         root.SetTr(task.GetId(), Prelude.Prelude__CREATE_Nothing(task.NewNode()))
     }

@@ -32,6 +32,7 @@ data CGOptions = CGOptions
   { verbosity    :: Int          -- verbosity (0..4)
                                  -- (0: quiet, 1: status,...)
   , modName      :: String       -- used internally to track main module. not configurable
+  , optBindings  :: Bool         -- show bindings of variables passed to varNames
   , optCTime     :: Bool         -- print compile messages with elapsed time?
   , optDebug     :: Bool         -- use debugging mode
   , optErrDepth  :: Int          -- depth of expressions in error messages
@@ -53,6 +54,7 @@ data CGOptions = CGOptions
   , printName    :: Bool         -- print compiler name
   , printNumVer  :: Bool         -- print numeric version
   , printBaseVer :: Bool         -- print base version
+  , varNames     :: [String]     -- names of variables in initial expression
   }
 
 --- Default options.
@@ -60,6 +62,7 @@ defaultCGOptions :: CGOptions
 defaultCGOptions = CGOptions 
   { verbosity    = 1
   , modName      = ""
+  , optBindings  = False
   , optCTime     = False
   , optDebug     = False
   , optErrDepth  = 0
@@ -80,6 +83,7 @@ defaultCGOptions = CGOptions
   , printName    = False
   , printNumVer  = False
   , printBaseVer = False
+  , varNames     = []
   }
 
 printVerb :: CGOptions -> Int -> String -> IO ()
@@ -145,7 +149,8 @@ createMainProg ((IFunction name@(modName, fname,_) ar _ _ _):xs) opts
     ((if optTime opts then [GoOpName "node", GoIntLit (optRuns opts)]
                       else [GoOpName "node", GoBoolLit (optInteract opts), GoBoolLit (optDebug opts)]) ++
      [GoBoolLit (optHNF opts), GoOpName (runtime ++ "." ++ (show (optStrat opts)))
-    , GoIntLit (optResults opts), GoIntLit (optMaxTasks opts), GoIntLit (optErrDepth opts)]))])]
+    , GoIntLit (optResults opts), GoIntLit (optMaxTasks opts), GoIntLit (optErrDepth opts)
+    , GoBoolLit (optBindings opts) ,GoCompositeLit "[]string" (map GoStringLit (reverse (varNames opts)))]))])]
  | otherwise = createMainProg xs opts
 
 --- Creates a string in Go syntax from an IProg.

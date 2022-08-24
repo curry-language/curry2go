@@ -52,7 +52,7 @@ c2go c2goDir cmpdate = CCDescription
   (\s -> "--compile --nobanner " ++ s) -- option to compile only
   ("--noimports " ++)        -- option to create an executable
   cleanCmd                   -- command to clean module
-  LegacyFreeMode
+  (CommandLineFreeMode (\vs -> unwords $ map (\(v,_) -> "-V " ++ v) vs))
   [stratOpt, intOpt, firstOpt, ctimeOpt, debugOpt, resultsOpt, errDepthtOpt]
  where
   parseopts s = if null s then "" else "--parse-options=\"" ++ s ++ "\""

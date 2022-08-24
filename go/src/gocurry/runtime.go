@@ -88,6 +88,12 @@ var debug_mode = true
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError", "NondetError"}
 
+// node of variables in initial expression
+var initialVars []*Node
+
+// names of variables in initial expression
+var varNames []string
+
 // number of stack nodes used to build expressions in error messages
 var error_depth int
 
@@ -495,10 +501,13 @@ func nfArgs(task *Task){
 // max_tasks is the maximum number of goroutines that can be used in a concurrent execution.
 // err_depth is the maximum number of nodes to move up the stack when prining expressions
 // in error messages.
-func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat SearchStrat, max_results, max_tasks, err_depth int){
+func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat SearchStrat, max_results, max_tasks, err_depth int, showVars bool, variableNames []string){
 
+    // set global variables
     debug_mode = debug
     error_depth = err_depth
+    varNames = variableNames
+    initialVars = make([]*Node, 0, len(varNames))
 
     // initialize channels
     choiceCount = make(chan int, 1)
@@ -511,7 +520,7 @@ func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat Search
     freeCount <- 0
     
     queue := make(chan Task, 1000000) // queue for tasks
-    result_chan := make(chan *Node, 0) // channel receiving results of search
+    result_chan := make(chan Task, 0) // channel receiving results of search
     done_chan := make(chan bool, 0) // channel signaling end of search
 
     // create a task for the root node
@@ -543,9 +552,29 @@ func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat Search
 
     // loop until done
     number_results := 0
-    for result := range result_chan{
+    for task := range result_chan{
+        
+        // print variable bindings
+        if(showVars){
+            firstVar := true
+            for i, node := range(initialVars){
+                if(firstVar){
+                    fmt.Printf("{%s=%s", varNames[i], ShowTaskView(node, &task))
+                    firstVar = false
+                    continue
+                }
+                
+                fmt.Printf(", %s=%s", varNames[i], ShowTaskView(node, &task))
+            }
+            
+            // end variable bindings
+            if(!firstVar){
+                fmt.Printf("} ")
+            }
+        }
+        
         // print result
-        PrintResult(result)
+        PrintResult(task.control)
         number_results += 1
 
         // interactive mode
@@ -583,7 +612,7 @@ func Evaluate(root *Node, interactive, debug, onlyHnf bool , search_strat Search
 
 // Evaluation loop for a search strategy executing
 // in a single routine.
-func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
+func singleRoutineSearch(queue, result_chan chan Task, bfs bool){
     // set first task as current task
     task := <- queue
     
@@ -606,7 +635,7 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
         
         // write result if one was computed
         if (!task.control.IsExempt()){
-            result_chan <- task.control
+            result_chan <- task
         }
         
         // continue with next task or finish
@@ -623,7 +652,7 @@ func singleRoutineSearch(queue chan Task, result_chan chan *Node, bfs bool){
 
 // Handles the evaluation of a task in a fair search.
 // task is the task to evaluate.
-func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan bool){
+func fsRunner(task Task, queue, result_chan chan Task, done_chan chan bool){
     
     if(debug_mode){
         // create debug channels for the task
@@ -642,7 +671,7 @@ func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan
         
     // write result if one was computed
     if(!task.control.IsExempt()){
-        result_chan <- task.control   
+        result_chan <- task   
     }
     
     // finish
@@ -656,7 +685,7 @@ func fsRunner(task Task, queue chan Task, result_chan chan *Node, done_chan chan
 // reached yet.
 // max_tasks is the maximum number of task that
 // can be evaluated concurrently.
-func fsTaskHandler(queue chan Task, result_chan chan *Node, done_chan chan bool, max_tasks int){
+func fsTaskHandler(queue, result_chan chan Task, done_chan chan bool, max_tasks int){
     // number of tasks currently in use
     used_tasks := 0
 

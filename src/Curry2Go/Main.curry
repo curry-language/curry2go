@@ -505,6 +505,12 @@ options =
   , Option "" ["ctime"]
     (NoArg (\opts -> opts {optCTime = True}))
     "print compilation messages with elapsed time"
+  , Option "B" []
+    (NoArg (\opts -> opts {optBindings = True}))
+    "show bindings of variables passed with -V"
+  , Option "V" []
+    (ReqArg (\s opts -> opts {varNames = varNames opts ++ [s]}) "<s>")
+    "name of a variable in the initial expression"    
   , Option "" ["debug"]
     (NoArg (\opts -> opts {optDebug = True}))
     "use debugging mode"

@@ -103,6 +103,12 @@ func FreeCreate(root *Node)(*Node){
     root.int_value = -1
     root.node_type = CONSTRUCTOR
     
+    // add initial variables
+    if(len(initialVars) < cap(initialVars)){
+        initialVars = append(initialVars, root)
+    }
+    
+    // save variables for debug mode
     if(debug_mode){
         debug_varList = append(debug_varList, root)
     }
@@ -503,7 +509,7 @@ func CreateTask(control *Node, id int) *Task{
 // Evaluates the task using fair search.
 // Results are written to result_chan.
 // When the search finishes result_chan will be closed.
-func EvaluateTask(task *Task, queue chan Task, result_chan chan *Node){
+func EvaluateTask(task *Task, queue, result_chan chan Task){
     queue <- *task
     done_chan := make(chan bool, 0)
     go fsTaskHandler(queue, result_chan, done_chan, 0)
@@ -544,6 +550,34 @@ func (task *Task) GetFingerprint() map[int]int{
 
 func (task *Task) GetParents() []int{
     return task.parents
+}
+
+// Get task specific results from choice
+// and free nodes.
+func (task *Task) FollowTask(node *Node) *Node{
+    for{
+        if(node.IsChoice()){
+            branch, ok := task.fingerprint[node.GetChoiceId()]
+            
+            if(!ok){
+                return node
+            }
+            
+            node = node.Children[branch]
+        } else if(node.IsRedirect()){
+            node = node.Children[0]
+        } else if(node.IsFree()){
+            node2, ok := node.GetTr(task.id, task.parents)
+            
+            if(!ok){
+                return node
+            }
+            
+            node = node2
+        } else{
+            return node
+        }
+    }
 }
 
 
@@ -619,7 +653,7 @@ func Benchmark(node *Node, count int, onlyHnf bool, search_strat SearchStrat, ma
 
         start := time.Now()
 
-        Evaluate(root, false, false, onlyHnf, search_strat, max_results, max_tasks, err_depth)
+        Evaluate(root, false, false, onlyHnf, search_strat, max_results, max_tasks, err_depth, false, nil)
 
         end := time.Now()
         dif := end.Sub(start).Seconds()
