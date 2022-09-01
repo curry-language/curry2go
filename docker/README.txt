@@ -40,7 +40,7 @@ Log into the Docker Hub from command line, tag and push the local image:
     > docker tag curry2go caups/curry2go:<version>
     > docker push caups/curry2go:<version>
 
-where <version> should be something like "1.0.0"
+where <version> should be something like "1.1.0"
 or "latest" to update the latest version.
 
 

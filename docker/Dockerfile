@@ -1,1 +1,1 @@
-Dockerfile-curry2go-latest-debian-10
+Dockerfile-curry2go-latest-ubuntu-20.04
