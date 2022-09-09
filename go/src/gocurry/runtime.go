@@ -88,7 +88,7 @@ var debug_mode = true
 // array of names used to create nodes
 var runtime_names []string = []string{"IO", "toNf", "ArgsToNf", "[]", ":", "IOError", "FailError", "NondetError"}
 
-// node of variables in initial expression
+// nodes of variables in initial expression
 var initialVars []*Node
 
 // names of variables in initial expression

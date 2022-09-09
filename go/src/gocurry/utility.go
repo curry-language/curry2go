@@ -99,13 +99,15 @@ func CharLitCreate(root *Node, value rune)(*Node){
 // Returns a pointer to the updated root.
 func FreeCreate(root *Node)(*Node){
     root.Children = root.Children[:0]
-    root.name = nextFree()
     root.int_value = -1
     root.node_type = CONSTRUCTOR
     
     // add initial variables
     if(len(initialVars) < cap(initialVars)){
+        root.name = &varNames[len(initialVars)]
         initialVars = append(initialVars, root)
+    } else{
+        root.name = nextFree()
     }
     
     // save variables for debug mode

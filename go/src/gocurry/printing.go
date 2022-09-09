@@ -321,14 +321,6 @@ func showNode(node *Node) string{
     case CHAR_LITERAL:
         return ("'" + ShowChar(node.char_literal) + "'")
     case CONSTRUCTOR, FCALL:
-        if(node.IsFree()){
-            for i, v := range(initialVars){
-                if(node == v){
-                    return varNames[i]
-                }
-            }
-        }
-    
         return node.GetName()
     case CHOICE:
         if(debug_mode){
