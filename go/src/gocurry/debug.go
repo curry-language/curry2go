@@ -9,25 +9,21 @@ import "sort"
 
 // Text containing help information
 const helpText = "General commands:\n" +
-                 "  <return>   evaluate a single program step\n" +
-                 "  (a)bort    abort the program\n" +
-                 "  depth <n>  set printing depth to <n> (-1 = infinite)\n" +
-                 "  (e)val     print control of the selected task in normal form\n" +
-                 "  (f)ail     fail the selected task\n" +
+                 "  <return>   execute single step on selected task\n" +
                  "  (g)o <n>   execute <n> steps (-1, omit <n> = run until a result is found)\n" +
+                 "  (e)val     print control of selected task in normal form\n" +
+                 "  (f)ail     fail selected task\n" +
+                 "  (t)ask     display information about selected task\n" +
+                 "  depth <n>  set printing depth to <n> (-1 = infinite)\n" +
                  "  (h)elp     display help text\n" +
-                 "  (t)ask     display information about the selected task\n" +
-                 "Fair search commands:\n" +
-                 "  <t> ...        execute a step on tasks <t>...\n" +
-                 "  all            execute a step on every task\n" +
-                 "  <cmd> <t> ...  execute the general command <cmd> on tasks <t>...\n" +
-                 "  all <cmd>      execute the general command <cmd> on every task\n" +
-                 "  ensemble       (%t) execute general commands on every task\n" +
-                 "  hide           (%t) hide already printed results in multi-task view\n" +
-                 "  list           list all task ids currently in use\n" +
-                 "  pull           check if new tasks are available\n" +
-                 "  select <t>     select task <t> (in single task view or execution)\n" +
-                 "  view           switch between single and multi-task view\n"
+                 "  (a)bort    abort the program\n" +
+                 "Fair search commands (<ts> is either 'all' or a sequence of task ids):\n" +
+                 "  <ts>         execute a step on tasks <ts>\n" +
+                 "  select <ts>  select tasks <ts> for executing general commands\n" +
+                 "  view <ts>    select tasks <ts> for viewing\n" +
+                 "  hide         hide already printed results (current: '%t')\n" +
+                 "  list         list all task ids currently in use\n" +
+                 "  pull         check if more tasks are available\n"
 
 // Type representing commands for tasks
 type DebugCmd uint8
@@ -149,13 +145,14 @@ var printing_depth = -1
 
 // Starts a loop handling user and task interactions
 func debugLoop(result_chan chan Task, fair_search bool){
-    var ensemble = fair_search // run all or only one task
-    var view = fair_search // print all or only one task
     var hide_results = false // do not print results more than once
-    var update_data = true // update data slice after step
+    var update_data = true // update data slice after s step
+    var update_view = true // update view_data slice after step
     var cur_task = 0 // selected task id
     var run_steps = 0 // number of steps to run after go command
     var data []*DebugData // slice containing tasks to execute commands on
+    var temp_data []*DebugData // slice holding tasks temporarily overwriting data
+    var view_data []*DebugData // slice containing tasks to print
     var reader = bufio.NewReader(os.Stdin)
     var input string
     
@@ -201,23 +198,26 @@ func debugLoop(result_chan chan Task, fair_search bool){
         // get input from user
         CmdLoop:
         for{
+            // update data slices
+            if(len(temp_data) > 0){
+                data = temp_data
+                temp_data = nil
+            }
+            
             if(update_data){
-                // get the selected task data
-                if(ensemble){
-                    data = getDebugValues()
-                } else{
-                    data = []*DebugData{debug_map[cur_task]}
-                }
-            }    
+                data = getDebugValues()
+            }
+            
+            if(update_view){
+                view_data = getDebugValues()
+            }
             
             // display latest events
-            if(view){
-                // print last events of all tasks
-                ids := getDebugIds()
-                for i := 0; i < len(ids); i++{
-                    d := debug_map[ids[i]]
+            if(fair_search){
+                // print last events of selected tasks
+                for _, d := range(view_data){
                     
-                    // check if keep_results is active
+                    // check if hide_results is active
                     if(hide_results){
                         // skip already displayed results
                         if(d.done){
@@ -259,18 +259,12 @@ func debugLoop(result_chan chan Task, fair_search bool){
                 // if all tasks are done in fair search, stop early
                 if(done && fair_search){
                     run_steps = 0
-                    update_data = true
                 } else{
                     fmt.Println("")
                     
                     // update step counter
                     if(run_steps > 0){
                         run_steps -= 1
-                        
-                        // test if go command is done
-                        if(run_steps == 0){
-                            update_data = true
-                        }
                     }
                     
                     // skip rest of CmdLoop
@@ -287,43 +281,32 @@ func debugLoop(result_chan chan Task, fair_search bool){
             
             // check for special inputs
             if(len(input_split) != 0){
-                if(input_split[0] == "all"){
+                // check if input is a number
+                _, err := strconv.Atoi(input_split[0])
+                
+                if(err == nil){
                     // check if fair search is active
                     if(!fair_search){
-                        fmt.Println("  'all' modifier is only available during fair search.")
+                        fmt.Println("  Executing specific tasks is only available during fair search.")
                         continue
                     }
                     
-                    // parse all modifier
-                    data = getDebugValues()
-                    input_split = input_split[1:]
-                } else{
-                    // check if input is a number
-                    _, err := strconv.Atoi(input_split[0])
-                    
-                    if(err == nil){
-                        // check if fair search is active
-                        if(!fair_search){
-                            fmt.Println("  Executing specific tasks is only available during fair search.")
-                            continue
+                    // execute step on specified tasks
+                    new_data := make([]*DebugData, len(input_split))
+                    for i, arg := range(input_split){
+                        // get specified task
+                        d, _ := parseTask(arg)
+                        
+                        if(d == nil){
+                            continue CmdLoop
                         }
                         
-                        // execute step on specified tasks
-                        data = data[:0]
-                        for _, arg := range(input_split){
-                            // get specified task
-                            d, _ := parseTask(arg)
-                            
-                            if(d == nil){
-                                continue CmdLoop
-                            }
-                            
-                            // append task to data
-                            data = append(data, d)
-                        }
-                        
-                        input_split = input_split[:0]
+                        // append task to data
+                        new_data[i] = d
                     }
+                    temp_data = data
+                    data = new_data
+                    input_split = input_split[:0]
                 }
             }
             
@@ -367,29 +350,6 @@ func debugLoop(result_chan chan Task, fair_search bool){
                 
                 printing_depth = n
             case "e", "eval":
-                // check if task ids were provided
-                if(len(args) != 0){
-                    // check if fair search is active
-                    if(!fair_search){
-                        fmt.Println("  Evaluating specific tasks is only available during fair search.")
-                        continue
-                    }
-                    
-                    // set data to selected tasks
-                    data = data[:0]
-                    for _, arg := range(args){
-                        // get specified task
-                        d, _ := parseTask(arg)
-                        
-                        if(d == nil){
-                            continue CmdLoop
-                        }
-                        
-                        // append task to data
-                        data = append(data, d)
-                    }
-                }
-                
                 // save old counter values
                 old_chCount := <- choiceCount
                 choiceCount <- old_chCount
@@ -431,29 +391,6 @@ func debugLoop(result_chan chan Task, fair_search bool){
                 
                 continue
             case "f", "fail":
-                // check if task ids were provided
-                if(len(args) != 0){
-                    // check if fair search is active
-                    if(!fair_search){
-                        fmt.Println("  Failing specific tasks is only available during fair search.")
-                        continue
-                    }
-                    
-                    // set data to selected tasks
-                    data = data[:0]
-                    for _, arg := range(args){
-                        // get specified task
-                        d, _ := parseTask(arg)
-                        
-                        if(d == nil){
-                            continue CmdLoop
-                        }
-                        
-                        // append task to data
-                        data = append(data, d)
-                    }
-                }
-                
                 // fail the selected tasks
                 for _, d := range(data){
                     // skip if task is done
@@ -485,75 +422,14 @@ func debugLoop(result_chan chan Task, fair_search bool){
                     // run n steps
                     run_steps = n
                 }
-                
-                // check if task ids were provided
-                if(len(args) > 1){
-                    // check if fair search is active
-                    if(!fair_search){
-                        fmt.Println("  Running specific tasks is only available during fair search.")
-                        run_steps = 0
-                        continue
-                    }
-                    
-                    // set data to selected tasks
-                    data = data[:0]
-                    args = args[1:]
-                    for _, arg := range(args){
-                        // get specified task
-                        d, _ := parseTask(arg)
-                        
-                        if(d == nil){
-                            run_steps = 0
-                            continue CmdLoop
-                        }
-                        
-                        // append task to data
-                        data = append(data, d)
-                    }
-                    
-                    // keep the same data over multiple steps
-                    update_data = false
-                }
             case "h", "help":
                 // print help text
-                fmt.Printf(helpText, ensemble, hide_results)
+                fmt.Printf(helpText, hide_results)
             case "t", "task":
-                // check if task ids were provided
-                if(len(args) != 0){
-                    // check if fair search is active
-                    if(!fair_search){
-                        fmt.Println("  Printing specific tasks is only available during fair search.")
-                        continue
-                    }
-                    
-                    // print all selected tasks
-                    for _, arg := range(args){
-                        // get specified task
-                        d, _ := parseTask(arg)
-                        
-                        if(d == nil){
-                            continue
-                        }
-                        
-                        // print task info
-                        printTask(d.task)
-                    }
-                    continue
-                }
-                
                 // print info of selected tasks
                 for _, d := range(data){
                     printTask(d.task)
                 }
-            case "ensemble":
-                // check if fair search is active
-                if(!fair_search){
-                    fmt.Println("  Command only available during fair search.")
-                    continue
-                }
-                
-                // toggle 'ensemble' flag
-                ensemble = !ensemble
             case "hide":
                 if(!fair_search){
                     fmt.Println("  Command only available during fair search.")
@@ -589,15 +465,31 @@ func debugLoop(result_chan chan Task, fair_search bool){
                 
                 // check if id was provided
                 if(len(args) == 0){
-                    fmt.Println("  Select expects a task id as argument.")
+                    fmt.Println("  Select expects task ids as arguments.")
                     continue
                 }
                 
-                // parse argument
-                _, n := parseTask(args[0])
-                
-                // switch current task
-                cur_task = n
+                // check for 'all'
+                if(args[0] == "all"){
+                    update_data = true
+                } else{
+                    // parse task ids
+                    new_data := make([]*DebugData, len(args))
+                    for i, arg := range(args){
+                        // get specified task
+                        d, _ := parseTask(arg)
+                        
+                        if(d == nil){
+                            continue CmdLoop
+                        }
+                        
+                        // append task
+                        new_data[i] = d
+                    }
+                    // set data to selected task ids
+                    data = new_data
+                    update_data = false
+                }
             case "view":
                 // check if fair search is active
                 if(!fair_search){
@@ -605,8 +497,33 @@ func debugLoop(result_chan chan Task, fair_search bool){
                     continue
                 }
                 
-                // toggle 'view' flag
-                view = !view
+                // check if id was provided
+                if(len(args) == 0){
+                    fmt.Println("  View expects task ids as arguments.")
+                    continue
+                }
+                
+                // check for 'all'
+                if(args[0] == "all"){
+                    update_view = true
+                } else{
+                    // parse task ids
+                    new_data := make([]*DebugData, len(args))
+                    for i, arg := range(args){
+                        // get specified task
+                        d, _ := parseTask(arg)
+                        
+                        if(d == nil){
+                            continue CmdLoop
+                        }
+                        
+                        // append task
+                        new_data[i] = d
+                    }
+                    // set data to selected task ids
+                    view_data = new_data
+                    update_view = false
+                }
             default:
                 // print invalid command message
                 fmt.Println("  Invalid Command: " + command)
@@ -653,11 +570,6 @@ func debugLoop(result_chan chan Task, fair_search bool){
                     
                     // check for fair search
                     if(fair_search){
-                        // print split event in single task view for the current task
-                        if(!view && cur_task == d.task.parents[len(d.task.parents) - 1]){
-                            fmt.Println(d.last_event.text)
-                        }
-                        
                         // remap tasks
                         debug_map[d.task.id] = d
                         delete(debug_map, d.task.parents[len(d.task.parents) - 1])
