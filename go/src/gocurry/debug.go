@@ -74,7 +74,8 @@ func showDataEvent(data *DebugData) string{
     if(data.last_event.action == DebugResult){
         return "Result: " + ShowPartialNode(data.task.control, printing_depth)
     } else if(data.last_event.action == DebugCall){
-        return "Call: " + ShowPartialNode(data.task.control, printing_depth)
+        indent := strings.Repeat("..", len(data.task.stack))
+        return "Call: " + indent + ShowPartialNode(data.task.control, printing_depth)
     }
     
     return ""
