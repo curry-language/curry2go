@@ -5,8 +5,11 @@ export ROOT = $(CURDIR)
 # The binary directory
 export BINDIR = $(ROOT)/bin
 
-# The name of a Curry system used for generating the initial compiler
-# (we try PAKCS if this parameter is not explicitly set)
+# The name of a Curry system (i.e., the REPL command) used for generating
+# the initial compiler.
+# An Curry system can be passed by the variable CURRY.
+# If it is not set, the local `bin/curry2go` is used if the local REPL exists,
+# otherwise we try to find a `pakcs` executable.
 ifneq ($(CURRY),)
 export CURRYSYSTEM := $(shell which $(CURRY))
 else ifneq ($(wildcard $(BINDIR)/curry2goi),)
@@ -27,7 +30,7 @@ export BUILDFRONTEND = no
 
 # Directory where local executables are stored
 export LOCALBIN = $(BINDIR)/.local
-# Directory where the actual libraries are located
+# Directory where the actual base libraries are located
 export LIBDIR = $(ROOT)/lib
 
 # set GOPATH to directory containing run-time auxiliaries
@@ -103,7 +106,7 @@ $(CPMDEPS): | $(VALIDCURRY) $(MKTMPDIR)
 	@touch $@
 
 # Install the kernel of Curry2Go (compiler and REPL) with CURRYSYSTEM
-# without installing all packages
+# without installing tools (like CPM)
 .PHONY: kernel
 kernel:
 	$(MAKE) scripts
@@ -146,7 +149,7 @@ $(COMPDISTGO): src/Install.curry src/Curry2Go/PkgConfig.curry | $(VALIDCURRY)
 bootstrap:
 	$(MAKE) install
 	mkdir -p $(LOCALBIN)
-	cp -p $(COMPILER) $(LOCALBIN)/curry2goc
+	cp -p $(COMPILER) $(LOCALBIN)/curry2goc # save existing compiler
 	touch lib/Curry/Compiler/Distribution.curry # enforce recompilation
 	$(CPMLOCAL) -d BININSTALLPATH=$(BINDIR) install -x curry2goc
 	cp -p $(REPL) $(LOCALBIN)/curry2goi
@@ -269,6 +272,8 @@ CPMDISTC2G = $(CPM) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
 # the location where the distribution is built:
 C2GDISTDIR=/tmp/Curry2Go
 
+# Build the tar file of the distribution by cloning the Curry2Go repository,
+# bootstrap the compiler, build CPM, and clean the distribution.
 $(TARFILE):
 	$(RM) -rf $(C2GDISTDIR) $(TARFILE)
 	git clone $(GITURL) $(C2GDISTDIR)
