@@ -9,21 +9,21 @@ import "sort"
 
 // Text containing help information
 const helpText = "General commands:\n" +
-                 "  <return>   execute single step on selected task\n" +
-                 "  (g)o <n>   execute <n> steps (-1, omit <n> = run until a result is found)\n" +
-                 "  (e)val     print control of selected task in normal form\n" +
-                 "  (f)ail     fail selected task\n" +
-                 "  (t)ask     display information about selected task\n" +
-                 "  depth <n>  set printing depth to <n> (-1 = infinite)\n" +
-                 "  (h)elp     display help text\n" +
-                 "  (a)bort    abort the program\n" +
+                 "  <return>  execute single step on selected task\n" +
+                 "  (g)o <n>  execute <n> steps (-1, omit <n> = run until a result is found)\n" +
+                 "  (e)val    print control of selected task in normal form\n" +
+                 "  (f)ail    fail selected task\n" +
+                 "  (t)ask    display information about selected task\n" +
+                 "  depth <n> set printing depth to <n> (-1 = infinite)\n" +
+                 "  (h)elp    display help text\n" +
+                 "  (a)bort   abort the program\n" +
                  "Fair search commands (<ts> is either 'all' or a sequence of task ids):\n" +
-                 "  <ts>         execute a step on tasks <ts>\n" +
-                 "  select <ts>  select tasks <ts> for executing general commands (current: '%s')\n" +
-                 "  view <ts>    select tasks <ts> for viewing (current: '%s')\n" +
-                 "  hide         hide already printed results (current: '%t')\n" +
-                 "  list         list all task ids currently in use\n" +
-                 "  pull         check if more tasks are available\n"
+                 "  <ts>        execute a step on tasks <ts>\n" +
+                 "  select <ts> select tasks <ts> for executing general commands (current: %s)\n" +
+                 "  view <ts>   select tasks <ts> for viewing (current: %s)\n" +
+                 "  hide        hide already printed results (current: %t)\n" +
+                 "  list        list all task ids currently in use\n" +
+                 "  pull        check if more tasks are available\n"
 
 // Type representing commands for tasks
 type DebugCmd uint8
