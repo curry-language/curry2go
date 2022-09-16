@@ -19,8 +19,8 @@ const helpText = "General commands:\n" +
                  "  (a)bort    abort the program\n" +
                  "Fair search commands (<ts> is either 'all' or a sequence of task ids):\n" +
                  "  <ts>         execute a step on tasks <ts>\n" +
-                 "  select <ts>  select tasks <ts> for executing general commands\n" +
-                 "  view <ts>    select tasks <ts> for viewing\n" +
+                 "  select <ts>  select tasks <ts> for executing general commands (current: '%s')\n" +
+                 "  view <ts>    select tasks <ts> for viewing (current: '%s')\n" +
                  "  hide         hide already printed results (current: '%t')\n" +
                  "  list         list all task ids currently in use\n" +
                  "  pull         check if more tasks are available\n"
@@ -431,8 +431,30 @@ func debugLoop(result_chan chan Task, fair_search bool){
                     run_steps = n
                 }
             case "h", "help":
+                // get string of selected tasks
+                select_text := ""
+                if(update_data){
+                    select_text = "all"
+                } else{
+                    for _, d := range(data){
+                        select_text += " " + strconv.Itoa(d.task.id)
+                    }
+                    select_text = select_text[1:]
+                }
+                
+                // get string of viewed tasks
+                view_text := ""
+                if(update_view){
+                    view_text = "all"
+                } else{
+                    for _, d := range(view_data){
+                        view_text += " " + strconv.Itoa(d.task.id)
+                    }
+                    view_text = view_text[1:]
+                }
+                
                 // print help text
-                fmt.Printf(helpText, hide_results)
+                fmt.Printf(helpText, select_text, view_text, hide_results)
             case "t", "task":
                 // print info of selected tasks
                 for _, d := range(data){
