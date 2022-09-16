@@ -282,32 +282,39 @@ func debugLoop(result_chan chan Task, fair_search bool){
             
             // check for special inputs
             if(len(input_split) != 0){
-                // check if input is a number
-                _, err := strconv.Atoi(input_split[0])
-                
-                if(err == nil){
-                    // check if fair search is active
-                    if(!fair_search){
-                        fmt.Println("  Executing specific tasks is only available during fair search.")
-                        continue
-                    }
+                if(input_split[0] == "all"){
+                    temp_data = data
+                    data = getDebugValues()
+                    input_split = input_split[:0]
                     
-                    // execute step on specified tasks
-                    new_data := make([]*DebugData, len(input_split))
-                    for i, arg := range(input_split){
-                        // get specified task
-                        d, _ := parseTask(arg)
-                        
-                        if(d == nil){
-                            continue CmdLoop
+                } else{
+                    // check if input is a number
+                    _, err := strconv.Atoi(input_split[0])
+                    
+                    if(err == nil){
+                        // check if fair search is active
+                        if(!fair_search){
+                            fmt.Println("  Executing specific tasks is only available during fair search.")
+                            continue
                         }
                         
-                        // append task to data
-                        new_data[i] = d
+                        // execute step on specified tasks
+                        new_data := make([]*DebugData, len(input_split))
+                        for i, arg := range(input_split){
+                            // get specified task
+                            d, _ := parseTask(arg)
+                            
+                            if(d == nil){
+                                continue CmdLoop
+                            }
+                            
+                            // append task to data
+                            new_data[i] = d
+                        }
+                        temp_data = data
+                        data = new_data
+                        input_split = input_split[:0]
                     }
-                    temp_data = data
-                    data = new_data
-                    input_split = input_split[:0]
                 }
             }
             
