@@ -1,11 +1,18 @@
 Release Notes for Curry2Go
 ==========================
 
+Release notes for version 1.1.0 (November 25, 2022)
+---------------------------------------------------
+
+- add debug/trace mode (activated by command `:set +debug`)
+  in order to show the individual computation steps and tasks
+  (for the fair search strategy)
+
 Release notes for version 1.0.1 (February 3, 2022)
 --------------------------------------------------
 
 - implementation of packages `socket` and `bindata` completed
-- new name scheme to avoi name clashes in translated entity names
+- new name scheme to avoid name clashes in translated entity names
 - raising failures and non-determinism in I/O actions added
 
 
