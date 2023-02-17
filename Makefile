@@ -58,8 +58,15 @@ RM=/bin/rm
 # The Go implementation of the base module Curry.Compiler.Distribution
 COMPDISTGO = lib/Curry/Compiler/Distribution_external.go
 
+# Compiler date (from git repository or blank)
+ifeq ($(shell test -d "$(ROOT)/.git" ; echo $$?),0)
+COMPILERDATE := $(shell git log -1 --format="%ci" | cut -c-10)
+else
+COMPILERDATE := ""
+endif
+
 # The file containing the compiler date
-COMPILERDATE = COMPILERDATE
+COMPILERDATEFILE = COMPILERDATE
 
 # Directory for auxiliary files for the make process
 MKTMPDIR = $(ROOT)/tmpmake
@@ -111,7 +118,7 @@ $(CPMDEPS): | $(VALIDCURRY) $(MKTMPDIR)
 kernel:
 	$(MAKE) scripts
 	$(MAKE) frontend
-	$(MAKE) $(COMPILERDATE)
+	$(MAKE) $(COMPILERDATEFILE)
 	$(MAKE) $(COMPILER)
 	$(MAKE) $(REPL)
 	$(MAKE) $(COMPDISTGO)
@@ -134,8 +141,14 @@ $(REPL): src/Curry2Go/REPL.curry src/Curry2Go/InstallPath.curry \
 	$(CPMCURRY) -d BININSTALLPATH=$(BINDIR) install -x curry2goi
 
 # Initializing compiler date file with repository date
-$(COMPILERDATE):
-	git log -1 --format="%ci" | cut -c-10 > $@
+# (update only if necessary)
+.PHONY: $(COMPILERDATEFILE)
+$(COMPILERDATEFILE):
+ifeq ($(shell test ! -f "$(COMPILERDATEFILE)" ; echo $$?),0)
+	echo $(COMPILERDATE) > $@
+else ifeq ($(shell test -n "$(COMPILERDATE)" -a "`cat $(COMPILERDATEFILE)`" != "$(COMPILERDATE)" ; echo $$?),0)
+	echo $(COMPILERDATE) > $@ # update file with newer date
+endif
 
 # Generate the implementation of externals of Curry.Compiler.Distribution
 $(COMPDISTGO): src/Install.curry src/Curry2Go/PkgConfig.curry | $(VALIDCURRY)
@@ -246,7 +259,7 @@ cleanscripts:
 .PHONY: cleantargets
 cleantargets:
 	$(RM) -rf $(LIBDIR)/.curry src/.curry
-	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO) $(COMPILERDATE)
+	$(RM) -rf $(LOCALBIN) $(COMPILER) $(REPL) $(COMPDISTGO) $(COMPILERDATEFILE)
 	$(RM) -rf $(MKTMPDIR)
 
 # clean all installed components
