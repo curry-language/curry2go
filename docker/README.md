@@ -2,7 +2,7 @@ Docker image of Curry2go
 ========================
 
 This directory contains some files to create and run the
-[Docker image of Curry2go](https://hub.docker.com/r/caups/curry2go).
+[Docker image of Curry2go](https://hub.docker.com/r/currylang/curry2go).
 
 
 Building a new docker image
@@ -27,18 +27,17 @@ Uploading image to Docker Hub
 
 When the repository does not yet exist on Docker Hub:
 
-1. Log in on https://hub.docker.com
-2. Change to organization "caups"
-3. Click on "Create Repository"
-4. Choose a name ("curry2go") and click create
+1. Log in on https://hub.docker.com as "currylang"
+2. Click on "Create Repository"
+3. Choose a name ("curry2go") and click create
 
 When the repository exists on Docker Hub:
 
 Log into the Docker Hub from command line, tag and push the local image:
 
-    > docker login --username mhanus42
-    > docker tag curry2go caups/curry2go:<version>
-    > docker push caups/curry2go:<version>
+    > docker login --username currylang
+    > docker tag curry2go currylang/curry2go:<version>
+    > docker push currylang/curry2go:<version>
 
 where <version> should be something like "1.1.0"
 or "latest" to update the latest version.
