@@ -56,9 +56,11 @@ module Prelude
   , IOError (..), userError, ioError, catch
 
   -- * Constraint Programming
-  , Success, success, solve, doSolve, (=:=), (=:<=), constrEq
+  , Success, success, solve, doSolve, (=:=), (=:<=)
 #ifdef __PAKCS__
-  , (=:<<=)
+  , constrEq, (=:<<=)
+#elif defined(__CURRY2GO__)
+  , constrEq
 #endif
   , (&), (&>)
 
@@ -2224,13 +2226,24 @@ doSolve b | b = return ()
 --- reduced to a unifiable data term (i.e., a term without defined
 --- function symbols).
 (=:=) :: Data a => a -> a -> Bool
+#ifdef __PAKCS__
 x =:= y = constrEq x y
+#elif defined(__CURRY2GO__)
+x =:= y = constrEq x y
+#else
+(=:=) external
+#endif
 
 --- Internal operation to implement equational constraints.
 --- It is used by the strict equality optimizer but should not be used
 --- in regular programs.
+#ifdef __PAKCS__
 constrEq :: a -> a -> Bool
 constrEq external
+#elif defined(__CURRY2GO__)
+constrEq :: a -> a -> Bool
+constrEq external
+#endif
 
 --- Non-strict equational constraint.
 --- This operation is not intended to be used in source programs
@@ -2243,10 +2256,21 @@ constrEq external
 --- non-linear so that it abbreviates some further equational constraints,
 --- see [Section 7](https://doi.org/10.1007/978-3-030-46714-2_15).
 (=:<=) :: Data a => a -> a -> Bool
+#ifdef __PAKCS__
 x =:<= y = nonstrictEq x y
+#elif defined(__CURRY2GO__)
+x =:<= y = nonstrictEq x y
+#else
+(=:<=) external
+#endif
 
+#ifdef __PAKCS__
 nonstrictEq :: a -> a -> Bool
 nonstrictEq external
+#elif defined(__CURRY2GO__)
+nonstrictEq :: a -> a -> Bool
+nonstrictEq external
+#endif
 
 #ifdef __PAKCS__
 --- Non-strict equational constraint for linear functional patterns.

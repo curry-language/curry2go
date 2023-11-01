@@ -1,4 +1,4 @@
-package Control_DOT_AllValues
+package Control_DOT_Search_DOT_Unsafe
 
 import "gocurry"
 import "curry2go/Prelude"
@@ -38,7 +38,7 @@ func evalToList(root *gocurry.Node, result_chan chan gocurry.Task)(*gocurry.Node
         }
     }
     
-    return gocurry.FuncCreate(root, resultFunc, &names[3], 0, -1)
+    return gocurry.FuncCreate(root, resultFunc, &names[1], 0, -1)
 }
 
 func ExternalControlDot_SearchDot_UnsafeDot_oneValue(task *gocurry.Task){
