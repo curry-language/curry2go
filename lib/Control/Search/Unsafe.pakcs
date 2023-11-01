@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE primitives SYSTEM "http://www.informatik.uni-kiel.de/~pakcs/primitives.dtd">
+<primitives>
+ <primitive name="allValues" arity="1">
+  <entry>Unsafe.prim_allValues[raw]</entry>
+ </primitive>
+ <primitive name="oneValue" arity="1">
+  <entry>Unsafe.prim_oneValue[raw]</entry>
+ </primitive>
+ <primitive name="rewriteAll" arity="1">
+  <entry>Unsafe.prim_rewriteAll[raw]</entry>
+ </primitive>
+ <primitive name="rewriteSome" arity="1">
+  <entry>Unsafe.prim_rewriteSome[raw]</entry>
+ </primitive>
+</primitives>

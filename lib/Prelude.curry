@@ -93,14 +93,17 @@ infixr 2 ||
 infixl 1 >>, >>=
 infixr 0 ?, $, $!, $!!, $#, $##, `seq`, &, &>
 
+-- externally defined types for numbers and characters
 external data Char
 
 external data Int
 
 external data Float
 
+--- The type of Boolean values.
 data Bool = False | True
 
+--- Ordering type. Useful as a result of comparison functions.
 data Ordering = LT | EQ | GT
 
 ------------------------------------------------------------------------------
@@ -228,6 +231,10 @@ instance (Eq a, Eq b, Eq c, Eq d, Eq e) => Eq (a, b, c, d, e) where
   (a, b, c, d, e) == (a', b', c', d', e') =
     a == a' && b == b' && c == c' && d == d' && e == e'
 
+instance (Eq a, Eq b, Eq c, Eq d, Eq e, Eq f) => Eq (a, b, c, d, e, f) where
+  (a, b, c, d, e, f) == (a', b', c', d', e', f') =
+    a == a' && b == b' && c == c' && d == d' && e == e' && f == f'
+
 instance Eq a => Eq [a] where
   []     == []     = True
   []     == (_:_)  = False
@@ -255,6 +262,8 @@ instance Eq Ordering where
 eqChar :: Char -> Char -> Bool
 #ifdef __KICS2__
 eqChar external
+#elif  __KMCC__ > 0
+eqChar external
 #else
 eqChar x y = (prim_eqChar $# y) $# x
 
@@ -266,6 +275,8 @@ prim_eqChar external
 eqInt :: Int -> Int -> Bool
 #ifdef __KICS2__
 eqInt external
+#elif  __KMCC__ > 0
+eqInt external
 #else
 eqInt x y = (prim_eqInt $# y) $# x
 
@@ -276,6 +287,8 @@ prim_eqInt external
 -- Equality on floating point numbers.
 eqFloat :: Float -> Float -> Bool
 #ifdef __KICS2__
+eqFloat external
+#elif  __KMCC__ > 0
 eqFloat external
 #else
 eqFloat x y = (prim_eqFloat $# y) $# x
@@ -363,6 +376,8 @@ instance Ord Ordering where
 ltEqChar :: Char -> Char -> Bool
 #ifdef __KICS2__
 ltEqChar external
+#elif  __KMCC__ > 0
+ltEqChar external
 #else
 ltEqChar x y = (prim_ltEqChar $# y) $# x
 
@@ -373,6 +388,8 @@ prim_ltEqChar external
 -- Compares two integers.
 ltEqInt :: Int -> Int -> Bool
 #ifdef __KICS2__
+ltEqInt external
+#elif  __KMCC__ > 0
 ltEqInt external
 #else
 ltEqInt x y = (prim_ltEqInt $# y) $# x
@@ -385,6 +402,8 @@ prim_ltEqInt external
 ltEqFloat :: Float -> Float -> Bool
 #ifdef __KICS2__
 ltEqFloat external
+#elif  __KMCC__ > 0
+ltEqFloat external
 #else
 ltEqFloat x y = (prim_ltEqFloat $# y) $# x
 
@@ -392,6 +411,9 @@ prim_ltEqFloat :: Float -> Float -> Bool
 prim_ltEqFloat external
 #endif
 
+--- The type synonym `ShowS` represent strings as difference lists.
+--- Composing functions of this type allows concatenation of lists
+--- in constant time.
 type ShowS = String -> String
 
 class Show a where
@@ -511,6 +533,12 @@ showFloatLiteral x = prim_showFloatLiteral $## x
 prim_showFloatLiteral :: Float -> String
 prim_showFloatLiteral external
 
+
+--- The type synonym `ReadS` represent a parser for values of type a.
+--- Such a parser is a function that takes a String and
+--- returns a list of possible parses as `(a,String)` pairs.
+--- Thus, if the result is the empty list, there is no parse, i.e.,
+--- the input string is not valid.
 type ReadS a = String -> [(a, String)]
 
 class Read a where
@@ -620,6 +648,9 @@ instance Read Ordering where
       readParen False (\s -> [(EQ, t) | ("EQ", t) <- lex s]) r ++
       readParen False (\s -> [(GT, t) | ("GT", t) <- lex s]) r
 
+--- A parser to read data from a string.
+--- For instance, `reads "42" :: [(Int,String)]` returns `[(42,[])]`, and
+--- `reads "hello" :: [(Int,String)]` returns `[]`.
 reads :: Read a => ReadS a
 reads = readsPrec 0
 
@@ -631,6 +662,9 @@ readListDefault = readParen False (\r -> [pr | ("[",s) <- lex r, pr <- readl s])
                    [ (x : xs, v) | (",", t)  <- lex s, (x, u) <- reads t
                                  , (xs,v) <- readl' u ]
 
+--- `readParen True p` parses what `p` parses, but surrounded with parentheses.
+--- `readParen False p` parses what `p` parses, but the string to be parsed
+--- can be optionally with parentheses.
 readParen :: Bool -> ReadS a -> ReadS a
 readParen b g = if b then mandatory else optional
  where optional r = g r ++ mandatory r
@@ -642,10 +676,20 @@ readSigned p = readParen False read'
  where read' r = read'' r ++ [(-x, t) | ("-", s) <- lex r, (x, t) <- read'' s]
        read'' r = [(n, s) | (str, s) <- lex r, (n, "") <- p str]
 
+--- Reads data of the given type from a string.
+--- The operations fails if the data cannot be parsed.
+--- For instance `read "42" :: Int` evaluates to `42`,
+--- and `read "hello" :: Int` fails.
 read :: Read a => String -> a
 read s =  case [x | (x, t) <- reads s, ("", "") <- lex t] of
   [x] -> x
 
+--- Reads a single lexeme from the given string.
+--- Initial white space is discarded and the characters of the lexeme
+--- are returned. If the input string contains only white space,
+--- `lex` returns the empty string as lexeme.
+--- If there is no legal lexeme at the beginning of the input string,
+--- the operation fails, i.e., `[]` is returned.
 lex :: ReadS String
 lex xs = case xs of
   ""                  -> [("", "")]
@@ -875,6 +919,8 @@ instance Num Float where
 plusInt :: Int -> Int -> Int
 #ifdef __KICS2__
 plusInt external
+#elif  __KMCC__ > 0
+plusInt external
 #else
 x `plusInt` y = (prim_plusInt $# y) $# x
 
@@ -885,6 +931,8 @@ prim_plusInt external
 -- Subtracts two integers.
 minusInt :: Int -> Int -> Int
 #ifdef __KICS2__
+minusInt external
+#elif  __KMCC__ > 0
 minusInt external
 #else
 x `minusInt` y = (prim_minusInt $# y) $# x
@@ -897,6 +945,8 @@ prim_minusInt external
 timesInt :: Int -> Int -> Int
 #ifdef __KICS2__
 timesInt external
+#elif  __KMCC__ > 0
+timesInt external
 #else
 x `timesInt` y = (prim_timesInt $# y) $# x
 
@@ -906,28 +956,42 @@ prim_timesInt external
 
 -- Adds two floating point numbers.
 plusFloat :: Float -> Float -> Float
+#ifdef __KMCC__
+plusFloat external
+#else
 x `plusFloat` y = (prim_plusFloat $# y) $# x
 
 prim_plusFloat :: Float -> Float -> Float
 prim_plusFloat external
+#endif
 
 -- Subtracts two floating point numbers.
 minusFloat :: Float -> Float -> Float
+#ifdef __KMCC__
+minusFloat external
+#else
 x `minusFloat` y = (prim_minusFloat $# y) $# x
 
 prim_minusFloat :: Float -> Float -> Float
 prim_minusFloat external
+#endif
 
 -- Multiplies two floating point numbers.
 timesFloat :: Float -> Float -> Float
+#ifdef __KMCC__
+timesFloat external
+#else
 x `timesFloat` y = (prim_timesFloat $# y) $# x
 
 prim_timesFloat :: Float -> Float -> Float
 prim_timesFloat external
+#endif
 
 -- Negates a floating point number.
 negateFloat :: Float -> Float
 #ifdef __KICS2__
+negateFloat external
+#elif  __KMCC__ > 0
 negateFloat external
 #else
 negateFloat x = prim_negateFloat $# x
@@ -938,11 +1002,14 @@ prim_negateFloat external
 
 -- Converts from integers to floating point numbers.
 intToFloat :: Int -> Float
+#ifdef __KMCC__
+intToFloat external
+#else
 intToFloat x = prim_intToFloat $# x
 
 prim_intToFloat :: Int -> Float
 prim_intToFloat external
-
+#endif
 
 class Num a => Fractional a where
   (/) :: a -> a -> a
@@ -958,10 +1025,14 @@ instance Fractional Float where
 
 -- Division on floating point numbers.
 divFloat :: Float -> Float -> Float
+#ifdef __KMCC__
+divFloat external
+#else
 x `divFloat` y = (prim_divFloat $# y) $# x
 
 prim_divFloat :: Float -> Float -> Float
 prim_divFloat external
+#endif
 
 class (Num a, Ord a) => Real a where
   toFloat :: a -> Float
@@ -1015,6 +1086,8 @@ realToFrac = fromFloat . toFloat
 divInt :: Int -> Int -> Int
 #ifdef __KICS2__
 divInt external
+#elif  __KMCC__ > 0
+divInt external
 #else
 x `divInt` y = (prim_divInt $# y) $# x
 
@@ -1026,6 +1099,8 @@ prim_divInt external
 -- and it obeys the rule `mod x y = x - y * (div x y)`.
 modInt :: Int -> Int -> Int
 #ifdef __KICS2__
+modInt external
+#elif  __KMCC__ > 0
 modInt external
 #else
 x `modInt` y = (prim_modInt $# y) $# x
@@ -1039,6 +1114,8 @@ prim_modInt external
 quotInt :: Int -> Int -> Int
 #ifdef __KICS2__
 quotInt external
+#elif  __KMCC__ > 0
+quotInt external
 #else
 x `quotInt` y = (prim_quotInt $# y) $# x
 
@@ -1050,6 +1127,8 @@ prim_quotInt external
 -- and it obeys the rule `rem x y = x - y * (quot x y)`.
 remInt :: Int -> Int -> Int
 #ifdef __KICS2__
+remInt external
+#elif  __KMCC__ > 0
 remInt external
 #else
 x `remInt` y = (prim_remInt $# y) $# x
@@ -1087,20 +1166,28 @@ instance RealFrac Float where
 -- Conversion function from floating point numbers to integers.
 -- The result is the closest integer between the argument and 0.
 truncateFloat :: Float -> Int
+#ifdef __KMCC__
+truncateFloat external
+#else
 truncateFloat x = prim_truncateFloat $# x
 
 prim_truncateFloat :: Float -> Int
 prim_truncateFloat external
+#endif
 
 -- Conversion function from floating point numbers to integers.
 -- The result is the nearest integer to the argument.
 -- If the argument is equidistant between two integers,
 -- it is rounded to the closest even integer value.
 roundFloat :: Float -> Int
+#ifdef __KMCC__
+roundFloat external
+#else
 roundFloat x = prim_roundFloat $# x
 
 prim_roundFloat :: Float -> Int
 prim_roundFloat external
+#endif
 
 class Fractional a => Floating a where
   pi :: a
@@ -1137,110 +1224,170 @@ instance Floating Float where
 
 -- Natural logarithm.
 logFloat :: Float -> Float
+#ifdef __KMCC__
+logFloat external
+#else
 logFloat x = prim_logFloat $# x
 
 prim_logFloat :: Float -> Float
 prim_logFloat external
+#endif
 
 -- Natural exponent.
 expFloat :: Float -> Float
+#ifdef __KMCC__
+expFloat external
+#else
 expFloat x = prim_expFloat $# x
 
 prim_expFloat :: Float -> Float
 prim_expFloat external
+#endif
 
 -- Square root.
 sqrtFloat :: Float -> Float
+#ifdef __KMCC__
+sqrtFloat external
+#else
 sqrtFloat x = prim_sqrtFloat $# x
 
 prim_sqrtFloat :: Float -> Float
 prim_sqrtFloat external
+#endif
 
 -- Sine.
 sinFloat :: Float -> Float
+#ifdef __KMCC__
+sinFloat external
+#else
 sinFloat x = prim_sinFloat $# x
 
 prim_sinFloat :: Float -> Float
 prim_sinFloat external
+#endif
 
 -- Cosine.
 cosFloat :: Float -> Float
+#ifdef __KMCC__
+cosFloat external
+#else
 cosFloat x = prim_cosFloat $# x
 
 prim_cosFloat :: Float -> Float
 prim_cosFloat external
+#endif
 
 -- Tangent.
 tanFloat :: Float -> Float
+#ifdef __KMCC__
+tanFloat external
+#else
 tanFloat x = prim_tanFloat $# x
 
 prim_tanFloat :: Float -> Float
 prim_tanFloat external
+#endif
 
 -- Arcus sine.
 asinFloat :: Float -> Float
+#ifdef __KMCC__
+asinFloat external
+#else
 asinFloat x = prim_asinFloat $# x
 
 prim_asinFloat :: Float -> Float
 prim_asinFloat external
+#endif
 
 -- Arcus cosine.
 acosFloat :: Float -> Float
+#ifdef __KMCC__
+acosFloat external
+#else
 acosFloat x = prim_acosFloat $# x
 
 prim_acosFloat :: Float -> Float
 prim_acosFloat external
+#endif
 
 -- Arcus tangent.
 atanFloat :: Float -> Float
+#ifdef __KMCC__
+atanFloat external
+#else
 atanFloat x = prim_atanFloat $# x
 
 prim_atanFloat :: Float -> Float
 prim_atanFloat external
+#endif
 
 -- Hyperbolic sine.
 sinhFloat :: Float -> Float
+#ifdef __KMCC__
+sinhFloat external
+#else
 sinhFloat x = prim_sinhFloat $# x
 
 prim_sinhFloat :: Float -> Float
 prim_sinhFloat external
+#endif
 
 -- Hyperbolic cosine.
 coshFloat :: Float -> Float
+#ifdef __KMCC__
+coshFloat external
+#else
 coshFloat x = prim_coshFloat $# x
 
 prim_coshFloat :: Float -> Float
 prim_coshFloat external
+#endif
 
 -- Hyperbolic tangent.
 tanhFloat :: Float -> Float
+#ifdef __KMCC__
+tanhFloat external
+#else
 tanhFloat x = prim_tanhFloat $# x
 
 prim_tanhFloat :: Float -> Float
 prim_tanhFloat external
+#endif
 
 -- Hyperbolic arcus sine.
 asinhFloat :: Float -> Float
+#ifdef __KMCC__
+asinhFloat external
+#else
 asinhFloat x = prim_asinhFloat $# x
 
 prim_asinhFloat :: Float -> Float
 prim_asinhFloat external
+#endif
 
 -- Hyperbolic arcus cosine.
 acoshFloat :: Float -> Float
+#ifdef __KMCC__
+acoshFloat external
+#else
 acoshFloat x = prim_acoshFloat $# x
 
 prim_acoshFloat :: Float -> Float
 prim_acoshFloat external
+#endif
 
 -- Hyperbolic arcus tangent.
 atanhFloat :: Float -> Float
+#ifdef __KMCC__
+atanhFloat external
+#else
 atanhFloat x = prim_atanhFloat $# x
 
 prim_atanhFloat :: Float -> Float
 prim_atanhFloat external
+#endif
 
-
+--- Raises a number to a non-negative integer power.
 (^) :: (Num a, Integral b) => a -> b -> a
 x0 ^ y0 | y0 < 0    = error "Negative exponent"
         | y0 == 0   = 1
@@ -1403,6 +1550,10 @@ ap m1 m2 = do
   x2 <- m2
   return (x1 x2)
 
+--- Promotes a function to a monad. The function arguments are scanned
+--- from left to right.
+--- For instance, `liftM2 (+) [1,2] [3,4]` evaluates to `[4,5,5,6]`, and
+--- `liftM2 (,) [1,2] [3,4]` evaluates to `[(1,3),(1,4),(2,3),(2,4)]`.
 liftM2 :: Monad m => (a1 -> a2 -> r) -> m a1 -> m a2 -> m r
 liftM2 f m1 m2 = do
   x1 <- m1
@@ -1487,6 +1638,8 @@ chr n | n < 0       = prim_chr 0
 prim_chr :: Int -> Char
 prim_chr external
 
+--- The type `String` is a type synonym for list of characters so that
+--- all list operations can be used on strings.
 type String = [Char]
 
 --- Breaks a string into a list of lines where a line is terminated at a
@@ -1513,8 +1666,8 @@ words s = let s1 = dropWhile isSpace s
 
 --- Concatenates a list of strings with a blank between two strings.
 unwords :: [String] -> String
-unwords ws = if ws == [] then []
-                         else foldr1 (\w s -> w ++ ' ' : s) ws
+unwords ws = if null ws then []
+                        else foldr1 (\w s -> w ++ ' ' : s) ws
 
 
 --- Right-associative application.
@@ -1836,6 +1989,7 @@ lookup _ []          = Nothing
 lookup k ((x,y):xys) | k == x    = Just y
                      | otherwise = lookup k xys
 
+--- The `Maybe` type can be used for values which could also be absent.
 data Maybe a = Nothing | Just a
  deriving (Eq, Ord, Show, Read)
 
@@ -1872,10 +2026,15 @@ instance Monad Maybe where
 instance MonadFail Maybe where
   fail _ = Nothing
 
+--- The `maybe` function takes a default value, a function, and a `Maybe` value.
+--- If the `Maybe` value is `Nothing`, the default value is returned.
+--- Otherwise, the function is applied to the value inside the `Just`
+--- and the result is returned.
 maybe :: b -> (a -> b) -> Maybe a -> b
 maybe n _ Nothing  = n
 maybe _ f (Just x) = f x
 
+--- The `Either` type can be used to combine values of two different types.
 data Either a b = Left a
                 | Right b
   deriving (Eq, Ord, Show, Read)
@@ -1893,10 +2052,14 @@ instance Monad (Either a) where
   (Left e)  >>= _ = Left e
   (Right x) >>= f = f x
 
+--- Apply a case analysis to a value of the Either type.
+--- If the value is `Left x`, the first function is applied to `x`.
+--- If the value is `Right y`, the second function is applied to `y`.
 either :: (a -> c) -> (b -> c) -> Either a b -> c
 either left _     (Left  a) = left a
 either _    right (Right b) = right b
 
+--- The externally defined type of IO actions.
 external data IO _
 
 instance Monoid a => Monoid (IO a) where
@@ -1962,6 +2125,8 @@ putStrLn cs = putStr cs >> putChar '\n'
 print :: Show a => a -> IO ()
 print = putStrLn . show
 
+--- The `FilePath` is j type synonym for strings.
+--- It is useful to mark in type signatures if a file path is required.
 type FilePath = String
 
 --- An action that (lazily) reads a file and returns its contents.
@@ -2035,10 +2200,12 @@ ioError err = error (show err)
 catch :: IO a -> (IOError -> IO a) -> IO a
 catch external
 
-
+--- The type synonym for constraints. It is included for backward
+--- compatibility and should be no longer used.
 type Success = Bool
 
---- The always satisfiable constraint.
+--- The always satisfiable constraint. It is included for backward
+--- compatibility and should be no longer used.
 success :: Success
 success = True
 
@@ -2117,7 +2284,7 @@ _ ? y = y
 
 --- Returns non-deterministically any element of a list.
 anyOf :: [a] -> a
-anyOf = foldr1 (?)
+anyOf xs = foldr1 (?) xs
 
 --- Evaluates to a fresh free variable.
 unknown :: Data a => a

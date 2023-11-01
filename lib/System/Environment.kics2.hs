@@ -19,7 +19,7 @@ external_d_C_prim_getEnviron str _ _ =
   where
   handleIOException :: IOException -> IO String
   handleIOException _ = return ""
-#elif
+#else
 external_d_C_prim_getEnviron :: Curry_Prelude.C_String -> Cover -> ConstStore
                              -> Curry_Prelude.C_IO Curry_Prelude.C_String
 external_d_C_prim_getEnviron str _ _ =
@@ -29,20 +29,20 @@ external_d_C_prim_getEnviron str _ _ =
 #if __GLASGOW_HASKELL__ < 840
 external_d_C_prim_setEnviron :: Curry_Prelude.C_String -> Curry_Prelude.C_String
                              -> Cover -> ConstStore
-                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+                             -> Curry_Prelude.C_IO Curry_Prelude.OP_Unit
 external_d_C_prim_setEnviron str val _ _ =
   toCurry setEnv str val
-#elif
+#else
 external_d_C_prim_setEnviron :: Curry_Prelude.C_String -> Curry_Prelude.C_String
                              -> Cover -> ConstStore
-                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
+                             -> Curry_Prelude.C_IO Curry_Prelude.OP_Unit
 external_d_C_prim_setEnviron str val _ _ =
   toCurry (\s v -> setEnv s v True) str val
 #endif
 
 external_d_C_prim_unsetEnviron :: Curry_Prelude.C_String -> Cover -> ConstStore
-                             -> Curry_Prelude.C_IO Curry_Prelude.C_String
-external_d_C_prim_getEnviron str _ _ =
+                             -> Curry_Prelude.C_IO Curry_Prelude.OP_Unit
+external_d_C_prim_unsetEnviron str _ _ =
   toCurry unsetEnv str
 
 external_d_C_getHostname :: Cover -> ConstStore -> Curry_Prelude.C_IO Curry_Prelude.C_String
