@@ -1,1 +1,1 @@
-Dockerfile-curry2go-latest-ubuntu-20.04
+Dockerfile-curry2go-latest-ubuntu-22.04
