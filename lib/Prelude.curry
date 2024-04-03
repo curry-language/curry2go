@@ -6,6 +6,7 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_FRONTEND -Wno-incomplete-patterns -Wno-overlapping #-}
+{-# OPTIONS_FRONTEND --case-mode=free #-}
 
 module Prelude
   (
@@ -69,9 +70,6 @@ module Prelude
 
   -- * Internal Functions
   , apply, cond
-#ifdef __PAKCS__
-  , letrec, failure
-#endif
   , DET, PEVAL
   ) where
 
@@ -2333,17 +2331,6 @@ apply external
 -- Representation of conditional rules in FlatCurry.
 cond :: Bool -> a -> a
 cond external
-
-#ifdef __PAKCS__
--- `letrec ones (1 : ones)` binds `ones` to `1 : ones`.
-letrec :: a -> a -> Bool
-letrec external
-
--- Internal operation to implement failure reporting.
-failure :: _ -> _ -> _
-failure external
-#endif
-
 
 ----------------------------------------------------------------
 -- Extras used by specific Curry tools.

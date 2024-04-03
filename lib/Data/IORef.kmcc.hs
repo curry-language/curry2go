@@ -15,17 +15,24 @@ instance ToHs (D.IORef a) where
 
 instance FromHs (D.IORef a) where
   from x  = P.error "FFI Error: 'From' Conversion on IORef"
-  
+  elimFlat = P.id
+
+instance ShowTerm (D.IORef a) where
+  showTerm _ _ = P.showString "<<IORef>>"
+
+instance ReadTerm (D.IORef a) where
+  readTerm = P.error "reading an IORef is not possible"
+
 instance ShowFree (D.IORef a) where
   showsFreePrec _ _ = showsStringCurry "<<IORef>>"
 
 instance NormalForm (D.IORef a) where
   nfWith _ !x = P.return (P.Left (Val x))
-  
+
 instance Narrowable (D.IORef a) where
   narrow = P.error "narrowing an IORef is not possible"
   narrowConstr = P.error "narrowing an IORef is not possible"
-  
+
 instance HasPrimitiveInfo (D.IORef a) where
   primitiveInfo = NoPrimitive
 
@@ -33,7 +40,7 @@ instance Unifiable (D.IORef a) where
   unifyWith _ _ _ = P.error "unifying an IORef is not possible"
 
   lazyUnifyVar _ _ = P.error "unifying an IORef is not possible"
-  
+
 instance Curryable a => Curryable (D.IORef a)
 
 -- type declarations for IORef

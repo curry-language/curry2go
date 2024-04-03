@@ -6,11 +6,11 @@ instance Functor C_SearchTree where
   fmap = liftM
 
 instance Applicative C_SearchTree where
-  pure = return
+  pure = C_Value
   (<*>) = ap
 
 instance Monad C_SearchTree where
-  return = C_Value
+  return = pure
 
   C_Fail    d >>= _ = C_Fail d
   C_Value   x >>= f = f x

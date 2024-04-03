@@ -43,12 +43,6 @@
  <primitive name="cond" arity="2">
   <entry>prim_cond[raw]</entry>
  </primitive>
- <primitive name="letrec" arity="2">
-  <entry>prim_letrec[raw]</entry>
- </primitive>
- <primitive name="failure" arity="2">
-  <entry>prim_failure[raw]</entry>
- </primitive>
  <primitive name="bindIO" arity="2">
   <entry>prim_Monad_bind[raw]</entry>
  </primitive>

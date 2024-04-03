@@ -14,6 +14,7 @@ import qualified Control.Exception as P
 import qualified Data.List as P
 import qualified GHC.IO.Exception as P
 import qualified GHC.Magic as P
+import qualified GHC.Read as P
 import qualified System.IO.Unsafe as P
 import qualified Data.SBV as SBV
 import BasicDefinitions
@@ -134,6 +135,20 @@ instance {-# OVERLAPS #-} ShowFree (CList_ND Char_ND) where
       FreeElem -> P.snd $ BasicDefinitions.showsStringCurry ("["  P.++ P.intercalate "," ys P.++ "]" ) s
       FreeList -> P.snd $ BasicDefinitions.showsStringCurry (          P.intercalate ":" ys          ) s
 
+instance {-# INCOHERENT #-} Curryable (CList_ND Char_ND)
+
+instance ShowTerm a => ShowTerm (CList_ND a) where
+  showTerm _ = showTermList . toList
+    where
+      toList CList_Det = []
+      toList (CCons_Det x xs) = x : toList xs
+
+instance ReadTerm a => ReadTerm (CList_ND a) where
+  readTerm = P.fmap fromList readTermList
+    where
+      fromList [] = CList_Det
+      fromList (x:xs) = CCons_Det x (fromList xs)
+
 -- first arg: use this to show the element if it is a full list
 -- second arg: use this to show the element if there is a free element/list
 -- third arg: use this to convert an arg produced by the first arg to one by the second arg.
@@ -179,6 +194,12 @@ instance ShowFree CUnit_ND where
   showsFreePrec _ CUnit_ND = BasicDefinitions.showsStringCurry "()"
   showsFreePrec _ (CUnitFlat# CUnit_Det) = BasicDefinitions.showsStringCurry "()"
 
+instance ShowTerm CUnit_ND where
+  showTerm _ CUnit_Det = P.showString "()"
+
+instance ReadTerm CUnit_ND where
+  readTerm = P.fmap (\() -> CUnit_Det) P.readPrec
+
 instance (Curryable x, Curryable y) => ShowFree (CTuple2_ND x y) where
   showsFreePrec _ (CTuple2_ND x y) =
     showsStringCurry ")" .
@@ -187,6 +208,27 @@ instance (Curryable x, Curryable y) => ShowFree (CTuple2_ND x y) where
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple2Flat# (CTuple2_Det x y)) = showsFreePrec p' (CTuple2_ND (fromHaskell x) (fromHaskell y))
+
+instance (ShowTerm x, ShowTerm y) => ShowTerm (CTuple2_ND x y) where
+  showTerm _ (CTuple2_Det x y) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y) => ReadTerm (CTuple2_ND x y) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    P.return (CTuple2_Det x y)
+
+readComma :: P.ReadPrec ()
+readComma = P.expectP (P.Punc ",")
+
+parensTuple :: P.ReadPrec a -> P.ReadPrec a
+parensTuple p = P.parens (P.paren p)
 
 instance (Curryable x, Curryable y, Curryable z) => ShowFree (CTuple3_ND x y z) where
   showsFreePrec _ (CTuple3_ND x y z) =
@@ -198,6 +240,25 @@ instance (Curryable x, Curryable y, Curryable z) => ShowFree (CTuple3_ND x y z) 
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple3Flat# (CTuple3_Det x y z)) = showsFreePrec p' (CTuple3_ND (fromHaskell x) (fromHaskell y) (fromHaskell z))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z) => ShowTerm (CTuple3_ND x y z) where
+  showTerm _ (CTuple3_Det x y z) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z) => ReadTerm (CTuple3_ND x y z) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    P.return (CTuple3_Det x y z)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w) => ShowFree (CTuple4_ND x y z w) where
   showsFreePrec _ (CTuple4_ND x y z w) =
@@ -211,6 +272,29 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w) => ShowFree (CTupl
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple4Flat# (CTuple4_Det x y z w)) = showsFreePrec p' (CTuple4_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w) => ShowTerm (CTuple4_ND x y z w) where
+  showTerm _ (CTuple4_Det x y z w) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w) => ReadTerm (CTuple4_ND x y z w) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    P.return (CTuple4_Det x y z w)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v) => ShowFree (CTuple5_ND x y z w v) where
   showsFreePrec _ (CTuple5_ND x y z w t) =
@@ -226,6 +310,33 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v) => Sh
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple5Flat# (CTuple5_Det x y z w t)) = showsFreePrec p' (CTuple5_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v) => ShowTerm (CTuple5_ND x y z w v) where
+  showTerm _ (CTuple5_Det x y z w v) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v) => ReadTerm (CTuple5_ND x y z w v) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    P.return (CTuple5_Det x y z w v)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u) => ShowFree (CTuple6_ND x y z w v u) where
   showsFreePrec _ (CTuple6_ND x y z w t s) =
@@ -243,6 +354,37 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple6Flat# (CTuple6_Det x y z w t s)) = showsFreePrec p' (CTuple6_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u) => ShowTerm (CTuple6_ND x y z w v u) where
+  showTerm _ (CTuple6_Det x y z w v u) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u) => ReadTerm (CTuple6_ND x y z w v u) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    P.return (CTuple6_Det x y z w v u)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t) => ShowFree (CTuple7_ND x y z w v u t) where
   showsFreePrec _ (CTuple7_ND x y z w t s r) =
@@ -262,6 +404,41 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple7Flat# (CTuple7_Det x y z w t s r)) = showsFreePrec p' (CTuple7_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u, ShowTerm t) => ShowTerm (CTuple7_ND x y z w v u t) where
+  showTerm _ (CTuple7_Det x y z w v u t) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString "," .
+    showTerm 0 t .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u, ReadTerm t) => ReadTerm (CTuple7_ND x y z w v u t) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    readComma
+    t <- readTerm
+    P.return (CTuple7_Det x y z w v u t)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s) => ShowFree (CTuple8_ND x y z w v u t s) where
   showsFreePrec _ (CTuple8_ND x y z w t s r q) =
@@ -283,6 +460,45 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple8Flat# (CTuple8_Det x y z w t s r q)) = showsFreePrec p' (CTuple8_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u, ShowTerm t, ShowTerm s) => ShowTerm (CTuple8_ND x y z w v u t s) where
+  showTerm _ (CTuple8_Det x y z w v u t s) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString "," .
+    showTerm 0 t .
+    P.showString "," .
+    showTerm 0 s .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u, ReadTerm t, ReadTerm s) => ReadTerm (CTuple8_ND x y z w v u t s) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    readComma
+    t <- readTerm
+    readComma
+    s <- readTerm
+    P.return (CTuple8_Det x y z w v u t s)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r) => ShowFree (CTuple9_ND x y z w v u t s r) where
   showsFreePrec _ (CTuple9_ND x y z w t s r q p) =
@@ -306,6 +522,49 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple9Flat# (CTuple9_Det x y z w t s r q p)) = showsFreePrec p' (CTuple9_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u, ShowTerm t, ShowTerm s, ShowTerm r) => ShowTerm (CTuple9_ND x y z w v u t s r) where
+  showTerm _ (CTuple9_Det x y z w v u t s r) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString "," .
+    showTerm 0 t .
+    P.showString "," .
+    showTerm 0 s .
+    P.showString "," .
+    showTerm 0 r .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u, ReadTerm t, ReadTerm s, ReadTerm r) => ReadTerm (CTuple9_ND x y z w v u t s r) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    readComma
+    t <- readTerm
+    readComma
+    s <- readTerm
+    readComma
+    r <- readTerm
+    P.return (CTuple9_Det x y z w v u t s r)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q) => ShowFree (CTuple10_ND x y z w v u t s r q) where
   showsFreePrec _ (CTuple10_ND x y z w t s r q p o) =
@@ -331,6 +590,53 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple10Flat# (CTuple10_Det x y z w t s r q p o)) = showsFreePrec p' (CTuple10_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u, ShowTerm t, ShowTerm s, ShowTerm r, ShowTerm q) => ShowTerm (CTuple10_ND x y z w v u t s r q) where
+  showTerm _ (CTuple10_Det x y z w v u t s r q) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString "," .
+    showTerm 0 t .
+    P.showString "," .
+    showTerm 0 s .
+    P.showString "," .
+    showTerm 0 r .
+    P.showString "," .
+    showTerm 0 q .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u, ReadTerm t, ReadTerm s, ReadTerm r, ReadTerm q) => ReadTerm (CTuple10_ND x y z w v u t s r q) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    readComma
+    t <- readTerm
+    readComma
+    s <- readTerm
+    readComma
+    r <- readTerm
+    readComma
+    q <- readTerm
+    P.return (CTuple10_Det x y z w v u t s r q)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q, Curryable p) => ShowFree (CTuple11_ND x y z w v u t s r q p) where
   showsFreePrec _ (CTuple11_ND x y z w t s r q p o n) =
@@ -358,6 +664,57 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple11Flat# (CTuple11_Det x y z w t s r q p o n)) = showsFreePrec p' (CTuple11_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o) (fromHaskell n))
+
+instance (ShowTerm x, ShowTerm y, ShowTerm z, ShowTerm w, ShowTerm v, ShowTerm u, ShowTerm t, ShowTerm s, ShowTerm r, ShowTerm q, ShowTerm p) => ShowTerm (CTuple11_ND x y z w v u t s r q p) where
+  showTerm _ (CTuple11_Det x y z w v u t s r q p) =
+    P.showString "(" .
+    showTerm 0 x .
+    P.showString "," .
+    showTerm 0 y .
+    P.showString "," .
+    showTerm 0 z .
+    P.showString "," .
+    showTerm 0 w .
+    P.showString "," .
+    showTerm 0 v .
+    P.showString "," .
+    showTerm 0 u .
+    P.showString "," .
+    showTerm 0 t .
+    P.showString "," .
+    showTerm 0 s .
+    P.showString "," .
+    showTerm 0 r .
+    P.showString "," .
+    showTerm 0 q .
+    P.showString "," .
+    showTerm 0 p .
+    P.showString ")"
+
+instance (ReadTerm x, ReadTerm y, ReadTerm z, ReadTerm w, ReadTerm v, ReadTerm u, ReadTerm t, ReadTerm s, ReadTerm r, ReadTerm q, ReadTerm p) => ReadTerm (CTuple11_ND x y z w v u t s r q p) where
+  readTerm = parensTuple $ do
+    x <- readTerm
+    readComma
+    y <- readTerm
+    readComma
+    z <- readTerm
+    readComma
+    w <- readTerm
+    readComma
+    v <- readTerm
+    readComma
+    u <- readTerm
+    readComma
+    t <- readTerm
+    readComma
+    s <- readTerm
+    readComma
+    r <- readTerm
+    readComma
+    q <- readTerm
+    readComma
+    p <- readTerm
+    P.return (CTuple11_Det x y z w v u t s r q p)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q, Curryable p, Curryable o) => ShowFree (CTuple12_ND x y z w v u t s r q p o) where
   showsFreePrec _ (CTuple12_ND x y z w t s r q p o n m) =
@@ -387,6 +744,61 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple12Flat# (CTuple12_Det x y z w t s r q p o n m)) = showsFreePrec p' (CTuple12_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o) (fromHaskell n) (fromHaskell m))
+
+instance (ShowTerm a, ShowTerm b, ShowTerm c, ShowTerm d, ShowTerm e, ShowTerm f, ShowTerm g, ShowTerm h, ShowTerm i, ShowTerm j, ShowTerm k, ShowTerm l) => ShowTerm (CTuple12_ND a b c d e f g h i j k l) where
+  showTerm _ (CTuple12_Det a b c d e f g h i j k l) =
+    P.showString "(" .
+    showTerm 0 a .
+    P.showString "," .
+    showTerm 0 b .
+    P.showString "," .
+    showTerm 0 c .
+    P.showString "," .
+    showTerm 0 d .
+    P.showString "," .
+    showTerm 0 e .
+    P.showString "," .
+    showTerm 0 f .
+    P.showString "," .
+    showTerm 0 g .
+    P.showString "," .
+    showTerm 0 h .
+    P.showString "," .
+    showTerm 0 i .
+    P.showString "," .
+    showTerm 0 j .
+    P.showString "," .
+    showTerm 0 k .
+    P.showString "," .
+    showTerm 0 l .
+    P.showString ")"
+
+instance (ReadTerm a, ReadTerm b, ReadTerm c, ReadTerm d, ReadTerm e, ReadTerm f, ReadTerm g, ReadTerm h, ReadTerm i, ReadTerm j, ReadTerm k, ReadTerm l) => ReadTerm (CTuple12_ND a b c d e f g h i j k l) where
+  readTerm = parensTuple $ do
+    a <- readTerm
+    readComma
+    b <- readTerm
+    readComma
+    c <- readTerm
+    readComma
+    d <- readTerm
+    readComma
+    e <- readTerm
+    readComma
+    f <- readTerm
+    readComma
+    g <- readTerm
+    readComma
+    h <- readTerm
+    readComma
+    i <- readTerm
+    readComma
+    j <- readTerm
+    readComma
+    k <- readTerm
+    readComma
+    l <- readTerm
+    P.return (CTuple12_Det a b c d e f g h i j k l)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q, Curryable p, Curryable o, Curryable n) => ShowFree (CTuple13_ND x y z w v u t s r q p o n) where
   showsFreePrec _ (CTuple13_ND x y z w t s r q p o n m l) =
@@ -418,6 +830,65 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple13Flat# (CTuple13_Det x y z w t s r q p o n m l)) = showsFreePrec p' (CTuple13_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o) (fromHaskell n) (fromHaskell m) (fromHaskell l))
+
+instance (ShowTerm a, ShowTerm b, ShowTerm c, ShowTerm d, ShowTerm e, ShowTerm f, ShowTerm g, ShowTerm h, ShowTerm i, ShowTerm j, ShowTerm k, ShowTerm l, ShowTerm m) => ShowTerm (CTuple13_ND a b c d e f g h i j k l m) where
+  showTerm _ (CTuple13_Det a b c d e f g h i j k l m) =
+    P.showString "(" .
+    showTerm 0 a .
+    P.showString "," .
+    showTerm 0 b .
+    P.showString "," .
+    showTerm 0 c .
+    P.showString "," .
+    showTerm 0 d .
+    P.showString "," .
+    showTerm 0 e .
+    P.showString "," .
+    showTerm 0 f .
+    P.showString "," .
+    showTerm 0 g .
+    P.showString "," .
+    showTerm 0 h .
+    P.showString "," .
+    showTerm 0 i .
+    P.showString "," .
+    showTerm 0 j .
+    P.showString "," .
+    showTerm 0 k .
+    P.showString "," .
+    showTerm 0 l .
+    P.showString "," .
+    showTerm 0 m .
+    P.showString ")"
+
+instance (ReadTerm a, ReadTerm b, ReadTerm c, ReadTerm d, ReadTerm e, ReadTerm f, ReadTerm g, ReadTerm h, ReadTerm i, ReadTerm j, ReadTerm k, ReadTerm l, ReadTerm m) => ReadTerm (CTuple13_ND a b c d e f g h i j k l m) where
+  readTerm = parensTuple $ do
+    a <- readTerm
+    readComma
+    b <- readTerm
+    readComma
+    c <- readTerm
+    readComma
+    d <- readTerm
+    readComma
+    e <- readTerm
+    readComma
+    f <- readTerm
+    readComma
+    g <- readTerm
+    readComma
+    h <- readTerm
+    readComma
+    i <- readTerm
+    readComma
+    j <- readTerm
+    readComma
+    k <- readTerm
+    readComma
+    l <- readTerm
+    readComma
+    m <- readTerm
+    P.return (CTuple13_Det a b c d e f g h i j k l m)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q, Curryable p, Curryable o, Curryable n, Curryable m) => ShowFree (CTuple14_ND x y z w v u t s r q p o n m) where
   showsFreePrec _ (CTuple14_ND x y z w t s r q p o n m l k) =
@@ -451,6 +922,69 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple14Flat# (CTuple14_Det x y z w t s r q p o n m l k)) = showsFreePrec p' (CTuple14_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o) (fromHaskell n) (fromHaskell m) (fromHaskell l) (fromHaskell k))
+
+instance (ShowTerm a, ShowTerm b, ShowTerm c, ShowTerm d, ShowTerm e, ShowTerm f, ShowTerm g, ShowTerm h, ShowTerm i, ShowTerm j, ShowTerm k, ShowTerm l, ShowTerm m, ShowTerm n) => ShowTerm (CTuple14_ND a b c d e f g h i j k l m n) where
+  showTerm _ (CTuple14_Det a b c d e f g h i j k l m n) =
+    P.showString "(" .
+    showTerm 0 a .
+    P.showString "," .
+    showTerm 0 b .
+    P.showString "," .
+    showTerm 0 c .
+    P.showString "," .
+    showTerm 0 d .
+    P.showString "," .
+    showTerm 0 e .
+    P.showString "," .
+    showTerm 0 f .
+    P.showString "," .
+    showTerm 0 g .
+    P.showString "," .
+    showTerm 0 h .
+    P.showString "," .
+    showTerm 0 i .
+    P.showString "," .
+    showTerm 0 j .
+    P.showString "," .
+    showTerm 0 k .
+    P.showString "," .
+    showTerm 0 l .
+    P.showString "," .
+    showTerm 0 m .
+    P.showString "," .
+    showTerm 0 n .
+    P.showString ")"
+
+instance (ReadTerm a, ReadTerm b, ReadTerm c, ReadTerm d, ReadTerm e, ReadTerm f, ReadTerm g, ReadTerm h, ReadTerm i, ReadTerm j, ReadTerm k, ReadTerm l, ReadTerm m, ReadTerm n) => ReadTerm (CTuple14_ND a b c d e f g h i j k l m n) where
+  readTerm = parensTuple $ do
+    a <- readTerm
+    readComma
+    b <- readTerm
+    readComma
+    c <- readTerm
+    readComma
+    d <- readTerm
+    readComma
+    e <- readTerm
+    readComma
+    f <- readTerm
+    readComma
+    g <- readTerm
+    readComma
+    h <- readTerm
+    readComma
+    i <- readTerm
+    readComma
+    j <- readTerm
+    readComma
+    k <- readTerm
+    readComma
+    l <- readTerm
+    readComma
+    m <- readTerm
+    readComma
+    n <- readTerm
+    P.return (CTuple14_Det a b c d e f g h i j k l m n)
 
 instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curryable u, Curryable t, Curryable s, Curryable r, Curryable q, Curryable p, Curryable o, Curryable n, Curryable m, Curryable l) => ShowFree (CTuple15_ND x y z w v u t s r q p o n m l) where
   showsFreePrec _ (CTuple15_ND x y z w t s r q p o n m l k j) =
@@ -486,6 +1020,73 @@ instance (Curryable x, Curryable y, Curryable z, Curryable w, Curryable v, Curry
     showsFreePrecCurry 0 x .
     showsStringCurry "("
   showsFreePrec p' (CTuple15Flat# (CTuple15_Det x y z w t s r q p o n m l k j)) = showsFreePrec p' (CTuple15_ND (fromHaskell x) (fromHaskell y) (fromHaskell z) (fromHaskell w) (fromHaskell t) (fromHaskell s) (fromHaskell r) (fromHaskell q) (fromHaskell p) (fromHaskell o) (fromHaskell n) (fromHaskell m) (fromHaskell l) (fromHaskell k) (fromHaskell j))
+
+instance (ShowTerm a, ShowTerm b, ShowTerm c, ShowTerm d, ShowTerm e, ShowTerm f, ShowTerm g, ShowTerm h, ShowTerm i, ShowTerm j, ShowTerm k, ShowTerm l, ShowTerm m, ShowTerm n, ShowTerm o) => ShowTerm (CTuple15_ND a b c d e f g h i j k l m n o) where
+  showTerm _ (CTuple15_Det a b c d e f g h i j k l m n o) =
+    P.showString "(" .
+    showTerm 0 a .
+    P.showString "," .
+    showTerm 0 b .
+    P.showString "," .
+    showTerm 0 c .
+    P.showString "," .
+    showTerm 0 d .
+    P.showString "," .
+    showTerm 0 e .
+    P.showString "," .
+    showTerm 0 f .
+    P.showString "," .
+    showTerm 0 g .
+    P.showString "," .
+    showTerm 0 h .
+    P.showString "," .
+    showTerm 0 i .
+    P.showString "," .
+    showTerm 0 j .
+    P.showString "," .
+    showTerm 0 k .
+    P.showString "," .
+    showTerm 0 l .
+    P.showString "," .
+    showTerm 0 m .
+    P.showString "," .
+    showTerm 0 n .
+    P.showString "," .
+    showTerm 0 o .
+    P.showString ")"
+
+instance (ReadTerm a, ReadTerm b, ReadTerm c, ReadTerm d, ReadTerm e, ReadTerm f, ReadTerm g, ReadTerm h, ReadTerm i, ReadTerm j, ReadTerm k, ReadTerm l, ReadTerm m, ReadTerm n, ReadTerm o) => ReadTerm (CTuple15_ND a b c d e f g h i j k l m n o) where
+  readTerm = parensTuple $ do
+    a <- readTerm
+    readComma
+    b <- readTerm
+    readComma
+    c <- readTerm
+    readComma
+    d <- readTerm
+    readComma
+    e <- readTerm
+    readComma
+    f <- readTerm
+    readComma
+    g <- readTerm
+    readComma
+    h <- readTerm
+    readComma
+    i <- readTerm
+    readComma
+    j <- readTerm
+    readComma
+    k <- readTerm
+    readComma
+    l <- readTerm
+    readComma
+    m <- readTerm
+    readComma
+    n <- readTerm
+    readComma
+    o <- readTerm
+    P.return (CTuple15_Det a b c d e f g h i j k l m n o)
 
 -- -----------------------------------------------------------------------------
 -- Foreign Conversion
@@ -546,14 +1147,16 @@ cond_ND# = returnFunc (\a -> a >>= \case
   BoolFlat# False_Det -> failed_ND
   False_ND -> failed_ND)
 
-dollarbang_Det# :: (a -> b) -> a -> b
-dollarbang_Det# = ($!)
+dollarbang_Det# :: -- (HsEquivalent a' ~ a, BasicDefinitions.Curryable a')
+                (a -> b) -> a -> b
+dollarbang_Det# f a = a `P.seq` f a-- deepseq a `P.seq` (f a)
 
 dollarbang_ND# :: Curry (LiftedFunc (LiftedFunc a b) (LiftedFunc a b))
 dollarbang_ND# = BasicDefinitions.dollarBangNDImpl
 
-dollarbangbang_Det# :: (a -> b) -> a -> b
-dollarbangbang_Det# = ($!)
+dollarbangbang_Det# :: -- (HsEquivalent a' ~ a, BasicDefinitions.Curryable a')
+                    (a -> b) -> a -> b
+dollarbangbang_Det# f a = a `P.seq` (f a) -- deepseq a `P.seq` (f a)
 
 dollarbangbang_ND# :: BasicDefinitions.Curryable a => Curry (LiftedFunc (LiftedFunc a b) (LiftedFunc a b))
 dollarbangbang_ND# = BasicDefinitions.dollarBangBangNDImpl

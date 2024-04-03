@@ -13,7 +13,7 @@ import BasicDefinitions
 data CurryHandle = SingleHandle S.Handle        -- single handle for read/write
                  | DualHandle S.Handle S.Handle -- separate handles for read/write
   deriving (P.Eq)
-                 
+
 readHandle :: CurryHandle -> S.Handle
 readHandle (SingleHandle h) = h
 readHandle (DualHandle h _) = h
@@ -31,17 +31,24 @@ instance ToHs CurryHandle where
 
 instance FromHs CurryHandle where
   from = P.id
-  
+  elimFlat = P.id
+
+instance ShowTerm CurryHandle where
+  showTerm _ _ = P.showString "<<Handle>>"
+
+instance ReadTerm CurryHandle where
+  readTerm = P.error "reading a Handle is not possible"
+
 instance ShowFree CurryHandle where
   showsFreePrec _ _ = showsStringCurry "<<Handle>>"
 
 instance NormalForm CurryHandle where
   nfWith _ !x = P.return (P.Right x)
-  
+
 instance Narrowable CurryHandle where
   narrow = P.error "narrowing a Handle is not possible"
   narrowConstr = P.error "narrowing a Handle is not possible"
-  
+
 instance HasPrimitiveInfo CurryHandle where
   primitiveInfo = NoPrimitive
 
@@ -49,11 +56,11 @@ instance Unifiable CurryHandle where
   unifyWith _ _ _ = P.error "unifying a Handle is not possible"
 
   lazyUnifyVar _ _ = P.error "unifying a Handle is not possible"
-  
-instance Curryable CurryHandle
-  
 
--- type declarations for handles  
+instance Curryable CurryHandle
+
+
+-- type declarations for handles
 type Handle_Det# = CurryHandle
 type Handle_ND# = CurryHandle
 
@@ -68,19 +75,19 @@ instance ForeignType IOMode_Det where
   toForeign ReadMode_Det = S.ReadMode
   toForeign WriteMode_Det = S.WriteMode
   toForeign AppendMode_Det = S.AppendMode
-  
+
   fromForeign S.ReadMode = ReadMode_Det
   fromForeign S.WriteMode = WriteMode_Det
   fromForeign S.AppendMode = AppendMode_Det
   fromForeign _ = P.error "invalid IOMode conversion"
-  
+
 -- foreign instance for SeekMode
 instance ForeignType SeekMode_Det where
   type Foreign SeekMode_Det = S.SeekMode
   toForeign AbsoluteSeek_Det = S.AbsoluteSeek
   toForeign RelativeSeek_Det = S.RelativeSeek
   toForeign SeekFromEnd_Det = S.SeekFromEnd
-  
+
   fromForeign S.AbsoluteSeek = AbsoluteSeek_Det
   fromForeign S.RelativeSeek = RelativeSeek_Det
   fromForeign S.SeekFromEnd = SeekFromEnd_Det
