@@ -1,6 +1,18 @@
 Release Notes for Curry2Go
 ==========================
 
+Release notes for version 1.3.0 (April 3, 2024)
+-----------------------------------------------
+
+  * Changes in case mode: the case modes Haskell, Prolog, and Gödel
+    are stronger so that they emit error messages instead of warnings,
+    the default case mode is Curry, which is like Haskell but emit
+    only warnings.
+  * Front end does not include `Prelude` in imports of FlatCurry files
+    when it is not necessary (e.g., if the language option `NoImplicitPrelude`
+    is set)
+
+
 Release notes for version 1.2.0 (November 1, 2023)
 ---------------------------------------------------
 
