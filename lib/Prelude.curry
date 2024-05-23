@@ -69,7 +69,7 @@ module Prelude
   , (?), anyOf, unknown
 
   -- * Internal Functions
-  , apply, cond
+  , apply, cond, eqString
   , DET, PEVAL
   ) where
 
@@ -297,6 +297,12 @@ prim_eqFloat :: Float -> Float -> Bool
 prim_eqFloat external
 #endif
 
+-- Equality on strings. We use a specialized implementation to aviod problems with kics2.
+eqString :: String -> String -> Bool
+eqString [] [] = True
+eqString [] (_:_) = False
+eqString (_:_) [] = False
+eqString (x:xs) (y:ys) = eqChar x y && eqString xs ys
 
 class Eq a => Ord a where
   compare :: a -> a -> Ordering

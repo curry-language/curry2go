@@ -1,8 +1,8 @@
 Release Notes for Curry2Go
 ==========================
 
-Release notes for version 1.3.0 (April 3, 2024)
------------------------------------------------
+Release notes for version 1.3.0 (May 23, 2024)
+----------------------------------------------
 
   * Changes in case mode: the case modes Haskell, Prolog, and Gödel
     are stronger so that they emit error messages instead of warnings,

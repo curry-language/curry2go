@@ -207,7 +207,6 @@ else
 endif
 
 # Copy the front end from the Curry system used to install this package:
-FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
 .PHONY: copyfrontend
 copyfrontend:
 	$(RM) -f bin/curry2go-frontend
