@@ -42,7 +42,7 @@ ENV CPMOPTS="-d REPOSITORY_PATH=/curry2go/cpm/index -d PACKAGE_INSTALL_PATH=/cur
 WORKDIR /curry2go/Curry2Go
 RUN bin/cypm $CPMOPTS update
 RUN bin/cypm $CPMOPTS install importusage
-RUN bin/cypm $CPMOPTS install showflatcurry
+RUN bin/cypm $CPMOPTS install curry-interface
 #RUN bin/cypm $CPMOPTS install currypp
 #RUN bin/cypm $CPMOPTS install currycheck
 #RUN bin/cypm $CPMOPTS install currydoc
