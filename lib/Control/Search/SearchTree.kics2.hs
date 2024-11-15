@@ -131,7 +131,7 @@ getValues (Guard_VS   cd cs  x) = guardCons cd cs (getValues x)
 failGreatest d EmptyVS               = FailVS d
 failGreatest d (FailVS           d2) = FailVS
   (Curry_Prelude.d_C_max
-    Curry_Prelude.d_OP_uscore_inst_hash_Prelude_dot_Ord_hash_Prelude_dot_Int
+    Curry_Prelude.d_OP_uscore_inst_hash_Prelude_dot_Ord_hash_Prelude_dot_Int_hash
     cd
     cs
     d

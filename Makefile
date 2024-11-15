@@ -7,7 +7,7 @@ export BINDIR = $(ROOT)/bin
 
 # The name of a Curry system (i.e., the REPL command) used for generating
 # the initial compiler.
-# An Curry system can be passed by the variable CURRY.
+# A Curry system can be passed by the variable CURRY.
 # If it is not set, the local `bin/curry2go` is used if the local REPL exists,
 # otherwise we try to find a `pakcs` executable.
 ifneq ($(CURRY),)
@@ -327,7 +327,7 @@ dist: require-jq
 	chmod -R go+rX $(HTMLDIR)
 
 # The URL for downloads
-DOWNLOADURL=https://www-ps.informatik.uni-kiel.de/curry2go/download
+DOWNLOADURL=https://www.curry-lang.org/curry2go/download
 # The URL of the current download script
 DOWNLOADSCRIPTURL=$(DOWNLOADURL)/$(DISTPREFIX)-download.sh
 # The download HTML page

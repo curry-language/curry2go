@@ -1193,7 +1193,7 @@ d_OP_quotRemNat_dot_shift_dot_104 x1 x2 cd cs = case x1 of
 d_C_lteqInteger :: BinInt -> BinInt -> Cover -> ConstStore
   -> C_Bool
 d_C_lteqInteger x1 x2 cd cs =
-  d_C_not (d_OP_eq_eq d_OP_uscore_inst_hash_Prelude_dot_Eq_hash_Prelude_dot_Ordering
+  d_C_not (d_OP_eq_eq d_OP_uscore_inst_hash_Prelude_dot_Eq_hash_Prelude_dot_Ordering_hash
     cd cs (d_C_cmpInteger x1 x2 cd cs) cd cs C_GT cd cs) cd cs
 
 d_C_cmpInteger :: BinInt -> BinInt -> Cover -> ConstStore -> C_Ordering

@@ -1,6 +1,27 @@
 Release Notes for Curry2Go
 ==========================
 
+Release notes for PAKCS Version 1.5.0 (November 15, 2024)
+---------------------------------------------------------
+
+  * Front-end updated to support multi-parameter type classes.
+    For this purpose, the front-end supports the language extensions
+    `MultiParamTypeClasses`, `FunctionalDependencies` and
+    `FlexibleInstances` (similarly to Haskell).
+    An example can be found in `testsuite/TypeclassTests/TestMPTCCoerce.curry`.
+  * As a consequence of supporting multi-parameter type classes,
+    the structure of Curry interface files (ending with `.icurry`)
+    and AbstractCurry files (ending with `.acy`) has been slightly changed:
+    type class constraints have now a list of type parameters
+    instead of a single one. This can be seen in the new versions
+    of the Curry packages `abstract-curry` (version 4.x) and
+    `curry-interface` (version 4.x).
+    Moreover, the names of internal operations generated for
+    operations defined in type classes (e.g., instance operations)
+    have been slightly changed (this is only visible in FlatCurry files).
+  * `Prelude`: value generator for floats added
+
+
 Release notes for version 1.4.0 (July 17, 2024)
 -----------------------------------------------
 

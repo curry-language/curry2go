@@ -41,6 +41,12 @@ instance Unifiable (D.IORef a) where
 
   lazyUnifyVar _ _ = P.error "unifying an IORef is not possible"
 
+instance Levelable (D.IORef a) where
+  setLevel _ x = x
+
+instance NFDataC (D.IORef a) where
+  rnfC !_ = ()
+
 instance Curryable a => Curryable (D.IORef a)
 
 -- type declarations for IORef

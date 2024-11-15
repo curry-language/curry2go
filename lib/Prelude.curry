@@ -182,21 +182,35 @@ instance (Data a, Data b, Data c, Data d, Data e, Data f, Data g) =>
     f1 === f2 && g1 === g2
   aValue = (aValue, aValue, aValue, aValue, aValue, aValue, aValue)
 
+-- Value generator for positive natural numbers.
+aValuePosNat :: Int
+aValuePosNat = 1 ? (2 * aValuePosNat) ? (2 * aValuePosNat + 1)
+
 -- Value generator for integers.
 aValueInt :: Int
-aValueInt = genPos 1 ? 0  ?  0 - genPos 1
- where
-  genPos n = n  ?  genPos (2 * n)  ?  genPos (2 * n + 1)
+aValueInt = aValuePosNat ? 0 ?  (0 - aValuePosNat)
 
--- Value generator for chars.
+-- Value generator for floats. It is simply implemented by guessing the
+-- two parts before and after the point. Could be replaced by other
+-- enumeration methods.
+aValueFloat :: Float
+aValueFloat = aValuePosFloat ? 0 ? (0 - aValuePosFloat)
+
+-- Value generator for positive floats. It is simply implemented by guessing
+-- the two parts before and after the point. Could be replaced by other
+-- enumeration methods.
+aValuePosFloat :: Float
+aValuePosFloat = fromInt aValuePosNat + nat2float 0.1 aValuePosNat
+ where
+  -- Transform a natural to float<1, e.g., nat2float 0.1 135 = 0.531
+  nat2float :: Float -> Int -> Float
+  nat2float m i =
+    if i == 0 then 0
+              else nat2float (m / 10) (i `div` 10) + m * fromInt (i `mod` 10)
+
+-- Value generator for characters.
 aValueChar :: Char
 aValueChar = foldr1 (?) [minBound .. maxBound]
-
--- Value generator for floats.
--- Since there is no good way to enumerate floats, a free variable
--- is returned.
-aValueFloat :: Float
-aValueFloat = x where x free
 
 ------------------------------------------------------------------------------
 
@@ -2229,12 +2243,17 @@ doSolve b | b = return ()
 --- `(e1 =:= e2)` is satisfiable if both sides `e1` and `e2` can be
 --- reduced to a unifiable data term (i.e., a term without defined
 --- function symbols).
-(=:=) :: Data a => a -> a -> Bool
 #ifdef __PAKCS__
+(=:=) :: Data a => a -> a -> Bool
 x =:= y = constrEq x y
 #elif defined(__CURRY2GO__)
+(=:=) :: Data a => a -> a -> Bool
 x =:= y = constrEq x y
+#elif  __KMCC__ > 0
+(=:=) :: Data a => a -> a -> Bool
+(=:=) external
 #else
+(=:=) :: a -> a -> Bool
 (=:=) external
 #endif
 
@@ -2259,12 +2278,17 @@ constrEq external
 --- The `Data` context is required since the resulting pattern might be
 --- non-linear so that it abbreviates some further equational constraints,
 --- see [Section 7](https://doi.org/10.1007/978-3-030-46714-2_15).
-(=:<=) :: Data a => a -> a -> Bool
 #ifdef __PAKCS__
+(=:<=) :: Data a => a -> a -> Bool
 x =:<= y = nonstrictEq x y
 #elif defined(__CURRY2GO__)
+(=:<=) :: Data a => a -> a -> Bool
 x =:<= y = nonstrictEq x y
+#elif  __KMCC__ > 0
+(=:<=) :: Data a => a -> a -> Bool
+(=:<=) external
 #else
+(=:<=) :: a -> a -> Bool
 (=:<=) external
 #endif
 
