@@ -4,11 +4,11 @@
 #
 # To install the Curry2Go system in the local directory `Curry2Go`, run:
 #
-#    > curl -sSL https://www-ps.informatik.uni-kiel.de/curry2go/download.sh | sh
+#    > curl -sSL https://www.curry-lang.org/curry2go/download.sh | sh
 #
 # or:
 #
-#    > wget -qO- https://www-ps.informatik.uni-kiel.de/curry2go/download.sh | sh
+#    > wget -qO- https://www.curry-lang.org/curry2go/download.sh | sh
 #
 # In order to install into a (non-existing!) directory C2GDIR, add an argument:
 #
@@ -17,7 +17,7 @@
 ##############################################################################
 
 # URL of the distribution:
-DOWNLOADPAGE=https://www-ps.informatik.uni-kiel.de/curry2go/download
+DOWNLOADPAGE=https://www.curry-lang.org/curry2go/download
 # Version to be downloaded:
 VERSION=
 

@@ -24,7 +24,7 @@ ENV LANG C.UTF-8
 
 # download and install curry2go
 WORKDIR /curry2go
-RUN curl -sSL -o download.sh https://www-ps.informatik.uni-kiel.de/curry2go/download.sh
+RUN curl -sSL -o download.sh https://www.curry-lang.org/curry2go/download.sh
 RUN sh download.sh
 RUN rm download.sh
 

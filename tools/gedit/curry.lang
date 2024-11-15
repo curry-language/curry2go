@@ -26,7 +26,7 @@
     <style id="binary"       _name="Bin"          map-to="def:base-n-integer"/>
   </styles>
   <definitions>
-    <!-- See: https://www-ps.informatik.uni-kiel.de/currywiki/documentation/report -->
+    <!-- See: https://www.curry-lang.org/documentation/report/ -->
     <define-regex id="symbolchar">[~!@#$%^&amp;*+-=&lt;&gt;?./|\\:]</define-regex>
     <context id="line-comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
       <start>(?&lt;!\%{symbolchar})--+(?!\%{symbolchar})</start>
