@@ -13,7 +13,7 @@ which can be downloaded from <https://golang.org/>.
 
 Since the Curry2Go compiler is implemented in Curry,
 you need another Curry compiler for the initial
-installation, e.g., [PAKCS](https://www.informatik.uni-kiel.de/~pakcs/)
+installation, e.g., [PAKCS](https://www.curry-lang.org/pakcs/)
 (if you use another Curry compiler, adapt the `Makefile`).
 Then, simply run
 
