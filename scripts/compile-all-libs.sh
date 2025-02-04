@@ -11,13 +11,15 @@ MAJORVERSION=`echo $VERSION | cut -d. -f1`
 MINORVERSION=`echo $VERSION | cut -d. -f2`
 
 FRONTEND=../bin/*-frontend
-FRONTENDPARAMS="-o .curry/curry2go-$VERSION -D__CURRY2GO__=$MAJORVERSION$(printf "%02d" $MINORVERSION) --extended"
+FRONTENDPARAMS="-o .curry/curry2go-$VERSION -D__CURRY2GO__=$MAJORVERSION$(printf "%02d" $MINORVERSION) -Ono-remove-unused-imports"
 
 compile_all_targets() {
-  $FRONTEND --flat                       $FRONTENDPARAMS $1
-  $FRONTEND --type-annotated-flat --flat $FRONTENDPARAMS $1
-  $FRONTEND --acy                        $FRONTENDPARAMS $1
-  $FRONTEND --uacy                       $FRONTENDPARAMS $1
+  "$FRONTEND" --flat                       $FRONTENDPARAMS $1
+  "$FRONTEND" --type-annotated-flat --flat $FRONTENDPARAMS $1
+  "$FRONTEND" --acy                        $FRONTENDPARAMS $1
+  "$FRONTEND" --uacy                       $FRONTENDPARAMS $1
+  "$FRONTEND" --comments                   $FRONTENDPARAMS $1
+  "$FRONTEND" --ast                        $FRONTENDPARAMS $1
 }
 
 compile_module() {

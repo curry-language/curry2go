@@ -17,7 +17,7 @@ defaultparams=
 # (this path is placed in front of the standard library path)
 libraries=
 
-# Allow Curry extensions (currently: function patterns and records)
+# Allow Curry extensions, i.e., functional patterns and anonymous free variables
 # (values: yes | no):
 curryextensions=yes
 
