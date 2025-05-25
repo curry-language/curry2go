@@ -60,7 +60,7 @@ and install Curry2Go (where the definition of the parameter
 `CURRY` must be set according to the installation of
 the Curry system):
 
-    > git clone https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
+    > git clone https://github.com/curry-language/curry2go.git
     > cd curry2go
     > make CURRY=/usr/local/pakcs/bin/pakcs bootstrap
 

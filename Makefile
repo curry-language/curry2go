@@ -276,7 +276,7 @@ C2GVERSION = $(shell $(JQ) -r '.version' package.json)
 TARFILE=curry2go.tgz
 
 # URL of the Curry2Go repository:
-GITURL=https://git.ps.informatik.uni-kiel.de/curry/curry2go.git
+GITURL=https://github.com/curry-language/curry2go.git
 
 # CPM with distribution compiler
 CPMDISTC2G = $(CPM) -d CURRYBIN=$(C2GDISTDIR)/bin/curry2go
