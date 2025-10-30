@@ -1,9 +1,8 @@
 ------------------------------------------------------------------------------
---- Library with some useful functions on characters.
----
---- @author Michael Hanus, Bjoern Peemoeller
---- @version January 2015
---- @category general
+-- | Author : Michael Hanus, Bjoern Peemoeller
+--   Version: January 2015
+--
+-- Library with some useful functions on characters.
 ------------------------------------------------------------------------------
 
 module Data.Char
@@ -14,37 +13,37 @@ module Data.Char
   , ord, chr
   ) where
 
---- Returns true if the argument is an ASCII character.
+-- | Returns true if the argument is an ASCII character.
 isAscii        :: Char -> Bool
 isAscii c      =  c < '\x80'
 
---- Returns true if the argument is an Latin-1 character.
+-- | Returns true if the argument is an Latin-1 character.
 isLatin1       :: Char -> Bool
 isLatin1 c     =  c < '\xff'
 
---- Returns true if the argument is an ASCII lowercase letter.
+-- | Returns true if the argument is an ASCII lowercase letter.
 isAsciiLower    :: Char -> Bool
 isAsciiLower c  =  c >= 'a' && c <= 'z'
 
---- Returns true if the argument is an ASCII uppercase letter.
+-- | Returns true if the argument is an ASCII uppercase letter.
 isAsciiUpper    :: Char -> Bool
 isAsciiUpper c  =  c >= 'A' && c <= 'Z'
 
---- Returns true if the argument is a control character.
+-- | Returns true if the argument is a control character.
 isControl       :: Char -> Bool
 isControl c     =  c < '\x20' || c >= '\x7f' && c <= '\x9f'
 
---- Converts lowercase into uppercase letters.
+-- | Converts lowercase into uppercase letters.
 toUpper         :: Char -> Char
 toUpper c       |  isLower c = chr (ord c - ord 'a' + ord 'A')
                 |  otherwise = c
 
---- Converts uppercase into lowercase letters.
+-- | Converts uppercase into lowercase letters.
 toLower         :: Char -> Char
 toLower c       |  isUpper c = chr (ord c - ord 'A' + ord 'a')
                 |  otherwise = c
 
---- Converts a (hexadecimal) digit character into an integer.
+-- | Converts a (hexadecimal) digit character into an integer.
 digitToInt      :: Char -> Int
 digitToInt c
   | isDigit c
@@ -56,7 +55,7 @@ digitToInt c
   | otherwise
   =  error "Char.digitToInt: argument is not a digit"
 
---- Converts an integer into a (hexadecimal) digit character.
+-- | Converts an integer into a (hexadecimal) digit character.
 intToDigit      :: Int -> Char
 intToDigit i
   | i >= 0  && i <=  9  =  chr (ord '0' + i)

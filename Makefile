@@ -213,7 +213,7 @@ copyfrontend:
 	cp -p $(shell $(CPMCURRY) -v quiet curry :set v0 :l Curry.Compiler.Distribution :eval installDir :q)/bin/*-frontend $(CURRY2GOFRONTEND)
 
 # Build and install the Curry front end from the repository:
-FRONTENDREPO=https://git.ps.informatik.uni-kiel.de/curry/curry-frontend.git
+FRONTENDREPO=https://github.com/cau-placc/curry-frontend.git
 .PHONY: buildfrontend
 buildfrontend:
 	$(RM) -rf frontend bin/curry2go-frontend

@@ -1,8 +1,15 @@
 Release Notes for Curry2Go
 ==========================
 
-Release notes for PAKCS Version 1.5.0 (November 15, 2024)
----------------------------------------------------------
+Release notes for version 1.6.0 (October 30, 2025)
+--------------------------------------------------
+
+  * Add library `Data.Monoid` to system libraries.
+  * Add operation `withFile` to library `System.IO`.
+
+
+Release notes for version 1.5.0 (November 15, 2024)
+---------------------------------------------------
 
   * Front-end updated to support multi-parameter type classes.
     For this purpose, the front-end supports the language extensions

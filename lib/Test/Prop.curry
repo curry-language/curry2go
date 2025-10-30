@@ -2,13 +2,13 @@
 --- This module defines the interface of properties that can be checked
 --- with the CurryCheck tool, an automatic property-based test tool
 --- based on the EasyCheck library.
---- The ideas behind EasyCheck are described in
---- [this paper](http://www-ps.informatik.uni-kiel.de/~sebf/pub/flops08.html).
+--- The ideas behind EasyCheck are described in the
+--- [FLOPS 2008 paper](https://doi.org/10.1007/978-3-540-78969-7_23).
 --- CurryCheck automatically tests properties defined with this library.
 --- CurryCheck supports the definition of unit tests
 --- (also for I/O operations) and property tests parameterized
---- over some arguments. CurryCheck is described in more detail in
---- [this paper](http://www.informatik.uni-kiel.de/~mh/papers/LOPSTR16.html).
+--- over some arguments. CurryCheck is described in more detail in the
+--- [LOPSTR 2016 paper](http://dx.doi.org/10.1007/978-3-319-63139-4_13).
 ---
 --- Basically, this module is a stub clone of the EasyCheck library
 --- which contains only the interface of the operations used to specify

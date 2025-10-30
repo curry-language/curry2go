@@ -1,11 +1,11 @@
 ------------------------------------------------------------------------------
 --- This library defines a representation of a search space as
 --- a tree and various search strategies on this tree.
---- This module implements **strong encapsulation** as discussed in
---- [the JFLP'04 paper](http://www.informatik.uni-kiel.de/~mh/papers/JFLP04_findall.html).
+--- This module implements **strong encapsulation** as discussed in the
+--- [JFLP'04 paper](http://danae.uni-muenster.de/lehre/kuchen/JFLP/articles/2004/S04-01/A2004-06/JFLP-A2004-06.pdf)
 ---
 --- @author  Michael Hanus, Bjoern Peemoeller, Fabian Reck
---- @version December 2018
+--- @version November 2024
 ------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 
@@ -16,9 +16,9 @@ module Control.Search.SearchTree
   , dfsStrategy, bfsStrategy, idsStrategy, idsStrategyWith, diagStrategy
   , allValuesWith
   , allValuesDFS, allValuesBFS, allValuesIDS, allValuesIDSwith, allValuesDiag
-  , ValueSequence, vsToList
   , getAllValuesWith, printAllValuesWith, printValuesWith
   , someValue, someValueWith
+  , ValueSequence, emptyVS, addVS, failVS, (|++|), vsToList
   ) where
 
 import System.IO       ( hFlush, stdout )
@@ -55,8 +55,8 @@ getSearchTree x = return (someSearchTree x)
 someSearchTree :: a -> SearchTree a
 #ifdef __PAKCS__
 someSearchTree = list2st . allValues
- where list2st []  = Fail 0
-       list2st [x] = Value x
+ where list2st []       = Fail 0
+       list2st [x]      = Value x
        list2st (x:y:ys) = Or (Value x) (list2st (y:ys))
 #else
 someSearchTree external

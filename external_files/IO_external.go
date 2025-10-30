@@ -166,6 +166,8 @@ func ExternalSystemDot_IODot_primUs_openFile(task *gocurry.Task){
     gocurry.IOCreate(root, handle)
 }
 
+// Implementation of System.IO.hClose
+// Note that possible close errors are ignored to allow double closing a handle
 func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
     root := task.GetControl()
     handle := root.GetChild(0)
@@ -176,7 +178,7 @@ func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
         err := (*Handles[hIndex].Writer).Close()
         
         if(err != nil){
-            panic("System.IO.hClose: " + err.Error())
+          // panic("System.IO.hClose (writer): " + err.Error())
         }
         
         // return if reader and writer are the same
@@ -191,7 +193,7 @@ func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
         err := (*Handles[hIndex].Reader).Close()
         
         if(err != nil){
-            panic("System.IO.hClose: " + err.Error())
+          // panic("System.IO.hClose (reader): " + err.Error())
         }
     }
     
@@ -200,7 +202,7 @@ func ExternalSystemDot_IODot_primUs_hClose(task *gocurry.Task){
         err := Handles[hIndex].File.Close()
         
         if(err != nil){
-            panic("System.IO.hClose: " + err.Error())
+          // panic("System.IO.hClose (file): " + err.Error())
         }
     }
 

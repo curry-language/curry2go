@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<!DOCTYPE primitives SYSTEM "http://www.informatik.uni-kiel.de/~pakcs/primitives.dtd">
+<!DOCTYPE primitives SYSTEM "http://www.curry-lang.org/pakcs/primitives.dtd">
 <primitives>
  <primitive name="unsafePerformIO" arity="1">
   <entry>prim_unsafePerformIO[raw]</entry>

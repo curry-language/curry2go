@@ -90,8 +90,6 @@ module Control.Search.SetFunctions
 import Data.List ( delete, minimum, minimumBy, maximum, maximumBy, sortBy )
 #ifdef __KICS2__
 import Control.Search.SearchTree
-#elif defined(__KMCC__)
--- Nothing to import
 #else
 import Control.Search.Unsafe ( allValues, oneValue )
 #endif
@@ -106,8 +104,6 @@ set0 f = set0With dfsStrategy f
 --- that uses a given strategy to compute its values.
 set0With :: Strategy b -> b -> Values b
 set0With s f = Values (vsToList (s (someSearchTree f)))
-#elif defined(__KMCC__)
-set0 external
 #else
 set0 f = Values (oneValue f) (allValues f)
 #endif
@@ -121,8 +117,6 @@ set1 f x = set1With dfsStrategy f x
 --- that uses a given strategy to compute its values.
 set1With :: Strategy b -> (a1 -> b) -> a1 -> Values b
 set1With s f x = allVs s (\_ -> f x)
-#elif defined(__KMCC__)
-set1 external
 #else
 set1 f x | isVal x = Values (oneValue (f x)) (allValues (f x))
 #endif
@@ -136,8 +130,6 @@ set2 f x1 x2 = set2With dfsStrategy f x1 x2
 --- that uses a given strategy to compute its values.
 set2With :: Strategy b -> (a1 -> a2 -> b) -> a1 -> a2 -> Values b
 set2With s f x1 x2 = allVs s (\_ -> f x1 x2)
-#elif defined(__KMCC__)
-set2 external
 #else
 set2 f x1 x2
   | isVal x1 & isVal x2
@@ -155,8 +147,6 @@ set3 f x1 x2 x3 = set3With dfsStrategy f x1 x2 x3
 --- that uses a given strategy to compute its values.
 set3With :: Strategy b -> (a1 -> a2 -> a3 -> b) -> a1 -> a2 -> a3 -> Values b
 set3With s f x1 x2 x3 = allVs s (\_ -> f  x1 x2 x3)
-#elif defined(__KMCC__)
-set3 external
 #else
 set3 f x1 x2 x3
   | isVal x1 & isVal x2 & isVal x3
@@ -175,8 +165,6 @@ set4 f x1 x2 x3 x4 = set4With dfsStrategy f x1 x2 x3 x4
 set4With :: Strategy b -> (a1 -> a2 -> a3 -> a4 -> b) -> a1 -> a2 -> a3 -> a4
          -> Values b
 set4With s f x1 x2 x3 x4 = allVs s (\_ -> f x1 x2 x3 x4)
-#elif defined(__KMCC__)
-set4 external
 #else
 set4 f x1 x2 x3 x4
   | isVal x1 & isVal x2 & isVal x3 & isVal x4
@@ -196,8 +184,6 @@ set5 f x1 x2 x3 x4 x5 = set5With dfsStrategy f x1 x2 x3 x4 x5
 set5With :: Strategy b -> (a1 -> a2 -> a3 -> a4 -> a5 -> b)
          -> a1 -> a2 -> a3 -> a4 -> a5 -> Values b
 set5With s f x1 x2 x3 x4 x5 = allVs s (\_ -> f x1 x2 x3 x4 x5)
-#elif defined(__KMCC__)
-set5 external
 #else
 set5 f x1 x2 x3 x4 x5
   | isVal x1 & isVal x2 & isVal x3 & isVal x4 & isVal x5
@@ -218,8 +204,6 @@ set6With :: Strategy b -> (a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> b)
          -> a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> Values b
 set6With s f x1 x2 x3 x4 x5 x6 =
  allVs s (\_ -> f x1 x2 x3 x4 x5 x6)
-#elif defined(__KMCC__)
-set6 external
 #else
 set6 f x1 x2 x3 x4 x5 x6
   | isVal x1 & isVal x2 & isVal x3 & isVal x4 & isVal x5 & isVal x6
@@ -241,8 +225,6 @@ set7With :: Strategy b -> (a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> a7 -> b)
          -> a1 -> a2 -> a3 -> a4 -> a5 -> a6 -> a7 -> Values b
 set7With s f x1 x2 x3 x4 x5 x6 x7 =
  allVs s (\_ -> f x1 x2 x3 x4 x5 x6 x7)
-#elif defined(__KMCC__)
-set7 external
 #else
 set7 f x1 x2 x3 x4 x5 x6 x7
   | isVal x1 & isVal x2 & isVal x3 & isVal x4 & isVal x5 & isVal x6 & isVal x7
@@ -277,9 +259,7 @@ isVal x = (id $## x) `seq` True
 --- Abstract type representing multisets of values.
 
 #ifdef __KICS2__
--- In KiCS2 and KMCC, values are represented as (possibly infinite) lists.
-data Values a = Values [a]
-#elif defined(__KMCC__)
+-- In KiCS2, values are represented as (possibly infinite) lists.
 data Values a = Values [a]
 #else
 -- In PAKCS, values are represented as lists but the first argument
@@ -293,8 +273,6 @@ data Values a = Values (Maybe a) [a]
 --- Internal operation to extract all elements of a multiset of values.
 valuesOf :: Values a -> [a]
 #ifdef __KICS2__
-valuesOf (Values s) = s
-#elif defined(__KMCC__)
 valuesOf (Values s) = s
 #else
 valuesOf (Values _ s) = s
@@ -344,8 +322,6 @@ chooseValue s = fst (choose s)
 choose :: Eq a => Values a -> (a, Values a)
 #ifdef __KICS2__
 choose (Values vs) = (x, Values xs)
-#elif defined(__KMCC__)
-choose (Values vs) = (x, Values xs)
 #else
 choose (Values _ vs) =
   (x, Values (if null xs then Nothing else Just (head xs)) xs)
@@ -381,8 +357,6 @@ selectValue s = fst (select s)
 select :: Values a -> (a, Values a)
 #ifdef __KICS2__
 select (Values (x:xs)) = (x, Values xs)
-#elif defined(__KMCC__)
-select (Values (x:xs)) = (x, Values xs)
 #else
 select (Values _ (x:xs)) =
   (x, Values (if null xs then Nothing else Just (head xs)) xs)
@@ -392,9 +366,6 @@ select (Values _ (x:xs)) =
 --- If the value set is empty, `Nothing` is returned.
 getSomeValue :: Values a -> IO (Maybe a)
 #ifdef __KICS2__
-getSomeValue (Values [])    = return Nothing
-getSomeValue (Values (x:_)) = return (Just x)
-#elif defined(__KMCC__)
 getSomeValue (Values [])    = return Nothing
 getSomeValue (Values (x:_)) = return (Just x)
 #else
@@ -409,9 +380,6 @@ getSome :: Values a -> IO (Maybe (a, Values a))
 #ifdef __KICS2__
 getSome (Values [])     = return Nothing
 getSome (Values (x:xs)) = return (Just (x, Values xs))
-#elif defined(__KMCC__)
-getSome (Values [])     = return Nothing
-getSome (Values (x:xs)) = return (Just (x, Values xs))
 #else
 getSome (Values _ [])     = return Nothing
 getSome (Values _ (x:xs)) =
@@ -421,8 +389,6 @@ getSome (Values _ (x:xs)) =
 --- Maps a function to all elements of a multiset of values.
 mapValues :: (a -> b) -> Values a -> Values b
 #ifdef __KICS2__
-mapValues f (Values s) = Values (map f s)
-#elif defined(__KMCC__)
 mapValues f (Values s) = Values (map f s)
 #else
 mapValues f (Values mbval s) = Values (maybe Nothing (Just . f) mbval) (map f s)
@@ -438,8 +404,6 @@ foldValues f z s = foldr f z (valuesOf s)
 --- Keeps all elements of a multiset of values that satisfy a predicate.
 filterValues :: (a -> Bool) -> Values a -> Values a
 #ifdef __KICS2__
-filterValues p (Values s) = Values (filter p s)
-#elif defined(__KMCC__)
 filterValues p (Values s) = Values (filter p s)
 #else
 filterValues p (Values _ s) = Values val xs

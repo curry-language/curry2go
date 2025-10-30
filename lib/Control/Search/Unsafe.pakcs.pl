@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Implementation of allValues/someValue/oneValue of Control.Findall:
+% Implementation of allValues/oneValue/rewriteAll of Control.Search.Unsafe:
 %
 % Warning: in contrast to Curry's definition, this implementation
 % suspends until the expression does not contain unbound global variables.
@@ -54,27 +54,7 @@ oneNF(Exp,R,E0,E1) :- evalGNF(Exp,R,E0,E1), !.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Implementation of Control.Findall.isFail:
-%
-% If a non-local variable is bound during the computation (for this purpose,
-% they are extracted before and checked afterwards for unboundedness),
-% a warning is issued for the moment.
-% A better solution for the future is to replace these variables
-% by generater operations.
-
-:- block prim_isFail(?,?,-,?).
-prim_isFail(Exp,Val,E0,E) :-
-	hasPrintedFailure
-	 -> noHNF(Exp,Val,E0,E)
-	  ; asserta(hasPrintedFailure),
-	    noHNF(Exp,Val,E0,E1),
-	    retract(hasPrintedFailure), E1=E.
-
-noHNF(Exp,Val,E0,E) :- \+ user:hnf(Exp,_,E0,_), !, Val='Prelude.True', E=E0.
-noHNF(_,'Prelude.False',E,E).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Implementation of Control.Findall.rewriteAll:
+% Implementation of Control.Search.Unsafe.rewriteAll:
 %
 % To consider the evaluation or binding of non-local variables as
 % a failure, they are extracted before and checked afterwards for

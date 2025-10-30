@@ -37,7 +37,6 @@
 --- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
 --- DAMAGE.
 ---
---- @category general
 --- ---------------------------------------------------------------------------
 
 
@@ -80,25 +79,23 @@ module System.Console.GetOpt
 import Prelude -- necessary to get dependencies right
 import Data.List (isPrefixOf, find)
 
--- |What to do with options following non-options
+--- A type to describe what to do with options following non-options.
 data ArgOrder a
   = RequireOrder                -- ^ no option processing after first non-option
   | Permute                     -- ^ freely intersperse options and non-options
   | ReturnInOrder (String -> a) -- ^ wrap non-options into options
 
-{-|
-Each 'OptDescr' describes a single option.
-
-The arguments to 'Option' are:
-
-* list of short option characters
-
-* list of long option strings (without \"--\")
-
-* argument descriptor
-
-* explanation of option for user
--}
+--- Each `OptDescr` describes a single option.
+--- 
+--- The arguments to `Option` are:
+--- 
+--- * list of short option characters
+--- 
+--- * list of long option strings (without `--`)
+--- 
+--- * argument descriptor
+--- 
+--- * explanation of option for user
 data OptDescr a =              -- description of a single options:
    Option [Char]                --    list of short option characters
           [String]              --    list of long option strings (without "--")
@@ -157,20 +154,18 @@ fmtLong (NoArg  _   ) lo = "--" ++ lo
 fmtLong (ReqArg _ ad) lo = "--" ++ lo ++ "=" ++ ad
 fmtLong (OptArg _ ad) lo = "--" ++ lo ++ "[=" ++ ad ++ "]"
 
-{-|
-Process the command-line, and return the list of values that matched
-(and those that didn\'t). The arguments are:
-
-* The order requirements (see 'ArgOrder')
-
-* The option descriptions (see 'OptDescr')
-
-* The actual command line arguments (presumably got from
-  'System.Environment.getArgs').
-
-'getOpt' returns a triple consisting of the option arguments, a list
-of non-options, and a list of error messages.
--}
+--- Process the command-line and return the list of values that matched
+--- (and those that did not match). The arguments are:
+--- 
+--- * The order requirements (see 'ArgOrder')
+--- 
+--- * The option descriptions (see 'OptDescr')
+--- 
+--- * The actual command line arguments (presumably got from
+---   `System.Environment.getArgs`).
+--- 
+--- `getOpt` returns a triple consisting of the option arguments, a list
+--- of non-options, and a list of error messages.
 getOpt :: ArgOrder a                   -- non-option handling
        -> [OptDescr a]                 -- option descriptors
        -> [String]                     -- the command-line arguments
@@ -178,11 +173,9 @@ getOpt :: ArgOrder a                   -- non-option handling
 getOpt ordering optDescr args = (os,xs,es ++ map errUnrec us)
    where (os,xs,us,es) = getOpt' ordering optDescr args
 
-{-|
-This is almost the same as 'getOpt', but returns a quadruple
-consisting of the option arguments, a list of non-options, a list of
-unrecognized options, and a list of error messages.
--}
+--- This is almost the same as 'getOpt' but returns a quadruple
+--- consisting of the option arguments, a list of non-options, a list of
+--- unrecognized options, and a list of error messages.
 getOpt' :: ArgOrder a                         -- non-option handling
         -> [OptDescr a]                       -- option descriptors
         -> [String]                           -- the command-line arguments

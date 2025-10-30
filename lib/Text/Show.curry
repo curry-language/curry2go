@@ -4,12 +4,14 @@
 ---
 --- @author  Bjoern Peemoeller
 --- @version April 2016
---- @category general
 --------------------------------------------------------------------------------
 module Text.Show ( ShowS
                  , showString, showChar, showParen, shows
                  ) where
 
+--- The type synonym `ShowS` represents strings as difference lists.
+--- Composing functions of this type allows concatenation of lists
+--- in constant time.
 type ShowS = String -> String
 
 --- Prepend a string

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<!DOCTYPE primitives SYSTEM "http://www.informatik.uni-kiel.de/~pakcs/primitives.dtd">
+<!DOCTYPE primitives SYSTEM "http://www.curry-lang.org/pakcs/primitives.dtd">
 <primitives>
  <primitive name="prim_hWaitForInput" arity="2">
   <entry>prim_hWaitForInput[raw]</entry>

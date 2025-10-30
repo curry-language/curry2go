@@ -15,15 +15,13 @@
 --- which should be used.
 ---
 --- @author Michael Hanus
---- @version October 2023
+--- @version February 2025
 ------------------------------------------------------------------------------
 {-# LANGUAGE CPP #-}
 
 module Control.Search.Unsafe
   ( allValues, someValue, oneValue, isFail
-#ifdef __PAKCS__
   , rewriteAll, rewriteSome
-#endif
   ) where
 
 #ifdef __KICS2__
@@ -92,7 +90,6 @@ isFail :: a -> Bool
 isFail x = case oneValue x of Nothing -> True
                               Just _  -> False
 
-#ifdef __PAKCS__
 ------------------------------------------------------------------------------
 --- Gets all values computable by term rewriting.
 --- In contrast to `allValues`, this operation does not wait
@@ -100,12 +97,19 @@ isFail x = case oneValue x of Nothing -> True
 --- but it returns all values computable by term rewriting
 --- and ignores all computations that requires bindings for outside variables.
 rewriteAll :: a -> [a]
+#ifdef __PAKCS__
 rewriteAll external
+#else
+rewriteAll _ = error "Control.Search.Unsafe.rewriteAll: not yet implemented"
+#endif
 
 --- Similarly to 'rewriteAll' but returns only some value computable
 --- by term rewriting. Returns `Nothing` if there is no such value.
 rewriteSome :: a -> Maybe a
+#ifdef __PAKCS__
 rewriteSome external
+#else
+rewriteSome _ = error "Control.Search.Unsafe.rewriteSome: not yet implemented"
 #endif
 
 ------------------------------------------------------------------------------

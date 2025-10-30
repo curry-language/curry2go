@@ -8,6 +8,8 @@ module Data.Functor.Compose
   ( Compose (..)
   ) where
 
+--- The compose functor is the composition of two functors
+--- which always is a functor too.
 newtype Compose f g a = Compose { getCompose :: f (g a) }
 
 instance (Functor f, Functor g) => Functor (Compose f g) where

@@ -1,23 +1,30 @@
 -----------------------------------------------------------------------------
---- Library for IO operations like reading and writing files
---- that are not already contained in the prelude.
----
---- @author Michael Hanus, Bernd Brassel
---- @version March 2021
+-- | Author : Michael Hanus, Bernd Brassel
+--   Version: October 2025
+--
+-- Library for IO operations like reading and writing files
+-- that are not already contained in the prelude.
 -----------------------------------------------------------------------------
 
 module System.IO
-  ( Handle, IOMode(..), SeekMode(..), stdin, stdout, stderr
-  , openFile, hClose, hFlush, hIsEOF, isEOF
-  , hSeek, hWaitForInput, hWaitForInputs, hReady
-  , hGetChar, hGetLine, hGetContents, getContents
-  , hPutChar, hPutStr, hPutStrLn, hPrint
-  , hIsReadable, hIsWritable, hIsTerminalDevice
+  (
+  -- * Data types for dealing with files
+  Handle, IOMode(..), SeekMode(..),
+  -- * Standard input/output handles
+  stdin, stdout, stderr,
+  -- * Opening and closing files
+  openFile, hClose, withFile, hFlush, hIsEOF, isEOF,
+  -- * Operation on handles
+  hSeek, hWaitForInput, hWaitForInputs, hReady,
+  hGetChar, hGetLine, hGetContents, getContents,
+  hPutChar, hPutStr, hPutStrLn, hPrint,
+  -- * Properties of handles
+  hIsReadable, hIsWritable, hIsTerminalDevice
   ) where
 
 import Data.Either
 
---- The abstract type of a handle for a stream.
+-- | The abstract type of a handle for a stream.
 external data Handle -- internally defined
 
 instance Eq Handle where
@@ -26,63 +33,87 @@ instance Eq Handle where
 handle_eq :: Handle -> Handle -> Bool
 handle_eq external
 
---- The modes for opening a file.
+-- | The modes for opening a file.
 data IOMode = ReadMode | WriteMode | AppendMode
 
---- The modes for positioning with `hSeek` in a file.
+-- | The modes for positioning with `hSeek` in a file.
 data SeekMode = AbsoluteSeek | RelativeSeek | SeekFromEnd
 
 
---- Standard input stream.
+-- | Standard input stream.
 stdin :: Handle
 stdin external
 
---- Standard output stream.
+-- | Standard output stream.
 stdout :: Handle
 stdout external
 
---- Standard error stream.
+-- | Standard error stream.
 stderr :: Handle
 stderr external
 
---- Opens a file in specified mode and returns a handle to it.
+-- | Opens a file in specified mode and returns a handle to it.
 openFile :: String -> IOMode -> IO Handle
 openFile filename mode = (prim_openFile $## filename) $# mode
 
 prim_openFile :: String -> IOMode -> IO Handle
 prim_openFile external
 
---- Closes a file handle and flushes the buffer in case of output file.
+-- | Closes a file handle and flushes the buffer in case of output file.
 hClose :: Handle -> IO ()
 hClose h = prim_hClose $# h
 
 prim_hClose :: Handle -> IO ()
 prim_hClose external
 
---- Flushes the buffer associated to handle in case of output file.
+-- | The computation `withFile path mode action` opens the file specified
+-- `path` in the given `mode` and runs `action` on the obtained file handle
+-- before closing the file.
+-- The file will be also closed when the `action` raises an exception.
+-- Therefore, `withFile` avoids open file handles in contrast to
+--
+--     openFile path mode >>= (\h -> action h >>= hClose h)
+--
+-- For instance, reading the complete contents of a file and closing it
+-- can be done by
+--
+--     withFile "FILENAME" ReadMode hGetContents
+--
+withFile
+  :: FilePath         -- ^ The path to the file that should be opened
+  -> IOMode           -- ^ The mode in which the file should be opened
+  -> (Handle -> IO a) -- ^ The action to run with the obtained handle
+  -> IO a
+withFile filename mode action = do
+  h <- openFile filename mode
+  catch (action h >>= \r -> hClose h >> return r)
+        (\e -> hClose h >> ioError e)
+
+
+-- | Flushes the buffer associated to handle in case of output file.
 hFlush :: Handle -> IO ()
 hFlush h = prim_hFlush $# h
 
 prim_hFlush :: Handle -> IO ()
 prim_hFlush external
 
---- Is handle at end of file?
+-- | Is handle at end of file?
 hIsEOF :: Handle -> IO Bool
 hIsEOF h = prim_hIsEOF $# h
 
 prim_hIsEOF :: Handle -> IO Bool
 prim_hIsEOF external
 
---- Is standard input at end of file?
+-- | Is standard input at end of file?
 isEOF :: IO Bool
 isEOF = hIsEOF stdin
 
 
---- Set the position of a handle to a seekable stream (e.g., a file).
---- If the second argument is `AbsoluteSeek`,
---- `SeekFromEnd`, or `RelativeSeek`,
---- the position is set relative to the beginning of the file,
---- to the end of the file, or to the current position, respectively.
+-- | Set the position of a handle to a seekable stream (e.g., a file).
+--   If the second argument is `AbsoluteSeek`,
+--   `SeekFromEnd`, or `RelativeSeek`,
+--   the position is set relative to the beginning of the file,
+--   to the end of the file, or to the current position, respectively.
 hSeek :: Handle -> SeekMode -> Int -> IO ()
 hSeek h sm pos = ((prim_hSeek $# h) $# sm) $# pos
 
@@ -90,49 +121,50 @@ prim_hSeek :: Handle -> SeekMode -> Int -> IO ()
 prim_hSeek external
 
 
---- Waits until input is available on the given handle.
---- If no input is available within t milliseconds, it returns False,
---- otherwise it returns True.
---- @param handle - a handle for an input stream
---- @param timeout - milliseconds to wait for input (< 0 : no time out)
-hWaitForInput :: Handle -> Int -> IO Bool
+-- | Waits until input is available on the given handle.
+--   If no input is available within t milliseconds, it returns `False`,
+--   otherwise it returns `True`.
+hWaitForInput :: Handle -- ^ a handle for an input stream
+              -> Int    -- ^ milliseconds to wait for input (< 0 : no time out)
+              -> IO Bool
 hWaitForInput handle timeout = (prim_hWaitForInput $# handle)  $## timeout
 
 prim_hWaitForInput :: Handle -> Int -> IO Bool
 prim_hWaitForInput external
 
---- Waits until input is available on some of the given handles.
---- If no input is available within the given milliseconds, it returns `-1`,
---- otherwise it returns the index of the corresponding handle
---- with the available data.
---- @param handles - a list of handles for input streams
---- @param timeout - milliseconds to wait for input (< 0 : no time out)
---- @return `-1` if no input is available within the time out, otherwise `i`
----         if `(handles!!i)` has data available
-hWaitForInputs :: [Handle] -> Int -> IO Int
+-- | Waits until input is available on some of the given handles.
+--   If no input is available within the given milliseconds, it returns `-1`,
+--   otherwise it returns the index of the corresponding handle
+--   with the available data.
+hWaitForInputs :: [Handle] -- ^ a list of handles for input streams
+               -> Int      -- ^ milliseconds to wait for input
+                           --   (< 0 : no time out)
+               -> IO Int   -- ^ `-1` if no input is available within the
+                           --   time out, otherwise `i` if `(handles!!i)`
+                           --   has data available
 hWaitForInputs handles timeout = (prim_hWaitForInputs $## handles) $## timeout
 
 prim_hWaitForInputs :: [Handle] -> Int -> IO Int
 prim_hWaitForInputs external
 
 
---- Checks whether an input is available on a given handle.
+-- | Checks whether an input is available on a given handle.
 hReady :: Handle -> IO Bool
 hReady h = hWaitForInput h 0
 
 
---- Reads a character from an input handle and returns it.
---- Throws an error if the end of file has been reached.
+-- | Reads a character from an input handle and returns it.
+--   Throws an error if the end of file has been reached.
 hGetChar    :: Handle -> IO Char
 hGetChar h = prim_hGetChar $# h
 
 prim_hGetChar :: Handle -> IO Char
 prim_hGetChar external
 
---- Reads a line from an input handle and returns it.
---- Throws an error if the end of file has been reached while reading
---- the *first* character. If the end of file is reached later in the line,
---- it ist treated as a line terminator and the (partial) line is returned.
+-- | Reads a line from an input handle and returns it.
+--   Throws an error if the end of file has been reached while reading
+--   the *first* character. If the end of file is reached later in the line,
+--   it ist treated as a line terminator and the (partial) line is returned.
 hGetLine  :: Handle -> IO String
 hGetLine h = do
   c <- hGetChar h
@@ -143,8 +175,8 @@ hGetLine h = do
                     else do cs <- hGetLine h
                             return (c:cs)
 
---- Reads the complete contents from an input handle and closes the input handle
---- before returning the contents.
+-- | Reads the complete contents from an input handle and closes the
+--   input handle before returning the contents.
 hGetContents  :: Handle -> IO String
 hGetContents h = do
   eof <- hIsEOF h
@@ -153,48 +185,50 @@ hGetContents h = do
                  cs <- hGetContents h
                  return (c:cs)
 
---- Reads the complete contents from the standard input stream until EOF.
+-- | Reads the complete contents from the standard input stream until EOF.
 getContents  :: IO String
 getContents = hGetContents stdin
 
---- Puts a character to an output handle.
+-- | Puts a character to an output handle.
 hPutChar    :: Handle -> Char -> IO ()
 hPutChar h c = (prim_hPutChar $# h)  $## c
 
 prim_hPutChar :: Handle -> Char -> IO ()
 prim_hPutChar external
 
---- Puts a string to an output handle.
+-- | Puts a string to an output handle.
 hPutStr :: Handle -> String -> IO ()
 hPutStr _ []     = return ()
 hPutStr h (c:cs) = hPutChar h c >> hPutStr h cs
 
---- Puts a string with a newline to an output handle.
+-- | Puts a string with a newline to an output handle.
 hPutStrLn :: Handle -> String -> IO ()
 hPutStrLn h s = hPutStr h s >> hPutChar h '\n'
 
---- Converts a term into a string and puts it to an output handle.
+-- | Converts a term into a string and puts it to an output handle.
 hPrint :: Show a => Handle -> a -> IO ()
 hPrint h = hPutStrLn h . show
 
 
---- Is the handle readable?
+-- | Is the handle readable?
 hIsReadable :: Handle -> IO Bool
 hIsReadable  h = prim_hIsReadable $# h
 
 prim_hIsReadable :: Handle -> IO Bool
 prim_hIsReadable external
 
---- Is the handle writable?
+-- | Is the handle writable?
 hIsWritable :: Handle -> IO Bool
 hIsWritable h = prim_hIsWritable $# h
 
 prim_hIsWritable :: Handle -> IO Bool
 prim_hIsWritable external
 
---- Is the handle connected to a terminal?
+-- | Is the handle connected to a terminal?
 hIsTerminalDevice :: Handle -> IO Bool
 hIsTerminalDevice h = prim_hIsTerminalDevice $# h
 
 prim_hIsTerminalDevice :: Handle -> IO Bool
 prim_hIsTerminalDevice external
+
+-----------------------------------------------------------------------------

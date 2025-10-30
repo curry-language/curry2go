@@ -162,8 +162,8 @@ gatherContents f g h (CCons_ND x xs) = BasicDefinitions.Curry $ do
   c <- deref x
   rest <- deref xs
   unCurry (case rest of
-    BasicDefinitions.Var _ i -> case c of
-      BasicDefinitions.Var _ j ->
+    BasicDefinitions.Var i -> case c of
+      BasicDefinitions.Var j ->
         P.return (["_" P.++ P.show j, "_" P.++ P.show i], FreeList)
       BasicDefinitions.Val u -> do
         e <- g u
@@ -171,7 +171,7 @@ gatherContents f g h (CCons_ND x xs) = BasicDefinitions.Curry $ do
     BasicDefinitions.Val v -> do
       (ys, b) <- gatherContents f g h v
       case c of
-        BasicDefinitions.Var _ j -> case b of
+        BasicDefinitions.Var j -> case b of
           FullList -> do
             let ys' = P.fmap h ys
             P.return (("_" P.++ P.show j) : ys', FreeElem)

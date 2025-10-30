@@ -8,4 +8,4 @@ with a Go compiler on another machine.
 Furthermore, the script `download.sh` can be used to perform
 the installation automatically by downloading the current
 version of Curry2Go, see the
-[installation instructions](https://git.ps.informatik.uni-kiel.de/curry/curry2go/-/blob/master/INSTALL.md).
+[installation instructions](https://github.com/curry-language/curry2go/blob/master/INSTALL.md).
