@@ -39,7 +39,7 @@ Log into the Docker Hub from command line, tag and push the local image:
     > docker tag curry2go currylang/curry2go:<version>
     > docker push currylang/curry2go:<version>
 
-where <version> should be something like "1.5.0"
+where <version> should be something like "1.6.0"
 or "latest" to update the latest version.
 
 
